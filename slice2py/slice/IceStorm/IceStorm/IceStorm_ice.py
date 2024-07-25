@@ -231,210 +231,210 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Get the name of this topic.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: The name of the topic.
-        """
         def getName(self, context=None):
+            """
+             Get the name of this topic.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: The name of the topic.
+            """
             return _M_IceStorm.Topic._op_getName.invoke(self, ((), context))
 
-        """
-         Get the name of this topic.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getNameAsync(self, context=None):
+            """
+             Get the name of this topic.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceStorm.Topic._op_getName.invokeAsync(self, ((), context))
 
-        """
-         Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
-         and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
-         deployment is used this call may return a replicated proxy. The returned proxy is never null.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A proxy to publish data on this topic.
-        """
         def getPublisher(self, context=None):
+            """
+             Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+             and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
+             deployment is used this call may return a replicated proxy. The returned proxy is never null.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A proxy to publish data on this topic.
+            """
             return _M_IceStorm.Topic._op_getPublisher.invoke(self, ((), context))
 
-        """
-         Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
-         and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
-         deployment is used this call may return a replicated proxy. The returned proxy is never null.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getPublisherAsync(self, context=None):
+            """
+             Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+             and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
+             deployment is used this call may return a replicated proxy. The returned proxy is never null.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceStorm.Topic._op_getPublisher.invokeAsync(self, ((), context))
 
-        """
-         Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
-         calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
-         never null.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A proxy to publish data on this topic.
-        """
         def getNonReplicatedPublisher(self, context=None):
+            """
+             Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+             calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
+             never null.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A proxy to publish data on this topic.
+            """
             return _M_IceStorm.Topic._op_getNonReplicatedPublisher.invoke(self, ((), context))
 
-        """
-         Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
-         calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
-         never null.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getNonReplicatedPublisherAsync(self, context=None):
+            """
+             Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+             calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
+             never null.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceStorm.Topic._op_getNonReplicatedPublisher.invokeAsync(self, ((), context))
 
-        """
-         Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
-        Arguments:
-        theQoS -- The quality of service parameters for this subscription.
-        subscriber -- The subscriber's proxy. This proxy is never null.
-        context -- The request context for the invocation.
-        Returns: The per-subscriber publisher object. The returned object is never null.
-        Throws:
-        AlreadySubscribed -- Raised if the subscriber object is already subscribed.
-        BadQoS -- Raised if the requested quality of service is unavailable or invalid.
-        InvalidSubscriber -- Raised if the subscriber object is null.
-        """
         def subscribeAndGetPublisher(self, theQoS, subscriber, context=None):
+            """
+             Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
+            Arguments:
+            theQoS -- The quality of service parameters for this subscription.
+            subscriber -- The subscriber's proxy. This proxy is never null.
+            context -- The request context for the invocation.
+            Returns: The per-subscriber publisher object. The returned object is never null.
+            Throws:
+            AlreadySubscribed -- Raised if the subscriber object is already subscribed.
+            BadQoS -- Raised if the requested quality of service is unavailable or invalid.
+            InvalidSubscriber -- Raised if the subscriber object is null.
+            """
             return _M_IceStorm.Topic._op_subscribeAndGetPublisher.invoke(self, ((theQoS, subscriber), context))
 
-        """
-         Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
-        Arguments:
-        theQoS -- The quality of service parameters for this subscription.
-        subscriber -- The subscriber's proxy. This proxy is never null.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def subscribeAndGetPublisherAsync(self, theQoS, subscriber, context=None):
+            """
+             Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
+            Arguments:
+            theQoS -- The quality of service parameters for this subscription.
+            subscriber -- The subscriber's proxy. This proxy is never null.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceStorm.Topic._op_subscribeAndGetPublisher.invokeAsync(self, ((theQoS, subscriber), context))
 
-        """
-         Unsubscribe the given subscriber.
-        Arguments:
-        subscriber -- The proxy of an existing subscriber. This proxy is never null.
-        context -- The request context for the invocation.
-        """
         def unsubscribe(self, subscriber, context=None):
+            """
+             Unsubscribe the given subscriber.
+            Arguments:
+            subscriber -- The proxy of an existing subscriber. This proxy is never null.
+            context -- The request context for the invocation.
+            """
             return _M_IceStorm.Topic._op_unsubscribe.invoke(self, ((subscriber, ), context))
 
-        """
-         Unsubscribe the given subscriber.
-        Arguments:
-        subscriber -- The proxy of an existing subscriber. This proxy is never null.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def unsubscribeAsync(self, subscriber, context=None):
+            """
+             Unsubscribe the given subscriber.
+            Arguments:
+            subscriber -- The proxy of an existing subscriber. This proxy is never null.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceStorm.Topic._op_unsubscribe.invokeAsync(self, ((subscriber, ), context))
 
-        """
-         Create a link to the given topic. All events originating on this topic will also be sent to
-         linkTo.
-        Arguments:
-        linkTo -- The topic to link to. This proxy is never null.
-        cost -- The cost to the linked topic.
-        context -- The request context for the invocation.
-        Throws:
-        LinkExists -- Raised if a link to the same topic already exists.
-        """
         def link(self, linkTo, cost, context=None):
+            """
+             Create a link to the given topic. All events originating on this topic will also be sent to
+             linkTo.
+            Arguments:
+            linkTo -- The topic to link to. This proxy is never null.
+            cost -- The cost to the linked topic.
+            context -- The request context for the invocation.
+            Throws:
+            LinkExists -- Raised if a link to the same topic already exists.
+            """
             return _M_IceStorm.Topic._op_link.invoke(self, ((linkTo, cost), context))
 
-        """
-         Create a link to the given topic. All events originating on this topic will also be sent to
-         linkTo.
-        Arguments:
-        linkTo -- The topic to link to. This proxy is never null.
-        cost -- The cost to the linked topic.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def linkAsync(self, linkTo, cost, context=None):
+            """
+             Create a link to the given topic. All events originating on this topic will also be sent to
+             linkTo.
+            Arguments:
+            linkTo -- The topic to link to. This proxy is never null.
+            cost -- The cost to the linked topic.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceStorm.Topic._op_link.invokeAsync(self, ((linkTo, cost), context))
 
-        """
-         Destroy the link from this topic to the given topic linkTo.
-        Arguments:
-        linkTo -- The topic to destroy the link to. This proxy is never null.
-        context -- The request context for the invocation.
-        Throws:
-        NoSuchLink -- Raised if a link to the topic does not exist.
-        """
         def unlink(self, linkTo, context=None):
+            """
+             Destroy the link from this topic to the given topic linkTo.
+            Arguments:
+            linkTo -- The topic to destroy the link to. This proxy is never null.
+            context -- The request context for the invocation.
+            Throws:
+            NoSuchLink -- Raised if a link to the topic does not exist.
+            """
             return _M_IceStorm.Topic._op_unlink.invoke(self, ((linkTo, ), context))
 
-        """
-         Destroy the link from this topic to the given topic linkTo.
-        Arguments:
-        linkTo -- The topic to destroy the link to. This proxy is never null.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def unlinkAsync(self, linkTo, context=None):
+            """
+             Destroy the link from this topic to the given topic linkTo.
+            Arguments:
+            linkTo -- The topic to destroy the link to. This proxy is never null.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceStorm.Topic._op_unlink.invokeAsync(self, ((linkTo, ), context))
 
-        """
-         Retrieve information on the current links.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A sequence of LinkInfo objects.
-        """
         def getLinkInfoSeq(self, context=None):
+            """
+             Retrieve information on the current links.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A sequence of LinkInfo objects.
+            """
             return _M_IceStorm.Topic._op_getLinkInfoSeq.invoke(self, ((), context))
 
-        """
-         Retrieve information on the current links.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getLinkInfoSeqAsync(self, context=None):
+            """
+             Retrieve information on the current links.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceStorm.Topic._op_getLinkInfoSeq.invokeAsync(self, ((), context))
 
-        """
-         Retrieve the list of subscribers for this topic.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: The sequence of Ice identities for the subscriber objects.
-        """
         def getSubscribers(self, context=None):
+            """
+             Retrieve the list of subscribers for this topic.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: The sequence of Ice identities for the subscriber objects.
+            """
             return _M_IceStorm.Topic._op_getSubscribers.invoke(self, ((), context))
 
-        """
-         Retrieve the list of subscribers for this topic.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getSubscribersAsync(self, context=None):
+            """
+             Retrieve the list of subscribers for this topic.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceStorm.Topic._op_getSubscribers.invokeAsync(self, ((), context))
 
-        """
-         Destroy the topic.
-        Arguments:
-        context -- The request context for the invocation.
-        """
         def destroy(self, context=None):
+            """
+             Destroy the topic.
+            Arguments:
+            context -- The request context for the invocation.
+            """
             return _M_IceStorm.Topic._op_destroy.invoke(self, ((), context))
 
-        """
-         Destroy the topic.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def destroyAsync(self, context=None):
+            """
+             Destroy the topic.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceStorm.Topic._op_destroy.invokeAsync(self, ((), context))
 
         @staticmethod
@@ -670,66 +670,66 @@ if 'TopicManagerPrx' not in _M_IceStorm.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Create a new topic. The topic name must be unique.
-        Arguments:
-        name -- The name of the topic.
-        context -- The request context for the invocation.
-        Returns: A proxy to the topic instance. The returned proxy is never null.
-        Throws:
-        TopicExists -- Raised if a topic with the same name already exists.
-        """
         def create(self, name, context=None):
+            """
+             Create a new topic. The topic name must be unique.
+            Arguments:
+            name -- The name of the topic.
+            context -- The request context for the invocation.
+            Returns: A proxy to the topic instance. The returned proxy is never null.
+            Throws:
+            TopicExists -- Raised if a topic with the same name already exists.
+            """
             return _M_IceStorm.TopicManager._op_create.invoke(self, ((name, ), context))
 
-        """
-         Create a new topic. The topic name must be unique.
-        Arguments:
-        name -- The name of the topic.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def createAsync(self, name, context=None):
+            """
+             Create a new topic. The topic name must be unique.
+            Arguments:
+            name -- The name of the topic.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceStorm.TopicManager._op_create.invokeAsync(self, ((name, ), context))
 
-        """
-         Retrieve a topic by name.
-        Arguments:
-        name -- The name of the topic.
-        context -- The request context for the invocation.
-        Returns: A proxy to the topic instance. The returned proxy is never null.
-        Throws:
-        NoSuchTopic -- Raised if the topic does not exist.
-        """
         def retrieve(self, name, context=None):
+            """
+             Retrieve a topic by name.
+            Arguments:
+            name -- The name of the topic.
+            context -- The request context for the invocation.
+            Returns: A proxy to the topic instance. The returned proxy is never null.
+            Throws:
+            NoSuchTopic -- Raised if the topic does not exist.
+            """
             return _M_IceStorm.TopicManager._op_retrieve.invoke(self, ((name, ), context))
 
-        """
-         Retrieve a topic by name.
-        Arguments:
-        name -- The name of the topic.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def retrieveAsync(self, name, context=None):
+            """
+             Retrieve a topic by name.
+            Arguments:
+            name -- The name of the topic.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceStorm.TopicManager._op_retrieve.invokeAsync(self, ((name, ), context))
 
-        """
-         Retrieve all topics managed by this topic manager.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A dictionary of string, topic proxy pairs.
-        """
         def retrieveAll(self, context=None):
+            """
+             Retrieve all topics managed by this topic manager.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A dictionary of string, topic proxy pairs.
+            """
             return _M_IceStorm.TopicManager._op_retrieveAll.invoke(self, ((), context))
 
-        """
-         Retrieve all topics managed by this topic manager.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def retrieveAllAsync(self, context=None):
+            """
+             Retrieve all topics managed by this topic manager.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceStorm.TopicManager._op_retrieveAll.invokeAsync(self, ((), context))
 
         @staticmethod
@@ -831,22 +831,22 @@ if 'FinderPrx' not in _M_IceStorm.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Get the topic manager proxy. The proxy might point to several replicas.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: The topic manager proxy. The returned proxy is never null.
-        """
         def getTopicManager(self, context=None):
+            """
+             Get the topic manager proxy. The proxy might point to several replicas.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: The topic manager proxy. The returned proxy is never null.
+            """
             return _M_IceStorm.Finder._op_getTopicManager.invoke(self, ((), context))
 
-        """
-         Get the topic manager proxy. The proxy might point to several replicas.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getTopicManagerAsync(self, context=None):
+            """
+             Get the topic manager proxy. The proxy might point to several replicas.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceStorm.Finder._op_getTopicManager.invokeAsync(self, ((), context))
 
         @staticmethod

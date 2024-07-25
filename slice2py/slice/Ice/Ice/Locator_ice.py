@@ -165,68 +165,68 @@ if 'LocatorPrx' not in _M_Ice.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
-         access the object.
-        Arguments:
-        id -- The identity.
-        context -- The request context for the invocation.
-        Returns: The proxy, or null if the object is not active.
-        Throws:
-        ObjectNotFoundException -- Raised if the object cannot be found.
-        """
         def findObjectById(self, id, context=None):
+            """
+             Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+             access the object.
+            Arguments:
+            id -- The identity.
+            context -- The request context for the invocation.
+            Returns: The proxy, or null if the object is not active.
+            Throws:
+            ObjectNotFoundException -- Raised if the object cannot be found.
+            """
             return _M_Ice.Locator._op_findObjectById.invoke(self, ((id, ), context))
 
-        """
-         Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
-         access the object.
-        Arguments:
-        id -- The identity.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def findObjectByIdAsync(self, id, context=None):
+            """
+             Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+             access the object.
+            Arguments:
+            id -- The identity.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Ice.Locator._op_findObjectById.invokeAsync(self, ((id, ), context))
 
-        """
-         Find an adapter by id and return a proxy that contains its endpoints.
-        Arguments:
-        id -- The adapter id.
-        context -- The request context for the invocation.
-        Returns: The adapter proxy, or null if the adapter is not active.
-        Throws:
-        AdapterNotFoundException -- Raised if the adapter cannot be found.
-        """
         def findAdapterById(self, id, context=None):
+            """
+             Find an adapter by id and return a proxy that contains its endpoints.
+            Arguments:
+            id -- The adapter id.
+            context -- The request context for the invocation.
+            Returns: The adapter proxy, or null if the adapter is not active.
+            Throws:
+            AdapterNotFoundException -- Raised if the adapter cannot be found.
+            """
             return _M_Ice.Locator._op_findAdapterById.invoke(self, ((id, ), context))
 
-        """
-         Find an adapter by id and return a proxy that contains its endpoints.
-        Arguments:
-        id -- The adapter id.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def findAdapterByIdAsync(self, id, context=None):
+            """
+             Find an adapter by id and return a proxy that contains its endpoints.
+            Arguments:
+            id -- The adapter id.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Ice.Locator._op_findAdapterById.invokeAsync(self, ((id, ), context))
 
-        """
-         Get the locator registry.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: The locator registry.
-        """
         def getRegistry(self, context=None):
+            """
+             Get the locator registry.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: The locator registry.
+            """
             return _M_Ice.Locator._op_getRegistry.invoke(self, ((), context))
 
-        """
-         Get the locator registry.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getRegistryAsync(self, context=None):
+            """
+             Get the locator registry.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Ice.Locator._op_getRegistry.invokeAsync(self, ((), context))
 
         @staticmethod
@@ -329,78 +329,78 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Set the adapter endpoints with the locator registry.
-        Arguments:
-        id -- The adapter id.
-        proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. The proxy can be null, typically during adapter deactivation.
-        context -- The request context for the invocation.
-        Throws:
-        AdapterAlreadyActiveException -- Raised if an adapter with the same id is already active.
-        AdapterNotFoundException -- Raised if the adapter cannot be found, or if the locator only allows registered adapters to set their active proxy and the adapter is not registered with the locator.
-        """
         def setAdapterDirectProxy(self, id, proxy, context=None):
+            """
+             Set the adapter endpoints with the locator registry.
+            Arguments:
+            id -- The adapter id.
+            proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. The proxy can be null, typically during adapter deactivation.
+            context -- The request context for the invocation.
+            Throws:
+            AdapterAlreadyActiveException -- Raised if an adapter with the same id is already active.
+            AdapterNotFoundException -- Raised if the adapter cannot be found, or if the locator only allows registered adapters to set their active proxy and the adapter is not registered with the locator.
+            """
             return _M_Ice.LocatorRegistry._op_setAdapterDirectProxy.invoke(self, ((id, proxy), context))
 
-        """
-         Set the adapter endpoints with the locator registry.
-        Arguments:
-        id -- The adapter id.
-        proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. The proxy can be null, typically during adapter deactivation.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def setAdapterDirectProxyAsync(self, id, proxy, context=None):
+            """
+             Set the adapter endpoints with the locator registry.
+            Arguments:
+            id -- The adapter id.
+            proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. The proxy can be null, typically during adapter deactivation.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Ice.LocatorRegistry._op_setAdapterDirectProxy.invokeAsync(self, ((id, proxy), context))
 
-        """
-         Set the adapter endpoints with the locator registry.
-        Arguments:
-        adapterId -- The adapter id.
-        replicaGroupId -- The replica group id.
-        proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. The proxy can be null, typically during adapter deactivation.
-        context -- The request context for the invocation.
-        Throws:
-        AdapterAlreadyActiveException -- Raised if an adapter with the same id is already active.
-        AdapterNotFoundException -- Raised if the adapter cannot be found, or if the locator only allows registered adapters to set their active proxy and the adapter is not registered with the locator.
-        InvalidReplicaGroupIdException -- Raised if the given replica group doesn't match the one registered with the locator registry for this object adapter.
-        """
         def setReplicatedAdapterDirectProxy(self, adapterId, replicaGroupId, proxy, context=None):
+            """
+             Set the adapter endpoints with the locator registry.
+            Arguments:
+            adapterId -- The adapter id.
+            replicaGroupId -- The replica group id.
+            proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. The proxy can be null, typically during adapter deactivation.
+            context -- The request context for the invocation.
+            Throws:
+            AdapterAlreadyActiveException -- Raised if an adapter with the same id is already active.
+            AdapterNotFoundException -- Raised if the adapter cannot be found, or if the locator only allows registered adapters to set their active proxy and the adapter is not registered with the locator.
+            InvalidReplicaGroupIdException -- Raised if the given replica group doesn't match the one registered with the locator registry for this object adapter.
+            """
             return _M_Ice.LocatorRegistry._op_setReplicatedAdapterDirectProxy.invoke(self, ((adapterId, replicaGroupId, proxy), context))
 
-        """
-         Set the adapter endpoints with the locator registry.
-        Arguments:
-        adapterId -- The adapter id.
-        replicaGroupId -- The replica group id.
-        proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. The proxy can be null, typically during adapter deactivation.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def setReplicatedAdapterDirectProxyAsync(self, adapterId, replicaGroupId, proxy, context=None):
+            """
+             Set the adapter endpoints with the locator registry.
+            Arguments:
+            adapterId -- The adapter id.
+            replicaGroupId -- The replica group id.
+            proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. The proxy can be null, typically during adapter deactivation.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Ice.LocatorRegistry._op_setReplicatedAdapterDirectProxy.invokeAsync(self, ((adapterId, replicaGroupId, proxy), context))
 
-        """
-         Set the process proxy for a server.
-        Arguments:
-        id -- The server id.
-        proxy -- The process proxy. The proxy is never null.
-        context -- The request context for the invocation.
-        Throws:
-        ServerNotFoundException -- Raised if the server cannot be found.
-        """
         def setServerProcessProxy(self, id, proxy, context=None):
+            """
+             Set the process proxy for a server.
+            Arguments:
+            id -- The server id.
+            proxy -- The process proxy. The proxy is never null.
+            context -- The request context for the invocation.
+            Throws:
+            ServerNotFoundException -- Raised if the server cannot be found.
+            """
             return _M_Ice.LocatorRegistry._op_setServerProcessProxy.invoke(self, ((id, proxy), context))
 
-        """
-         Set the process proxy for a server.
-        Arguments:
-        id -- The server id.
-        proxy -- The process proxy. The proxy is never null.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def setServerProcessProxyAsync(self, id, proxy, context=None):
+            """
+             Set the process proxy for a server.
+            Arguments:
+            id -- The server id.
+            proxy -- The process proxy. The proxy is never null.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Ice.LocatorRegistry._op_setServerProcessProxy.invokeAsync(self, ((id, proxy), context))
 
         @staticmethod
@@ -512,24 +512,24 @@ if 'LocatorFinderPrx' not in _M_Ice.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Get the locator proxy implemented by the process hosting this finder object. The proxy might point to
-         several replicas. This proxy is never null.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: The locator proxy.
-        """
         def getLocator(self, context=None):
+            """
+             Get the locator proxy implemented by the process hosting this finder object. The proxy might point to
+             several replicas. This proxy is never null.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: The locator proxy.
+            """
             return _M_Ice.LocatorFinder._op_getLocator.invoke(self, ((), context))
 
-        """
-         Get the locator proxy implemented by the process hosting this finder object. The proxy might point to
-         several replicas. This proxy is never null.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getLocatorAsync(self, context=None):
+            """
+             Get the locator proxy implemented by the process hosting this finder object. The proxy might point to
+             several replicas. This proxy is never null.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Ice.LocatorFinder._op_getLocator.invokeAsync(self, ((), context))
 
         @staticmethod

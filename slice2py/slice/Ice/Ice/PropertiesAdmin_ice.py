@@ -47,71 +47,71 @@ if 'PropertiesAdminPrx' not in _M_Ice.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Get a property by key. If the property is not set, an empty string is returned.
-        Arguments:
-        key -- The property key.
-        context -- The request context for the invocation.
-        Returns: The property value.
-        """
         def getProperty(self, key, context=None):
+            """
+             Get a property by key. If the property is not set, an empty string is returned.
+            Arguments:
+            key -- The property key.
+            context -- The request context for the invocation.
+            Returns: The property value.
+            """
             return _M_Ice.PropertiesAdmin._op_getProperty.invoke(self, ((key, ), context))
 
-        """
-         Get a property by key. If the property is not set, an empty string is returned.
-        Arguments:
-        key -- The property key.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getPropertyAsync(self, key, context=None):
+            """
+             Get a property by key. If the property is not set, an empty string is returned.
+            Arguments:
+            key -- The property key.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Ice.PropertiesAdmin._op_getProperty.invokeAsync(self, ((key, ), context))
 
-        """
-         Get all properties whose keys begin with prefix. If prefix is an empty string then all
-         properties are returned.
-        Arguments:
-        prefix -- The prefix to search for (empty string if none).
-        context -- The request context for the invocation.
-        Returns: The matching property set.
-        """
         def getPropertiesForPrefix(self, prefix, context=None):
+            """
+             Get all properties whose keys begin with prefix. If prefix is an empty string then all
+             properties are returned.
+            Arguments:
+            prefix -- The prefix to search for (empty string if none).
+            context -- The request context for the invocation.
+            Returns: The matching property set.
+            """
             return _M_Ice.PropertiesAdmin._op_getPropertiesForPrefix.invoke(self, ((prefix, ), context))
 
-        """
-         Get all properties whose keys begin with prefix. If prefix is an empty string then all
-         properties are returned.
-        Arguments:
-        prefix -- The prefix to search for (empty string if none).
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getPropertiesForPrefixAsync(self, prefix, context=None):
+            """
+             Get all properties whose keys begin with prefix. If prefix is an empty string then all
+             properties are returned.
+            Arguments:
+            prefix -- The prefix to search for (empty string if none).
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Ice.PropertiesAdmin._op_getPropertiesForPrefix.invokeAsync(self, ((prefix, ), context))
 
-        """
-         Update the communicator's properties with the given property set. If an entry in newProperties
-         matches the name of an existing property, that property's value is replaced with the new value. If the new
-         value is an empty string, the property is removed. Any existing properties that are not modified or removed
-         by the entries in newProperties are retained with their original values.
-        Arguments:
-        newProperties -- Properties to be added, changed, or removed.
-        context -- The request context for the invocation.
-        """
         def setProperties(self, newProperties, context=None):
+            """
+             Update the communicator's properties with the given property set. If an entry in newProperties
+             matches the name of an existing property, that property's value is replaced with the new value. If the new
+             value is an empty string, the property is removed. Any existing properties that are not modified or removed
+             by the entries in newProperties are retained with their original values.
+            Arguments:
+            newProperties -- Properties to be added, changed, or removed.
+            context -- The request context for the invocation.
+            """
             return _M_Ice.PropertiesAdmin._op_setProperties.invoke(self, ((newProperties, ), context))
 
-        """
-         Update the communicator's properties with the given property set. If an entry in newProperties
-         matches the name of an existing property, that property's value is replaced with the new value. If the new
-         value is an empty string, the property is removed. Any existing properties that are not modified or removed
-         by the entries in newProperties are retained with their original values.
-        Arguments:
-        newProperties -- Properties to be added, changed, or removed.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def setPropertiesAsync(self, newProperties, context=None):
+            """
+             Update the communicator's properties with the given property set. If an entry in newProperties
+             matches the name of an existing property, that property's value is replaced with the new value. If the new
+             value is an empty string, the property is removed. Any existing properties that are not modified or removed
+             by the entries in newProperties are retained with their original values.
+            Arguments:
+            newProperties -- Properties to be added, changed, or removed.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Ice.PropertiesAdmin._op_setProperties.invokeAsync(self, ((newProperties, ), context))
 
         @staticmethod

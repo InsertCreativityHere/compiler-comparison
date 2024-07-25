@@ -1143,33 +1143,39 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def acceptsClassCycles(self, current=None):
             raise NotImplementedError("servant method 'acceptsClassCycles' not implemented")
 
-        """
-        Immediately marshals the result of an invocation of getMB
-        and returns an object that the servant implementation must return
-        as its result.
-        Arguments:
-        result -- The result (or result tuple) of the invocation.
-        current -- The Current object passed to the invocation.
-        Returns: An object containing the marshaled result.
-        """
         @staticmethod
         def GetMBMarshaledResult(result, current):
+            """
+            Immediately marshals the result of an invocation of GetMB
+            and returns an object that the servant implementation must return
+            as its result.
+            
+            Args:
+              result: The result (or result tuple) of the invocation.
+              current: The Current object passed to the invocation.
+            
+            Returns
+              An object containing the marshaled result.
+            """
             return IcePy.MarshaledResult(result, _M_Test.Initial._op_getMB, current.adapter.getCommunicator()._getImpl(), current.encoding)
 
         def getMB(self, current=None):
             raise NotImplementedError("servant method 'getMB' not implemented")
 
-        """
-        Immediately marshals the result of an invocation of getAMDMB
-        and returns an object that the servant implementation must return
-        as its result.
-        Arguments:
-        result -- The result (or result tuple) of the invocation.
-        current -- The Current object passed to the invocation.
-        Returns: An object containing the marshaled result.
-        """
         @staticmethod
         def GetAMDMBMarshaledResult(result, current):
+            """
+            Immediately marshals the result of an invocation of GetAMDMB
+            and returns an object that the servant implementation must return
+            as its result.
+            
+            Args:
+              result: The result (or result tuple) of the invocation.
+              current: The Current object passed to the invocation.
+            
+            Returns
+              An object containing the marshaled result.
+            """
             return IcePy.MarshaledResult(result, _M_Test.Initial._op_getAMDMB, current.adapter.getCommunicator()._getImpl(), current.encoding)
 
         def getAMDMB(self, current=None):

@@ -113,23 +113,23 @@ if 'TopicLinkPrx' not in _M_IceStorm.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Forward a sequence of events.
-        Arguments:
-        events -- The events to forward.
-        context -- The request context for the invocation.
-        """
         def forward(self, events, context=None):
+            """
+             Forward a sequence of events.
+            Arguments:
+            events -- The events to forward.
+            context -- The request context for the invocation.
+            """
             return _M_IceStorm.TopicLink._op_forward.invoke(self, ((events, ), context))
 
-        """
-         Forward a sequence of events.
-        Arguments:
-        events -- The events to forward.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def forwardAsync(self, events, context=None):
+            """
+             Forward a sequence of events.
+            Arguments:
+            events -- The events to forward.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceStorm.TopicLink._op_forward.invokeAsync(self, ((events, ), context))
 
         @staticmethod
@@ -228,43 +228,43 @@ if 'TopicInternalPrx' not in _M_IceStorm.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Retrieve a proxy to the TopicLink interface.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: The TopicLink for the Topic.
-        """
         def getLinkProxy(self, context=None):
+            """
+             Retrieve a proxy to the TopicLink interface.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: The TopicLink for the Topic.
+            """
             return _M_IceStorm.TopicInternal._op_getLinkProxy.invoke(self, ((), context))
 
-        """
-         Retrieve a proxy to the TopicLink interface.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getLinkProxyAsync(self, context=None):
+            """
+             Retrieve a proxy to the TopicLink interface.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceStorm.TopicInternal._op_getLinkProxy.invokeAsync(self, ((), context))
 
-        """
-         Reap the given identities.
-        Arguments:
-        id -- The sequence of identities.
-        context -- The request context for the invocation.
-        Throws:
-        ReapWouldBlock -- Raised if the reap call would block.
-        """
         def reap(self, id, context=None):
+            """
+             Reap the given identities.
+            Arguments:
+            id -- The sequence of identities.
+            context -- The request context for the invocation.
+            Throws:
+            ReapWouldBlock -- Raised if the reap call would block.
+            """
             return _M_IceStorm.TopicInternal._op_reap.invoke(self, ((id, ), context))
 
-        """
-         Reap the given identities.
-        Arguments:
-        id -- The sequence of identities.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def reapAsync(self, id, context=None):
+            """
+             Reap the given identities.
+            Arguments:
+            id -- The sequence of identities.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceStorm.TopicInternal._op_reap.invokeAsync(self, ((id, ), context))
 
         @staticmethod
@@ -353,22 +353,22 @@ if 'TopicManagerInternalPrx' not in _M_IceStorm.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Return the replica node proxy for this topic manager.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: The replica proxy, or null if this instance is not replicated.
-        """
         def getReplicaNode(self, context=None):
+            """
+             Return the replica node proxy for this topic manager.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: The replica proxy, or null if this instance is not replicated.
+            """
             return _M_IceStorm.TopicManagerInternal._op_getReplicaNode.invoke(self, ((), context))
 
-        """
-         Return the replica node proxy for this topic manager.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getReplicaNodeAsync(self, context=None):
+            """
+             Return the replica node proxy for this topic manager.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceStorm.TopicManagerInternal._op_getReplicaNode.invokeAsync(self, ((), context))
 
         @staticmethod

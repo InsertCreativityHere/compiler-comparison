@@ -77,28 +77,28 @@ if 'FileParserPrx' not in _M_IceGrid.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Parse a file.
-        Arguments:
-        xmlFile -- Full pathname to the file.
-        adminProxy -- An Admin proxy, used only to retrieve default templates when needed. May be null.
-        context -- The request context for the invocation.
-        Returns: The application descriptor.
-        Throws:
-        ParseException -- Raised if an error occurred during parsing.
-        """
         def parse(self, xmlFile, adminProxy, context=None):
+            """
+             Parse a file.
+            Arguments:
+            xmlFile -- Full pathname to the file.
+            adminProxy -- An Admin proxy, used only to retrieve default templates when needed. May be null.
+            context -- The request context for the invocation.
+            Returns: The application descriptor.
+            Throws:
+            ParseException -- Raised if an error occurred during parsing.
+            """
             return _M_IceGrid.FileParser._op_parse.invoke(self, ((xmlFile, adminProxy), context))
 
-        """
-         Parse a file.
-        Arguments:
-        xmlFile -- Full pathname to the file.
-        adminProxy -- An Admin proxy, used only to retrieve default templates when needed. May be null.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def parseAsync(self, xmlFile, adminProxy, context=None):
+            """
+             Parse a file.
+            Arguments:
+            xmlFile -- Full pathname to the file.
+            adminProxy -- An Admin proxy, used only to retrieve default templates when needed. May be null.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.FileParser._op_parse.invokeAsync(self, ((xmlFile, adminProxy), context))
 
         @staticmethod

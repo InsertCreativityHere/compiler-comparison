@@ -1061,97 +1061,115 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opWStringLiterals(self, current=None):
             raise NotImplementedError("servant method 'opWStringLiterals' not implemented")
 
-        """
-        Immediately marshals the result of an invocation of opMStruct1
-        and returns an object that the servant implementation must return
-        as its result.
-        Arguments:
-        result -- The result (or result tuple) of the invocation.
-        current -- The Current object passed to the invocation.
-        Returns: An object containing the marshaled result.
-        """
         @staticmethod
         def OpMStruct1MarshaledResult(result, current):
+            """
+            Immediately marshals the result of an invocation of OpMStruct1
+            and returns an object that the servant implementation must return
+            as its result.
+            
+            Args:
+              result: The result (or result tuple) of the invocation.
+              current: The Current object passed to the invocation.
+            
+            Returns
+              An object containing the marshaled result.
+            """
             return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMStruct1, current.adapter.getCommunicator()._getImpl(), current.encoding)
 
         def opMStruct1(self, current=None):
             raise NotImplementedError("servant method 'opMStruct1' not implemented")
 
-        """
-        Immediately marshals the result of an invocation of opMStruct2
-        and returns an object that the servant implementation must return
-        as its result.
-        Arguments:
-        result -- The result (or result tuple) of the invocation.
-        current -- The Current object passed to the invocation.
-        Returns: An object containing the marshaled result.
-        """
         @staticmethod
         def OpMStruct2MarshaledResult(result, current):
+            """
+            Immediately marshals the result of an invocation of OpMStruct2
+            and returns an object that the servant implementation must return
+            as its result.
+            
+            Args:
+              result: The result (or result tuple) of the invocation.
+              current: The Current object passed to the invocation.
+            
+            Returns
+              An object containing the marshaled result.
+            """
             return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMStruct2, current.adapter.getCommunicator()._getImpl(), current.encoding)
 
         def opMStruct2(self, p1, current=None):
             raise NotImplementedError("servant method 'opMStruct2' not implemented")
 
-        """
-        Immediately marshals the result of an invocation of opMSeq1
-        and returns an object that the servant implementation must return
-        as its result.
-        Arguments:
-        result -- The result (or result tuple) of the invocation.
-        current -- The Current object passed to the invocation.
-        Returns: An object containing the marshaled result.
-        """
         @staticmethod
         def OpMSeq1MarshaledResult(result, current):
+            """
+            Immediately marshals the result of an invocation of OpMSeq1
+            and returns an object that the servant implementation must return
+            as its result.
+            
+            Args:
+              result: The result (or result tuple) of the invocation.
+              current: The Current object passed to the invocation.
+            
+            Returns
+              An object containing the marshaled result.
+            """
             return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMSeq1, current.adapter.getCommunicator()._getImpl(), current.encoding)
 
         def opMSeq1(self, current=None):
             raise NotImplementedError("servant method 'opMSeq1' not implemented")
 
-        """
-        Immediately marshals the result of an invocation of opMSeq2
-        and returns an object that the servant implementation must return
-        as its result.
-        Arguments:
-        result -- The result (or result tuple) of the invocation.
-        current -- The Current object passed to the invocation.
-        Returns: An object containing the marshaled result.
-        """
         @staticmethod
         def OpMSeq2MarshaledResult(result, current):
+            """
+            Immediately marshals the result of an invocation of OpMSeq2
+            and returns an object that the servant implementation must return
+            as its result.
+            
+            Args:
+              result: The result (or result tuple) of the invocation.
+              current: The Current object passed to the invocation.
+            
+            Returns
+              An object containing the marshaled result.
+            """
             return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMSeq2, current.adapter.getCommunicator()._getImpl(), current.encoding)
 
         def opMSeq2(self, p1, current=None):
             raise NotImplementedError("servant method 'opMSeq2' not implemented")
 
-        """
-        Immediately marshals the result of an invocation of opMDict1
-        and returns an object that the servant implementation must return
-        as its result.
-        Arguments:
-        result -- The result (or result tuple) of the invocation.
-        current -- The Current object passed to the invocation.
-        Returns: An object containing the marshaled result.
-        """
         @staticmethod
         def OpMDict1MarshaledResult(result, current):
+            """
+            Immediately marshals the result of an invocation of OpMDict1
+            and returns an object that the servant implementation must return
+            as its result.
+            
+            Args:
+              result: The result (or result tuple) of the invocation.
+              current: The Current object passed to the invocation.
+            
+            Returns
+              An object containing the marshaled result.
+            """
             return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMDict1, current.adapter.getCommunicator()._getImpl(), current.encoding)
 
         def opMDict1(self, current=None):
             raise NotImplementedError("servant method 'opMDict1' not implemented")
 
-        """
-        Immediately marshals the result of an invocation of opMDict2
-        and returns an object that the servant implementation must return
-        as its result.
-        Arguments:
-        result -- The result (or result tuple) of the invocation.
-        current -- The Current object passed to the invocation.
-        Returns: An object containing the marshaled result.
-        """
         @staticmethod
         def OpMDict2MarshaledResult(result, current):
+            """
+            Immediately marshals the result of an invocation of OpMDict2
+            and returns an object that the servant implementation must return
+            as its result.
+            
+            Args:
+              result: The result (or result tuple) of the invocation.
+              current: The Current object passed to the invocation.
+            
+            Returns
+              An object containing the marshaled result.
+            """
             return IcePy.MarshaledResult(result, _M_Test.MyClass._op_opMDict2, current.adapter.getCommunicator()._getImpl(), current.encoding)
 
         def opMDict2(self, p1, current=None):

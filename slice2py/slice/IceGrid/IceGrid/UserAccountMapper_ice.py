@@ -66,28 +66,28 @@ if 'UserAccountMapperPrx' not in _M_IceGrid.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
-         account to use to run servers.
-        Arguments:
-        user -- The value of the server descriptor's user attribute. If this attribute is not defined, and the server's activation mode is session, the default value of user is the session identifier.
-        context -- The request context for the invocation.
-        Returns: The user account name.
-        Throws:
-        UserAccountNotFoundException -- Raised if no user account is found for the given user.
-        """
         def getUserAccount(self, user, context=None):
+            """
+             Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+             account to use to run servers.
+            Arguments:
+            user -- The value of the server descriptor's user attribute. If this attribute is not defined, and the server's activation mode is session, the default value of user is the session identifier.
+            context -- The request context for the invocation.
+            Returns: The user account name.
+            Throws:
+            UserAccountNotFoundException -- Raised if no user account is found for the given user.
+            """
             return _M_IceGrid.UserAccountMapper._op_getUserAccount.invoke(self, ((user, ), context))
 
-        """
-         Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
-         account to use to run servers.
-        Arguments:
-        user -- The value of the server descriptor's user attribute. If this attribute is not defined, and the server's activation mode is session, the default value of user is the session identifier.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getUserAccountAsync(self, user, context=None):
+            """
+             Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+             account to use to run servers.
+            Arguments:
+            user -- The value of the server descriptor's user attribute. If this attribute is not defined, and the server's activation mode is session, the default value of user is the session identifier.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.UserAccountMapper._op_getUserAccount.invokeAsync(self, ((user, ), context))
 
         @staticmethod

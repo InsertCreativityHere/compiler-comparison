@@ -691,1024 +691,1024 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Add an application to IceGrid.
-        Arguments:
-        descriptor -- The application descriptor.
-        context -- The request context for the invocation.
-        Throws:
-        AccessDeniedException -- Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
-        DeploymentException -- Raised if application deployment failed.
-        """
         def addApplication(self, descriptor, context=None):
+            """
+             Add an application to IceGrid.
+            Arguments:
+            descriptor -- The application descriptor.
+            context -- The request context for the invocation.
+            Throws:
+            AccessDeniedException -- Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
+            DeploymentException -- Raised if application deployment failed.
+            """
             return _M_IceGrid.Admin._op_addApplication.invoke(self, ((descriptor, ), context))
 
-        """
-         Add an application to IceGrid.
-        Arguments:
-        descriptor -- The application descriptor.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def addApplicationAsync(self, descriptor, context=None):
+            """
+             Add an application to IceGrid.
+            Arguments:
+            descriptor -- The application descriptor.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_addApplication.invokeAsync(self, ((descriptor, ), context))
 
-        """
-         Synchronize a deployed application with the given application descriptor. This operation will replace the
-         current descriptor with this new descriptor.
-        Arguments:
-        descriptor -- The application descriptor.
-        context -- The request context for the invocation.
-        Throws:
-        AccessDeniedException -- Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
-        ApplicationNotExistException -- Raised if the application doesn't exist.
-        DeploymentException -- Raised if application deployment failed.
-        """
         def syncApplication(self, descriptor, context=None):
+            """
+             Synchronize a deployed application with the given application descriptor. This operation will replace the
+             current descriptor with this new descriptor.
+            Arguments:
+            descriptor -- The application descriptor.
+            context -- The request context for the invocation.
+            Throws:
+            AccessDeniedException -- Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
+            ApplicationNotExistException -- Raised if the application doesn't exist.
+            DeploymentException -- Raised if application deployment failed.
+            """
             return _M_IceGrid.Admin._op_syncApplication.invoke(self, ((descriptor, ), context))
 
-        """
-         Synchronize a deployed application with the given application descriptor. This operation will replace the
-         current descriptor with this new descriptor.
-        Arguments:
-        descriptor -- The application descriptor.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def syncApplicationAsync(self, descriptor, context=None):
+            """
+             Synchronize a deployed application with the given application descriptor. This operation will replace the
+             current descriptor with this new descriptor.
+            Arguments:
+            descriptor -- The application descriptor.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_syncApplication.invokeAsync(self, ((descriptor, ), context))
 
-        """
-         Update a deployed application with the given update application descriptor.
-        Arguments:
-        descriptor -- The update descriptor.
-        context -- The request context for the invocation.
-        Throws:
-        AccessDeniedException -- Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
-        ApplicationNotExistException -- Raised if the application doesn't exist.
-        DeploymentException -- Raised if application deployment failed.
-        """
         def updateApplication(self, descriptor, context=None):
+            """
+             Update a deployed application with the given update application descriptor.
+            Arguments:
+            descriptor -- The update descriptor.
+            context -- The request context for the invocation.
+            Throws:
+            AccessDeniedException -- Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
+            ApplicationNotExistException -- Raised if the application doesn't exist.
+            DeploymentException -- Raised if application deployment failed.
+            """
             return _M_IceGrid.Admin._op_updateApplication.invoke(self, ((descriptor, ), context))
 
-        """
-         Update a deployed application with the given update application descriptor.
-        Arguments:
-        descriptor -- The update descriptor.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def updateApplicationAsync(self, descriptor, context=None):
+            """
+             Update a deployed application with the given update application descriptor.
+            Arguments:
+            descriptor -- The update descriptor.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_updateApplication.invokeAsync(self, ((descriptor, ), context))
 
-        """
-         Synchronize a deployed application with the given application descriptor. This operation will replace the
-         current descriptor with this new descriptor only if no server restarts are necessary for the update of the
-         application. If some servers need to be restarted, the synchronization is rejected with a
-         DeploymentException.
-        Arguments:
-        descriptor -- The application descriptor.
-        context -- The request context for the invocation.
-        Throws:
-        AccessDeniedException -- Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
-        ApplicationNotExistException -- Raised if the application doesn't exist.
-        DeploymentException -- Raised if application deployment failed.
-        """
         def syncApplicationWithoutRestart(self, descriptor, context=None):
+            """
+             Synchronize a deployed application with the given application descriptor. This operation will replace the
+             current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+             application. If some servers need to be restarted, the synchronization is rejected with a
+             DeploymentException.
+            Arguments:
+            descriptor -- The application descriptor.
+            context -- The request context for the invocation.
+            Throws:
+            AccessDeniedException -- Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
+            ApplicationNotExistException -- Raised if the application doesn't exist.
+            DeploymentException -- Raised if application deployment failed.
+            """
             return _M_IceGrid.Admin._op_syncApplicationWithoutRestart.invoke(self, ((descriptor, ), context))
 
-        """
-         Synchronize a deployed application with the given application descriptor. This operation will replace the
-         current descriptor with this new descriptor only if no server restarts are necessary for the update of the
-         application. If some servers need to be restarted, the synchronization is rejected with a
-         DeploymentException.
-        Arguments:
-        descriptor -- The application descriptor.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def syncApplicationWithoutRestartAsync(self, descriptor, context=None):
+            """
+             Synchronize a deployed application with the given application descriptor. This operation will replace the
+             current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+             application. If some servers need to be restarted, the synchronization is rejected with a
+             DeploymentException.
+            Arguments:
+            descriptor -- The application descriptor.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_syncApplicationWithoutRestart.invokeAsync(self, ((descriptor, ), context))
 
-        """
-         Update a deployed application with the given update application descriptor only if no server restarts are
-         necessary for the update of the application. If some servers need to be restarted, the synchronization is
-         rejected with a DeploymentException.
-        Arguments:
-        descriptor -- The update descriptor.
-        context -- The request context for the invocation.
-        Throws:
-        AccessDeniedException -- Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
-        ApplicationNotExistException -- Raised if the application doesn't exist.
-        DeploymentException -- Raised if application deployment failed.
-        """
         def updateApplicationWithoutRestart(self, descriptor, context=None):
+            """
+             Update a deployed application with the given update application descriptor only if no server restarts are
+             necessary for the update of the application. If some servers need to be restarted, the synchronization is
+             rejected with a DeploymentException.
+            Arguments:
+            descriptor -- The update descriptor.
+            context -- The request context for the invocation.
+            Throws:
+            AccessDeniedException -- Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
+            ApplicationNotExistException -- Raised if the application doesn't exist.
+            DeploymentException -- Raised if application deployment failed.
+            """
             return _M_IceGrid.Admin._op_updateApplicationWithoutRestart.invoke(self, ((descriptor, ), context))
 
-        """
-         Update a deployed application with the given update application descriptor only if no server restarts are
-         necessary for the update of the application. If some servers need to be restarted, the synchronization is
-         rejected with a DeploymentException.
-        Arguments:
-        descriptor -- The update descriptor.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def updateApplicationWithoutRestartAsync(self, descriptor, context=None):
+            """
+             Update a deployed application with the given update application descriptor only if no server restarts are
+             necessary for the update of the application. If some servers need to be restarted, the synchronization is
+             rejected with a DeploymentException.
+            Arguments:
+            descriptor -- The update descriptor.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_updateApplicationWithoutRestart.invokeAsync(self, ((descriptor, ), context))
 
-        """
-         Remove an application from IceGrid.
-        Arguments:
-        name -- The application name.
-        context -- The request context for the invocation.
-        Throws:
-        AccessDeniedException -- Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
-        ApplicationNotExistException -- Raised if the application doesn't exist.
-        DeploymentException -- Raised if application deployment failed.
-        """
         def removeApplication(self, name, context=None):
+            """
+             Remove an application from IceGrid.
+            Arguments:
+            name -- The application name.
+            context -- The request context for the invocation.
+            Throws:
+            AccessDeniedException -- Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
+            ApplicationNotExistException -- Raised if the application doesn't exist.
+            DeploymentException -- Raised if application deployment failed.
+            """
             return _M_IceGrid.Admin._op_removeApplication.invoke(self, ((name, ), context))
 
-        """
-         Remove an application from IceGrid.
-        Arguments:
-        name -- The application name.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def removeApplicationAsync(self, name, context=None):
+            """
+             Remove an application from IceGrid.
+            Arguments:
+            name -- The application name.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_removeApplication.invokeAsync(self, ((name, ), context))
 
-        """
-         Instantiate a server template from an application on the given node.
-        Arguments:
-        application -- The application name.
-        node -- The name of the node where the server will be deployed.
-        desc -- The descriptor of the server instance to deploy.
-        context -- The request context for the invocation.
-        Throws:
-        AccessDeniedException -- Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
-        ApplicationNotExistException -- Raised if the application doesn't exist.
-        DeploymentException -- Raised if server instantiation failed.
-        """
         def instantiateServer(self, application, node, desc, context=None):
+            """
+             Instantiate a server template from an application on the given node.
+            Arguments:
+            application -- The application name.
+            node -- The name of the node where the server will be deployed.
+            desc -- The descriptor of the server instance to deploy.
+            context -- The request context for the invocation.
+            Throws:
+            AccessDeniedException -- Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
+            ApplicationNotExistException -- Raised if the application doesn't exist.
+            DeploymentException -- Raised if server instantiation failed.
+            """
             return _M_IceGrid.Admin._op_instantiateServer.invoke(self, ((application, node, desc), context))
 
-        """
-         Instantiate a server template from an application on the given node.
-        Arguments:
-        application -- The application name.
-        node -- The name of the node where the server will be deployed.
-        desc -- The descriptor of the server instance to deploy.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def instantiateServerAsync(self, application, node, desc, context=None):
+            """
+             Instantiate a server template from an application on the given node.
+            Arguments:
+            application -- The application name.
+            node -- The name of the node where the server will be deployed.
+            desc -- The descriptor of the server instance to deploy.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_instantiateServer.invokeAsync(self, ((application, node, desc), context))
 
-        """
-         Get an application descriptor.
-        Arguments:
-        name -- The application name.
-        context -- The request context for the invocation.
-        Returns: The application descriptor.
-        Throws:
-        ApplicationNotExistException -- Raised if the application doesn't exist.
-        """
         def getApplicationInfo(self, name, context=None):
+            """
+             Get an application descriptor.
+            Arguments:
+            name -- The application name.
+            context -- The request context for the invocation.
+            Returns: The application descriptor.
+            Throws:
+            ApplicationNotExistException -- Raised if the application doesn't exist.
+            """
             return _M_IceGrid.Admin._op_getApplicationInfo.invoke(self, ((name, ), context))
 
-        """
-         Get an application descriptor.
-        Arguments:
-        name -- The application name.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getApplicationInfoAsync(self, name, context=None):
+            """
+             Get an application descriptor.
+            Arguments:
+            name -- The application name.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_getApplicationInfo.invokeAsync(self, ((name, ), context))
 
-        """
-         Get the default application descriptor.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: The default application descriptor.
-        Throws:
-        DeploymentException -- Raised if the default application descriptor can't be accessed or is invalid.
-        """
         def getDefaultApplicationDescriptor(self, context=None):
+            """
+             Get the default application descriptor.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: The default application descriptor.
+            Throws:
+            DeploymentException -- Raised if the default application descriptor can't be accessed or is invalid.
+            """
             return _M_IceGrid.Admin._op_getDefaultApplicationDescriptor.invoke(self, ((), context))
 
-        """
-         Get the default application descriptor.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getDefaultApplicationDescriptorAsync(self, context=None):
+            """
+             Get the default application descriptor.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_getDefaultApplicationDescriptor.invokeAsync(self, ((), context))
 
-        """
-         Get all the IceGrid applications currently registered.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: The application names.
-        """
         def getAllApplicationNames(self, context=None):
+            """
+             Get all the IceGrid applications currently registered.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: The application names.
+            """
             return _M_IceGrid.Admin._op_getAllApplicationNames.invoke(self, ((), context))
 
-        """
-         Get all the IceGrid applications currently registered.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getAllApplicationNamesAsync(self, context=None):
+            """
+             Get all the IceGrid applications currently registered.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_getAllApplicationNames.invokeAsync(self, ((), context))
 
-        """
-         Get the server information for the server with the given id.
-        Arguments:
-        id -- The server id.
-        context -- The request context for the invocation.
-        Returns: The server information.
-        Throws:
-        ServerNotExistException -- Raised if the server doesn't exist.
-        """
         def getServerInfo(self, id, context=None):
+            """
+             Get the server information for the server with the given id.
+            Arguments:
+            id -- The server id.
+            context -- The request context for the invocation.
+            Returns: The server information.
+            Throws:
+            ServerNotExistException -- Raised if the server doesn't exist.
+            """
             return _M_IceGrid.Admin._op_getServerInfo.invoke(self, ((id, ), context))
 
-        """
-         Get the server information for the server with the given id.
-        Arguments:
-        id -- The server id.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getServerInfoAsync(self, id, context=None):
+            """
+             Get the server information for the server with the given id.
+            Arguments:
+            id -- The server id.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_getServerInfo.invokeAsync(self, ((id, ), context))
 
-        """
-         Get a server's state.
-        Arguments:
-        id -- The server id.
-        context -- The request context for the invocation.
-        Returns: The server state.
-        Throws:
-        DeploymentException -- Raised if the server couldn't be deployed on the node.
-        NodeUnreachableException -- Raised if the node could not be reached.
-        ServerNotExistException -- Raised if the server doesn't exist.
-        """
         def getServerState(self, id, context=None):
+            """
+             Get a server's state.
+            Arguments:
+            id -- The server id.
+            context -- The request context for the invocation.
+            Returns: The server state.
+            Throws:
+            DeploymentException -- Raised if the server couldn't be deployed on the node.
+            NodeUnreachableException -- Raised if the node could not be reached.
+            ServerNotExistException -- Raised if the server doesn't exist.
+            """
             return _M_IceGrid.Admin._op_getServerState.invoke(self, ((id, ), context))
 
-        """
-         Get a server's state.
-        Arguments:
-        id -- The server id.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getServerStateAsync(self, id, context=None):
+            """
+             Get a server's state.
+            Arguments:
+            id -- The server id.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_getServerState.invokeAsync(self, ((id, ), context))
 
-        """
-         Get a server's system process id. The process id is operating system dependent.
-        Arguments:
-        id -- The server id.
-        context -- The request context for the invocation.
-        Returns: The server's process id.
-        Throws:
-        DeploymentException -- Raised if the server couldn't be deployed on the node.
-        NodeUnreachableException -- Raised if the node could not be reached.
-        ServerNotExistException -- Raised if the server doesn't exist.
-        """
         def getServerPid(self, id, context=None):
+            """
+             Get a server's system process id. The process id is operating system dependent.
+            Arguments:
+            id -- The server id.
+            context -- The request context for the invocation.
+            Returns: The server's process id.
+            Throws:
+            DeploymentException -- Raised if the server couldn't be deployed on the node.
+            NodeUnreachableException -- Raised if the node could not be reached.
+            ServerNotExistException -- Raised if the server doesn't exist.
+            """
             return _M_IceGrid.Admin._op_getServerPid.invoke(self, ((id, ), context))
 
-        """
-         Get a server's system process id. The process id is operating system dependent.
-        Arguments:
-        id -- The server id.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getServerPidAsync(self, id, context=None):
+            """
+             Get a server's system process id. The process id is operating system dependent.
+            Arguments:
+            id -- The server id.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_getServerPid.invokeAsync(self, ((id, ), context))
 
-        """
-         Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
-         changing its identity: use the server ID as name and the returned category as category.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: The category for server admin objects.
-        """
         def getServerAdminCategory(self, context=None):
+            """
+             Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+             changing its identity: use the server ID as name and the returned category as category.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: The category for server admin objects.
+            """
             return _M_IceGrid.Admin._op_getServerAdminCategory.invoke(self, ((), context))
 
-        """
-         Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
-         changing its identity: use the server ID as name and the returned category as category.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getServerAdminCategoryAsync(self, context=None):
+            """
+             Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+             changing its identity: use the server ID as name and the returned category as category.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_getServerAdminCategory.invokeAsync(self, ((), context))
 
-        """
-         Get a proxy to the server's admin object.
-        Arguments:
-        id -- The server id.
-        context -- The request context for the invocation.
-        Returns: A proxy to the server's admin object. The returned proxy is never null.
-        Throws:
-        DeploymentException -- Raised if the server couldn't be deployed on the node.
-        NodeUnreachableException -- Raised if the node could not be reached.
-        ServerNotExistException -- Raised if the server doesn't exist.
-        """
         def getServerAdmin(self, id, context=None):
+            """
+             Get a proxy to the server's admin object.
+            Arguments:
+            id -- The server id.
+            context -- The request context for the invocation.
+            Returns: A proxy to the server's admin object. The returned proxy is never null.
+            Throws:
+            DeploymentException -- Raised if the server couldn't be deployed on the node.
+            NodeUnreachableException -- Raised if the node could not be reached.
+            ServerNotExistException -- Raised if the server doesn't exist.
+            """
             return _M_IceGrid.Admin._op_getServerAdmin.invoke(self, ((id, ), context))
 
-        """
-         Get a proxy to the server's admin object.
-        Arguments:
-        id -- The server id.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getServerAdminAsync(self, id, context=None):
+            """
+             Get a proxy to the server's admin object.
+            Arguments:
+            id -- The server id.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_getServerAdmin.invokeAsync(self, ((id, ), context))
 
-        """
-         Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
-         state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
-         default.
-        Arguments:
-        id -- The server id.
-        enabled -- True to enable the server, false to disable it.
-        context -- The request context for the invocation.
-        Throws:
-        DeploymentException -- Raised if the server couldn't be deployed on the node.
-        NodeUnreachableException -- Raised if the node could not be reached.
-        ServerNotExistException -- Raised if the server doesn't exist.
-        """
         def enableServer(self, id, enabled, context=None):
+            """
+             Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
+             state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
+             default.
+            Arguments:
+            id -- The server id.
+            enabled -- True to enable the server, false to disable it.
+            context -- The request context for the invocation.
+            Throws:
+            DeploymentException -- Raised if the server couldn't be deployed on the node.
+            NodeUnreachableException -- Raised if the node could not be reached.
+            ServerNotExistException -- Raised if the server doesn't exist.
+            """
             return _M_IceGrid.Admin._op_enableServer.invoke(self, ((id, enabled), context))
 
-        """
-         Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
-         state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
-         default.
-        Arguments:
-        id -- The server id.
-        enabled -- True to enable the server, false to disable it.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def enableServerAsync(self, id, enabled, context=None):
+            """
+             Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
+             state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
+             default.
+            Arguments:
+            id -- The server id.
+            enabled -- True to enable the server, false to disable it.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_enableServer.invokeAsync(self, ((id, enabled), context))
 
-        """
-         Check if the server is enabled or disabled.
-        Arguments:
-        id -- The server id.
-        context -- The request context for the invocation.
-        Returns: True if the server is enabled.
-        Throws:
-        DeploymentException -- Raised if the server couldn't be deployed on the node.
-        NodeUnreachableException -- Raised if the node could not be reached.
-        ServerNotExistException -- Raised if the server doesn't exist.
-        """
         def isServerEnabled(self, id, context=None):
+            """
+             Check if the server is enabled or disabled.
+            Arguments:
+            id -- The server id.
+            context -- The request context for the invocation.
+            Returns: True if the server is enabled.
+            Throws:
+            DeploymentException -- Raised if the server couldn't be deployed on the node.
+            NodeUnreachableException -- Raised if the node could not be reached.
+            ServerNotExistException -- Raised if the server doesn't exist.
+            """
             return _M_IceGrid.Admin._op_isServerEnabled.invoke(self, ((id, ), context))
 
-        """
-         Check if the server is enabled or disabled.
-        Arguments:
-        id -- The server id.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def isServerEnabledAsync(self, id, context=None):
+            """
+             Check if the server is enabled or disabled.
+            Arguments:
+            id -- The server id.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_isServerEnabled.invokeAsync(self, ((id, ), context))
 
-        """
-         Start a server and wait for its activation.
-        Arguments:
-        id -- The server id.
-        context -- The request context for the invocation.
-        Throws:
-        DeploymentException -- Raised if the server couldn't be deployed on the node.
-        NodeUnreachableException -- Raised if the node could not be reached.
-        ServerNotExistException -- Raised if the server doesn't exist.
-        ServerStartException -- Raised if the server couldn't be started.
-        """
         def startServer(self, id, context=None):
+            """
+             Start a server and wait for its activation.
+            Arguments:
+            id -- The server id.
+            context -- The request context for the invocation.
+            Throws:
+            DeploymentException -- Raised if the server couldn't be deployed on the node.
+            NodeUnreachableException -- Raised if the node could not be reached.
+            ServerNotExistException -- Raised if the server doesn't exist.
+            ServerStartException -- Raised if the server couldn't be started.
+            """
             return _M_IceGrid.Admin._op_startServer.invoke(self, ((id, ), context))
 
-        """
-         Start a server and wait for its activation.
-        Arguments:
-        id -- The server id.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def startServerAsync(self, id, context=None):
+            """
+             Start a server and wait for its activation.
+            Arguments:
+            id -- The server id.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_startServer.invokeAsync(self, ((id, ), context))
 
-        """
-         Stop a server.
-        Arguments:
-        id -- The server id.
-        context -- The request context for the invocation.
-        Throws:
-        DeploymentException -- Raised if the server couldn't be deployed on the node.
-        NodeUnreachableException -- Raised if the node could not be reached.
-        ServerNotExistException -- Raised if the server doesn't exist.
-        ServerStopException -- Raised if the server couldn't be stopped.
-        """
         def stopServer(self, id, context=None):
+            """
+             Stop a server.
+            Arguments:
+            id -- The server id.
+            context -- The request context for the invocation.
+            Throws:
+            DeploymentException -- Raised if the server couldn't be deployed on the node.
+            NodeUnreachableException -- Raised if the node could not be reached.
+            ServerNotExistException -- Raised if the server doesn't exist.
+            ServerStopException -- Raised if the server couldn't be stopped.
+            """
             return _M_IceGrid.Admin._op_stopServer.invoke(self, ((id, ), context))
 
-        """
-         Stop a server.
-        Arguments:
-        id -- The server id.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def stopServerAsync(self, id, context=None):
+            """
+             Stop a server.
+            Arguments:
+            id -- The server id.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_stopServer.invokeAsync(self, ((id, ), context))
 
-        """
-         Send signal to a server.
-        Arguments:
-        id -- The server id.
-        signal -- The signal, for example SIGTERM or 15.
-        context -- The request context for the invocation.
-        Throws:
-        BadSignalException -- Raised if the signal is not recognized by the target server.
-        DeploymentException -- Raised if the server couldn't be deployed on the node.
-        NodeUnreachableException -- Raised if the node could not be reached.
-        ServerNotExistException -- Raised if the server doesn't exist.
-        """
         def sendSignal(self, id, signal, context=None):
+            """
+             Send signal to a server.
+            Arguments:
+            id -- The server id.
+            signal -- The signal, for example SIGTERM or 15.
+            context -- The request context for the invocation.
+            Throws:
+            BadSignalException -- Raised if the signal is not recognized by the target server.
+            DeploymentException -- Raised if the server couldn't be deployed on the node.
+            NodeUnreachableException -- Raised if the node could not be reached.
+            ServerNotExistException -- Raised if the server doesn't exist.
+            """
             return _M_IceGrid.Admin._op_sendSignal.invoke(self, ((id, signal), context))
 
-        """
-         Send signal to a server.
-        Arguments:
-        id -- The server id.
-        signal -- The signal, for example SIGTERM or 15.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def sendSignalAsync(self, id, signal, context=None):
+            """
+             Send signal to a server.
+            Arguments:
+            id -- The server id.
+            signal -- The signal, for example SIGTERM or 15.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_sendSignal.invokeAsync(self, ((id, signal), context))
 
-        """
-         Get all the server ids registered with IceGrid.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: The server ids.
-        """
         def getAllServerIds(self, context=None):
+            """
+             Get all the server ids registered with IceGrid.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: The server ids.
+            """
             return _M_IceGrid.Admin._op_getAllServerIds.invoke(self, ((), context))
 
-        """
-         Get all the server ids registered with IceGrid.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getAllServerIdsAsync(self, context=None):
+            """
+             Get all the server ids registered with IceGrid.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_getAllServerIds.invokeAsync(self, ((), context))
 
-        """
-         Get the adapter information for the replica group or adapter with the given id.
-        Arguments:
-        id -- The adapter id.
-        context -- The request context for the invocation.
-        Returns: A sequence of adapter information structures. If the given id refers to an adapter, this sequence will contain only one element. If the given id refers to a replica group, the sequence will contain the adapter information of each member of the replica group.
-        Throws:
-        AdapterNotExistException -- Raised if the adapter or replica group doesn't exist.
-        """
         def getAdapterInfo(self, id, context=None):
+            """
+             Get the adapter information for the replica group or adapter with the given id.
+            Arguments:
+            id -- The adapter id.
+            context -- The request context for the invocation.
+            Returns: A sequence of adapter information structures. If the given id refers to an adapter, this sequence will contain only one element. If the given id refers to a replica group, the sequence will contain the adapter information of each member of the replica group.
+            Throws:
+            AdapterNotExistException -- Raised if the adapter or replica group doesn't exist.
+            """
             return _M_IceGrid.Admin._op_getAdapterInfo.invoke(self, ((id, ), context))
 
-        """
-         Get the adapter information for the replica group or adapter with the given id.
-        Arguments:
-        id -- The adapter id.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getAdapterInfoAsync(self, id, context=None):
+            """
+             Get the adapter information for the replica group or adapter with the given id.
+            Arguments:
+            id -- The adapter id.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_getAdapterInfo.invokeAsync(self, ((id, ), context))
 
-        """
-         Remove the adapter with the given id.
-        Arguments:
-        id -- The adapter id.
-        context -- The request context for the invocation.
-        Throws:
-        AdapterNotExistException -- Raised if the adapter doesn't exist.
-        DeploymentException -- Raised if application deployment failed.
-        """
         def removeAdapter(self, id, context=None):
+            """
+             Remove the adapter with the given id.
+            Arguments:
+            id -- The adapter id.
+            context -- The request context for the invocation.
+            Throws:
+            AdapterNotExistException -- Raised if the adapter doesn't exist.
+            DeploymentException -- Raised if application deployment failed.
+            """
             return _M_IceGrid.Admin._op_removeAdapter.invoke(self, ((id, ), context))
 
-        """
-         Remove the adapter with the given id.
-        Arguments:
-        id -- The adapter id.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def removeAdapterAsync(self, id, context=None):
+            """
+             Remove the adapter with the given id.
+            Arguments:
+            id -- The adapter id.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_removeAdapter.invokeAsync(self, ((id, ), context))
 
-        """
-         Get all the adapter ids registered with IceGrid.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: The adapter ids.
-        """
         def getAllAdapterIds(self, context=None):
+            """
+             Get all the adapter ids registered with IceGrid.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: The adapter ids.
+            """
             return _M_IceGrid.Admin._op_getAllAdapterIds.invoke(self, ((), context))
 
-        """
-         Get all the adapter ids registered with IceGrid.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getAllAdapterIdsAsync(self, context=None):
+            """
+             Get all the adapter ids registered with IceGrid.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_getAllAdapterIds.invokeAsync(self, ((), context))
 
-        """
-         Add an object to the object registry. IceGrid will get the object type by calling ice_id on the
-         given proxy. The object must be reachable.
-        Arguments:
-        obj -- The object to be added to the registry.
-        context -- The request context for the invocation.
-        Throws:
-        DeploymentException -- Raised if the object can't be added. This might be raised if the invocation on the proxy to get the object type failed.
-        ObjectExistsException -- Raised if the object is already registered.
-        """
         def addObject(self, obj, context=None):
+            """
+             Add an object to the object registry. IceGrid will get the object type by calling ice_id on the
+             given proxy. The object must be reachable.
+            Arguments:
+            obj -- The object to be added to the registry.
+            context -- The request context for the invocation.
+            Throws:
+            DeploymentException -- Raised if the object can't be added. This might be raised if the invocation on the proxy to get the object type failed.
+            ObjectExistsException -- Raised if the object is already registered.
+            """
             return _M_IceGrid.Admin._op_addObject.invoke(self, ((obj, ), context))
 
-        """
-         Add an object to the object registry. IceGrid will get the object type by calling ice_id on the
-         given proxy. The object must be reachable.
-        Arguments:
-        obj -- The object to be added to the registry.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def addObjectAsync(self, obj, context=None):
+            """
+             Add an object to the object registry. IceGrid will get the object type by calling ice_id on the
+             given proxy. The object must be reachable.
+            Arguments:
+            obj -- The object to be added to the registry.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_addObject.invokeAsync(self, ((obj, ), context))
 
-        """
-         Update an object in the object registry. Only objects added with this interface can be updated with this
-         operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
-        Arguments:
-        obj -- The object to be updated to the registry.
-        context -- The request context for the invocation.
-        Throws:
-        DeploymentException -- Raised if the object can't be updated. This might happen if the object was added with a deployment descriptor.
-        ObjectNotRegisteredException -- Raised if the object isn't registered with the registry.
-        """
         def updateObject(self, obj, context=None):
+            """
+             Update an object in the object registry. Only objects added with this interface can be updated with this
+             operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
+            Arguments:
+            obj -- The object to be updated to the registry.
+            context -- The request context for the invocation.
+            Throws:
+            DeploymentException -- Raised if the object can't be updated. This might happen if the object was added with a deployment descriptor.
+            ObjectNotRegisteredException -- Raised if the object isn't registered with the registry.
+            """
             return _M_IceGrid.Admin._op_updateObject.invoke(self, ((obj, ), context))
 
-        """
-         Update an object in the object registry. Only objects added with this interface can be updated with this
-         operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
-        Arguments:
-        obj -- The object to be updated to the registry.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def updateObjectAsync(self, obj, context=None):
+            """
+             Update an object in the object registry. Only objects added with this interface can be updated with this
+             operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
+            Arguments:
+            obj -- The object to be updated to the registry.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_updateObject.invokeAsync(self, ((obj, ), context))
 
-        """
-         Add an object to the object registry and explicitly specify its type.
-        Arguments:
-        obj -- The object to be added to the registry. The proxy is never null.
-        type -- The object type.
-        context -- The request context for the invocation.
-        Throws:
-        DeploymentException -- Raised if application deployment failed.
-        ObjectExistsException -- Raised if the object is already registered.
-        """
         def addObjectWithType(self, obj, type, context=None):
+            """
+             Add an object to the object registry and explicitly specify its type.
+            Arguments:
+            obj -- The object to be added to the registry. The proxy is never null.
+            type -- The object type.
+            context -- The request context for the invocation.
+            Throws:
+            DeploymentException -- Raised if application deployment failed.
+            ObjectExistsException -- Raised if the object is already registered.
+            """
             return _M_IceGrid.Admin._op_addObjectWithType.invoke(self, ((obj, type), context))
 
-        """
-         Add an object to the object registry and explicitly specify its type.
-        Arguments:
-        obj -- The object to be added to the registry. The proxy is never null.
-        type -- The object type.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def addObjectWithTypeAsync(self, obj, type, context=None):
+            """
+             Add an object to the object registry and explicitly specify its type.
+            Arguments:
+            obj -- The object to be added to the registry. The proxy is never null.
+            type -- The object type.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_addObjectWithType.invokeAsync(self, ((obj, type), context))
 
-        """
-         Remove an object from the object registry. Only objects added with this interface can be removed with this
-         operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
-        Arguments:
-        id -- The identity of the object to be removed from the registry.
-        context -- The request context for the invocation.
-        Throws:
-        DeploymentException -- Raised if the object can't be removed. This might happen if the object was added with a deployment descriptor.
-        ObjectNotRegisteredException -- Raised if the object isn't registered with the registry.
-        """
         def removeObject(self, id, context=None):
+            """
+             Remove an object from the object registry. Only objects added with this interface can be removed with this
+             operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
+            Arguments:
+            id -- The identity of the object to be removed from the registry.
+            context -- The request context for the invocation.
+            Throws:
+            DeploymentException -- Raised if the object can't be removed. This might happen if the object was added with a deployment descriptor.
+            ObjectNotRegisteredException -- Raised if the object isn't registered with the registry.
+            """
             return _M_IceGrid.Admin._op_removeObject.invoke(self, ((id, ), context))
 
-        """
-         Remove an object from the object registry. Only objects added with this interface can be removed with this
-         operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
-        Arguments:
-        id -- The identity of the object to be removed from the registry.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def removeObjectAsync(self, id, context=None):
+            """
+             Remove an object from the object registry. Only objects added with this interface can be removed with this
+             operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
+            Arguments:
+            id -- The identity of the object to be removed from the registry.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_removeObject.invokeAsync(self, ((id, ), context))
 
-        """
-         Get the object info for the object with the given identity.
-        Arguments:
-        id -- The identity of the object.
-        context -- The request context for the invocation.
-        Returns: The object info.
-        Throws:
-        ObjectNotRegisteredException -- Raised if the object isn't registered with the registry.
-        """
         def getObjectInfo(self, id, context=None):
+            """
+             Get the object info for the object with the given identity.
+            Arguments:
+            id -- The identity of the object.
+            context -- The request context for the invocation.
+            Returns: The object info.
+            Throws:
+            ObjectNotRegisteredException -- Raised if the object isn't registered with the registry.
+            """
             return _M_IceGrid.Admin._op_getObjectInfo.invoke(self, ((id, ), context))
 
-        """
-         Get the object info for the object with the given identity.
-        Arguments:
-        id -- The identity of the object.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getObjectInfoAsync(self, id, context=None):
+            """
+             Get the object info for the object with the given identity.
+            Arguments:
+            id -- The identity of the object.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_getObjectInfo.invokeAsync(self, ((id, ), context))
 
-        """
-         Get the object info of all the registered objects with the given type.
-        Arguments:
-        type -- The type of the object.
-        context -- The request context for the invocation.
-        Returns: The object infos.
-        """
         def getObjectInfosByType(self, type, context=None):
+            """
+             Get the object info of all the registered objects with the given type.
+            Arguments:
+            type -- The type of the object.
+            context -- The request context for the invocation.
+            Returns: The object infos.
+            """
             return _M_IceGrid.Admin._op_getObjectInfosByType.invoke(self, ((type, ), context))
 
-        """
-         Get the object info of all the registered objects with the given type.
-        Arguments:
-        type -- The type of the object.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getObjectInfosByTypeAsync(self, type, context=None):
+            """
+             Get the object info of all the registered objects with the given type.
+            Arguments:
+            type -- The type of the object.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_getObjectInfosByType.invokeAsync(self, ((type, ), context))
 
-        """
-         Get the object info of all the registered objects whose stringified identities match the given expression.
-        Arguments:
-        expr -- The expression to match against the stringified identities of registered objects. The expression may contain a trailing wildcard (*) character.
-        context -- The request context for the invocation.
-        Returns: All the object infos with a stringified identity matching the given expression.
-        """
         def getAllObjectInfos(self, expr, context=None):
+            """
+             Get the object info of all the registered objects whose stringified identities match the given expression.
+            Arguments:
+            expr -- The expression to match against the stringified identities of registered objects. The expression may contain a trailing wildcard (*) character.
+            context -- The request context for the invocation.
+            Returns: All the object infos with a stringified identity matching the given expression.
+            """
             return _M_IceGrid.Admin._op_getAllObjectInfos.invoke(self, ((expr, ), context))
 
-        """
-         Get the object info of all the registered objects whose stringified identities match the given expression.
-        Arguments:
-        expr -- The expression to match against the stringified identities of registered objects. The expression may contain a trailing wildcard (*) character.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getAllObjectInfosAsync(self, expr, context=None):
+            """
+             Get the object info of all the registered objects whose stringified identities match the given expression.
+            Arguments:
+            expr -- The expression to match against the stringified identities of registered objects. The expression may contain a trailing wildcard (*) character.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_getAllObjectInfos.invokeAsync(self, ((expr, ), context))
 
-        """
-         Ping an IceGrid node to see if it is active.
-        Arguments:
-        name -- The node name.
-        context -- The request context for the invocation.
-        Returns: true if the node ping succeeded, false otherwise.
-        Throws:
-        NodeNotExistException -- Raised if the node doesn't exist.
-        """
         def pingNode(self, name, context=None):
+            """
+             Ping an IceGrid node to see if it is active.
+            Arguments:
+            name -- The node name.
+            context -- The request context for the invocation.
+            Returns: true if the node ping succeeded, false otherwise.
+            Throws:
+            NodeNotExistException -- Raised if the node doesn't exist.
+            """
             return _M_IceGrid.Admin._op_pingNode.invoke(self, ((name, ), context))
 
-        """
-         Ping an IceGrid node to see if it is active.
-        Arguments:
-        name -- The node name.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def pingNodeAsync(self, name, context=None):
+            """
+             Ping an IceGrid node to see if it is active.
+            Arguments:
+            name -- The node name.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_pingNode.invokeAsync(self, ((name, ), context))
 
-        """
-         Get the load averages of the node.
-        Arguments:
-        name -- The node name.
-        context -- The request context for the invocation.
-        Returns: The node load information.
-        Throws:
-        NodeNotExistException -- Raised if the node doesn't exist.
-        NodeUnreachableException -- Raised if the node could not be reached.
-        """
         def getNodeLoad(self, name, context=None):
+            """
+             Get the load averages of the node.
+            Arguments:
+            name -- The node name.
+            context -- The request context for the invocation.
+            Returns: The node load information.
+            Throws:
+            NodeNotExistException -- Raised if the node doesn't exist.
+            NodeUnreachableException -- Raised if the node could not be reached.
+            """
             return _M_IceGrid.Admin._op_getNodeLoad.invoke(self, ((name, ), context))
 
-        """
-         Get the load averages of the node.
-        Arguments:
-        name -- The node name.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getNodeLoadAsync(self, name, context=None):
+            """
+             Get the load averages of the node.
+            Arguments:
+            name -- The node name.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_getNodeLoad.invokeAsync(self, ((name, ), context))
 
-        """
-         Get the node information for the node with the given name.
-        Arguments:
-        name -- The node name.
-        context -- The request context for the invocation.
-        Returns: The node information.
-        Throws:
-        NodeNotExistException -- Raised if the node doesn't exist.
-        NodeUnreachableException -- Raised if the node could not be reached.
-        """
         def getNodeInfo(self, name, context=None):
+            """
+             Get the node information for the node with the given name.
+            Arguments:
+            name -- The node name.
+            context -- The request context for the invocation.
+            Returns: The node information.
+            Throws:
+            NodeNotExistException -- Raised if the node doesn't exist.
+            NodeUnreachableException -- Raised if the node could not be reached.
+            """
             return _M_IceGrid.Admin._op_getNodeInfo.invoke(self, ((name, ), context))
 
-        """
-         Get the node information for the node with the given name.
-        Arguments:
-        name -- The node name.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getNodeInfoAsync(self, name, context=None):
+            """
+             Get the node information for the node with the given name.
+            Arguments:
+            name -- The node name.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_getNodeInfo.invokeAsync(self, ((name, ), context))
 
-        """
-         Get a proxy to the IceGrid node's admin object.
-        Arguments:
-        name -- The IceGrid node name
-        context -- The request context for the invocation.
-        Returns: A proxy to the IceGrid node's admin object. The returned proxy is never null.
-        Throws:
-        NodeNotExistException -- Raised if the node doesn't exist.
-        NodeUnreachableException -- Raised if the node could not be reached.
-        """
         def getNodeAdmin(self, name, context=None):
+            """
+             Get a proxy to the IceGrid node's admin object.
+            Arguments:
+            name -- The IceGrid node name
+            context -- The request context for the invocation.
+            Returns: A proxy to the IceGrid node's admin object. The returned proxy is never null.
+            Throws:
+            NodeNotExistException -- Raised if the node doesn't exist.
+            NodeUnreachableException -- Raised if the node could not be reached.
+            """
             return _M_IceGrid.Admin._op_getNodeAdmin.invoke(self, ((name, ), context))
 
-        """
-         Get a proxy to the IceGrid node's admin object.
-        Arguments:
-        name -- The IceGrid node name
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getNodeAdminAsync(self, name, context=None):
+            """
+             Get a proxy to the IceGrid node's admin object.
+            Arguments:
+            name -- The IceGrid node name
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_getNodeAdmin.invokeAsync(self, ((name, ), context))
 
-        """
-         Get the number of physical processor sockets for the machine running the node with the given name.
-         Note that this method will return 1 on operating systems where this can't be automatically determined and
-         where the IceGrid.Node.ProcessorSocketCount property for the node is not set.
-        Arguments:
-        name -- The node name.
-        context -- The request context for the invocation.
-        Returns: The number of processor sockets or 1 if the number of sockets can't determined.
-        Throws:
-        NodeNotExistException -- Raised if the node doesn't exist.
-        NodeUnreachableException -- Raised if the node could not be reached.
-        """
         def getNodeProcessorSocketCount(self, name, context=None):
+            """
+             Get the number of physical processor sockets for the machine running the node with the given name.
+             Note that this method will return 1 on operating systems where this can't be automatically determined and
+             where the IceGrid.Node.ProcessorSocketCount property for the node is not set.
+            Arguments:
+            name -- The node name.
+            context -- The request context for the invocation.
+            Returns: The number of processor sockets or 1 if the number of sockets can't determined.
+            Throws:
+            NodeNotExistException -- Raised if the node doesn't exist.
+            NodeUnreachableException -- Raised if the node could not be reached.
+            """
             return _M_IceGrid.Admin._op_getNodeProcessorSocketCount.invoke(self, ((name, ), context))
 
-        """
-         Get the number of physical processor sockets for the machine running the node with the given name.
-         Note that this method will return 1 on operating systems where this can't be automatically determined and
-         where the IceGrid.Node.ProcessorSocketCount property for the node is not set.
-        Arguments:
-        name -- The node name.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getNodeProcessorSocketCountAsync(self, name, context=None):
+            """
+             Get the number of physical processor sockets for the machine running the node with the given name.
+             Note that this method will return 1 on operating systems where this can't be automatically determined and
+             where the IceGrid.Node.ProcessorSocketCount property for the node is not set.
+            Arguments:
+            name -- The node name.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_getNodeProcessorSocketCount.invokeAsync(self, ((name, ), context))
 
-        """
-         Shutdown an IceGrid node.
-        Arguments:
-        name -- The node name.
-        context -- The request context for the invocation.
-        Throws:
-        NodeNotExistException -- Raised if the node doesn't exist.
-        NodeUnreachableException -- Raised if the node could not be reached.
-        """
         def shutdownNode(self, name, context=None):
+            """
+             Shutdown an IceGrid node.
+            Arguments:
+            name -- The node name.
+            context -- The request context for the invocation.
+            Throws:
+            NodeNotExistException -- Raised if the node doesn't exist.
+            NodeUnreachableException -- Raised if the node could not be reached.
+            """
             return _M_IceGrid.Admin._op_shutdownNode.invoke(self, ((name, ), context))
 
-        """
-         Shutdown an IceGrid node.
-        Arguments:
-        name -- The node name.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def shutdownNodeAsync(self, name, context=None):
+            """
+             Shutdown an IceGrid node.
+            Arguments:
+            name -- The node name.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_shutdownNode.invokeAsync(self, ((name, ), context))
 
-        """
-         Get the hostname of this node.
-        Arguments:
-        name -- The node name.
-        context -- The request context for the invocation.
-        Returns: The node hostname.
-        Throws:
-        NodeNotExistException -- Raised if the node doesn't exist.
-        NodeUnreachableException -- Raised if the node could not be reached.
-        """
         def getNodeHostname(self, name, context=None):
+            """
+             Get the hostname of this node.
+            Arguments:
+            name -- The node name.
+            context -- The request context for the invocation.
+            Returns: The node hostname.
+            Throws:
+            NodeNotExistException -- Raised if the node doesn't exist.
+            NodeUnreachableException -- Raised if the node could not be reached.
+            """
             return _M_IceGrid.Admin._op_getNodeHostname.invoke(self, ((name, ), context))
 
-        """
-         Get the hostname of this node.
-        Arguments:
-        name -- The node name.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getNodeHostnameAsync(self, name, context=None):
+            """
+             Get the hostname of this node.
+            Arguments:
+            name -- The node name.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_getNodeHostname.invokeAsync(self, ((name, ), context))
 
-        """
-         Get all the IceGrid nodes currently registered.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: The node names.
-        """
         def getAllNodeNames(self, context=None):
+            """
+             Get all the IceGrid nodes currently registered.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: The node names.
+            """
             return _M_IceGrid.Admin._op_getAllNodeNames.invoke(self, ((), context))
 
-        """
-         Get all the IceGrid nodes currently registered.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getAllNodeNamesAsync(self, context=None):
+            """
+             Get all the IceGrid nodes currently registered.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_getAllNodeNames.invokeAsync(self, ((), context))
 
-        """
-         Ping an IceGrid registry to see if it is active.
-        Arguments:
-        name -- The registry name.
-        context -- The request context for the invocation.
-        Returns: true if the registry ping succeeded, false otherwise.
-        Throws:
-        RegistryNotExistException -- Raised if the registry doesn't exist.
-        """
         def pingRegistry(self, name, context=None):
+            """
+             Ping an IceGrid registry to see if it is active.
+            Arguments:
+            name -- The registry name.
+            context -- The request context for the invocation.
+            Returns: true if the registry ping succeeded, false otherwise.
+            Throws:
+            RegistryNotExistException -- Raised if the registry doesn't exist.
+            """
             return _M_IceGrid.Admin._op_pingRegistry.invoke(self, ((name, ), context))
 
-        """
-         Ping an IceGrid registry to see if it is active.
-        Arguments:
-        name -- The registry name.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def pingRegistryAsync(self, name, context=None):
+            """
+             Ping an IceGrid registry to see if it is active.
+            Arguments:
+            name -- The registry name.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_pingRegistry.invokeAsync(self, ((name, ), context))
 
-        """
-         Get the registry information for the registry with the given name.
-        Arguments:
-        name -- The registry name.
-        context -- The request context for the invocation.
-        Returns: The registry information.
-        Throws:
-        RegistryNotExistException -- Raised if the registry doesn't exist.
-        RegistryUnreachableException -- Raised if the registry could not be reached.
-        """
         def getRegistryInfo(self, name, context=None):
+            """
+             Get the registry information for the registry with the given name.
+            Arguments:
+            name -- The registry name.
+            context -- The request context for the invocation.
+            Returns: The registry information.
+            Throws:
+            RegistryNotExistException -- Raised if the registry doesn't exist.
+            RegistryUnreachableException -- Raised if the registry could not be reached.
+            """
             return _M_IceGrid.Admin._op_getRegistryInfo.invoke(self, ((name, ), context))
 
-        """
-         Get the registry information for the registry with the given name.
-        Arguments:
-        name -- The registry name.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getRegistryInfoAsync(self, name, context=None):
+            """
+             Get the registry information for the registry with the given name.
+            Arguments:
+            name -- The registry name.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_getRegistryInfo.invokeAsync(self, ((name, ), context))
 
-        """
-         Get a proxy to the IceGrid registry's admin object.
-        Arguments:
-        name -- The registry name
-        context -- The request context for the invocation.
-        Returns: A proxy to the IceGrid registry's admin object. The returned proxy is never null.
-        Throws:
-        RegistryNotExistException -- Raised if the registry doesn't exist.
-        """
         def getRegistryAdmin(self, name, context=None):
+            """
+             Get a proxy to the IceGrid registry's admin object.
+            Arguments:
+            name -- The registry name
+            context -- The request context for the invocation.
+            Returns: A proxy to the IceGrid registry's admin object. The returned proxy is never null.
+            Throws:
+            RegistryNotExistException -- Raised if the registry doesn't exist.
+            """
             return _M_IceGrid.Admin._op_getRegistryAdmin.invoke(self, ((name, ), context))
 
-        """
-         Get a proxy to the IceGrid registry's admin object.
-        Arguments:
-        name -- The registry name
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getRegistryAdminAsync(self, name, context=None):
+            """
+             Get a proxy to the IceGrid registry's admin object.
+            Arguments:
+            name -- The registry name
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_getRegistryAdmin.invokeAsync(self, ((name, ), context))
 
-        """
-         Shutdown an IceGrid registry.
-        Arguments:
-        name -- The registry name.
-        context -- The request context for the invocation.
-        Throws:
-        RegistryNotExistException -- Raised if the registry doesn't exist.
-        RegistryUnreachableException -- Raised if the registry could not be reached.
-        """
         def shutdownRegistry(self, name, context=None):
+            """
+             Shutdown an IceGrid registry.
+            Arguments:
+            name -- The registry name.
+            context -- The request context for the invocation.
+            Throws:
+            RegistryNotExistException -- Raised if the registry doesn't exist.
+            RegistryUnreachableException -- Raised if the registry could not be reached.
+            """
             return _M_IceGrid.Admin._op_shutdownRegistry.invoke(self, ((name, ), context))
 
-        """
-         Shutdown an IceGrid registry.
-        Arguments:
-        name -- The registry name.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def shutdownRegistryAsync(self, name, context=None):
+            """
+             Shutdown an IceGrid registry.
+            Arguments:
+            name -- The registry name.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_shutdownRegistry.invokeAsync(self, ((name, ), context))
 
-        """
-         Get all the IceGrid registries currently registered.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: The registry names.
-        """
         def getAllRegistryNames(self, context=None):
+            """
+             Get all the IceGrid registries currently registered.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: The registry names.
+            """
             return _M_IceGrid.Admin._op_getAllRegistryNames.invoke(self, ((), context))
 
-        """
-         Get all the IceGrid registries currently registered.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getAllRegistryNamesAsync(self, context=None):
+            """
+             Get all the IceGrid registries currently registered.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_getAllRegistryNames.invokeAsync(self, ((), context))
 
-        """
-         Shut down the IceGrid registry.
-        Arguments:
-        context -- The request context for the invocation.
-        """
         def shutdown(self, context=None):
+            """
+             Shut down the IceGrid registry.
+            Arguments:
+            context -- The request context for the invocation.
+            """
             return _M_IceGrid.Admin._op_shutdown.invoke(self, ((), context))
 
-        """
-         Shut down the IceGrid registry.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def shutdownAsync(self, context=None):
+            """
+             Shut down the IceGrid registry.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Admin._op_shutdown.invokeAsync(self, ((), context))
 
         @staticmethod
@@ -2397,45 +2397,45 @@ if 'FileIteratorPrx' not in _M_IceGrid.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Read lines from the log file.
-        Arguments:
-        size -- Specifies the maximum number of bytes to be received. The server will ensure that the returned message doesn't exceed the given size.
-        context -- The request context for the invocation.
-        Returns a tuple containing the following:
-        _retval -- True if EOF is encountered.
-        lines -- The lines read from the file. If there was nothing to read from the file since the last call to read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n' should be added when writing the last line to the to the output device).
-        Throws:
-        FileNotAvailableException -- Raised if there was a problem to read lines from the file.
-        """
         def read(self, size, context=None):
+            """
+             Read lines from the log file.
+            Arguments:
+            size -- Specifies the maximum number of bytes to be received. The server will ensure that the returned message doesn't exceed the given size.
+            context -- The request context for the invocation.
+            Returns a tuple containing the following:
+            _retval -- True if EOF is encountered.
+            lines -- The lines read from the file. If there was nothing to read from the file since the last call to read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n' should be added when writing the last line to the to the output device).
+            Throws:
+            FileNotAvailableException -- Raised if there was a problem to read lines from the file.
+            """
             return _M_IceGrid.FileIterator._op_read.invoke(self, ((size, ), context))
 
-        """
-         Read lines from the log file.
-        Arguments:
-        size -- Specifies the maximum number of bytes to be received. The server will ensure that the returned message doesn't exceed the given size.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def readAsync(self, size, context=None):
+            """
+             Read lines from the log file.
+            Arguments:
+            size -- Specifies the maximum number of bytes to be received. The server will ensure that the returned message doesn't exceed the given size.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.FileIterator._op_read.invokeAsync(self, ((size, ), context))
 
-        """
-         Destroy the iterator.
-        Arguments:
-        context -- The request context for the invocation.
-        """
         def destroy(self, context=None):
+            """
+             Destroy the iterator.
+            Arguments:
+            context -- The request context for the invocation.
+            """
             return _M_IceGrid.FileIterator._op_destroy.invoke(self, ((), context))
 
-        """
-         Destroy the iterator.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def destroyAsync(self, context=None):
+            """
+             Destroy the iterator.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.FileIterator._op_destroy.invokeAsync(self, ((), context))
 
         @staticmethod
@@ -2739,63 +2739,63 @@ if 'RegistryObserverPrx' not in _M_IceGrid.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         The registryInit operation is called after registration of an observer to indicate the state of
-         the registries.
-        Arguments:
-        registries -- The current state of the registries.
-        context -- The request context for the invocation.
-        """
         def registryInit(self, registries, context=None):
+            """
+             The registryInit operation is called after registration of an observer to indicate the state of
+             the registries.
+            Arguments:
+            registries -- The current state of the registries.
+            context -- The request context for the invocation.
+            """
             return _M_IceGrid.RegistryObserver._op_registryInit.invoke(self, ((registries, ), context))
 
-        """
-         The registryInit operation is called after registration of an observer to indicate the state of
-         the registries.
-        Arguments:
-        registries -- The current state of the registries.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def registryInitAsync(self, registries, context=None):
+            """
+             The registryInit operation is called after registration of an observer to indicate the state of
+             the registries.
+            Arguments:
+            registries -- The current state of the registries.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.RegistryObserver._op_registryInit.invokeAsync(self, ((registries, ), context))
 
-        """
-         The registryUp operation is called to notify an observer that a registry replica came up.
-        Arguments:
-        registryReplica -- The registry state.
-        context -- The request context for the invocation.
-        """
         def registryUp(self, registryReplica, context=None):
+            """
+             The registryUp operation is called to notify an observer that a registry replica came up.
+            Arguments:
+            registryReplica -- The registry state.
+            context -- The request context for the invocation.
+            """
             return _M_IceGrid.RegistryObserver._op_registryUp.invoke(self, ((registryReplica, ), context))
 
-        """
-         The registryUp operation is called to notify an observer that a registry replica came up.
-        Arguments:
-        registryReplica -- The registry state.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def registryUpAsync(self, registryReplica, context=None):
+            """
+             The registryUp operation is called to notify an observer that a registry replica came up.
+            Arguments:
+            registryReplica -- The registry state.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.RegistryObserver._op_registryUp.invokeAsync(self, ((registryReplica, ), context))
 
-        """
-         The registryDown operation is called to notify an observer that a registry replica went down.
-        Arguments:
-        name -- The registry name.
-        context -- The request context for the invocation.
-        """
         def registryDown(self, name, context=None):
+            """
+             The registryDown operation is called to notify an observer that a registry replica went down.
+            Arguments:
+            name -- The registry name.
+            context -- The request context for the invocation.
+            """
             return _M_IceGrid.RegistryObserver._op_registryDown.invoke(self, ((name, ), context))
 
-        """
-         The registryDown operation is called to notify an observer that a registry replica went down.
-        Arguments:
-        name -- The registry name.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def registryDownAsync(self, name, context=None):
+            """
+             The registryDown operation is called to notify an observer that a registry replica went down.
+            Arguments:
+            name -- The registry name.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.RegistryObserver._op_registryDown.invokeAsync(self, ((name, ), context))
 
         @staticmethod
@@ -2898,107 +2898,107 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         The nodeInit operation indicates the current state of nodes. It is called after the
-         registration of an observer.
-        Arguments:
-        nodes -- The current state of the nodes.
-        context -- The request context for the invocation.
-        """
         def nodeInit(self, nodes, context=None):
+            """
+             The nodeInit operation indicates the current state of nodes. It is called after the
+             registration of an observer.
+            Arguments:
+            nodes -- The current state of the nodes.
+            context -- The request context for the invocation.
+            """
             return _M_IceGrid.NodeObserver._op_nodeInit.invoke(self, ((nodes, ), context))
 
-        """
-         The nodeInit operation indicates the current state of nodes. It is called after the
-         registration of an observer.
-        Arguments:
-        nodes -- The current state of the nodes.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def nodeInitAsync(self, nodes, context=None):
+            """
+             The nodeInit operation indicates the current state of nodes. It is called after the
+             registration of an observer.
+            Arguments:
+            nodes -- The current state of the nodes.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.NodeObserver._op_nodeInit.invokeAsync(self, ((nodes, ), context))
 
-        """
-         The nodeUp operation is called to notify an observer that a node came up.
-        Arguments:
-        node -- The node state.
-        context -- The request context for the invocation.
-        """
         def nodeUp(self, node, context=None):
+            """
+             The nodeUp operation is called to notify an observer that a node came up.
+            Arguments:
+            node -- The node state.
+            context -- The request context for the invocation.
+            """
             return _M_IceGrid.NodeObserver._op_nodeUp.invoke(self, ((node, ), context))
 
-        """
-         The nodeUp operation is called to notify an observer that a node came up.
-        Arguments:
-        node -- The node state.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def nodeUpAsync(self, node, context=None):
+            """
+             The nodeUp operation is called to notify an observer that a node came up.
+            Arguments:
+            node -- The node state.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.NodeObserver._op_nodeUp.invokeAsync(self, ((node, ), context))
 
-        """
-         The nodeDown operation is called to notify an observer that a node went down.
-        Arguments:
-        name -- The node name.
-        context -- The request context for the invocation.
-        """
         def nodeDown(self, name, context=None):
+            """
+             The nodeDown operation is called to notify an observer that a node went down.
+            Arguments:
+            name -- The node name.
+            context -- The request context for the invocation.
+            """
             return _M_IceGrid.NodeObserver._op_nodeDown.invoke(self, ((name, ), context))
 
-        """
-         The nodeDown operation is called to notify an observer that a node went down.
-        Arguments:
-        name -- The node name.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def nodeDownAsync(self, name, context=None):
+            """
+             The nodeDown operation is called to notify an observer that a node went down.
+            Arguments:
+            name -- The node name.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.NodeObserver._op_nodeDown.invokeAsync(self, ((name, ), context))
 
-        """
-         The updateServer operation is called to notify an observer that the state of a server changed.
-        Arguments:
-        node -- The node hosting the server.
-        updatedInfo -- The new server state.
-        context -- The request context for the invocation.
-        """
         def updateServer(self, node, updatedInfo, context=None):
+            """
+             The updateServer operation is called to notify an observer that the state of a server changed.
+            Arguments:
+            node -- The node hosting the server.
+            updatedInfo -- The new server state.
+            context -- The request context for the invocation.
+            """
             return _M_IceGrid.NodeObserver._op_updateServer.invoke(self, ((node, updatedInfo), context))
 
-        """
-         The updateServer operation is called to notify an observer that the state of a server changed.
-        Arguments:
-        node -- The node hosting the server.
-        updatedInfo -- The new server state.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def updateServerAsync(self, node, updatedInfo, context=None):
+            """
+             The updateServer operation is called to notify an observer that the state of a server changed.
+            Arguments:
+            node -- The node hosting the server.
+            updatedInfo -- The new server state.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.NodeObserver._op_updateServer.invokeAsync(self, ((node, updatedInfo), context))
 
-        """
-         The updateAdapter operation is called to notify an observer that the state of an adapter
-         changed.
-        Arguments:
-        node -- The node hosting the adapter.
-        updatedInfo -- The new adapter state.
-        context -- The request context for the invocation.
-        """
         def updateAdapter(self, node, updatedInfo, context=None):
+            """
+             The updateAdapter operation is called to notify an observer that the state of an adapter
+             changed.
+            Arguments:
+            node -- The node hosting the adapter.
+            updatedInfo -- The new adapter state.
+            context -- The request context for the invocation.
+            """
             return _M_IceGrid.NodeObserver._op_updateAdapter.invoke(self, ((node, updatedInfo), context))
 
-        """
-         The updateAdapter operation is called to notify an observer that the state of an adapter
-         changed.
-        Arguments:
-        node -- The node hosting the adapter.
-        updatedInfo -- The new adapter state.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def updateAdapterAsync(self, node, updatedInfo, context=None):
+            """
+             The updateAdapter operation is called to notify an observer that the state of an adapter
+             changed.
+            Arguments:
+            node -- The node hosting the adapter.
+            updatedInfo -- The new adapter state.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.NodeObserver._op_updateAdapter.invokeAsync(self, ((node, updatedInfo), context))
 
         @staticmethod
@@ -3123,94 +3123,94 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         applicationInit is called after the registration of an observer to indicate the state of the
-         registry.
-        Arguments:
-        serial -- The current serial number of the registry database. This serial number allows observers to make sure that their internal state is synchronized with the registry.
-        applications -- The applications currently registered with the registry.
-        context -- The request context for the invocation.
-        """
         def applicationInit(self, serial, applications, context=None):
+            """
+             applicationInit is called after the registration of an observer to indicate the state of the
+             registry.
+            Arguments:
+            serial -- The current serial number of the registry database. This serial number allows observers to make sure that their internal state is synchronized with the registry.
+            applications -- The applications currently registered with the registry.
+            context -- The request context for the invocation.
+            """
             return _M_IceGrid.ApplicationObserver._op_applicationInit.invoke(self, ((serial, applications), context))
 
-        """
-         applicationInit is called after the registration of an observer to indicate the state of the
-         registry.
-        Arguments:
-        serial -- The current serial number of the registry database. This serial number allows observers to make sure that their internal state is synchronized with the registry.
-        applications -- The applications currently registered with the registry.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def applicationInitAsync(self, serial, applications, context=None):
+            """
+             applicationInit is called after the registration of an observer to indicate the state of the
+             registry.
+            Arguments:
+            serial -- The current serial number of the registry database. This serial number allows observers to make sure that their internal state is synchronized with the registry.
+            applications -- The applications currently registered with the registry.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.ApplicationObserver._op_applicationInit.invokeAsync(self, ((serial, applications), context))
 
-        """
-         The applicationAdded operation is called to notify an observer that an application was added.
-        Arguments:
-        serial -- The new serial number of the registry database.
-        desc -- The descriptor of the new application.
-        context -- The request context for the invocation.
-        """
         def applicationAdded(self, serial, desc, context=None):
+            """
+             The applicationAdded operation is called to notify an observer that an application was added.
+            Arguments:
+            serial -- The new serial number of the registry database.
+            desc -- The descriptor of the new application.
+            context -- The request context for the invocation.
+            """
             return _M_IceGrid.ApplicationObserver._op_applicationAdded.invoke(self, ((serial, desc), context))
 
-        """
-         The applicationAdded operation is called to notify an observer that an application was added.
-        Arguments:
-        serial -- The new serial number of the registry database.
-        desc -- The descriptor of the new application.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def applicationAddedAsync(self, serial, desc, context=None):
+            """
+             The applicationAdded operation is called to notify an observer that an application was added.
+            Arguments:
+            serial -- The new serial number of the registry database.
+            desc -- The descriptor of the new application.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.ApplicationObserver._op_applicationAdded.invokeAsync(self, ((serial, desc), context))
 
-        """
-         The applicationRemoved operation is called to notify an observer that an application was
-         removed.
-        Arguments:
-        serial -- The new serial number of the registry database.
-        name -- The name of the application that was removed.
-        context -- The request context for the invocation.
-        """
         def applicationRemoved(self, serial, name, context=None):
+            """
+             The applicationRemoved operation is called to notify an observer that an application was
+             removed.
+            Arguments:
+            serial -- The new serial number of the registry database.
+            name -- The name of the application that was removed.
+            context -- The request context for the invocation.
+            """
             return _M_IceGrid.ApplicationObserver._op_applicationRemoved.invoke(self, ((serial, name), context))
 
-        """
-         The applicationRemoved operation is called to notify an observer that an application was
-         removed.
-        Arguments:
-        serial -- The new serial number of the registry database.
-        name -- The name of the application that was removed.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def applicationRemovedAsync(self, serial, name, context=None):
+            """
+             The applicationRemoved operation is called to notify an observer that an application was
+             removed.
+            Arguments:
+            serial -- The new serial number of the registry database.
+            name -- The name of the application that was removed.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.ApplicationObserver._op_applicationRemoved.invokeAsync(self, ((serial, name), context))
 
-        """
-         The applicationUpdated operation is called to notify an observer that an application was
-         updated.
-        Arguments:
-        serial -- The new serial number of the registry database.
-        desc -- The descriptor of the update.
-        context -- The request context for the invocation.
-        """
         def applicationUpdated(self, serial, desc, context=None):
+            """
+             The applicationUpdated operation is called to notify an observer that an application was
+             updated.
+            Arguments:
+            serial -- The new serial number of the registry database.
+            desc -- The descriptor of the update.
+            context -- The request context for the invocation.
+            """
             return _M_IceGrid.ApplicationObserver._op_applicationUpdated.invoke(self, ((serial, desc), context))
 
-        """
-         The applicationUpdated operation is called to notify an observer that an application was
-         updated.
-        Arguments:
-        serial -- The new serial number of the registry database.
-        desc -- The descriptor of the update.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def applicationUpdatedAsync(self, serial, desc, context=None):
+            """
+             The applicationUpdated operation is called to notify an observer that an application was
+             updated.
+            Arguments:
+            serial -- The new serial number of the registry database.
+            desc -- The descriptor of the update.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.ApplicationObserver._op_applicationUpdated.invokeAsync(self, ((serial, desc), context))
 
         @staticmethod
@@ -3327,86 +3327,86 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         adapterInit is called after registration of an observer to indicate the state of the registry.
-        Arguments:
-        adpts -- The adapters that were dynamically registered with the registry (not through the deployment mechanism).
-        context -- The request context for the invocation.
-        """
         def adapterInit(self, adpts, context=None):
+            """
+             adapterInit is called after registration of an observer to indicate the state of the registry.
+            Arguments:
+            adpts -- The adapters that were dynamically registered with the registry (not through the deployment mechanism).
+            context -- The request context for the invocation.
+            """
             return _M_IceGrid.AdapterObserver._op_adapterInit.invoke(self, ((adpts, ), context))
 
-        """
-         adapterInit is called after registration of an observer to indicate the state of the registry.
-        Arguments:
-        adpts -- The adapters that were dynamically registered with the registry (not through the deployment mechanism).
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def adapterInitAsync(self, adpts, context=None):
+            """
+             adapterInit is called after registration of an observer to indicate the state of the registry.
+            Arguments:
+            adpts -- The adapters that were dynamically registered with the registry (not through the deployment mechanism).
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.AdapterObserver._op_adapterInit.invokeAsync(self, ((adpts, ), context))
 
-        """
-         The adapterAdded operation is called to notify an observer when a dynamically-registered
-         adapter was added.
-        Arguments:
-        info -- The details of the new adapter.
-        context -- The request context for the invocation.
-        """
         def adapterAdded(self, info, context=None):
+            """
+             The adapterAdded operation is called to notify an observer when a dynamically-registered
+             adapter was added.
+            Arguments:
+            info -- The details of the new adapter.
+            context -- The request context for the invocation.
+            """
             return _M_IceGrid.AdapterObserver._op_adapterAdded.invoke(self, ((info, ), context))
 
-        """
-         The adapterAdded operation is called to notify an observer when a dynamically-registered
-         adapter was added.
-        Arguments:
-        info -- The details of the new adapter.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def adapterAddedAsync(self, info, context=None):
+            """
+             The adapterAdded operation is called to notify an observer when a dynamically-registered
+             adapter was added.
+            Arguments:
+            info -- The details of the new adapter.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.AdapterObserver._op_adapterAdded.invokeAsync(self, ((info, ), context))
 
-        """
-         The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
-         updated.
-        Arguments:
-        info -- The details of the updated adapter.
-        context -- The request context for the invocation.
-        """
         def adapterUpdated(self, info, context=None):
+            """
+             The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
+             updated.
+            Arguments:
+            info -- The details of the updated adapter.
+            context -- The request context for the invocation.
+            """
             return _M_IceGrid.AdapterObserver._op_adapterUpdated.invoke(self, ((info, ), context))
 
-        """
-         The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
-         updated.
-        Arguments:
-        info -- The details of the updated adapter.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def adapterUpdatedAsync(self, info, context=None):
+            """
+             The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
+             updated.
+            Arguments:
+            info -- The details of the updated adapter.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.AdapterObserver._op_adapterUpdated.invokeAsync(self, ((info, ), context))
 
-        """
-         The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
-         removed.
-        Arguments:
-        id -- The ID of the removed adapter.
-        context -- The request context for the invocation.
-        """
         def adapterRemoved(self, id, context=None):
+            """
+             The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
+             removed.
+            Arguments:
+            id -- The ID of the removed adapter.
+            context -- The request context for the invocation.
+            """
             return _M_IceGrid.AdapterObserver._op_adapterRemoved.invoke(self, ((id, ), context))
 
-        """
-         The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
-         removed.
-        Arguments:
-        id -- The ID of the removed adapter.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def adapterRemovedAsync(self, id, context=None):
+            """
+             The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
+             removed.
+            Arguments:
+            id -- The ID of the removed adapter.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.AdapterObserver._op_adapterRemoved.invokeAsync(self, ((id, ), context))
 
         @staticmethod
@@ -3519,88 +3519,88 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         objectInit is called after the registration of an observer to indicate the state of the
-         registry.
-        Arguments:
-        objects -- The objects registered with the Admin interface (not through the deployment mechanism).
-        context -- The request context for the invocation.
-        """
         def objectInit(self, objects, context=None):
+            """
+             objectInit is called after the registration of an observer to indicate the state of the
+             registry.
+            Arguments:
+            objects -- The objects registered with the Admin interface (not through the deployment mechanism).
+            context -- The request context for the invocation.
+            """
             return _M_IceGrid.ObjectObserver._op_objectInit.invoke(self, ((objects, ), context))
 
-        """
-         objectInit is called after the registration of an observer to indicate the state of the
-         registry.
-        Arguments:
-        objects -- The objects registered with the Admin interface (not through the deployment mechanism).
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def objectInitAsync(self, objects, context=None):
+            """
+             objectInit is called after the registration of an observer to indicate the state of the
+             registry.
+            Arguments:
+            objects -- The objects registered with the Admin interface (not through the deployment mechanism).
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.ObjectObserver._op_objectInit.invokeAsync(self, ((objects, ), context))
 
-        """
-         The objectAdded operation is called to notify an observer when an object was added to the
-         Admin interface.
-        Arguments:
-        info -- The details of the added object.
-        context -- The request context for the invocation.
-        """
         def objectAdded(self, info, context=None):
+            """
+             The objectAdded operation is called to notify an observer when an object was added to the
+             Admin interface.
+            Arguments:
+            info -- The details of the added object.
+            context -- The request context for the invocation.
+            """
             return _M_IceGrid.ObjectObserver._op_objectAdded.invoke(self, ((info, ), context))
 
-        """
-         The objectAdded operation is called to notify an observer when an object was added to the
-         Admin interface.
-        Arguments:
-        info -- The details of the added object.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def objectAddedAsync(self, info, context=None):
+            """
+             The objectAdded operation is called to notify an observer when an object was added to the
+             Admin interface.
+            Arguments:
+            info -- The details of the added object.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.ObjectObserver._op_objectAdded.invokeAsync(self, ((info, ), context))
 
-        """
-         objectUpdated is called to notify an observer when an object registered with the Admin
-         interface was updated.
-        Arguments:
-        info -- The details of the updated object.
-        context -- The request context for the invocation.
-        """
         def objectUpdated(self, info, context=None):
+            """
+             objectUpdated is called to notify an observer when an object registered with the Admin
+             interface was updated.
+            Arguments:
+            info -- The details of the updated object.
+            context -- The request context for the invocation.
+            """
             return _M_IceGrid.ObjectObserver._op_objectUpdated.invoke(self, ((info, ), context))
 
-        """
-         objectUpdated is called to notify an observer when an object registered with the Admin
-         interface was updated.
-        Arguments:
-        info -- The details of the updated object.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def objectUpdatedAsync(self, info, context=None):
+            """
+             objectUpdated is called to notify an observer when an object registered with the Admin
+             interface was updated.
+            Arguments:
+            info -- The details of the updated object.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.ObjectObserver._op_objectUpdated.invokeAsync(self, ((info, ), context))
 
-        """
-         objectRemoved is called to notify an observer when an object registered with the Admin
-         interface was removed.
-        Arguments:
-        id -- The identity of the removed object.
-        context -- The request context for the invocation.
-        """
         def objectRemoved(self, id, context=None):
+            """
+             objectRemoved is called to notify an observer when an object registered with the Admin
+             interface was removed.
+            Arguments:
+            id -- The identity of the removed object.
+            context -- The request context for the invocation.
+            """
             return _M_IceGrid.ObjectObserver._op_objectRemoved.invoke(self, ((id, ), context))
 
-        """
-         objectRemoved is called to notify an observer when an object registered with the Admin
-         interface was removed.
-        Arguments:
-        id -- The identity of the removed object.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def objectRemovedAsync(self, id, context=None):
+            """
+             objectRemoved is called to notify an observer when an object registered with the Admin
+             interface was removed.
+            Arguments:
+            id -- The identity of the removed object.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.ObjectObserver._op_objectRemoved.invokeAsync(self, ((id, ), context))
 
         @staticmethod
@@ -3714,367 +3714,367 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
-         need to call this operation and its implementation does nothing.
-        Arguments:
-        context -- The request context for the invocation.
-        """
         def keepAlive(self, context=None):
+            """
+             Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
+             need to call this operation and its implementation does nothing.
+            Arguments:
+            context -- The request context for the invocation.
+            """
             return _M_IceGrid.AdminSession._op_keepAlive.invoke(self, ((), context))
 
-        """
-         Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
-         need to call this operation and its implementation does nothing.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def keepAliveAsync(self, context=None):
+            """
+             Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
+             need to call this operation and its implementation does nothing.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.AdminSession._op_keepAlive.invokeAsync(self, ((), context))
 
-        """
-         Get the admin interface. The admin object returned by this operation can only be accessed by the session.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: The admin interface proxy. The returned proxy is never null.
-        """
         def getAdmin(self, context=None):
+            """
+             Get the admin interface. The admin object returned by this operation can only be accessed by the session.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: The admin interface proxy. The returned proxy is never null.
+            """
             return _M_IceGrid.AdminSession._op_getAdmin.invoke(self, ((), context))
 
-        """
-         Get the admin interface. The admin object returned by this operation can only be accessed by the session.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getAdminAsync(self, context=None):
+            """
+             Get the admin interface. The admin object returned by this operation can only be accessed by the session.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.AdminSession._op_getAdmin.invokeAsync(self, ((), context))
 
-        """
-         Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
-         its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
-        """
         def getAdminCallbackTemplate(self, context=None):
+            """
+             Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
+             its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
+            """
             return _M_IceGrid.AdminSession._op_getAdminCallbackTemplate.invoke(self, ((), context))
 
-        """
-         Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
-         its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getAdminCallbackTemplateAsync(self, context=None):
+            """
+             Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
+             its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.AdminSession._op_getAdminCallbackTemplate.invokeAsync(self, ((), context))
 
-        """
-         Set the observer proxies that receive notifications when the state of the registry or nodes changes.
-        Arguments:
-        registryObs -- The registry observer.
-        nodeObs -- The node observer.
-        appObs -- The application observer.
-        adptObs -- The adapter observer.
-        objObs -- The object observer.
-        context -- The request context for the invocation.
-        Throws:
-        ObserverAlreadyRegisteredException -- Raised if an observer is already registered with this registry.
-        """
         def setObservers(self, registryObs, nodeObs, appObs, adptObs, objObs, context=None):
+            """
+             Set the observer proxies that receive notifications when the state of the registry or nodes changes.
+            Arguments:
+            registryObs -- The registry observer.
+            nodeObs -- The node observer.
+            appObs -- The application observer.
+            adptObs -- The adapter observer.
+            objObs -- The object observer.
+            context -- The request context for the invocation.
+            Throws:
+            ObserverAlreadyRegisteredException -- Raised if an observer is already registered with this registry.
+            """
             return _M_IceGrid.AdminSession._op_setObservers.invoke(self, ((registryObs, nodeObs, appObs, adptObs, objObs), context))
 
-        """
-         Set the observer proxies that receive notifications when the state of the registry or nodes changes.
-        Arguments:
-        registryObs -- The registry observer.
-        nodeObs -- The node observer.
-        appObs -- The application observer.
-        adptObs -- The adapter observer.
-        objObs -- The object observer.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def setObserversAsync(self, registryObs, nodeObs, appObs, adptObs, objObs, context=None):
+            """
+             Set the observer proxies that receive notifications when the state of the registry or nodes changes.
+            Arguments:
+            registryObs -- The registry observer.
+            nodeObs -- The node observer.
+            appObs -- The application observer.
+            adptObs -- The adapter observer.
+            objObs -- The object observer.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.AdminSession._op_setObservers.invokeAsync(self, ((registryObs, nodeObs, appObs, adptObs, objObs), context))
 
-        """
-         Set the observer identities that receive notifications the state of the registry or nodes changes. This
-         operation should be used by clients that are using a bidirectional connection to communicate with the
-         session.
-        Arguments:
-        registryObs -- The registry observer identity.
-        nodeObs -- The node observer identity.
-        appObs -- The application observer.
-        adptObs -- The adapter observer.
-        objObs -- The object observer.
-        context -- The request context for the invocation.
-        Throws:
-        ObserverAlreadyRegisteredException -- Raised if an observer is already registered with this registry.
-        """
         def setObserversByIdentity(self, registryObs, nodeObs, appObs, adptObs, objObs, context=None):
+            """
+             Set the observer identities that receive notifications the state of the registry or nodes changes. This
+             operation should be used by clients that are using a bidirectional connection to communicate with the
+             session.
+            Arguments:
+            registryObs -- The registry observer identity.
+            nodeObs -- The node observer identity.
+            appObs -- The application observer.
+            adptObs -- The adapter observer.
+            objObs -- The object observer.
+            context -- The request context for the invocation.
+            Throws:
+            ObserverAlreadyRegisteredException -- Raised if an observer is already registered with this registry.
+            """
             return _M_IceGrid.AdminSession._op_setObserversByIdentity.invoke(self, ((registryObs, nodeObs, appObs, adptObs, objObs), context))
 
-        """
-         Set the observer identities that receive notifications the state of the registry or nodes changes. This
-         operation should be used by clients that are using a bidirectional connection to communicate with the
-         session.
-        Arguments:
-        registryObs -- The registry observer identity.
-        nodeObs -- The node observer identity.
-        appObs -- The application observer.
-        adptObs -- The adapter observer.
-        objObs -- The object observer.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def setObserversByIdentityAsync(self, registryObs, nodeObs, appObs, adptObs, objObs, context=None):
+            """
+             Set the observer identities that receive notifications the state of the registry or nodes changes. This
+             operation should be used by clients that are using a bidirectional connection to communicate with the
+             session.
+            Arguments:
+            registryObs -- The registry observer identity.
+            nodeObs -- The node observer identity.
+            appObs -- The application observer.
+            adptObs -- The adapter observer.
+            objObs -- The object observer.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.AdminSession._op_setObserversByIdentity.invokeAsync(self, ((registryObs, nodeObs, appObs, adptObs, objObs), context))
 
-        """
-         Acquires an exclusive lock to start updating the registry applications.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: The current serial.
-        Throws:
-        AccessDeniedException -- Raised if the exclusive lock can't be acquired. This might happen if the lock is currently acquired by another session.
-        """
         def startUpdate(self, context=None):
+            """
+             Acquires an exclusive lock to start updating the registry applications.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: The current serial.
+            Throws:
+            AccessDeniedException -- Raised if the exclusive lock can't be acquired. This might happen if the lock is currently acquired by another session.
+            """
             return _M_IceGrid.AdminSession._op_startUpdate.invoke(self, ((), context))
 
-        """
-         Acquires an exclusive lock to start updating the registry applications.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def startUpdateAsync(self, context=None):
+            """
+             Acquires an exclusive lock to start updating the registry applications.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.AdminSession._op_startUpdate.invokeAsync(self, ((), context))
 
-        """
-         Finish updating the registry and release the exclusive lock.
-        Arguments:
-        context -- The request context for the invocation.
-        Throws:
-        AccessDeniedException -- Raised if the session doesn't hold the exclusive lock.
-        """
         def finishUpdate(self, context=None):
+            """
+             Finish updating the registry and release the exclusive lock.
+            Arguments:
+            context -- The request context for the invocation.
+            Throws:
+            AccessDeniedException -- Raised if the session doesn't hold the exclusive lock.
+            """
             return _M_IceGrid.AdminSession._op_finishUpdate.invoke(self, ((), context))
 
-        """
-         Finish updating the registry and release the exclusive lock.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def finishUpdateAsync(self, context=None):
+            """
+             Finish updating the registry and release the exclusive lock.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.AdminSession._op_finishUpdate.invokeAsync(self, ((), context))
 
-        """
-         Get the name of the registry replica hosting this session.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: The replica name of the registry.
-        """
         def getReplicaName(self, context=None):
+            """
+             Get the name of the registry replica hosting this session.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: The replica name of the registry.
+            """
             return _M_IceGrid.AdminSession._op_getReplicaName.invoke(self, ((), context))
 
-        """
-         Get the name of the registry replica hosting this session.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getReplicaNameAsync(self, context=None):
+            """
+             Get the name of the registry replica hosting this session.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.AdminSession._op_getReplicaName.invokeAsync(self, ((), context))
 
-        """
-         Open the given server log file for reading. The file can be read with the returned file iterator.
-        Arguments:
-        id -- The server id.
-        path -- The path of the log file. A log file can be opened only if it's declared in the server or service deployment descriptor.
-        count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
-        context -- The request context for the invocation.
-        Returns: An iterator to read the file. The returned proxy is never null.
-        Throws:
-        DeploymentException -- Raised if the server couldn't be deployed on the node.
-        FileNotAvailableException -- Raised if the file can't be read.
-        NodeUnreachableException -- Raised if the node could not be reached.
-        ServerNotExistException -- Raised if the server doesn't exist.
-        """
         def openServerLog(self, id, path, count, context=None):
+            """
+             Open the given server log file for reading. The file can be read with the returned file iterator.
+            Arguments:
+            id -- The server id.
+            path -- The path of the log file. A log file can be opened only if it's declared in the server or service deployment descriptor.
+            count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+            context -- The request context for the invocation.
+            Returns: An iterator to read the file. The returned proxy is never null.
+            Throws:
+            DeploymentException -- Raised if the server couldn't be deployed on the node.
+            FileNotAvailableException -- Raised if the file can't be read.
+            NodeUnreachableException -- Raised if the node could not be reached.
+            ServerNotExistException -- Raised if the server doesn't exist.
+            """
             return _M_IceGrid.AdminSession._op_openServerLog.invoke(self, ((id, path, count), context))
 
-        """
-         Open the given server log file for reading. The file can be read with the returned file iterator.
-        Arguments:
-        id -- The server id.
-        path -- The path of the log file. A log file can be opened only if it's declared in the server or service deployment descriptor.
-        count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def openServerLogAsync(self, id, path, count, context=None):
+            """
+             Open the given server log file for reading. The file can be read with the returned file iterator.
+            Arguments:
+            id -- The server id.
+            path -- The path of the log file. A log file can be opened only if it's declared in the server or service deployment descriptor.
+            count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.AdminSession._op_openServerLog.invokeAsync(self, ((id, path, count), context))
 
-        """
-         Open the given server stderr file for reading. The file can be read with the returned file iterator.
-        Arguments:
-        id -- The server id.
-        count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
-        context -- The request context for the invocation.
-        Returns: An iterator to read the file. The returned proxy is never null.
-        Throws:
-        DeploymentException -- Raised if the server couldn't be deployed on the node.
-        FileNotAvailableException -- Raised if the file can't be read.
-        NodeUnreachableException -- Raised if the node could not be reached.
-        ServerNotExistException -- Raised if the server doesn't exist.
-        """
         def openServerStdErr(self, id, count, context=None):
+            """
+             Open the given server stderr file for reading. The file can be read with the returned file iterator.
+            Arguments:
+            id -- The server id.
+            count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+            context -- The request context for the invocation.
+            Returns: An iterator to read the file. The returned proxy is never null.
+            Throws:
+            DeploymentException -- Raised if the server couldn't be deployed on the node.
+            FileNotAvailableException -- Raised if the file can't be read.
+            NodeUnreachableException -- Raised if the node could not be reached.
+            ServerNotExistException -- Raised if the server doesn't exist.
+            """
             return _M_IceGrid.AdminSession._op_openServerStdErr.invoke(self, ((id, count), context))
 
-        """
-         Open the given server stderr file for reading. The file can be read with the returned file iterator.
-        Arguments:
-        id -- The server id.
-        count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def openServerStdErrAsync(self, id, count, context=None):
+            """
+             Open the given server stderr file for reading. The file can be read with the returned file iterator.
+            Arguments:
+            id -- The server id.
+            count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.AdminSession._op_openServerStdErr.invokeAsync(self, ((id, count), context))
 
-        """
-         Open the given server stdout file for reading. The file can be read with the returned file iterator.
-        Arguments:
-        id -- The server id.
-        count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
-        context -- The request context for the invocation.
-        Returns: An iterator to read the file. The returned proxy is never null.
-        Throws:
-        DeploymentException -- Raised if the server couldn't be deployed on the node.
-        FileNotAvailableException -- Raised if the file can't be read.
-        NodeUnreachableException -- Raised if the node could not be reached.
-        ServerNotExistException -- Raised if the server doesn't exist.
-        """
         def openServerStdOut(self, id, count, context=None):
+            """
+             Open the given server stdout file for reading. The file can be read with the returned file iterator.
+            Arguments:
+            id -- The server id.
+            count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+            context -- The request context for the invocation.
+            Returns: An iterator to read the file. The returned proxy is never null.
+            Throws:
+            DeploymentException -- Raised if the server couldn't be deployed on the node.
+            FileNotAvailableException -- Raised if the file can't be read.
+            NodeUnreachableException -- Raised if the node could not be reached.
+            ServerNotExistException -- Raised if the server doesn't exist.
+            """
             return _M_IceGrid.AdminSession._op_openServerStdOut.invoke(self, ((id, count), context))
 
-        """
-         Open the given server stdout file for reading. The file can be read with the returned file iterator.
-        Arguments:
-        id -- The server id.
-        count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def openServerStdOutAsync(self, id, count, context=None):
+            """
+             Open the given server stdout file for reading. The file can be read with the returned file iterator.
+            Arguments:
+            id -- The server id.
+            count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.AdminSession._op_openServerStdOut.invokeAsync(self, ((id, count), context))
 
-        """
-         Open the given node stderr file for reading. The file can be read with the returned file iterator.
-        Arguments:
-        name -- The node name.
-        count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
-        context -- The request context for the invocation.
-        Returns: An iterator to read the file. The returned proxy is never null.
-        Throws:
-        FileNotAvailableException -- Raised if the file can't be read.
-        NodeNotExistException -- Raised if the node doesn't exist.
-        NodeUnreachableException -- Raised if the node could not be reached.
-        """
         def openNodeStdErr(self, name, count, context=None):
+            """
+             Open the given node stderr file for reading. The file can be read with the returned file iterator.
+            Arguments:
+            name -- The node name.
+            count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+            context -- The request context for the invocation.
+            Returns: An iterator to read the file. The returned proxy is never null.
+            Throws:
+            FileNotAvailableException -- Raised if the file can't be read.
+            NodeNotExistException -- Raised if the node doesn't exist.
+            NodeUnreachableException -- Raised if the node could not be reached.
+            """
             return _M_IceGrid.AdminSession._op_openNodeStdErr.invoke(self, ((name, count), context))
 
-        """
-         Open the given node stderr file for reading. The file can be read with the returned file iterator.
-        Arguments:
-        name -- The node name.
-        count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def openNodeStdErrAsync(self, name, count, context=None):
+            """
+             Open the given node stderr file for reading. The file can be read with the returned file iterator.
+            Arguments:
+            name -- The node name.
+            count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.AdminSession._op_openNodeStdErr.invokeAsync(self, ((name, count), context))
 
-        """
-         Open the given node stdout file for reading. The file can be read with the returned file iterator.
-        Arguments:
-        name -- The node name.
-        count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
-        context -- The request context for the invocation.
-        Returns: An iterator to read the file. The returned proxy is never null.
-        Throws:
-        FileNotAvailableException -- Raised if the file can't be read.
-        NodeNotExistException -- Raised if the node doesn't exist.
-        NodeUnreachableException -- Raised if the node could not be reached.
-        """
         def openNodeStdOut(self, name, count, context=None):
+            """
+             Open the given node stdout file for reading. The file can be read with the returned file iterator.
+            Arguments:
+            name -- The node name.
+            count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+            context -- The request context for the invocation.
+            Returns: An iterator to read the file. The returned proxy is never null.
+            Throws:
+            FileNotAvailableException -- Raised if the file can't be read.
+            NodeNotExistException -- Raised if the node doesn't exist.
+            NodeUnreachableException -- Raised if the node could not be reached.
+            """
             return _M_IceGrid.AdminSession._op_openNodeStdOut.invoke(self, ((name, count), context))
 
-        """
-         Open the given node stdout file for reading. The file can be read with the returned file iterator.
-        Arguments:
-        name -- The node name.
-        count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def openNodeStdOutAsync(self, name, count, context=None):
+            """
+             Open the given node stdout file for reading. The file can be read with the returned file iterator.
+            Arguments:
+            name -- The node name.
+            count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.AdminSession._op_openNodeStdOut.invokeAsync(self, ((name, count), context))
 
-        """
-         Open the given registry stderr file for reading. The file can be read with the returned file iterator.
-        Arguments:
-        name -- The registry name.
-        count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
-        context -- The request context for the invocation.
-        Returns: An iterator to read the file. The returned proxy is never null.
-        Throws:
-        FileNotAvailableException -- Raised if the file can't be read.
-        RegistryNotExistException -- Raised if the registry doesn't exist.
-        RegistryUnreachableException -- Raised if the registry could not be reached.
-        """
         def openRegistryStdErr(self, name, count, context=None):
+            """
+             Open the given registry stderr file for reading. The file can be read with the returned file iterator.
+            Arguments:
+            name -- The registry name.
+            count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+            context -- The request context for the invocation.
+            Returns: An iterator to read the file. The returned proxy is never null.
+            Throws:
+            FileNotAvailableException -- Raised if the file can't be read.
+            RegistryNotExistException -- Raised if the registry doesn't exist.
+            RegistryUnreachableException -- Raised if the registry could not be reached.
+            """
             return _M_IceGrid.AdminSession._op_openRegistryStdErr.invoke(self, ((name, count), context))
 
-        """
-         Open the given registry stderr file for reading. The file can be read with the returned file iterator.
-        Arguments:
-        name -- The registry name.
-        count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def openRegistryStdErrAsync(self, name, count, context=None):
+            """
+             Open the given registry stderr file for reading. The file can be read with the returned file iterator.
+            Arguments:
+            name -- The registry name.
+            count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.AdminSession._op_openRegistryStdErr.invokeAsync(self, ((name, count), context))
 
-        """
-         Open the given registry stdout file for reading. The file can be read with the returned file iterator.
-        Arguments:
-        name -- The registry name.
-        count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
-        context -- The request context for the invocation.
-        Returns: An iterator to read the file. The returned proxy is never null.
-        Throws:
-        FileNotAvailableException -- Raised if the file can't be read.
-        RegistryNotExistException -- Raised if the registry doesn't exist.
-        RegistryUnreachableException -- Raised if the registry could not be reached.
-        """
         def openRegistryStdOut(self, name, count, context=None):
+            """
+             Open the given registry stdout file for reading. The file can be read with the returned file iterator.
+            Arguments:
+            name -- The registry name.
+            count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+            context -- The request context for the invocation.
+            Returns: An iterator to read the file. The returned proxy is never null.
+            Throws:
+            FileNotAvailableException -- Raised if the file can't be read.
+            RegistryNotExistException -- Raised if the registry doesn't exist.
+            RegistryUnreachableException -- Raised if the registry could not be reached.
+            """
             return _M_IceGrid.AdminSession._op_openRegistryStdOut.invoke(self, ((name, count), context))
 
-        """
-         Open the given registry stdout file for reading. The file can be read with the returned file iterator.
-        Arguments:
-        name -- The registry name.
-        count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def openRegistryStdOutAsync(self, name, count, context=None):
+            """
+             Open the given registry stdout file for reading. The file can be read with the returned file iterator.
+            Arguments:
+            name -- The registry name.
+            count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.AdminSession._op_openRegistryStdOut.invokeAsync(self, ((name, count), context))
 
         @staticmethod

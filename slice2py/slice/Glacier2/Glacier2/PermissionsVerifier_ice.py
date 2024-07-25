@@ -74,30 +74,30 @@ if 'PermissionsVerifierPrx' not in _M_Glacier2.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Check whether a user has permission to access the router.
-        Arguments:
-        userId -- The user id for which to check permission.
-        password -- The user's password.
-        context -- The request context for the invocation.
-        Returns a tuple containing the following:
-        _retval -- True if access is granted, or false otherwise.
-        reason -- The reason why access was denied.
-        Throws:
-        PermissionDeniedException -- Raised if the user access is denied. This can be raised in place of returning false with a reason set in the reason out parameter.
-        """
         def checkPermissions(self, userId, password, context=None):
+            """
+             Check whether a user has permission to access the router.
+            Arguments:
+            userId -- The user id for which to check permission.
+            password -- The user's password.
+            context -- The request context for the invocation.
+            Returns a tuple containing the following:
+            _retval -- True if access is granted, or false otherwise.
+            reason -- The reason why access was denied.
+            Throws:
+            PermissionDeniedException -- Raised if the user access is denied. This can be raised in place of returning false with a reason set in the reason out parameter.
+            """
             return _M_Glacier2.PermissionsVerifier._op_checkPermissions.invoke(self, ((userId, password), context))
 
-        """
-         Check whether a user has permission to access the router.
-        Arguments:
-        userId -- The user id for which to check permission.
-        password -- The user's password.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def checkPermissionsAsync(self, userId, password, context=None):
+            """
+             Check whether a user has permission to access the router.
+            Arguments:
+            userId -- The user id for which to check permission.
+            password -- The user's password.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Glacier2.PermissionsVerifier._op_checkPermissions.invokeAsync(self, ((userId, password), context))
 
         @staticmethod
@@ -177,28 +177,28 @@ if 'SSLPermissionsVerifierPrx' not in _M_Glacier2.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Check whether a user has permission to access the router.
-        Arguments:
-        info -- The SSL information.
-        context -- The request context for the invocation.
-        Returns a tuple containing the following:
-        _retval -- True if access is granted, or false otherwise.
-        reason -- The reason why access was denied.
-        Throws:
-        PermissionDeniedException -- Raised if the user access is denied. This can be raised in place of returning false with a reason set in the reason out parameter.
-        """
         def authorize(self, info, context=None):
+            """
+             Check whether a user has permission to access the router.
+            Arguments:
+            info -- The SSL information.
+            context -- The request context for the invocation.
+            Returns a tuple containing the following:
+            _retval -- True if access is granted, or false otherwise.
+            reason -- The reason why access was denied.
+            Throws:
+            PermissionDeniedException -- Raised if the user access is denied. This can be raised in place of returning false with a reason set in the reason out parameter.
+            """
             return _M_Glacier2.SSLPermissionsVerifier._op_authorize.invoke(self, ((info, ), context))
 
-        """
-         Check whether a user has permission to access the router.
-        Arguments:
-        info -- The SSL information.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def authorizeAsync(self, info, context=None):
+            """
+             Check whether a user has permission to access the router.
+            Arguments:
+            info -- The SSL information.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Glacier2.SSLPermissionsVerifier._op_authorize.invokeAsync(self, ((info, ), context))
 
         @staticmethod

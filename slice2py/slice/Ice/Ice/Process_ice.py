@@ -44,42 +44,42 @@ if 'ProcessPrx' not in _M_Ice.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Initiate a graceful shut-down.
-        Arguments:
-        context -- The request context for the invocation.
-        """
         def shutdown(self, context=None):
+            """
+             Initiate a graceful shut-down.
+            Arguments:
+            context -- The request context for the invocation.
+            """
             return _M_Ice.Process._op_shutdown.invoke(self, ((), context))
 
-        """
-         Initiate a graceful shut-down.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def shutdownAsync(self, context=None):
+            """
+             Initiate a graceful shut-down.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Ice.Process._op_shutdown.invokeAsync(self, ((), context))
 
-        """
-         Write a message on the process' stdout or stderr.
-        Arguments:
-        message -- The message.
-        fd -- 1 for stdout, 2 for stderr.
-        context -- The request context for the invocation.
-        """
         def writeMessage(self, message, fd, context=None):
+            """
+             Write a message on the process' stdout or stderr.
+            Arguments:
+            message -- The message.
+            fd -- 1 for stdout, 2 for stderr.
+            context -- The request context for the invocation.
+            """
             return _M_Ice.Process._op_writeMessage.invoke(self, ((message, fd), context))
 
-        """
-         Write a message on the process' stdout or stderr.
-        Arguments:
-        message -- The message.
-        fd -- 1 for stdout, 2 for stderr.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def writeMessageAsync(self, message, fd, context=None):
+            """
+             Write a message on the process' stdout or stderr.
+            Arguments:
+            message -- The message.
+            fd -- 1 for stdout, 2 for stderr.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Ice.Process._op_writeMessage.invokeAsync(self, ((message, fd), context))
 
         @staticmethod

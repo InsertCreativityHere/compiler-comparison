@@ -173,144 +173,144 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Get the names of enabled and disabled metrics.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns a tuple containing the following:
-        _retval -- The name of the enabled views.
-        disabledViews -- The names of the disabled views.
-        """
         def getMetricsViewNames(self, context=None):
+            """
+             Get the names of enabled and disabled metrics.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns a tuple containing the following:
+            _retval -- The name of the enabled views.
+            disabledViews -- The names of the disabled views.
+            """
             return _M_IceMX.MetricsAdmin._op_getMetricsViewNames.invoke(self, ((), context))
 
-        """
-         Get the names of enabled and disabled metrics.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getMetricsViewNamesAsync(self, context=None):
+            """
+             Get the names of enabled and disabled metrics.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceMX.MetricsAdmin._op_getMetricsViewNames.invokeAsync(self, ((), context))
 
-        """
-         Enables a metrics view.
-        Arguments:
-        name -- The metrics view name.
-        context -- The request context for the invocation.
-        Throws:
-        UnknownMetricsView -- Raised if the metrics view cannot be found.
-        """
         def enableMetricsView(self, name, context=None):
+            """
+             Enables a metrics view.
+            Arguments:
+            name -- The metrics view name.
+            context -- The request context for the invocation.
+            Throws:
+            UnknownMetricsView -- Raised if the metrics view cannot be found.
+            """
             return _M_IceMX.MetricsAdmin._op_enableMetricsView.invoke(self, ((name, ), context))
 
-        """
-         Enables a metrics view.
-        Arguments:
-        name -- The metrics view name.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def enableMetricsViewAsync(self, name, context=None):
+            """
+             Enables a metrics view.
+            Arguments:
+            name -- The metrics view name.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceMX.MetricsAdmin._op_enableMetricsView.invokeAsync(self, ((name, ), context))
 
-        """
-         Disable a metrics view.
-        Arguments:
-        name -- The metrics view name.
-        context -- The request context for the invocation.
-        Throws:
-        UnknownMetricsView -- Raised if the metrics view cannot be found.
-        """
         def disableMetricsView(self, name, context=None):
+            """
+             Disable a metrics view.
+            Arguments:
+            name -- The metrics view name.
+            context -- The request context for the invocation.
+            Throws:
+            UnknownMetricsView -- Raised if the metrics view cannot be found.
+            """
             return _M_IceMX.MetricsAdmin._op_disableMetricsView.invoke(self, ((name, ), context))
 
-        """
-         Disable a metrics view.
-        Arguments:
-        name -- The metrics view name.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def disableMetricsViewAsync(self, name, context=None):
+            """
+             Disable a metrics view.
+            Arguments:
+            name -- The metrics view name.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceMX.MetricsAdmin._op_disableMetricsView.invokeAsync(self, ((name, ), context))
 
-        """
-         Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
-         metrics class configured with the view. The timestamp allows the client to compute averages which are not
-         dependent of the invocation latency for this operation.
-        Arguments:
-        view -- The name of the metrics view.
-        context -- The request context for the invocation.
-        Returns a tuple containing the following:
-        _retval -- The metrics view data.
-        timestamp -- The local time of the process when the metrics object were retrieved.
-        Throws:
-        UnknownMetricsView -- Raised if the metrics view cannot be found.
-        """
         def getMetricsView(self, view, context=None):
+            """
+             Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+             metrics class configured with the view. The timestamp allows the client to compute averages which are not
+             dependent of the invocation latency for this operation.
+            Arguments:
+            view -- The name of the metrics view.
+            context -- The request context for the invocation.
+            Returns a tuple containing the following:
+            _retval -- The metrics view data.
+            timestamp -- The local time of the process when the metrics object were retrieved.
+            Throws:
+            UnknownMetricsView -- Raised if the metrics view cannot be found.
+            """
             return _M_IceMX.MetricsAdmin._op_getMetricsView.invoke(self, ((view, ), context))
 
-        """
-         Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
-         metrics class configured with the view. The timestamp allows the client to compute averages which are not
-         dependent of the invocation latency for this operation.
-        Arguments:
-        view -- The name of the metrics view.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getMetricsViewAsync(self, view, context=None):
+            """
+             Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+             metrics class configured with the view. The timestamp allows the client to compute averages which are not
+             dependent of the invocation latency for this operation.
+            Arguments:
+            view -- The name of the metrics view.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceMX.MetricsAdmin._op_getMetricsView.invokeAsync(self, ((view, ), context))
 
-        """
-         Get the metrics failures associated with the given view and map.
-        Arguments:
-        view -- The name of the metrics view.
-        map -- The name of the metrics map.
-        context -- The request context for the invocation.
-        Returns: The metrics failures associated with the map.
-        Throws:
-        UnknownMetricsView -- Raised if the metrics view cannot be found.
-        """
         def getMapMetricsFailures(self, view, map, context=None):
+            """
+             Get the metrics failures associated with the given view and map.
+            Arguments:
+            view -- The name of the metrics view.
+            map -- The name of the metrics map.
+            context -- The request context for the invocation.
+            Returns: The metrics failures associated with the map.
+            Throws:
+            UnknownMetricsView -- Raised if the metrics view cannot be found.
+            """
             return _M_IceMX.MetricsAdmin._op_getMapMetricsFailures.invoke(self, ((view, map), context))
 
-        """
-         Get the metrics failures associated with the given view and map.
-        Arguments:
-        view -- The name of the metrics view.
-        map -- The name of the metrics map.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getMapMetricsFailuresAsync(self, view, map, context=None):
+            """
+             Get the metrics failures associated with the given view and map.
+            Arguments:
+            view -- The name of the metrics view.
+            map -- The name of the metrics map.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceMX.MetricsAdmin._op_getMapMetricsFailures.invokeAsync(self, ((view, map), context))
 
-        """
-         Get the metrics failure associated for the given metrics.
-        Arguments:
-        view -- The name of the metrics view.
-        map -- The name of the metrics map.
-        id -- The ID of the metrics.
-        context -- The request context for the invocation.
-        Returns: The metrics failures associated with the metrics.
-        Throws:
-        UnknownMetricsView -- Raised if the metrics view cannot be found.
-        """
         def getMetricsFailures(self, view, map, id, context=None):
+            """
+             Get the metrics failure associated for the given metrics.
+            Arguments:
+            view -- The name of the metrics view.
+            map -- The name of the metrics map.
+            id -- The ID of the metrics.
+            context -- The request context for the invocation.
+            Returns: The metrics failures associated with the metrics.
+            Throws:
+            UnknownMetricsView -- Raised if the metrics view cannot be found.
+            """
             return _M_IceMX.MetricsAdmin._op_getMetricsFailures.invoke(self, ((view, map, id), context))
 
-        """
-         Get the metrics failure associated for the given metrics.
-        Arguments:
-        view -- The name of the metrics view.
-        map -- The name of the metrics map.
-        id -- The ID of the metrics.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getMetricsFailuresAsync(self, view, map, id, context=None):
+            """
+             Get the metrics failure associated for the given metrics.
+            Arguments:
+            view -- The name of the metrics view.
+            map -- The name of the metrics map.
+            id -- The ID of the metrics.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceMX.MetricsAdmin._op_getMetricsFailures.invokeAsync(self, ((view, map, id), context))
 
         @staticmethod

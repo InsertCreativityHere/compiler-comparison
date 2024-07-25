@@ -658,23 +658,23 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def throwPreservedExceptionAsync(self, context=None):
             return _M_Test.TestIntf._op_throwPreservedException.invokeAsync(self, ((), context))
 
-        """
-        Use of forward-declared class to verify that code is generated correctly.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns:
-        f -- 
-        """
         def useForward(self, context=None):
+            """
+            Use of forward-declared class to verify that code is generated correctly.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns:
+            f -- 
+            """
             return _M_Test.TestIntf._op_useForward.invoke(self, ((), context))
 
-        """
-        Use of forward-declared class to verify that code is generated correctly.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def useForwardAsync(self, context=None):
+            """
+            Use of forward-declared class to verify that code is generated correctly.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Test.TestIntf._op_useForward.invokeAsync(self, ((), context))
 
         def shutdown(self, context=None):

@@ -76,21 +76,21 @@ if 'SessionPrx' not in _M_Glacier2.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Destroy the session. This is called automatically when the router is destroyed.
-        Arguments:
-        context -- The request context for the invocation.
-        """
         def destroy(self, context=None):
+            """
+             Destroy the session. This is called automatically when the router is destroyed.
+            Arguments:
+            context -- The request context for the invocation.
+            """
             return _M_Glacier2.Session._op_destroy.invoke(self, ((), context))
 
-        """
-         Destroy the session. This is called automatically when the router is destroyed.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def destroyAsync(self, context=None):
+            """
+             Destroy the session. This is called automatically when the router is destroyed.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Glacier2.Session._op_destroy.invokeAsync(self, ((), context))
 
         @staticmethod
@@ -166,62 +166,62 @@ if 'StringSetPrx' not in _M_Glacier2.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
-         removed.
-        Arguments:
-        additions -- The sequence of strings to be added.
-        context -- The request context for the invocation.
-        """
         def add(self, additions, context=None):
+            """
+             Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+             removed.
+            Arguments:
+            additions -- The sequence of strings to be added.
+            context -- The request context for the invocation.
+            """
             return _M_Glacier2.StringSet._op_add.invoke(self, ((additions, ), context))
 
-        """
-         Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
-         removed.
-        Arguments:
-        additions -- The sequence of strings to be added.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def addAsync(self, additions, context=None):
+            """
+             Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+             removed.
+            Arguments:
+            additions -- The sequence of strings to be added.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Glacier2.StringSet._op_add.invokeAsync(self, ((additions, ), context))
 
-        """
-         Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
-        Arguments:
-        deletions -- The sequence of strings to be removed.
-        context -- The request context for the invocation.
-        """
         def remove(self, deletions, context=None):
+            """
+             Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
+            Arguments:
+            deletions -- The sequence of strings to be removed.
+            context -- The request context for the invocation.
+            """
             return _M_Glacier2.StringSet._op_remove.invoke(self, ((deletions, ), context))
 
-        """
-         Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
-        Arguments:
-        deletions -- The sequence of strings to be removed.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def removeAsync(self, deletions, context=None):
+            """
+             Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
+            Arguments:
+            deletions -- The sequence of strings to be removed.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Glacier2.StringSet._op_remove.invokeAsync(self, ((deletions, ), context))
 
-        """
-         Returns a sequence of strings describing the constraints in this set.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: The sequence of strings for this set.
-        """
         def get(self, context=None):
+            """
+             Returns a sequence of strings describing the constraints in this set.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: The sequence of strings for this set.
+            """
             return _M_Glacier2.StringSet._op_get.invoke(self, ((), context))
 
-        """
-         Returns a sequence of strings describing the constraints in this set.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getAsync(self, context=None):
+            """
+             Returns a sequence of strings describing the constraints in this set.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Glacier2.StringSet._op_get.invokeAsync(self, ((), context))
 
         @staticmethod
@@ -320,64 +320,64 @@ if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
-         implicitly removed.
-        Arguments:
-        additions -- The sequence of Ice identities to be added.
-        context -- The request context for the invocation.
-        """
         def add(self, additions, context=None):
+            """
+             Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+             implicitly removed.
+            Arguments:
+            additions -- The sequence of Ice identities to be added.
+            context -- The request context for the invocation.
+            """
             return _M_Glacier2.IdentitySet._op_add.invoke(self, ((additions, ), context))
 
-        """
-         Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
-         implicitly removed.
-        Arguments:
-        additions -- The sequence of Ice identities to be added.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def addAsync(self, additions, context=None):
+            """
+             Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+             implicitly removed.
+            Arguments:
+            additions -- The sequence of Ice identities to be added.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Glacier2.IdentitySet._op_add.invokeAsync(self, ((additions, ), context))
 
-        """
-         Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
-         found.
-        Arguments:
-        deletions -- The sequence of Ice identities to be removed.
-        context -- The request context for the invocation.
-        """
         def remove(self, deletions, context=None):
+            """
+             Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+             found.
+            Arguments:
+            deletions -- The sequence of Ice identities to be removed.
+            context -- The request context for the invocation.
+            """
             return _M_Glacier2.IdentitySet._op_remove.invoke(self, ((deletions, ), context))
 
-        """
-         Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
-         found.
-        Arguments:
-        deletions -- The sequence of Ice identities to be removed.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def removeAsync(self, deletions, context=None):
+            """
+             Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+             found.
+            Arguments:
+            deletions -- The sequence of Ice identities to be removed.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Glacier2.IdentitySet._op_remove.invokeAsync(self, ((deletions, ), context))
 
-        """
-         Returns a sequence of identities describing the constraints in this set.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: The sequence of Ice identities for this set.
-        """
         def get(self, context=None):
+            """
+             Returns a sequence of identities describing the constraints in this set.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: The sequence of Ice identities for this set.
+            """
             return _M_Glacier2.IdentitySet._op_get.invoke(self, ((), context))
 
-        """
-         Returns a sequence of identities describing the constraints in this set.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getAsync(self, context=None):
+            """
+             Returns a sequence of identities describing the constraints in this set.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Glacier2.IdentitySet._op_get.invokeAsync(self, ((), context))
 
         @staticmethod
@@ -477,93 +477,93 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Access the object that manages the allowable categories for object identities for this session.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A StringSet object. The returned proxy is never null.
-        """
         def categories(self, context=None):
+            """
+             Access the object that manages the allowable categories for object identities for this session.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A StringSet object. The returned proxy is never null.
+            """
             return _M_Glacier2.SessionControl._op_categories.invoke(self, ((), context))
 
-        """
-         Access the object that manages the allowable categories for object identities for this session.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def categoriesAsync(self, context=None):
+            """
+             Access the object that manages the allowable categories for object identities for this session.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Glacier2.SessionControl._op_categories.invokeAsync(self, ((), context))
 
-        """
-         Access the object that manages the allowable adapter identities for objects for this session.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A StringSet object. The returned proxy is never null.
-        """
         def adapterIds(self, context=None):
+            """
+             Access the object that manages the allowable adapter identities for objects for this session.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A StringSet object. The returned proxy is never null.
+            """
             return _M_Glacier2.SessionControl._op_adapterIds.invoke(self, ((), context))
 
-        """
-         Access the object that manages the allowable adapter identities for objects for this session.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def adapterIdsAsync(self, context=None):
+            """
+             Access the object that manages the allowable adapter identities for objects for this session.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Glacier2.SessionControl._op_adapterIds.invokeAsync(self, ((), context))
 
-        """
-         Access the object that manages the allowable object identities for this session.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: An IdentitySet object. The returned proxy is never null.
-        """
         def identities(self, context=None):
+            """
+             Access the object that manages the allowable object identities for this session.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: An IdentitySet object. The returned proxy is never null.
+            """
             return _M_Glacier2.SessionControl._op_identities.invoke(self, ((), context))
 
-        """
-         Access the object that manages the allowable object identities for this session.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def identitiesAsync(self, context=None):
+            """
+             Access the object that manages the allowable object identities for this session.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Glacier2.SessionControl._op_identities.invokeAsync(self, ((), context))
 
-        """
-         Get the session timeout.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: The timeout.
-        """
         def getSessionTimeout(self, context=None):
+            """
+             Get the session timeout.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: The timeout.
+            """
             return _M_Glacier2.SessionControl._op_getSessionTimeout.invoke(self, ((), context))
 
-        """
-         Get the session timeout.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getSessionTimeoutAsync(self, context=None):
+            """
+             Get the session timeout.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Glacier2.SessionControl._op_getSessionTimeout.invokeAsync(self, ((), context))
 
-        """
-         Destroy the associated session.
-        Arguments:
-        context -- The request context for the invocation.
-        """
         def destroy(self, context=None):
+            """
+             Destroy the associated session.
+            Arguments:
+            context -- The request context for the invocation.
+            """
             return _M_Glacier2.SessionControl._op_destroy.invoke(self, ((), context))
 
-        """
-         Destroy the associated session.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def destroyAsync(self, context=None):
+            """
+             Destroy the associated session.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Glacier2.SessionControl._op_destroy.invokeAsync(self, ((), context))
 
         @staticmethod
@@ -679,30 +679,30 @@ if 'SessionManagerPrx' not in _M_Glacier2.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Create a new session. The implementation must return a non-null proxy or raise
-         CannotCreateSessionException if the session cannot be created.
-        Arguments:
-        userId -- The user id for the session.
-        control -- A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints are not configured.
-        context -- The request context for the invocation.
-        Returns: A proxy to the newly created session.
-        Throws:
-        CannotCreateSessionException -- Raised if the session cannot be created.
-        """
         def create(self, userId, control, context=None):
+            """
+             Create a new session. The implementation must return a non-null proxy or raise
+             CannotCreateSessionException if the session cannot be created.
+            Arguments:
+            userId -- The user id for the session.
+            control -- A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints are not configured.
+            context -- The request context for the invocation.
+            Returns: A proxy to the newly created session.
+            Throws:
+            CannotCreateSessionException -- Raised if the session cannot be created.
+            """
             return _M_Glacier2.SessionManager._op_create.invoke(self, ((userId, control), context))
 
-        """
-         Create a new session. The implementation must return a non-null proxy or raise
-         CannotCreateSessionException if the session cannot be created.
-        Arguments:
-        userId -- The user id for the session.
-        control -- A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints are not configured.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def createAsync(self, userId, control, context=None):
+            """
+             Create a new session. The implementation must return a non-null proxy or raise
+             CannotCreateSessionException if the session cannot be created.
+            Arguments:
+            userId -- The user id for the session.
+            control -- A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints are not configured.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Glacier2.SessionManager._op_create.invokeAsync(self, ((userId, control), context))
 
         @staticmethod
@@ -783,28 +783,28 @@ if 'SSLSessionManagerPrx' not in _M_Glacier2.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Create a new session.
-        Arguments:
-        info -- The SSL info.
-        control -- A proxy to the session control object.
-        context -- The request context for the invocation.
-        Returns: A proxy to the newly created session.
-        Throws:
-        CannotCreateSessionException -- Raised if the session cannot be created.
-        """
         def create(self, info, control, context=None):
+            """
+             Create a new session.
+            Arguments:
+            info -- The SSL info.
+            control -- A proxy to the session control object.
+            context -- The request context for the invocation.
+            Returns: A proxy to the newly created session.
+            Throws:
+            CannotCreateSessionException -- Raised if the session cannot be created.
+            """
             return _M_Glacier2.SSLSessionManager._op_create.invoke(self, ((info, control), context))
 
-        """
-         Create a new session.
-        Arguments:
-        info -- The SSL info.
-        control -- A proxy to the session control object.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def createAsync(self, info, control, context=None):
+            """
+             Create a new session.
+            Arguments:
+            info -- The SSL info.
+            control -- A proxy to the session control object.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_Glacier2.SSLSessionManager._op_create.invokeAsync(self, ((info, control), context))
 
         @staticmethod

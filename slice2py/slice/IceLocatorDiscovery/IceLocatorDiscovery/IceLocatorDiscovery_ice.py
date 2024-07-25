@@ -51,23 +51,23 @@ if 'LookupReplyPrx' not in _M_IceLocatorDiscovery.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         This method is called by the implementation of the Lookup interface to reply to a findLocator request.
-        Arguments:
-        prx -- The proxy of the locator.
-        context -- The request context for the invocation.
-        """
         def foundLocator(self, prx, context=None):
+            """
+             This method is called by the implementation of the Lookup interface to reply to a findLocator request.
+            Arguments:
+            prx -- The proxy of the locator.
+            context -- The request context for the invocation.
+            """
             return _M_IceLocatorDiscovery.LookupReply._op_foundLocator.invoke(self, ((prx, ), context))
 
-        """
-         This method is called by the implementation of the Lookup interface to reply to a findLocator request.
-        Arguments:
-        prx -- The proxy of the locator.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def foundLocatorAsync(self, prx, context=None):
+            """
+             This method is called by the implementation of the Lookup interface to reply to a findLocator request.
+            Arguments:
+            prx -- The proxy of the locator.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceLocatorDiscovery.LookupReply._op_foundLocator.invokeAsync(self, ((prx, ), context))
 
         @staticmethod
@@ -144,25 +144,25 @@ if 'LookupPrx' not in _M_IceLocatorDiscovery.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Find a locator proxy with the given instance name.
-        Arguments:
-        instanceName -- Restrict the search to Ice registries configured with the given instance name. If empty, all the available registries will reply.
-        reply -- The reply object to use to send the reply.
-        context -- The request context for the invocation.
-        """
         def findLocator(self, instanceName, reply, context=None):
+            """
+             Find a locator proxy with the given instance name.
+            Arguments:
+            instanceName -- Restrict the search to Ice registries configured with the given instance name. If empty, all the available registries will reply.
+            reply -- The reply object to use to send the reply.
+            context -- The request context for the invocation.
+            """
             return _M_IceLocatorDiscovery.Lookup._op_findLocator.invoke(self, ((instanceName, reply), context))
 
-        """
-         Find a locator proxy with the given instance name.
-        Arguments:
-        instanceName -- Restrict the search to Ice registries configured with the given instance name. If empty, all the available registries will reply.
-        reply -- The reply object to use to send the reply.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def findLocatorAsync(self, instanceName, reply, context=None):
+            """
+             Find a locator proxy with the given instance name.
+            Arguments:
+            instanceName -- Restrict the search to Ice registries configured with the given instance name. If empty, all the available registries will reply.
+            reply -- The reply object to use to send the reply.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceLocatorDiscovery.Lookup._op_findLocator.invokeAsync(self, ((instanceName, reply), context))
 
         @staticmethod

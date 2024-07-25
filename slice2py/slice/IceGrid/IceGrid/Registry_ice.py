@@ -86,114 +86,114 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Find a well-known object by identity.
-        Arguments:
-        id -- The identity.
-        context -- The request context for the invocation.
-        Returns: The proxy or null if no such object has been found.
-        """
         def findObjectById(self, id, context=None):
+            """
+             Find a well-known object by identity.
+            Arguments:
+            id -- The identity.
+            context -- The request context for the invocation.
+            Returns: The proxy or null if no such object has been found.
+            """
             return _M_IceGrid.Query._op_findObjectById.invoke(self, ((id, ), context))
 
-        """
-         Find a well-known object by identity.
-        Arguments:
-        id -- The identity.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def findObjectByIdAsync(self, id, context=None):
+            """
+             Find a well-known object by identity.
+            Arguments:
+            id -- The identity.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Query._op_findObjectById.invokeAsync(self, ((id, ), context))
 
-        """
-         Find a well-known object by type. If there are several objects registered for the given type, the object is
-         randomly selected.
-        Arguments:
-        type -- The object type.
-        context -- The request context for the invocation.
-        Returns: The proxy or null, if no such object has been found.
-        """
         def findObjectByType(self, type, context=None):
+            """
+             Find a well-known object by type. If there are several objects registered for the given type, the object is
+             randomly selected.
+            Arguments:
+            type -- The object type.
+            context -- The request context for the invocation.
+            Returns: The proxy or null, if no such object has been found.
+            """
             return _M_IceGrid.Query._op_findObjectByType.invoke(self, ((type, ), context))
 
-        """
-         Find a well-known object by type. If there are several objects registered for the given type, the object is
-         randomly selected.
-        Arguments:
-        type -- The object type.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def findObjectByTypeAsync(self, type, context=None):
+            """
+             Find a well-known object by type. If there are several objects registered for the given type, the object is
+             randomly selected.
+            Arguments:
+            type -- The object type.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Query._op_findObjectByType.invokeAsync(self, ((type, ), context))
 
-        """
-         Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
-         the object (for example, because the object was registered with a direct proxy), the registry assumes the
-         object is hosted on a node that has a load average of 1.0.
-        Arguments:
-        type -- The object type.
-        sample -- The sampling interval.
-        context -- The request context for the invocation.
-        Returns: The proxy or null, if no such object has been found.
-        """
         def findObjectByTypeOnLeastLoadedNode(self, type, sample, context=None):
+            """
+             Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+             the object (for example, because the object was registered with a direct proxy), the registry assumes the
+             object is hosted on a node that has a load average of 1.0.
+            Arguments:
+            type -- The object type.
+            sample -- The sampling interval.
+            context -- The request context for the invocation.
+            Returns: The proxy or null, if no such object has been found.
+            """
             return _M_IceGrid.Query._op_findObjectByTypeOnLeastLoadedNode.invoke(self, ((type, sample), context))
 
-        """
-         Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
-         the object (for example, because the object was registered with a direct proxy), the registry assumes the
-         object is hosted on a node that has a load average of 1.0.
-        Arguments:
-        type -- The object type.
-        sample -- The sampling interval.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def findObjectByTypeOnLeastLoadedNodeAsync(self, type, sample, context=None):
+            """
+             Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+             the object (for example, because the object was registered with a direct proxy), the registry assumes the
+             object is hosted on a node that has a load average of 1.0.
+            Arguments:
+            type -- The object type.
+            sample -- The sampling interval.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Query._op_findObjectByTypeOnLeastLoadedNode.invokeAsync(self, ((type, sample), context))
 
-        """
-         Find all the well-known objects with the given type.
-        Arguments:
-        type -- The object type.
-        context -- The request context for the invocation.
-        Returns: The proxies or an empty sequence, if no such objects have been found.
-        """
         def findAllObjectsByType(self, type, context=None):
+            """
+             Find all the well-known objects with the given type.
+            Arguments:
+            type -- The object type.
+            context -- The request context for the invocation.
+            Returns: The proxies or an empty sequence, if no such objects have been found.
+            """
             return _M_IceGrid.Query._op_findAllObjectsByType.invoke(self, ((type, ), context))
 
-        """
-         Find all the well-known objects with the given type.
-        Arguments:
-        type -- The object type.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def findAllObjectsByTypeAsync(self, type, context=None):
+            """
+             Find all the well-known objects with the given type.
+            Arguments:
+            type -- The object type.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Query._op_findAllObjectsByType.invokeAsync(self, ((type, ), context))
 
-        """
-         Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
-         from a replica group, an empty sequence is returned.
-        Arguments:
-        proxy -- The object proxy.
-        context -- The request context for the invocation.
-        Returns: The proxies of each object replica or an empty sequence, if the given proxy is not from a replica group.
-        """
         def findAllReplicas(self, proxy, context=None):
+            """
+             Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+             from a replica group, an empty sequence is returned.
+            Arguments:
+            proxy -- The object proxy.
+            context -- The request context for the invocation.
+            Returns: The proxies of each object replica or an empty sequence, if the given proxy is not from a replica group.
+            """
             return _M_IceGrid.Query._op_findAllReplicas.invoke(self, ((proxy, ), context))
 
-        """
-         Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
-         from a replica group, an empty sequence is returned.
-        Arguments:
-        proxy -- The object proxy.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def findAllReplicasAsync(self, proxy, context=None):
+            """
+             Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+             from a replica group, an empty sequence is returned.
+            Arguments:
+            proxy -- The object proxy.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Query._op_findAllReplicas.invokeAsync(self, ((proxy, ), context))
 
         @staticmethod
@@ -319,128 +319,128 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Create a client session.
-        Arguments:
-        userId -- The user id.
-        password -- The password for the given user id.
-        context -- The request context for the invocation.
-        Returns: A proxy for the newly created session. The returned proxy is never null.
-        Throws:
-        PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
-        """
         def createSession(self, userId, password, context=None):
+            """
+             Create a client session.
+            Arguments:
+            userId -- The user id.
+            password -- The password for the given user id.
+            context -- The request context for the invocation.
+            Returns: A proxy for the newly created session. The returned proxy is never null.
+            Throws:
+            PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
+            """
             return _M_IceGrid.Registry._op_createSession.invoke(self, ((userId, password), context))
 
-        """
-         Create a client session.
-        Arguments:
-        userId -- The user id.
-        password -- The password for the given user id.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def createSessionAsync(self, userId, password, context=None):
+            """
+             Create a client session.
+            Arguments:
+            userId -- The user id.
+            password -- The password for the given user id.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Registry._op_createSession.invokeAsync(self, ((userId, password), context))
 
-        """
-         Create an administrative session.
-        Arguments:
-        userId -- The user id.
-        password -- The password for the given user id.
-        context -- The request context for the invocation.
-        Returns: A proxy for the newly created session. The returned proxy is never null.
-        Throws:
-        PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
-        """
         def createAdminSession(self, userId, password, context=None):
+            """
+             Create an administrative session.
+            Arguments:
+            userId -- The user id.
+            password -- The password for the given user id.
+            context -- The request context for the invocation.
+            Returns: A proxy for the newly created session. The returned proxy is never null.
+            Throws:
+            PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
+            """
             return _M_IceGrid.Registry._op_createAdminSession.invoke(self, ((userId, password), context))
 
-        """
-         Create an administrative session.
-        Arguments:
-        userId -- The user id.
-        password -- The password for the given user id.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def createAdminSessionAsync(self, userId, password, context=None):
+            """
+             Create an administrative session.
+            Arguments:
+            userId -- The user id.
+            password -- The password for the given user id.
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Registry._op_createAdminSession.invokeAsync(self, ((userId, password), context))
 
-        """
-         Create a client session from a secure connection.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A proxy for the newly created session. The returned proxy is never null.
-        Throws:
-        PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
-        """
         def createSessionFromSecureConnection(self, context=None):
+            """
+             Create a client session from a secure connection.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A proxy for the newly created session. The returned proxy is never null.
+            Throws:
+            PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
+            """
             return _M_IceGrid.Registry._op_createSessionFromSecureConnection.invoke(self, ((), context))
 
-        """
-         Create a client session from a secure connection.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def createSessionFromSecureConnectionAsync(self, context=None):
+            """
+             Create a client session from a secure connection.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Registry._op_createSessionFromSecureConnection.invokeAsync(self, ((), context))
 
-        """
-         Create an administrative session from a secure connection.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A proxy for the newly created session. The returned proxy is never null.
-        Throws:
-        PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
-        """
         def createAdminSessionFromSecureConnection(self, context=None):
+            """
+             Create an administrative session from a secure connection.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A proxy for the newly created session. The returned proxy is never null.
+            Throws:
+            PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
+            """
             return _M_IceGrid.Registry._op_createAdminSessionFromSecureConnection.invoke(self, ((), context))
 
-        """
-         Create an administrative session from a secure connection.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def createAdminSessionFromSecureConnectionAsync(self, context=None):
+            """
+             Create an administrative session from a secure connection.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Registry._op_createAdminSessionFromSecureConnection.invokeAsync(self, ((), context))
 
-        """
-         Get the idle timeout used by IceGrid for its side of the connection.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: The idle timeout (in seconds).
-        """
         def getSessionTimeout(self, context=None):
+            """
+             Get the idle timeout used by IceGrid for its side of the connection.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: The idle timeout (in seconds).
+            """
             return _M_IceGrid.Registry._op_getSessionTimeout.invoke(self, ((), context))
 
-        """
-         Get the idle timeout used by IceGrid for its side of the connection.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getSessionTimeoutAsync(self, context=None):
+            """
+             Get the idle timeout used by IceGrid for its side of the connection.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Registry._op_getSessionTimeout.invokeAsync(self, ((), context))
 
-        """
-         Get the idle timeout used by IceGrid for its side of the connection.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: The idle timeout (in seconds).
-        """
         def getACMTimeout(self, context=None):
+            """
+             Get the idle timeout used by IceGrid for its side of the connection.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: The idle timeout (in seconds).
+            """
             return _M_IceGrid.Registry._op_getACMTimeout.invoke(self, ((), context))
 
-        """
-         Get the idle timeout used by IceGrid for its side of the connection.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getACMTimeoutAsync(self, context=None):
+            """
+             Get the idle timeout used by IceGrid for its side of the connection.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Registry._op_getACMTimeout.invokeAsync(self, ((), context))
 
         @staticmethod
@@ -578,40 +578,40 @@ if 'LocatorPrx' not in _M_IceGrid.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        """
-         Get the proxy of the registry object hosted by this IceGrid registry.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: The proxy of the registry object. The returned proxy is never null.
-        """
         def getLocalRegistry(self, context=None):
+            """
+             Get the proxy of the registry object hosted by this IceGrid registry.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: The proxy of the registry object. The returned proxy is never null.
+            """
             return _M_IceGrid.Locator._op_getLocalRegistry.invoke(self, ((), context))
 
-        """
-         Get the proxy of the registry object hosted by this IceGrid registry.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getLocalRegistryAsync(self, context=None):
+            """
+             Get the proxy of the registry object hosted by this IceGrid registry.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Locator._op_getLocalRegistry.invokeAsync(self, ((), context))
 
-        """
-         Get the proxy of the query object hosted by this IceGrid registry.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: The proxy of the query object. The returned proxy is never null.
-        """
         def getLocalQuery(self, context=None):
+            """
+             Get the proxy of the query object hosted by this IceGrid registry.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: The proxy of the query object. The returned proxy is never null.
+            """
             return _M_IceGrid.Locator._op_getLocalQuery.invoke(self, ((), context))
 
-        """
-         Get the proxy of the query object hosted by this IceGrid registry.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
         def getLocalQueryAsync(self, context=None):
+            """
+             Get the proxy of the query object hosted by this IceGrid registry.
+            Arguments:
+            context -- The request context for the invocation.
+            Returns: A future object for the invocation.
+            """
             return _M_IceGrid.Locator._op_getLocalQuery.invokeAsync(self, ((), context))
 
         @staticmethod
