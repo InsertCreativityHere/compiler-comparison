@@ -236,7 +236,7 @@ Glacier2::PermissionsVerifier::_iceD_checkPermissions(::Ice::IncomingRequest& re
     istr->readAll(iceP_userId, iceP_password);
     istr->endEncapsulation();
     ::std::string iceP_reason;
-    bool ret = this->checkPermissions(::std::move(iceP_userId), ::std::move(iceP_password), iceP_reason, request.current());
+    const bool ret = this->checkPermissions(::std::move(iceP_userId), ::std::move(iceP_password), iceP_reason, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_reason, ret);
@@ -325,7 +325,7 @@ Glacier2::SSLPermissionsVerifier::_iceD_authorize(::Ice::IncomingRequest& reques
     istr->readAll(iceP_info);
     istr->endEncapsulation();
     ::std::string iceP_reason;
-    bool ret = this->authorize(::std::move(iceP_info), iceP_reason, request.current());
+    const bool ret = this->authorize(::std::move(iceP_info), iceP_reason, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_reason, ret);

@@ -276,7 +276,7 @@ Test::TestIntf::_iceD_opByte(::Ice::IncomingRequest& request, ::std::function<vo
     istr->readAll(iceP_b1);
     istr->endEncapsulation();
     ByteEnum iceP_b2;
-    ByteEnum ret = this->opByte(iceP_b1, iceP_b2, request.current());
+    const ByteEnum ret = this->opByte(iceP_b1, iceP_b2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_b2, ret);
@@ -296,7 +296,7 @@ Test::TestIntf::_iceD_opShort(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     ShortEnum iceP_s2;
-    ShortEnum ret = this->opShort(iceP_s1, iceP_s2, request.current());
+    const ShortEnum ret = this->opShort(iceP_s1, iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);
@@ -316,7 +316,7 @@ Test::TestIntf::_iceD_opInt(::Ice::IncomingRequest& request, ::std::function<voi
     istr->readAll(iceP_i1);
     istr->endEncapsulation();
     IntEnum iceP_i2;
-    IntEnum ret = this->opInt(iceP_i1, iceP_i2, request.current());
+    const IntEnum ret = this->opInt(iceP_i1, iceP_i2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_i2, ret);
@@ -336,7 +336,7 @@ Test::TestIntf::_iceD_opSimple(::Ice::IncomingRequest& request, ::std::function<
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     SimpleEnum iceP_s2;
-    SimpleEnum ret = this->opSimple(iceP_s1, iceP_s2, request.current());
+    const SimpleEnum ret = this->opSimple(iceP_s1, iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);

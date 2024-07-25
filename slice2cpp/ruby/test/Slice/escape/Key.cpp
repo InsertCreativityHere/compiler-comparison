@@ -579,7 +579,7 @@ BEGIN::extend::_iceD_for(::Ice::IncomingRequest& request, ::std::function<void(:
     istr->readAll(iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods);
     istr->readPendingValues();
     istr->endEncapsulation();
-    END ret = this->_cpp_for(::std::move(iceP_freeze), ::std::move(iceP_hash), ::std::move(iceP_if), ::std::move(iceP_inspect), ::std::move(iceP_method), iceP_methods, request.current());
+    const END ret = this->_cpp_for(::std::move(iceP_freeze), ::std::move(iceP_hash), ::std::move(iceP_if), ::std::move(iceP_inspect), ::std::move(iceP_method), iceP_methods, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

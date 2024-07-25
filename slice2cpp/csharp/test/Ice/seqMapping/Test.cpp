@@ -3527,7 +3527,7 @@ Test::MyClass::_iceD_opAByteS(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     AByteS iceP_o;
-    AByteS ret = this->opAByteS(::std::move(iceP_i), iceP_o, request.current());
+    const AByteS ret = this->opAByteS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -3547,7 +3547,7 @@ Test::MyClass::_iceD_opLByteS(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     LByteS iceP_o;
-    LByteS ret = this->opLByteS(::std::move(iceP_i), iceP_o, request.current());
+    const LByteS ret = this->opLByteS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -3567,7 +3567,7 @@ Test::MyClass::_iceD_opKByteS(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     KByteS iceP_o;
-    KByteS ret = this->opKByteS(::std::move(iceP_i), iceP_o, request.current());
+    const KByteS ret = this->opKByteS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -3587,7 +3587,7 @@ Test::MyClass::_iceD_opQByteS(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     QByteS iceP_o;
-    QByteS ret = this->opQByteS(::std::move(iceP_i), iceP_o, request.current());
+    const QByteS ret = this->opQByteS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -3607,7 +3607,7 @@ Test::MyClass::_iceD_opSByteS(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     SByteS iceP_o;
-    SByteS ret = this->opSByteS(::std::move(iceP_i), iceP_o, request.current());
+    const SByteS ret = this->opSByteS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -3627,7 +3627,7 @@ Test::MyClass::_iceD_opABoolS(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     ABoolS iceP_o;
-    ABoolS ret = this->opABoolS(::std::move(iceP_i), iceP_o, request.current());
+    const ABoolS ret = this->opABoolS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -3647,7 +3647,7 @@ Test::MyClass::_iceD_opLBoolS(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     LBoolS iceP_o;
-    LBoolS ret = this->opLBoolS(::std::move(iceP_i), iceP_o, request.current());
+    const LBoolS ret = this->opLBoolS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -3667,7 +3667,7 @@ Test::MyClass::_iceD_opKBoolS(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     KBoolS iceP_o;
-    KBoolS ret = this->opKBoolS(::std::move(iceP_i), iceP_o, request.current());
+    const KBoolS ret = this->opKBoolS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -3687,7 +3687,7 @@ Test::MyClass::_iceD_opQBoolS(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     QBoolS iceP_o;
-    QBoolS ret = this->opQBoolS(::std::move(iceP_i), iceP_o, request.current());
+    const QBoolS ret = this->opQBoolS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -3707,7 +3707,7 @@ Test::MyClass::_iceD_opSBoolS(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     SBoolS iceP_o;
-    SBoolS ret = this->opSBoolS(::std::move(iceP_i), iceP_o, request.current());
+    const SBoolS ret = this->opSBoolS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -3727,7 +3727,7 @@ Test::MyClass::_iceD_opAShortS(::Ice::IncomingRequest& request, ::std::function<
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     AShortS iceP_o;
-    AShortS ret = this->opAShortS(::std::move(iceP_i), iceP_o, request.current());
+    const AShortS ret = this->opAShortS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -3747,7 +3747,7 @@ Test::MyClass::_iceD_opLShortS(::Ice::IncomingRequest& request, ::std::function<
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     LShortS iceP_o;
-    LShortS ret = this->opLShortS(::std::move(iceP_i), iceP_o, request.current());
+    const LShortS ret = this->opLShortS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -3767,7 +3767,7 @@ Test::MyClass::_iceD_opKShortS(::Ice::IncomingRequest& request, ::std::function<
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     KShortS iceP_o;
-    KShortS ret = this->opKShortS(::std::move(iceP_i), iceP_o, request.current());
+    const KShortS ret = this->opKShortS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -3787,7 +3787,7 @@ Test::MyClass::_iceD_opQShortS(::Ice::IncomingRequest& request, ::std::function<
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     QShortS iceP_o;
-    QShortS ret = this->opQShortS(::std::move(iceP_i), iceP_o, request.current());
+    const QShortS ret = this->opQShortS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -3807,7 +3807,7 @@ Test::MyClass::_iceD_opSShortS(::Ice::IncomingRequest& request, ::std::function<
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     SShortS iceP_o;
-    SShortS ret = this->opSShortS(::std::move(iceP_i), iceP_o, request.current());
+    const SShortS ret = this->opSShortS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -3827,7 +3827,7 @@ Test::MyClass::_iceD_opAIntS(::Ice::IncomingRequest& request, ::std::function<vo
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     AIntS iceP_o;
-    AIntS ret = this->opAIntS(::std::move(iceP_i), iceP_o, request.current());
+    const AIntS ret = this->opAIntS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -3847,7 +3847,7 @@ Test::MyClass::_iceD_opLIntS(::Ice::IncomingRequest& request, ::std::function<vo
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     LIntS iceP_o;
-    LIntS ret = this->opLIntS(::std::move(iceP_i), iceP_o, request.current());
+    const LIntS ret = this->opLIntS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -3867,7 +3867,7 @@ Test::MyClass::_iceD_opKIntS(::Ice::IncomingRequest& request, ::std::function<vo
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     KIntS iceP_o;
-    KIntS ret = this->opKIntS(::std::move(iceP_i), iceP_o, request.current());
+    const KIntS ret = this->opKIntS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -3887,7 +3887,7 @@ Test::MyClass::_iceD_opQIntS(::Ice::IncomingRequest& request, ::std::function<vo
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     QIntS iceP_o;
-    QIntS ret = this->opQIntS(::std::move(iceP_i), iceP_o, request.current());
+    const QIntS ret = this->opQIntS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -3907,7 +3907,7 @@ Test::MyClass::_iceD_opSIntS(::Ice::IncomingRequest& request, ::std::function<vo
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     SIntS iceP_o;
-    SIntS ret = this->opSIntS(::std::move(iceP_i), iceP_o, request.current());
+    const SIntS ret = this->opSIntS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -3927,7 +3927,7 @@ Test::MyClass::_iceD_opALongS(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     ALongS iceP_o;
-    ALongS ret = this->opALongS(::std::move(iceP_i), iceP_o, request.current());
+    const ALongS ret = this->opALongS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -3947,7 +3947,7 @@ Test::MyClass::_iceD_opLLongS(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     LLongS iceP_o;
-    LLongS ret = this->opLLongS(::std::move(iceP_i), iceP_o, request.current());
+    const LLongS ret = this->opLLongS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -3967,7 +3967,7 @@ Test::MyClass::_iceD_opKLongS(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     KLongS iceP_o;
-    KLongS ret = this->opKLongS(::std::move(iceP_i), iceP_o, request.current());
+    const KLongS ret = this->opKLongS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -3987,7 +3987,7 @@ Test::MyClass::_iceD_opQLongS(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     QLongS iceP_o;
-    QLongS ret = this->opQLongS(::std::move(iceP_i), iceP_o, request.current());
+    const QLongS ret = this->opQLongS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4007,7 +4007,7 @@ Test::MyClass::_iceD_opSLongS(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     SLongS iceP_o;
-    SLongS ret = this->opSLongS(::std::move(iceP_i), iceP_o, request.current());
+    const SLongS ret = this->opSLongS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4027,7 +4027,7 @@ Test::MyClass::_iceD_opAFloatS(::Ice::IncomingRequest& request, ::std::function<
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     AFloatS iceP_o;
-    AFloatS ret = this->opAFloatS(::std::move(iceP_i), iceP_o, request.current());
+    const AFloatS ret = this->opAFloatS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4047,7 +4047,7 @@ Test::MyClass::_iceD_opLFloatS(::Ice::IncomingRequest& request, ::std::function<
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     LFloatS iceP_o;
-    LFloatS ret = this->opLFloatS(::std::move(iceP_i), iceP_o, request.current());
+    const LFloatS ret = this->opLFloatS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4067,7 +4067,7 @@ Test::MyClass::_iceD_opKFloatS(::Ice::IncomingRequest& request, ::std::function<
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     KFloatS iceP_o;
-    KFloatS ret = this->opKFloatS(::std::move(iceP_i), iceP_o, request.current());
+    const KFloatS ret = this->opKFloatS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4087,7 +4087,7 @@ Test::MyClass::_iceD_opQFloatS(::Ice::IncomingRequest& request, ::std::function<
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     QFloatS iceP_o;
-    QFloatS ret = this->opQFloatS(::std::move(iceP_i), iceP_o, request.current());
+    const QFloatS ret = this->opQFloatS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4107,7 +4107,7 @@ Test::MyClass::_iceD_opSFloatS(::Ice::IncomingRequest& request, ::std::function<
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     SFloatS iceP_o;
-    SFloatS ret = this->opSFloatS(::std::move(iceP_i), iceP_o, request.current());
+    const SFloatS ret = this->opSFloatS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4127,7 +4127,7 @@ Test::MyClass::_iceD_opADoubleS(::Ice::IncomingRequest& request, ::std::function
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     ADoubleS iceP_o;
-    ADoubleS ret = this->opADoubleS(::std::move(iceP_i), iceP_o, request.current());
+    const ADoubleS ret = this->opADoubleS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4147,7 +4147,7 @@ Test::MyClass::_iceD_opLDoubleS(::Ice::IncomingRequest& request, ::std::function
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     LDoubleS iceP_o;
-    LDoubleS ret = this->opLDoubleS(::std::move(iceP_i), iceP_o, request.current());
+    const LDoubleS ret = this->opLDoubleS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4167,7 +4167,7 @@ Test::MyClass::_iceD_opKDoubleS(::Ice::IncomingRequest& request, ::std::function
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     KDoubleS iceP_o;
-    KDoubleS ret = this->opKDoubleS(::std::move(iceP_i), iceP_o, request.current());
+    const KDoubleS ret = this->opKDoubleS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4187,7 +4187,7 @@ Test::MyClass::_iceD_opQDoubleS(::Ice::IncomingRequest& request, ::std::function
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     QDoubleS iceP_o;
-    QDoubleS ret = this->opQDoubleS(::std::move(iceP_i), iceP_o, request.current());
+    const QDoubleS ret = this->opQDoubleS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4207,7 +4207,7 @@ Test::MyClass::_iceD_opSDoubleS(::Ice::IncomingRequest& request, ::std::function
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     SDoubleS iceP_o;
-    SDoubleS ret = this->opSDoubleS(::std::move(iceP_i), iceP_o, request.current());
+    const SDoubleS ret = this->opSDoubleS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4227,7 +4227,7 @@ Test::MyClass::_iceD_opAStringS(::Ice::IncomingRequest& request, ::std::function
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     AStringS iceP_o;
-    AStringS ret = this->opAStringS(::std::move(iceP_i), iceP_o, request.current());
+    const AStringS ret = this->opAStringS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4247,7 +4247,7 @@ Test::MyClass::_iceD_opLStringS(::Ice::IncomingRequest& request, ::std::function
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     LStringS iceP_o;
-    LStringS ret = this->opLStringS(::std::move(iceP_i), iceP_o, request.current());
+    const LStringS ret = this->opLStringS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4267,7 +4267,7 @@ Test::MyClass::_iceD_opKStringS(::Ice::IncomingRequest& request, ::std::function
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     KStringS iceP_o;
-    KStringS ret = this->opKStringS(::std::move(iceP_i), iceP_o, request.current());
+    const KStringS ret = this->opKStringS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4287,7 +4287,7 @@ Test::MyClass::_iceD_opQStringS(::Ice::IncomingRequest& request, ::std::function
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     QStringS iceP_o;
-    QStringS ret = this->opQStringS(::std::move(iceP_i), iceP_o, request.current());
+    const QStringS ret = this->opQStringS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4307,7 +4307,7 @@ Test::MyClass::_iceD_opSStringS(::Ice::IncomingRequest& request, ::std::function
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     SStringS iceP_o;
-    SStringS ret = this->opSStringS(::std::move(iceP_i), iceP_o, request.current());
+    const SStringS ret = this->opSStringS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4328,7 +4328,7 @@ Test::MyClass::_iceD_opAObjectS(::Ice::IncomingRequest& request, ::std::function
     istr->readPendingValues();
     istr->endEncapsulation();
     AObjectS iceP_o;
-    AObjectS ret = this->opAObjectS(::std::move(iceP_i), iceP_o, request.current());
+    const AObjectS ret = this->opAObjectS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4350,7 +4350,7 @@ Test::MyClass::_iceD_opLObjectS(::Ice::IncomingRequest& request, ::std::function
     istr->readPendingValues();
     istr->endEncapsulation();
     LObjectS iceP_o;
-    LObjectS ret = this->opLObjectS(::std::move(iceP_i), iceP_o, request.current());
+    const LObjectS ret = this->opLObjectS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4371,7 +4371,7 @@ Test::MyClass::_iceD_opAObjectPrxS(::Ice::IncomingRequest& request, ::std::funct
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     AObjectPrxS iceP_o;
-    AObjectPrxS ret = this->opAObjectPrxS(::std::move(iceP_i), iceP_o, request.current());
+    const AObjectPrxS ret = this->opAObjectPrxS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4391,7 +4391,7 @@ Test::MyClass::_iceD_opLObjectPrxS(::Ice::IncomingRequest& request, ::std::funct
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     LObjectPrxS iceP_o;
-    LObjectPrxS ret = this->opLObjectPrxS(::std::move(iceP_i), iceP_o, request.current());
+    const LObjectPrxS ret = this->opLObjectPrxS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4411,7 +4411,7 @@ Test::MyClass::_iceD_opKObjectPrxS(::Ice::IncomingRequest& request, ::std::funct
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     KObjectPrxS iceP_o;
-    KObjectPrxS ret = this->opKObjectPrxS(::std::move(iceP_i), iceP_o, request.current());
+    const KObjectPrxS ret = this->opKObjectPrxS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4431,7 +4431,7 @@ Test::MyClass::_iceD_opQObjectPrxS(::Ice::IncomingRequest& request, ::std::funct
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     QObjectPrxS iceP_o;
-    QObjectPrxS ret = this->opQObjectPrxS(::std::move(iceP_i), iceP_o, request.current());
+    const QObjectPrxS ret = this->opQObjectPrxS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4451,7 +4451,7 @@ Test::MyClass::_iceD_opSObjectPrxS(::Ice::IncomingRequest& request, ::std::funct
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     SObjectPrxS iceP_o;
-    SObjectPrxS ret = this->opSObjectPrxS(::std::move(iceP_i), iceP_o, request.current());
+    const SObjectPrxS ret = this->opSObjectPrxS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4471,7 +4471,7 @@ Test::MyClass::_iceD_opAStructS(::Ice::IncomingRequest& request, ::std::function
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     AStructS iceP_o;
-    AStructS ret = this->opAStructS(::std::move(iceP_i), iceP_o, request.current());
+    const AStructS ret = this->opAStructS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4491,7 +4491,7 @@ Test::MyClass::_iceD_opLStructS(::Ice::IncomingRequest& request, ::std::function
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     LStructS iceP_o;
-    LStructS ret = this->opLStructS(::std::move(iceP_i), iceP_o, request.current());
+    const LStructS ret = this->opLStructS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4511,7 +4511,7 @@ Test::MyClass::_iceD_opKStructS(::Ice::IncomingRequest& request, ::std::function
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     KStructS iceP_o;
-    KStructS ret = this->opKStructS(::std::move(iceP_i), iceP_o, request.current());
+    const KStructS ret = this->opKStructS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4531,7 +4531,7 @@ Test::MyClass::_iceD_opQStructS(::Ice::IncomingRequest& request, ::std::function
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     QStructS iceP_o;
-    QStructS ret = this->opQStructS(::std::move(iceP_i), iceP_o, request.current());
+    const QStructS ret = this->opQStructS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4551,7 +4551,7 @@ Test::MyClass::_iceD_opSStructS(::Ice::IncomingRequest& request, ::std::function
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     SStructS iceP_o;
-    SStructS ret = this->opSStructS(::std::move(iceP_i), iceP_o, request.current());
+    const SStructS ret = this->opSStructS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4571,7 +4571,7 @@ Test::MyClass::_iceD_opAStructSD(::Ice::IncomingRequest& request, ::std::functio
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     AStructSD iceP_o;
-    AStructSD ret = this->opAStructSD(::std::move(iceP_i), iceP_o, request.current());
+    const AStructSD ret = this->opAStructSD(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4591,7 +4591,7 @@ Test::MyClass::_iceD_opLStructSD(::Ice::IncomingRequest& request, ::std::functio
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     LStructSD iceP_o;
-    LStructSD ret = this->opLStructSD(::std::move(iceP_i), iceP_o, request.current());
+    const LStructSD ret = this->opLStructSD(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4611,7 +4611,7 @@ Test::MyClass::_iceD_opKStructSD(::Ice::IncomingRequest& request, ::std::functio
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     KStructSD iceP_o;
-    KStructSD ret = this->opKStructSD(::std::move(iceP_i), iceP_o, request.current());
+    const KStructSD ret = this->opKStructSD(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4631,7 +4631,7 @@ Test::MyClass::_iceD_opQStructSD(::Ice::IncomingRequest& request, ::std::functio
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     QStructSD iceP_o;
-    QStructSD ret = this->opQStructSD(::std::move(iceP_i), iceP_o, request.current());
+    const QStructSD ret = this->opQStructSD(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4651,7 +4651,7 @@ Test::MyClass::_iceD_opSStructSD(::Ice::IncomingRequest& request, ::std::functio
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     SStructSD iceP_o;
-    SStructSD ret = this->opSStructSD(::std::move(iceP_i), iceP_o, request.current());
+    const SStructSD ret = this->opSStructSD(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4672,7 +4672,7 @@ Test::MyClass::_iceD_opACVS(::Ice::IncomingRequest& request, ::std::function<voi
     istr->readPendingValues();
     istr->endEncapsulation();
     ACVS iceP_o;
-    ACVS ret = this->opACVS(::std::move(iceP_i), iceP_o, request.current());
+    const ACVS ret = this->opACVS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4694,7 +4694,7 @@ Test::MyClass::_iceD_opLCVS(::Ice::IncomingRequest& request, ::std::function<voi
     istr->readPendingValues();
     istr->endEncapsulation();
     LCVS iceP_o;
-    LCVS ret = this->opLCVS(::std::move(iceP_i), iceP_o, request.current());
+    const LCVS ret = this->opLCVS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4716,7 +4716,7 @@ Test::MyClass::_iceD_opACRS(::Ice::IncomingRequest& request, ::std::function<voi
     istr->readPendingValues();
     istr->endEncapsulation();
     ACRS iceP_o;
-    ACRS ret = this->opACRS(::std::move(iceP_i), iceP_o, request.current());
+    const ACRS ret = this->opACRS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4738,7 +4738,7 @@ Test::MyClass::_iceD_opLCRS(::Ice::IncomingRequest& request, ::std::function<voi
     istr->readPendingValues();
     istr->endEncapsulation();
     LCRS iceP_o;
-    LCRS ret = this->opLCRS(::std::move(iceP_i), iceP_o, request.current());
+    const LCRS ret = this->opLCRS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4759,7 +4759,7 @@ Test::MyClass::_iceD_opAEnS(::Ice::IncomingRequest& request, ::std::function<voi
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     AEnS iceP_o;
-    AEnS ret = this->opAEnS(::std::move(iceP_i), iceP_o, request.current());
+    const AEnS ret = this->opAEnS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4779,7 +4779,7 @@ Test::MyClass::_iceD_opLEnS(::Ice::IncomingRequest& request, ::std::function<voi
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     LEnS iceP_o;
-    LEnS ret = this->opLEnS(::std::move(iceP_i), iceP_o, request.current());
+    const LEnS ret = this->opLEnS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4799,7 +4799,7 @@ Test::MyClass::_iceD_opKEnS(::Ice::IncomingRequest& request, ::std::function<voi
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     KEnS iceP_o;
-    KEnS ret = this->opKEnS(::std::move(iceP_i), iceP_o, request.current());
+    const KEnS ret = this->opKEnS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4819,7 +4819,7 @@ Test::MyClass::_iceD_opQEnS(::Ice::IncomingRequest& request, ::std::function<voi
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     QEnS iceP_o;
-    QEnS ret = this->opQEnS(::std::move(iceP_i), iceP_o, request.current());
+    const QEnS ret = this->opQEnS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4839,7 +4839,7 @@ Test::MyClass::_iceD_opSEnS(::Ice::IncomingRequest& request, ::std::function<voi
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     SEnS iceP_o;
-    SEnS ret = this->opSEnS(::std::move(iceP_i), iceP_o, request.current());
+    const SEnS ret = this->opSEnS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4859,7 +4859,7 @@ Test::MyClass::_iceD_opAIPrxS(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     AIPrxS iceP_o;
-    AIPrxS ret = this->opAIPrxS(::std::move(iceP_i), iceP_o, request.current());
+    const AIPrxS ret = this->opAIPrxS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4879,7 +4879,7 @@ Test::MyClass::_iceD_opLIPrxS(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     LIPrxS iceP_o;
-    LIPrxS ret = this->opLIPrxS(::std::move(iceP_i), iceP_o, request.current());
+    const LIPrxS ret = this->opLIPrxS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4899,7 +4899,7 @@ Test::MyClass::_iceD_opKIPrxS(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     KIPrxS iceP_o;
-    KIPrxS ret = this->opKIPrxS(::std::move(iceP_i), iceP_o, request.current());
+    const KIPrxS ret = this->opKIPrxS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4919,7 +4919,7 @@ Test::MyClass::_iceD_opQIPrxS(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     QIPrxS iceP_o;
-    QIPrxS ret = this->opQIPrxS(::std::move(iceP_i), iceP_o, request.current());
+    const QIPrxS ret = this->opQIPrxS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4939,7 +4939,7 @@ Test::MyClass::_iceD_opSIPrxS(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     SIPrxS iceP_o;
-    SIPrxS ret = this->opSIPrxS(::std::move(iceP_i), iceP_o, request.current());
+    const SIPrxS ret = this->opSIPrxS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4959,7 +4959,7 @@ Test::MyClass::_iceD_opCustomIntS(::Ice::IncomingRequest& request, ::std::functi
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     CustomIntS iceP_o;
-    CustomIntS ret = this->opCustomIntS(::std::move(iceP_i), iceP_o, request.current());
+    const CustomIntS ret = this->opCustomIntS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -4980,7 +4980,7 @@ Test::MyClass::_iceD_opCustomCVS(::Ice::IncomingRequest& request, ::std::functio
     istr->readPendingValues();
     istr->endEncapsulation();
     CustomCVS iceP_o;
-    CustomCVS ret = this->opCustomCVS(::std::move(iceP_i), iceP_o, request.current());
+    const CustomCVS ret = this->opCustomCVS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -5001,7 +5001,7 @@ Test::MyClass::_iceD_opCustomIntSS(::Ice::IncomingRequest& request, ::std::funct
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     CustomIntSS iceP_o;
-    CustomIntSS ret = this->opCustomIntSS(::std::move(iceP_i), iceP_o, request.current());
+    const CustomIntSS ret = this->opCustomIntSS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -5022,7 +5022,7 @@ Test::MyClass::_iceD_opCustomCVSS(::Ice::IncomingRequest& request, ::std::functi
     istr->readPendingValues();
     istr->endEncapsulation();
     CustomCVSS iceP_o;
-    CustomCVSS ret = this->opCustomCVSS(::std::move(iceP_i), iceP_o, request.current());
+    const CustomCVSS ret = this->opCustomCVSS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);

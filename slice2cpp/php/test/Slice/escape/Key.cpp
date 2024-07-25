@@ -683,7 +683,7 @@ _cpp_and::_cpp_for::_iceD_foreach(::Ice::IncomingRequest& request, ::std::functi
     istr->readAll(iceP_if, iceP_global, iceP_include, iceP_return, iceP_list, iceP_new, iceP_static);
     istr->readPendingValues();
     istr->endEncapsulation();
-    array ret = this->foreach(::std::move(iceP_if), ::std::move(iceP_global), ::std::move(iceP_include), ::std::move(iceP_return), ::std::move(iceP_list), iceP_new, iceP_static, request.current());
+    const array ret = this->foreach(::std::move(iceP_if), ::std::move(iceP_global), ::std::move(iceP_include), ::std::move(iceP_return), ::std::move(iceP_list), iceP_new, iceP_static, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

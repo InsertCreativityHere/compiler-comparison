@@ -518,7 +518,7 @@ Test::Metrics::_iceD_getAdmin(::Ice::IncomingRequest& request, ::std::function<v
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<::Ice::ObjectPrx> ret = this->getAdmin(request.current());
+    const ::std::optional<::Ice::ObjectPrx> ret = this->getAdmin(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

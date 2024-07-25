@@ -1585,11 +1585,11 @@ IceGrid::ReplicaSessionPrx::_iceI_setAdapterDirectProxy(const ::std::shared_ptr<
             {
                 ex.ice_throw();
             }
-            catch(const AdapterNotExistException&)
+            catch(const AdapterExistsException&)
             {
                 throw;
             }
-            catch(const AdapterExistsException&)
+            catch(const AdapterNotExistException&)
             {
                 throw;
             }
@@ -1700,11 +1700,11 @@ IceGrid::InternalRegistryPrx::_iceI_registerNode(const ::std::shared_ptr<::IceIn
             {
                 ex.ice_throw();
             }
-            catch(const PermissionDeniedException&)
+            catch(const NodeActiveException&)
             {
                 throw;
             }
-            catch(const NodeActiveException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
@@ -1750,11 +1750,11 @@ IceGrid::InternalRegistryPrx::_iceI_registerReplica(const ::std::shared_ptr<::Ic
             {
                 ex.ice_throw();
             }
-            catch(const PermissionDeniedException&)
+            catch(const ReplicaActiveException&)
             {
                 throw;
             }
-            catch(const ReplicaActiveException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
@@ -2396,7 +2396,7 @@ IceGrid::Adapter::_iceD_getDirectProxy(::Ice::IncomingRequest& request, ::std::f
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<::Ice::ObjectPrx> ret = this->getDirectProxy(request.current());
+    const ::std::optional<::Ice::ObjectPrx> ret = this->getDirectProxy(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2510,7 +2510,7 @@ IceGrid::FileReader::_iceD_getOffsetFromEnd(::Ice::IncomingRequest& request, ::s
     ::std::int32_t iceP_lines;
     istr->readAll(iceP_filename, iceP_lines);
     istr->endEncapsulation();
-    ::std::int64_t ret = this->getOffsetFromEnd(::std::move(iceP_filename), iceP_lines, request.current());
+    const ::std::int64_t ret = this->getOffsetFromEnd(::std::move(iceP_filename), iceP_lines, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2533,7 +2533,7 @@ IceGrid::FileReader::_iceD_read(::Ice::IncomingRequest& request, ::std::function
     istr->endEncapsulation();
     ::std::int64_t iceP_newPos;
     ::Ice::StringSeq iceP_lines;
-    bool ret = this->read(::std::move(iceP_filename), iceP_pos, iceP_size, iceP_newPos, iceP_lines, request.current());
+    const bool ret = this->read(::std::move(iceP_filename), iceP_pos, iceP_size, iceP_newPos, iceP_lines, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_newPos, iceP_lines, ret);
@@ -2664,7 +2664,7 @@ IceGrid::Server::_iceD_checkUpdate(::Ice::IncomingRequest& request, ::std::funct
     istr->readAll(iceP_svr, iceP_noRestart);
     istr->readPendingValues();
     istr->endEncapsulation();
-    bool ret = this->checkUpdate(::std::move(iceP_svr), iceP_noRestart, request.current());
+    const bool ret = this->checkUpdate(::std::move(iceP_svr), iceP_noRestart, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2694,7 +2694,7 @@ IceGrid::Server::_iceD_isEnabled(::Ice::IncomingRequest& request, ::std::functio
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    bool ret = this->isEnabled(request.current());
+    const bool ret = this->isEnabled(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2740,7 +2740,7 @@ IceGrid::Server::_iceD_getState(::Ice::IncomingRequest& request, ::std::function
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ServerState ret = this->getState(request.current());
+    const ServerState ret = this->getState(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2755,7 +2755,7 @@ IceGrid::Server::_iceD_getPid(::Ice::IncomingRequest& request, ::std::function<v
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::int32_t ret = this->getPid(request.current());
+    const ::std::int32_t ret = this->getPid(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -3169,7 +3169,7 @@ IceGrid::Node::_iceD_getName(::Ice::IncomingRequest& request, ::std::function<vo
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->getName(request.current());
+    const ::std::string ret = this->getName(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -3184,7 +3184,7 @@ IceGrid::Node::_iceD_getHostname(::Ice::IncomingRequest& request, ::std::functio
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->getHostname(request.current());
+    const ::std::string ret = this->getHostname(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -3199,7 +3199,7 @@ IceGrid::Node::_iceD_getLoad(::Ice::IncomingRequest& request, ::std::function<vo
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    LoadInfo ret = this->getLoad(request.current());
+    const LoadInfo ret = this->getLoad(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -3214,7 +3214,7 @@ IceGrid::Node::_iceD_getProcessorSocketCount(::Ice::IncomingRequest& request, ::
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::int32_t ret = this->getProcessorSocketCount(request.current());
+    const ::std::int32_t ret = this->getProcessorSocketCount(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -3409,7 +3409,7 @@ IceGrid::NodeSession::_iceD_getTimeout(::Ice::IncomingRequest& request, ::std::f
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::int32_t ret = this->getTimeout(request.current());
+    const ::std::int32_t ret = this->getTimeout(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -3424,7 +3424,7 @@ IceGrid::NodeSession::_iceD_getObserver(::Ice::IncomingRequest& request, ::std::
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<NodeObserverPrx> ret = this->getObserver(request.current());
+    const ::std::optional<NodeObserverPrx> ret = this->getObserver(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -3457,7 +3457,7 @@ IceGrid::NodeSession::_iceD_getServers(::Ice::IncomingRequest& request, ::std::f
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::Ice::StringSeq ret = this->getServers(request.current());
+    const ::Ice::StringSeq ret = this->getServers(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -3745,7 +3745,7 @@ IceGrid::ReplicaSession::_iceD_getTimeout(::Ice::IncomingRequest& request, ::std
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::int32_t ret = this->getTimeout(request.current());
+    const ::std::int32_t ret = this->getTimeout(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -3963,7 +3963,7 @@ IceGrid::InternalRegistry::_iceD_registerNode(::Ice::IncomingRequest& request, :
     istr->readAll(iceP_info, iceP_prx, iceP_loadInf);
     istr->readPendingValues();
     istr->endEncapsulation();
-    ::std::optional<NodeSessionPrx> ret = this->registerNode(::std::move(iceP_info), ::std::move(iceP_prx), ::std::move(iceP_loadInf), request.current());
+    const ::std::optional<NodeSessionPrx> ret = this->registerNode(::std::move(iceP_info), ::std::move(iceP_prx), ::std::move(iceP_loadInf), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -3984,7 +3984,7 @@ IceGrid::InternalRegistry::_iceD_registerReplica(::Ice::IncomingRequest& request
     istr->readAll(iceP_info, iceP_prx);
     istr->readPendingValues();
     istr->endEncapsulation();
-    ::std::optional<ReplicaSessionPrx> ret = this->registerReplica(::std::move(iceP_info), ::std::move(iceP_prx), request.current());
+    const ::std::optional<ReplicaSessionPrx> ret = this->registerReplica(::std::move(iceP_info), ::std::move(iceP_prx), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -4014,7 +4014,7 @@ IceGrid::InternalRegistry::_iceD_getNodes(::Ice::IncomingRequest& request, ::std
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    NodePrxSeq ret = this->getNodes(request.current());
+    const NodePrxSeq ret = this->getNodes(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -4029,7 +4029,7 @@ IceGrid::InternalRegistry::_iceD_getReplicas(::Ice::IncomingRequest& request, ::
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    InternalRegistryPrxSeq ret = this->getReplicas(request.current());
+    const InternalRegistryPrxSeq ret = this->getReplicas(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -4045,7 +4045,7 @@ IceGrid::InternalRegistry::_iceD_getApplications(::Ice::IncomingRequest& request
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     ::std::int64_t iceP_serial;
-    ApplicationInfoSeq ret = this->getApplications(iceP_serial, request.current());
+    const ApplicationInfoSeq ret = this->getApplications(iceP_serial, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_serial, ret);
@@ -4062,7 +4062,7 @@ IceGrid::InternalRegistry::_iceD_getAdapters(::Ice::IncomingRequest& request, ::
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     ::std::int64_t iceP_serial;
-    AdapterInfoSeq ret = this->getAdapters(iceP_serial, request.current());
+    const AdapterInfoSeq ret = this->getAdapters(iceP_serial, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_serial, ret);
@@ -4078,7 +4078,7 @@ IceGrid::InternalRegistry::_iceD_getObjects(::Ice::IncomingRequest& request, ::s
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     ::std::int64_t iceP_serial;
-    ObjectInfoSeq ret = this->getObjects(iceP_serial, request.current());
+    const ObjectInfoSeq ret = this->getObjects(iceP_serial, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_serial, ret);

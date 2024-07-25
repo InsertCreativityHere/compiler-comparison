@@ -678,7 +678,7 @@ IceMX::MetricsAdmin::_iceD_getMetricsViewNames(::Ice::IncomingRequest& request, 
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     ::Ice::StringSeq iceP_disabledViews;
-    ::Ice::StringSeq ret = this->getMetricsViewNames(iceP_disabledViews, request.current());
+    const ::Ice::StringSeq ret = this->getMetricsViewNames(iceP_disabledViews, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_disabledViews, ret);
@@ -728,7 +728,7 @@ IceMX::MetricsAdmin::_iceD_getMetricsView(::Ice::IncomingRequest& request, ::std
     istr->readAll(iceP_view);
     istr->endEncapsulation();
     ::std::int64_t iceP_timestamp;
-    MetricsView ret = this->getMetricsView(::std::move(iceP_view), iceP_timestamp, request.current());
+    const MetricsView ret = this->getMetricsView(::std::move(iceP_view), iceP_timestamp, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_timestamp, ret);
@@ -750,7 +750,7 @@ IceMX::MetricsAdmin::_iceD_getMapMetricsFailures(::Ice::IncomingRequest& request
     ::std::string iceP_map;
     istr->readAll(iceP_view, iceP_map);
     istr->endEncapsulation();
-    MetricsFailuresSeq ret = this->getMapMetricsFailures(::std::move(iceP_view), ::std::move(iceP_map), request.current());
+    const MetricsFailuresSeq ret = this->getMapMetricsFailures(::std::move(iceP_view), ::std::move(iceP_map), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -771,7 +771,7 @@ IceMX::MetricsAdmin::_iceD_getMetricsFailures(::Ice::IncomingRequest& request, :
     ::std::string iceP_id;
     istr->readAll(iceP_view, iceP_map, iceP_id);
     istr->endEncapsulation();
-    MetricsFailures ret = this->getMetricsFailures(::std::move(iceP_view), ::std::move(iceP_map), ::std::move(iceP_id), request.current());
+    const MetricsFailures ret = this->getMetricsFailures(::std::move(iceP_view), ::std::move(iceP_map), ::std::move(iceP_id), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

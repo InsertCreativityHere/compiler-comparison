@@ -125,7 +125,7 @@ Test::TestIntf::_iceD_getReplicaId(::Ice::IncomingRequest& request, ::std::funct
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->getReplicaId(request.current());
+    const ::std::string ret = this->getReplicaId(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -140,7 +140,7 @@ Test::TestIntf::_iceD_getReplicaIdAndShutdown(::Ice::IncomingRequest& request, :
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->getReplicaIdAndShutdown(request.current());
+    const ::std::string ret = this->getReplicaIdAndShutdown(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

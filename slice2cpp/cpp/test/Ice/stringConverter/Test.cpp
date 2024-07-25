@@ -214,7 +214,7 @@ Test::MyObject::_iceD_widen(::Ice::IncomingRequest& request, ::std::function<voi
     ::std::string iceP_msg;
     istr->readAll(iceP_msg);
     istr->endEncapsulation();
-    ::std::wstring ret = this->widen(::std::move(iceP_msg), request.current());
+    const ::std::wstring ret = this->widen(::std::move(iceP_msg), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -233,7 +233,7 @@ Test::MyObject::_iceD_narrow(::Ice::IncomingRequest& request, ::std::function<vo
     ::std::wstring iceP_wmsg;
     istr->readAll(iceP_wmsg);
     istr->endEncapsulation();
-    ::std::string ret = this->narrow(::std::move(iceP_wmsg), request.current());
+    const ::std::string ret = this->narrow(::std::move(iceP_wmsg), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

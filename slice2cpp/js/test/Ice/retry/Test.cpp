@@ -205,7 +205,7 @@ Test::Retry::_iceD_opIdempotent(::Ice::IncomingRequest& request, ::std::function
     ::std::int32_t iceP_c;
     istr->readAll(iceP_c);
     istr->endEncapsulation();
-    ::std::int32_t ret = this->opIdempotent(iceP_c, request.current());
+    const ::std::int32_t ret = this->opIdempotent(iceP_c, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

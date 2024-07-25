@@ -157,7 +157,7 @@ IceGrid::UserAccountMapper::_iceD_getUserAccount(::Ice::IncomingRequest& request
     ::std::string iceP_user;
     istr->readAll(iceP_user);
     istr->endEncapsulation();
-    ::std::string ret = this->getUserAccount(::std::move(iceP_user), request.current());
+    const ::std::string ret = this->getUserAccount(::std::move(iceP_user), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

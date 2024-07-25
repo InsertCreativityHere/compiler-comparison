@@ -2531,7 +2531,7 @@ Test::Initial::_iceD_getB1(::Ice::IncomingRequest& request, ::std::function<void
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    BPtr ret = this->getB1(request.current());
+    const BPtr ret = this->getB1(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2547,7 +2547,7 @@ Test::Initial::_iceD_getB2(::Ice::IncomingRequest& request, ::std::function<void
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    BPtr ret = this->getB2(request.current());
+    const BPtr ret = this->getB2(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2563,7 +2563,7 @@ Test::Initial::_iceD_getC(::Ice::IncomingRequest& request, ::std::function<void(
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    CPtr ret = this->getC(request.current());
+    const CPtr ret = this->getC(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2579,7 +2579,7 @@ Test::Initial::_iceD_getD(::Ice::IncomingRequest& request, ::std::function<void(
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    DPtr ret = this->getD(request.current());
+    const DPtr ret = this->getD(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2595,7 +2595,7 @@ Test::Initial::_iceD_getE(::Ice::IncomingRequest& request, ::std::function<void(
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    EPtr ret = this->getE(request.current());
+    const EPtr ret = this->getE(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2611,7 +2611,7 @@ Test::Initial::_iceD_getF(::Ice::IncomingRequest& request, ::std::function<void(
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    FPtr ret = this->getF(request.current());
+    const FPtr ret = this->getF(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2659,7 +2659,7 @@ Test::Initial::_iceD_acceptsClassCycles(::Ice::IncomingRequest& request, ::std::
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    bool ret = this->acceptsClassCycles(request.current());
+    const bool ret = this->acceptsClassCycles(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2742,7 +2742,7 @@ Test::Initial::_iceD_getK(::Ice::IncomingRequest& request, ::std::function<void(
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    KPtr ret = this->getK(request.current());
+    const KPtr ret = this->getK(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2764,7 +2764,7 @@ Test::Initial::_iceD_opValue(::Ice::IncomingRequest& request, ::std::function<vo
     istr->readPendingValues();
     istr->endEncapsulation();
     ::Ice::ValuePtr iceP_v2;
-    ::Ice::ValuePtr ret = this->opValue(::std::move(iceP_v1), iceP_v2, request.current());
+    const ::Ice::ValuePtr ret = this->opValue(::std::move(iceP_v1), iceP_v2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_v2, ret);
@@ -2786,7 +2786,7 @@ Test::Initial::_iceD_opValueSeq(::Ice::IncomingRequest& request, ::std::function
     istr->readPendingValues();
     istr->endEncapsulation();
     ValueSeq iceP_v2;
-    ValueSeq ret = this->opValueSeq(::std::move(iceP_v1), iceP_v2, request.current());
+    const ValueSeq ret = this->opValueSeq(::std::move(iceP_v1), iceP_v2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_v2, ret);
@@ -2808,7 +2808,7 @@ Test::Initial::_iceD_opValueMap(::Ice::IncomingRequest& request, ::std::function
     istr->readPendingValues();
     istr->endEncapsulation();
     ValueMap iceP_v2;
-    ValueMap ret = this->opValueMap(::std::move(iceP_v1), iceP_v2, request.current());
+    const ValueMap ret = this->opValueMap(::std::move(iceP_v1), iceP_v2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_v2, ret);
@@ -2829,7 +2829,7 @@ Test::Initial::_iceD_getD1(::Ice::IncomingRequest& request, ::std::function<void
     istr->readAll(iceP_d1);
     istr->readPendingValues();
     istr->endEncapsulation();
-    D1Ptr ret = this->getD1(::std::move(iceP_d1), request.current());
+    const D1Ptr ret = this->getD1(::std::move(iceP_d1), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2878,7 +2878,7 @@ Test::Initial::_iceD_opBaseSeq(::Ice::IncomingRequest& request, ::std::function<
     istr->readPendingValues();
     istr->endEncapsulation();
     BaseSeq iceP_outSeq;
-    BaseSeq ret = this->opBaseSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    const BaseSeq ret = this->opBaseSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_outSeq, ret);
@@ -2894,7 +2894,7 @@ Test::Initial::_iceD_getCompact(::Ice::IncomingRequest& request, ::std::function
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    CompactPtr ret = this->getCompact(request.current());
+    const CompactPtr ret = this->getCompact(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2910,7 +2910,7 @@ Test::Initial::_iceD_getInnerA(::Ice::IncomingRequest& request, ::std::function<
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::Test::Inner::APtr ret = this->getInnerA(request.current());
+    const ::Test::Inner::APtr ret = this->getInnerA(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2926,7 +2926,7 @@ Test::Initial::_iceD_getInnerSubA(::Ice::IncomingRequest& request, ::std::functi
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::Test::Inner::Sub::APtr ret = this->getInnerSubA(request.current());
+    const ::Test::Inner::Sub::APtr ret = this->getInnerSubA(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2970,7 +2970,7 @@ Test::Initial::_iceD_opM(::Ice::IncomingRequest& request, ::std::function<void(:
     istr->readPendingValues();
     istr->endEncapsulation();
     MPtr iceP_v2;
-    MPtr ret = this->opM(::std::move(iceP_v1), iceP_v2, request.current());
+    const MPtr ret = this->opM(::std::move(iceP_v1), iceP_v2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_v2, ret);
@@ -2992,7 +2992,7 @@ Test::Initial::_iceD_opF1(::Ice::IncomingRequest& request, ::std::function<void(
     istr->readPendingValues();
     istr->endEncapsulation();
     F1Ptr iceP_f12;
-    F1Ptr ret = this->opF1(::std::move(iceP_f11), iceP_f12, request.current());
+    const F1Ptr ret = this->opF1(::std::move(iceP_f11), iceP_f12, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_f12, ret);
@@ -3013,7 +3013,7 @@ Test::Initial::_iceD_opF2(::Ice::IncomingRequest& request, ::std::function<void(
     istr->readAll(iceP_f21);
     istr->endEncapsulation();
     ::std::optional<F2Prx> iceP_f22;
-    ::std::optional<F2Prx> ret = this->opF2(::std::move(iceP_f21), iceP_f22, request.current());
+    const ::std::optional<F2Prx> ret = this->opF2(::std::move(iceP_f21), iceP_f22, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_f22, ret);
@@ -3034,7 +3034,7 @@ Test::Initial::_iceD_opF3(::Ice::IncomingRequest& request, ::std::function<void(
     istr->readPendingValues();
     istr->endEncapsulation();
     F3Ptr iceP_f32;
-    F3Ptr ret = this->opF3(::std::move(iceP_f31), iceP_f32, request.current());
+    const F3Ptr ret = this->opF3(::std::move(iceP_f31), iceP_f32, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_f32, ret);
@@ -3050,7 +3050,7 @@ Test::Initial::_iceD_hasF3(::Ice::IncomingRequest& request, ::std::function<void
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    bool ret = this->hasF3(request.current());
+    const bool ret = this->hasF3(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -3284,7 +3284,7 @@ Test::UnexpectedObjectExceptionTest::_iceD_op(::Ice::IncomingRequest& request, :
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    EmptyPtr ret = this->op(request.current());
+    const EmptyPtr ret = this->op(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

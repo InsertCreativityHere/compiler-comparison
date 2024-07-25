@@ -394,7 +394,7 @@ Test::A::_iceD_callA(::Ice::IncomingRequest& request, ::std::function<void(::Ice
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->callA(request.current());
+    const ::std::string ret = this->callA(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -478,7 +478,7 @@ Test::B::_iceD_callB(::Ice::IncomingRequest& request, ::std::function<void(::Ice
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->callB(request.current());
+    const ::std::string ret = this->callB(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -567,7 +567,7 @@ Test::C::_iceD_callC(::Ice::IncomingRequest& request, ::std::function<void(::Ice
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->callC(request.current());
+    const ::std::string ret = this->callC(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -656,7 +656,7 @@ Test::D::_iceD_callD(::Ice::IncomingRequest& request, ::std::function<void(::Ice
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->callD(request.current());
+    const ::std::string ret = this->callD(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -755,7 +755,7 @@ Test::E::_iceD_callE(::Ice::IncomingRequest& request, ::std::function<void(::Ice
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->callE(request.current());
+    const ::std::string ret = this->callE(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -839,7 +839,7 @@ Test::F::_iceD_callF(::Ice::IncomingRequest& request, ::std::function<void(::Ice
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->callF(request.current());
+    const ::std::string ret = this->callF(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -939,7 +939,7 @@ Test::G::_iceD_callG(::Ice::IncomingRequest& request, ::std::function<void(::Ice
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->callG(request.current());
+    const ::std::string ret = this->callG(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1028,7 +1028,7 @@ Test::H::_iceD_callH(::Ice::IncomingRequest& request, ::std::function<void(::Ice
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->callH(request.current());
+    const ::std::string ret = this->callH(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

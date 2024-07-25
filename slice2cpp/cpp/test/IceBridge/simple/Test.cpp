@@ -548,7 +548,7 @@ Test::Callback::_iceD_getCount(::Ice::IncomingRequest& request, ::std::function<
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::int32_t ret = this->getCount(request.current());
+    const ::std::int32_t ret = this->getCount(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -574,7 +574,7 @@ Test::Callback::_iceD_getDatagramCount(::Ice::IncomingRequest& request, ::std::f
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::int32_t ret = this->getDatagramCount(request.current());
+    const ::std::int32_t ret = this->getDatagramCount(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -747,7 +747,7 @@ Test::MyClass::_iceD_getConnectionCount(::Ice::IncomingRequest& request, ::std::
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::int32_t ret = this->getConnectionCount(request.current());
+    const ::std::int32_t ret = this->getConnectionCount(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -762,7 +762,7 @@ Test::MyClass::_iceD_getConnectionInfo(::Ice::IncomingRequest& request, ::std::f
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->getConnectionInfo(request.current());
+    const ::std::string ret = this->getConnectionInfo(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -803,7 +803,7 @@ Test::MyClass::_iceD_getDatagramCount(::Ice::IncomingRequest& request, ::std::fu
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::int32_t ret = this->getDatagramCount(request.current());
+    const ::std::int32_t ret = this->getDatagramCount(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

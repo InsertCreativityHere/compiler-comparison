@@ -1112,7 +1112,7 @@ Test::Custom::_iceD_opByteString1(::Ice::IncomingRequest& request, ::std::functi
     istr->readAll(iceP_b1);
     istr->endEncapsulation();
     ByteString iceP_b2;
-    ByteString ret = this->opByteString1(::std::move(iceP_b1), iceP_b2, request.current());
+    const ByteString ret = this->opByteString1(::std::move(iceP_b1), iceP_b2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_b2, ret);
@@ -1132,7 +1132,7 @@ Test::Custom::_iceD_opByteString2(::Ice::IncomingRequest& request, ::std::functi
     istr->readAll(iceP_b1);
     istr->endEncapsulation();
     ByteString iceP_b2;
-    ByteString ret = this->opByteString2(::std::move(iceP_b1), iceP_b2, request.current());
+    const ByteString ret = this->opByteString2(::std::move(iceP_b1), iceP_b2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_b2, ret);
@@ -1152,7 +1152,7 @@ Test::Custom::_iceD_opByteList1(::Ice::IncomingRequest& request, ::std::function
     istr->readAll(iceP_b1);
     istr->endEncapsulation();
     ByteList iceP_b2;
-    ByteList ret = this->opByteList1(::std::move(iceP_b1), iceP_b2, request.current());
+    const ByteList ret = this->opByteList1(::std::move(iceP_b1), iceP_b2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_b2, ret);
@@ -1172,7 +1172,7 @@ Test::Custom::_iceD_opByteList2(::Ice::IncomingRequest& request, ::std::function
     istr->readAll(iceP_b1);
     istr->endEncapsulation();
     ByteList iceP_b2;
-    ByteList ret = this->opByteList2(::std::move(iceP_b1), iceP_b2, request.current());
+    const ByteList ret = this->opByteList2(::std::move(iceP_b1), iceP_b2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_b2, ret);
@@ -1192,7 +1192,7 @@ Test::Custom::_iceD_opStringList1(::Ice::IncomingRequest& request, ::std::functi
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     StringList iceP_s2;
-    StringList ret = this->opStringList1(::std::move(iceP_s1), iceP_s2, request.current());
+    const StringList ret = this->opStringList1(::std::move(iceP_s1), iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);
@@ -1212,7 +1212,7 @@ Test::Custom::_iceD_opStringList2(::Ice::IncomingRequest& request, ::std::functi
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     StringList iceP_s2;
-    StringList ret = this->opStringList2(::std::move(iceP_s1), iceP_s2, request.current());
+    const StringList ret = this->opStringList2(::std::move(iceP_s1), iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);
@@ -1232,7 +1232,7 @@ Test::Custom::_iceD_opStringTuple1(::Ice::IncomingRequest& request, ::std::funct
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     StringTuple iceP_s2;
-    StringTuple ret = this->opStringTuple1(::std::move(iceP_s1), iceP_s2, request.current());
+    const StringTuple ret = this->opStringTuple1(::std::move(iceP_s1), iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);
@@ -1252,7 +1252,7 @@ Test::Custom::_iceD_opStringTuple2(::Ice::IncomingRequest& request, ::std::funct
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     StringTuple iceP_s2;
-    StringTuple ret = this->opStringTuple2(::std::move(iceP_s1), iceP_s2, request.current());
+    const StringTuple ret = this->opStringTuple2(::std::move(iceP_s1), iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);
@@ -1303,7 +1303,7 @@ Test::Custom::_iceD_opBoolSeq(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_v1);
     istr->endEncapsulation();
     BoolSeq2 iceP_v2;
-    BoolSeq1 ret = this->opBoolSeq(::std::move(iceP_v1), iceP_v2, request.current());
+    const BoolSeq1 ret = this->opBoolSeq(::std::move(iceP_v1), iceP_v2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_v2, ret);
@@ -1323,7 +1323,7 @@ Test::Custom::_iceD_opByteSeq(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_v1);
     istr->endEncapsulation();
     ByteSeq2 iceP_v2;
-    ByteSeq1 ret = this->opByteSeq(::std::move(iceP_v1), iceP_v2, request.current());
+    const ByteSeq1 ret = this->opByteSeq(::std::move(iceP_v1), iceP_v2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_v2, ret);
@@ -1343,7 +1343,7 @@ Test::Custom::_iceD_opShortSeq(::Ice::IncomingRequest& request, ::std::function<
     istr->readAll(iceP_v1);
     istr->endEncapsulation();
     ShortSeq2 iceP_v2;
-    ShortSeq1 ret = this->opShortSeq(::std::move(iceP_v1), iceP_v2, request.current());
+    const ShortSeq1 ret = this->opShortSeq(::std::move(iceP_v1), iceP_v2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_v2, ret);
@@ -1363,7 +1363,7 @@ Test::Custom::_iceD_opIntSeq(::Ice::IncomingRequest& request, ::std::function<vo
     istr->readAll(iceP_v1);
     istr->endEncapsulation();
     IntSeq2 iceP_v2;
-    IntSeq1 ret = this->opIntSeq(::std::move(iceP_v1), iceP_v2, request.current());
+    const IntSeq1 ret = this->opIntSeq(::std::move(iceP_v1), iceP_v2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_v2, ret);
@@ -1383,7 +1383,7 @@ Test::Custom::_iceD_opLongSeq(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_v1);
     istr->endEncapsulation();
     LongSeq2 iceP_v2;
-    LongSeq1 ret = this->opLongSeq(::std::move(iceP_v1), iceP_v2, request.current());
+    const LongSeq1 ret = this->opLongSeq(::std::move(iceP_v1), iceP_v2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_v2, ret);
@@ -1403,7 +1403,7 @@ Test::Custom::_iceD_opFloatSeq(::Ice::IncomingRequest& request, ::std::function<
     istr->readAll(iceP_v1);
     istr->endEncapsulation();
     FloatSeq2 iceP_v2;
-    FloatSeq1 ret = this->opFloatSeq(::std::move(iceP_v1), iceP_v2, request.current());
+    const FloatSeq1 ret = this->opFloatSeq(::std::move(iceP_v1), iceP_v2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_v2, ret);
@@ -1423,7 +1423,7 @@ Test::Custom::_iceD_opDoubleSeq(::Ice::IncomingRequest& request, ::std::function
     istr->readAll(iceP_v1);
     istr->endEncapsulation();
     DoubleSeq2 iceP_v2;
-    DoubleSeq1 ret = this->opDoubleSeq(::std::move(iceP_v1), iceP_v2, request.current());
+    const DoubleSeq1 ret = this->opDoubleSeq(::std::move(iceP_v1), iceP_v2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_v2, ret);
@@ -1438,7 +1438,7 @@ Test::Custom::_iceD_opBogusArrayNotExistsFactory(::Ice::IncomingRequest& request
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    BoolSeq1 ret = this->opBogusArrayNotExistsFactory(request.current());
+    const BoolSeq1 ret = this->opBogusArrayNotExistsFactory(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1453,7 +1453,7 @@ Test::Custom::_iceD_opBogusArrayThrowFactory(::Ice::IncomingRequest& request, ::
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    BoolSeq1 ret = this->opBogusArrayThrowFactory(request.current());
+    const BoolSeq1 ret = this->opBogusArrayThrowFactory(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1468,7 +1468,7 @@ Test::Custom::_iceD_opBogusArrayType(::Ice::IncomingRequest& request, ::std::fun
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    BoolSeq1 ret = this->opBogusArrayType(request.current());
+    const BoolSeq1 ret = this->opBogusArrayType(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1483,7 +1483,7 @@ Test::Custom::_iceD_opBogusArrayNoneFactory(::Ice::IncomingRequest& request, ::s
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    BoolSeq1 ret = this->opBogusArrayNoneFactory(request.current());
+    const BoolSeq1 ret = this->opBogusArrayNoneFactory(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1498,7 +1498,7 @@ Test::Custom::_iceD_opBogusArraySignatureFactory(::Ice::IncomingRequest& request
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    BoolSeq1 ret = this->opBogusArraySignatureFactory(request.current());
+    const BoolSeq1 ret = this->opBogusArraySignatureFactory(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1513,7 +1513,7 @@ Test::Custom::_iceD_opBogusArrayNoCallableFactory(::Ice::IncomingRequest& reques
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    BoolSeq1 ret = this->opBogusArrayNoCallableFactory(request.current());
+    const BoolSeq1 ret = this->opBogusArrayNoCallableFactory(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1533,7 +1533,7 @@ Test::Custom::_iceD_opD(::Ice::IncomingRequest& request, ::std::function<void(::
     istr->readAll(iceP_d);
     istr->readPendingValues();
     istr->endEncapsulation();
-    DPtr ret = this->opD(::std::move(iceP_d), request.current());
+    const DPtr ret = this->opD(::std::move(iceP_d), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

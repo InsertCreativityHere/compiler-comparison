@@ -209,7 +209,7 @@ Ice::Router::_iceD_getClientProxy(::Ice::IncomingRequest& request, ::std::functi
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     ::std::optional<bool> iceP_hasRoutingTable;
-    ::std::optional<::Ice::ObjectPrx> ret = this->getClientProxy(iceP_hasRoutingTable, request.current());
+    const ::std::optional<::Ice::ObjectPrx> ret = this->getClientProxy(iceP_hasRoutingTable, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -225,7 +225,7 @@ Ice::Router::_iceD_getServerProxy(::Ice::IncomingRequest& request, ::std::functi
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<::Ice::ObjectPrx> ret = this->getServerProxy(request.current());
+    const ::std::optional<::Ice::ObjectPrx> ret = this->getServerProxy(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -244,7 +244,7 @@ Ice::Router::_iceD_addProxies(::Ice::IncomingRequest& request, ::std::function<v
     ObjectProxySeq iceP_proxies;
     istr->readAll(iceP_proxies);
     istr->endEncapsulation();
-    ObjectProxySeq ret = this->addProxies(::std::move(iceP_proxies), request.current());
+    const ObjectProxySeq ret = this->addProxies(::std::move(iceP_proxies), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -338,7 +338,7 @@ Ice::RouterFinder::_iceD_getRouter(::Ice::IncomingRequest& request, ::std::funct
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<RouterPrx> ret = this->getRouter(request.current());
+    const ::std::optional<RouterPrx> ret = this->getRouter(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

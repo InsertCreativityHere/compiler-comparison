@@ -161,7 +161,7 @@ User::Registry::_iceD_getUserInfo(::Ice::IncomingRequest& request, ::std::functi
     ::std::string iceP_id;
     istr->readAll(iceP_id);
     istr->endEncapsulation();
-    UserInfoPtr ret = this->getUserInfo(::std::move(iceP_id), request.current());
+    const UserInfoPtr ret = this->getUserInfo(::std::move(iceP_id), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

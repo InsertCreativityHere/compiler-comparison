@@ -247,7 +247,7 @@ Test::TestIntf::_iceD_pid(::Ice::IncomingRequest& request, ::std::function<void(
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::int32_t ret = this->pid(request.current());
+    const ::std::int32_t ret = this->pid(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

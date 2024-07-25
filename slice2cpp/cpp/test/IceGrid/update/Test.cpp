@@ -142,7 +142,7 @@ Test::TestIntf::_iceD_getProperty(::Ice::IncomingRequest& request, ::std::functi
     ::std::string iceP_name;
     istr->readAll(iceP_name);
     istr->endEncapsulation();
-    ::std::string ret = this->getProperty(::std::move(iceP_name), request.current());
+    const ::std::string ret = this->getProperty(::std::move(iceP_name), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

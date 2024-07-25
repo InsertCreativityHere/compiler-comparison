@@ -3206,10 +3206,6 @@ IceGrid::AdminSessionPrx::_iceI_openServerLog(const ::std::shared_ptr<::IceInter
             {
                 ex.ice_throw();
             }
-            catch(const FileNotAvailableException&)
-            {
-                throw;
-            }
             catch(const ServerNotExistException&)
             {
                 throw;
@@ -3219,6 +3215,10 @@ IceGrid::AdminSessionPrx::_iceI_openServerLog(const ::std::shared_ptr<::IceInter
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -3263,10 +3263,6 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdErr(const ::std::shared_ptr<::IceIn
             {
                 ex.ice_throw();
             }
-            catch(const FileNotAvailableException&)
-            {
-                throw;
-            }
             catch(const ServerNotExistException&)
             {
                 throw;
@@ -3276,6 +3272,10 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdErr(const ::std::shared_ptr<::IceIn
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -3320,10 +3320,6 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdOut(const ::std::shared_ptr<::IceIn
             {
                 ex.ice_throw();
             }
-            catch(const FileNotAvailableException&)
-            {
-                throw;
-            }
             catch(const ServerNotExistException&)
             {
                 throw;
@@ -3333,6 +3329,10 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdOut(const ::std::shared_ptr<::IceIn
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -3377,15 +3377,15 @@ IceGrid::AdminSessionPrx::_iceI_openNodeStdErr(const ::std::shared_ptr<::IceInte
             {
                 ex.ice_throw();
             }
-            catch(const FileNotAvailableException&)
-            {
-                throw;
-            }
             catch(const NodeNotExistException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -3430,15 +3430,15 @@ IceGrid::AdminSessionPrx::_iceI_openNodeStdOut(const ::std::shared_ptr<::IceInte
             {
                 ex.ice_throw();
             }
-            catch(const FileNotAvailableException&)
-            {
-                throw;
-            }
             catch(const NodeNotExistException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -3483,15 +3483,15 @@ IceGrid::AdminSessionPrx::_iceI_openRegistryStdErr(const ::std::shared_ptr<::Ice
             {
                 ex.ice_throw();
             }
-            catch(const FileNotAvailableException&)
-            {
-                throw;
-            }
             catch(const RegistryNotExistException&)
             {
                 throw;
             }
             catch(const RegistryUnreachableException&)
+            {
+                throw;
+            }
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -3536,15 +3536,15 @@ IceGrid::AdminSessionPrx::_iceI_openRegistryStdOut(const ::std::shared_ptr<::Ice
             {
                 ex.ice_throw();
             }
-            catch(const FileNotAvailableException&)
-            {
-                throw;
-            }
             catch(const RegistryNotExistException&)
             {
                 throw;
             }
             catch(const RegistryUnreachableException&)
+            {
+                throw;
+            }
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -3701,7 +3701,7 @@ IceGrid::Admin::_iceD_getApplicationInfo(::Ice::IncomingRequest& request, ::std:
     ::std::string iceP_name;
     istr->readAll(iceP_name);
     istr->endEncapsulation();
-    ApplicationInfo ret = this->getApplicationInfo(::std::move(iceP_name), request.current());
+    const ApplicationInfo ret = this->getApplicationInfo(::std::move(iceP_name), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -3717,7 +3717,7 @@ IceGrid::Admin::_iceD_getDefaultApplicationDescriptor(::Ice::IncomingRequest& re
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ApplicationDescriptor ret = this->getDefaultApplicationDescriptor(request.current());
+    const ApplicationDescriptor ret = this->getDefaultApplicationDescriptor(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -3733,7 +3733,7 @@ IceGrid::Admin::_iceD_getAllApplicationNames(::Ice::IncomingRequest& request, ::
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::Ice::StringSeq ret = this->getAllApplicationNames(request.current());
+    const ::Ice::StringSeq ret = this->getAllApplicationNames(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -3752,7 +3752,7 @@ IceGrid::Admin::_iceD_getServerInfo(::Ice::IncomingRequest& request, ::std::func
     ::std::string iceP_id;
     istr->readAll(iceP_id);
     istr->endEncapsulation();
-    ServerInfo ret = this->getServerInfo(::std::move(iceP_id), request.current());
+    const ServerInfo ret = this->getServerInfo(::std::move(iceP_id), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -3772,7 +3772,7 @@ IceGrid::Admin::_iceD_getServerState(::Ice::IncomingRequest& request, ::std::fun
     ::std::string iceP_id;
     istr->readAll(iceP_id);
     istr->endEncapsulation();
-    ServerState ret = this->getServerState(::std::move(iceP_id), request.current());
+    const ServerState ret = this->getServerState(::std::move(iceP_id), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -3791,7 +3791,7 @@ IceGrid::Admin::_iceD_getServerPid(::Ice::IncomingRequest& request, ::std::funct
     ::std::string iceP_id;
     istr->readAll(iceP_id);
     istr->endEncapsulation();
-    ::std::int32_t ret = this->getServerPid(::std::move(iceP_id), request.current());
+    const ::std::int32_t ret = this->getServerPid(::std::move(iceP_id), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -3806,7 +3806,7 @@ IceGrid::Admin::_iceD_getServerAdminCategory(::Ice::IncomingRequest& request, ::
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->getServerAdminCategory(request.current());
+    const ::std::string ret = this->getServerAdminCategory(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -3825,7 +3825,7 @@ IceGrid::Admin::_iceD_getServerAdmin(::Ice::IncomingRequest& request, ::std::fun
     ::std::string iceP_id;
     istr->readAll(iceP_id);
     istr->endEncapsulation();
-    ::std::optional<::Ice::ObjectPrx> ret = this->getServerAdmin(::std::move(iceP_id), request.current());
+    const ::std::optional<::Ice::ObjectPrx> ret = this->getServerAdmin(::std::move(iceP_id), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -3860,7 +3860,7 @@ IceGrid::Admin::_iceD_isServerEnabled(::Ice::IncomingRequest& request, ::std::fu
     ::std::string iceP_id;
     istr->readAll(iceP_id);
     istr->endEncapsulation();
-    bool ret = this->isServerEnabled(::std::move(iceP_id), request.current());
+    const bool ret = this->isServerEnabled(::std::move(iceP_id), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -3935,7 +3935,7 @@ IceGrid::Admin::_iceD_getAllServerIds(::Ice::IncomingRequest& request, ::std::fu
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::Ice::StringSeq ret = this->getAllServerIds(request.current());
+    const ::Ice::StringSeq ret = this->getAllServerIds(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -3954,7 +3954,7 @@ IceGrid::Admin::_iceD_getAdapterInfo(::Ice::IncomingRequest& request, ::std::fun
     ::std::string iceP_id;
     istr->readAll(iceP_id);
     istr->endEncapsulation();
-    AdapterInfoSeq ret = this->getAdapterInfo(::std::move(iceP_id), request.current());
+    const AdapterInfoSeq ret = this->getAdapterInfo(::std::move(iceP_id), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -3984,7 +3984,7 @@ IceGrid::Admin::_iceD_getAllAdapterIds(::Ice::IncomingRequest& request, ::std::f
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::Ice::StringSeq ret = this->getAllAdapterIds(request.current());
+    const ::Ice::StringSeq ret = this->getAllAdapterIds(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -4064,7 +4064,7 @@ IceGrid::Admin::_iceD_getObjectInfo(::Ice::IncomingRequest& request, ::std::func
     ::Ice::Identity iceP_id;
     istr->readAll(iceP_id);
     istr->endEncapsulation();
-    ObjectInfo ret = this->getObjectInfo(::std::move(iceP_id), request.current());
+    const ObjectInfo ret = this->getObjectInfo(::std::move(iceP_id), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -4083,7 +4083,7 @@ IceGrid::Admin::_iceD_getObjectInfosByType(::Ice::IncomingRequest& request, ::st
     ::std::string iceP_type;
     istr->readAll(iceP_type);
     istr->endEncapsulation();
-    ObjectInfoSeq ret = this->getObjectInfosByType(::std::move(iceP_type), request.current());
+    const ObjectInfoSeq ret = this->getObjectInfosByType(::std::move(iceP_type), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -4102,7 +4102,7 @@ IceGrid::Admin::_iceD_getAllObjectInfos(::Ice::IncomingRequest& request, ::std::
     ::std::string iceP_expr;
     istr->readAll(iceP_expr);
     istr->endEncapsulation();
-    ObjectInfoSeq ret = this->getAllObjectInfos(::std::move(iceP_expr), request.current());
+    const ObjectInfoSeq ret = this->getAllObjectInfos(::std::move(iceP_expr), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -4121,7 +4121,7 @@ IceGrid::Admin::_iceD_pingNode(::Ice::IncomingRequest& request, ::std::function<
     ::std::string iceP_name;
     istr->readAll(iceP_name);
     istr->endEncapsulation();
-    bool ret = this->pingNode(::std::move(iceP_name), request.current());
+    const bool ret = this->pingNode(::std::move(iceP_name), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -4140,7 +4140,7 @@ IceGrid::Admin::_iceD_getNodeLoad(::Ice::IncomingRequest& request, ::std::functi
     ::std::string iceP_name;
     istr->readAll(iceP_name);
     istr->endEncapsulation();
-    LoadInfo ret = this->getNodeLoad(::std::move(iceP_name), request.current());
+    const LoadInfo ret = this->getNodeLoad(::std::move(iceP_name), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -4159,7 +4159,7 @@ IceGrid::Admin::_iceD_getNodeInfo(::Ice::IncomingRequest& request, ::std::functi
     ::std::string iceP_name;
     istr->readAll(iceP_name);
     istr->endEncapsulation();
-    NodeInfo ret = this->getNodeInfo(::std::move(iceP_name), request.current());
+    const NodeInfo ret = this->getNodeInfo(::std::move(iceP_name), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -4178,7 +4178,7 @@ IceGrid::Admin::_iceD_getNodeAdmin(::Ice::IncomingRequest& request, ::std::funct
     ::std::string iceP_name;
     istr->readAll(iceP_name);
     istr->endEncapsulation();
-    ::std::optional<::Ice::ObjectPrx> ret = this->getNodeAdmin(::std::move(iceP_name), request.current());
+    const ::std::optional<::Ice::ObjectPrx> ret = this->getNodeAdmin(::std::move(iceP_name), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -4197,7 +4197,7 @@ IceGrid::Admin::_iceD_getNodeProcessorSocketCount(::Ice::IncomingRequest& reques
     ::std::string iceP_name;
     istr->readAll(iceP_name);
     istr->endEncapsulation();
-    ::std::int32_t ret = this->getNodeProcessorSocketCount(::std::move(iceP_name), request.current());
+    const ::std::int32_t ret = this->getNodeProcessorSocketCount(::std::move(iceP_name), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -4231,7 +4231,7 @@ IceGrid::Admin::_iceD_getNodeHostname(::Ice::IncomingRequest& request, ::std::fu
     ::std::string iceP_name;
     istr->readAll(iceP_name);
     istr->endEncapsulation();
-    ::std::string ret = this->getNodeHostname(::std::move(iceP_name), request.current());
+    const ::std::string ret = this->getNodeHostname(::std::move(iceP_name), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -4246,7 +4246,7 @@ IceGrid::Admin::_iceD_getAllNodeNames(::Ice::IncomingRequest& request, ::std::fu
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::Ice::StringSeq ret = this->getAllNodeNames(request.current());
+    const ::Ice::StringSeq ret = this->getAllNodeNames(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -4265,7 +4265,7 @@ IceGrid::Admin::_iceD_pingRegistry(::Ice::IncomingRequest& request, ::std::funct
     ::std::string iceP_name;
     istr->readAll(iceP_name);
     istr->endEncapsulation();
-    bool ret = this->pingRegistry(::std::move(iceP_name), request.current());
+    const bool ret = this->pingRegistry(::std::move(iceP_name), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -4284,7 +4284,7 @@ IceGrid::Admin::_iceD_getRegistryInfo(::Ice::IncomingRequest& request, ::std::fu
     ::std::string iceP_name;
     istr->readAll(iceP_name);
     istr->endEncapsulation();
-    RegistryInfo ret = this->getRegistryInfo(::std::move(iceP_name), request.current());
+    const RegistryInfo ret = this->getRegistryInfo(::std::move(iceP_name), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -4303,7 +4303,7 @@ IceGrid::Admin::_iceD_getRegistryAdmin(::Ice::IncomingRequest& request, ::std::f
     ::std::string iceP_name;
     istr->readAll(iceP_name);
     istr->endEncapsulation();
-    ::std::optional<::Ice::ObjectPrx> ret = this->getRegistryAdmin(::std::move(iceP_name), request.current());
+    const ::std::optional<::Ice::ObjectPrx> ret = this->getRegistryAdmin(::std::move(iceP_name), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -4333,7 +4333,7 @@ IceGrid::Admin::_iceD_getAllRegistryNames(::Ice::IncomingRequest& request, ::std
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::Ice::StringSeq ret = this->getAllRegistryNames(request.current());
+    const ::Ice::StringSeq ret = this->getAllRegistryNames(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -4653,7 +4653,7 @@ IceGrid::FileIterator::_iceD_read(::Ice::IncomingRequest& request, ::std::functi
     istr->readAll(iceP_size);
     istr->endEncapsulation();
     ::Ice::StringSeq iceP_lines;
-    bool ret = this->read(iceP_size, iceP_lines, request.current());
+    const bool ret = this->read(iceP_size, iceP_lines, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_lines, ret);
@@ -5493,7 +5493,7 @@ IceGrid::AdminSession::_iceD_getAdmin(::Ice::IncomingRequest& request, ::std::fu
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<AdminPrx> ret = this->getAdmin(request.current());
+    const ::std::optional<AdminPrx> ret = this->getAdmin(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -5508,7 +5508,7 @@ IceGrid::AdminSession::_iceD_getAdminCallbackTemplate(::Ice::IncomingRequest& re
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<::Ice::ObjectPrx> ret = this->getAdminCallbackTemplate(request.current());
+    const ::std::optional<::Ice::ObjectPrx> ret = this->getAdminCallbackTemplate(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -5561,7 +5561,7 @@ IceGrid::AdminSession::_iceD_startUpdate(::Ice::IncomingRequest& request, ::std:
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::int32_t ret = this->startUpdate(request.current());
+    const ::std::int32_t ret = this->startUpdate(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -5587,7 +5587,7 @@ IceGrid::AdminSession::_iceD_getReplicaName(::Ice::IncomingRequest& request, ::s
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->getReplicaName(request.current());
+    const ::std::string ret = this->getReplicaName(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -5608,7 +5608,7 @@ IceGrid::AdminSession::_iceD_openServerLog(::Ice::IncomingRequest& request, ::st
     ::std::int32_t iceP_count;
     istr->readAll(iceP_id, iceP_path, iceP_count);
     istr->endEncapsulation();
-    ::std::optional<FileIteratorPrx> ret = this->openServerLog(::std::move(iceP_id), ::std::move(iceP_path), iceP_count, request.current());
+    const ::std::optional<FileIteratorPrx> ret = this->openServerLog(::std::move(iceP_id), ::std::move(iceP_path), iceP_count, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -5628,7 +5628,7 @@ IceGrid::AdminSession::_iceD_openServerStdErr(::Ice::IncomingRequest& request, :
     ::std::int32_t iceP_count;
     istr->readAll(iceP_id, iceP_count);
     istr->endEncapsulation();
-    ::std::optional<FileIteratorPrx> ret = this->openServerStdErr(::std::move(iceP_id), iceP_count, request.current());
+    const ::std::optional<FileIteratorPrx> ret = this->openServerStdErr(::std::move(iceP_id), iceP_count, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -5648,7 +5648,7 @@ IceGrid::AdminSession::_iceD_openServerStdOut(::Ice::IncomingRequest& request, :
     ::std::int32_t iceP_count;
     istr->readAll(iceP_id, iceP_count);
     istr->endEncapsulation();
-    ::std::optional<FileIteratorPrx> ret = this->openServerStdOut(::std::move(iceP_id), iceP_count, request.current());
+    const ::std::optional<FileIteratorPrx> ret = this->openServerStdOut(::std::move(iceP_id), iceP_count, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -5668,7 +5668,7 @@ IceGrid::AdminSession::_iceD_openNodeStdErr(::Ice::IncomingRequest& request, ::s
     ::std::int32_t iceP_count;
     istr->readAll(iceP_name, iceP_count);
     istr->endEncapsulation();
-    ::std::optional<FileIteratorPrx> ret = this->openNodeStdErr(::std::move(iceP_name), iceP_count, request.current());
+    const ::std::optional<FileIteratorPrx> ret = this->openNodeStdErr(::std::move(iceP_name), iceP_count, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -5688,7 +5688,7 @@ IceGrid::AdminSession::_iceD_openNodeStdOut(::Ice::IncomingRequest& request, ::s
     ::std::int32_t iceP_count;
     istr->readAll(iceP_name, iceP_count);
     istr->endEncapsulation();
-    ::std::optional<FileIteratorPrx> ret = this->openNodeStdOut(::std::move(iceP_name), iceP_count, request.current());
+    const ::std::optional<FileIteratorPrx> ret = this->openNodeStdOut(::std::move(iceP_name), iceP_count, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -5708,7 +5708,7 @@ IceGrid::AdminSession::_iceD_openRegistryStdErr(::Ice::IncomingRequest& request,
     ::std::int32_t iceP_count;
     istr->readAll(iceP_name, iceP_count);
     istr->endEncapsulation();
-    ::std::optional<FileIteratorPrx> ret = this->openRegistryStdErr(::std::move(iceP_name), iceP_count, request.current());
+    const ::std::optional<FileIteratorPrx> ret = this->openRegistryStdErr(::std::move(iceP_name), iceP_count, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -5728,7 +5728,7 @@ IceGrid::AdminSession::_iceD_openRegistryStdOut(::Ice::IncomingRequest& request,
     ::std::int32_t iceP_count;
     istr->readAll(iceP_name, iceP_count);
     istr->endEncapsulation();
-    ::std::optional<FileIteratorPrx> ret = this->openRegistryStdOut(::std::move(iceP_name), iceP_count, request.current());
+    const ::std::optional<FileIteratorPrx> ret = this->openRegistryStdOut(::std::move(iceP_name), iceP_count, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

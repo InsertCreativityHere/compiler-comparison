@@ -572,7 +572,7 @@ abstract::_cpp_new::_iceD_notify(::Ice::IncomingRequest& request, ::std::functio
     istr->readAll(iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super);
     istr->readPendingValues();
     istr->endEncapsulation();
-    assert ret = this->notify(::std::move(iceP_notifyAll), ::std::move(iceP_null), ::std::move(iceP_package), ::std::move(iceP_public), ::std::move(iceP_return), iceP_static, iceP_strictfp, iceP_super, request.current());
+    const assert ret = this->notify(::std::move(iceP_notifyAll), ::std::move(iceP_null), ::std::move(iceP_package), ::std::move(iceP_public), ::std::move(iceP_return), iceP_static, iceP_strictfp, iceP_super, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

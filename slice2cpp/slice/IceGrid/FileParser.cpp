@@ -167,7 +167,7 @@ IceGrid::FileParser::_iceD_parse(::Ice::IncomingRequest& request, ::std::functio
     ::std::optional<AdminPrx> iceP_adminProxy;
     istr->readAll(iceP_xmlFile, iceP_adminProxy);
     istr->endEncapsulation();
-    ApplicationDescriptor ret = this->parse(::std::move(iceP_xmlFile), ::std::move(iceP_adminProxy), request.current());
+    const ApplicationDescriptor ret = this->parse(::std::move(iceP_xmlFile), ::std::move(iceP_adminProxy), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

@@ -666,7 +666,7 @@ Test::TestIntf::_iceD_impossibleException(::Ice::IncomingRequest& request, ::std
     bool iceP_throw;
     istr->readAll(iceP_throw);
     istr->endEncapsulation();
-    ::std::string ret = this->impossibleException(iceP_throw, request.current());
+    const ::std::string ret = this->impossibleException(iceP_throw, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -685,7 +685,7 @@ Test::TestIntf::_iceD_intfUserException(::Ice::IncomingRequest& request, ::std::
     bool iceP_throw;
     istr->readAll(iceP_throw);
     istr->endEncapsulation();
-    ::std::string ret = this->intfUserException(iceP_throw, request.current());
+    const ::std::string ret = this->intfUserException(iceP_throw, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

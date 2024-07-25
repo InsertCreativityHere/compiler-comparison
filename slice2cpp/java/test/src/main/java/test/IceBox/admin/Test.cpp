@@ -96,7 +96,7 @@ Test::TestFacet::_iceD_getChanges(::Ice::IncomingRequest& request, ::std::functi
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::Ice::PropertyDict ret = this->getChanges(request.current());
+    const ::Ice::PropertyDict ret = this->getChanges(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

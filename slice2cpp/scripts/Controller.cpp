@@ -850,7 +850,7 @@ Test::Common::TestCase::_iceD_startServerSide(::Ice::IncomingRequest& request, :
     istr->readAll(iceP_config);
     istr->readPendingValues();
     istr->endEncapsulation();
-    ::std::string ret = this->startServerSide(::std::move(iceP_config), request.current());
+    const ::std::string ret = this->startServerSide(::std::move(iceP_config), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -869,7 +869,7 @@ Test::Common::TestCase::_iceD_stopServerSide(::Ice::IncomingRequest& request, ::
     bool iceP_success;
     istr->readAll(iceP_success);
     istr->endEncapsulation();
-    ::std::string ret = this->stopServerSide(iceP_success, request.current());
+    const ::std::string ret = this->stopServerSide(iceP_success, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -890,7 +890,7 @@ Test::Common::TestCase::_iceD_runClientSide(::Ice::IncomingRequest& request, ::s
     istr->readAll(iceP_host, iceP_config);
     istr->readPendingValues();
     istr->endEncapsulation();
-    ::std::string ret = this->runClientSide(::std::move(iceP_host), ::std::move(iceP_config), request.current());
+    const ::std::string ret = this->runClientSide(::std::move(iceP_host), ::std::move(iceP_config), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1007,7 +1007,7 @@ Test::Common::Controller::_iceD_runTestCase(::Ice::IncomingRequest& request, ::s
     ::std::string iceP_cross;
     istr->readAll(iceP_mapping, iceP_testsuite, iceP_testcase, iceP_cross);
     istr->endEncapsulation();
-    ::std::optional<TestCasePrx> ret = this->runTestCase(::std::move(iceP_mapping), ::std::move(iceP_testsuite), ::std::move(iceP_testcase), ::std::move(iceP_cross), request.current());
+    const ::std::optional<TestCasePrx> ret = this->runTestCase(::std::move(iceP_mapping), ::std::move(iceP_testsuite), ::std::move(iceP_testcase), ::std::move(iceP_cross), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1022,7 +1022,7 @@ Test::Common::Controller::_iceD_getOptionOverrides(::Ice::IncomingRequest& reque
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    OptionOverridesPtr ret = this->getOptionOverrides(request.current());
+    const OptionOverridesPtr ret = this->getOptionOverrides(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1042,7 +1042,7 @@ Test::Common::Controller::_iceD_getTestSuites(::Ice::IncomingRequest& request, :
     ::std::string iceP_mapping;
     istr->readAll(iceP_mapping);
     istr->endEncapsulation();
-    StringSeq ret = this->getTestSuites(::std::move(iceP_mapping), request.current());
+    const StringSeq ret = this->getTestSuites(::std::move(iceP_mapping), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1062,7 +1062,7 @@ Test::Common::Controller::_iceD_getHost(::Ice::IncomingRequest& request, ::std::
     bool iceP_ipv6;
     istr->readAll(iceP_protocol, iceP_ipv6);
     istr->endEncapsulation();
-    ::std::string ret = this->getHost(::std::move(iceP_protocol), iceP_ipv6, request.current());
+    const ::std::string ret = this->getHost(::std::move(iceP_protocol), iceP_ipv6, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1180,7 +1180,7 @@ Test::Common::Process::_iceD_waitSuccess(::Ice::IncomingRequest& request, ::std:
     ::std::int32_t iceP_timeout;
     istr->readAll(iceP_timeout);
     istr->endEncapsulation();
-    ::std::int32_t ret = this->waitSuccess(iceP_timeout, request.current());
+    const ::std::int32_t ret = this->waitSuccess(iceP_timeout, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1195,7 +1195,7 @@ Test::Common::Process::_iceD_terminate(::Ice::IncomingRequest& request, ::std::f
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->terminate(request.current());
+    const ::std::string ret = this->terminate(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1295,7 +1295,7 @@ Test::Common::ProcessController::_iceD_start(::Ice::IncomingRequest& request, ::
     StringSeq iceP_args;
     istr->readAll(iceP_testsuite, iceP_exe, iceP_args);
     istr->endEncapsulation();
-    ::std::optional<ProcessPrx> ret = this->start(::std::move(iceP_testsuite), ::std::move(iceP_exe), ::std::move(iceP_args), request.current());
+    const ::std::optional<ProcessPrx> ret = this->start(::std::move(iceP_testsuite), ::std::move(iceP_exe), ::std::move(iceP_args), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1315,7 +1315,7 @@ Test::Common::ProcessController::_iceD_getHost(::Ice::IncomingRequest& request, 
     bool iceP_ipv6;
     istr->readAll(iceP_protocol, iceP_ipv6);
     istr->endEncapsulation();
-    ::std::string ret = this->getHost(::std::move(iceP_protocol), iceP_ipv6, request.current());
+    const ::std::string ret = this->getHost(::std::move(iceP_protocol), iceP_ipv6, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

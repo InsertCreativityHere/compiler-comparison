@@ -453,7 +453,7 @@ Test::Initial::_iceD_getNoNamespaceC2AsC1(::Ice::IncomingRequest& request, ::std
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::NoNamespace::C1Ptr ret = this->getNoNamespaceC2AsC1(request.current());
+    const ::NoNamespace::C1Ptr ret = this->getNoNamespaceC2AsC1(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -469,7 +469,7 @@ Test::Initial::_iceD_getNoNamespaceC2AsC2(::Ice::IncomingRequest& request, ::std
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::NoNamespace::C2Ptr ret = this->getNoNamespaceC2AsC2(request.current());
+    const ::NoNamespace::C2Ptr ret = this->getNoNamespaceC2AsC2(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -518,7 +518,7 @@ Test::Initial::_iceD_getWithNamespaceC2AsC1(::Ice::IncomingRequest& request, ::s
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::WithNamespace::C1Ptr ret = this->getWithNamespaceC2AsC1(request.current());
+    const ::WithNamespace::C1Ptr ret = this->getWithNamespaceC2AsC1(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -534,7 +534,7 @@ Test::Initial::_iceD_getWithNamespaceC2AsC2(::Ice::IncomingRequest& request, ::s
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::WithNamespace::C2Ptr ret = this->getWithNamespaceC2AsC2(request.current());
+    const ::WithNamespace::C2Ptr ret = this->getWithNamespaceC2AsC2(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

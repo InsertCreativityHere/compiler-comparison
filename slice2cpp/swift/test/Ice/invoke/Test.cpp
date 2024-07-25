@@ -263,7 +263,7 @@ Test::MyClass::_iceD_opString(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     ::std::string iceP_s2;
-    ::std::string ret = this->opString(::std::move(iceP_s1), iceP_s2, request.current());
+    const ::std::string ret = this->opString(::std::move(iceP_s1), iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);

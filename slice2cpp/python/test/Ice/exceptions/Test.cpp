@@ -1121,7 +1121,7 @@ Test::Thrower::_iceD_supportsUndeclaredExceptions(::Ice::IncomingRequest& reques
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    bool ret = this->supportsUndeclaredExceptions(request.current());
+    const bool ret = this->supportsUndeclaredExceptions(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1136,7 +1136,7 @@ Test::Thrower::_iceD_supportsAssertException(::Ice::IncomingRequest& request, ::
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    bool ret = this->supportsAssertException(request.current());
+    const bool ret = this->supportsAssertException(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1365,7 +1365,7 @@ Test::Thrower::_iceD_throwMemoryLimitException(::Ice::IncomingRequest& request, 
     ::Ice::ByteSeq iceP_seq;
     istr->readAll(iceP_seq);
     istr->endEncapsulation();
-    ::Ice::ByteSeq ret = this->throwMemoryLimitException(::std::move(iceP_seq), request.current());
+    const ::Ice::ByteSeq ret = this->throwMemoryLimitException(::std::move(iceP_seq), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1414,7 +1414,7 @@ Test::Thrower::_iceD_throwMarshalException(::Ice::IncomingRequest& request, ::st
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     ::std::int32_t iceP_p;
-    ::std::int32_t ret = this->throwMarshalException(iceP_p, request.current());
+    const ::std::int32_t ret = this->throwMarshalException(iceP_p, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_p, ret);

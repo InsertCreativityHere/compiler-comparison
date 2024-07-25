@@ -1566,7 +1566,7 @@ Test::I::_iceD_opS(::Ice::IncomingRequest& request, ::std::function<void(::Ice::
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     S iceP_s2;
-    S ret = this->opS(::std::move(iceP_s1), iceP_s2, request.current());
+    const S ret = this->opS(::std::move(iceP_s1), iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);
@@ -1586,7 +1586,7 @@ Test::I::_iceD_opSSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ic
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     SSeq iceP_s2;
-    SSeq ret = this->opSSeq(::std::move(iceP_s1), iceP_s2, request.current());
+    const SSeq ret = this->opSSeq(::std::move(iceP_s1), iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);
@@ -1606,7 +1606,7 @@ Test::I::_iceD_opSMap(::Ice::IncomingRequest& request, ::std::function<void(::Ic
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     SMap iceP_s2;
-    SMap ret = this->opSMap(::std::move(iceP_s1), iceP_s2, request.current());
+    const SMap ret = this->opSMap(::std::move(iceP_s1), iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);
@@ -1627,7 +1627,7 @@ Test::I::_iceD_opC(::Ice::IncomingRequest& request, ::std::function<void(::Ice::
     istr->readPendingValues();
     istr->endEncapsulation();
     CPtr iceP_c2;
-    CPtr ret = this->opC(::std::move(iceP_c1), iceP_c2, request.current());
+    const CPtr ret = this->opC(::std::move(iceP_c1), iceP_c2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_c2, ret);
@@ -1649,7 +1649,7 @@ Test::I::_iceD_opCSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ic
     istr->readPendingValues();
     istr->endEncapsulation();
     CSeq iceP_c2;
-    CSeq ret = this->opCSeq(::std::move(iceP_c1), iceP_c2, request.current());
+    const CSeq ret = this->opCSeq(::std::move(iceP_c1), iceP_c2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_c2, ret);
@@ -1671,7 +1671,7 @@ Test::I::_iceD_opCMap(::Ice::IncomingRequest& request, ::std::function<void(::Ic
     istr->readPendingValues();
     istr->endEncapsulation();
     CMap iceP_c2;
-    CMap ret = this->opCMap(::std::move(iceP_c1), iceP_c2, request.current());
+    const CMap ret = this->opCMap(::std::move(iceP_c1), iceP_c2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_c2, ret);
@@ -1691,7 +1691,7 @@ Test::I::_iceD_opE1(::Ice::IncomingRequest& request, ::std::function<void(::Ice:
     E1 iceP_E1;
     istr->readAll(iceP_E1);
     istr->endEncapsulation();
-    E1 ret = this->opE1(iceP_E1, request.current());
+    const E1 ret = this->opE1(iceP_E1, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1710,7 +1710,7 @@ Test::I::_iceD_opS1(::Ice::IncomingRequest& request, ::std::function<void(::Ice:
     S1 iceP_S1;
     istr->readAll(iceP_S1);
     istr->endEncapsulation();
-    S1 ret = this->opS1(::std::move(iceP_S1), request.current());
+    const S1 ret = this->opS1(::std::move(iceP_S1), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1730,7 +1730,7 @@ Test::I::_iceD_opC1(::Ice::IncomingRequest& request, ::std::function<void(::Ice:
     istr->readAll(iceP_C1);
     istr->readPendingValues();
     istr->endEncapsulation();
-    C1Ptr ret = this->opC1(::std::move(iceP_C1), request.current());
+    const C1Ptr ret = this->opC1(::std::move(iceP_C1), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1876,7 +1876,7 @@ Test::Inner::Inner2::I::_iceD_opS(::Ice::IncomingRequest& request, ::std::functi
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     S iceP_s2;
-    S ret = this->opS(::std::move(iceP_s1), iceP_s2, request.current());
+    const S ret = this->opS(::std::move(iceP_s1), iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);
@@ -1896,7 +1896,7 @@ Test::Inner::Inner2::I::_iceD_opSSeq(::Ice::IncomingRequest& request, ::std::fun
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     SSeq iceP_s2;
-    SSeq ret = this->opSSeq(::std::move(iceP_s1), iceP_s2, request.current());
+    const SSeq ret = this->opSSeq(::std::move(iceP_s1), iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);
@@ -1916,7 +1916,7 @@ Test::Inner::Inner2::I::_iceD_opSMap(::Ice::IncomingRequest& request, ::std::fun
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     SMap iceP_s2;
-    SMap ret = this->opSMap(::std::move(iceP_s1), iceP_s2, request.current());
+    const SMap ret = this->opSMap(::std::move(iceP_s1), iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);
@@ -1937,7 +1937,7 @@ Test::Inner::Inner2::I::_iceD_opC(::Ice::IncomingRequest& request, ::std::functi
     istr->readPendingValues();
     istr->endEncapsulation();
     CPtr iceP_c2;
-    CPtr ret = this->opC(::std::move(iceP_c1), iceP_c2, request.current());
+    const CPtr ret = this->opC(::std::move(iceP_c1), iceP_c2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_c2, ret);
@@ -1959,7 +1959,7 @@ Test::Inner::Inner2::I::_iceD_opCSeq(::Ice::IncomingRequest& request, ::std::fun
     istr->readPendingValues();
     istr->endEncapsulation();
     CSeq iceP_c2;
-    CSeq ret = this->opCSeq(::std::move(iceP_c1), iceP_c2, request.current());
+    const CSeq ret = this->opCSeq(::std::move(iceP_c1), iceP_c2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_c2, ret);
@@ -1981,7 +1981,7 @@ Test::Inner::Inner2::I::_iceD_opCMap(::Ice::IncomingRequest& request, ::std::fun
     istr->readPendingValues();
     istr->endEncapsulation();
     CMap iceP_c2;
-    CMap ret = this->opCMap(::std::move(iceP_c1), iceP_c2, request.current());
+    const CMap ret = this->opCMap(::std::move(iceP_c1), iceP_c2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_c2, ret);
@@ -2112,7 +2112,7 @@ Test::Inner::I::_iceD_opS(::Ice::IncomingRequest& request, ::std::function<void(
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     ::Test::Inner::Inner2::S iceP_s2;
-    ::Test::Inner::Inner2::S ret = this->opS(::std::move(iceP_s1), iceP_s2, request.current());
+    const ::Test::Inner::Inner2::S ret = this->opS(::std::move(iceP_s1), iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);
@@ -2132,7 +2132,7 @@ Test::Inner::I::_iceD_opSSeq(::Ice::IncomingRequest& request, ::std::function<vo
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     ::Test::Inner::Inner2::SSeq iceP_s2;
-    ::Test::Inner::Inner2::SSeq ret = this->opSSeq(::std::move(iceP_s1), iceP_s2, request.current());
+    const ::Test::Inner::Inner2::SSeq ret = this->opSSeq(::std::move(iceP_s1), iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);
@@ -2152,7 +2152,7 @@ Test::Inner::I::_iceD_opSMap(::Ice::IncomingRequest& request, ::std::function<vo
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     ::Test::Inner::Inner2::SMap iceP_s2;
-    ::Test::Inner::Inner2::SMap ret = this->opSMap(::std::move(iceP_s1), iceP_s2, request.current());
+    const ::Test::Inner::Inner2::SMap ret = this->opSMap(::std::move(iceP_s1), iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);
@@ -2173,7 +2173,7 @@ Test::Inner::I::_iceD_opC(::Ice::IncomingRequest& request, ::std::function<void(
     istr->readPendingValues();
     istr->endEncapsulation();
     ::Test::Inner::Inner2::CPtr iceP_c2;
-    ::Test::Inner::Inner2::CPtr ret = this->opC(::std::move(iceP_c1), iceP_c2, request.current());
+    const ::Test::Inner::Inner2::CPtr ret = this->opC(::std::move(iceP_c1), iceP_c2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_c2, ret);
@@ -2195,7 +2195,7 @@ Test::Inner::I::_iceD_opCSeq(::Ice::IncomingRequest& request, ::std::function<vo
     istr->readPendingValues();
     istr->endEncapsulation();
     ::Test::Inner::Inner2::CSeq iceP_c2;
-    ::Test::Inner::Inner2::CSeq ret = this->opCSeq(::std::move(iceP_c1), iceP_c2, request.current());
+    const ::Test::Inner::Inner2::CSeq ret = this->opCSeq(::std::move(iceP_c1), iceP_c2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_c2, ret);
@@ -2217,7 +2217,7 @@ Test::Inner::I::_iceD_opCMap(::Ice::IncomingRequest& request, ::std::function<vo
     istr->readPendingValues();
     istr->endEncapsulation();
     ::Test::Inner::Inner2::CMap iceP_c2;
-    ::Test::Inner::Inner2::CMap ret = this->opCMap(::std::move(iceP_c1), iceP_c2, request.current());
+    const ::Test::Inner::Inner2::CMap ret = this->opCMap(::std::move(iceP_c1), iceP_c2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_c2, ret);
@@ -2348,7 +2348,7 @@ Inner::Test::Inner2::I::_iceD_opS(::Ice::IncomingRequest& request, ::std::functi
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     ::Test::S iceP_s2;
-    ::Test::S ret = this->opS(::std::move(iceP_s1), iceP_s2, request.current());
+    const ::Test::S ret = this->opS(::std::move(iceP_s1), iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);
@@ -2368,7 +2368,7 @@ Inner::Test::Inner2::I::_iceD_opSSeq(::Ice::IncomingRequest& request, ::std::fun
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     ::Test::SSeq iceP_s2;
-    ::Test::SSeq ret = this->opSSeq(::std::move(iceP_s1), iceP_s2, request.current());
+    const ::Test::SSeq ret = this->opSSeq(::std::move(iceP_s1), iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);
@@ -2388,7 +2388,7 @@ Inner::Test::Inner2::I::_iceD_opSMap(::Ice::IncomingRequest& request, ::std::fun
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     ::Test::SMap iceP_s2;
-    ::Test::SMap ret = this->opSMap(::std::move(iceP_s1), iceP_s2, request.current());
+    const ::Test::SMap ret = this->opSMap(::std::move(iceP_s1), iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);
@@ -2409,7 +2409,7 @@ Inner::Test::Inner2::I::_iceD_opC(::Ice::IncomingRequest& request, ::std::functi
     istr->readPendingValues();
     istr->endEncapsulation();
     ::Test::CPtr iceP_c2;
-    ::Test::CPtr ret = this->opC(::std::move(iceP_c1), iceP_c2, request.current());
+    const ::Test::CPtr ret = this->opC(::std::move(iceP_c1), iceP_c2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_c2, ret);
@@ -2431,7 +2431,7 @@ Inner::Test::Inner2::I::_iceD_opCSeq(::Ice::IncomingRequest& request, ::std::fun
     istr->readPendingValues();
     istr->endEncapsulation();
     ::Test::CSeq iceP_c2;
-    ::Test::CSeq ret = this->opCSeq(::std::move(iceP_c1), iceP_c2, request.current());
+    const ::Test::CSeq ret = this->opCSeq(::std::move(iceP_c1), iceP_c2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_c2, ret);
@@ -2453,7 +2453,7 @@ Inner::Test::Inner2::I::_iceD_opCMap(::Ice::IncomingRequest& request, ::std::fun
     istr->readPendingValues();
     istr->endEncapsulation();
     ::Test::CMap iceP_c2;
-    ::Test::CMap ret = this->opCMap(::std::move(iceP_c1), iceP_c2, request.current());
+    const ::Test::CMap ret = this->opCMap(::std::move(iceP_c1), iceP_c2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_c2, ret);

@@ -424,7 +424,7 @@ Ice::LoggerAdmin::_iceD_detachRemoteLogger(::Ice::IncomingRequest& request, ::st
     ::std::optional<RemoteLoggerPrx> iceP_prx;
     istr->readAll(iceP_prx);
     istr->endEncapsulation();
-    bool ret = this->detachRemoteLogger(::std::move(iceP_prx), request.current());
+    const bool ret = this->detachRemoteLogger(::std::move(iceP_prx), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -446,7 +446,7 @@ Ice::LoggerAdmin::_iceD_getLog(::Ice::IncomingRequest& request, ::std::function<
     istr->readAll(iceP_messageTypes, iceP_traceCategories, iceP_messageMax);
     istr->endEncapsulation();
     ::std::string iceP_prefix;
-    LogMessageSeq ret = this->getLog(::std::move(iceP_messageTypes), ::std::move(iceP_traceCategories), iceP_messageMax, iceP_prefix, request.current());
+    const LogMessageSeq ret = this->getLog(::std::move(iceP_messageTypes), ::std::move(iceP_traceCategories), iceP_messageMax, iceP_prefix, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_prefix, ret);

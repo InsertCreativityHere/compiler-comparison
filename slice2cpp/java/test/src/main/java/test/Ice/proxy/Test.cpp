@@ -185,7 +185,7 @@ Test::MyClass::_iceD_getContext(::Ice::IncomingRequest& request, ::std::function
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::Ice::Context ret = this->getContext(request.current());
+    const ::Ice::Context ret = this->getContext(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -278,7 +278,7 @@ Test::MyDerivedClass::_iceD_echo(::Ice::IncomingRequest& request, ::std::functio
     ::std::optional<::Ice::ObjectPrx> iceP_obj;
     istr->readAll(iceP_obj);
     istr->endEncapsulation();
-    ::std::optional<::Ice::ObjectPrx> ret = this->echo(::std::move(iceP_obj), request.current());
+    const ::std::optional<::Ice::ObjectPrx> ret = this->echo(::std::move(iceP_obj), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

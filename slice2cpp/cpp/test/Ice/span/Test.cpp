@@ -364,7 +364,7 @@ Test::TestIntf::_iceD_opByteSpan(::Ice::IncomingRequest& request, ::std::functio
     istr->readAll(iceP_dataIn);
     istr->endEncapsulation();
     ByteSeq iceP_dataOut;
-    ByteSeq ret = this->opByteSpan(::std::move(iceP_dataIn), iceP_dataOut, request.current());
+    const ByteSeq ret = this->opByteSpan(::std::move(iceP_dataIn), iceP_dataOut, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_dataOut, ret);
@@ -384,7 +384,7 @@ Test::TestIntf::_iceD_opShortSpan(::Ice::IncomingRequest& request, ::std::functi
     istr->readAll(iceP_dataIn);
     istr->endEncapsulation();
     ShortSeq iceP_dataOut;
-    ShortSeq ret = this->opShortSpan(::std::move(iceP_dataIn), iceP_dataOut, request.current());
+    const ShortSeq ret = this->opShortSpan(::std::move(iceP_dataIn), iceP_dataOut, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_dataOut, ret);
@@ -404,7 +404,7 @@ Test::TestIntf::_iceD_opStringSpan(::Ice::IncomingRequest& request, ::std::funct
     istr->readAll(iceP_dataIn);
     istr->endEncapsulation();
     StringSeq iceP_dataOut;
-    StringSeq ret = this->opStringSpan(::std::move(iceP_dataIn), iceP_dataOut, request.current());
+    const StringSeq ret = this->opStringSpan(::std::move(iceP_dataIn), iceP_dataOut, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_dataOut, ret);
@@ -424,7 +424,7 @@ Test::TestIntf::_iceD_opOptionalByteSpan(::Ice::IncomingRequest& request, ::std:
     istr->readAll({1}, iceP_dataIn);
     istr->endEncapsulation();
     ::std::optional<ByteSeq> iceP_dataOut;
-    ::std::optional<ByteSeq> ret = this->opOptionalByteSpan(::std::move(iceP_dataIn), iceP_dataOut, request.current());
+    const ::std::optional<ByteSeq> ret = this->opOptionalByteSpan(::std::move(iceP_dataIn), iceP_dataOut, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({10, 11}, ret, iceP_dataOut);
@@ -444,7 +444,7 @@ Test::TestIntf::_iceD_opOptionalShortSpan(::Ice::IncomingRequest& request, ::std
     istr->readAll({1}, iceP_dataIn);
     istr->endEncapsulation();
     ::std::optional<ShortSeq> iceP_dataOut;
-    ::std::optional<ShortSeq> ret = this->opOptionalShortSpan(::std::move(iceP_dataIn), iceP_dataOut, request.current());
+    const ::std::optional<ShortSeq> ret = this->opOptionalShortSpan(::std::move(iceP_dataIn), iceP_dataOut, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({10, 11}, ret, iceP_dataOut);
@@ -464,7 +464,7 @@ Test::TestIntf::_iceD_opOptionalStringSpan(::Ice::IncomingRequest& request, ::st
     istr->readAll({1}, iceP_dataIn);
     istr->endEncapsulation();
     ::std::optional<StringSeq> iceP_dataOut;
-    ::std::optional<StringSeq> ret = this->opOptionalStringSpan(::std::move(iceP_dataIn), iceP_dataOut, request.current());
+    const ::std::optional<StringSeq> ret = this->opOptionalStringSpan(::std::move(iceP_dataIn), iceP_dataOut, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({10, 11}, ret, iceP_dataOut);

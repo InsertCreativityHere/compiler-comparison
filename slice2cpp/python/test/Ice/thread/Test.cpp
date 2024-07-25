@@ -369,7 +369,7 @@ Test::RemoteCommunicator::_iceD_getObject(::Ice::IncomingRequest& request, ::std
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<TestIntfPrx> ret = this->getObject(request.current());
+    const ::std::optional<TestIntfPrx> ret = this->getObject(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -384,7 +384,7 @@ Test::RemoteCommunicator::_iceD_getThreadStartCount(::Ice::IncomingRequest& requ
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::int32_t ret = this->getThreadStartCount(request.current());
+    const ::std::int32_t ret = this->getThreadStartCount(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -399,7 +399,7 @@ Test::RemoteCommunicator::_iceD_getThreadStopCount(::Ice::IncomingRequest& reque
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::int32_t ret = this->getThreadStopCount(request.current());
+    const ::std::int32_t ret = this->getThreadStopCount(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -513,7 +513,7 @@ Test::RemoteCommunicatorFactory::_iceD_createCommunicator(::Ice::IncomingRequest
     ::Ice::PropertyDict iceP_props;
     istr->readAll(iceP_props);
     istr->endEncapsulation();
-    ::std::optional<RemoteCommunicatorPrx> ret = this->createCommunicator(::std::move(iceP_props), request.current());
+    const ::std::optional<RemoteCommunicatorPrx> ret = this->createCommunicator(::std::move(iceP_props), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

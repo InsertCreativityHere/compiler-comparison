@@ -2652,7 +2652,7 @@ Test::Initial::_iceD_pingPong(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll(iceP_o);
     istr->readPendingValues();
     istr->endEncapsulation();
-    ::Ice::ValuePtr ret = this->pingPong(::std::move(iceP_o), request.current());
+    const ::Ice::ValuePtr ret = this->pingPong(::std::move(iceP_o), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2721,7 +2721,7 @@ Test::Initial::_iceD_opByte(::Ice::IncomingRequest& request, ::std::function<voi
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<::std::uint8_t> iceP_p3;
-    ::std::optional<::std::uint8_t> ret = this->opByte(iceP_p1, iceP_p3, request.current());
+    const ::std::optional<::std::uint8_t> ret = this->opByte(iceP_p1, iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -2741,7 +2741,7 @@ Test::Initial::_iceD_opBool(::Ice::IncomingRequest& request, ::std::function<voi
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<bool> iceP_p3;
-    ::std::optional<bool> ret = this->opBool(iceP_p1, iceP_p3, request.current());
+    const ::std::optional<bool> ret = this->opBool(iceP_p1, iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -2761,7 +2761,7 @@ Test::Initial::_iceD_opShort(::Ice::IncomingRequest& request, ::std::function<vo
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<::std::int16_t> iceP_p3;
-    ::std::optional<::std::int16_t> ret = this->opShort(iceP_p1, iceP_p3, request.current());
+    const ::std::optional<::std::int16_t> ret = this->opShort(iceP_p1, iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -2781,7 +2781,7 @@ Test::Initial::_iceD_opInt(::Ice::IncomingRequest& request, ::std::function<void
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<::std::int32_t> iceP_p3;
-    ::std::optional<::std::int32_t> ret = this->opInt(iceP_p1, iceP_p3, request.current());
+    const ::std::optional<::std::int32_t> ret = this->opInt(iceP_p1, iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -2801,7 +2801,7 @@ Test::Initial::_iceD_opLong(::Ice::IncomingRequest& request, ::std::function<voi
     istr->readAll({1}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<::std::int64_t> iceP_p3;
-    ::std::optional<::std::int64_t> ret = this->opLong(iceP_p1, iceP_p3, request.current());
+    const ::std::optional<::std::int64_t> ret = this->opLong(iceP_p1, iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({2, 3}, iceP_p3, ret);
@@ -2821,7 +2821,7 @@ Test::Initial::_iceD_opFloat(::Ice::IncomingRequest& request, ::std::function<vo
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<float> iceP_p3;
-    ::std::optional<float> ret = this->opFloat(iceP_p1, iceP_p3, request.current());
+    const ::std::optional<float> ret = this->opFloat(iceP_p1, iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -2841,7 +2841,7 @@ Test::Initial::_iceD_opDouble(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<double> iceP_p3;
-    ::std::optional<double> ret = this->opDouble(iceP_p1, iceP_p3, request.current());
+    const ::std::optional<double> ret = this->opDouble(iceP_p1, iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -2861,7 +2861,7 @@ Test::Initial::_iceD_opString(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<::std::string> iceP_p3;
-    ::std::optional<::std::string> ret = this->opString(::std::move(iceP_p1), iceP_p3, request.current());
+    const ::std::optional<::std::string> ret = this->opString(::std::move(iceP_p1), iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -2881,7 +2881,7 @@ Test::Initial::_iceD_opMyEnum(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<MyEnum> iceP_p3;
-    ::std::optional<MyEnum> ret = this->opMyEnum(iceP_p1, iceP_p3, request.current());
+    const ::std::optional<MyEnum> ret = this->opMyEnum(iceP_p1, iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -2901,7 +2901,7 @@ Test::Initial::_iceD_opSmallStruct(::Ice::IncomingRequest& request, ::std::funct
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<SmallStruct> iceP_p3;
-    ::std::optional<SmallStruct> ret = this->opSmallStruct(::std::move(iceP_p1), iceP_p3, request.current());
+    const ::std::optional<SmallStruct> ret = this->opSmallStruct(::std::move(iceP_p1), iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -2921,7 +2921,7 @@ Test::Initial::_iceD_opFixedStruct(::Ice::IncomingRequest& request, ::std::funct
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<FixedStruct> iceP_p3;
-    ::std::optional<FixedStruct> ret = this->opFixedStruct(::std::move(iceP_p1), iceP_p3, request.current());
+    const ::std::optional<FixedStruct> ret = this->opFixedStruct(::std::move(iceP_p1), iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -2941,7 +2941,7 @@ Test::Initial::_iceD_opVarStruct(::Ice::IncomingRequest& request, ::std::functio
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<VarStruct> iceP_p3;
-    ::std::optional<VarStruct> ret = this->opVarStruct(::std::move(iceP_p1), iceP_p3, request.current());
+    const ::std::optional<VarStruct> ret = this->opVarStruct(::std::move(iceP_p1), iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -2961,7 +2961,7 @@ Test::Initial::_iceD_opMyInterfaceProxy(::Ice::IncomingRequest& request, ::std::
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<MyInterfacePrx> iceP_p3;
-    ::std::optional<MyInterfacePrx> ret = this->opMyInterfaceProxy(::std::move(iceP_p1), iceP_p3, request.current());
+    const ::std::optional<MyInterfacePrx> ret = this->opMyInterfaceProxy(::std::move(iceP_p1), iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -2982,7 +2982,7 @@ Test::Initial::_iceD_opOneOptional(::Ice::IncomingRequest& request, ::std::funct
     istr->readPendingValues();
     istr->endEncapsulation();
     OneOptionalPtr iceP_p3;
-    OneOptionalPtr ret = this->opOneOptional(::std::move(iceP_p1), iceP_p3, request.current());
+    const OneOptionalPtr ret = this->opOneOptional(::std::move(iceP_p1), iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_p3, ret);
@@ -3003,7 +3003,7 @@ Test::Initial::_iceD_opByteSeq(::Ice::IncomingRequest& request, ::std::function<
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<ByteSeq> iceP_p3;
-    ::std::optional<ByteSeq> ret = this->opByteSeq(::std::move(iceP_p1), iceP_p3, request.current());
+    const ::std::optional<ByteSeq> ret = this->opByteSeq(::std::move(iceP_p1), iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -3023,7 +3023,7 @@ Test::Initial::_iceD_opBoolSeq(::Ice::IncomingRequest& request, ::std::function<
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<BoolSeq> iceP_p3;
-    ::std::optional<BoolSeq> ret = this->opBoolSeq(::std::move(iceP_p1), iceP_p3, request.current());
+    const ::std::optional<BoolSeq> ret = this->opBoolSeq(::std::move(iceP_p1), iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -3043,7 +3043,7 @@ Test::Initial::_iceD_opShortSeq(::Ice::IncomingRequest& request, ::std::function
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<ShortSeq> iceP_p3;
-    ::std::optional<ShortSeq> ret = this->opShortSeq(::std::move(iceP_p1), iceP_p3, request.current());
+    const ::std::optional<ShortSeq> ret = this->opShortSeq(::std::move(iceP_p1), iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -3063,7 +3063,7 @@ Test::Initial::_iceD_opIntSeq(::Ice::IncomingRequest& request, ::std::function<v
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<IntSeq> iceP_p3;
-    ::std::optional<IntSeq> ret = this->opIntSeq(::std::move(iceP_p1), iceP_p3, request.current());
+    const ::std::optional<IntSeq> ret = this->opIntSeq(::std::move(iceP_p1), iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -3083,7 +3083,7 @@ Test::Initial::_iceD_opLongSeq(::Ice::IncomingRequest& request, ::std::function<
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<LongSeq> iceP_p3;
-    ::std::optional<LongSeq> ret = this->opLongSeq(::std::move(iceP_p1), iceP_p3, request.current());
+    const ::std::optional<LongSeq> ret = this->opLongSeq(::std::move(iceP_p1), iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -3103,7 +3103,7 @@ Test::Initial::_iceD_opFloatSeq(::Ice::IncomingRequest& request, ::std::function
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<FloatSeq> iceP_p3;
-    ::std::optional<FloatSeq> ret = this->opFloatSeq(::std::move(iceP_p1), iceP_p3, request.current());
+    const ::std::optional<FloatSeq> ret = this->opFloatSeq(::std::move(iceP_p1), iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -3123,7 +3123,7 @@ Test::Initial::_iceD_opDoubleSeq(::Ice::IncomingRequest& request, ::std::functio
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<DoubleSeq> iceP_p3;
-    ::std::optional<DoubleSeq> ret = this->opDoubleSeq(::std::move(iceP_p1), iceP_p3, request.current());
+    const ::std::optional<DoubleSeq> ret = this->opDoubleSeq(::std::move(iceP_p1), iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -3143,7 +3143,7 @@ Test::Initial::_iceD_opStringSeq(::Ice::IncomingRequest& request, ::std::functio
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<StringSeq> iceP_p3;
-    ::std::optional<StringSeq> ret = this->opStringSeq(::std::move(iceP_p1), iceP_p3, request.current());
+    const ::std::optional<StringSeq> ret = this->opStringSeq(::std::move(iceP_p1), iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -3163,7 +3163,7 @@ Test::Initial::_iceD_opSmallStructSeq(::Ice::IncomingRequest& request, ::std::fu
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<SmallStructSeq> iceP_p3;
-    ::std::optional<SmallStructSeq> ret = this->opSmallStructSeq(::std::move(iceP_p1), iceP_p3, request.current());
+    const ::std::optional<SmallStructSeq> ret = this->opSmallStructSeq(::std::move(iceP_p1), iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -3183,7 +3183,7 @@ Test::Initial::_iceD_opSmallStructList(::Ice::IncomingRequest& request, ::std::f
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<SmallStructList> iceP_p3;
-    ::std::optional<SmallStructList> ret = this->opSmallStructList(::std::move(iceP_p1), iceP_p3, request.current());
+    const ::std::optional<SmallStructList> ret = this->opSmallStructList(::std::move(iceP_p1), iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -3203,7 +3203,7 @@ Test::Initial::_iceD_opFixedStructSeq(::Ice::IncomingRequest& request, ::std::fu
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<FixedStructSeq> iceP_p3;
-    ::std::optional<FixedStructSeq> ret = this->opFixedStructSeq(::std::move(iceP_p1), iceP_p3, request.current());
+    const ::std::optional<FixedStructSeq> ret = this->opFixedStructSeq(::std::move(iceP_p1), iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -3223,7 +3223,7 @@ Test::Initial::_iceD_opFixedStructList(::Ice::IncomingRequest& request, ::std::f
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<FixedStructList> iceP_p3;
-    ::std::optional<FixedStructList> ret = this->opFixedStructList(::std::move(iceP_p1), iceP_p3, request.current());
+    const ::std::optional<FixedStructList> ret = this->opFixedStructList(::std::move(iceP_p1), iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -3243,7 +3243,7 @@ Test::Initial::_iceD_opVarStructSeq(::Ice::IncomingRequest& request, ::std::func
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<VarStructSeq> iceP_p3;
-    ::std::optional<VarStructSeq> ret = this->opVarStructSeq(::std::move(iceP_p1), iceP_p3, request.current());
+    const ::std::optional<VarStructSeq> ret = this->opVarStructSeq(::std::move(iceP_p1), iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -3263,7 +3263,7 @@ Test::Initial::_iceD_opSerializable(::Ice::IncomingRequest& request, ::std::func
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<Serializable> iceP_p3;
-    ::std::optional<Serializable> ret = this->opSerializable(::std::move(iceP_p1), iceP_p3, request.current());
+    const ::std::optional<Serializable> ret = this->opSerializable(::std::move(iceP_p1), iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -3283,7 +3283,7 @@ Test::Initial::_iceD_opIntIntDict(::Ice::IncomingRequest& request, ::std::functi
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<IntIntDict> iceP_p3;
-    ::std::optional<IntIntDict> ret = this->opIntIntDict(::std::move(iceP_p1), iceP_p3, request.current());
+    const ::std::optional<IntIntDict> ret = this->opIntIntDict(::std::move(iceP_p1), iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -3303,7 +3303,7 @@ Test::Initial::_iceD_opStringIntDict(::Ice::IncomingRequest& request, ::std::fun
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<StringIntDict> iceP_p3;
-    ::std::optional<StringIntDict> ret = this->opStringIntDict(::std::move(iceP_p1), iceP_p3, request.current());
+    const ::std::optional<StringIntDict> ret = this->opStringIntDict(::std::move(iceP_p1), iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -3391,7 +3391,7 @@ Test::Initial::_iceD_opG(::Ice::IncomingRequest& request, ::std::function<void(:
     istr->readAll(iceP_g);
     istr->readPendingValues();
     istr->endEncapsulation();
-    GPtr ret = this->opG(::std::move(iceP_g), request.current());
+    const GPtr ret = this->opG(::std::move(iceP_g), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -3544,7 +3544,7 @@ Test::Initial::_iceD_supportsJavaSerializable(::Ice::IncomingRequest& request, :
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    bool ret = this->supportsJavaSerializable(request.current());
+    const bool ret = this->supportsJavaSerializable(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

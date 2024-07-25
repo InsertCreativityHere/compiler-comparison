@@ -463,7 +463,7 @@ Test::MyClass::_iceD_opNV(::Ice::IncomingRequest& request, ::std::function<void(
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     NV iceP_o;
-    NV ret = this->opNV(::std::move(iceP_i), iceP_o, request.current());
+    const NV ret = this->opNV(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -483,7 +483,7 @@ Test::MyClass::_iceD_opNR(::Ice::IncomingRequest& request, ::std::function<void(
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     NR iceP_o;
-    NR ret = this->opNR(::std::move(iceP_i), iceP_o, request.current());
+    const NR ret = this->opNR(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -503,7 +503,7 @@ Test::MyClass::_iceD_opNDV(::Ice::IncomingRequest& request, ::std::function<void
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     NDV iceP_o;
-    NDV ret = this->opNDV(::std::move(iceP_i), iceP_o, request.current());
+    const NDV ret = this->opNDV(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -523,7 +523,7 @@ Test::MyClass::_iceD_opNDR(::Ice::IncomingRequest& request, ::std::function<void
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     NDR iceP_o;
-    NDR ret = this->opNDR(::std::move(iceP_i), iceP_o, request.current());
+    const NDR ret = this->opNDR(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -543,7 +543,7 @@ Test::MyClass::_iceD_opNDAIS(::Ice::IncomingRequest& request, ::std::function<vo
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     NDAIS iceP_o;
-    NDAIS ret = this->opNDAIS(::std::move(iceP_i), iceP_o, request.current());
+    const NDAIS ret = this->opNDAIS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -563,7 +563,7 @@ Test::MyClass::_iceD_opNDGIS(::Ice::IncomingRequest& request, ::std::function<vo
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     NDGIS iceP_o;
-    NDGIS ret = this->opNDGIS(::std::move(iceP_i), iceP_o, request.current());
+    const NDGIS ret = this->opNDGIS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -583,7 +583,7 @@ Test::MyClass::_iceD_opNDASS(::Ice::IncomingRequest& request, ::std::function<vo
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     NDASS iceP_o;
-    NDASS ret = this->opNDASS(::std::move(iceP_i), iceP_o, request.current());
+    const NDASS ret = this->opNDASS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -603,7 +603,7 @@ Test::MyClass::_iceD_opNDGSS(::Ice::IncomingRequest& request, ::std::function<vo
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     NDGSS iceP_o;
-    NDGSS ret = this->opNDGSS(::std::move(iceP_i), iceP_o, request.current());
+    const NDGSS ret = this->opNDGSS(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);

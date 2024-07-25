@@ -169,7 +169,7 @@ Ice::PropertiesAdmin::_iceD_getProperty(::Ice::IncomingRequest& request, ::std::
     ::std::string iceP_key;
     istr->readAll(iceP_key);
     istr->endEncapsulation();
-    ::std::string ret = this->getProperty(::std::move(iceP_key), request.current());
+    const ::std::string ret = this->getProperty(::std::move(iceP_key), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -188,7 +188,7 @@ Ice::PropertiesAdmin::_iceD_getPropertiesForPrefix(::Ice::IncomingRequest& reque
     ::std::string iceP_prefix;
     istr->readAll(iceP_prefix);
     istr->endEncapsulation();
-    PropertyDict ret = this->getPropertiesForPrefix(::std::move(iceP_prefix), request.current());
+    const PropertyDict ret = this->getPropertiesForPrefix(::std::move(iceP_prefix), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

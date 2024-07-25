@@ -379,7 +379,7 @@ Test::ServerFactory::_iceD_createServer(::Ice::IncomingRequest& request, ::std::
     Properties iceP_props;
     istr->readAll(iceP_props);
     istr->endEncapsulation();
-    ::std::optional<ServerPrx> ret = this->createServer(::std::move(iceP_props), request.current());
+    const ::std::optional<ServerPrx> ret = this->createServer(::std::move(iceP_props), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

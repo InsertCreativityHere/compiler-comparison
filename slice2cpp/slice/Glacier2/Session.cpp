@@ -694,7 +694,7 @@ Glacier2::StringSet::_iceD_get(::Ice::IncomingRequest& request, ::std::function<
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::Ice::StringSeq ret = this->get(request.current());
+    const ::Ice::StringSeq ret = this->get(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -818,7 +818,7 @@ Glacier2::IdentitySet::_iceD_get(::Ice::IncomingRequest& request, ::std::functio
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::Ice::IdentitySeq ret = this->get(request.current());
+    const ::Ice::IdentitySeq ret = this->get(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -912,7 +912,7 @@ Glacier2::SessionControl::_iceD_categories(::Ice::IncomingRequest& request, ::st
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<StringSetPrx> ret = this->categories(request.current());
+    const ::std::optional<StringSetPrx> ret = this->categories(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -927,7 +927,7 @@ Glacier2::SessionControl::_iceD_adapterIds(::Ice::IncomingRequest& request, ::st
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<StringSetPrx> ret = this->adapterIds(request.current());
+    const ::std::optional<StringSetPrx> ret = this->adapterIds(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -942,7 +942,7 @@ Glacier2::SessionControl::_iceD_identities(::Ice::IncomingRequest& request, ::st
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<IdentitySetPrx> ret = this->identities(request.current());
+    const ::std::optional<IdentitySetPrx> ret = this->identities(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -957,7 +957,7 @@ Glacier2::SessionControl::_iceD_getSessionTimeout(::Ice::IncomingRequest& reques
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::int32_t ret = this->getSessionTimeout(request.current());
+    const ::std::int32_t ret = this->getSessionTimeout(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1077,7 +1077,7 @@ Glacier2::SessionManager::_iceD_create(::Ice::IncomingRequest& request, ::std::f
     ::std::optional<SessionControlPrx> iceP_control;
     istr->readAll(iceP_userId, iceP_control);
     istr->endEncapsulation();
-    ::std::optional<SessionPrx> ret = this->create(::std::move(iceP_userId), ::std::move(iceP_control), request.current());
+    const ::std::optional<SessionPrx> ret = this->create(::std::move(iceP_userId), ::std::move(iceP_control), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1166,7 +1166,7 @@ Glacier2::SSLSessionManager::_iceD_create(::Ice::IncomingRequest& request, ::std
     ::std::optional<SessionControlPrx> iceP_control;
     istr->readAll(iceP_info, iceP_control);
     istr->endEncapsulation();
-    ::std::optional<SessionPrx> ret = this->create(::std::move(iceP_info), ::std::move(iceP_control), request.current());
+    const ::std::optional<SessionPrx> ret = this->create(::std::move(iceP_info), ::std::move(iceP_control), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

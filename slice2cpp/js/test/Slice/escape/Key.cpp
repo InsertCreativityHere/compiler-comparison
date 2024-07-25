@@ -878,7 +878,7 @@ await::optionalParams::_iceD_for(::Ice::IncomingRequest& request, ::std::functio
     ::std::optional<explicitPrx> iceP_null;
     istr->readAll({2, 3, 5, 7, 8}, iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null);
     istr->endEncapsulation();
-    ::std::optional<_cpp_break> ret = this->_cpp_for(iceP_goto, ::std::move(iceP_if), ::std::move(iceP_internal), ::std::move(iceP_namespace), ::std::move(iceP_null), request.current());
+    const ::std::optional<_cpp_break> ret = this->_cpp_for(iceP_goto, ::std::move(iceP_if), ::std::move(iceP_internal), ::std::move(iceP_namespace), ::std::move(iceP_null), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1}, ret);
@@ -932,7 +932,7 @@ await::optionalParams::_iceD_in(::Ice::IncomingRequest& request, ::std::function
     ::std::optional<_cpp_while> iceP_internal;
     ::std::optional<::std::string> iceP_namespace;
     ::std::optional<explicitPrx> iceP_null;
-    ::std::optional<_cpp_break> ret = this->in(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, request.current());
+    const ::std::optional<_cpp_break> ret = this->in(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 2, 3, 5, 7, 8}, ret, iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null);
@@ -1071,7 +1071,7 @@ await::implicit::_iceD_in(::Ice::IncomingRequest& request, ::std::function<void(
     istr->readAll(iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_operator, iceP_override, iceP_params, iceP_private);
     istr->readPendingValues();
     istr->endEncapsulation();
-    var ret = this->in(::std::move(iceP_internal), ::std::move(iceP_is), ::std::move(iceP_lock), ::std::move(iceP_namespace), ::std::move(iceP_new), ::std::move(iceP_null), ::std::move(iceP_operator), iceP_override, iceP_params, iceP_private, request.current());
+    const var ret = this->in(::std::move(iceP_internal), ::std::move(iceP_is), ::std::move(iceP_lock), ::std::move(iceP_namespace), ::std::move(iceP_new), ::std::move(iceP_null), ::std::move(iceP_operator), iceP_override, iceP_params, iceP_private, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

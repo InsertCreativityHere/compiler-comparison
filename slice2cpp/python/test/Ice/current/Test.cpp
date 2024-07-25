@@ -356,7 +356,7 @@ Test::TestIntf::_iceD_getAdapterName(::Ice::IncomingRequest& request, ::std::fun
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->getAdapterName(request.current());
+    const ::std::string ret = this->getAdapterName(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -371,7 +371,7 @@ Test::TestIntf::_iceD_getConnection(::Ice::IncomingRequest& request, ::std::func
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->getConnection(request.current());
+    const ::std::string ret = this->getConnection(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -386,7 +386,7 @@ Test::TestIntf::_iceD_getIdentity(::Ice::IncomingRequest& request, ::std::functi
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::Ice::Identity ret = this->getIdentity(request.current());
+    const ::Ice::Identity ret = this->getIdentity(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -401,7 +401,7 @@ Test::TestIntf::_iceD_getFacet(::Ice::IncomingRequest& request, ::std::function<
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->getFacet(request.current());
+    const ::std::string ret = this->getFacet(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -416,7 +416,7 @@ Test::TestIntf::_iceD_getOperation(::Ice::IncomingRequest& request, ::std::funct
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->getOperation(request.current());
+    const ::std::string ret = this->getOperation(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -431,7 +431,7 @@ Test::TestIntf::_iceD_getMode(::Ice::IncomingRequest& request, ::std::function<v
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->getMode(request.current());
+    const ::std::string ret = this->getMode(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -446,7 +446,7 @@ Test::TestIntf::_iceD_getContext(::Ice::IncomingRequest& request, ::std::functio
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::Ice::Context ret = this->getContext(request.current());
+    const ::Ice::Context ret = this->getContext(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -461,7 +461,7 @@ Test::TestIntf::_iceD_getRequestId(::Ice::IncomingRequest& request, ::std::funct
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::int32_t ret = this->getRequestId(request.current());
+    const ::std::int32_t ret = this->getRequestId(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -476,7 +476,7 @@ Test::TestIntf::_iceD_getEncoding(::Ice::IncomingRequest& request, ::std::functi
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->getEncoding(request.current());
+    const ::std::string ret = this->getEncoding(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

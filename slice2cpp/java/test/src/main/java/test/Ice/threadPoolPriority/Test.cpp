@@ -135,7 +135,7 @@ Test::Priority::_iceD_getPriority(::Ice::IncomingRequest& request, ::std::functi
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::int32_t ret = this->getPriority(request.current());
+    const ::std::int32_t ret = this->getPriority(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

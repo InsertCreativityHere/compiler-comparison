@@ -256,7 +256,7 @@ Test::TestIntf::_iceD_getAdapterName(::Ice::IncomingRequest& request, ::std::fun
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->getAdapterName(request.current());
+    const ::std::string ret = this->getAdapterName(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -340,7 +340,7 @@ Test::RemoteObjectAdapter::_iceD_getTestIntf(::Ice::IncomingRequest& request, ::
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<TestIntfPrx> ret = this->getTestIntf(request.current());
+    const ::std::optional<TestIntfPrx> ret = this->getTestIntf(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -445,7 +445,7 @@ Test::RemoteCommunicator::_iceD_createObjectAdapter(::Ice::IncomingRequest& requ
     ::std::string iceP_endpoints;
     istr->readAll(iceP_name, iceP_endpoints);
     istr->endEncapsulation();
-    ::std::optional<RemoteObjectAdapterPrx> ret = this->createObjectAdapter(::std::move(iceP_name), ::std::move(iceP_endpoints), request.current());
+    const ::std::optional<RemoteObjectAdapterPrx> ret = this->createObjectAdapter(::std::move(iceP_name), ::std::move(iceP_endpoints), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

@@ -246,7 +246,7 @@ Test::Initial::_iceD_getConcreteClass(::Ice::IncomingRequest& request, ::std::fu
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ConcreteClassPtr ret = this->getConcreteClass(request.current());
+    const ConcreteClassPtr ret = this->getConcreteClass(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

@@ -540,7 +540,7 @@ IceGrid::Query::_iceD_findObjectById(::Ice::IncomingRequest& request, ::std::fun
     ::Ice::Identity iceP_id;
     istr->readAll(iceP_id);
     istr->endEncapsulation();
-    ::std::optional<::Ice::ObjectPrx> ret = this->findObjectById(::std::move(iceP_id), request.current());
+    const ::std::optional<::Ice::ObjectPrx> ret = this->findObjectById(::std::move(iceP_id), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -559,7 +559,7 @@ IceGrid::Query::_iceD_findObjectByType(::Ice::IncomingRequest& request, ::std::f
     ::std::string iceP_type;
     istr->readAll(iceP_type);
     istr->endEncapsulation();
-    ::std::optional<::Ice::ObjectPrx> ret = this->findObjectByType(::std::move(iceP_type), request.current());
+    const ::std::optional<::Ice::ObjectPrx> ret = this->findObjectByType(::std::move(iceP_type), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -579,7 +579,7 @@ IceGrid::Query::_iceD_findObjectByTypeOnLeastLoadedNode(::Ice::IncomingRequest& 
     LoadSample iceP_sample;
     istr->readAll(iceP_type, iceP_sample);
     istr->endEncapsulation();
-    ::std::optional<::Ice::ObjectPrx> ret = this->findObjectByTypeOnLeastLoadedNode(::std::move(iceP_type), iceP_sample, request.current());
+    const ::std::optional<::Ice::ObjectPrx> ret = this->findObjectByTypeOnLeastLoadedNode(::std::move(iceP_type), iceP_sample, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -598,7 +598,7 @@ IceGrid::Query::_iceD_findAllObjectsByType(::Ice::IncomingRequest& request, ::st
     ::std::string iceP_type;
     istr->readAll(iceP_type);
     istr->endEncapsulation();
-    ::Ice::ObjectProxySeq ret = this->findAllObjectsByType(::std::move(iceP_type), request.current());
+    const ::Ice::ObjectProxySeq ret = this->findAllObjectsByType(::std::move(iceP_type), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -617,7 +617,7 @@ IceGrid::Query::_iceD_findAllReplicas(::Ice::IncomingRequest& request, ::std::fu
     ::std::optional<::Ice::ObjectPrx> iceP_proxy;
     istr->readAll(iceP_proxy);
     istr->endEncapsulation();
-    ::Ice::ObjectProxySeq ret = this->findAllReplicas(::std::move(iceP_proxy), request.current());
+    const ::Ice::ObjectProxySeq ret = this->findAllReplicas(::std::move(iceP_proxy), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -726,7 +726,7 @@ IceGrid::Registry::_iceD_createSession(::Ice::IncomingRequest& request, ::std::f
     ::std::string iceP_password;
     istr->readAll(iceP_userId, iceP_password);
     istr->endEncapsulation();
-    ::std::optional<SessionPrx> ret = this->createSession(::std::move(iceP_userId), ::std::move(iceP_password), request.current());
+    const ::std::optional<SessionPrx> ret = this->createSession(::std::move(iceP_userId), ::std::move(iceP_password), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -746,7 +746,7 @@ IceGrid::Registry::_iceD_createAdminSession(::Ice::IncomingRequest& request, ::s
     ::std::string iceP_password;
     istr->readAll(iceP_userId, iceP_password);
     istr->endEncapsulation();
-    ::std::optional<AdminSessionPrx> ret = this->createAdminSession(::std::move(iceP_userId), ::std::move(iceP_password), request.current());
+    const ::std::optional<AdminSessionPrx> ret = this->createAdminSession(::std::move(iceP_userId), ::std::move(iceP_password), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -761,7 +761,7 @@ IceGrid::Registry::_iceD_createSessionFromSecureConnection(::Ice::IncomingReques
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<SessionPrx> ret = this->createSessionFromSecureConnection(request.current());
+    const ::std::optional<SessionPrx> ret = this->createSessionFromSecureConnection(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -776,7 +776,7 @@ IceGrid::Registry::_iceD_createAdminSessionFromSecureConnection(::Ice::IncomingR
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<AdminSessionPrx> ret = this->createAdminSessionFromSecureConnection(request.current());
+    const ::std::optional<AdminSessionPrx> ret = this->createAdminSessionFromSecureConnection(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -791,7 +791,7 @@ IceGrid::Registry::_iceD_getSessionTimeout(::Ice::IncomingRequest& request, ::st
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::int32_t ret = this->getSessionTimeout(request.current());
+    const ::std::int32_t ret = this->getSessionTimeout(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -806,7 +806,7 @@ IceGrid::Registry::_iceD_getACMTimeout(::Ice::IncomingRequest& request, ::std::f
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::int32_t ret = this->getACMTimeout(request.current());
+    const ::std::int32_t ret = this->getACMTimeout(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -915,7 +915,7 @@ IceGrid::Locator::_iceD_getLocalRegistry(::Ice::IncomingRequest& request, ::std:
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<RegistryPrx> ret = this->getLocalRegistry(request.current());
+    const ::std::optional<RegistryPrx> ret = this->getLocalRegistry(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -930,7 +930,7 @@ IceGrid::Locator::_iceD_getLocalQuery(::Ice::IncomingRequest& request, ::std::fu
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<QueryPrx> ret = this->getLocalQuery(request.current());
+    const ::std::optional<QueryPrx> ret = this->getLocalQuery(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

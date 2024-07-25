@@ -164,7 +164,7 @@ Test::TestIntf::_iceD_getEndpointInfoAsContext(::Ice::IncomingRequest& request, 
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::Ice::Context ret = this->getEndpointInfoAsContext(request.current());
+    const ::Ice::Context ret = this->getEndpointInfoAsContext(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -179,7 +179,7 @@ Test::TestIntf::_iceD_getConnectionInfoAsContext(::Ice::IncomingRequest& request
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::Ice::Context ret = this->getConnectionInfoAsContext(request.current());
+    const ::Ice::Context ret = this->getConnectionInfoAsContext(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

@@ -254,7 +254,7 @@ Test::TestIntf::_iceD_getAdapterId(::Ice::IncomingRequest& request, ::std::funct
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->getAdapterId(request.current());
+    const ::std::string ret = this->getAdapterId(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

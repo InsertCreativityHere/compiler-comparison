@@ -489,7 +489,7 @@ Test::RemoteCommunicator::_iceD_getAdmin(::Ice::IncomingRequest& request, ::std:
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<::Ice::ObjectPrx> ret = this->getAdmin(request.current());
+    const ::std::optional<::Ice::ObjectPrx> ret = this->getAdmin(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -504,7 +504,7 @@ Test::RemoteCommunicator::_iceD_getChanges(::Ice::IncomingRequest& request, ::st
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::Ice::PropertyDict ret = this->getChanges(request.current());
+    const ::Ice::PropertyDict ret = this->getChanges(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -758,7 +758,7 @@ Test::RemoteCommunicatorFactory::_iceD_createCommunicator(::Ice::IncomingRequest
     ::Ice::PropertyDict iceP_props;
     istr->readAll(iceP_props);
     istr->endEncapsulation();
-    ::std::optional<RemoteCommunicatorPrx> ret = this->createCommunicator(::std::move(iceP_props), request.current());
+    const ::std::optional<RemoteCommunicatorPrx> ret = this->createCommunicator(::std::move(iceP_props), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

@@ -575,7 +575,7 @@ Test::TestIntf::_iceD_getHello(::Ice::IncomingRequest& request, ::std::function<
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<HelloPrx> ret = this->getHello(request.current());
+    const ::std::optional<HelloPrx> ret = this->getHello(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

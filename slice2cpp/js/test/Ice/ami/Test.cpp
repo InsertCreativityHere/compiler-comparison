@@ -761,7 +761,7 @@ Test::TestIntf::_iceD_opWithResult(::Ice::IncomingRequest& request, ::std::funct
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::int32_t ret = this->opWithResult(request.current());
+    const ::std::int32_t ret = this->opWithResult(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -798,7 +798,7 @@ Test::TestIntf::_iceD_opBatchCount(::Ice::IncomingRequest& request, ::std::funct
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::int32_t ret = this->opBatchCount(request.current());
+    const ::std::int32_t ret = this->opBatchCount(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -817,7 +817,7 @@ Test::TestIntf::_iceD_waitForBatch(::Ice::IncomingRequest& request, ::std::funct
     ::std::int32_t iceP_count;
     istr->readAll(iceP_count);
     istr->endEncapsulation();
-    bool ret = this->waitForBatch(iceP_count, request.current());
+    const bool ret = this->waitForBatch(iceP_count, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -902,7 +902,7 @@ Test::TestIntf::_iceD_supportsAMD(::Ice::IncomingRequest& request, ::std::functi
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    bool ret = this->supportsAMD(request.current());
+    const bool ret = this->supportsAMD(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -917,7 +917,7 @@ Test::TestIntf::_iceD_supportsFunctionalTests(::Ice::IncomingRequest& request, :
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    bool ret = this->supportsFunctionalTests(request.current());
+    const bool ret = this->supportsFunctionalTests(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

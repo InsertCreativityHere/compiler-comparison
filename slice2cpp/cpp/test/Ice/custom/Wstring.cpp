@@ -419,7 +419,7 @@ Test1::WstringClass::_iceD_opString(::Ice::IncomingRequest& request, ::std::func
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     ::std::wstring iceP_s2;
-    ::std::wstring ret = this->opString(::std::move(iceP_s1), iceP_s2, request.current());
+    const ::std::wstring ret = this->opString(::std::move(iceP_s1), iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);
@@ -439,7 +439,7 @@ Test1::WstringClass::_iceD_opStruct(::Ice::IncomingRequest& request, ::std::func
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     WstringStruct iceP_s2;
-    WstringStruct ret = this->opStruct(::std::move(iceP_s1), iceP_s2, request.current());
+    const WstringStruct ret = this->opStruct(::std::move(iceP_s1), iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);
@@ -553,7 +553,7 @@ Test2::WstringClass::_iceD_opString(::Ice::IncomingRequest& request, ::std::func
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     ::std::wstring iceP_s2;
-    ::std::wstring ret = this->opString(::std::move(iceP_s1), iceP_s2, request.current());
+    const ::std::wstring ret = this->opString(::std::move(iceP_s1), iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);
@@ -573,7 +573,7 @@ Test2::WstringClass::_iceD_opStruct(::Ice::IncomingRequest& request, ::std::func
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     WstringStruct iceP_s2;
-    WstringStruct ret = this->opStruct(::std::move(iceP_s1), iceP_s2, request.current());
+    const WstringStruct ret = this->opStruct(::std::move(iceP_s1), iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);

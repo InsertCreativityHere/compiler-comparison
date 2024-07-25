@@ -609,7 +609,7 @@ Test::Initial::_iceD_getTest1C2AsC1(::Ice::IncomingRequest& request, ::std::func
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::Test1::C1Ptr ret = this->getTest1C2AsC1(request.current());
+    const ::Test1::C1Ptr ret = this->getTest1C2AsC1(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -625,7 +625,7 @@ Test::Initial::_iceD_getTest1C2AsC2(::Ice::IncomingRequest& request, ::std::func
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::Test1::C2Ptr ret = this->getTest1C2AsC2(request.current());
+    const ::Test1::C2Ptr ret = this->getTest1C2AsC2(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -674,7 +674,7 @@ Test::Initial::_iceD_getTest2C2AsC1(::Ice::IncomingRequest& request, ::std::func
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::Test2::C1Ptr ret = this->getTest2C2AsC1(request.current());
+    const ::Test2::C1Ptr ret = this->getTest2C2AsC1(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -690,7 +690,7 @@ Test::Initial::_iceD_getTest2C2AsC2(::Ice::IncomingRequest& request, ::std::func
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::Test2::C2Ptr ret = this->getTest2C2AsC2(request.current());
+    const ::Test2::C2Ptr ret = this->getTest2C2AsC2(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -728,7 +728,7 @@ Test::Initial::_iceD_getTest3C2AsC1(::Ice::IncomingRequest& request, ::std::func
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::Test3::C1Ptr ret = this->getTest3C2AsC1(request.current());
+    const ::Test3::C1Ptr ret = this->getTest3C2AsC1(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -744,7 +744,7 @@ Test::Initial::_iceD_getTest3C2AsC2(::Ice::IncomingRequest& request, ::std::func
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::Test3::C2Ptr ret = this->getTest3C2AsC2(request.current());
+    const ::Test3::C2Ptr ret = this->getTest3C2AsC2(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

@@ -1366,7 +1366,7 @@ Test::MA::IA::_iceD_iaop(::Ice::IncomingRequest& request, ::std::function<void(:
     ::std::optional<IAPrx> iceP_p;
     istr->readAll(iceP_p);
     istr->endEncapsulation();
-    ::std::optional<IAPrx> ret = this->iaop(::std::move(iceP_p), request.current());
+    const ::std::optional<IAPrx> ret = this->iaop(::std::move(iceP_p), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1454,7 +1454,7 @@ Test::MB::IB1::_iceD_ib1op(::Ice::IncomingRequest& request, ::std::function<void
     ::std::optional<IB1Prx> iceP_p;
     istr->readAll(iceP_p);
     istr->endEncapsulation();
-    ::std::optional<IB1Prx> ret = this->ib1op(::std::move(iceP_p), request.current());
+    const ::std::optional<IB1Prx> ret = this->ib1op(::std::move(iceP_p), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1547,7 +1547,7 @@ Test::MB::IB2::_iceD_ib2op(::Ice::IncomingRequest& request, ::std::function<void
     ::std::optional<IB2Prx> iceP_p;
     istr->readAll(iceP_p);
     istr->endEncapsulation();
-    ::std::optional<IB2Prx> ret = this->ib2op(::std::move(iceP_p), request.current());
+    const ::std::optional<IB2Prx> ret = this->ib2op(::std::move(iceP_p), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1640,7 +1640,7 @@ Test::MA::IC::_iceD_icop(::Ice::IncomingRequest& request, ::std::function<void(:
     ::std::optional<ICPrx> iceP_p;
     istr->readAll(iceP_p);
     istr->endEncapsulation();
-    ::std::optional<ICPrx> ret = this->icop(::std::move(iceP_p), request.current());
+    const ::std::optional<ICPrx> ret = this->icop(::std::move(iceP_p), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1750,7 +1750,7 @@ Test::Initial::_iceD_iaop(::Ice::IncomingRequest& request, ::std::function<void(
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<::Test::MA::IAPrx> ret = this->iaop(request.current());
+    const ::std::optional<::Test::MA::IAPrx> ret = this->iaop(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1765,7 +1765,7 @@ Test::Initial::_iceD_ib1op(::Ice::IncomingRequest& request, ::std::function<void
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<::Test::MB::IB1Prx> ret = this->ib1op(request.current());
+    const ::std::optional<::Test::MB::IB1Prx> ret = this->ib1op(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1780,7 +1780,7 @@ Test::Initial::_iceD_ib2op(::Ice::IncomingRequest& request, ::std::function<void
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<::Test::MB::IB2Prx> ret = this->ib2op(request.current());
+    const ::std::optional<::Test::MB::IB2Prx> ret = this->ib2op(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1795,7 +1795,7 @@ Test::Initial::_iceD_icop(::Ice::IncomingRequest& request, ::std::function<void(
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<::Test::MA::ICPrx> ret = this->icop(request.current());
+    const ::std::optional<::Test::MA::ICPrx> ret = this->icop(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

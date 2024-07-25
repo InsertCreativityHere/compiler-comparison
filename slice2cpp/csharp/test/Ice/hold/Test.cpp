@@ -248,7 +248,7 @@ Test::Hold::_iceD_set(::Ice::IncomingRequest& request, ::std::function<void(::Ic
     ::std::int32_t iceP_delay;
     istr->readAll(iceP_value, iceP_delay);
     istr->endEncapsulation();
-    ::std::int32_t ret = this->set(iceP_value, iceP_delay, request.current());
+    const ::std::int32_t ret = this->set(iceP_value, iceP_delay, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

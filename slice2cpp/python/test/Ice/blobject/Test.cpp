@@ -258,7 +258,7 @@ Test::Hello::_iceD_add(::Ice::IncomingRequest& request, ::std::function<void(::I
     ::std::int32_t iceP_s2;
     istr->readAll(iceP_s1, iceP_s2);
     istr->endEncapsulation();
-    ::std::int32_t ret = this->add(iceP_s1, iceP_s2, request.current());
+    const ::std::int32_t ret = this->add(iceP_s1, iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

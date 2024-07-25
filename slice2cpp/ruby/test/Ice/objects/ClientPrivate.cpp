@@ -330,7 +330,7 @@ Test::UnexpectedObjectExceptionTest::_iceD_op(::Ice::IncomingRequest& request, :
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    EmptyPtr ret = this->op(request.current());
+    const EmptyPtr ret = this->op(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

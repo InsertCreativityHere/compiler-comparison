@@ -938,7 +938,7 @@ IceStormElection::Node::_iceD_areYouCoordinator(::Ice::IncomingRequest& request,
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    bool ret = this->areYouCoordinator(request.current());
+    const bool ret = this->areYouCoordinator(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -958,7 +958,7 @@ IceStormElection::Node::_iceD_areYouThere(::Ice::IncomingRequest& request, ::std
     ::std::int32_t iceP_j;
     istr->readAll(iceP_gn, iceP_j);
     istr->endEncapsulation();
-    bool ret = this->areYouThere(::std::move(iceP_gn), iceP_j, request.current());
+    const bool ret = this->areYouThere(::std::move(iceP_gn), iceP_j, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -973,7 +973,7 @@ IceStormElection::Node::_iceD_sync(::Ice::IncomingRequest& request, ::std::funct
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<::Ice::ObjectPrx> ret = this->sync(request.current());
+    const ::std::optional<::Ice::ObjectPrx> ret = this->sync(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -988,7 +988,7 @@ IceStormElection::Node::_iceD_nodes(::Ice::IncomingRequest& request, ::std::func
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    NodeInfoSeq ret = this->nodes(request.current());
+    const NodeInfoSeq ret = this->nodes(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1003,7 +1003,7 @@ IceStormElection::Node::_iceD_query(::Ice::IncomingRequest& request, ::std::func
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    QueryInfo ret = this->query(request.current());
+    const QueryInfo ret = this->query(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

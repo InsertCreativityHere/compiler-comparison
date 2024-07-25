@@ -608,7 +608,7 @@ Ice::Locator::_iceD_getRegistry(::Ice::IncomingRequest& request, ::std::function
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<LocatorRegistryPrx> ret = this->getRegistry(request.current());
+    const ::std::optional<LocatorRegistryPrx> ret = this->getRegistry(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -851,7 +851,7 @@ Ice::LocatorFinder::_iceD_getLocator(::Ice::IncomingRequest& request, ::std::fun
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<LocatorPrx> ret = this->getLocator(request.current());
+    const ::std::optional<LocatorPrx> ret = this->getLocator(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

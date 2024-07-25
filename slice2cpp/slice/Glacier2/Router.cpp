@@ -374,7 +374,7 @@ Glacier2::Router::_iceD_getCategoryForClient(::Ice::IncomingRequest& request, ::
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->getCategoryForClient(request.current());
+    const ::std::string ret = this->getCategoryForClient(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -468,7 +468,7 @@ Glacier2::Router::_iceD_getSessionTimeout(::Ice::IncomingRequest& request, ::std
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::int64_t ret = this->getSessionTimeout(request.current());
+    const ::std::int64_t ret = this->getSessionTimeout(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -483,7 +483,7 @@ Glacier2::Router::_iceD_getACMTimeout(::Ice::IncomingRequest& request, ::std::fu
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::int32_t ret = this->getACMTimeout(request.current());
+    const ::std::int32_t ret = this->getACMTimeout(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

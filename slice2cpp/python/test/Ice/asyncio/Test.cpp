@@ -365,7 +365,7 @@ Test::TestIntf::_iceD_op(::Ice::IncomingRequest& request, ::std::function<void(:
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::int32_t ret = this->op(request.current());
+    const ::std::int32_t ret = this->op(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -384,7 +384,7 @@ Test::TestIntf::_iceD_callOpOn(::Ice::IncomingRequest& request, ::std::function<
     ::std::optional<TestIntfPrx> iceP_proxy;
     istr->readAll(iceP_proxy);
     istr->endEncapsulation();
-    ::std::int32_t ret = this->callOpOn(::std::move(iceP_proxy), request.current());
+    const ::std::int32_t ret = this->callOpOn(::std::move(iceP_proxy), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

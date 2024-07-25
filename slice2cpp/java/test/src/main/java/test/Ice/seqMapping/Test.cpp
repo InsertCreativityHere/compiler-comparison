@@ -318,7 +318,7 @@ Test::MyClass::_iceD_opSerialSmallJava(::Ice::IncomingRequest& request, ::std::f
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     SerialSmall iceP_o;
-    SerialSmall ret = this->opSerialSmallJava(::std::move(iceP_i), iceP_o, request.current());
+    const SerialSmall ret = this->opSerialSmallJava(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -338,7 +338,7 @@ Test::MyClass::_iceD_opSerialLargeJava(::Ice::IncomingRequest& request, ::std::f
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     SerialLarge iceP_o;
-    SerialLarge ret = this->opSerialLargeJava(::std::move(iceP_i), iceP_o, request.current());
+    const SerialLarge ret = this->opSerialLargeJava(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);
@@ -358,7 +358,7 @@ Test::MyClass::_iceD_opSerialStructJava(::Ice::IncomingRequest& request, ::std::
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     SerialStruct iceP_o;
-    SerialStruct ret = this->opSerialStructJava(::std::move(iceP_i), iceP_o, request.current());
+    const SerialStruct ret = this->opSerialStructJava(::std::move(iceP_i), iceP_o, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o, ret);

@@ -302,7 +302,7 @@ Test::Initial::_iceD_getStruct1(::Ice::IncomingRequest& request, ::std::function
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ByteS ret = this->getStruct1(request.current());
+    const ByteS ret = this->getStruct1(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -317,7 +317,7 @@ Test::Initial::_iceD_getBase(::Ice::IncomingRequest& request, ::std::function<vo
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ByteS ret = this->getBase(request.current());
+    const ByteS ret = this->getBase(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -332,7 +332,7 @@ Test::Initial::_iceD_getEx(::Ice::IncomingRequest& request, ::std::function<void
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ByteS ret = this->getEx(request.current());
+    const ByteS ret = this->getEx(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

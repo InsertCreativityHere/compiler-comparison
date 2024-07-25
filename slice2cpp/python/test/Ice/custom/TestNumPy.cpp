@@ -752,7 +752,7 @@ Test::NumPy::Custom::_iceD_opBoolSeq(::Ice::IncomingRequest& request, ::std::fun
     istr->readAll(iceP_v1);
     istr->endEncapsulation();
     BoolSeq2 iceP_v2;
-    BoolSeq1 ret = this->opBoolSeq(::std::move(iceP_v1), iceP_v2, request.current());
+    const BoolSeq1 ret = this->opBoolSeq(::std::move(iceP_v1), iceP_v2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_v2, ret);
@@ -772,7 +772,7 @@ Test::NumPy::Custom::_iceD_opByteSeq(::Ice::IncomingRequest& request, ::std::fun
     istr->readAll(iceP_v1);
     istr->endEncapsulation();
     ByteSeq2 iceP_v2;
-    ByteSeq1 ret = this->opByteSeq(::std::move(iceP_v1), iceP_v2, request.current());
+    const ByteSeq1 ret = this->opByteSeq(::std::move(iceP_v1), iceP_v2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_v2, ret);
@@ -792,7 +792,7 @@ Test::NumPy::Custom::_iceD_opShortSeq(::Ice::IncomingRequest& request, ::std::fu
     istr->readAll(iceP_v1);
     istr->endEncapsulation();
     ShortSeq2 iceP_v2;
-    ShortSeq1 ret = this->opShortSeq(::std::move(iceP_v1), iceP_v2, request.current());
+    const ShortSeq1 ret = this->opShortSeq(::std::move(iceP_v1), iceP_v2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_v2, ret);
@@ -812,7 +812,7 @@ Test::NumPy::Custom::_iceD_opIntSeq(::Ice::IncomingRequest& request, ::std::func
     istr->readAll(iceP_v1);
     istr->endEncapsulation();
     IntSeq2 iceP_v2;
-    IntSeq1 ret = this->opIntSeq(::std::move(iceP_v1), iceP_v2, request.current());
+    const IntSeq1 ret = this->opIntSeq(::std::move(iceP_v1), iceP_v2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_v2, ret);
@@ -832,7 +832,7 @@ Test::NumPy::Custom::_iceD_opLongSeq(::Ice::IncomingRequest& request, ::std::fun
     istr->readAll(iceP_v1);
     istr->endEncapsulation();
     LongSeq2 iceP_v2;
-    LongSeq1 ret = this->opLongSeq(::std::move(iceP_v1), iceP_v2, request.current());
+    const LongSeq1 ret = this->opLongSeq(::std::move(iceP_v1), iceP_v2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_v2, ret);
@@ -852,7 +852,7 @@ Test::NumPy::Custom::_iceD_opFloatSeq(::Ice::IncomingRequest& request, ::std::fu
     istr->readAll(iceP_v1);
     istr->endEncapsulation();
     FloatSeq2 iceP_v2;
-    FloatSeq1 ret = this->opFloatSeq(::std::move(iceP_v1), iceP_v2, request.current());
+    const FloatSeq1 ret = this->opFloatSeq(::std::move(iceP_v1), iceP_v2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_v2, ret);
@@ -872,7 +872,7 @@ Test::NumPy::Custom::_iceD_opDoubleSeq(::Ice::IncomingRequest& request, ::std::f
     istr->readAll(iceP_v1);
     istr->endEncapsulation();
     DoubleSeq2 iceP_v2;
-    DoubleSeq1 ret = this->opDoubleSeq(::std::move(iceP_v1), iceP_v2, request.current());
+    const DoubleSeq1 ret = this->opDoubleSeq(::std::move(iceP_v1), iceP_v2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_v2, ret);
@@ -891,7 +891,7 @@ Test::NumPy::Custom::_iceD_opComplex128Seq(::Ice::IncomingRequest& request, ::st
     Complex128Seq iceP_v1;
     istr->readAll(iceP_v1);
     istr->endEncapsulation();
-    Complex128Seq ret = this->opComplex128Seq(::std::move(iceP_v1), request.current());
+    const Complex128Seq ret = this->opComplex128Seq(::std::move(iceP_v1), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -906,7 +906,7 @@ Test::NumPy::Custom::_iceD_opBoolMatrix(::Ice::IncomingRequest& request, ::std::
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    BoolSeq1 ret = this->opBoolMatrix(request.current());
+    const BoolSeq1 ret = this->opBoolMatrix(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -921,7 +921,7 @@ Test::NumPy::Custom::_iceD_opByteMatrix(::Ice::IncomingRequest& request, ::std::
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ByteSeq1 ret = this->opByteMatrix(request.current());
+    const ByteSeq1 ret = this->opByteMatrix(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -936,7 +936,7 @@ Test::NumPy::Custom::_iceD_opShortMatrix(::Ice::IncomingRequest& request, ::std:
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ShortSeq1 ret = this->opShortMatrix(request.current());
+    const ShortSeq1 ret = this->opShortMatrix(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -951,7 +951,7 @@ Test::NumPy::Custom::_iceD_opIntMatrix(::Ice::IncomingRequest& request, ::std::f
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    IntSeq1 ret = this->opIntMatrix(request.current());
+    const IntSeq1 ret = this->opIntMatrix(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -966,7 +966,7 @@ Test::NumPy::Custom::_iceD_opLongMatrix(::Ice::IncomingRequest& request, ::std::
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    LongSeq1 ret = this->opLongMatrix(request.current());
+    const LongSeq1 ret = this->opLongMatrix(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -981,7 +981,7 @@ Test::NumPy::Custom::_iceD_opFloatMatrix(::Ice::IncomingRequest& request, ::std:
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    FloatSeq1 ret = this->opFloatMatrix(request.current());
+    const FloatSeq1 ret = this->opFloatMatrix(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -996,7 +996,7 @@ Test::NumPy::Custom::_iceD_opDoubleMatrix(::Ice::IncomingRequest& request, ::std
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    DoubleSeq1 ret = this->opDoubleMatrix(request.current());
+    const DoubleSeq1 ret = this->opDoubleMatrix(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1011,7 +1011,7 @@ Test::NumPy::Custom::_iceD_opBogusNumpyArrayType(::Ice::IncomingRequest& request
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    BoolSeq1 ret = this->opBogusNumpyArrayType(request.current());
+    const BoolSeq1 ret = this->opBogusNumpyArrayType(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1031,7 +1031,7 @@ Test::NumPy::Custom::_iceD_opD(::Ice::IncomingRequest& request, ::std::function<
     istr->readAll(iceP_d);
     istr->readPendingValues();
     istr->endEncapsulation();
-    DPtr ret = this->opD(::std::move(iceP_d), request.current());
+    const DPtr ret = this->opD(::std::move(iceP_d), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

@@ -335,7 +335,7 @@ IceStorm::TopicInternal::_iceD_getLinkProxy(::Ice::IncomingRequest& request, ::s
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<TopicLinkPrx> ret = this->getLinkProxy(request.current());
+    const ::std::optional<TopicLinkPrx> ret = this->getLinkProxy(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -489,7 +489,7 @@ IceStorm::TopicManagerInternal::_iceD_getReplicaNode(::Ice::IncomingRequest& req
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<::IceStormElection::NodePrx> ret = this->getReplicaNode(request.current());
+    const ::std::optional<::IceStormElection::NodePrx> ret = this->getReplicaNode(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

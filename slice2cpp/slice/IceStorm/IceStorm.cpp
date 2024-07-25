@@ -825,7 +825,7 @@ IceStorm::Topic::_iceD_getName(::Ice::IncomingRequest& request, ::std::function<
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->getName(request.current());
+    const ::std::string ret = this->getName(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -840,7 +840,7 @@ IceStorm::Topic::_iceD_getPublisher(::Ice::IncomingRequest& request, ::std::func
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<::Ice::ObjectPrx> ret = this->getPublisher(request.current());
+    const ::std::optional<::Ice::ObjectPrx> ret = this->getPublisher(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -855,7 +855,7 @@ IceStorm::Topic::_iceD_getNonReplicatedPublisher(::Ice::IncomingRequest& request
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<::Ice::ObjectPrx> ret = this->getNonReplicatedPublisher(request.current());
+    const ::std::optional<::Ice::ObjectPrx> ret = this->getNonReplicatedPublisher(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -875,7 +875,7 @@ IceStorm::Topic::_iceD_subscribeAndGetPublisher(::Ice::IncomingRequest& request,
     ::std::optional<::Ice::ObjectPrx> iceP_subscriber;
     istr->readAll(iceP_theQoS, iceP_subscriber);
     istr->endEncapsulation();
-    ::std::optional<::Ice::ObjectPrx> ret = this->subscribeAndGetPublisher(::std::move(iceP_theQoS), ::std::move(iceP_subscriber), request.current());
+    const ::std::optional<::Ice::ObjectPrx> ret = this->subscribeAndGetPublisher(::std::move(iceP_theQoS), ::std::move(iceP_subscriber), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -936,7 +936,7 @@ IceStorm::Topic::_iceD_getLinkInfoSeq(::Ice::IncomingRequest& request, ::std::fu
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    LinkInfoSeq ret = this->getLinkInfoSeq(request.current());
+    const LinkInfoSeq ret = this->getLinkInfoSeq(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -951,7 +951,7 @@ IceStorm::Topic::_iceD_getSubscribers(::Ice::IncomingRequest& request, ::std::fu
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::Ice::IdentitySeq ret = this->getSubscribers(request.current());
+    const ::Ice::IdentitySeq ret = this->getSubscribers(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1095,7 +1095,7 @@ IceStorm::TopicManager::_iceD_create(::Ice::IncomingRequest& request, ::std::fun
     ::std::string iceP_name;
     istr->readAll(iceP_name);
     istr->endEncapsulation();
-    ::std::optional<TopicPrx> ret = this->create(::std::move(iceP_name), request.current());
+    const ::std::optional<TopicPrx> ret = this->create(::std::move(iceP_name), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1114,7 +1114,7 @@ IceStorm::TopicManager::_iceD_retrieve(::Ice::IncomingRequest& request, ::std::f
     ::std::string iceP_name;
     istr->readAll(iceP_name);
     istr->endEncapsulation();
-    ::std::optional<TopicPrx> ret = this->retrieve(::std::move(iceP_name), request.current());
+    const ::std::optional<TopicPrx> ret = this->retrieve(::std::move(iceP_name), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1129,7 +1129,7 @@ IceStorm::TopicManager::_iceD_retrieveAll(::Ice::IncomingRequest& request, ::std
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    TopicDict ret = this->retrieveAll(request.current());
+    const TopicDict ret = this->retrieveAll(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1223,7 +1223,7 @@ IceStorm::Finder::_iceD_getTopicManager(::Ice::IncomingRequest& request, ::std::
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::optional<TopicManagerPrx> ret = this->getTopicManager(request.current());
+    const ::std::optional<TopicManagerPrx> ret = this->getTopicManager(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

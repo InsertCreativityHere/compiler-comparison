@@ -96,7 +96,7 @@ Test::MyObject::_iceD_getName(::Ice::IncomingRequest& request, ::std::function<v
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::string ret = this->getName(request.current());
+    const ::std::string ret = this->getName(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
