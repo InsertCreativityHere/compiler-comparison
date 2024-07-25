@@ -16,18 +16,18 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-import * as Ice_Exception from "../Ice/Exception.js";
 import * as Ice_Long from "../Ice/Long.js";
 import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
 import * as Ice_TypeRegistry from "../Ice/TypeRegistry.js";
+import * as Ice_UserException from "../Ice/UserException.js";
 import { Ice as Ice_Ice_BuiltinSequences } from "../Ice/BuiltinSequences.js"
 import { Ice as Ice_Ice_Identity } from "../Ice/Identity.js"
 
 const Ice = {
-    ...Ice_Exception,
     ...Ice_Long,
     ...Ice_ObjectPrx,
     ...Ice_TypeRegistry,
+    ...Ice_UserException,
     ...Ice_Ice_BuiltinSequences,
     ...Ice_Ice_Identity,
 };

@@ -16,7 +16,6 @@
 /* eslint-disable */
 /* jshint ignore: start */
 
-import * as Ice_Exception from "../Ice/Exception.js";
 import * as Ice_Long from "../Ice/Long.js";
 import * as Ice_Object from "../Ice/Object.js";
 import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
@@ -24,12 +23,12 @@ import * as Ice_Operation from "../Ice/Operation.js";
 import * as Ice_Stream from "../Ice/Stream.js";
 import * as Ice_StreamHelpers from "../Ice/StreamHelpers.js";
 import * as Ice_TypeRegistry from "../Ice/TypeRegistry.js";
+import * as Ice_UserException from "../Ice/UserException.js";
 import * as Ice_Value from "../Ice/Value.js";
 import { Ice as Ice_Ice_BuiltinSequences } from "../Ice/BuiltinSequences.js"
 import { Ice as Ice_Ice_Identity } from "../Ice/Identity.js"
 
 const Ice = {
-    ...Ice_Exception,
     ...Ice_Long,
     ...Ice_Object,
     ...Ice_ObjectPrx,
@@ -37,6 +36,7 @@ const Ice = {
     ...Ice_Stream,
     ...Ice_StreamHelpers,
     ...Ice_TypeRegistry,
+    ...Ice_UserException,
     ...Ice_Value,
     ...Ice_Ice_BuiltinSequences,
     ...Ice_Ice_Identity,
