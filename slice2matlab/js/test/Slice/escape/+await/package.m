@@ -25,10 +25,10 @@ classdef package < Ice.Value
             if nargin == 0
                 obj.for_ = IceInternal.UnsetI.Instance;
                 obj.goto = IceInternal.UnsetI.Instance;
-                obj.if_ = IceInternal.UnsetI.Instance;
+                obj.if_ = [];
                 obj.internal = IceInternal.UnsetI.Instance;
                 obj.debugger = IceInternal.UnsetI.Instance;
-                obj.null = IceInternal.UnsetI.Instance;
+                obj.null = [];
             elseif ne(for_, IceInternal.NoInit.Instance)
                 obj.for_ = for_;
                 obj.goto = goto;
@@ -57,16 +57,10 @@ classdef package < Ice.Value
             is.startSlice();
             obj.for_ = await.break_.ice_readOpt(is, 1);
             obj.goto = await.var.ice_readOpt(is, 2);
-            if is.readOptional(3, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                obj.if_ = await.explicitPrx.ice_read(is);
-            end
+            obj.if_ = is.readProxyOpt(3, 'await.explicitPrx');
             obj.internal = await.while_.readOpt(is, 5);
             obj.debugger = is.readStringOpt(7);
-            if is.readOptional(8, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                obj.null = await.explicitPrx.ice_read(is);
-            end
+            obj.null = is.readProxyOpt(8, 'await.explicitPrx');
             is.endSlice();
         end
     end

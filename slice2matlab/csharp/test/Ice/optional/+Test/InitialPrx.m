@@ -769,14 +769,8 @@ classdef InitialPrx < Ice.ObjectPrx
             obj.iceEndWriteParams(os_);
             is_ = obj.iceInvoke('opMyInterfaceProxy', 0, true, os_, true, {}, varargin{:});
             is_.startEncapsulation();
-            if is_.readOptional(1, Ice.OptionalFormat.FSize)
-                is_.skip(4);
-                result = Test.MyInterfacePrx.ice_read(is_);
-            end
-            if is_.readOptional(3, Ice.OptionalFormat.FSize)
-                is_.skip(4);
-                p3 = Test.MyInterfacePrx.ice_read(is_);
-            end
+            result = is_.readProxyOpt(1, 'Test.MyInterfacePrx');
+            p3 = is_.readProxyOpt(3, 'Test.MyInterfacePrx');
             is_.endEncapsulation();
         end
         function r_ = opMyInterfaceProxyAsync(obj, p1, varargin)
@@ -793,14 +787,8 @@ classdef InitialPrx < Ice.ObjectPrx
             obj.iceEndWriteParams(os_);
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
-                if is_.readOptional(1, Ice.OptionalFormat.FSize)
-                    is_.skip(4);
-                    result = Test.MyInterfacePrx.ice_read(is_);
-                end
-                if is_.readOptional(3, Ice.OptionalFormat.FSize)
-                    is_.skip(4);
-                    p3 = Test.MyInterfacePrx.ice_read(is_);
-                end
+                result = is_.readProxyOpt(1, 'Test.MyInterfacePrx');
+                p3 = is_.readProxyOpt(3, 'Test.MyInterfacePrx');
                 is_.endEncapsulation();
                 varargout{1} = result;
                 varargout{2} = p3;

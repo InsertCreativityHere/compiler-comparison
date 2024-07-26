@@ -23,7 +23,7 @@ classdef optionalMembers < Ice.Value
             if nargin == 0
                 obj.for_ = IceInternal.UnsetI.Instance;
                 obj.goto = IceInternal.UnsetI.Instance;
-                obj.if_ = IceInternal.UnsetI.Instance;
+                obj.if_ = [];
                 obj.internal = IceInternal.UnsetI.Instance;
                 obj.namespace = IceInternal.UnsetI.Instance;
             elseif ne(for_, IceInternal.NoInit.Instance)
@@ -52,10 +52,7 @@ classdef optionalMembers < Ice.Value
             is.startSlice();
             obj.for_ = abstract.break_.ice_readOpt(is, 1);
             obj.goto = abstract.as.ice_readOpt(is, 2);
-            if is.readOptional(3, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                obj.if_ = abstract.explicitPrx.ice_read(is);
-            end
+            obj.if_ = is.readProxyOpt(3, 'abstract.explicitPrx');
             obj.internal = abstract.while_.readOpt(is, 5);
             obj.namespace = is.readStringOpt(7);
             is.endSlice();

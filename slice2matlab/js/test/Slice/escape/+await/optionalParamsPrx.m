@@ -141,16 +141,10 @@ classdef optionalParamsPrx < Ice.ObjectPrx
             is_.startEncapsulation();
             result = await.break_.ice_readOpt(is_, 1);
             goto = await.var.ice_readOpt(is_, 2);
-            if is_.readOptional(3, Ice.OptionalFormat.FSize)
-                is_.skip(4);
-                if_ = await.explicitPrx.ice_read(is_);
-            end
+            if_ = is_.readProxyOpt(3, 'await.explicitPrx');
             internal = await.while_.readOpt(is_, 5);
             namespace = is_.readStringOpt(7);
-            if is_.readOptional(8, Ice.OptionalFormat.FSize)
-                is_.skip(4);
-                null = await.explicitPrx.ice_read(is_);
-            end
+            null = is_.readProxyOpt(8, 'await.explicitPrx');
             is_.endEncapsulation();
         end
         function r_ = inAsync(obj, varargin)
@@ -165,16 +159,10 @@ classdef optionalParamsPrx < Ice.ObjectPrx
                 is_.startEncapsulation();
                 result = await.break_.ice_readOpt(is_, 1);
                 goto = await.var.ice_readOpt(is_, 2);
-                if is_.readOptional(3, Ice.OptionalFormat.FSize)
-                    is_.skip(4);
-                    if_ = await.explicitPrx.ice_read(is_);
-                end
+                if_ = is_.readProxyOpt(3, 'await.explicitPrx');
                 internal = await.while_.readOpt(is_, 5);
                 namespace = is_.readStringOpt(7);
-                if is_.readOptional(8, Ice.OptionalFormat.FSize)
-                    is_.skip(4);
-                    null = await.explicitPrx.ice_read(is_);
-                end
+                null = is_.readProxyOpt(8, 'await.explicitPrx');
                 is_.endEncapsulation();
                 varargout{1} = result;
                 varargout{2} = goto;
@@ -203,16 +191,10 @@ classdef optionalParamsPrx < Ice.ObjectPrx
             is_.startEncapsulation();
             result = await.break_.ice_readOpt(is_, 1);
             goto = await.var.ice_readOpt(is_, 2);
-            if is_.readOptional(3, Ice.OptionalFormat.FSize)
-                is_.skip(4);
-                if_ = await.explicitPrx.ice_read(is_);
-            end
+            if_ = is_.readProxyOpt(3, 'await.explicitPrx');
             internal = await.while_.readOpt(is_, 5);
             namespace = is_.readStringOpt(7);
-            if is_.readOptional(8, Ice.OptionalFormat.FSize)
-                is_.skip(4);
-                null = await.explicitPrx.ice_read(is_);
-            end
+            null = is_.readProxyOpt(8, 'await.explicitPrx');
             is_.endEncapsulation();
         end
         function r_ = foreachAsync(obj, varargin)
@@ -227,16 +209,10 @@ classdef optionalParamsPrx < Ice.ObjectPrx
                 is_.startEncapsulation();
                 result = await.break_.ice_readOpt(is_, 1);
                 goto = await.var.ice_readOpt(is_, 2);
-                if is_.readOptional(3, Ice.OptionalFormat.FSize)
-                    is_.skip(4);
-                    if_ = await.explicitPrx.ice_read(is_);
-                end
+                if_ = is_.readProxyOpt(3, 'await.explicitPrx');
                 internal = await.while_.readOpt(is_, 5);
                 namespace = is_.readStringOpt(7);
-                if is_.readOptional(8, Ice.OptionalFormat.FSize)
-                    is_.skip(4);
-                    null = await.explicitPrx.ice_read(is_);
-                end
+                null = is_.readProxyOpt(8, 'await.explicitPrx');
                 is_.endEncapsulation();
                 varargout{1} = result;
                 varargout{2} = goto;

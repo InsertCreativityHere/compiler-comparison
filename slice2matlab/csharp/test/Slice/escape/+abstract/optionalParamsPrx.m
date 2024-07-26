@@ -132,10 +132,7 @@ classdef optionalParamsPrx < Ice.ObjectPrx
             is_.startEncapsulation();
             result = abstract.break_.ice_readOpt(is_, 1);
             goto = abstract.as.ice_readOpt(is_, 2);
-            if is_.readOptional(3, Ice.OptionalFormat.FSize)
-                is_.skip(4);
-                if_ = abstract.explicitPrx.ice_read(is_);
-            end
+            if_ = is_.readProxyOpt(3, 'abstract.explicitPrx');
             internal = abstract.while_.readOpt(is_, 5);
             namespace = is_.readStringOpt(7);
             is_.endEncapsulation();
@@ -152,10 +149,7 @@ classdef optionalParamsPrx < Ice.ObjectPrx
                 is_.startEncapsulation();
                 result = abstract.break_.ice_readOpt(is_, 1);
                 goto = abstract.as.ice_readOpt(is_, 2);
-                if is_.readOptional(3, Ice.OptionalFormat.FSize)
-                    is_.skip(4);
-                    if_ = abstract.explicitPrx.ice_read(is_);
-                end
+                if_ = is_.readProxyOpt(3, 'abstract.explicitPrx');
                 internal = abstract.while_.readOpt(is_, 5);
                 namespace = is_.readStringOpt(7);
                 is_.endEncapsulation();
@@ -184,10 +178,7 @@ classdef optionalParamsPrx < Ice.ObjectPrx
             is_.startEncapsulation();
             result = abstract.break_.ice_readOpt(is_, 1);
             goto = abstract.as.ice_readOpt(is_, 2);
-            if is_.readOptional(3, Ice.OptionalFormat.FSize)
-                is_.skip(4);
-                if_ = abstract.explicitPrx.ice_read(is_);
-            end
+            if_ = is_.readProxyOpt(3, 'abstract.explicitPrx');
             internal = abstract.while_.readOpt(is_, 5);
             namespace = is_.readStringOpt(7);
             is_.endEncapsulation();
@@ -204,10 +195,7 @@ classdef optionalParamsPrx < Ice.ObjectPrx
                 is_.startEncapsulation();
                 result = abstract.break_.ice_readOpt(is_, 1);
                 goto = abstract.as.ice_readOpt(is_, 2);
-                if is_.readOptional(3, Ice.OptionalFormat.FSize)
-                    is_.skip(4);
-                    if_ = abstract.explicitPrx.ice_read(is_);
-                end
+                if_ = is_.readProxyOpt(3, 'abstract.explicitPrx');
                 internal = abstract.while_.readOpt(is_, 5);
                 namespace = is_.readStringOpt(7);
                 is_.endEncapsulation();

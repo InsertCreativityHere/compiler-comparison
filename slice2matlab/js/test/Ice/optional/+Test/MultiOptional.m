@@ -74,7 +74,7 @@ classdef MultiOptional < Ice.Value
                 obj.g = IceInternal.UnsetI.Instance;
                 obj.h = IceInternal.UnsetI.Instance;
                 obj.i = IceInternal.UnsetI.Instance;
-                obj.j = IceInternal.UnsetI.Instance;
+                obj.j = [];
                 obj.bs = IceInternal.UnsetI.Instance;
                 obj.ss = IceInternal.UnsetI.Instance;
                 obj.iid = IceInternal.UnsetI.Instance;
@@ -169,10 +169,7 @@ classdef MultiOptional < Ice.Value
             obj.g = is.readDoubleOpt(7);
             obj.h = is.readStringOpt(8);
             obj.i = Test.MyEnum.ice_readOpt(is, 9);
-            if is.readOptional(10, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                obj.j = Test.MyInterfacePrx.ice_read(is);
-            end
+            obj.j = is.readProxyOpt(10, 'Test.MyInterfacePrx');
             obj.bs = is.readByteSeqOpt(12);
             obj.ss = is.readStringSeqOpt(13);
             obj.iid = Test.IntIntDict.readOpt(is, 14);
