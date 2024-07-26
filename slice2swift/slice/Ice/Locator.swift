@@ -644,9 +644,9 @@ public extension LocatorRegistryPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as AdapterAlreadyActiveException {
-                                  throw error
                               } catch let error as AdapterNotFoundException {
+                                  throw error
+                              } catch let error as AdapterAlreadyActiveException {
                                   throw error
                               } catch is UserException {}
                           },
@@ -681,9 +681,9 @@ public extension LocatorRegistryPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as AdapterAlreadyActiveException {
-                                          throw error
                                       } catch let error as AdapterNotFoundException {
+                                          throw error
+                                      } catch let error as AdapterAlreadyActiveException {
                                           throw error
                                       } catch is UserException {}
                                   },
@@ -724,11 +724,11 @@ public extension LocatorRegistryPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
+                              } catch let error as AdapterNotFoundException {
+                                  throw error
                               } catch let error as InvalidReplicaGroupIdException {
                                   throw error
                               } catch let error as AdapterAlreadyActiveException {
-                                  throw error
-                              } catch let error as AdapterNotFoundException {
                                   throw error
                               } catch is UserException {}
                           },
@@ -766,11 +766,11 @@ public extension LocatorRegistryPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
+                                      } catch let error as AdapterNotFoundException {
+                                          throw error
                                       } catch let error as InvalidReplicaGroupIdException {
                                           throw error
                                       } catch let error as AdapterAlreadyActiveException {
-                                          throw error
-                                      } catch let error as AdapterNotFoundException {
                                           throw error
                                       } catch is UserException {}
                                   },
