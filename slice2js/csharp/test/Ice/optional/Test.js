@@ -404,7 +404,7 @@ Test.OptionalException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::OptionalException";
     }
@@ -447,7 +447,7 @@ Test.DerivedException = class extends Test.OptionalException
         return Test.OptionalException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::DerivedException";
     }
@@ -488,7 +488,7 @@ Test.RequiredException = class extends Test.OptionalException
         return Test.OptionalException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::RequiredException";
     }

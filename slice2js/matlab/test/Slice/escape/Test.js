@@ -194,7 +194,7 @@ classdef._break.persistent = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::classdef::break::persistent";
     }
@@ -246,7 +246,7 @@ classdef._break.global = class extends classdef._break.persistent
         return classdef._break.persistent;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::classdef::break::global";
     }

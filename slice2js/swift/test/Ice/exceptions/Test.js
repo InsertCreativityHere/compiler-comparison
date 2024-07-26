@@ -56,7 +56,7 @@ Test.A = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::A";
     }
@@ -93,7 +93,7 @@ Test.B = class extends Test.A
         return Test.A;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::B";
     }
@@ -130,7 +130,7 @@ Test.C = class extends Test.B
         return Test.B;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::C";
     }
@@ -167,7 +167,7 @@ Test.D = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::D";
     }
@@ -204,7 +204,7 @@ Test.E = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::E";
     }
@@ -241,7 +241,7 @@ Test.F = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::F";
     }
@@ -278,7 +278,7 @@ Test.Mod.A = class extends Test.A
         return Test.A;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::Mod::A";
     }

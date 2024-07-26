@@ -65,7 +65,7 @@ Test1.WstringException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test1::WstringException";
     }
@@ -159,7 +159,7 @@ Test2.WstringException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test2::WstringException";
     }

@@ -212,7 +212,7 @@ Test.SomeException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::SomeException";
     }

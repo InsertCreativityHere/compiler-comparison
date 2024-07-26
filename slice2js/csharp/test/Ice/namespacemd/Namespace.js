@@ -78,7 +78,7 @@ WithNamespace.E1 = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::WithNamespace::E1";
     }
@@ -115,7 +115,7 @@ WithNamespace.E2 = class extends WithNamespace.E1
         return WithNamespace.E1;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::WithNamespace::E2";
     }

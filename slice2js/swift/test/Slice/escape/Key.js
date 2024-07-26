@@ -200,7 +200,7 @@ and._return = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::and::return";
     }
@@ -238,7 +238,7 @@ and.as = class extends and._return
         return and._return;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::and::as";
     }

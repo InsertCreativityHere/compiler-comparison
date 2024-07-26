@@ -270,7 +270,7 @@ Test.MyException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::MyException";
     }
@@ -364,7 +364,7 @@ Test.Sub.NestedException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::Sub::NestedException";
     }
@@ -453,7 +453,7 @@ Test2.Sub2.NestedException2 = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test2::Sub2::NestedException2";
     }

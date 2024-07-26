@@ -88,7 +88,7 @@ Test.BaseEx = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::BaseEx";
     }
@@ -344,7 +344,7 @@ Test.Inner.Ex = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::Inner::Ex";
     }
@@ -403,7 +403,7 @@ Test.Inner.Sub.Ex = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::Inner::Sub::Ex";
     }
@@ -513,7 +513,7 @@ Test.EBase = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::EBase";
     }
@@ -558,7 +558,7 @@ Test.EDerived = class extends Test.EBase
         return Test.EBase;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::EDerived";
     }
@@ -917,7 +917,7 @@ Test.EOneMember = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::EOneMember";
     }
@@ -960,7 +960,7 @@ Test.ETwoMembers = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::ETwoMembers";
     }

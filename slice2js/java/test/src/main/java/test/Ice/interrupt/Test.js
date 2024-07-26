@@ -33,7 +33,7 @@ Test.InterruptedException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::InterruptedException";
     }
@@ -89,7 +89,7 @@ Test.CannotInterruptException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::CannotInterruptException";
     }

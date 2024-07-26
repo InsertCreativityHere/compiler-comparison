@@ -82,7 +82,7 @@ IceStormElection.ObserverInconsistencyException = class extends Ice.UserExceptio
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceStormElection::ObserverInconsistencyException";
     }

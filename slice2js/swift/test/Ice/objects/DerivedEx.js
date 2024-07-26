@@ -39,7 +39,7 @@ Test.DerivedEx = class extends Test.BaseEx
         return Test.BaseEx;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::DerivedEx";
     }

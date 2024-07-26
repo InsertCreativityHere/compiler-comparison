@@ -33,7 +33,7 @@ Test.UE = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::UE";
     }

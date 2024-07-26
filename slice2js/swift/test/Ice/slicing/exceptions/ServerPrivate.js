@@ -40,7 +40,7 @@ Test.UnknownDerived = class extends Test.Base
         return Test.Base;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::UnknownDerived";
     }
@@ -77,7 +77,7 @@ Test.UnknownIntermediate = class extends Test.Base
         return Test.Base;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::UnknownIntermediate";
     }
@@ -114,7 +114,7 @@ Test.UnknownMostDerived1 = class extends Test.KnownIntermediate
         return Test.KnownIntermediate;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::UnknownMostDerived1";
     }
@@ -151,7 +151,7 @@ Test.UnknownMostDerived2 = class extends Test.UnknownIntermediate
         return Test.UnknownIntermediate;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::UnknownMostDerived2";
     }

@@ -155,7 +155,7 @@ BEGIN.next = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::BEGIN::next";
     }
@@ -193,7 +193,7 @@ BEGIN.nil = class extends BEGIN.next
         return BEGIN.next;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::BEGIN::nil";
     }

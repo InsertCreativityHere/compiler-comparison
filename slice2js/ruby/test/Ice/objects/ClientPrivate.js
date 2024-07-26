@@ -118,7 +118,7 @@ Test.EOneMember = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::EOneMember";
     }
@@ -161,7 +161,7 @@ Test.ETwoMembers = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::ETwoMembers";
     }

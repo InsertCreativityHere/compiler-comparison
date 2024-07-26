@@ -58,7 +58,7 @@ Ice.AdapterNotFoundException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Ice::AdapterNotFoundException";
     }
@@ -87,7 +87,7 @@ Ice.InvalidReplicaGroupIdException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Ice::InvalidReplicaGroupIdException";
     }
@@ -116,7 +116,7 @@ Ice.AdapterAlreadyActiveException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Ice::AdapterAlreadyActiveException";
     }
@@ -145,7 +145,7 @@ Ice.ObjectNotFoundException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Ice::ObjectNotFoundException";
     }
@@ -174,7 +174,7 @@ Ice.ServerNotFoundException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Ice::ServerNotFoundException";
     }

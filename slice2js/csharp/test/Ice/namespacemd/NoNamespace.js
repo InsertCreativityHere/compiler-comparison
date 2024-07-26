@@ -78,7 +78,7 @@ NoNamespace.E1 = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::NoNamespace::E1";
     }
@@ -115,7 +115,7 @@ NoNamespace.E2 = class extends NoNamespace.E1
         return NoNamespace.E1;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::NoNamespace::E2";
     }
@@ -155,7 +155,7 @@ NoNamespace.notify = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::NoNamespace::notify";
     }

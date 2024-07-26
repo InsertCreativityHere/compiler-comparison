@@ -170,7 +170,7 @@ IceGrid.AdapterActiveException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceGrid::AdapterActiveException";
     }
@@ -197,7 +197,7 @@ IceGrid.AdapterNotActiveException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceGrid::AdapterNotActiveException";
     }
@@ -268,7 +268,7 @@ IceGrid.AdapterExistsException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceGrid::AdapterExistsException";
     }
@@ -483,7 +483,7 @@ IceGrid.NodeActiveException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceGrid::NodeActiveException";
     }
@@ -542,7 +542,7 @@ IceGrid.ReplicaActiveException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceGrid::ReplicaActiveException";
     }
@@ -745,13 +745,13 @@ Ice.defineOperations(
     {
         "registerNode": [, , , ["IceGrid.NodeSessionPrx"], [["IceGrid.InternalNodeInfo", true], ["IceGrid.NodePrx"], [IceGrid.LoadInfo]], ,
         [
-            IceGrid.PermissionDeniedException,
-            IceGrid.NodeActiveException
+            IceGrid.NodeActiveException,
+            IceGrid.PermissionDeniedException
         ], true, ],
         "registerReplica": [, , , ["IceGrid.ReplicaSessionPrx"], [["IceGrid.InternalReplicaInfo", true], ["IceGrid.InternalRegistryPrx"]], ,
         [
-            IceGrid.PermissionDeniedException,
-            IceGrid.ReplicaActiveException
+            IceGrid.ReplicaActiveException,
+            IceGrid.PermissionDeniedException
         ], true, ],
         "registerWithReplica": [, , , , [["IceGrid.InternalRegistryPrx"]], , , , ],
         "getNodes": [, 2, , [IceGrid.NodePrxSeqHelper], , , , , ],

@@ -264,7 +264,7 @@ _await.fixed = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::await::fixed";
     }
@@ -302,7 +302,7 @@ _await.foreach = class extends _await.fixed
         return _await.fixed;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::await::foreach";
     }
@@ -355,7 +355,7 @@ _await.BaseMethods = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::await::BaseMethods";
     }

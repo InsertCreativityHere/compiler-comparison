@@ -34,7 +34,7 @@ Test.Base = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::Base";
     }
@@ -71,7 +71,7 @@ Test.KnownDerived = class extends Test.Base
         return Test.Base;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::KnownDerived";
     }
@@ -108,7 +108,7 @@ Test.KnownIntermediate = class extends Test.Base
         return Test.Base;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::KnownIntermediate";
     }
@@ -145,7 +145,7 @@ Test.KnownMostDerived = class extends Test.KnownIntermediate
         return Test.KnownIntermediate;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::KnownMostDerived";
     }
@@ -182,7 +182,7 @@ Test.KnownPreserved = class extends Test.Base
         return Test.Base;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::KnownPreserved";
     }
@@ -219,7 +219,7 @@ Test.KnownPreservedDerived = class extends Test.KnownPreserved
         return Test.KnownPreserved;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::KnownPreservedDerived";
     }
@@ -449,7 +449,7 @@ Test.Preserved1 = class extends Test.KnownPreservedDerived
         return Test.KnownPreservedDerived;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::Preserved1";
     }
@@ -491,7 +491,7 @@ Test.Preserved2 = class extends Test.Preserved1
         return Test.Preserved1;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::Preserved2";
     }

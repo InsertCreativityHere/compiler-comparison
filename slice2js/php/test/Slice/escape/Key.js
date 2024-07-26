@@ -225,7 +225,7 @@ and.endif = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::and::endif";
     }
@@ -263,7 +263,7 @@ and.endwhile = class extends and.endif
         return and.endif;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::and::endwhile";
     }

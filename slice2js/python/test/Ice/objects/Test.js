@@ -358,7 +358,7 @@ Test.EBase = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::EBase";
     }
@@ -403,7 +403,7 @@ Test.EDerived = class extends Test.EBase
         return Test.EBase;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::EDerived";
     }
@@ -464,7 +464,7 @@ Test.Inner.Ex = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::Inner::Ex";
     }
@@ -523,7 +523,7 @@ Test.Inner.Sub.Ex = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::Inner::Sub::Ex";
     }

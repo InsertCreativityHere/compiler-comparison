@@ -175,7 +175,7 @@ abstract.hashCode = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::abstract::hashCode";
     }
@@ -213,7 +213,7 @@ abstract._import = class extends abstract.hashCode
         return abstract.hashCode;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::abstract::import";
     }

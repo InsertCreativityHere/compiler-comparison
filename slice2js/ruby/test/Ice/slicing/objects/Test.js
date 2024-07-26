@@ -205,7 +205,7 @@ Test.BaseException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::BaseException";
     }
@@ -250,7 +250,7 @@ Test.DerivedException = class extends Test.BaseException
         return Test.BaseException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::DerivedException";
     }
@@ -405,7 +405,7 @@ Test.PreservedException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::PreservedException";
     }

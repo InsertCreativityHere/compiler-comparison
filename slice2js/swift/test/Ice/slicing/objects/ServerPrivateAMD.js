@@ -138,7 +138,7 @@ Test.UnknownDerivedException = class extends Test.BaseException
         return Test.BaseException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::UnknownDerivedException";
     }

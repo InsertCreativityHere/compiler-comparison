@@ -114,7 +114,7 @@ Test.Common.TestCaseNotExistException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::Common::TestCaseNotExistException";
     }
@@ -151,7 +151,7 @@ Test.Common.TestCaseFailedException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::Common::TestCaseFailedException";
     }
@@ -252,7 +252,7 @@ Test.Common.ProcessFailedException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::Common::ProcessFailedException";
     }

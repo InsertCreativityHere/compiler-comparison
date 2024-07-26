@@ -431,7 +431,7 @@ Test.BaseEx = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::BaseEx";
     }
@@ -503,7 +503,7 @@ Test.DerivedEx = class extends Test.BaseEx
         return Test.BaseEx;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::DerivedEx";
     }
@@ -644,7 +644,7 @@ Test.ExceptionNoDefaultsBase = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::ExceptionNoDefaultsBase";
     }
@@ -686,7 +686,7 @@ Test.ExceptionNoDefaults = class extends Test.ExceptionNoDefaultsBase
         return Test.ExceptionNoDefaultsBase;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test::ExceptionNoDefaults";
     }

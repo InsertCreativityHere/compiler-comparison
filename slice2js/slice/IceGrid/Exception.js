@@ -51,7 +51,7 @@ IceGrid.ApplicationNotExistException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceGrid::ApplicationNotExistException";
     }
@@ -91,7 +91,7 @@ IceGrid.ServerNotExistException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceGrid::ServerNotExistException";
     }
@@ -132,7 +132,7 @@ IceGrid.ServerStartException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceGrid::ServerStartException";
     }
@@ -175,7 +175,7 @@ IceGrid.ServerStopException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceGrid::ServerStopException";
     }
@@ -217,7 +217,7 @@ IceGrid.AdapterNotExistException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceGrid::AdapterNotExistException";
     }
@@ -257,7 +257,7 @@ IceGrid.ObjectExistsException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceGrid::ObjectExistsException";
     }
@@ -297,7 +297,7 @@ IceGrid.ObjectNotRegisteredException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceGrid::ObjectNotRegisteredException";
     }
@@ -337,7 +337,7 @@ IceGrid.NodeNotExistException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceGrid::NodeNotExistException";
     }
@@ -377,7 +377,7 @@ IceGrid.RegistryNotExistException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceGrid::RegistryNotExistException";
     }
@@ -417,7 +417,7 @@ IceGrid.DeploymentException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceGrid::DeploymentException";
     }
@@ -458,7 +458,7 @@ IceGrid.NodeUnreachableException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceGrid::NodeUnreachableException";
     }
@@ -501,7 +501,7 @@ IceGrid.ServerUnreachableException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceGrid::ServerUnreachableException";
     }
@@ -544,7 +544,7 @@ IceGrid.RegistryUnreachableException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceGrid::RegistryUnreachableException";
     }
@@ -586,7 +586,7 @@ IceGrid.BadSignalException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceGrid::BadSignalException";
     }
@@ -626,7 +626,7 @@ IceGrid.AccessDeniedException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceGrid::AccessDeniedException";
     }
@@ -666,7 +666,7 @@ IceGrid.AllocationException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceGrid::AllocationException";
     }
@@ -705,7 +705,7 @@ IceGrid.AllocationTimeoutException = class extends IceGrid.AllocationException
         return IceGrid.AllocationException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceGrid::AllocationTimeoutException";
     }
@@ -735,7 +735,7 @@ IceGrid.PermissionDeniedException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceGrid::PermissionDeniedException";
     }
@@ -777,7 +777,7 @@ IceGrid.ObserverAlreadyRegisteredException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceGrid::ObserverAlreadyRegisteredException";
     }
@@ -823,7 +823,7 @@ IceGrid.FileNotAvailableException = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceGrid::FileNotAvailableException";
     }

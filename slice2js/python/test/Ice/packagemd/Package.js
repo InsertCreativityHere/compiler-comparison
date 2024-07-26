@@ -80,7 +80,7 @@ Test2.E1 = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test2::E1";
     }
@@ -117,7 +117,7 @@ Test2.E2 = class extends Test2.E1
         return Test2.E1;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test2::E2";
     }
@@ -198,7 +198,7 @@ Test3.E1 = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test3::E1";
     }
@@ -235,7 +235,7 @@ Test3.E2 = class extends Test3.E1
         return Test3.E1;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::Test3::E2";
     }

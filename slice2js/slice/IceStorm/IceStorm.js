@@ -109,7 +109,7 @@ IceStorm.LinkExists = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceStorm::LinkExists";
     }
@@ -149,7 +149,7 @@ IceStorm.NoSuchLink = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceStorm::NoSuchLink";
     }
@@ -188,7 +188,7 @@ IceStorm.AlreadySubscribed = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceStorm::AlreadySubscribed";
     }
@@ -218,7 +218,7 @@ IceStorm.InvalidSubscriber = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceStorm::InvalidSubscriber";
     }
@@ -258,7 +258,7 @@ IceStorm.BadQoS = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceStorm::BadQoS";
     }
@@ -347,7 +347,7 @@ IceStorm.TopicExists = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceStorm::TopicExists";
     }
@@ -387,7 +387,7 @@ IceStorm.NoSuchTopic = class extends Ice.UserException
         return Ice.UserException;
     }
 
-    static get _id()
+    static get _ice_id()
     {
         return "::IceStorm::NoSuchTopic";
     }
