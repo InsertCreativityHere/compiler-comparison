@@ -18,6 +18,7 @@ import Ice
 import IcePy
 import builtins as _builtins
 import Ice.BuiltinSequences_ice
+import Ice.Identity_ice
 
 # Included module Ice
 _M_Ice = Ice.openModule('Ice')
@@ -352,6 +353,12 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
         def throwMarshalExceptionAsync(self, context=None):
             return _M_Test.Thrower._op_throwMarshalException.invokeAsync(self, ((), context))
 
+        def throwRequestFailedException(self, type, id, facet, operation, context=None):
+            return _M_Test.Thrower._op_throwRequestFailedException.invoke(self, ((type, id, facet, operation), context))
+
+        def throwRequestFailedExceptionAsync(self, type, id, facet, operation, context=None):
+            return _M_Test.Thrower._op_throwRequestFailedException.invokeAsync(self, ((type, id, facet, operation), context))
+
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.ThrowerPrx.ice_checkedCast(proxy, '::Test::Thrower', facetOrContext, context)
@@ -447,6 +454,9 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
         def throwMarshalException(self, current=None):
             raise NotImplementedError("servant method 'throwMarshalException' not implemented")
 
+        def throwRequestFailedException(self, type, id, facet, operation, current=None):
+            raise NotImplementedError("servant method 'throwRequestFailedException' not implemented")
+
         def __str__(self):
             return IcePy.stringify(self, _M_Test._t_ThrowerDisp)
 
@@ -477,6 +487,7 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
     Thrower._op_throwAfterResponse = IcePy.Operation('throwAfterResponse', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     Thrower._op_throwAfterException = IcePy.Operation('throwAfterException', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_A,))
     Thrower._op_throwMarshalException = IcePy.Operation('throwMarshalException', Ice.OperationMode.Normal, False, None, (), (), (((), IcePy._t_int, False, 0),), ((), IcePy._t_int, False, 0), ())
+    Thrower._op_throwRequestFailedException = IcePy.Operation('throwRequestFailedException', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), _M_Ice._t_Identity, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), None, ())
 
     _M_Test.Thrower = Thrower
     del Thrower

@@ -370,6 +370,9 @@ namespace Test
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         int throwMarshalException(out int p, Ice.Current current);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
+        void throwRequestFailedException(string type, global::Ice.Identity id, string facet, string operation, Ice.Current current);
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -493,6 +496,10 @@ namespace Test
         int throwMarshalException(out int p, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task<Thrower_ThrowMarshalExceptionResult> throwMarshalExceptionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        void throwRequestFailedException(string type, global::Ice.Identity id, string facet, string operation, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task throwRequestFailedExceptionAsync(string type, global::Ice.Identity id, string facet, string operation, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -821,6 +828,18 @@ namespace Test
                 var result_ = _iceI_throwMarshalExceptionAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 p = result_.p;
                 return result_.returnValue;
+            }
+            catch (global::System.AggregateException ex_)
+            {
+                throw ex_.InnerException!;
+            }
+        }
+
+        public void throwRequestFailedException(string type, global::Ice.Identity id, string facet, string operation, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        {
+            try
+            {
+                _iceI_throwRequestFailedExceptionAsync(type, id, facet, operation, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -1606,6 +1625,38 @@ namespace Test
                 });
         }
 
+        public global::System.Threading.Tasks.Task throwRequestFailedExceptionAsync(string type, global::Ice.Identity id, string facet, string operation, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        {
+            return _iceI_throwRequestFailedExceptionAsync(type, id, facet, operation, context, progress, cancel, false);
+        }
+
+        private global::System.Threading.Tasks.Task _iceI_throwRequestFailedExceptionAsync(string iceP_type, global::Ice.Identity iceP_id, string iceP_facet, string iceP_operation, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        {
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            _iceI_throwRequestFailedException(iceP_type, iceP_id, iceP_facet, iceP_operation, context, synchronous, completed);
+            return completed.Task;
+        }
+
+        private const string _throwRequestFailedException_name = "throwRequestFailedException";
+
+        private void _iceI_throwRequestFailedException(string iceP_type, global::Ice.Identity iceP_id, string iceP_facet, string iceP_operation, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        {
+            var outAsync = getOutgoingAsync<object>(completed);
+            outAsync.invoke(
+                _throwRequestFailedException_name,
+                Ice.OperationMode.Normal,
+                Ice.FormatType.DefaultFormat,
+                context,
+                synchronous,
+                write: (Ice.OutputStream ostr) =>
+                {
+                    ostr.writeString(iceP_type);
+                    global::Ice.Identity.ice_write(ostr, iceP_id);
+                    ostr.writeString(iceP_facet);
+                    ostr.writeString(iceP_operation);
+                });
+        }
+
         public static ThrowerPrx createProxy(Ice.Communicator communicator, string proxyString) =>
             new ThrowerPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
@@ -1803,6 +1854,8 @@ namespace Test
 
         public abstract int throwMarshalException(out int p, Ice.Current current);
 
+        public abstract void throwRequestFailedException(string type, global::Ice.Identity id, string facet, string operation, Ice.Current current);
+
         public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::Test::Thrower";
@@ -1832,6 +1885,7 @@ namespace Test
                 "throwAfterResponse" => Thrower.iceD_throwAfterResponseAsync(this, request),
                 "throwAfterException" => Thrower.iceD_throwAfterExceptionAsync(this, request),
                 "throwMarshalException" => Thrower.iceD_throwMarshalExceptionAsync(this, request),
+                "throwRequestFailedException" => Thrower.iceD_throwRequestFailedExceptionAsync(this, request),
                 "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
                 "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
                 "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
@@ -2175,6 +2229,26 @@ namespace Test
             ostr.writeInt(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_throwRequestFailedExceptionAsync(
+            Thrower obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            string iceP_type;
+            global::Ice.Identity iceP_id;
+            string iceP_facet;
+            string iceP_operation;
+            iceP_type = istr.readString();
+            iceP_id = new global::Ice.Identity(istr);
+            iceP_facet = istr.readString();
+            iceP_operation = istr.readString();
+            istr.endEncapsulation();
+            obj.throwRequestFailedException(iceP_type, iceP_id, iceP_facet, iceP_operation, request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
     }
 

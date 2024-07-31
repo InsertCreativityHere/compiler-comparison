@@ -45,6 +45,8 @@
 %   throwAfterExceptionAsync
 %   throwMarshalException
 %   throwMarshalExceptionAsync
+%   throwRequestFailedException
+%   throwRequestFailedExceptionAsync
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
 %   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
@@ -641,6 +643,44 @@ classdef ThrowerPrx < Ice.ObjectPrx
                 varargout{2} = p;
             end
             r_ = obj.iceInvokeAsync('throwMarshalException', 0, true, [], 2, @unmarshal, {}, varargin{:});
+        end
+        function throwRequestFailedException(obj, type, id, facet, operation, varargin)
+            % throwRequestFailedException
+            %
+            % Parameters:
+            %   type (char)
+            %   id (Ice.Identity)
+            %   facet (char)
+            %   operation (char)
+            %   context (containers.Map) - Optional request context.
+            
+            os_ = obj.iceStartWriteParams([]);
+            os_.writeString(type);
+            Ice.Identity.ice_write(os_, id);
+            os_.writeString(facet);
+            os_.writeString(operation);
+            obj.iceEndWriteParams(os_);
+            obj.iceInvoke('throwRequestFailedException', 0, false, os_, false, {}, varargin{:});
+        end
+        function r_ = throwRequestFailedExceptionAsync(obj, type, id, facet, operation, varargin)
+            % throwRequestFailedExceptionAsync
+            %
+            % Parameters:
+            %   type (char)
+            %   id (Ice.Identity)
+            %   facet (char)
+            %   operation (char)
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            
+            os_ = obj.iceStartWriteParams([]);
+            os_.writeString(type);
+            Ice.Identity.ice_write(os_, id);
+            os_.writeString(facet);
+            os_.writeString(operation);
+            obj.iceEndWriteParams(os_);
+            r_ = obj.iceInvokeAsync('throwRequestFailedException', 0, false, os_, 0, [], {}, varargin{:});
         end
     end
     methods(Static)

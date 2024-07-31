@@ -16,6 +16,7 @@
 
 require 'Ice'
 require 'Ice/BuiltinSequences.rb'
+require 'Ice/Identity.rb'
 
 module ::Test
 
@@ -192,6 +193,10 @@ module ::Test
             def throwMarshalException(context=nil)
                 ThrowerPrx_mixin::OP_throwMarshalException.invoke(self, [], context)
             end
+
+            def throwRequestFailedException(type, id, facet, operation, context=nil)
+                ThrowerPrx_mixin::OP_throwRequestFailedException.invoke(self, [type, id, facet, operation], context)
+            end
         end
 
         class ThrowerPrx < ::Ice::ObjectPrx
@@ -227,6 +232,7 @@ module ::Test
         ThrowerPrx_mixin::OP_throwAfterResponse = ::Ice::__defineOperation('throwAfterResponse', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         ThrowerPrx_mixin::OP_throwAfterException = ::Ice::__defineOperation('throwAfterException', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Test::T_A])
         ThrowerPrx_mixin::OP_throwMarshalException = ::Ice::__defineOperation('throwMarshalException', ::Ice::OperationMode::Normal, false, nil, [], [[::Ice::T_int, false, 0]], [::Ice::T_int, false, 0], [])
+        ThrowerPrx_mixin::OP_throwRequestFailedException = ::Ice::__defineOperation('throwRequestFailedException', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_Identity, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], nil, [])
     end
 
     if not defined?(::Test::WrongOperationPrx)

@@ -997,6 +997,48 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
+    default void throwRequestFailedException(String type, com.zeroc.Ice.Identity id, String facet, String operation)
+    {
+        throwRequestFailedException(type, id, facet, operation, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default void throwRequestFailedException(String type, com.zeroc.Ice.Identity id, String facet, String operation, java.util.Map<String, String> context)
+    {
+        _iceI_throwRequestFailedExceptionAsync(type, id, facet, operation, context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> throwRequestFailedExceptionAsync(String type, com.zeroc.Ice.Identity id, String facet, String operation)
+    {
+        return _iceI_throwRequestFailedExceptionAsync(type, id, facet, operation, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> throwRequestFailedExceptionAsync(String type, com.zeroc.Ice.Identity id, String facet, String operation, java.util.Map<String, String> context)
+    {
+        return _iceI_throwRequestFailedExceptionAsync(type, id, facet, operation, context, false);
+    }
+
+    /**
+     * @hidden
+     * @param iceP_type -
+     * @param iceP_id -
+     * @param iceP_facet -
+     * @param iceP_operation -
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_throwRequestFailedExceptionAsync(String iceP_type, com.zeroc.Ice.Identity iceP_id, String iceP_facet, String iceP_operation, java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwRequestFailedException", null, sync, null);
+        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+                     ostr.writeString(iceP_type);
+                     com.zeroc.Ice.Identity.ice_write(ostr, iceP_id);
+                     ostr.writeString(iceP_facet);
+                     ostr.writeString(iceP_operation);
+                 }, null);
+        return f;
+    }
+
     /**
      * Creates a new proxy that implements {@link ThrowerPrx}.
      * @param communicator The communicator of the new proxy.

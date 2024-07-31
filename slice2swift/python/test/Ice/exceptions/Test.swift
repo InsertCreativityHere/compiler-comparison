@@ -432,6 +432,10 @@ public extension EmptyPrx {}
 ///  - throwMarshalException: 
 ///
 ///  - throwMarshalExceptionAsync: 
+///
+///  - throwRequestFailedException: 
+///
+///  - throwRequestFailedExceptionAsync: 
 public protocol ThrowerPrx: Ice.ObjectPrx {}
 
 private final class ThrowerPrxI: Ice.ObjectPrxI, ThrowerPrx {
@@ -610,6 +614,10 @@ public extension Ice.InputStream {
 ///  - throwMarshalException: 
 ///
 ///  - throwMarshalExceptionAsync: 
+///
+///  - throwRequestFailedException: 
+///
+///  - throwRequestFailedExceptionAsync: 
 public extension ThrowerPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
@@ -784,9 +792,9 @@ public extension ThrowerPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as D {
-                                  throw error
                               } catch let error as A {
+                                  throw error
+                              } catch let error as D {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -816,9 +824,9 @@ public extension ThrowerPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as D {
-                                          throw error
                                       } catch let error as A {
+                                          throw error
+                                      } catch let error as D {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -1616,6 +1624,63 @@ public extension ThrowerPrx {
                                   sentFlags: sentFlags,
                                   sent: sent)
     }
+
+    ///
+    /// - parameter type: `Swift.String`
+    ///
+    /// - parameter id: `Ice.Identity`
+    ///
+    /// - parameter facet: `Swift.String`
+    ///
+    /// - parameter operation: `Swift.String`
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    func throwRequestFailedException(type iceP_type: Swift.String, id iceP_id: Ice.Identity, facet iceP_facet: Swift.String, operation iceP_operation: Swift.String, context: Ice.Context? = nil) throws {
+        try _impl._invoke(operation: "throwRequestFailedException",
+                          mode: .Normal,
+                          write: { ostr in
+                              ostr.write(iceP_type)
+                              ostr.write(iceP_id)
+                              ostr.write(iceP_facet)
+                              ostr.write(iceP_operation)
+                          },
+                          context: context)
+    }
+
+    ///
+    /// - parameter type: `Swift.String`
+    ///
+    /// - parameter id: `Ice.Identity`
+    ///
+    /// - parameter facet: `Swift.String`
+    ///
+    /// - parameter operation: `Swift.String`
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    ///
+    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
+    ///   dispatch the sent callback.
+    ///
+    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
+    ///   to dispatch the sent callback
+    ///
+    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
+    ///
+    /// - returns: `PromiseKit.Promise<>` - The result of the operation
+    func throwRequestFailedExceptionAsync(type iceP_type: Swift.String, id iceP_id: Ice.Identity, facet iceP_facet: Swift.String, operation iceP_operation: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
+        return _impl._invokeAsync(operation: "throwRequestFailedException",
+                                  mode: .Normal,
+                                  write: { ostr in
+                                      ostr.write(iceP_type)
+                                      ostr.write(iceP_id)
+                                      ostr.write(iceP_facet)
+                                      ostr.write(iceP_operation)
+                                  },
+                                  context: context,
+                                  sentOn: sentOn,
+                                  sentFlags: sentFlags,
+                                  sent: sent)
+    }
 }
 
 /// WrongOperationPrx overview.
@@ -1836,6 +1901,8 @@ public struct ThrowerDisp: Ice.Dispatcher {
             servant._iceD_throwModA(request)
         case "throwNonIceException":
             servant._iceD_throwNonIceException(request)
+        case "throwRequestFailedException":
+            servant._iceD_throwRequestFailedException(request)
         case "throwUndeclaredA":
             servant._iceD_throwUndeclaredA(request)
         case "throwUndeclaredB":
@@ -1996,6 +2063,18 @@ public protocol Thrower {
     ///
     ///   - p: `Swift.Int32`
     func throwMarshalException(current: Ice.Current) throws -> (returnValue: Swift.Int32, p: Swift.Int32)
+
+    ///
+    /// - parameter type: `Swift.String`
+    ///
+    /// - parameter id: `Ice.Identity`
+    ///
+    /// - parameter facet: `Swift.String`
+    ///
+    /// - parameter operation: `Swift.String`
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    func throwRequestFailedException(type: Swift.String, id: Ice.Identity, facet: Swift.String, operation: Swift.String, current: Ice.Current) throws
 }
 
 
@@ -2082,6 +2161,8 @@ extension Empty {}
 ///  - throwAfterException: 
 ///
 ///  - throwMarshalException: 
+///
+///  - throwRequestFailedException: 
 extension Thrower {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
         do {
@@ -2373,6 +2454,22 @@ extension Thrower {
             ostr.write(iceP_returnValue)
             ostr.endEncapsulation()
             return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
+        } catch {
+            return PromiseKit.Promise(error: error)
+        }
+    }
+
+    public func _iceD_throwRequestFailedException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+        do {
+            let istr = request.inputStream
+            _ = try istr.startEncapsulation()
+            let iceP_type: Swift.String = try istr.read()
+            let iceP_id: Ice.Identity = try istr.read()
+            let iceP_facet: Swift.String = try istr.read()
+            let iceP_operation: Swift.String = try istr.read()
+
+            try self.throwRequestFailedException(type: iceP_type, id: iceP_id, facet: iceP_facet, operation: iceP_operation, current: request.current)
+            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
         } catch {
             return PromiseKit.Promise(error: error)
         }

@@ -18,6 +18,7 @@
 namespace
 {
     require_once 'Ice/BuiltinSequences.php';
+    require_once 'Ice/Identity.php';
 }
 
 namespace Test
@@ -217,6 +218,8 @@ namespace Test
     global $IcePHP__t_bool;
     global $IcePHP__t_int;
     global $Ice__t_ByteSeq;
+    global $IcePHP__t_string;
+    global $Ice__t_Identity;
     IcePHP_defineOperation($Test__t_ThrowerPrx, 'shutdown', 0, 0, null, null, null, null);
     IcePHP_defineOperation($Test__t_ThrowerPrx, 'supportsUndeclaredExceptions', 0, 0, null, null, array($IcePHP__t_bool), null);
     IcePHP_defineOperation($Test__t_ThrowerPrx, 'supportsAssertException', 0, 0, null, null, array($IcePHP__t_bool), null);
@@ -239,6 +242,7 @@ namespace Test
     IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwAfterResponse', 0, 0, null, null, null, null);
     IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwAfterException', 0, 0, null, null, null, array($Test__t_A));
     IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwMarshalException', 0, 0, null, array(array($IcePHP__t_int)), array($IcePHP__t_int), null);
+    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwRequestFailedException', 0, 0, array(array($IcePHP__t_string), array($Ice__t_Identity), array($IcePHP__t_string), array($IcePHP__t_string)), null, null, null);
 }
 
 namespace Test

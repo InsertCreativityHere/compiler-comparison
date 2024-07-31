@@ -105,6 +105,8 @@ public interface Thrower extends com.zeroc.Ice.Object
 
     Thrower.ThrowMarshalExceptionResult throwMarshalException(com.zeroc.Ice.Current current);
 
+    void throwRequestFailedException(String type, com.zeroc.Ice.Identity id, String facet, String operation, com.zeroc.Ice.Current current);
+
     /** @hidden */
     static final String[] _iceIds =
     {
@@ -424,6 +426,25 @@ public interface Thrower extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_throwRequestFailedException(Thrower obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        com.zeroc.Ice.InputStream istr = request.inputStream;
+        istr.startEncapsulation();
+        String iceP_type;
+        com.zeroc.Ice.Identity iceP_id;
+        String iceP_facet;
+        String iceP_operation;
+        iceP_type = istr.readString();
+        iceP_id = com.zeroc.Ice.Identity.ice_read(istr);
+        iceP_facet = istr.readString();
+        iceP_operation = istr.readString();
+        istr.endEncapsulation();
+        obj.throwRequestFailedException(iceP_type, iceP_id, iceP_facet, iceP_operation, request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
+    }
+
     @Override
     default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
@@ -452,6 +473,7 @@ public interface Thrower extends com.zeroc.Ice.Object
             case "throwAfterResponse" -> Thrower._iceD_throwAfterResponse(this, request);
             case "throwAfterException" -> Thrower._iceD_throwAfterException(this, request);
             case "throwMarshalException" -> Thrower._iceD_throwMarshalException(this, request);
+            case "throwRequestFailedException" -> Thrower._iceD_throwRequestFailedException(this, request);
             case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
             case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
             case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);

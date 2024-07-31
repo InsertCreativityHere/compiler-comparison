@@ -19,6 +19,7 @@
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include <Ice/BuiltinSequences.h>
+#include <Ice/Identity.h>
 
 #ifndef ICE_IGNORE_VERSION
 #   if ICE_INT_VERSION  != 30850
@@ -334,6 +335,17 @@ public:
 
     /// \cond INTERNAL
     void _iceI_throwMarshalException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::int32_t, ::std::int32_t>>>&, const ::Ice::Context&) const;
+    /// \endcond
+
+    void throwRequestFailedException(::std::string_view type, const ::Ice::Identity& id, ::std::string_view facet, ::std::string_view operation, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::future<void> throwRequestFailedExceptionAsync(::std::string_view type, const ::Ice::Identity& id, ::std::string_view facet, ::std::string_view operation, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::function<void()>
+    throwRequestFailedExceptionAsync(::std::string_view type, const ::Ice::Identity& id, ::std::string_view facet, ::std::string_view operation, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    /// \cond INTERNAL
+    void _iceI_throwRequestFailedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Identity&, ::std::string_view, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -833,6 +845,11 @@ public:
     virtual ::std::int32_t throwMarshalException(::std::int32_t& p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_throwMarshalException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    /// \endcond
+
+    virtual void throwRequestFailedException(::std::string type, ::Ice::Identity id, ::std::string facet, ::std::string operation, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    void _iceD_throwRequestFailedException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL

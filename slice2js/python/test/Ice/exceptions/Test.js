@@ -297,7 +297,8 @@ Ice.defineOperations(
         [
             Test.A
         ], , ],
-        "throwMarshalException": [, , , [3], , [[3]], , , ]
+        "throwMarshalException": [, , , [3], , [[3]], , , ],
+        "throwRequestFailedException": [, , , , [[7], [Ice.Identity], [7], [7]], , , , ]
     });
 
 const iceC_Test_WrongOperation_ids = [

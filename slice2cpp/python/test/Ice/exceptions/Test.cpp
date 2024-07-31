@@ -850,6 +850,37 @@ Test::ThrowerPrx::_iceI_throwMarshalException(const ::std::shared_ptr<::IceInter
         });
 }
 
+void
+Test::ThrowerPrx::throwRequestFailedException(::std::string_view iceP_type, const ::Ice::Identity& iceP_id, ::std::string_view iceP_facet, ::std::string_view iceP_operation, const ::Ice::Context& context) const
+{
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &ThrowerPrx::_iceI_throwRequestFailedException, iceP_type, iceP_id, iceP_facet, iceP_operation, context).get();
+}
+
+::std::future<void>
+Test::ThrowerPrx::throwRequestFailedExceptionAsync(::std::string_view iceP_type, const ::Ice::Identity& iceP_id, ::std::string_view iceP_facet, ::std::string_view iceP_operation, const ::Ice::Context& context) const
+{
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &ThrowerPrx::_iceI_throwRequestFailedException, iceP_type, iceP_id, iceP_facet, iceP_operation, context);
+}
+
+::std::function<void()>
+Test::ThrowerPrx::throwRequestFailedExceptionAsync(::std::string_view iceP_type, const ::Ice::Identity& iceP_id, ::std::string_view iceP_facet, ::std::string_view iceP_operation, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+{
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::ThrowerPrx::_iceI_throwRequestFailedException, iceP_type, iceP_id, iceP_facet, iceP_operation, context);
+}
+
+void
+Test::ThrowerPrx::_iceI_throwRequestFailedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_type, const ::Ice::Identity& iceP_id, ::std::string_view iceP_facet, ::std::string_view iceP_operation, const ::Ice::Context& context) const
+{
+    static constexpr ::std::string_view operationName = "throwRequestFailedException";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_type, iceP_id, iceP_facet, iceP_operation);
+        },
+        nullptr);
+}
+
 const char*
 Test::ThrowerPrx::ice_staticId() noexcept
 {
@@ -1425,12 +1456,30 @@ Test::Thrower::_iceD_throwMarshalException(::Ice::IncomingRequest& request, ::st
 
 /// \cond INTERNAL
 void
+Test::Thrower::_iceD_throwRequestFailedException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+{
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
+    ::std::string iceP_type;
+    ::Ice::Identity iceP_id;
+    ::std::string iceP_facet;
+    ::std::string iceP_operation;
+    istr->readAll(iceP_type, iceP_id, iceP_facet, iceP_operation);
+    istr->endEncapsulation();
+    this->throwRequestFailedException(::std::move(iceP_type), ::std::move(iceP_id), ::std::move(iceP_facet), ::std::move(iceP_operation), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+}
+/// \endcond
+
+/// \cond INTERNAL
+void
 Test::Thrower::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "supportsAssertException", "supportsUndeclaredExceptions", "throwAasA", "throwAfterException", "throwAfterResponse", "throwAorDasAorD", "throwAssertException", "throwBasA", "throwBasB", "throwCasA", "throwCasB", "throwCasC", "throwLocalException", "throwLocalExceptionIdempotent", "throwMarshalException", "throwMemoryLimitException", "throwModA", "throwNonIceException", "throwUndeclaredA", "throwUndeclaredB", "throwUndeclaredC"};
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "supportsAssertException", "supportsUndeclaredExceptions", "throwAasA", "throwAfterException", "throwAfterResponse", "throwAorDasAorD", "throwAssertException", "throwBasA", "throwBasB", "throwCasA", "throwCasB", "throwCasC", "throwLocalException", "throwLocalExceptionIdempotent", "throwMarshalException", "throwMemoryLimitException", "throwModA", "throwNonIceException", "throwRequestFailedException", "throwUndeclaredA", "throwUndeclaredB", "throwUndeclaredC"};
 
     const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 26, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 27, current.operation);
     if(r.first == r.second)
     {
         sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
@@ -1556,15 +1605,20 @@ Test::Thrower::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::
         }
         case 23:
         {
-            _iceD_throwUndeclaredA(request, ::std::move(sendResponse));
+            _iceD_throwRequestFailedException(request, ::std::move(sendResponse));
             break;
         }
         case 24:
         {
-            _iceD_throwUndeclaredB(request, ::std::move(sendResponse));
+            _iceD_throwUndeclaredA(request, ::std::move(sendResponse));
             break;
         }
         case 25:
+        {
+            _iceD_throwUndeclaredB(request, ::std::move(sendResponse));
+            break;
+        }
+        case 26:
         {
             _iceD_throwUndeclaredC(request, ::std::move(sendResponse));
             break;
