@@ -71,5 +71,5 @@ public class NoSuchLink extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -8653872737459004345L;
+    private static final long serialVersionUID = -8653877185409449681L;
 }
