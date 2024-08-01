@@ -174,22 +174,11 @@ public extension SessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func keepAliveAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func keepAliveAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "keepAlive",
                                             mode: .Idempotent,
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
@@ -236,16 +225,8 @@ public extension SessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func allocateObjectByIdAsync(_ iceP_id: Ice.Identity, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.ObjectPrx? {
+    func allocateObjectByIdAsync(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
         return try await _impl._invokeAsync(operation: "allocateObjectById",
                                             mode: .Normal,
                                             write: { ostr in
@@ -264,10 +245,7 @@ public extension SessionPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
@@ -309,16 +287,8 @@ public extension SessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func allocateObjectByTypeAsync(_ iceP_type: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.ObjectPrx? {
+    func allocateObjectByTypeAsync(_ iceP_type: Swift.String, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
         return try await _impl._invokeAsync(operation: "allocateObjectByType",
                                             mode: .Normal,
                                             write: { ostr in
@@ -335,10 +305,7 @@ public extension SessionPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Release an object that was allocated using allocateObjectById or
@@ -380,16 +347,8 @@ public extension SessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func releaseObjectAsync(_ iceP_id: Ice.Identity, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func releaseObjectAsync(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "releaseObject",
                                             mode: .Normal,
                                             write: { ostr in
@@ -404,10 +363,7 @@ public extension SessionPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Set the allocation timeout. If no objects are available for an allocation request, a call to
@@ -434,25 +390,14 @@ public extension SessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func setAllocationTimeoutAsync(_ iceP_timeout: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func setAllocationTimeoutAsync(_ iceP_timeout: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "setAllocationTimeout",
                                             mode: .Idempotent,
                                             write: { ostr in
                                                 ostr.write(iceP_timeout)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 

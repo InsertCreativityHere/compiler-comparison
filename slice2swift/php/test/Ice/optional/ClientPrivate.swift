@@ -156,16 +156,8 @@ public extension Initial2Prx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func opClassAndUnknownOptionalAsync(p iceP_p: A?, ovs iceP_ovs: VarStruct? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func opClassAndUnknownOptionalAsync(p iceP_p: A?, ovs iceP_ovs: VarStruct? = nil, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "opClassAndUnknownOptional",
                                             mode: .Normal,
                                             write: { ostr in
@@ -173,10 +165,7 @@ public extension Initial2Prx {
                                                 ostr.write(tag: 1, value: iceP_ovs)
                                                 ostr.writePendingValues()
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -202,26 +191,15 @@ public extension Initial2Prx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func opVoidAsync(a iceP_a: Swift.Int32? = nil, v iceP_v: Swift.String? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func opVoidAsync(a iceP_a: Swift.Int32? = nil, v iceP_v: Swift.String? = nil, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "opVoid",
                                             mode: .Normal,
                                             write: { ostr in
                                                 ostr.write(tag: 1, value: iceP_a)
                                                 ostr.write(tag: 2, value: iceP_v)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 

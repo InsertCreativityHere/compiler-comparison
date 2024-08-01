@@ -154,25 +154,14 @@ public extension DelayedTestIntfPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func sleepAsync(_ iceP_ms: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func sleepAsync(_ iceP_ms: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "sleep",
                                             mode: .Normal,
                                             write: { ostr in
                                                 ostr.write(iceP_ms)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 
@@ -289,22 +278,11 @@ public extension TestIntfPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "shutdown",
                                             mode: .Normal,
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 
@@ -438,16 +416,8 @@ public extension TestIntfBidirPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func makeSleepAsync(aborted iceP_aborted: Swift.Bool, ms iceP_ms: Swift.Int32, target iceP_target: DelayedTestIntfPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func makeSleepAsync(aborted iceP_aborted: Swift.Bool, ms iceP_ms: Swift.Int32, target iceP_target: DelayedTestIntfPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "makeSleep",
                                             mode: .Normal,
                                             write: { ostr in
@@ -455,10 +425,7 @@ public extension TestIntfBidirPrx {
                                                 ostr.write(iceP_ms)
                                                 ostr.write(iceP_target)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 

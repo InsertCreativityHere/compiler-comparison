@@ -157,16 +157,8 @@ public extension RegistryPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `UserInfo?` - The result of the operation
-    func getUserInfoAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> UserInfo? {
+    func getUserInfoAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> UserInfo? {
         return try await _impl._invokeAsync(operation: "getUserInfo",
                                             mode: .Normal,
                                             write: { ostr in
@@ -185,10 +177,7 @@ public extension RegistryPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 

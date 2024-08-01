@@ -470,26 +470,15 @@ public extension RemoteLoggerPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func initAsync(prefix iceP_prefix: Swift.String, logMessages iceP_logMessages: LogMessageSeq, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func initAsync(prefix iceP_prefix: Swift.String, logMessages iceP_logMessages: LogMessageSeq, context: Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "init",
                                             mode: .Normal,
                                             write: { ostr in
                                                 ostr.write(iceP_prefix)
                                                 LogMessageSeqHelper.write(to: ostr, value: iceP_logMessages)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Log a LogMessage. Note that log may be called by LoggerAdmin before init.
@@ -512,25 +501,14 @@ public extension RemoteLoggerPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func logAsync(_ iceP_message: LogMessage, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func logAsync(_ iceP_message: LogMessage, context: Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "log",
                                             mode: .Normal,
                                             write: { ostr in
                                                 ostr.write(iceP_message)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 
@@ -711,16 +689,8 @@ public extension LoggerAdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func attachRemoteLoggerAsync(prx iceP_prx: RemoteLoggerPrx?, messageTypes iceP_messageTypes: LogMessageTypeSeq, traceCategories iceP_traceCategories: StringSeq, messageMax iceP_messageMax: Swift.Int32, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func attachRemoteLoggerAsync(prx iceP_prx: RemoteLoggerPrx?, messageTypes iceP_messageTypes: LogMessageTypeSeq, traceCategories iceP_traceCategories: StringSeq, messageMax iceP_messageMax: Swift.Int32, context: Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "attachRemoteLogger",
                                             mode: .Normal,
                                             write: { ostr in
@@ -736,10 +706,7 @@ public extension LoggerAdminPrx {
                                                     throw error
                                                 } catch is UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Detaches a RemoteLogger object from the local logger.
@@ -768,16 +735,8 @@ public extension LoggerAdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Swift.Bool` - The result of the operation
-    func detachRemoteLoggerAsync(_ iceP_prx: RemoteLoggerPrx?, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Bool {
+    func detachRemoteLoggerAsync(_ iceP_prx: RemoteLoggerPrx?, context: Context? = nil) async throws -> Swift.Bool {
         return try await _impl._invokeAsync(operation: "detachRemoteLogger",
                                             mode: .Normal,
                                             write: { ostr in
@@ -787,10 +746,7 @@ public extension LoggerAdminPrx {
                                                 let iceP_returnValue: Swift.Bool = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Retrieves log messages recently logged.
@@ -842,16 +798,8 @@ public extension LoggerAdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: LogMessageSeq, prefix: Swift.String)` - The result of the operation
-    func getLogAsync(messageTypes iceP_messageTypes: LogMessageTypeSeq, traceCategories iceP_traceCategories: StringSeq, messageMax iceP_messageMax: Swift.Int32, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: LogMessageSeq, prefix: Swift.String) {
+    func getLogAsync(messageTypes iceP_messageTypes: LogMessageTypeSeq, traceCategories iceP_traceCategories: StringSeq, messageMax iceP_messageMax: Swift.Int32, context: Context? = nil) async throws -> (returnValue: LogMessageSeq, prefix: Swift.String) {
         return try await _impl._invokeAsync(operation: "getLog",
                                             mode: .Normal,
                                             write: { ostr in
@@ -864,10 +812,7 @@ public extension LoggerAdminPrx {
                                                 let iceP_returnValue: LogMessageSeq = try LogMessageSeqHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_prefix)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 

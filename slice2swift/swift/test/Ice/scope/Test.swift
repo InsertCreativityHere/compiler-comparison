@@ -1986,16 +1986,8 @@ public extension IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: S, s2: S)` - The result of the operation
-    func opSAsync(_ iceP_s1: S, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: S, s2: S) {
+    func opSAsync(_ iceP_s1: S, context: Ice.Context? = nil) async throws -> (returnValue: S, s2: S) {
         return try await _impl._invokeAsync(operation: "opS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -2006,10 +1998,7 @@ public extension IPrx {
                                                 let iceP_returnValue: S = try istr.read()
                                                 return (iceP_returnValue, iceP_s2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -2041,16 +2030,8 @@ public extension IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: SSeq, s2: SSeq)` - The result of the operation
-    func opSSeqAsync(_ iceP_s1: SSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: SSeq, s2: SSeq) {
+    func opSSeqAsync(_ iceP_s1: SSeq, context: Ice.Context? = nil) async throws -> (returnValue: SSeq, s2: SSeq) {
         return try await _impl._invokeAsync(operation: "opSSeq",
                                             mode: .Normal,
                                             write: { ostr in
@@ -2061,10 +2042,7 @@ public extension IPrx {
                                                 let iceP_returnValue: SSeq = try SSeqHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_s2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -2096,16 +2074,8 @@ public extension IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: SMap, s2: SMap)` - The result of the operation
-    func opSMapAsync(_ iceP_s1: SMap, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: SMap, s2: SMap) {
+    func opSMapAsync(_ iceP_s1: SMap, context: Ice.Context? = nil) async throws -> (returnValue: SMap, s2: SMap) {
         return try await _impl._invokeAsync(operation: "opSMap",
                                             mode: .Normal,
                                             write: { ostr in
@@ -2116,10 +2086,7 @@ public extension IPrx {
                                                 let iceP_returnValue: SMap = try SMapHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_s2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -2155,16 +2122,8 @@ public extension IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: C?, c2: C?)` - The result of the operation
-    func opCAsync(_ iceP_c1: C?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: C?, c2: C?) {
+    func opCAsync(_ iceP_c1: C?, context: Ice.Context? = nil) async throws -> (returnValue: C?, c2: C?) {
         return try await _impl._invokeAsync(operation: "opC",
                                             mode: .Normal,
                                             write: { ostr in
@@ -2179,10 +2138,7 @@ public extension IPrx {
                                                 try istr.readPendingValues()
                                                 return (iceP_returnValue, iceP_c2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -2216,16 +2172,8 @@ public extension IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: CSeq, s2: CSeq)` - The result of the operation
-    func opCSeqAsync(_ iceP_s1: CSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: CSeq, s2: CSeq) {
+    func opCSeqAsync(_ iceP_s1: CSeq, context: Ice.Context? = nil) async throws -> (returnValue: CSeq, s2: CSeq) {
         return try await _impl._invokeAsync(operation: "opCSeq",
                                             mode: .Normal,
                                             write: { ostr in
@@ -2238,10 +2186,7 @@ public extension IPrx {
                                                 try istr.readPendingValues()
                                                 return (iceP_returnValue, iceP_s2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -2275,16 +2220,8 @@ public extension IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: CMap, c2: CMap)` - The result of the operation
-    func opCMapAsync(_ iceP_c1: CMap, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: CMap, c2: CMap) {
+    func opCMapAsync(_ iceP_c1: CMap, context: Ice.Context? = nil) async throws -> (returnValue: CMap, c2: CMap) {
         return try await _impl._invokeAsync(operation: "opCMap",
                                             mode: .Normal,
                                             write: { ostr in
@@ -2297,10 +2234,7 @@ public extension IPrx {
                                                 try istr.readPendingValues()
                                                 return (iceP_returnValue, iceP_c2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -2327,16 +2261,8 @@ public extension IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `E1` - The result of the operation
-    func opE1Async(_ iceP_E1: E1, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> E1 {
+    func opE1Async(_ iceP_E1: E1, context: Ice.Context? = nil) async throws -> E1 {
         return try await _impl._invokeAsync(operation: "opE1",
                                             mode: .Normal,
                                             write: { ostr in
@@ -2346,10 +2272,7 @@ public extension IPrx {
                                                 let iceP_returnValue: E1 = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -2376,16 +2299,8 @@ public extension IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `S1` - The result of the operation
-    func opS1Async(_ iceP_S1: S1, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> S1 {
+    func opS1Async(_ iceP_S1: S1, context: Ice.Context? = nil) async throws -> S1 {
         return try await _impl._invokeAsync(operation: "opS1",
                                             mode: .Normal,
                                             write: { ostr in
@@ -2395,10 +2310,7 @@ public extension IPrx {
                                                 let iceP_returnValue: S1 = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -2428,16 +2340,8 @@ public extension IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `C1?` - The result of the operation
-    func opC1Async(_ iceP_C1: C1?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> C1? {
+    func opC1Async(_ iceP_C1: C1?, context: Ice.Context? = nil) async throws -> C1? {
         return try await _impl._invokeAsync(operation: "opC1",
                                             mode: .Normal,
                                             write: { ostr in
@@ -2450,10 +2354,7 @@ public extension IPrx {
                                                 try istr.readPendingValues()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -2480,16 +2381,8 @@ public extension IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `S1Seq` - The result of the operation
-    func opS1SeqAsync(_ iceP_S1Seq: S1Seq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> S1Seq {
+    func opS1SeqAsync(_ iceP_S1Seq: S1Seq, context: Ice.Context? = nil) async throws -> S1Seq {
         return try await _impl._invokeAsync(operation: "opS1Seq",
                                             mode: .Normal,
                                             write: { ostr in
@@ -2499,10 +2392,7 @@ public extension IPrx {
                                                 let iceP_returnValue: S1Seq = try S1SeqHelper.read(from: istr)
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -2529,16 +2419,8 @@ public extension IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `S1Map` - The result of the operation
-    func opS1MapAsync(_ iceP_S1Map: S1Map, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> S1Map {
+    func opS1MapAsync(_ iceP_S1Map: S1Map, context: Ice.Context? = nil) async throws -> S1Map {
         return try await _impl._invokeAsync(operation: "opS1Map",
                                             mode: .Normal,
                                             write: { ostr in
@@ -2548,10 +2430,7 @@ public extension IPrx {
                                                 let iceP_returnValue: S1Map = try S1MapHelper.read(from: istr)
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -2565,22 +2444,11 @@ public extension IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "shutdown",
                                             mode: .Normal,
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 
@@ -2763,16 +2631,8 @@ public extension InnerInner2IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: InnerInner2S, s2: InnerInner2S)` - The result of the operation
-    func opSAsync(_ iceP_s1: InnerInner2S, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: InnerInner2S, s2: InnerInner2S) {
+    func opSAsync(_ iceP_s1: InnerInner2S, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2S, s2: InnerInner2S) {
         return try await _impl._invokeAsync(operation: "opS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -2783,10 +2643,7 @@ public extension InnerInner2IPrx {
                                                 let iceP_returnValue: InnerInner2S = try istr.read()
                                                 return (iceP_returnValue, iceP_s2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -2818,16 +2675,8 @@ public extension InnerInner2IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)` - The result of the operation
-    func opSSeqAsync(_ iceP_s1: InnerInner2SSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: InnerInner2SSeq, s2: InnerInner2SSeq) {
+    func opSSeqAsync(_ iceP_s1: InnerInner2SSeq, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2SSeq, s2: InnerInner2SSeq) {
         return try await _impl._invokeAsync(operation: "opSSeq",
                                             mode: .Normal,
                                             write: { ostr in
@@ -2838,10 +2687,7 @@ public extension InnerInner2IPrx {
                                                 let iceP_returnValue: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_s2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -2873,16 +2719,8 @@ public extension InnerInner2IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: InnerInner2SMap, s2: InnerInner2SMap)` - The result of the operation
-    func opSMapAsync(_ iceP_s1: InnerInner2SMap, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: InnerInner2SMap, s2: InnerInner2SMap) {
+    func opSMapAsync(_ iceP_s1: InnerInner2SMap, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2SMap, s2: InnerInner2SMap) {
         return try await _impl._invokeAsync(operation: "opSMap",
                                             mode: .Normal,
                                             write: { ostr in
@@ -2893,10 +2731,7 @@ public extension InnerInner2IPrx {
                                                 let iceP_returnValue: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_s2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -2932,16 +2767,8 @@ public extension InnerInner2IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: InnerInner2C?, c2: InnerInner2C?)` - The result of the operation
-    func opCAsync(_ iceP_c1: InnerInner2C?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: InnerInner2C?, c2: InnerInner2C?) {
+    func opCAsync(_ iceP_c1: InnerInner2C?, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2C?, c2: InnerInner2C?) {
         return try await _impl._invokeAsync(operation: "opC",
                                             mode: .Normal,
                                             write: { ostr in
@@ -2956,10 +2783,7 @@ public extension InnerInner2IPrx {
                                                 try istr.readPendingValues()
                                                 return (iceP_returnValue, iceP_c2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -2993,16 +2817,8 @@ public extension InnerInner2IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)` - The result of the operation
-    func opCSeqAsync(_ iceP_c1: InnerInner2CSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: InnerInner2CSeq, c2: InnerInner2CSeq) {
+    func opCSeqAsync(_ iceP_c1: InnerInner2CSeq, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2CSeq, c2: InnerInner2CSeq) {
         return try await _impl._invokeAsync(operation: "opCSeq",
                                             mode: .Normal,
                                             write: { ostr in
@@ -3015,10 +2831,7 @@ public extension InnerInner2IPrx {
                                                 try istr.readPendingValues()
                                                 return (iceP_returnValue, iceP_c2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -3052,16 +2865,8 @@ public extension InnerInner2IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: InnerInner2CMap, c2: InnerInner2CMap)` - The result of the operation
-    func opCMapAsync(_ iceP_c1: InnerInner2CMap, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: InnerInner2CMap, c2: InnerInner2CMap) {
+    func opCMapAsync(_ iceP_c1: InnerInner2CMap, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2CMap, c2: InnerInner2CMap) {
         return try await _impl._invokeAsync(operation: "opCMap",
                                             mode: .Normal,
                                             write: { ostr in
@@ -3074,10 +2879,7 @@ public extension InnerInner2IPrx {
                                                 try istr.readPendingValues()
                                                 return (iceP_returnValue, iceP_c2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -3091,22 +2893,11 @@ public extension InnerInner2IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "shutdown",
                                             mode: .Normal,
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 
@@ -3289,16 +3080,8 @@ public extension InnerIPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: InnerInner2S, s2: InnerInner2S)` - The result of the operation
-    func opSAsync(_ iceP_s1: InnerInner2S, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: InnerInner2S, s2: InnerInner2S) {
+    func opSAsync(_ iceP_s1: InnerInner2S, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2S, s2: InnerInner2S) {
         return try await _impl._invokeAsync(operation: "opS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -3309,10 +3092,7 @@ public extension InnerIPrx {
                                                 let iceP_returnValue: InnerInner2S = try istr.read()
                                                 return (iceP_returnValue, iceP_s2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -3344,16 +3124,8 @@ public extension InnerIPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)` - The result of the operation
-    func opSSeqAsync(_ iceP_s1: InnerInner2SSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: InnerInner2SSeq, s2: InnerInner2SSeq) {
+    func opSSeqAsync(_ iceP_s1: InnerInner2SSeq, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2SSeq, s2: InnerInner2SSeq) {
         return try await _impl._invokeAsync(operation: "opSSeq",
                                             mode: .Normal,
                                             write: { ostr in
@@ -3364,10 +3136,7 @@ public extension InnerIPrx {
                                                 let iceP_returnValue: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_s2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -3399,16 +3168,8 @@ public extension InnerIPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: InnerInner2SMap, s2: InnerInner2SMap)` - The result of the operation
-    func opSMapAsync(_ iceP_s1: InnerInner2SMap, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: InnerInner2SMap, s2: InnerInner2SMap) {
+    func opSMapAsync(_ iceP_s1: InnerInner2SMap, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2SMap, s2: InnerInner2SMap) {
         return try await _impl._invokeAsync(operation: "opSMap",
                                             mode: .Normal,
                                             write: { ostr in
@@ -3419,10 +3180,7 @@ public extension InnerIPrx {
                                                 let iceP_returnValue: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_s2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -3458,16 +3216,8 @@ public extension InnerIPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: InnerInner2C?, c2: InnerInner2C?)` - The result of the operation
-    func opCAsync(_ iceP_c1: InnerInner2C?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: InnerInner2C?, c2: InnerInner2C?) {
+    func opCAsync(_ iceP_c1: InnerInner2C?, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2C?, c2: InnerInner2C?) {
         return try await _impl._invokeAsync(operation: "opC",
                                             mode: .Normal,
                                             write: { ostr in
@@ -3482,10 +3232,7 @@ public extension InnerIPrx {
                                                 try istr.readPendingValues()
                                                 return (iceP_returnValue, iceP_c2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -3519,16 +3266,8 @@ public extension InnerIPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)` - The result of the operation
-    func opCSeqAsync(_ iceP_c1: InnerInner2CSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: InnerInner2CSeq, c2: InnerInner2CSeq) {
+    func opCSeqAsync(_ iceP_c1: InnerInner2CSeq, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2CSeq, c2: InnerInner2CSeq) {
         return try await _impl._invokeAsync(operation: "opCSeq",
                                             mode: .Normal,
                                             write: { ostr in
@@ -3541,10 +3280,7 @@ public extension InnerIPrx {
                                                 try istr.readPendingValues()
                                                 return (iceP_returnValue, iceP_c2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -3578,16 +3314,8 @@ public extension InnerIPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: InnerInner2CMap, c2: InnerInner2CMap)` - The result of the operation
-    func opCMapAsync(_ iceP_c1: InnerInner2CMap, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: InnerInner2CMap, c2: InnerInner2CMap) {
+    func opCMapAsync(_ iceP_c1: InnerInner2CMap, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2CMap, c2: InnerInner2CMap) {
         return try await _impl._invokeAsync(operation: "opCMap",
                                             mode: .Normal,
                                             write: { ostr in
@@ -3600,10 +3328,7 @@ public extension InnerIPrx {
                                                 try istr.readPendingValues()
                                                 return (iceP_returnValue, iceP_c2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -3617,22 +3342,11 @@ public extension InnerIPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "shutdown",
                                             mode: .Normal,
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 
@@ -3815,16 +3529,8 @@ public extension InnerTestInner2IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: S, s2: S)` - The result of the operation
-    func opSAsync(_ iceP_s1: S, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: S, s2: S) {
+    func opSAsync(_ iceP_s1: S, context: Ice.Context? = nil) async throws -> (returnValue: S, s2: S) {
         return try await _impl._invokeAsync(operation: "opS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -3835,10 +3541,7 @@ public extension InnerTestInner2IPrx {
                                                 let iceP_returnValue: S = try istr.read()
                                                 return (iceP_returnValue, iceP_s2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -3870,16 +3573,8 @@ public extension InnerTestInner2IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: SSeq, s2: SSeq)` - The result of the operation
-    func opSSeqAsync(_ iceP_s1: SSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: SSeq, s2: SSeq) {
+    func opSSeqAsync(_ iceP_s1: SSeq, context: Ice.Context? = nil) async throws -> (returnValue: SSeq, s2: SSeq) {
         return try await _impl._invokeAsync(operation: "opSSeq",
                                             mode: .Normal,
                                             write: { ostr in
@@ -3890,10 +3585,7 @@ public extension InnerTestInner2IPrx {
                                                 let iceP_returnValue: SSeq = try SSeqHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_s2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -3925,16 +3617,8 @@ public extension InnerTestInner2IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: SMap, s2: SMap)` - The result of the operation
-    func opSMapAsync(_ iceP_s1: SMap, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: SMap, s2: SMap) {
+    func opSMapAsync(_ iceP_s1: SMap, context: Ice.Context? = nil) async throws -> (returnValue: SMap, s2: SMap) {
         return try await _impl._invokeAsync(operation: "opSMap",
                                             mode: .Normal,
                                             write: { ostr in
@@ -3945,10 +3629,7 @@ public extension InnerTestInner2IPrx {
                                                 let iceP_returnValue: SMap = try SMapHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_s2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -3984,16 +3665,8 @@ public extension InnerTestInner2IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: C?, c2: C?)` - The result of the operation
-    func opCAsync(_ iceP_c1: C?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: C?, c2: C?) {
+    func opCAsync(_ iceP_c1: C?, context: Ice.Context? = nil) async throws -> (returnValue: C?, c2: C?) {
         return try await _impl._invokeAsync(operation: "opC",
                                             mode: .Normal,
                                             write: { ostr in
@@ -4008,10 +3681,7 @@ public extension InnerTestInner2IPrx {
                                                 try istr.readPendingValues()
                                                 return (iceP_returnValue, iceP_c2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -4045,16 +3715,8 @@ public extension InnerTestInner2IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: CSeq, c2: CSeq)` - The result of the operation
-    func opCSeqAsync(_ iceP_c1: CSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: CSeq, c2: CSeq) {
+    func opCSeqAsync(_ iceP_c1: CSeq, context: Ice.Context? = nil) async throws -> (returnValue: CSeq, c2: CSeq) {
         return try await _impl._invokeAsync(operation: "opCSeq",
                                             mode: .Normal,
                                             write: { ostr in
@@ -4067,10 +3729,7 @@ public extension InnerTestInner2IPrx {
                                                 try istr.readPendingValues()
                                                 return (iceP_returnValue, iceP_c2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -4104,16 +3763,8 @@ public extension InnerTestInner2IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: CMap, c2: CMap)` - The result of the operation
-    func opCMapAsync(_ iceP_c1: CMap, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: CMap, c2: CMap) {
+    func opCMapAsync(_ iceP_c1: CMap, context: Ice.Context? = nil) async throws -> (returnValue: CMap, c2: CMap) {
         return try await _impl._invokeAsync(operation: "opCMap",
                                             mode: .Normal,
                                             write: { ostr in
@@ -4126,10 +3777,7 @@ public extension InnerTestInner2IPrx {
                                                 try istr.readPendingValues()
                                                 return (iceP_returnValue, iceP_c2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -4143,22 +3791,11 @@ public extension InnerTestInner2IPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "shutdown",
                                             mode: .Normal,
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 

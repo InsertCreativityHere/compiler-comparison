@@ -176,16 +176,8 @@ public extension RouterPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: ObjectPrx?, hasRoutingTable: Swift.Bool?)` - The result of the operation
-    func getClientProxyAsync(context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ObjectPrx?, hasRoutingTable: Swift.Bool?) {
+    func getClientProxyAsync(context: Context? = nil) async throws -> (returnValue: ObjectPrx?, hasRoutingTable: Swift.Bool?) {
         return try await _impl._invokeAsync(operation: "getClientProxy",
                                             mode: .Idempotent,
                                             read: { istr in
@@ -193,10 +185,7 @@ public extension RouterPrx {
                                                 let iceP_hasRoutingTable: Swift.Bool? = try istr.read(tag: 1)
                                                 return (iceP_returnValue, iceP_hasRoutingTable)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
@@ -218,26 +207,15 @@ public extension RouterPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `ObjectPrx?` - The result of the operation
-    func getServerProxyAsync(context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> ObjectPrx? {
+    func getServerProxyAsync(context: Context? = nil) async throws -> ObjectPrx? {
         return try await _impl._invokeAsync(operation: "getServerProxy",
                                             mode: .Idempotent,
                                             read: { istr in
                                                 let iceP_returnValue: ObjectPrx? = try istr.read(ObjectPrx.self)
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Add new proxy information to the router's routing table.
@@ -266,16 +244,8 @@ public extension RouterPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `ObjectProxySeq` - The result of the operation
-    func addProxiesAsync(_ iceP_proxies: ObjectProxySeq, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> ObjectProxySeq {
+    func addProxiesAsync(_ iceP_proxies: ObjectProxySeq, context: Context? = nil) async throws -> ObjectProxySeq {
         return try await _impl._invokeAsync(operation: "addProxies",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -285,10 +255,7 @@ public extension RouterPrx {
                                                 let iceP_returnValue: ObjectProxySeq = try ObjectProxySeqHelper.read(from: istr)
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 
@@ -419,26 +386,15 @@ public extension RouterFinderPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `RouterPrx?` - The result of the operation
-    func getRouterAsync(context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> RouterPrx? {
+    func getRouterAsync(context: Context? = nil) async throws -> RouterPrx? {
         return try await _impl._invokeAsync(operation: "getRouter",
                                             mode: .Normal,
                                             read: { istr in
                                                 let iceP_returnValue: RouterPrx? = try istr.read(RouterPrx.self)
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 

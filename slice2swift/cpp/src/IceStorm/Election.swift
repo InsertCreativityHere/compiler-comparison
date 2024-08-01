@@ -801,16 +801,8 @@ public extension ReplicaObserverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func initAsync(llu iceP_llu: LogUpdate, content iceP_content: TopicContentSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func initAsync(llu iceP_llu: LogUpdate, content iceP_content: TopicContentSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "init",
                                             mode: .Normal,
                                             write: { ostr in
@@ -824,10 +816,7 @@ public extension ReplicaObserverPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Create the topic with the given name.
@@ -867,16 +856,8 @@ public extension ReplicaObserverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func createTopicAsync(llu iceP_llu: LogUpdate, name iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func createTopicAsync(llu iceP_llu: LogUpdate, name iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "createTopic",
                                             mode: .Normal,
                                             write: { ostr in
@@ -890,10 +871,7 @@ public extension ReplicaObserverPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Destroy the topic with the given name.
@@ -933,16 +911,8 @@ public extension ReplicaObserverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func destroyTopicAsync(llu iceP_llu: LogUpdate, name iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func destroyTopicAsync(llu iceP_llu: LogUpdate, name iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "destroyTopic",
                                             mode: .Normal,
                                             write: { ostr in
@@ -956,10 +926,7 @@ public extension ReplicaObserverPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Add a subscriber to a topic.
@@ -1004,16 +971,8 @@ public extension ReplicaObserverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func addSubscriberAsync(llu iceP_llu: LogUpdate, topic iceP_topic: Swift.String, record iceP_record: IceStorm.SubscriberRecord, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func addSubscriberAsync(llu iceP_llu: LogUpdate, topic iceP_topic: Swift.String, record iceP_record: IceStorm.SubscriberRecord, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "addSubscriber",
                                             mode: .Normal,
                                             write: { ostr in
@@ -1028,10 +987,7 @@ public extension ReplicaObserverPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Remove a subscriber from a topic.
@@ -1075,16 +1031,8 @@ public extension ReplicaObserverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func removeSubscriberAsync(llu iceP_llu: LogUpdate, topic iceP_topic: Swift.String, subscribers iceP_subscribers: Ice.IdentitySeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func removeSubscriberAsync(llu iceP_llu: LogUpdate, topic iceP_topic: Swift.String, subscribers iceP_subscribers: Ice.IdentitySeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "removeSubscriber",
                                             mode: .Normal,
                                             write: { ostr in
@@ -1099,10 +1047,7 @@ public extension ReplicaObserverPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 
@@ -1232,16 +1177,8 @@ public extension TopicManagerSyncPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(llu: LogUpdate, content: TopicContentSeq)` - The result of the operation
-    func getContentAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (llu: LogUpdate, content: TopicContentSeq) {
+    func getContentAsync(context: Ice.Context? = nil) async throws -> (llu: LogUpdate, content: TopicContentSeq) {
         return try await _impl._invokeAsync(operation: "getContent",
                                             mode: .Normal,
                                             read: { istr in
@@ -1249,10 +1186,7 @@ public extension TopicManagerSyncPrx {
                                                 let iceP_content: TopicContentSeq = try TopicContentSeqHelper.read(from: istr)
                                                 return (iceP_llu, iceP_content)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 
@@ -1439,26 +1373,15 @@ public extension NodePrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func invitationAsync(j iceP_j: Swift.Int32, gn iceP_gn: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func invitationAsync(j iceP_j: Swift.Int32, gn iceP_gn: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "invitation",
                                             mode: .Normal,
                                             write: { ostr in
                                                 ostr.write(iceP_j)
                                                 ostr.write(iceP_gn)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Call from the group coordinator to a node to inform the node that the replica group is active.
@@ -1501,16 +1424,8 @@ public extension NodePrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func readyAsync(j iceP_j: Swift.Int32, gn iceP_gn: Swift.String, coordinator iceP_coordinator: Ice.ObjectPrx?, max iceP_max: Swift.Int32, generation iceP_generation: Swift.Int64, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func readyAsync(j iceP_j: Swift.Int32, gn iceP_gn: Swift.String, coordinator iceP_coordinator: Ice.ObjectPrx?, max iceP_max: Swift.Int32, generation iceP_generation: Swift.Int64, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "ready",
                                             mode: .Normal,
                                             write: { ostr in
@@ -1520,10 +1435,7 @@ public extension NodePrx {
                                                 ostr.write(iceP_max)
                                                 ostr.write(iceP_generation)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Called to accept an invitation into the given group.
@@ -1571,16 +1483,8 @@ public extension NodePrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func acceptAsync(j iceP_j: Swift.Int32, gn iceP_gn: Swift.String, forwardedInvites iceP_forwardedInvites: Ice.IntSeq, observer iceP_observer: Ice.ObjectPrx?, llu iceP_llu: LogUpdate, max iceP_max: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func acceptAsync(j iceP_j: Swift.Int32, gn iceP_gn: Swift.String, forwardedInvites iceP_forwardedInvites: Ice.IntSeq, observer iceP_observer: Ice.ObjectPrx?, llu iceP_llu: LogUpdate, max iceP_max: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "accept",
                                             mode: .Normal,
                                             write: { ostr in
@@ -1591,10 +1495,7 @@ public extension NodePrx {
                                                 ostr.write(iceP_llu)
                                                 ostr.write(iceP_max)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Determine if this node is a coordinator.
@@ -1616,26 +1517,15 @@ public extension NodePrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Swift.Bool` - The result of the operation
-    func areYouCoordinatorAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Bool {
+    func areYouCoordinatorAsync(context: Ice.Context? = nil) async throws -> Swift.Bool {
         return try await _impl._invokeAsync(operation: "areYouCoordinator",
                                             mode: .Idempotent,
                                             read: { istr in
                                                 let iceP_returnValue: Swift.Bool = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Determine if the node is a member of the given group with the given coordinator.
@@ -1669,16 +1559,8 @@ public extension NodePrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Swift.Bool` - The result of the operation
-    func areYouThereAsync(gn iceP_gn: Swift.String, j iceP_j: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Bool {
+    func areYouThereAsync(gn iceP_gn: Swift.String, j iceP_j: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Bool {
         return try await _impl._invokeAsync(operation: "areYouThere",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -1689,10 +1571,7 @@ public extension NodePrx {
                                                 let iceP_returnValue: Swift.Bool = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get the sync object for the replica hosted by this node.
@@ -1714,26 +1593,15 @@ public extension NodePrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func syncAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.ObjectPrx? {
+    func syncAsync(context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
         return try await _impl._invokeAsync(operation: "sync",
                                             mode: .Idempotent,
                                             read: { istr in
                                                 let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get the replication group information.
@@ -1755,26 +1623,15 @@ public extension NodePrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `NodeInfoSeq` - The result of the operation
-    func nodesAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> NodeInfoSeq {
+    func nodesAsync(context: Ice.Context? = nil) async throws -> NodeInfoSeq {
         return try await _impl._invokeAsync(operation: "nodes",
                                             mode: .Idempotent,
                                             read: { istr in
                                                 let iceP_returnValue: NodeInfoSeq = try NodeInfoSeqHelper.read(from: istr)
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get the query information for the given node.
@@ -1796,26 +1653,15 @@ public extension NodePrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `QueryInfo` - The result of the operation
-    func queryAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> QueryInfo {
+    func queryAsync(context: Ice.Context? = nil) async throws -> QueryInfo {
         return try await _impl._invokeAsync(operation: "query",
                                             mode: .Idempotent,
                                             read: { istr in
                                                 let iceP_returnValue: QueryInfo = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 

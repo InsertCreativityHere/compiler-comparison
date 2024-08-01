@@ -319,16 +319,8 @@ public extension NumPyCustomPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: NumPyBoolSeq1, v2: NumPyBoolSeq2)` - The result of the operation
-    func opBoolSeqAsync(_ iceP_v1: NumPyBoolSeq1, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: NumPyBoolSeq1, v2: NumPyBoolSeq2) {
+    func opBoolSeqAsync(_ iceP_v1: NumPyBoolSeq1, context: Ice.Context? = nil) async throws -> (returnValue: NumPyBoolSeq1, v2: NumPyBoolSeq2) {
         return try await _impl._invokeAsync(operation: "opBoolSeq",
                                             mode: .Normal,
                                             write: { ostr in
@@ -339,10 +331,7 @@ public extension NumPyCustomPrx {
                                                 let iceP_returnValue: NumPyBoolSeq1 = try istr.read()
                                                 return (iceP_returnValue, iceP_v2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -374,16 +363,8 @@ public extension NumPyCustomPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: NumPyByteSeq1, v2: NumPyByteSeq2)` - The result of the operation
-    func opByteSeqAsync(_ iceP_v1: NumPyByteSeq1, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: NumPyByteSeq1, v2: NumPyByteSeq2) {
+    func opByteSeqAsync(_ iceP_v1: NumPyByteSeq1, context: Ice.Context? = nil) async throws -> (returnValue: NumPyByteSeq1, v2: NumPyByteSeq2) {
         return try await _impl._invokeAsync(operation: "opByteSeq",
                                             mode: .Normal,
                                             write: { ostr in
@@ -394,10 +375,7 @@ public extension NumPyCustomPrx {
                                                 let iceP_returnValue: NumPyByteSeq1 = try istr.read()
                                                 return (iceP_returnValue, iceP_v2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -429,16 +407,8 @@ public extension NumPyCustomPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: NumPyShortSeq1, v2: NumPyShortSeq2)` - The result of the operation
-    func opShortSeqAsync(_ iceP_v1: NumPyShortSeq1, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: NumPyShortSeq1, v2: NumPyShortSeq2) {
+    func opShortSeqAsync(_ iceP_v1: NumPyShortSeq1, context: Ice.Context? = nil) async throws -> (returnValue: NumPyShortSeq1, v2: NumPyShortSeq2) {
         return try await _impl._invokeAsync(operation: "opShortSeq",
                                             mode: .Normal,
                                             write: { ostr in
@@ -449,10 +419,7 @@ public extension NumPyCustomPrx {
                                                 let iceP_returnValue: NumPyShortSeq1 = try istr.read()
                                                 return (iceP_returnValue, iceP_v2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -484,16 +451,8 @@ public extension NumPyCustomPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: NumPyIntSeq1, v2: NumPyIntSeq2)` - The result of the operation
-    func opIntSeqAsync(_ iceP_v1: NumPyIntSeq1, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: NumPyIntSeq1, v2: NumPyIntSeq2) {
+    func opIntSeqAsync(_ iceP_v1: NumPyIntSeq1, context: Ice.Context? = nil) async throws -> (returnValue: NumPyIntSeq1, v2: NumPyIntSeq2) {
         return try await _impl._invokeAsync(operation: "opIntSeq",
                                             mode: .Normal,
                                             write: { ostr in
@@ -504,10 +463,7 @@ public extension NumPyCustomPrx {
                                                 let iceP_returnValue: NumPyIntSeq1 = try istr.read()
                                                 return (iceP_returnValue, iceP_v2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -539,16 +495,8 @@ public extension NumPyCustomPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: NumPyLongSeq1, v2: NumPyLongSeq2)` - The result of the operation
-    func opLongSeqAsync(_ iceP_v1: NumPyLongSeq1, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: NumPyLongSeq1, v2: NumPyLongSeq2) {
+    func opLongSeqAsync(_ iceP_v1: NumPyLongSeq1, context: Ice.Context? = nil) async throws -> (returnValue: NumPyLongSeq1, v2: NumPyLongSeq2) {
         return try await _impl._invokeAsync(operation: "opLongSeq",
                                             mode: .Normal,
                                             write: { ostr in
@@ -559,10 +507,7 @@ public extension NumPyCustomPrx {
                                                 let iceP_returnValue: NumPyLongSeq1 = try istr.read()
                                                 return (iceP_returnValue, iceP_v2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -594,16 +539,8 @@ public extension NumPyCustomPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: NumPyFloatSeq1, v2: NumPyFloatSeq2)` - The result of the operation
-    func opFloatSeqAsync(_ iceP_v1: NumPyFloatSeq1, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: NumPyFloatSeq1, v2: NumPyFloatSeq2) {
+    func opFloatSeqAsync(_ iceP_v1: NumPyFloatSeq1, context: Ice.Context? = nil) async throws -> (returnValue: NumPyFloatSeq1, v2: NumPyFloatSeq2) {
         return try await _impl._invokeAsync(operation: "opFloatSeq",
                                             mode: .Normal,
                                             write: { ostr in
@@ -614,10 +551,7 @@ public extension NumPyCustomPrx {
                                                 let iceP_returnValue: NumPyFloatSeq1 = try istr.read()
                                                 return (iceP_returnValue, iceP_v2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -649,16 +583,8 @@ public extension NumPyCustomPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: NumPyDoubleSeq1, v2: NumPyDoubleSeq2)` - The result of the operation
-    func opDoubleSeqAsync(_ iceP_v1: NumPyDoubleSeq1, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: NumPyDoubleSeq1, v2: NumPyDoubleSeq2) {
+    func opDoubleSeqAsync(_ iceP_v1: NumPyDoubleSeq1, context: Ice.Context? = nil) async throws -> (returnValue: NumPyDoubleSeq1, v2: NumPyDoubleSeq2) {
         return try await _impl._invokeAsync(operation: "opDoubleSeq",
                                             mode: .Normal,
                                             write: { ostr in
@@ -669,10 +595,7 @@ public extension NumPyCustomPrx {
                                                 let iceP_returnValue: NumPyDoubleSeq1 = try istr.read()
                                                 return (iceP_returnValue, iceP_v2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -699,16 +622,8 @@ public extension NumPyCustomPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `NumPyComplex128Seq` - The result of the operation
-    func opComplex128SeqAsync(_ iceP_v1: NumPyComplex128Seq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> NumPyComplex128Seq {
+    func opComplex128SeqAsync(_ iceP_v1: NumPyComplex128Seq, context: Ice.Context? = nil) async throws -> NumPyComplex128Seq {
         return try await _impl._invokeAsync(operation: "opComplex128Seq",
                                             mode: .Normal,
                                             write: { ostr in
@@ -718,10 +633,7 @@ public extension NumPyCustomPrx {
                                                 let iceP_returnValue: NumPyComplex128Seq = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -741,26 +653,15 @@ public extension NumPyCustomPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `NumPyBoolSeq1` - The result of the operation
-    func opBoolMatrixAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> NumPyBoolSeq1 {
+    func opBoolMatrixAsync(context: Ice.Context? = nil) async throws -> NumPyBoolSeq1 {
         return try await _impl._invokeAsync(operation: "opBoolMatrix",
                                             mode: .Normal,
                                             read: { istr in
                                                 let iceP_returnValue: NumPyBoolSeq1 = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -780,26 +681,15 @@ public extension NumPyCustomPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `NumPyByteSeq1` - The result of the operation
-    func opByteMatrixAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> NumPyByteSeq1 {
+    func opByteMatrixAsync(context: Ice.Context? = nil) async throws -> NumPyByteSeq1 {
         return try await _impl._invokeAsync(operation: "opByteMatrix",
                                             mode: .Normal,
                                             read: { istr in
                                                 let iceP_returnValue: NumPyByteSeq1 = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -819,26 +709,15 @@ public extension NumPyCustomPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `NumPyShortSeq1` - The result of the operation
-    func opShortMatrixAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> NumPyShortSeq1 {
+    func opShortMatrixAsync(context: Ice.Context? = nil) async throws -> NumPyShortSeq1 {
         return try await _impl._invokeAsync(operation: "opShortMatrix",
                                             mode: .Normal,
                                             read: { istr in
                                                 let iceP_returnValue: NumPyShortSeq1 = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -858,26 +737,15 @@ public extension NumPyCustomPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `NumPyIntSeq1` - The result of the operation
-    func opIntMatrixAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> NumPyIntSeq1 {
+    func opIntMatrixAsync(context: Ice.Context? = nil) async throws -> NumPyIntSeq1 {
         return try await _impl._invokeAsync(operation: "opIntMatrix",
                                             mode: .Normal,
                                             read: { istr in
                                                 let iceP_returnValue: NumPyIntSeq1 = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -897,26 +765,15 @@ public extension NumPyCustomPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `NumPyLongSeq1` - The result of the operation
-    func opLongMatrixAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> NumPyLongSeq1 {
+    func opLongMatrixAsync(context: Ice.Context? = nil) async throws -> NumPyLongSeq1 {
         return try await _impl._invokeAsync(operation: "opLongMatrix",
                                             mode: .Normal,
                                             read: { istr in
                                                 let iceP_returnValue: NumPyLongSeq1 = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -936,26 +793,15 @@ public extension NumPyCustomPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `NumPyFloatSeq1` - The result of the operation
-    func opFloatMatrixAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> NumPyFloatSeq1 {
+    func opFloatMatrixAsync(context: Ice.Context? = nil) async throws -> NumPyFloatSeq1 {
         return try await _impl._invokeAsync(operation: "opFloatMatrix",
                                             mode: .Normal,
                                             read: { istr in
                                                 let iceP_returnValue: NumPyFloatSeq1 = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -975,26 +821,15 @@ public extension NumPyCustomPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `NumPyDoubleSeq1` - The result of the operation
-    func opDoubleMatrixAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> NumPyDoubleSeq1 {
+    func opDoubleMatrixAsync(context: Ice.Context? = nil) async throws -> NumPyDoubleSeq1 {
         return try await _impl._invokeAsync(operation: "opDoubleMatrix",
                                             mode: .Normal,
                                             read: { istr in
                                                 let iceP_returnValue: NumPyDoubleSeq1 = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -1014,26 +849,15 @@ public extension NumPyCustomPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `NumPyBoolSeq1` - The result of the operation
-    func opBogusNumpyArrayTypeAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> NumPyBoolSeq1 {
+    func opBogusNumpyArrayTypeAsync(context: Ice.Context? = nil) async throws -> NumPyBoolSeq1 {
         return try await _impl._invokeAsync(operation: "opBogusNumpyArrayType",
                                             mode: .Normal,
                                             read: { istr in
                                                 let iceP_returnValue: NumPyBoolSeq1 = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -1063,16 +887,8 @@ public extension NumPyCustomPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `NumPyD?` - The result of the operation
-    func opDAsync(_ iceP_d: NumPyD?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> NumPyD? {
+    func opDAsync(_ iceP_d: NumPyD?, context: Ice.Context? = nil) async throws -> NumPyD? {
         return try await _impl._invokeAsync(operation: "opD",
                                             mode: .Normal,
                                             write: { ostr in
@@ -1085,10 +901,7 @@ public extension NumPyCustomPrx {
                                                 try istr.readPendingValues()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -1102,22 +915,11 @@ public extension NumPyCustomPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "shutdown",
                                             mode: .Normal,
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 

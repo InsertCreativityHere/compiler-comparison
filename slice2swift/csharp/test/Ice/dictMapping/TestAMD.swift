@@ -741,22 +741,11 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "shutdown",
                                             mode: .Normal,
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -788,16 +777,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: NV, o: NV)` - The result of the operation
-    func opNVAsync(_ iceP_i: NV, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: NV, o: NV) {
+    func opNVAsync(_ iceP_i: NV, context: Ice.Context? = nil) async throws -> (returnValue: NV, o: NV) {
         return try await _impl._invokeAsync(operation: "opNV",
                                             mode: .Normal,
                                             write: { ostr in
@@ -808,10 +789,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: NV = try NVHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_o)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -843,16 +821,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: NR, o: NR)` - The result of the operation
-    func opNRAsync(_ iceP_i: NR, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: NR, o: NR) {
+    func opNRAsync(_ iceP_i: NR, context: Ice.Context? = nil) async throws -> (returnValue: NR, o: NR) {
         return try await _impl._invokeAsync(operation: "opNR",
                                             mode: .Normal,
                                             write: { ostr in
@@ -863,10 +833,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: NR = try NRHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_o)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -898,16 +865,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: NDV, o: NDV)` - The result of the operation
-    func opNDVAsync(_ iceP_i: NDV, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: NDV, o: NDV) {
+    func opNDVAsync(_ iceP_i: NDV, context: Ice.Context? = nil) async throws -> (returnValue: NDV, o: NDV) {
         return try await _impl._invokeAsync(operation: "opNDV",
                                             mode: .Normal,
                                             write: { ostr in
@@ -918,10 +877,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: NDV = try NDVHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_o)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -953,16 +909,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: NDR, o: NDR)` - The result of the operation
-    func opNDRAsync(_ iceP_i: NDR, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: NDR, o: NDR) {
+    func opNDRAsync(_ iceP_i: NDR, context: Ice.Context? = nil) async throws -> (returnValue: NDR, o: NDR) {
         return try await _impl._invokeAsync(operation: "opNDR",
                                             mode: .Normal,
                                             write: { ostr in
@@ -973,10 +921,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: NDR = try NDRHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_o)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -1008,16 +953,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: NDAIS, o: NDAIS)` - The result of the operation
-    func opNDAISAsync(_ iceP_i: NDAIS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: NDAIS, o: NDAIS) {
+    func opNDAISAsync(_ iceP_i: NDAIS, context: Ice.Context? = nil) async throws -> (returnValue: NDAIS, o: NDAIS) {
         return try await _impl._invokeAsync(operation: "opNDAIS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -1028,10 +965,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: NDAIS = try NDAISHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_o)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -1063,16 +997,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: NDGIS, o: NDGIS)` - The result of the operation
-    func opNDGISAsync(_ iceP_i: NDGIS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: NDGIS, o: NDGIS) {
+    func opNDGISAsync(_ iceP_i: NDGIS, context: Ice.Context? = nil) async throws -> (returnValue: NDGIS, o: NDGIS) {
         return try await _impl._invokeAsync(operation: "opNDGIS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -1083,10 +1009,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: NDGIS = try NDGISHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_o)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -1118,16 +1041,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: NDASS, o: NDASS)` - The result of the operation
-    func opNDASSAsync(_ iceP_i: NDASS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: NDASS, o: NDASS) {
+    func opNDASSAsync(_ iceP_i: NDASS, context: Ice.Context? = nil) async throws -> (returnValue: NDASS, o: NDASS) {
         return try await _impl._invokeAsync(operation: "opNDASS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -1138,10 +1053,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: NDASS = try NDASSHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_o)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -1173,16 +1085,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: NDGSS, o: NDGSS)` - The result of the operation
-    func opNDGSSAsync(_ iceP_i: NDGSS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: NDGSS, o: NDGSS) {
+    func opNDGSSAsync(_ iceP_i: NDGSS, context: Ice.Context? = nil) async throws -> (returnValue: NDGSS, o: NDGSS) {
         return try await _impl._invokeAsync(operation: "opNDGSS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -1193,10 +1097,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: NDGSS = try NDGSSHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_o)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 

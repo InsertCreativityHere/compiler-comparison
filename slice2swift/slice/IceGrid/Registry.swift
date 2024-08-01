@@ -257,16 +257,8 @@ public extension QueryPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func findObjectByIdAsync(_ iceP_id: Ice.Identity, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.ObjectPrx? {
+    func findObjectByIdAsync(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
         return try await _impl._invokeAsync(operation: "findObjectById",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -276,10 +268,7 @@ public extension QueryPrx {
                                                 let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Find a well-known object by type. If there are several objects registered for the given type, the object is
@@ -310,16 +299,8 @@ public extension QueryPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func findObjectByTypeAsync(_ iceP_type: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.ObjectPrx? {
+    func findObjectByTypeAsync(_ iceP_type: Swift.String, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
         return try await _impl._invokeAsync(operation: "findObjectByType",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -329,10 +310,7 @@ public extension QueryPrx {
                                                 let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
@@ -370,16 +348,8 @@ public extension QueryPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func findObjectByTypeOnLeastLoadedNodeAsync(type iceP_type: Swift.String, sample iceP_sample: LoadSample, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.ObjectPrx? {
+    func findObjectByTypeOnLeastLoadedNodeAsync(type iceP_type: Swift.String, sample iceP_sample: LoadSample, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
         return try await _impl._invokeAsync(operation: "findObjectByTypeOnLeastLoadedNode",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -390,10 +360,7 @@ public extension QueryPrx {
                                                 let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Find all the well-known objects with the given type.
@@ -422,16 +389,8 @@ public extension QueryPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Ice.ObjectProxySeq` - The result of the operation
-    func findAllObjectsByTypeAsync(_ iceP_type: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.ObjectProxySeq {
+    func findAllObjectsByTypeAsync(_ iceP_type: Swift.String, context: Ice.Context? = nil) async throws -> Ice.ObjectProxySeq {
         return try await _impl._invokeAsync(operation: "findAllObjectsByType",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -441,10 +400,7 @@ public extension QueryPrx {
                                                 let iceP_returnValue: Ice.ObjectProxySeq = try Ice.ObjectProxySeqHelper.read(from: istr)
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
@@ -476,16 +432,8 @@ public extension QueryPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Ice.ObjectProxySeq` - The result of the operation
-    func findAllReplicasAsync(_ iceP_proxy: Ice.ObjectPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.ObjectProxySeq {
+    func findAllReplicasAsync(_ iceP_proxy: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Ice.ObjectProxySeq {
         return try await _impl._invokeAsync(operation: "findAllReplicas",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -495,10 +443,7 @@ public extension QueryPrx {
                                                 let iceP_returnValue: Ice.ObjectProxySeq = try Ice.ObjectProxySeqHelper.read(from: istr)
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 
@@ -687,16 +632,8 @@ public extension RegistryPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `SessionPrx?` - The result of the operation
-    func createSessionAsync(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> SessionPrx? {
+    func createSessionAsync(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil) async throws -> SessionPrx? {
         return try await _impl._invokeAsync(operation: "createSession",
                                             mode: .Normal,
                                             write: { ostr in
@@ -714,10 +651,7 @@ public extension RegistryPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Create an administrative session.
@@ -763,16 +697,8 @@ public extension RegistryPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `AdminSessionPrx?` - The result of the operation
-    func createAdminSessionAsync(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> AdminSessionPrx? {
+    func createAdminSessionAsync(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil) async throws -> AdminSessionPrx? {
         return try await _impl._invokeAsync(operation: "createAdminSession",
                                             mode: .Normal,
                                             write: { ostr in
@@ -790,10 +716,7 @@ public extension RegistryPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Create a client session from a secure connection.
@@ -827,16 +750,8 @@ public extension RegistryPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `SessionPrx?` - The result of the operation
-    func createSessionFromSecureConnectionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> SessionPrx? {
+    func createSessionFromSecureConnectionAsync(context: Ice.Context? = nil) async throws -> SessionPrx? {
         return try await _impl._invokeAsync(operation: "createSessionFromSecureConnection",
                                             mode: .Normal,
                                             read: { istr in
@@ -850,10 +765,7 @@ public extension RegistryPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Create an administrative session from a secure connection.
@@ -887,16 +799,8 @@ public extension RegistryPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `AdminSessionPrx?` - The result of the operation
-    func createAdminSessionFromSecureConnectionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> AdminSessionPrx? {
+    func createAdminSessionFromSecureConnectionAsync(context: Ice.Context? = nil) async throws -> AdminSessionPrx? {
         return try await _impl._invokeAsync(operation: "createAdminSessionFromSecureConnection",
                                             mode: .Normal,
                                             read: { istr in
@@ -910,10 +814,7 @@ public extension RegistryPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get the idle timeout used by IceGrid for its side of the connection.
@@ -935,26 +836,15 @@ public extension RegistryPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Swift.Int32` - The result of the operation
-    func getSessionTimeoutAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Int32 {
+    func getSessionTimeoutAsync(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invokeAsync(operation: "getSessionTimeout",
                                             mode: .Idempotent,
                                             read: { istr in
                                                 let iceP_returnValue: Swift.Int32 = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get the idle timeout used by IceGrid for its side of the connection.
@@ -976,26 +866,15 @@ public extension RegistryPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Swift.Int32` - The result of the operation
-    func getACMTimeoutAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Int32 {
+    func getACMTimeoutAsync(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invokeAsync(operation: "getACMTimeout",
                                             mode: .Idempotent,
                                             read: { istr in
                                                 let iceP_returnValue: Swift.Int32 = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 
@@ -1130,26 +1009,15 @@ public extension LocatorPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `RegistryPrx?` - The result of the operation
-    func getLocalRegistryAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> RegistryPrx? {
+    func getLocalRegistryAsync(context: Ice.Context? = nil) async throws -> RegistryPrx? {
         return try await _impl._invokeAsync(operation: "getLocalRegistry",
                                             mode: .Idempotent,
                                             read: { istr in
                                                 let iceP_returnValue: RegistryPrx? = try istr.read(RegistryPrx.self)
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get the proxy of the query object hosted by this IceGrid registry.
@@ -1171,26 +1039,15 @@ public extension LocatorPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `QueryPrx?` - The result of the operation
-    func getLocalQueryAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> QueryPrx? {
+    func getLocalQueryAsync(context: Ice.Context? = nil) async throws -> QueryPrx? {
         return try await _impl._invokeAsync(operation: "getLocalQuery",
                                             mode: .Idempotent,
                                             read: { istr in
                                                 let iceP_returnValue: QueryPrx? = try istr.read(QueryPrx.self)
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 

@@ -787,16 +787,8 @@ public extension TestIntfPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: ByteEnum, b2: ByteEnum)` - The result of the operation
-    func opByteAsync(_ iceP_b1: ByteEnum, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ByteEnum, b2: ByteEnum) {
+    func opByteAsync(_ iceP_b1: ByteEnum, context: Ice.Context? = nil) async throws -> (returnValue: ByteEnum, b2: ByteEnum) {
         return try await _impl._invokeAsync(operation: "opByte",
                                             mode: .Normal,
                                             write: { ostr in
@@ -807,10 +799,7 @@ public extension TestIntfPrx {
                                                 let iceP_returnValue: ByteEnum = try istr.read()
                                                 return (iceP_returnValue, iceP_b2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -842,16 +831,8 @@ public extension TestIntfPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: ShortEnum, s2: ShortEnum)` - The result of the operation
-    func opShortAsync(_ iceP_s1: ShortEnum, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ShortEnum, s2: ShortEnum) {
+    func opShortAsync(_ iceP_s1: ShortEnum, context: Ice.Context? = nil) async throws -> (returnValue: ShortEnum, s2: ShortEnum) {
         return try await _impl._invokeAsync(operation: "opShort",
                                             mode: .Normal,
                                             write: { ostr in
@@ -862,10 +843,7 @@ public extension TestIntfPrx {
                                                 let iceP_returnValue: ShortEnum = try istr.read()
                                                 return (iceP_returnValue, iceP_s2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -897,16 +875,8 @@ public extension TestIntfPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: IntEnum, i2: IntEnum)` - The result of the operation
-    func opIntAsync(_ iceP_i1: IntEnum, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: IntEnum, i2: IntEnum) {
+    func opIntAsync(_ iceP_i1: IntEnum, context: Ice.Context? = nil) async throws -> (returnValue: IntEnum, i2: IntEnum) {
         return try await _impl._invokeAsync(operation: "opInt",
                                             mode: .Normal,
                                             write: { ostr in
@@ -917,10 +887,7 @@ public extension TestIntfPrx {
                                                 let iceP_returnValue: IntEnum = try istr.read()
                                                 return (iceP_returnValue, iceP_i2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -952,16 +919,8 @@ public extension TestIntfPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: SimpleEnum, s2: SimpleEnum)` - The result of the operation
-    func opSimpleAsync(_ iceP_s1: SimpleEnum, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: SimpleEnum, s2: SimpleEnum) {
+    func opSimpleAsync(_ iceP_s1: SimpleEnum, context: Ice.Context? = nil) async throws -> (returnValue: SimpleEnum, s2: SimpleEnum) {
         return try await _impl._invokeAsync(operation: "opSimple",
                                             mode: .Normal,
                                             write: { ostr in
@@ -972,10 +931,7 @@ public extension TestIntfPrx {
                                                 let iceP_returnValue: SimpleEnum = try istr.read()
                                                 return (iceP_returnValue, iceP_s2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -1007,16 +963,8 @@ public extension TestIntfPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: ByteEnumSeq, b2: ByteEnumSeq)` - The result of the operation
-    func opByteSeqAsync(_ iceP_b1: ByteEnumSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ByteEnumSeq, b2: ByteEnumSeq) {
+    func opByteSeqAsync(_ iceP_b1: ByteEnumSeq, context: Ice.Context? = nil) async throws -> (returnValue: ByteEnumSeq, b2: ByteEnumSeq) {
         return try await _impl._invokeAsync(operation: "opByteSeq",
                                             mode: .Normal,
                                             write: { ostr in
@@ -1027,10 +975,7 @@ public extension TestIntfPrx {
                                                 let iceP_returnValue: ByteEnumSeq = try ByteEnumSeqHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_b2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -1062,16 +1007,8 @@ public extension TestIntfPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: ShortEnumSeq, s2: ShortEnumSeq)` - The result of the operation
-    func opShortSeqAsync(_ iceP_s1: ShortEnumSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ShortEnumSeq, s2: ShortEnumSeq) {
+    func opShortSeqAsync(_ iceP_s1: ShortEnumSeq, context: Ice.Context? = nil) async throws -> (returnValue: ShortEnumSeq, s2: ShortEnumSeq) {
         return try await _impl._invokeAsync(operation: "opShortSeq",
                                             mode: .Normal,
                                             write: { ostr in
@@ -1082,10 +1019,7 @@ public extension TestIntfPrx {
                                                 let iceP_returnValue: ShortEnumSeq = try ShortEnumSeqHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_s2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -1117,16 +1051,8 @@ public extension TestIntfPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: IntEnumSeq, i2: IntEnumSeq)` - The result of the operation
-    func opIntSeqAsync(_ iceP_i1: IntEnumSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: IntEnumSeq, i2: IntEnumSeq) {
+    func opIntSeqAsync(_ iceP_i1: IntEnumSeq, context: Ice.Context? = nil) async throws -> (returnValue: IntEnumSeq, i2: IntEnumSeq) {
         return try await _impl._invokeAsync(operation: "opIntSeq",
                                             mode: .Normal,
                                             write: { ostr in
@@ -1137,10 +1063,7 @@ public extension TestIntfPrx {
                                                 let iceP_returnValue: IntEnumSeq = try IntEnumSeqHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_i2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -1172,16 +1095,8 @@ public extension TestIntfPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: SimpleEnumSeq, s2: SimpleEnumSeq)` - The result of the operation
-    func opSimpleSeqAsync(_ iceP_s1: SimpleEnumSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: SimpleEnumSeq, s2: SimpleEnumSeq) {
+    func opSimpleSeqAsync(_ iceP_s1: SimpleEnumSeq, context: Ice.Context? = nil) async throws -> (returnValue: SimpleEnumSeq, s2: SimpleEnumSeq) {
         return try await _impl._invokeAsync(operation: "opSimpleSeq",
                                             mode: .Normal,
                                             write: { ostr in
@@ -1192,10 +1107,7 @@ public extension TestIntfPrx {
                                                 let iceP_returnValue: SimpleEnumSeq = try SimpleEnumSeqHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_s2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -1209,22 +1121,11 @@ public extension TestIntfPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "shutdown",
                                             mode: .Normal,
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 

@@ -207,16 +207,8 @@ public extension TestIntfPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: ByteSeq, dataOut: ByteSeq)` - The result of the operation
-    func opByteSpanAsync(_ iceP_dataIn: ByteSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ByteSeq, dataOut: ByteSeq) {
+    func opByteSpanAsync(_ iceP_dataIn: ByteSeq, context: Ice.Context? = nil) async throws -> (returnValue: ByteSeq, dataOut: ByteSeq) {
         return try await _impl._invokeAsync(operation: "opByteSpan",
                                             mode: .Normal,
                                             write: { ostr in
@@ -227,10 +219,7 @@ public extension TestIntfPrx {
                                                 let iceP_returnValue: ByteSeq = try istr.read()
                                                 return (iceP_returnValue, iceP_dataOut)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -262,16 +251,8 @@ public extension TestIntfPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: ShortSeq, dataOut: ShortSeq)` - The result of the operation
-    func opShortSpanAsync(_ iceP_dataIn: ShortSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ShortSeq, dataOut: ShortSeq) {
+    func opShortSpanAsync(_ iceP_dataIn: ShortSeq, context: Ice.Context? = nil) async throws -> (returnValue: ShortSeq, dataOut: ShortSeq) {
         return try await _impl._invokeAsync(operation: "opShortSpan",
                                             mode: .Normal,
                                             write: { ostr in
@@ -282,10 +263,7 @@ public extension TestIntfPrx {
                                                 let iceP_returnValue: ShortSeq = try istr.read()
                                                 return (iceP_returnValue, iceP_dataOut)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -317,16 +295,8 @@ public extension TestIntfPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: StringSeq, dataOut: StringSeq)` - The result of the operation
-    func opStringSpanAsync(_ iceP_dataIn: StringSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: StringSeq, dataOut: StringSeq) {
+    func opStringSpanAsync(_ iceP_dataIn: StringSeq, context: Ice.Context? = nil) async throws -> (returnValue: StringSeq, dataOut: StringSeq) {
         return try await _impl._invokeAsync(operation: "opStringSpan",
                                             mode: .Normal,
                                             write: { ostr in
@@ -337,10 +307,7 @@ public extension TestIntfPrx {
                                                 let iceP_returnValue: StringSeq = try istr.read()
                                                 return (iceP_returnValue, iceP_dataOut)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -372,16 +339,8 @@ public extension TestIntfPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: ByteSeq?, dataOut: ByteSeq?)` - The result of the operation
-    func opOptionalByteSpanAsync(_ iceP_dataIn: ByteSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ByteSeq?, dataOut: ByteSeq?) {
+    func opOptionalByteSpanAsync(_ iceP_dataIn: ByteSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: ByteSeq?, dataOut: ByteSeq?) {
         return try await _impl._invokeAsync(operation: "opOptionalByteSpan",
                                             mode: .Normal,
                                             write: { ostr in
@@ -392,10 +351,7 @@ public extension TestIntfPrx {
                                                 let iceP_dataOut: ByteSeq? = try istr.read(tag: 11)
                                                 return (iceP_returnValue, iceP_dataOut)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -427,16 +383,8 @@ public extension TestIntfPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: ShortSeq?, dataOut: ShortSeq?)` - The result of the operation
-    func opOptionalShortSpanAsync(_ iceP_dataIn: ShortSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ShortSeq?, dataOut: ShortSeq?) {
+    func opOptionalShortSpanAsync(_ iceP_dataIn: ShortSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: ShortSeq?, dataOut: ShortSeq?) {
         return try await _impl._invokeAsync(operation: "opOptionalShortSpan",
                                             mode: .Normal,
                                             write: { ostr in
@@ -447,10 +395,7 @@ public extension TestIntfPrx {
                                                 let iceP_dataOut: ShortSeq? = try istr.read(tag: 11)
                                                 return (iceP_returnValue, iceP_dataOut)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -482,16 +427,8 @@ public extension TestIntfPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: StringSeq?, dataOut: StringSeq?)` - The result of the operation
-    func opOptionalStringSpanAsync(_ iceP_dataIn: StringSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: StringSeq?, dataOut: StringSeq?) {
+    func opOptionalStringSpanAsync(_ iceP_dataIn: StringSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: StringSeq?, dataOut: StringSeq?) {
         return try await _impl._invokeAsync(operation: "opOptionalStringSpan",
                                             mode: .Normal,
                                             write: { ostr in
@@ -502,10 +439,7 @@ public extension TestIntfPrx {
                                                 let iceP_dataOut: StringSeq? = try istr.read(tag: 11)
                                                 return (iceP_returnValue, iceP_dataOut)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -519,22 +453,11 @@ public extension TestIntfPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "shutdown",
                                             mode: .Normal,
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 

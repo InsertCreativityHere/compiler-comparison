@@ -559,16 +559,8 @@ public extension MXMetricsAdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: StringSeq, disabledViews: StringSeq)` - The result of the operation
-    func getMetricsViewNamesAsync(context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: StringSeq, disabledViews: StringSeq) {
+    func getMetricsViewNamesAsync(context: Context? = nil) async throws -> (returnValue: StringSeq, disabledViews: StringSeq) {
         return try await _impl._invokeAsync(operation: "getMetricsViewNames",
                                             mode: .Normal,
                                             read: { istr in
@@ -576,10 +568,7 @@ public extension MXMetricsAdminPrx {
                                                 let iceP_returnValue: StringSeq = try istr.read()
                                                 return (iceP_returnValue, iceP_disabledViews)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Enables a metrics view.
@@ -613,16 +602,8 @@ public extension MXMetricsAdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func enableMetricsViewAsync(_ iceP_name: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func enableMetricsViewAsync(_ iceP_name: Swift.String, context: Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "enableMetricsView",
                                             mode: .Normal,
                                             write: { ostr in
@@ -635,10 +616,7 @@ public extension MXMetricsAdminPrx {
                                                     throw error
                                                 } catch is UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Disable a metrics view.
@@ -672,16 +650,8 @@ public extension MXMetricsAdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func disableMetricsViewAsync(_ iceP_name: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func disableMetricsViewAsync(_ iceP_name: Swift.String, context: Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "disableMetricsView",
                                             mode: .Normal,
                                             write: { ostr in
@@ -694,10 +664,7 @@ public extension MXMetricsAdminPrx {
                                                     throw error
                                                 } catch is UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
@@ -748,16 +715,8 @@ public extension MXMetricsAdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: MXMetricsView, timestamp: Swift.Int64)` - The result of the operation
-    func getMetricsViewAsync(_ iceP_view: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: MXMetricsView, timestamp: Swift.Int64) {
+    func getMetricsViewAsync(_ iceP_view: Swift.String, context: Context? = nil) async throws -> (returnValue: MXMetricsView, timestamp: Swift.Int64) {
         return try await _impl._invokeAsync(operation: "getMetricsView",
                                             mode: .Normal,
                                             format: .SlicedFormat,
@@ -777,10 +736,7 @@ public extension MXMetricsAdminPrx {
                                                     throw error
                                                 } catch is UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get the metrics failures associated with the given view and map.
@@ -825,16 +781,8 @@ public extension MXMetricsAdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `MXMetricsFailuresSeq` - The result of the operation
-    func getMapMetricsFailuresAsync(view iceP_view: Swift.String, map iceP_map: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> MXMetricsFailuresSeq {
+    func getMapMetricsFailuresAsync(view iceP_view: Swift.String, map iceP_map: Swift.String, context: Context? = nil) async throws -> MXMetricsFailuresSeq {
         return try await _impl._invokeAsync(operation: "getMapMetricsFailures",
                                             mode: .Normal,
                                             write: { ostr in
@@ -852,10 +800,7 @@ public extension MXMetricsAdminPrx {
                                                     throw error
                                                 } catch is UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get the metrics failure associated for the given metrics.
@@ -905,16 +850,8 @@ public extension MXMetricsAdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `MXMetricsFailures` - The result of the operation
-    func getMetricsFailuresAsync(view iceP_view: Swift.String, map iceP_map: Swift.String, id iceP_id: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> MXMetricsFailures {
+    func getMetricsFailuresAsync(view iceP_view: Swift.String, map iceP_map: Swift.String, id iceP_id: Swift.String, context: Context? = nil) async throws -> MXMetricsFailures {
         return try await _impl._invokeAsync(operation: "getMetricsFailures",
                                             mode: .Normal,
                                             write: { ostr in
@@ -933,10 +870,7 @@ public extension MXMetricsAdminPrx {
                                                     throw error
                                                 } catch is UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 

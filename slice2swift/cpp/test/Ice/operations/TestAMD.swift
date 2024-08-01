@@ -3568,22 +3568,11 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "shutdown",
                                             mode: .Normal,
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -3603,26 +3592,15 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Swift.Bool` - The result of the operation
-    func supportsCompressAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Bool {
+    func supportsCompressAsync(context: Ice.Context? = nil) async throws -> Swift.Bool {
         return try await _impl._invokeAsync(operation: "supportsCompress",
                                             mode: .Normal,
                                             read: { istr in
                                                 let iceP_returnValue: Swift.Bool = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -3636,22 +3614,11 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func opVoidAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func opVoidAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "opVoid",
                                             mode: .Normal,
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -3688,16 +3655,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: Swift.UInt8, p3: Swift.UInt8)` - The result of the operation
-    func opByteAsync(p1 iceP_p1: Swift.UInt8, p2 iceP_p2: Swift.UInt8, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: Swift.UInt8, p3: Swift.UInt8) {
+    func opByteAsync(p1 iceP_p1: Swift.UInt8, p2 iceP_p2: Swift.UInt8, context: Ice.Context? = nil) async throws -> (returnValue: Swift.UInt8, p3: Swift.UInt8) {
         return try await _impl._invokeAsync(operation: "opByte",
                                             mode: .Normal,
                                             write: { ostr in
@@ -3709,10 +3668,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: Swift.UInt8 = try istr.read()
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -3749,16 +3705,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: Swift.Bool, p3: Swift.Bool)` - The result of the operation
-    func opBoolAsync(p1 iceP_p1: Swift.Bool, p2 iceP_p2: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: Swift.Bool, p3: Swift.Bool) {
+    func opBoolAsync(p1 iceP_p1: Swift.Bool, p2 iceP_p2: Swift.Bool, context: Ice.Context? = nil) async throws -> (returnValue: Swift.Bool, p3: Swift.Bool) {
         return try await _impl._invokeAsync(operation: "opBool",
                                             mode: .Normal,
                                             write: { ostr in
@@ -3770,10 +3718,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: Swift.Bool = try istr.read()
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -3821,16 +3766,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: Swift.Int64, p4: Swift.Int16, p5: Swift.Int32, p6: Swift.Int64)` - The result of the operation
-    func opShortIntLongAsync(p1 iceP_p1: Swift.Int16, p2 iceP_p2: Swift.Int32, p3 iceP_p3: Swift.Int64, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: Swift.Int64, p4: Swift.Int16, p5: Swift.Int32, p6: Swift.Int64) {
+    func opShortIntLongAsync(p1 iceP_p1: Swift.Int16, p2 iceP_p2: Swift.Int32, p3 iceP_p3: Swift.Int64, context: Ice.Context? = nil) async throws -> (returnValue: Swift.Int64, p4: Swift.Int16, p5: Swift.Int32, p6: Swift.Int64) {
         return try await _impl._invokeAsync(operation: "opShortIntLong",
                                             mode: .Normal,
                                             write: { ostr in
@@ -3845,10 +3782,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: Swift.Int64 = try istr.read()
                                                 return (iceP_returnValue, iceP_p4, iceP_p5, iceP_p6)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -3888,16 +3822,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: Swift.Double, p3: Swift.Float, p4: Swift.Double)` - The result of the operation
-    func opFloatDoubleAsync(p1 iceP_p1: Swift.Float, p2 iceP_p2: Swift.Double, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: Swift.Double, p3: Swift.Float, p4: Swift.Double) {
+    func opFloatDoubleAsync(p1 iceP_p1: Swift.Float, p2 iceP_p2: Swift.Double, context: Ice.Context? = nil) async throws -> (returnValue: Swift.Double, p3: Swift.Float, p4: Swift.Double) {
         return try await _impl._invokeAsync(operation: "opFloatDouble",
                                             mode: .Normal,
                                             write: { ostr in
@@ -3910,10 +3836,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: Swift.Double = try istr.read()
                                                 return (iceP_returnValue, iceP_p3, iceP_p4)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -3950,16 +3873,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: Swift.String, p3: Swift.String)` - The result of the operation
-    func opStringAsync(p1 iceP_p1: Swift.String, p2 iceP_p2: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: Swift.String, p3: Swift.String) {
+    func opStringAsync(p1 iceP_p1: Swift.String, p2 iceP_p2: Swift.String, context: Ice.Context? = nil) async throws -> (returnValue: Swift.String, p3: Swift.String) {
         return try await _impl._invokeAsync(operation: "opString",
                                             mode: .Normal,
                                             write: { ostr in
@@ -3971,10 +3886,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: Swift.String = try istr.read()
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -4006,16 +3918,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: MyEnum, p2: MyEnum)` - The result of the operation
-    func opMyEnumAsync(_ iceP_p1: MyEnum, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: MyEnum, p2: MyEnum) {
+    func opMyEnumAsync(_ iceP_p1: MyEnum, context: Ice.Context? = nil) async throws -> (returnValue: MyEnum, p2: MyEnum) {
         return try await _impl._invokeAsync(operation: "opMyEnum",
                                             mode: .Normal,
                                             write: { ostr in
@@ -4026,10 +3930,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: MyEnum = try istr.read()
                                                 return (iceP_returnValue, iceP_p2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -4064,16 +3965,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: MyClassPrx?, p2: MyClassPrx?, p3: MyClassPrx?)` - The result of the operation
-    func opMyClassAsync(_ iceP_p1: MyClassPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: MyClassPrx?, p2: MyClassPrx?, p3: MyClassPrx?) {
+    func opMyClassAsync(_ iceP_p1: MyClassPrx?, context: Ice.Context? = nil) async throws -> (returnValue: MyClassPrx?, p2: MyClassPrx?, p3: MyClassPrx?) {
         return try await _impl._invokeAsync(operation: "opMyClass",
                                             mode: .Normal,
                                             write: { ostr in
@@ -4085,10 +3978,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: MyClassPrx? = try istr.read(MyClassPrx.self)
                                                 return (iceP_returnValue, iceP_p2, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -4125,16 +4015,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: Structure, p3: Structure)` - The result of the operation
-    func opStructAsync(p1 iceP_p1: Structure, p2 iceP_p2: Structure, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: Structure, p3: Structure) {
+    func opStructAsync(p1 iceP_p1: Structure, p2 iceP_p2: Structure, context: Ice.Context? = nil) async throws -> (returnValue: Structure, p3: Structure) {
         return try await _impl._invokeAsync(operation: "opStruct",
                                             mode: .Normal,
                                             write: { ostr in
@@ -4146,10 +4028,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: Structure = try istr.read()
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -4186,16 +4065,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: ByteS, p3: ByteS)` - The result of the operation
-    func opByteSAsync(p1 iceP_p1: ByteS, p2 iceP_p2: ByteS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ByteS, p3: ByteS) {
+    func opByteSAsync(p1 iceP_p1: ByteS, p2 iceP_p2: ByteS, context: Ice.Context? = nil) async throws -> (returnValue: ByteS, p3: ByteS) {
         return try await _impl._invokeAsync(operation: "opByteS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -4207,10 +4078,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: ByteS = try istr.read()
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -4247,16 +4115,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: BoolS, p3: BoolS)` - The result of the operation
-    func opBoolSAsync(p1 iceP_p1: BoolS, p2 iceP_p2: BoolS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: BoolS, p3: BoolS) {
+    func opBoolSAsync(p1 iceP_p1: BoolS, p2 iceP_p2: BoolS, context: Ice.Context? = nil) async throws -> (returnValue: BoolS, p3: BoolS) {
         return try await _impl._invokeAsync(operation: "opBoolS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -4268,10 +4128,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: BoolS = try istr.read()
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -4319,16 +4176,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: LongS, p4: ShortS, p5: IntS, p6: LongS)` - The result of the operation
-    func opShortIntLongSAsync(p1 iceP_p1: ShortS, p2 iceP_p2: IntS, p3 iceP_p3: LongS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: LongS, p4: ShortS, p5: IntS, p6: LongS) {
+    func opShortIntLongSAsync(p1 iceP_p1: ShortS, p2 iceP_p2: IntS, p3 iceP_p3: LongS, context: Ice.Context? = nil) async throws -> (returnValue: LongS, p4: ShortS, p5: IntS, p6: LongS) {
         return try await _impl._invokeAsync(operation: "opShortIntLongS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -4343,10 +4192,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: LongS = try istr.read()
                                                 return (iceP_returnValue, iceP_p4, iceP_p5, iceP_p6)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -4386,16 +4232,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: DoubleS, p3: FloatS, p4: DoubleS)` - The result of the operation
-    func opFloatDoubleSAsync(p1 iceP_p1: FloatS, p2 iceP_p2: DoubleS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: DoubleS, p3: FloatS, p4: DoubleS) {
+    func opFloatDoubleSAsync(p1 iceP_p1: FloatS, p2 iceP_p2: DoubleS, context: Ice.Context? = nil) async throws -> (returnValue: DoubleS, p3: FloatS, p4: DoubleS) {
         return try await _impl._invokeAsync(operation: "opFloatDoubleS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -4408,10 +4246,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: DoubleS = try istr.read()
                                                 return (iceP_returnValue, iceP_p3, iceP_p4)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -4448,16 +4283,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: StringS, p3: StringS)` - The result of the operation
-    func opStringSAsync(p1 iceP_p1: StringS, p2 iceP_p2: StringS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: StringS, p3: StringS) {
+    func opStringSAsync(p1 iceP_p1: StringS, p2 iceP_p2: StringS, context: Ice.Context? = nil) async throws -> (returnValue: StringS, p3: StringS) {
         return try await _impl._invokeAsync(operation: "opStringS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -4469,10 +4296,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: StringS = try istr.read()
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -4509,16 +4333,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: ByteSS, p3: ByteSS)` - The result of the operation
-    func opByteSSAsync(p1 iceP_p1: ByteSS, p2 iceP_p2: ByteSS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ByteSS, p3: ByteSS) {
+    func opByteSSAsync(p1 iceP_p1: ByteSS, p2 iceP_p2: ByteSS, context: Ice.Context? = nil) async throws -> (returnValue: ByteSS, p3: ByteSS) {
         return try await _impl._invokeAsync(operation: "opByteSS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -4530,10 +4346,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: ByteSS = try ByteSSHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -4570,16 +4383,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: BoolSS, p3: BoolSS)` - The result of the operation
-    func opBoolSSAsync(p1 iceP_p1: BoolSS, p2 iceP_p2: BoolSS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: BoolSS, p3: BoolSS) {
+    func opBoolSSAsync(p1 iceP_p1: BoolSS, p2 iceP_p2: BoolSS, context: Ice.Context? = nil) async throws -> (returnValue: BoolSS, p3: BoolSS) {
         return try await _impl._invokeAsync(operation: "opBoolSS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -4591,10 +4396,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: BoolSS = try BoolSSHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -4642,16 +4444,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: LongSS, p4: ShortSS, p5: IntSS, p6: LongSS)` - The result of the operation
-    func opShortIntLongSSAsync(p1 iceP_p1: ShortSS, p2 iceP_p2: IntSS, p3 iceP_p3: LongSS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: LongSS, p4: ShortSS, p5: IntSS, p6: LongSS) {
+    func opShortIntLongSSAsync(p1 iceP_p1: ShortSS, p2 iceP_p2: IntSS, p3 iceP_p3: LongSS, context: Ice.Context? = nil) async throws -> (returnValue: LongSS, p4: ShortSS, p5: IntSS, p6: LongSS) {
         return try await _impl._invokeAsync(operation: "opShortIntLongSS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -4666,10 +4460,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: LongSS = try LongSSHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p4, iceP_p5, iceP_p6)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -4709,16 +4500,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: DoubleSS, p3: FloatSS, p4: DoubleSS)` - The result of the operation
-    func opFloatDoubleSSAsync(p1 iceP_p1: FloatSS, p2 iceP_p2: DoubleSS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: DoubleSS, p3: FloatSS, p4: DoubleSS) {
+    func opFloatDoubleSSAsync(p1 iceP_p1: FloatSS, p2 iceP_p2: DoubleSS, context: Ice.Context? = nil) async throws -> (returnValue: DoubleSS, p3: FloatSS, p4: DoubleSS) {
         return try await _impl._invokeAsync(operation: "opFloatDoubleSS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -4731,10 +4514,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: DoubleSS = try DoubleSSHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3, iceP_p4)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -4771,16 +4551,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: StringSS, p3: StringSS)` - The result of the operation
-    func opStringSSAsync(p1 iceP_p1: StringSS, p2 iceP_p2: StringSS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: StringSS, p3: StringSS) {
+    func opStringSSAsync(p1 iceP_p1: StringSS, p2 iceP_p2: StringSS, context: Ice.Context? = nil) async throws -> (returnValue: StringSS, p3: StringSS) {
         return try await _impl._invokeAsync(operation: "opStringSS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -4792,10 +4564,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: StringSS = try StringSSHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -4832,16 +4601,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: StringSSS, p3: StringSSS)` - The result of the operation
-    func opStringSSSAsync(p1 iceP_p1: StringSSS, p2 iceP_p2: StringSSS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: StringSSS, p3: StringSSS) {
+    func opStringSSSAsync(p1 iceP_p1: StringSSS, p2 iceP_p2: StringSSS, context: Ice.Context? = nil) async throws -> (returnValue: StringSSS, p3: StringSSS) {
         return try await _impl._invokeAsync(operation: "opStringSSS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -4853,10 +4614,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: StringSSS = try StringSSSHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -4893,16 +4651,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: ByteBoolD, p3: ByteBoolD)` - The result of the operation
-    func opByteBoolDAsync(p1 iceP_p1: ByteBoolD, p2 iceP_p2: ByteBoolD, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ByteBoolD, p3: ByteBoolD) {
+    func opByteBoolDAsync(p1 iceP_p1: ByteBoolD, p2 iceP_p2: ByteBoolD, context: Ice.Context? = nil) async throws -> (returnValue: ByteBoolD, p3: ByteBoolD) {
         return try await _impl._invokeAsync(operation: "opByteBoolD",
                                             mode: .Normal,
                                             write: { ostr in
@@ -4914,10 +4664,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: ByteBoolD = try ByteBoolDHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -4954,16 +4701,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: ShortIntD, p3: ShortIntD)` - The result of the operation
-    func opShortIntDAsync(p1 iceP_p1: ShortIntD, p2 iceP_p2: ShortIntD, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ShortIntD, p3: ShortIntD) {
+    func opShortIntDAsync(p1 iceP_p1: ShortIntD, p2 iceP_p2: ShortIntD, context: Ice.Context? = nil) async throws -> (returnValue: ShortIntD, p3: ShortIntD) {
         return try await _impl._invokeAsync(operation: "opShortIntD",
                                             mode: .Normal,
                                             write: { ostr in
@@ -4975,10 +4714,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: ShortIntD = try ShortIntDHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -5015,16 +4751,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: LongFloatD, p3: LongFloatD)` - The result of the operation
-    func opLongFloatDAsync(p1 iceP_p1: LongFloatD, p2 iceP_p2: LongFloatD, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: LongFloatD, p3: LongFloatD) {
+    func opLongFloatDAsync(p1 iceP_p1: LongFloatD, p2 iceP_p2: LongFloatD, context: Ice.Context? = nil) async throws -> (returnValue: LongFloatD, p3: LongFloatD) {
         return try await _impl._invokeAsync(operation: "opLongFloatD",
                                             mode: .Normal,
                                             write: { ostr in
@@ -5036,10 +4764,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: LongFloatD = try LongFloatDHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -5076,16 +4801,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: StringStringD, p3: StringStringD)` - The result of the operation
-    func opStringStringDAsync(p1 iceP_p1: StringStringD, p2 iceP_p2: StringStringD, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: StringStringD, p3: StringStringD) {
+    func opStringStringDAsync(p1 iceP_p1: StringStringD, p2 iceP_p2: StringStringD, context: Ice.Context? = nil) async throws -> (returnValue: StringStringD, p3: StringStringD) {
         return try await _impl._invokeAsync(operation: "opStringStringD",
                                             mode: .Normal,
                                             write: { ostr in
@@ -5097,10 +4814,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: StringStringD = try StringStringDHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -5137,16 +4851,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: StringMyEnumD, p3: StringMyEnumD)` - The result of the operation
-    func opStringMyEnumDAsync(p1 iceP_p1: StringMyEnumD, p2 iceP_p2: StringMyEnumD, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: StringMyEnumD, p3: StringMyEnumD) {
+    func opStringMyEnumDAsync(p1 iceP_p1: StringMyEnumD, p2 iceP_p2: StringMyEnumD, context: Ice.Context? = nil) async throws -> (returnValue: StringMyEnumD, p3: StringMyEnumD) {
         return try await _impl._invokeAsync(operation: "opStringMyEnumD",
                                             mode: .Normal,
                                             write: { ostr in
@@ -5158,10 +4864,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: StringMyEnumD = try StringMyEnumDHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -5198,16 +4901,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: MyEnumStringD, p3: MyEnumStringD)` - The result of the operation
-    func opMyEnumStringDAsync(p1 iceP_p1: MyEnumStringD, p2 iceP_p2: MyEnumStringD, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: MyEnumStringD, p3: MyEnumStringD) {
+    func opMyEnumStringDAsync(p1 iceP_p1: MyEnumStringD, p2 iceP_p2: MyEnumStringD, context: Ice.Context? = nil) async throws -> (returnValue: MyEnumStringD, p3: MyEnumStringD) {
         return try await _impl._invokeAsync(operation: "opMyEnumStringD",
                                             mode: .Normal,
                                             write: { ostr in
@@ -5219,10 +4914,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: MyEnumStringD = try MyEnumStringDHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -5259,16 +4951,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: MyStructMyEnumD, p3: MyStructMyEnumD)` - The result of the operation
-    func opMyStructMyEnumDAsync(p1 iceP_p1: MyStructMyEnumD, p2 iceP_p2: MyStructMyEnumD, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: MyStructMyEnumD, p3: MyStructMyEnumD) {
+    func opMyStructMyEnumDAsync(p1 iceP_p1: MyStructMyEnumD, p2 iceP_p2: MyStructMyEnumD, context: Ice.Context? = nil) async throws -> (returnValue: MyStructMyEnumD, p3: MyStructMyEnumD) {
         return try await _impl._invokeAsync(operation: "opMyStructMyEnumD",
                                             mode: .Normal,
                                             write: { ostr in
@@ -5280,10 +4964,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: MyStructMyEnumD = try MyStructMyEnumDHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -5320,16 +5001,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: ByteBoolDS, p3: ByteBoolDS)` - The result of the operation
-    func opByteBoolDSAsync(p1 iceP_p1: ByteBoolDS, p2 iceP_p2: ByteBoolDS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ByteBoolDS, p3: ByteBoolDS) {
+    func opByteBoolDSAsync(p1 iceP_p1: ByteBoolDS, p2 iceP_p2: ByteBoolDS, context: Ice.Context? = nil) async throws -> (returnValue: ByteBoolDS, p3: ByteBoolDS) {
         return try await _impl._invokeAsync(operation: "opByteBoolDS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -5341,10 +5014,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: ByteBoolDS = try ByteBoolDSHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -5381,16 +5051,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: ShortIntDS, p3: ShortIntDS)` - The result of the operation
-    func opShortIntDSAsync(p1 iceP_p1: ShortIntDS, p2 iceP_p2: ShortIntDS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ShortIntDS, p3: ShortIntDS) {
+    func opShortIntDSAsync(p1 iceP_p1: ShortIntDS, p2 iceP_p2: ShortIntDS, context: Ice.Context? = nil) async throws -> (returnValue: ShortIntDS, p3: ShortIntDS) {
         return try await _impl._invokeAsync(operation: "opShortIntDS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -5402,10 +5064,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: ShortIntDS = try ShortIntDSHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -5442,16 +5101,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: LongFloatDS, p3: LongFloatDS)` - The result of the operation
-    func opLongFloatDSAsync(p1 iceP_p1: LongFloatDS, p2 iceP_p2: LongFloatDS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: LongFloatDS, p3: LongFloatDS) {
+    func opLongFloatDSAsync(p1 iceP_p1: LongFloatDS, p2 iceP_p2: LongFloatDS, context: Ice.Context? = nil) async throws -> (returnValue: LongFloatDS, p3: LongFloatDS) {
         return try await _impl._invokeAsync(operation: "opLongFloatDS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -5463,10 +5114,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: LongFloatDS = try LongFloatDSHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -5503,16 +5151,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: StringStringDS, p3: StringStringDS)` - The result of the operation
-    func opStringStringDSAsync(p1 iceP_p1: StringStringDS, p2 iceP_p2: StringStringDS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: StringStringDS, p3: StringStringDS) {
+    func opStringStringDSAsync(p1 iceP_p1: StringStringDS, p2 iceP_p2: StringStringDS, context: Ice.Context? = nil) async throws -> (returnValue: StringStringDS, p3: StringStringDS) {
         return try await _impl._invokeAsync(operation: "opStringStringDS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -5524,10 +5164,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: StringStringDS = try StringStringDSHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -5564,16 +5201,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: StringMyEnumDS, p3: StringMyEnumDS)` - The result of the operation
-    func opStringMyEnumDSAsync(p1 iceP_p1: StringMyEnumDS, p2 iceP_p2: StringMyEnumDS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: StringMyEnumDS, p3: StringMyEnumDS) {
+    func opStringMyEnumDSAsync(p1 iceP_p1: StringMyEnumDS, p2 iceP_p2: StringMyEnumDS, context: Ice.Context? = nil) async throws -> (returnValue: StringMyEnumDS, p3: StringMyEnumDS) {
         return try await _impl._invokeAsync(operation: "opStringMyEnumDS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -5585,10 +5214,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: StringMyEnumDS = try StringMyEnumDSHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -5625,16 +5251,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: MyEnumStringDS, p3: MyEnumStringDS)` - The result of the operation
-    func opMyEnumStringDSAsync(p1 iceP_p1: MyEnumStringDS, p2 iceP_p2: MyEnumStringDS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: MyEnumStringDS, p3: MyEnumStringDS) {
+    func opMyEnumStringDSAsync(p1 iceP_p1: MyEnumStringDS, p2 iceP_p2: MyEnumStringDS, context: Ice.Context? = nil) async throws -> (returnValue: MyEnumStringDS, p3: MyEnumStringDS) {
         return try await _impl._invokeAsync(operation: "opMyEnumStringDS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -5646,10 +5264,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: MyEnumStringDS = try MyEnumStringDSHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -5686,16 +5301,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: MyStructMyEnumDS, p3: MyStructMyEnumDS)` - The result of the operation
-    func opMyStructMyEnumDSAsync(p1 iceP_p1: MyStructMyEnumDS, p2 iceP_p2: MyStructMyEnumDS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: MyStructMyEnumDS, p3: MyStructMyEnumDS) {
+    func opMyStructMyEnumDSAsync(p1 iceP_p1: MyStructMyEnumDS, p2 iceP_p2: MyStructMyEnumDS, context: Ice.Context? = nil) async throws -> (returnValue: MyStructMyEnumDS, p3: MyStructMyEnumDS) {
         return try await _impl._invokeAsync(operation: "opMyStructMyEnumDS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -5707,10 +5314,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: MyStructMyEnumDS = try MyStructMyEnumDSHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -5747,16 +5351,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: ByteByteSD, p3: ByteByteSD)` - The result of the operation
-    func opByteByteSDAsync(p1 iceP_p1: ByteByteSD, p2 iceP_p2: ByteByteSD, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ByteByteSD, p3: ByteByteSD) {
+    func opByteByteSDAsync(p1 iceP_p1: ByteByteSD, p2 iceP_p2: ByteByteSD, context: Ice.Context? = nil) async throws -> (returnValue: ByteByteSD, p3: ByteByteSD) {
         return try await _impl._invokeAsync(operation: "opByteByteSD",
                                             mode: .Normal,
                                             write: { ostr in
@@ -5768,10 +5364,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: ByteByteSD = try ByteByteSDHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -5808,16 +5401,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: BoolBoolSD, p3: BoolBoolSD)` - The result of the operation
-    func opBoolBoolSDAsync(p1 iceP_p1: BoolBoolSD, p2 iceP_p2: BoolBoolSD, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: BoolBoolSD, p3: BoolBoolSD) {
+    func opBoolBoolSDAsync(p1 iceP_p1: BoolBoolSD, p2 iceP_p2: BoolBoolSD, context: Ice.Context? = nil) async throws -> (returnValue: BoolBoolSD, p3: BoolBoolSD) {
         return try await _impl._invokeAsync(operation: "opBoolBoolSD",
                                             mode: .Normal,
                                             write: { ostr in
@@ -5829,10 +5414,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: BoolBoolSD = try BoolBoolSDHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -5869,16 +5451,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: ShortShortSD, p3: ShortShortSD)` - The result of the operation
-    func opShortShortSDAsync(p1 iceP_p1: ShortShortSD, p2 iceP_p2: ShortShortSD, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ShortShortSD, p3: ShortShortSD) {
+    func opShortShortSDAsync(p1 iceP_p1: ShortShortSD, p2 iceP_p2: ShortShortSD, context: Ice.Context? = nil) async throws -> (returnValue: ShortShortSD, p3: ShortShortSD) {
         return try await _impl._invokeAsync(operation: "opShortShortSD",
                                             mode: .Normal,
                                             write: { ostr in
@@ -5890,10 +5464,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: ShortShortSD = try ShortShortSDHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -5930,16 +5501,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: IntIntSD, p3: IntIntSD)` - The result of the operation
-    func opIntIntSDAsync(p1 iceP_p1: IntIntSD, p2 iceP_p2: IntIntSD, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: IntIntSD, p3: IntIntSD) {
+    func opIntIntSDAsync(p1 iceP_p1: IntIntSD, p2 iceP_p2: IntIntSD, context: Ice.Context? = nil) async throws -> (returnValue: IntIntSD, p3: IntIntSD) {
         return try await _impl._invokeAsync(operation: "opIntIntSD",
                                             mode: .Normal,
                                             write: { ostr in
@@ -5951,10 +5514,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: IntIntSD = try IntIntSDHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -5991,16 +5551,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: LongLongSD, p3: LongLongSD)` - The result of the operation
-    func opLongLongSDAsync(p1 iceP_p1: LongLongSD, p2 iceP_p2: LongLongSD, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: LongLongSD, p3: LongLongSD) {
+    func opLongLongSDAsync(p1 iceP_p1: LongLongSD, p2 iceP_p2: LongLongSD, context: Ice.Context? = nil) async throws -> (returnValue: LongLongSD, p3: LongLongSD) {
         return try await _impl._invokeAsync(operation: "opLongLongSD",
                                             mode: .Normal,
                                             write: { ostr in
@@ -6012,10 +5564,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: LongLongSD = try LongLongSDHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -6052,16 +5601,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: StringFloatSD, p3: StringFloatSD)` - The result of the operation
-    func opStringFloatSDAsync(p1 iceP_p1: StringFloatSD, p2 iceP_p2: StringFloatSD, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: StringFloatSD, p3: StringFloatSD) {
+    func opStringFloatSDAsync(p1 iceP_p1: StringFloatSD, p2 iceP_p2: StringFloatSD, context: Ice.Context? = nil) async throws -> (returnValue: StringFloatSD, p3: StringFloatSD) {
         return try await _impl._invokeAsync(operation: "opStringFloatSD",
                                             mode: .Normal,
                                             write: { ostr in
@@ -6073,10 +5614,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: StringFloatSD = try StringFloatSDHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -6113,16 +5651,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: StringDoubleSD, p3: StringDoubleSD)` - The result of the operation
-    func opStringDoubleSDAsync(p1 iceP_p1: StringDoubleSD, p2 iceP_p2: StringDoubleSD, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: StringDoubleSD, p3: StringDoubleSD) {
+    func opStringDoubleSDAsync(p1 iceP_p1: StringDoubleSD, p2 iceP_p2: StringDoubleSD, context: Ice.Context? = nil) async throws -> (returnValue: StringDoubleSD, p3: StringDoubleSD) {
         return try await _impl._invokeAsync(operation: "opStringDoubleSD",
                                             mode: .Normal,
                                             write: { ostr in
@@ -6134,10 +5664,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: StringDoubleSD = try StringDoubleSDHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -6174,16 +5701,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: StringStringSD, p3: StringStringSD)` - The result of the operation
-    func opStringStringSDAsync(p1 iceP_p1: StringStringSD, p2 iceP_p2: StringStringSD, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: StringStringSD, p3: StringStringSD) {
+    func opStringStringSDAsync(p1 iceP_p1: StringStringSD, p2 iceP_p2: StringStringSD, context: Ice.Context? = nil) async throws -> (returnValue: StringStringSD, p3: StringStringSD) {
         return try await _impl._invokeAsync(operation: "opStringStringSD",
                                             mode: .Normal,
                                             write: { ostr in
@@ -6195,10 +5714,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: StringStringSD = try StringStringSDHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -6235,16 +5751,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: MyEnumMyEnumSD, p3: MyEnumMyEnumSD)` - The result of the operation
-    func opMyEnumMyEnumSDAsync(p1 iceP_p1: MyEnumMyEnumSD, p2 iceP_p2: MyEnumMyEnumSD, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: MyEnumMyEnumSD, p3: MyEnumMyEnumSD) {
+    func opMyEnumMyEnumSDAsync(p1 iceP_p1: MyEnumMyEnumSD, p2 iceP_p2: MyEnumMyEnumSD, context: Ice.Context? = nil) async throws -> (returnValue: MyEnumMyEnumSD, p3: MyEnumMyEnumSD) {
         return try await _impl._invokeAsync(operation: "opMyEnumMyEnumSD",
                                             mode: .Normal,
                                             write: { ostr in
@@ -6256,10 +5764,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: MyEnumMyEnumSD = try MyEnumMyEnumSDHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p3)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -6286,16 +5791,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `IntS` - The result of the operation
-    func opIntSAsync(_ iceP_s: IntS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> IntS {
+    func opIntSAsync(_ iceP_s: IntS, context: Ice.Context? = nil) async throws -> IntS {
         return try await _impl._invokeAsync(operation: "opIntS",
                                             mode: .Normal,
                                             write: { ostr in
@@ -6305,10 +5802,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: IntS = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -6329,25 +5823,14 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func opByteSOnewayAsync(_ iceP_s: ByteS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func opByteSOnewayAsync(_ iceP_s: ByteS, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "opByteSOneway",
                                             mode: .Normal,
                                             write: { ostr in
                                                 ostr.write(iceP_s)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -6367,26 +5850,15 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Swift.Int32` - The result of the operation
-    func opByteSOnewayCallCountAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Int32 {
+    func opByteSOnewayCallCountAsync(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invokeAsync(operation: "opByteSOnewayCallCount",
                                             mode: .Normal,
                                             read: { istr in
                                                 let iceP_returnValue: Swift.Int32 = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -6406,26 +5878,15 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Ice.Context` - The result of the operation
-    func opContextAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.Context {
+    func opContextAsync(context: Ice.Context? = nil) async throws -> Ice.Context {
         return try await _impl._invokeAsync(operation: "opContext",
                                             mode: .Normal,
                                             read: { istr in
                                                 let iceP_returnValue: Ice.Context = try Ice.ContextHelper.read(from: istr)
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -6451,26 +5912,15 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func opDoubleMarshalingAsync(p1 iceP_p1: Swift.Double, p2 iceP_p2: DoubleS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func opDoubleMarshalingAsync(p1 iceP_p1: Swift.Double, p2 iceP_p2: DoubleS, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "opDoubleMarshaling",
                                             mode: .Normal,
                                             write: { ostr in
                                                 ostr.write(iceP_p1)
                                                 ostr.write(iceP_p2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -6484,22 +5934,11 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func opIdempotentAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func opIdempotentAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "opIdempotent",
                                             mode: .Idempotent,
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -6526,16 +5965,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Swift.UInt8` - The result of the operation
-    func opByte1Async(_ iceP_opByte1: Swift.UInt8, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.UInt8 {
+    func opByte1Async(_ iceP_opByte1: Swift.UInt8, context: Ice.Context? = nil) async throws -> Swift.UInt8 {
         return try await _impl._invokeAsync(operation: "opByte1",
                                             mode: .Normal,
                                             write: { ostr in
@@ -6545,10 +5976,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: Swift.UInt8 = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -6575,16 +6003,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Swift.Int16` - The result of the operation
-    func opShort1Async(_ iceP_opShort1: Swift.Int16, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Int16 {
+    func opShort1Async(_ iceP_opShort1: Swift.Int16, context: Ice.Context? = nil) async throws -> Swift.Int16 {
         return try await _impl._invokeAsync(operation: "opShort1",
                                             mode: .Normal,
                                             write: { ostr in
@@ -6594,10 +6014,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: Swift.Int16 = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -6624,16 +6041,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Swift.Int32` - The result of the operation
-    func opInt1Async(_ iceP_opInt1: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Int32 {
+    func opInt1Async(_ iceP_opInt1: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invokeAsync(operation: "opInt1",
                                             mode: .Normal,
                                             write: { ostr in
@@ -6643,10 +6052,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: Swift.Int32 = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -6673,16 +6079,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Swift.Int64` - The result of the operation
-    func opLong1Async(_ iceP_opLong1: Swift.Int64, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Int64 {
+    func opLong1Async(_ iceP_opLong1: Swift.Int64, context: Ice.Context? = nil) async throws -> Swift.Int64 {
         return try await _impl._invokeAsync(operation: "opLong1",
                                             mode: .Normal,
                                             write: { ostr in
@@ -6692,10 +6090,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: Swift.Int64 = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -6722,16 +6117,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Swift.Float` - The result of the operation
-    func opFloat1Async(_ iceP_opFloat1: Swift.Float, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Float {
+    func opFloat1Async(_ iceP_opFloat1: Swift.Float, context: Ice.Context? = nil) async throws -> Swift.Float {
         return try await _impl._invokeAsync(operation: "opFloat1",
                                             mode: .Normal,
                                             write: { ostr in
@@ -6741,10 +6128,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: Swift.Float = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -6771,16 +6155,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Swift.Double` - The result of the operation
-    func opDouble1Async(_ iceP_opDouble1: Swift.Double, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Double {
+    func opDouble1Async(_ iceP_opDouble1: Swift.Double, context: Ice.Context? = nil) async throws -> Swift.Double {
         return try await _impl._invokeAsync(operation: "opDouble1",
                                             mode: .Normal,
                                             write: { ostr in
@@ -6790,10 +6166,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: Swift.Double = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -6820,16 +6193,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Swift.String` - The result of the operation
-    func opString1Async(_ iceP_opString1: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.String {
+    func opString1Async(_ iceP_opString1: Swift.String, context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invokeAsync(operation: "opString1",
                                             mode: .Normal,
                                             write: { ostr in
@@ -6839,10 +6204,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: Swift.String = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -6869,16 +6231,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `StringS` - The result of the operation
-    func opStringS1Async(_ iceP_opStringS1: StringS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> StringS {
+    func opStringS1Async(_ iceP_opStringS1: StringS, context: Ice.Context? = nil) async throws -> StringS {
         return try await _impl._invokeAsync(operation: "opStringS1",
                                             mode: .Normal,
                                             write: { ostr in
@@ -6888,10 +6242,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: StringS = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -6918,16 +6269,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `ByteBoolD` - The result of the operation
-    func opByteBoolD1Async(_ iceP_opByteBoolD1: ByteBoolD, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> ByteBoolD {
+    func opByteBoolD1Async(_ iceP_opByteBoolD1: ByteBoolD, context: Ice.Context? = nil) async throws -> ByteBoolD {
         return try await _impl._invokeAsync(operation: "opByteBoolD1",
                                             mode: .Normal,
                                             write: { ostr in
@@ -6937,10 +6280,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: ByteBoolD = try ByteBoolDHelper.read(from: istr)
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -6967,16 +6307,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `StringS` - The result of the operation
-    func opStringS2Async(_ iceP_stringS: StringS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> StringS {
+    func opStringS2Async(_ iceP_stringS: StringS, context: Ice.Context? = nil) async throws -> StringS {
         return try await _impl._invokeAsync(operation: "opStringS2",
                                             mode: .Normal,
                                             write: { ostr in
@@ -6986,10 +6318,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: StringS = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -7016,16 +6345,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `ByteBoolD` - The result of the operation
-    func opByteBoolD2Async(_ iceP_byteBoolD: ByteBoolD, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> ByteBoolD {
+    func opByteBoolD2Async(_ iceP_byteBoolD: ByteBoolD, context: Ice.Context? = nil) async throws -> ByteBoolD {
         return try await _impl._invokeAsync(operation: "opByteBoolD2",
                                             mode: .Normal,
                                             write: { ostr in
@@ -7035,10 +6356,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: ByteBoolD = try ByteBoolDHelper.read(from: istr)
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -7058,26 +6376,15 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `StringS` - The result of the operation
-    func opStringLiteralsAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> StringS {
+    func opStringLiteralsAsync(context: Ice.Context? = nil) async throws -> StringS {
         return try await _impl._invokeAsync(operation: "opStringLiterals",
                                             mode: .Normal,
                                             read: { istr in
                                                 let iceP_returnValue: StringS = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -7097,26 +6404,15 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `WStringS` - The result of the operation
-    func opWStringLiteralsAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> WStringS {
+    func opWStringLiteralsAsync(context: Ice.Context? = nil) async throws -> WStringS {
         return try await _impl._invokeAsync(operation: "opWStringLiterals",
                                             mode: .Normal,
                                             read: { istr in
                                                 let iceP_returnValue: WStringS = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -7136,26 +6432,15 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Structure` - The result of the operation
-    func opMStruct1Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Structure {
+    func opMStruct1Async(context: Ice.Context? = nil) async throws -> Structure {
         return try await _impl._invokeAsync(operation: "opMStruct1",
                                             mode: .Normal,
                                             read: { istr in
                                                 let iceP_returnValue: Structure = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -7187,16 +6472,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: Structure, p2: Structure)` - The result of the operation
-    func opMStruct2Async(_ iceP_p1: Structure, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: Structure, p2: Structure) {
+    func opMStruct2Async(_ iceP_p1: Structure, context: Ice.Context? = nil) async throws -> (returnValue: Structure, p2: Structure) {
         return try await _impl._invokeAsync(operation: "opMStruct2",
                                             mode: .Normal,
                                             write: { ostr in
@@ -7207,10 +6484,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: Structure = try istr.read()
                                                 return (iceP_returnValue, iceP_p2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -7230,26 +6504,15 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `StringS` - The result of the operation
-    func opMSeq1Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> StringS {
+    func opMSeq1Async(context: Ice.Context? = nil) async throws -> StringS {
         return try await _impl._invokeAsync(operation: "opMSeq1",
                                             mode: .Normal,
                                             read: { istr in
                                                 let iceP_returnValue: StringS = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -7281,16 +6544,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: StringS, p2: StringS)` - The result of the operation
-    func opMSeq2Async(_ iceP_p1: StringS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: StringS, p2: StringS) {
+    func opMSeq2Async(_ iceP_p1: StringS, context: Ice.Context? = nil) async throws -> (returnValue: StringS, p2: StringS) {
         return try await _impl._invokeAsync(operation: "opMSeq2",
                                             mode: .Normal,
                                             write: { ostr in
@@ -7301,10 +6556,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: StringS = try istr.read()
                                                 return (iceP_returnValue, iceP_p2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -7324,26 +6576,15 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `StringStringD` - The result of the operation
-    func opMDict1Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> StringStringD {
+    func opMDict1Async(context: Ice.Context? = nil) async throws -> StringStringD {
         return try await _impl._invokeAsync(operation: "opMDict1",
                                             mode: .Normal,
                                             read: { istr in
                                                 let iceP_returnValue: StringStringD = try StringStringDHelper.read(from: istr)
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -7375,16 +6616,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: StringStringD, p2: StringStringD)` - The result of the operation
-    func opMDict2Async(_ iceP_p1: StringStringD, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: StringStringD, p2: StringStringD) {
+    func opMDict2Async(_ iceP_p1: StringStringD, context: Ice.Context? = nil) async throws -> (returnValue: StringStringD, p2: StringStringD) {
         return try await _impl._invokeAsync(operation: "opMDict2",
                                             mode: .Normal,
                                             write: { ostr in
@@ -7395,10 +6628,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: StringStringD = try StringStringDHelper.read(from: istr)
                                                 return (iceP_returnValue, iceP_p2)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 
@@ -7531,22 +6761,11 @@ public extension MyDerivedClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func opDerivedAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func opDerivedAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "opDerived",
                                             mode: .Normal,
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -7576,16 +6795,8 @@ public extension MyDerivedClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `MyClass1?` - The result of the operation
-    func opMyClass1Async(_ iceP_opMyClass1: MyClass1?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> MyClass1? {
+    func opMyClass1Async(_ iceP_opMyClass1: MyClass1?, context: Ice.Context? = nil) async throws -> MyClass1? {
         return try await _impl._invokeAsync(operation: "opMyClass1",
                                             mode: .Normal,
                                             write: { ostr in
@@ -7598,10 +6809,7 @@ public extension MyDerivedClassPrx {
                                                 try istr.readPendingValues()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -7628,16 +6836,8 @@ public extension MyDerivedClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `MyStruct1` - The result of the operation
-    func opMyStruct1Async(_ iceP_opMyStruct1: MyStruct1, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> MyStruct1 {
+    func opMyStruct1Async(_ iceP_opMyStruct1: MyStruct1, context: Ice.Context? = nil) async throws -> MyStruct1 {
         return try await _impl._invokeAsync(operation: "opMyStruct1",
                                             mode: .Normal,
                                             write: { ostr in
@@ -7647,10 +6847,7 @@ public extension MyDerivedClassPrx {
                                                 let iceP_returnValue: MyStruct1 = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 

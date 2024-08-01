@@ -351,16 +351,8 @@ public extension LocatorPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `ObjectPrx?` - The result of the operation
-    func findObjectByIdAsync(_ iceP_id: Identity, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> ObjectPrx? {
+    func findObjectByIdAsync(_ iceP_id: Identity, context: Context? = nil) async throws -> ObjectPrx? {
         return try await _impl._invokeAsync(operation: "findObjectById",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -377,10 +369,7 @@ public extension LocatorPrx {
                                                     throw error
                                                 } catch is UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Find an adapter by id and return a proxy that contains its endpoints.
@@ -420,16 +409,8 @@ public extension LocatorPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `ObjectPrx?` - The result of the operation
-    func findAdapterByIdAsync(_ iceP_id: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> ObjectPrx? {
+    func findAdapterByIdAsync(_ iceP_id: Swift.String, context: Context? = nil) async throws -> ObjectPrx? {
         return try await _impl._invokeAsync(operation: "findAdapterById",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -446,10 +427,7 @@ public extension LocatorPrx {
                                                     throw error
                                                 } catch is UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get the locator registry.
@@ -471,26 +449,15 @@ public extension LocatorPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `LocatorRegistryPrx?` - The result of the operation
-    func getRegistryAsync(context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> LocatorRegistryPrx? {
+    func getRegistryAsync(context: Context? = nil) async throws -> LocatorRegistryPrx? {
         return try await _impl._invokeAsync(operation: "getRegistry",
                                             mode: .Idempotent,
                                             read: { istr in
                                                 let iceP_returnValue: LocatorRegistryPrx? = try istr.read(LocatorRegistryPrx.self)
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 
@@ -661,16 +628,8 @@ public extension LocatorRegistryPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func setAdapterDirectProxyAsync(id iceP_id: Swift.String, proxy iceP_proxy: ObjectPrx?, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func setAdapterDirectProxyAsync(id iceP_id: Swift.String, proxy iceP_proxy: ObjectPrx?, context: Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "setAdapterDirectProxy",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -686,10 +645,7 @@ public extension LocatorRegistryPrx {
                                                     throw error
                                                 } catch is UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Set the adapter endpoints with the locator registry.
@@ -745,16 +701,8 @@ public extension LocatorRegistryPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func setReplicatedAdapterDirectProxyAsync(adapterId iceP_adapterId: Swift.String, replicaGroupId iceP_replicaGroupId: Swift.String, proxy iceP_proxy: ObjectPrx?, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func setReplicatedAdapterDirectProxyAsync(adapterId iceP_adapterId: Swift.String, replicaGroupId iceP_replicaGroupId: Swift.String, proxy iceP_proxy: ObjectPrx?, context: Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "setReplicatedAdapterDirectProxy",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -773,10 +721,7 @@ public extension LocatorRegistryPrx {
                                                     throw error
                                                 } catch is UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Set the process proxy for a server.
@@ -815,16 +760,8 @@ public extension LocatorRegistryPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func setServerProcessProxyAsync(id iceP_id: Swift.String, proxy iceP_proxy: ProcessPrx?, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func setServerProcessProxyAsync(id iceP_id: Swift.String, proxy iceP_proxy: ProcessPrx?, context: Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "setServerProcessProxy",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -838,10 +775,7 @@ public extension LocatorRegistryPrx {
                                                     throw error
                                                 } catch is UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 
@@ -972,26 +906,15 @@ public extension LocatorFinderPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `LocatorPrx?` - The result of the operation
-    func getLocatorAsync(context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> LocatorPrx? {
+    func getLocatorAsync(context: Context? = nil) async throws -> LocatorPrx? {
         return try await _impl._invokeAsync(operation: "getLocator",
                                             mode: .Normal,
                                             read: { istr in
                                                 let iceP_returnValue: LocatorPrx? = try istr.read(LocatorPrx.self)
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 

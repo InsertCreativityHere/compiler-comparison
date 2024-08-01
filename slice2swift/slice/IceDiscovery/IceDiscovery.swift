@@ -163,26 +163,15 @@ public extension LookupReplyPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func foundObjectByIdAsync(id iceP_id: Ice.Identity, prx iceP_prx: Ice.ObjectPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func foundObjectByIdAsync(id iceP_id: Ice.Identity, prx iceP_prx: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "foundObjectById",
                                             mode: .Normal,
                                             write: { ostr in
                                                 ostr.write(iceP_id)
                                                 ostr.write(iceP_prx)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Reply to the findAdpaterById request.
@@ -217,16 +206,8 @@ public extension LookupReplyPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func foundAdapterByIdAsync(id iceP_id: Swift.String, prx iceP_prx: Ice.ObjectPrx?, isReplicaGroup iceP_isReplicaGroup: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func foundAdapterByIdAsync(id iceP_id: Swift.String, prx iceP_prx: Ice.ObjectPrx?, isReplicaGroup iceP_isReplicaGroup: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "foundAdapterById",
                                             mode: .Normal,
                                             write: { ostr in
@@ -234,10 +215,7 @@ public extension LookupReplyPrx {
                                                 ostr.write(iceP_prx)
                                                 ostr.write(iceP_isReplicaGroup)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 
@@ -385,16 +363,8 @@ public extension LookupPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func findObjectByIdAsync(domainId iceP_domainId: Swift.String, id iceP_id: Ice.Identity, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func findObjectByIdAsync(domainId iceP_domainId: Swift.String, id iceP_id: Ice.Identity, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "findObjectById",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -402,10 +372,7 @@ public extension LookupPrx {
                                                 ostr.write(iceP_id)
                                                 ostr.write(iceP_reply)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Request to find an object adapter
@@ -442,16 +409,8 @@ public extension LookupPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func findAdapterByIdAsync(domainId iceP_domainId: Swift.String, id iceP_id: Swift.String, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func findAdapterByIdAsync(domainId iceP_domainId: Swift.String, id iceP_id: Swift.String, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "findAdapterById",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -459,10 +418,7 @@ public extension LookupPrx {
                                                 ostr.write(iceP_id)
                                                 ostr.write(iceP_reply)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 

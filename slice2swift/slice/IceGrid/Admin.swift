@@ -2012,16 +2012,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func addApplicationAsync(_ iceP_descriptor: ApplicationDescriptor, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func addApplicationAsync(_ iceP_descriptor: ApplicationDescriptor, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "addApplication",
                                             mode: .Normal,
                                             write: { ostr in
@@ -2037,10 +2029,7 @@ public extension AdminPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Synchronize a deployed application with the given application descriptor. This operation will replace the
@@ -2068,11 +2057,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as ApplicationNotExistException {
-                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as AccessDeniedException {
+                                  throw error
+                              } catch let error as ApplicationNotExistException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -2086,16 +2075,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func syncApplicationAsync(_ iceP_descriptor: ApplicationDescriptor, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func syncApplicationAsync(_ iceP_descriptor: ApplicationDescriptor, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "syncApplication",
                                             mode: .Normal,
                                             write: { ostr in
@@ -2105,18 +2086,15 @@ public extension AdminPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
-                                                } catch let error as ApplicationNotExistException {
-                                                    throw error
                                                 } catch let error as DeploymentException {
                                                     throw error
                                                 } catch let error as AccessDeniedException {
                                                     throw error
+                                                } catch let error as ApplicationNotExistException {
+                                                    throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Update a deployed application with the given update application descriptor.
@@ -2143,11 +2121,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as ApplicationNotExistException {
-                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as AccessDeniedException {
+                                  throw error
+                              } catch let error as ApplicationNotExistException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -2160,16 +2138,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func updateApplicationAsync(_ iceP_descriptor: ApplicationUpdateDescriptor, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func updateApplicationAsync(_ iceP_descriptor: ApplicationUpdateDescriptor, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "updateApplication",
                                             mode: .Normal,
                                             write: { ostr in
@@ -2179,18 +2149,15 @@ public extension AdminPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
-                                                } catch let error as ApplicationNotExistException {
-                                                    throw error
                                                 } catch let error as DeploymentException {
                                                     throw error
                                                 } catch let error as AccessDeniedException {
                                                     throw error
+                                                } catch let error as ApplicationNotExistException {
+                                                    throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Synchronize a deployed application with the given application descriptor. This operation will replace the
@@ -2220,11 +2187,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as ApplicationNotExistException {
-                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as AccessDeniedException {
+                                  throw error
+                              } catch let error as ApplicationNotExistException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -2240,16 +2207,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func syncApplicationWithoutRestartAsync(_ iceP_descriptor: ApplicationDescriptor, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func syncApplicationWithoutRestartAsync(_ iceP_descriptor: ApplicationDescriptor, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "syncApplicationWithoutRestart",
                                             mode: .Normal,
                                             write: { ostr in
@@ -2259,18 +2218,15 @@ public extension AdminPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
-                                                } catch let error as ApplicationNotExistException {
-                                                    throw error
                                                 } catch let error as DeploymentException {
                                                     throw error
                                                 } catch let error as AccessDeniedException {
                                                     throw error
+                                                } catch let error as ApplicationNotExistException {
+                                                    throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Update a deployed application with the given update application descriptor only if no server restarts are
@@ -2299,11 +2255,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as ApplicationNotExistException {
-                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as AccessDeniedException {
+                                  throw error
+                              } catch let error as ApplicationNotExistException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -2318,16 +2274,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func updateApplicationWithoutRestartAsync(_ iceP_descriptor: ApplicationUpdateDescriptor, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func updateApplicationWithoutRestartAsync(_ iceP_descriptor: ApplicationUpdateDescriptor, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "updateApplicationWithoutRestart",
                                             mode: .Normal,
                                             write: { ostr in
@@ -2337,18 +2285,15 @@ public extension AdminPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
-                                                } catch let error as ApplicationNotExistException {
-                                                    throw error
                                                 } catch let error as DeploymentException {
                                                     throw error
                                                 } catch let error as AccessDeniedException {
                                                     throw error
+                                                } catch let error as ApplicationNotExistException {
+                                                    throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Remove an application from IceGrid.
@@ -2374,11 +2319,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as ApplicationNotExistException {
-                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as AccessDeniedException {
+                                  throw error
+                              } catch let error as ApplicationNotExistException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -2391,16 +2336,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func removeApplicationAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func removeApplicationAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "removeApplication",
                                             mode: .Normal,
                                             write: { ostr in
@@ -2409,18 +2346,15 @@ public extension AdminPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
-                                                } catch let error as ApplicationNotExistException {
-                                                    throw error
                                                 } catch let error as DeploymentException {
                                                     throw error
                                                 } catch let error as AccessDeniedException {
                                                     throw error
+                                                } catch let error as ApplicationNotExistException {
+                                                    throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Instantiate a server template from an application on the given node.
@@ -2452,11 +2386,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as ApplicationNotExistException {
-                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as AccessDeniedException {
+                                  throw error
+                              } catch let error as ApplicationNotExistException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -2473,16 +2407,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func instantiateServerAsync(application iceP_application: Swift.String, node iceP_node: Swift.String, desc iceP_desc: ServerInstanceDescriptor, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func instantiateServerAsync(application iceP_application: Swift.String, node iceP_node: Swift.String, desc iceP_desc: ServerInstanceDescriptor, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "instantiateServer",
                                             mode: .Normal,
                                             write: { ostr in
@@ -2493,18 +2419,15 @@ public extension AdminPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
-                                                } catch let error as ApplicationNotExistException {
-                                                    throw error
                                                 } catch let error as DeploymentException {
                                                     throw error
                                                 } catch let error as AccessDeniedException {
                                                     throw error
+                                                } catch let error as ApplicationNotExistException {
+                                                    throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get an application descriptor.
@@ -2545,16 +2468,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `ApplicationInfo` - The result of the operation
-    func getApplicationInfoAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> ApplicationInfo {
+    func getApplicationInfoAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> ApplicationInfo {
         return try await _impl._invokeAsync(operation: "getApplicationInfo",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -2572,10 +2487,7 @@ public extension AdminPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get the default application descriptor.
@@ -2609,16 +2521,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `ApplicationDescriptor` - The result of the operation
-    func getDefaultApplicationDescriptorAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> ApplicationDescriptor {
+    func getDefaultApplicationDescriptorAsync(context: Ice.Context? = nil) async throws -> ApplicationDescriptor {
         return try await _impl._invokeAsync(operation: "getDefaultApplicationDescriptor",
                                             mode: .Idempotent,
                                             read: { istr in
@@ -2633,10 +2537,7 @@ public extension AdminPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get all the IceGrid applications currently registered.
@@ -2658,26 +2559,15 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Ice.StringSeq` - The result of the operation
-    func getAllApplicationNamesAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.StringSeq {
+    func getAllApplicationNamesAsync(context: Ice.Context? = nil) async throws -> Ice.StringSeq {
         return try await _impl._invokeAsync(operation: "getAllApplicationNames",
                                             mode: .Idempotent,
                                             read: { istr in
                                                 let iceP_returnValue: Ice.StringSeq = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get the server information for the server with the given id.
@@ -2718,16 +2608,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `ServerInfo` - The result of the operation
-    func getServerInfoAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> ServerInfo {
+    func getServerInfoAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> ServerInfo {
         return try await _impl._invokeAsync(operation: "getServerInfo",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -2745,10 +2627,7 @@ public extension AdminPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get a server's state.
@@ -2779,11 +2658,11 @@ public extension AdminPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as ServerNotExistException {
-                                         throw error
                                      } catch let error as DeploymentException {
                                          throw error
                                      } catch let error as NodeUnreachableException {
+                                         throw error
+                                     } catch let error as ServerNotExistException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -2796,16 +2675,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `ServerState` - The result of the operation
-    func getServerStateAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> ServerState {
+    func getServerStateAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> ServerState {
         return try await _impl._invokeAsync(operation: "getServerState",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -2818,18 +2689,15 @@ public extension AdminPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
-                                                } catch let error as ServerNotExistException {
-                                                    throw error
                                                 } catch let error as DeploymentException {
                                                     throw error
                                                 } catch let error as NodeUnreachableException {
                                                     throw error
+                                                } catch let error as ServerNotExistException {
+                                                    throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get a server's system process id. The process id is operating system dependent.
@@ -2860,11 +2728,11 @@ public extension AdminPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as ServerNotExistException {
-                                         throw error
                                      } catch let error as DeploymentException {
                                          throw error
                                      } catch let error as NodeUnreachableException {
+                                         throw error
+                                     } catch let error as ServerNotExistException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -2877,16 +2745,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Swift.Int32` - The result of the operation
-    func getServerPidAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Int32 {
+    func getServerPidAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invokeAsync(operation: "getServerPid",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -2899,18 +2759,15 @@ public extension AdminPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
-                                                } catch let error as ServerNotExistException {
-                                                    throw error
                                                 } catch let error as DeploymentException {
                                                     throw error
                                                 } catch let error as NodeUnreachableException {
                                                     throw error
+                                                } catch let error as ServerNotExistException {
+                                                    throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
@@ -2934,26 +2791,15 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Swift.String` - The result of the operation
-    func getServerAdminCategoryAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.String {
+    func getServerAdminCategoryAsync(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invokeAsync(operation: "getServerAdminCategory",
                                             mode: .Idempotent,
                                             read: { istr in
                                                 let iceP_returnValue: Swift.String = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get a proxy to the server's admin object.
@@ -2984,11 +2830,11 @@ public extension AdminPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as ServerNotExistException {
-                                         throw error
                                      } catch let error as DeploymentException {
                                          throw error
                                      } catch let error as NodeUnreachableException {
+                                         throw error
+                                     } catch let error as ServerNotExistException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -3001,16 +2847,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func getServerAdminAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.ObjectPrx? {
+    func getServerAdminAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
         return try await _impl._invokeAsync(operation: "getServerAdmin",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -3023,18 +2861,15 @@ public extension AdminPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
-                                                } catch let error as ServerNotExistException {
-                                                    throw error
                                                 } catch let error as DeploymentException {
                                                     throw error
                                                 } catch let error as NodeUnreachableException {
                                                     throw error
+                                                } catch let error as ServerNotExistException {
+                                                    throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
@@ -3064,11 +2899,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as ServerNotExistException {
-                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as NodeUnreachableException {
+                                  throw error
+                              } catch let error as ServerNotExistException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -3085,16 +2920,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func enableServerAsync(id iceP_id: Swift.String, enabled iceP_enabled: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func enableServerAsync(id iceP_id: Swift.String, enabled iceP_enabled: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "enableServer",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -3104,18 +2931,15 @@ public extension AdminPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
-                                                } catch let error as ServerNotExistException {
-                                                    throw error
                                                 } catch let error as DeploymentException {
                                                     throw error
                                                 } catch let error as NodeUnreachableException {
                                                     throw error
+                                                } catch let error as ServerNotExistException {
+                                                    throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Check if the server is enabled or disabled.
@@ -3146,11 +2970,11 @@ public extension AdminPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as ServerNotExistException {
-                                         throw error
                                      } catch let error as DeploymentException {
                                          throw error
                                      } catch let error as NodeUnreachableException {
+                                         throw error
+                                     } catch let error as ServerNotExistException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -3163,16 +2987,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Swift.Bool` - The result of the operation
-    func isServerEnabledAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Bool {
+    func isServerEnabledAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Bool {
         return try await _impl._invokeAsync(operation: "isServerEnabled",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -3185,18 +3001,15 @@ public extension AdminPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
-                                                } catch let error as ServerNotExistException {
-                                                    throw error
                                                 } catch let error as DeploymentException {
                                                     throw error
                                                 } catch let error as NodeUnreachableException {
                                                     throw error
+                                                } catch let error as ServerNotExistException {
+                                                    throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Start a server and wait for its activation.
@@ -3223,13 +3036,13 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as ServerNotExistException {
-                                  throw error
-                              } catch let error as ServerStartException {
-                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as NodeUnreachableException {
+                                  throw error
+                              } catch let error as ServerNotExistException {
+                                  throw error
+                              } catch let error as ServerStartException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -3242,16 +3055,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func startServerAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func startServerAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "startServer",
                                             mode: .Normal,
                                             write: { ostr in
@@ -3260,20 +3065,17 @@ public extension AdminPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
-                                                } catch let error as ServerNotExistException {
-                                                    throw error
-                                                } catch let error as ServerStartException {
-                                                    throw error
                                                 } catch let error as DeploymentException {
                                                     throw error
                                                 } catch let error as NodeUnreachableException {
                                                     throw error
+                                                } catch let error as ServerNotExistException {
+                                                    throw error
+                                                } catch let error as ServerStartException {
+                                                    throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Stop a server.
@@ -3300,13 +3102,13 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as ServerNotExistException {
-                                  throw error
-                              } catch let error as ServerStopException {
-                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as NodeUnreachableException {
+                                  throw error
+                              } catch let error as ServerNotExistException {
+                                  throw error
+                              } catch let error as ServerStopException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -3319,16 +3121,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func stopServerAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func stopServerAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "stopServer",
                                             mode: .Normal,
                                             write: { ostr in
@@ -3337,20 +3131,17 @@ public extension AdminPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
-                                                } catch let error as ServerNotExistException {
-                                                    throw error
-                                                } catch let error as ServerStopException {
-                                                    throw error
                                                 } catch let error as DeploymentException {
                                                     throw error
                                                 } catch let error as NodeUnreachableException {
                                                     throw error
+                                                } catch let error as ServerNotExistException {
+                                                    throw error
+                                                } catch let error as ServerStopException {
+                                                    throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Send signal to a server.
@@ -3380,13 +3171,13 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as ServerNotExistException {
-                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as NodeUnreachableException {
                                   throw error
                               } catch let error as BadSignalException {
+                                  throw error
+                              } catch let error as ServerNotExistException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -3401,16 +3192,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func sendSignalAsync(id iceP_id: Swift.String, signal iceP_signal: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func sendSignalAsync(id iceP_id: Swift.String, signal iceP_signal: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "sendSignal",
                                             mode: .Normal,
                                             write: { ostr in
@@ -3420,20 +3203,17 @@ public extension AdminPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
-                                                } catch let error as ServerNotExistException {
-                                                    throw error
                                                 } catch let error as DeploymentException {
                                                     throw error
                                                 } catch let error as NodeUnreachableException {
                                                     throw error
                                                 } catch let error as BadSignalException {
                                                     throw error
+                                                } catch let error as ServerNotExistException {
+                                                    throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get all the server ids registered with IceGrid.
@@ -3455,26 +3235,15 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Ice.StringSeq` - The result of the operation
-    func getAllServerIdsAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.StringSeq {
+    func getAllServerIdsAsync(context: Ice.Context? = nil) async throws -> Ice.StringSeq {
         return try await _impl._invokeAsync(operation: "getAllServerIds",
                                             mode: .Idempotent,
                                             read: { istr in
                                                 let iceP_returnValue: Ice.StringSeq = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get the adapter information for the replica group or adapter with the given id.
@@ -3516,16 +3285,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `AdapterInfoSeq` - The result of the operation
-    func getAdapterInfoAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> AdapterInfoSeq {
+    func getAdapterInfoAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> AdapterInfoSeq {
         return try await _impl._invokeAsync(operation: "getAdapterInfo",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -3542,10 +3303,7 @@ public extension AdminPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Remove the adapter with the given id.
@@ -3583,16 +3341,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func removeAdapterAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func removeAdapterAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "removeAdapter",
                                             mode: .Normal,
                                             write: { ostr in
@@ -3607,10 +3357,7 @@ public extension AdminPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get all the adapter ids registered with IceGrid.
@@ -3632,26 +3379,15 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Ice.StringSeq` - The result of the operation
-    func getAllAdapterIdsAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.StringSeq {
+    func getAllAdapterIdsAsync(context: Ice.Context? = nil) async throws -> Ice.StringSeq {
         return try await _impl._invokeAsync(operation: "getAllAdapterIds",
                                             mode: .Idempotent,
                                             read: { istr in
                                                 let iceP_returnValue: Ice.StringSeq = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Add an object to the object registry. IceGrid will get the object type by calling ice_id on the
@@ -3692,16 +3428,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func addObjectAsync(_ iceP_obj: Ice.ObjectPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func addObjectAsync(_ iceP_obj: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "addObject",
                                             mode: .Normal,
                                             write: { ostr in
@@ -3716,10 +3444,7 @@ public extension AdminPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Update an object in the object registry. Only objects added with this interface can be updated with this
@@ -3760,16 +3485,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func updateObjectAsync(_ iceP_obj: Ice.ObjectPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func updateObjectAsync(_ iceP_obj: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "updateObject",
                                             mode: .Normal,
                                             write: { ostr in
@@ -3784,10 +3501,7 @@ public extension AdminPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Add an object to the object registry and explicitly specify its type.
@@ -3830,16 +3544,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func addObjectWithTypeAsync(obj iceP_obj: Ice.ObjectPrx?, type iceP_type: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func addObjectWithTypeAsync(obj iceP_obj: Ice.ObjectPrx?, type iceP_type: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "addObjectWithType",
                                             mode: .Normal,
                                             write: { ostr in
@@ -3855,10 +3561,7 @@ public extension AdminPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Remove an object from the object registry. Only objects added with this interface can be removed with this
@@ -3899,16 +3602,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func removeObjectAsync(_ iceP_id: Ice.Identity, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func removeObjectAsync(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "removeObject",
                                             mode: .Normal,
                                             write: { ostr in
@@ -3923,10 +3618,7 @@ public extension AdminPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get the object info for the object with the given identity.
@@ -3966,16 +3658,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `ObjectInfo` - The result of the operation
-    func getObjectInfoAsync(_ iceP_id: Ice.Identity, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> ObjectInfo {
+    func getObjectInfoAsync(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) async throws -> ObjectInfo {
         return try await _impl._invokeAsync(operation: "getObjectInfo",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -3992,10 +3676,7 @@ public extension AdminPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get the object info of all the registered objects with the given type.
@@ -4024,16 +3705,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `ObjectInfoSeq` - The result of the operation
-    func getObjectInfosByTypeAsync(_ iceP_type: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> ObjectInfoSeq {
+    func getObjectInfosByTypeAsync(_ iceP_type: Swift.String, context: Ice.Context? = nil) async throws -> ObjectInfoSeq {
         return try await _impl._invokeAsync(operation: "getObjectInfosByType",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -4043,10 +3716,7 @@ public extension AdminPrx {
                                                 let iceP_returnValue: ObjectInfoSeq = try ObjectInfoSeqHelper.read(from: istr)
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get the object info of all the registered objects whose stringified identities match the given expression.
@@ -4077,16 +3747,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `ObjectInfoSeq` - The result of the operation
-    func getAllObjectInfosAsync(_ iceP_expr: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> ObjectInfoSeq {
+    func getAllObjectInfosAsync(_ iceP_expr: Swift.String, context: Ice.Context? = nil) async throws -> ObjectInfoSeq {
         return try await _impl._invokeAsync(operation: "getAllObjectInfos",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -4096,10 +3758,7 @@ public extension AdminPrx {
                                                 let iceP_returnValue: ObjectInfoSeq = try ObjectInfoSeqHelper.read(from: istr)
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Ping an IceGrid node to see if it is active.
@@ -4139,16 +3798,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Swift.Bool` - The result of the operation
-    func pingNodeAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Bool {
+    func pingNodeAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Bool {
         return try await _impl._invokeAsync(operation: "pingNode",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -4165,10 +3816,7 @@ public extension AdminPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get the load averages of the node.
@@ -4212,16 +3860,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `LoadInfo` - The result of the operation
-    func getNodeLoadAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> LoadInfo {
+    func getNodeLoadAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> LoadInfo {
         return try await _impl._invokeAsync(operation: "getNodeLoad",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -4240,10 +3880,7 @@ public extension AdminPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get the node information for the node with the given name.
@@ -4287,16 +3924,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `NodeInfo` - The result of the operation
-    func getNodeInfoAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> NodeInfo {
+    func getNodeInfoAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> NodeInfo {
         return try await _impl._invokeAsync(operation: "getNodeInfo",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -4315,10 +3944,7 @@ public extension AdminPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get a proxy to the IceGrid node's admin object.
@@ -4362,16 +3988,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func getNodeAdminAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.ObjectPrx? {
+    func getNodeAdminAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
         return try await _impl._invokeAsync(operation: "getNodeAdmin",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -4390,10 +4008,7 @@ public extension AdminPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get the number of physical processor sockets for the machine running the node with the given name.
@@ -4441,16 +4056,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Swift.Int32` - The result of the operation
-    func getNodeProcessorSocketCountAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Int32 {
+    func getNodeProcessorSocketCountAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invokeAsync(operation: "getNodeProcessorSocketCount",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -4469,10 +4076,7 @@ public extension AdminPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Shutdown an IceGrid node.
@@ -4510,16 +4114,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func shutdownNodeAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func shutdownNodeAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "shutdownNode",
                                             mode: .Normal,
                                             write: { ostr in
@@ -4534,10 +4130,7 @@ public extension AdminPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get the hostname of this node.
@@ -4581,16 +4174,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Swift.String` - The result of the operation
-    func getNodeHostnameAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.String {
+    func getNodeHostnameAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invokeAsync(operation: "getNodeHostname",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -4609,10 +4194,7 @@ public extension AdminPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get all the IceGrid nodes currently registered.
@@ -4634,26 +4216,15 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Ice.StringSeq` - The result of the operation
-    func getAllNodeNamesAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.StringSeq {
+    func getAllNodeNamesAsync(context: Ice.Context? = nil) async throws -> Ice.StringSeq {
         return try await _impl._invokeAsync(operation: "getAllNodeNames",
                                             mode: .Idempotent,
                                             read: { istr in
                                                 let iceP_returnValue: Ice.StringSeq = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Ping an IceGrid registry to see if it is active.
@@ -4693,16 +4264,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Swift.Bool` - The result of the operation
-    func pingRegistryAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Bool {
+    func pingRegistryAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Bool {
         return try await _impl._invokeAsync(operation: "pingRegistry",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -4719,10 +4282,7 @@ public extension AdminPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get the registry information for the registry with the given name.
@@ -4766,16 +4326,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `RegistryInfo` - The result of the operation
-    func getRegistryInfoAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> RegistryInfo {
+    func getRegistryInfoAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> RegistryInfo {
         return try await _impl._invokeAsync(operation: "getRegistryInfo",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -4794,10 +4346,7 @@ public extension AdminPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get a proxy to the IceGrid registry's admin object.
@@ -4837,16 +4386,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func getRegistryAdminAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.ObjectPrx? {
+    func getRegistryAdminAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
         return try await _impl._invokeAsync(operation: "getRegistryAdmin",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -4863,10 +4404,7 @@ public extension AdminPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Shutdown an IceGrid registry.
@@ -4904,16 +4442,8 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func shutdownRegistryAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func shutdownRegistryAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "shutdownRegistry",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -4928,10 +4458,7 @@ public extension AdminPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get all the IceGrid registries currently registered.
@@ -4953,26 +4480,15 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Ice.StringSeq` - The result of the operation
-    func getAllRegistryNamesAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.StringSeq {
+    func getAllRegistryNamesAsync(context: Ice.Context? = nil) async throws -> Ice.StringSeq {
         return try await _impl._invokeAsync(operation: "getAllRegistryNames",
                                             mode: .Idempotent,
                                             read: { istr in
                                                 let iceP_returnValue: Ice.StringSeq = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Shut down the IceGrid registry.
@@ -4988,22 +4504,11 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "shutdown",
                                             mode: .Normal,
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 
@@ -5163,16 +4668,8 @@ public extension FileIteratorPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: Swift.Bool, lines: Ice.StringSeq)` - The result of the operation
-    func readAsync(_ iceP_size: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: Swift.Bool, lines: Ice.StringSeq) {
+    func readAsync(_ iceP_size: Swift.Int32, context: Ice.Context? = nil) async throws -> (returnValue: Swift.Bool, lines: Ice.StringSeq) {
         return try await _impl._invokeAsync(operation: "read",
                                             mode: .Normal,
                                             write: { ostr in
@@ -5190,10 +4687,7 @@ public extension FileIteratorPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Destroy the iterator.
@@ -5209,22 +4703,11 @@ public extension FileIteratorPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func destroyAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func destroyAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "destroy",
                                             mode: .Normal,
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 
@@ -5368,25 +4851,14 @@ public extension RegistryObserverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func registryInitAsync(_ iceP_registries: RegistryInfoSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func registryInitAsync(_ iceP_registries: RegistryInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "registryInit",
                                             mode: .Normal,
                                             write: { ostr in
                                                 RegistryInfoSeqHelper.write(to: ostr, value: iceP_registries)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// The registryUp operation is called to notify an observer that a registry replica came up.
@@ -5409,25 +4881,14 @@ public extension RegistryObserverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func registryUpAsync(_ iceP_registryReplica: RegistryInfo, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func registryUpAsync(_ iceP_registryReplica: RegistryInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "registryUp",
                                             mode: .Normal,
                                             write: { ostr in
                                                 ostr.write(iceP_registryReplica)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// The registryDown operation is called to notify an observer that a registry replica went down.
@@ -5450,25 +4911,14 @@ public extension RegistryObserverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func registryDownAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func registryDownAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "registryDown",
                                             mode: .Normal,
                                             write: { ostr in
                                                 ostr.write(iceP_name)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 
@@ -5630,25 +5080,14 @@ public extension NodeObserverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func nodeInitAsync(_ iceP_nodes: NodeDynamicInfoSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func nodeInitAsync(_ iceP_nodes: NodeDynamicInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "nodeInit",
                                             mode: .Normal,
                                             write: { ostr in
                                                 NodeDynamicInfoSeqHelper.write(to: ostr, value: iceP_nodes)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// The nodeUp operation is called to notify an observer that a node came up.
@@ -5671,25 +5110,14 @@ public extension NodeObserverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func nodeUpAsync(_ iceP_node: NodeDynamicInfo, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func nodeUpAsync(_ iceP_node: NodeDynamicInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "nodeUp",
                                             mode: .Normal,
                                             write: { ostr in
                                                 ostr.write(iceP_node)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// The nodeDown operation is called to notify an observer that a node went down.
@@ -5712,25 +5140,14 @@ public extension NodeObserverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func nodeDownAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func nodeDownAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "nodeDown",
                                             mode: .Normal,
                                             write: { ostr in
                                                 ostr.write(iceP_name)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// The updateServer operation is called to notify an observer that the state of a server changed.
@@ -5758,26 +5175,15 @@ public extension NodeObserverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func updateServerAsync(node iceP_node: Swift.String, updatedInfo iceP_updatedInfo: ServerDynamicInfo, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func updateServerAsync(node iceP_node: Swift.String, updatedInfo iceP_updatedInfo: ServerDynamicInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "updateServer",
                                             mode: .Normal,
                                             write: { ostr in
                                                 ostr.write(iceP_node)
                                                 ostr.write(iceP_updatedInfo)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// The updateAdapter operation is called to notify an observer that the state of an adapter
@@ -5807,26 +5213,15 @@ public extension NodeObserverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func updateAdapterAsync(node iceP_node: Swift.String, updatedInfo iceP_updatedInfo: AdapterDynamicInfo, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func updateAdapterAsync(node iceP_node: Swift.String, updatedInfo iceP_updatedInfo: AdapterDynamicInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "updateAdapter",
                                             mode: .Normal,
                                             write: { ostr in
                                                 ostr.write(iceP_node)
                                                 ostr.write(iceP_updatedInfo)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 
@@ -5988,16 +5383,8 @@ public extension ApplicationObserverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func applicationInitAsync(serial iceP_serial: Swift.Int32, applications iceP_applications: ApplicationInfoSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func applicationInitAsync(serial iceP_serial: Swift.Int32, applications iceP_applications: ApplicationInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "applicationInit",
                                             mode: .Normal,
                                             write: { ostr in
@@ -6005,10 +5392,7 @@ public extension ApplicationObserverPrx {
                                                 ApplicationInfoSeqHelper.write(to: ostr, value: iceP_applications)
                                                 ostr.writePendingValues()
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// The applicationAdded operation is called to notify an observer that an application was added.
@@ -6037,16 +5421,8 @@ public extension ApplicationObserverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func applicationAddedAsync(serial iceP_serial: Swift.Int32, desc iceP_desc: ApplicationInfo, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func applicationAddedAsync(serial iceP_serial: Swift.Int32, desc iceP_desc: ApplicationInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "applicationAdded",
                                             mode: .Normal,
                                             write: { ostr in
@@ -6054,10 +5430,7 @@ public extension ApplicationObserverPrx {
                                                 ostr.write(iceP_desc)
                                                 ostr.writePendingValues()
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// The applicationRemoved operation is called to notify an observer that an application was
@@ -6087,26 +5460,15 @@ public extension ApplicationObserverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func applicationRemovedAsync(serial iceP_serial: Swift.Int32, name iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func applicationRemovedAsync(serial iceP_serial: Swift.Int32, name iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "applicationRemoved",
                                             mode: .Normal,
                                             write: { ostr in
                                                 ostr.write(iceP_serial)
                                                 ostr.write(iceP_name)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// The applicationUpdated operation is called to notify an observer that an application was
@@ -6137,16 +5499,8 @@ public extension ApplicationObserverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func applicationUpdatedAsync(serial iceP_serial: Swift.Int32, desc iceP_desc: ApplicationUpdateInfo, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func applicationUpdatedAsync(serial iceP_serial: Swift.Int32, desc iceP_desc: ApplicationUpdateInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "applicationUpdated",
                                             mode: .Normal,
                                             write: { ostr in
@@ -6154,10 +5508,7 @@ public extension ApplicationObserverPrx {
                                                 ostr.write(iceP_desc)
                                                 ostr.writePendingValues()
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 
@@ -6309,25 +5660,14 @@ public extension AdapterObserverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func adapterInitAsync(_ iceP_adpts: AdapterInfoSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func adapterInitAsync(_ iceP_adpts: AdapterInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "adapterInit",
                                             mode: .Normal,
                                             write: { ostr in
                                                 AdapterInfoSeqHelper.write(to: ostr, value: iceP_adpts)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// The adapterAdded operation is called to notify an observer when a dynamically-registered
@@ -6352,25 +5692,14 @@ public extension AdapterObserverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func adapterAddedAsync(_ iceP_info: AdapterInfo, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func adapterAddedAsync(_ iceP_info: AdapterInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "adapterAdded",
                                             mode: .Normal,
                                             write: { ostr in
                                                 ostr.write(iceP_info)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
@@ -6395,25 +5724,14 @@ public extension AdapterObserverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func adapterUpdatedAsync(_ iceP_info: AdapterInfo, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func adapterUpdatedAsync(_ iceP_info: AdapterInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "adapterUpdated",
                                             mode: .Normal,
                                             write: { ostr in
                                                 ostr.write(iceP_info)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
@@ -6438,25 +5756,14 @@ public extension AdapterObserverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func adapterRemovedAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func adapterRemovedAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "adapterRemoved",
                                             mode: .Normal,
                                             write: { ostr in
                                                 ostr.write(iceP_id)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 
@@ -6610,25 +5917,14 @@ public extension ObjectObserverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func objectInitAsync(_ iceP_objects: ObjectInfoSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func objectInitAsync(_ iceP_objects: ObjectInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "objectInit",
                                             mode: .Normal,
                                             write: { ostr in
                                                 ObjectInfoSeqHelper.write(to: ostr, value: iceP_objects)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// The objectAdded operation is called to notify an observer when an object was added to the
@@ -6653,25 +5949,14 @@ public extension ObjectObserverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func objectAddedAsync(_ iceP_info: ObjectInfo, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func objectAddedAsync(_ iceP_info: ObjectInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "objectAdded",
                                             mode: .Normal,
                                             write: { ostr in
                                                 ostr.write(iceP_info)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// objectUpdated is called to notify an observer when an object registered with the Admin
@@ -6696,25 +5981,14 @@ public extension ObjectObserverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func objectUpdatedAsync(_ iceP_info: ObjectInfo, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func objectUpdatedAsync(_ iceP_info: ObjectInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "objectUpdated",
                                             mode: .Normal,
                                             write: { ostr in
                                                 ostr.write(iceP_info)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// objectRemoved is called to notify an observer when an object registered with the Admin
@@ -6739,25 +6013,14 @@ public extension ObjectObserverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func objectRemovedAsync(_ iceP_id: Ice.Identity, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func objectRemovedAsync(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "objectRemoved",
                                             mode: .Normal,
                                             write: { ostr in
                                                 ostr.write(iceP_id)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 
@@ -6994,22 +6257,11 @@ public extension AdminSessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func keepAliveAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func keepAliveAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "keepAlive",
                                             mode: .Idempotent,
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get the admin interface. The admin object returned by this operation can only be accessed by the session.
@@ -7031,26 +6283,15 @@ public extension AdminSessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `AdminPrx?` - The result of the operation
-    func getAdminAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> AdminPrx? {
+    func getAdminAsync(context: Ice.Context? = nil) async throws -> AdminPrx? {
         return try await _impl._invokeAsync(operation: "getAdmin",
                                             mode: .Idempotent,
                                             read: { istr in
                                                 let iceP_returnValue: AdminPrx? = try istr.read(AdminPrx.self)
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
@@ -7074,26 +6315,15 @@ public extension AdminSessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func getAdminCallbackTemplateAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.ObjectPrx? {
+    func getAdminCallbackTemplateAsync(context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
         return try await _impl._invokeAsync(operation: "getAdminCallbackTemplate",
                                             mode: .Idempotent,
                                             read: { istr in
                                                 let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Set the observer proxies that receive notifications when the state of the registry or nodes changes.
@@ -7147,16 +6377,8 @@ public extension AdminSessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func setObserversAsync(registryObs iceP_registryObs: RegistryObserverPrx?, nodeObs iceP_nodeObs: NodeObserverPrx?, appObs iceP_appObs: ApplicationObserverPrx?, adptObs iceP_adptObs: AdapterObserverPrx?, objObs iceP_objObs: ObjectObserverPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func setObserversAsync(registryObs iceP_registryObs: RegistryObserverPrx?, nodeObs iceP_nodeObs: NodeObserverPrx?, appObs iceP_appObs: ApplicationObserverPrx?, adptObs iceP_adptObs: AdapterObserverPrx?, objObs iceP_objObs: ObjectObserverPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "setObservers",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -7173,10 +6395,7 @@ public extension AdminSessionPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Set the observer identities that receive notifications the state of the registry or nodes changes. This
@@ -7234,16 +6453,8 @@ public extension AdminSessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func setObserversByIdentityAsync(registryObs iceP_registryObs: Ice.Identity, nodeObs iceP_nodeObs: Ice.Identity, appObs iceP_appObs: Ice.Identity, adptObs iceP_adptObs: Ice.Identity, objObs iceP_objObs: Ice.Identity, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func setObserversByIdentityAsync(registryObs iceP_registryObs: Ice.Identity, nodeObs iceP_nodeObs: Ice.Identity, appObs iceP_appObs: Ice.Identity, adptObs iceP_adptObs: Ice.Identity, objObs iceP_objObs: Ice.Identity, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "setObserversByIdentity",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -7260,10 +6471,7 @@ public extension AdminSessionPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Acquires an exclusive lock to start updating the registry applications.
@@ -7297,16 +6505,8 @@ public extension AdminSessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Swift.Int32` - The result of the operation
-    func startUpdateAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Int32 {
+    func startUpdateAsync(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invokeAsync(operation: "startUpdate",
                                             mode: .Normal,
                                             read: { istr in
@@ -7320,10 +6520,7 @@ public extension AdminSessionPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Finish updating the registry and release the exclusive lock.
@@ -7350,16 +6547,8 @@ public extension AdminSessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func finishUpdateAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func finishUpdateAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "finishUpdate",
                                             mode: .Normal,
                                             userException:{ ex in
@@ -7369,10 +6558,7 @@ public extension AdminSessionPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get the name of the registry replica hosting this session.
@@ -7394,26 +6580,15 @@ public extension AdminSessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Swift.String` - The result of the operation
-    func getReplicaNameAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.String {
+    func getReplicaNameAsync(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invokeAsync(operation: "getReplicaName",
                                             mode: .Idempotent,
                                             read: { istr in
                                                 let iceP_returnValue: Swift.String = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Open the given server log file for reading. The file can be read with the returned file iterator.
@@ -7454,13 +6629,13 @@ public extension AdminSessionPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as ServerNotExistException {
-                                         throw error
                                      } catch let error as DeploymentException {
                                          throw error
                                      } catch let error as NodeUnreachableException {
                                          throw error
                                      } catch let error as FileNotAvailableException {
+                                         throw error
+                                     } catch let error as ServerNotExistException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -7479,16 +6654,8 @@ public extension AdminSessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `FileIteratorPrx?` - The result of the operation
-    func openServerLogAsync(id iceP_id: Swift.String, path iceP_path: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> FileIteratorPrx? {
+    func openServerLogAsync(id iceP_id: Swift.String, path iceP_path: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
         return try await _impl._invokeAsync(operation: "openServerLog",
                                             mode: .Normal,
                                             write: { ostr in
@@ -7503,20 +6670,17 @@ public extension AdminSessionPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
-                                                } catch let error as ServerNotExistException {
-                                                    throw error
                                                 } catch let error as DeploymentException {
                                                     throw error
                                                 } catch let error as NodeUnreachableException {
                                                     throw error
                                                 } catch let error as FileNotAvailableException {
                                                     throw error
+                                                } catch let error as ServerNotExistException {
+                                                    throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Open the given server stderr file for reading. The file can be read with the returned file iterator.
@@ -7553,13 +6717,13 @@ public extension AdminSessionPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as ServerNotExistException {
-                                         throw error
                                      } catch let error as DeploymentException {
                                          throw error
                                      } catch let error as NodeUnreachableException {
                                          throw error
                                      } catch let error as FileNotAvailableException {
+                                         throw error
+                                     } catch let error as ServerNotExistException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -7575,16 +6739,8 @@ public extension AdminSessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `FileIteratorPrx?` - The result of the operation
-    func openServerStdErrAsync(id iceP_id: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> FileIteratorPrx? {
+    func openServerStdErrAsync(id iceP_id: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
         return try await _impl._invokeAsync(operation: "openServerStdErr",
                                             mode: .Normal,
                                             write: { ostr in
@@ -7598,20 +6754,17 @@ public extension AdminSessionPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
-                                                } catch let error as ServerNotExistException {
-                                                    throw error
                                                 } catch let error as DeploymentException {
                                                     throw error
                                                 } catch let error as NodeUnreachableException {
                                                     throw error
                                                 } catch let error as FileNotAvailableException {
                                                     throw error
+                                                } catch let error as ServerNotExistException {
+                                                    throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Open the given server stdout file for reading. The file can be read with the returned file iterator.
@@ -7648,13 +6801,13 @@ public extension AdminSessionPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as ServerNotExistException {
-                                         throw error
                                      } catch let error as DeploymentException {
                                          throw error
                                      } catch let error as NodeUnreachableException {
                                          throw error
                                      } catch let error as FileNotAvailableException {
+                                         throw error
+                                     } catch let error as ServerNotExistException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -7670,16 +6823,8 @@ public extension AdminSessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `FileIteratorPrx?` - The result of the operation
-    func openServerStdOutAsync(id iceP_id: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> FileIteratorPrx? {
+    func openServerStdOutAsync(id iceP_id: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
         return try await _impl._invokeAsync(operation: "openServerStdOut",
                                             mode: .Normal,
                                             write: { ostr in
@@ -7693,20 +6838,17 @@ public extension AdminSessionPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
-                                                } catch let error as ServerNotExistException {
-                                                    throw error
                                                 } catch let error as DeploymentException {
                                                     throw error
                                                 } catch let error as NodeUnreachableException {
                                                     throw error
                                                 } catch let error as FileNotAvailableException {
                                                     throw error
+                                                } catch let error as ServerNotExistException {
+                                                    throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Open the given node stderr file for reading. The file can be read with the returned file iterator.
@@ -7761,16 +6903,8 @@ public extension AdminSessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `FileIteratorPrx?` - The result of the operation
-    func openNodeStdErrAsync(name iceP_name: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> FileIteratorPrx? {
+    func openNodeStdErrAsync(name iceP_name: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
         return try await _impl._invokeAsync(operation: "openNodeStdErr",
                                             mode: .Normal,
                                             write: { ostr in
@@ -7792,10 +6926,7 @@ public extension AdminSessionPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Open the given node stdout file for reading. The file can be read with the returned file iterator.
@@ -7850,16 +6981,8 @@ public extension AdminSessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `FileIteratorPrx?` - The result of the operation
-    func openNodeStdOutAsync(name iceP_name: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> FileIteratorPrx? {
+    func openNodeStdOutAsync(name iceP_name: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
         return try await _impl._invokeAsync(operation: "openNodeStdOut",
                                             mode: .Normal,
                                             write: { ostr in
@@ -7881,10 +7004,7 @@ public extension AdminSessionPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Open the given registry stderr file for reading. The file can be read with the returned file iterator.
@@ -7939,16 +7059,8 @@ public extension AdminSessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `FileIteratorPrx?` - The result of the operation
-    func openRegistryStdErrAsync(name iceP_name: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> FileIteratorPrx? {
+    func openRegistryStdErrAsync(name iceP_name: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
         return try await _impl._invokeAsync(operation: "openRegistryStdErr",
                                             mode: .Normal,
                                             write: { ostr in
@@ -7970,10 +7082,7 @@ public extension AdminSessionPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Open the given registry stdout file for reading. The file can be read with the returned file iterator.
@@ -8028,16 +7137,8 @@ public extension AdminSessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `FileIteratorPrx?` - The result of the operation
-    func openRegistryStdOutAsync(name iceP_name: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> FileIteratorPrx? {
+    func openRegistryStdOutAsync(name iceP_name: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
         return try await _impl._invokeAsync(operation: "openRegistryStdOut",
                                             mode: .Normal,
                                             write: { ostr in
@@ -8059,10 +7160,7 @@ public extension AdminSessionPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 

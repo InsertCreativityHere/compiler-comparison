@@ -220,16 +220,8 @@ public extension PermissionsVerifierPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: Swift.Bool, reason: Swift.String)` - The result of the operation
-    func checkPermissionsAsync(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: Swift.Bool, reason: Swift.String) {
+    func checkPermissionsAsync(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil) async throws -> (returnValue: Swift.Bool, reason: Swift.String) {
         return try await _impl._invokeAsync(operation: "checkPermissions",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -248,10 +240,7 @@ public extension PermissionsVerifierPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 
@@ -400,16 +389,8 @@ public extension SSLPermissionsVerifierPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: Swift.Bool, reason: Swift.String)` - The result of the operation
-    func authorizeAsync(_ iceP_info: SSLInfo, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: Swift.Bool, reason: Swift.String) {
+    func authorizeAsync(_ iceP_info: SSLInfo, context: Ice.Context? = nil) async throws -> (returnValue: Swift.Bool, reason: Swift.String) {
         return try await _impl._invokeAsync(operation: "authorize",
                                             mode: .Idempotent,
                                             write: { ostr in
@@ -427,10 +408,7 @@ public extension SSLPermissionsVerifierPrx {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 

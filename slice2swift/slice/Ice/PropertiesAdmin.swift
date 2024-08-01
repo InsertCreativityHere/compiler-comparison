@@ -165,16 +165,8 @@ public extension PropertiesAdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `Swift.String` - The result of the operation
-    func getPropertyAsync(_ iceP_key: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.String {
+    func getPropertyAsync(_ iceP_key: Swift.String, context: Context? = nil) async throws -> Swift.String {
         return try await _impl._invokeAsync(operation: "getProperty",
                                             mode: .Normal,
                                             write: { ostr in
@@ -184,10 +176,7 @@ public extension PropertiesAdminPrx {
                                                 let iceP_returnValue: Swift.String = try istr.read()
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Get all properties whose keys begin with prefix. If prefix is an empty string then all
@@ -218,16 +207,8 @@ public extension PropertiesAdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `PropertyDict` - The result of the operation
-    func getPropertiesForPrefixAsync(_ iceP_prefix: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> PropertyDict {
+    func getPropertiesForPrefixAsync(_ iceP_prefix: Swift.String, context: Context? = nil) async throws -> PropertyDict {
         return try await _impl._invokeAsync(operation: "getPropertiesForPrefix",
                                             mode: .Normal,
                                             write: { ostr in
@@ -237,10 +218,7 @@ public extension PropertiesAdminPrx {
                                                 let iceP_returnValue: PropertyDict = try PropertyDictHelper.read(from: istr)
                                                 return iceP_returnValue
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     /// Update the communicator's properties with the given property set. If an entry in newProperties
@@ -269,25 +247,14 @@ public extension PropertiesAdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func setPropertiesAsync(_ iceP_newProperties: PropertyDict, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func setPropertiesAsync(_ iceP_newProperties: PropertyDict, context: Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "setProperties",
                                             mode: .Normal,
                                             write: { ostr in
                                                 PropertyDictHelper.write(to: ostr, value: iceP_newProperties)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 

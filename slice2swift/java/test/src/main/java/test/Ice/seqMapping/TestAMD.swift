@@ -539,22 +539,11 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invokeAsync(operation: "shutdown",
                                             mode: .Normal,
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -586,16 +575,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: SerialSmall, o: SerialSmall)` - The result of the operation
-    func opSerialSmallJavaAsync(_ iceP_i: SerialSmall, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: SerialSmall, o: SerialSmall) {
+    func opSerialSmallJavaAsync(_ iceP_i: SerialSmall, context: Ice.Context? = nil) async throws -> (returnValue: SerialSmall, o: SerialSmall) {
         return try await _impl._invokeAsync(operation: "opSerialSmallJava",
                                             mode: .Normal,
                                             write: { ostr in
@@ -606,10 +587,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: SerialSmall = try istr.read()
                                                 return (iceP_returnValue, iceP_o)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -641,16 +619,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: SerialLarge, o: SerialLarge)` - The result of the operation
-    func opSerialLargeJavaAsync(_ iceP_i: SerialLarge, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: SerialLarge, o: SerialLarge) {
+    func opSerialLargeJavaAsync(_ iceP_i: SerialLarge, context: Ice.Context? = nil) async throws -> (returnValue: SerialLarge, o: SerialLarge) {
         return try await _impl._invokeAsync(operation: "opSerialLargeJava",
                                             mode: .Normal,
                                             write: { ostr in
@@ -661,10 +631,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: SerialLarge = try istr.read()
                                                 return (iceP_returnValue, iceP_o)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 
     ///
@@ -696,16 +663,8 @@ public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
     /// - returns: `(returnValue: SerialStruct, o: SerialStruct)` - The result of the operation
-    func opSerialStructJavaAsync(_ iceP_i: SerialStruct, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: SerialStruct, o: SerialStruct) {
+    func opSerialStructJavaAsync(_ iceP_i: SerialStruct, context: Ice.Context? = nil) async throws -> (returnValue: SerialStruct, o: SerialStruct) {
         return try await _impl._invokeAsync(operation: "opSerialStructJava",
                                             mode: .Normal,
                                             write: { ostr in
@@ -716,10 +675,7 @@ public extension MyClassPrx {
                                                 let iceP_returnValue: SerialStruct = try istr.read()
                                                 return (iceP_returnValue, iceP_o)
                                             },
-                                            context: context,
-                                            sentOn: sentOn,
-                                            sentFlags: sentFlags,
-                                            sent: sent)
+                                            context: context)
     }
 }
 
