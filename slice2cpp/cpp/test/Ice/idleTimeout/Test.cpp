@@ -59,7 +59,7 @@ Test::DelayedTestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::Out
 {
     static constexpr ::std::string_view operationName = "sleep";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_ms);
@@ -96,7 +96,7 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -130,7 +130,7 @@ Test::TestIntfBidirPrx::_iceI_makeSleep(const ::std::shared_ptr<::IceInternal::O
 {
     static constexpr ::std::string_view operationName = "makeSleep";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_aborted, iceP_ms, iceP_target);

@@ -63,7 +63,7 @@ Test::TestLocatorRegistryPrx::_iceI_addObject(const ::std::shared_ptr<::IceInter
 {
     static constexpr ::std::string_view operationName = "addObject";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_obj);
@@ -100,7 +100,7 @@ Test::ServerManagerPrx::_iceI_startServer(const ::std::shared_ptr<::IceInternal:
 {
     static constexpr ::std::string_view operationName = "startServer";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -128,7 +128,7 @@ Test::ServerManagerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Ou
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -162,7 +162,7 @@ Test::HelloPrx::_iceI_sayHello(const ::std::shared_ptr<::IceInternal::OutgoingAs
 {
     static constexpr ::std::string_view operationName = "sayHello";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -196,7 +196,7 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -225,7 +225,7 @@ Test::TestIntfPrx::_iceI_getHello(const ::std::shared_ptr<::IceInternal::Outgoin
     static constexpr ::std::string_view operationName = "getHello";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -253,7 +253,7 @@ Test::TestIntfPrx::_iceI_migrateHello(const ::std::shared_ptr<::IceInternal::Out
 {
     static constexpr ::std::string_view operationName = "migrateHello";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }

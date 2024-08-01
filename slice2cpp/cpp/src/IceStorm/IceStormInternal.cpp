@@ -65,7 +65,7 @@ IceStorm::TopicLinkPrx::_iceI_forward(const ::std::shared_ptr<::IceInternal::Out
 {
     static constexpr ::std::string_view operationName = "forward";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_events);
@@ -103,7 +103,7 @@ IceStorm::TopicInternalPrx::_iceI_getLinkProxy(const ::std::shared_ptr<::IceInte
     static constexpr ::std::string_view operationName = "getLinkProxy";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -132,7 +132,7 @@ IceStorm::TopicInternalPrx::_iceI_reap(const ::std::shared_ptr<::IceInternal::Ou
     static constexpr ::std::string_view operationName = "reap";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_id);
@@ -183,7 +183,7 @@ IceStorm::TopicManagerInternalPrx::_iceI_getReplicaNode(const ::std::shared_ptr<
     static constexpr ::std::string_view operationName = "getReplicaNode";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::std::nullopt, context,
         nullptr,
         nullptr);
 }

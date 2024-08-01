@@ -63,7 +63,7 @@ IceLocatorDiscovery::LookupReplyPrx::_iceI_foundLocator(const ::std::shared_ptr<
 {
     static constexpr ::std::string_view operationName = "foundLocator";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_prx);
@@ -100,7 +100,7 @@ IceLocatorDiscovery::LookupPrx::_iceI_findLocator(const ::std::shared_ptr<::IceI
 {
     static constexpr ::std::string_view operationName = "findLocator";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_instanceName, iceP_reply);

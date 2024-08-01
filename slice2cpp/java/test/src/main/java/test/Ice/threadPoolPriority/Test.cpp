@@ -59,7 +59,7 @@ Test::PriorityPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -88,7 +88,7 @@ Test::PriorityPrx::_iceI_getPriority(const ::std::shared_ptr<::IceInternal::Outg
     static constexpr ::std::string_view operationName = "getPriority";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }

@@ -66,7 +66,7 @@ User::RegistryPrx::_iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::Outg
     static constexpr ::std::string_view operationName = "getUserInfo";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_id);

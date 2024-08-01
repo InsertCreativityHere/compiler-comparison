@@ -70,7 +70,7 @@ IceBox::ServiceObserverPrx::_iceI_servicesStarted(const ::std::shared_ptr<::IceI
 {
     static constexpr ::std::string_view operationName = "servicesStarted";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_services);
@@ -101,7 +101,7 @@ IceBox::ServiceObserverPrx::_iceI_servicesStopped(const ::std::shared_ptr<::IceI
 {
     static constexpr ::std::string_view operationName = "servicesStopped";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_services);
@@ -139,7 +139,7 @@ IceBox::ServiceManagerPrx::_iceI_startService(const ::std::shared_ptr<::IceInter
     static constexpr ::std::string_view operationName = "startService";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_service);
@@ -188,7 +188,7 @@ IceBox::ServiceManagerPrx::_iceI_stopService(const ::std::shared_ptr<::IceIntern
     static constexpr ::std::string_view operationName = "stopService";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_service);
@@ -236,7 +236,7 @@ IceBox::ServiceManagerPrx::_iceI_addObserver(const ::std::shared_ptr<::IceIntern
 {
     static constexpr ::std::string_view operationName = "addObserver";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_observer);
@@ -267,7 +267,7 @@ IceBox::ServiceManagerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal:
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }

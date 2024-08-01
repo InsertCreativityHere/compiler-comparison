@@ -79,7 +79,7 @@ Test::TestIntfPrx::_iceI_opShortArray(const ::std::shared_ptr<::IceInternal::Out
     static constexpr ::std::string_view operationName = "opShortArray";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
@@ -99,7 +99,7 @@ Test::TestIntfPrx::_iceIL_opShortArray(const ::std::shared_ptr<::IceInternal::Ou
     static constexpr ::std::string_view operationName = "opShortArray";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
@@ -143,7 +143,7 @@ Test::TestIntfPrx::_iceI_opDoubleArray(const ::std::shared_ptr<::IceInternal::Ou
     static constexpr ::std::string_view operationName = "opDoubleArray";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_padding, iceP_inSeq);
@@ -187,7 +187,7 @@ Test::TestIntfPrx::_iceI_opBoolArray(const ::std::shared_ptr<::IceInternal::Outg
     static constexpr ::std::string_view operationName = "opBoolArray";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
@@ -231,7 +231,7 @@ Test::TestIntfPrx::_iceI_opByteArray(const ::std::shared_ptr<::IceInternal::Outg
     static constexpr ::std::string_view operationName = "opByteArray";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
@@ -251,7 +251,7 @@ Test::TestIntfPrx::_iceIL_opByteArray(const ::std::shared_ptr<::IceInternal::Out
     static constexpr ::std::string_view operationName = "opByteArray";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
@@ -295,7 +295,7 @@ Test::TestIntfPrx::_iceI_opVariableArray(const ::std::shared_ptr<::IceInternal::
     static constexpr ::std::string_view operationName = "opVariableArray";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
@@ -339,7 +339,7 @@ Test::TestIntfPrx::_iceI_opBoolSeq(const ::std::shared_ptr<::IceInternal::Outgoi
     static constexpr ::std::string_view operationName = "opBoolSeq";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
@@ -383,7 +383,7 @@ Test::TestIntfPrx::_iceI_opBoolList(const ::std::shared_ptr<::IceInternal::Outgo
     static constexpr ::std::string_view operationName = "opBoolList";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
@@ -427,7 +427,7 @@ Test::TestIntfPrx::_iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::Outgoi
     static constexpr ::std::string_view operationName = "opByteSeq";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
@@ -471,7 +471,7 @@ Test::TestIntfPrx::_iceI_opByteList(const ::std::shared_ptr<::IceInternal::Outgo
     static constexpr ::std::string_view operationName = "opByteList";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
@@ -515,7 +515,7 @@ Test::TestIntfPrx::_iceI_opMyByteSeq(const ::std::shared_ptr<::IceInternal::Outg
     static constexpr ::std::string_view operationName = "opMyByteSeq";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
@@ -559,7 +559,7 @@ Test::TestIntfPrx::_iceI_opStringSeq(const ::std::shared_ptr<::IceInternal::Outg
     static constexpr ::std::string_view operationName = "opStringSeq";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
@@ -603,7 +603,7 @@ Test::TestIntfPrx::_iceI_opStringList(const ::std::shared_ptr<::IceInternal::Out
     static constexpr ::std::string_view operationName = "opStringList";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
@@ -647,7 +647,7 @@ Test::TestIntfPrx::_iceI_opFixedSeq(const ::std::shared_ptr<::IceInternal::Outgo
     static constexpr ::std::string_view operationName = "opFixedSeq";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
@@ -691,7 +691,7 @@ Test::TestIntfPrx::_iceI_opFixedList(const ::std::shared_ptr<::IceInternal::Outg
     static constexpr ::std::string_view operationName = "opFixedList";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
@@ -735,7 +735,7 @@ Test::TestIntfPrx::_iceI_opVariableSeq(const ::std::shared_ptr<::IceInternal::Ou
     static constexpr ::std::string_view operationName = "opVariableSeq";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
@@ -779,7 +779,7 @@ Test::TestIntfPrx::_iceI_opVariableList(const ::std::shared_ptr<::IceInternal::O
     static constexpr ::std::string_view operationName = "opVariableList";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
@@ -823,7 +823,7 @@ Test::TestIntfPrx::_iceI_opStringStringDictSeq(const ::std::shared_ptr<::IceInte
     static constexpr ::std::string_view operationName = "opStringStringDictSeq";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
@@ -867,7 +867,7 @@ Test::TestIntfPrx::_iceI_opStringStringDictList(const ::std::shared_ptr<::IceInt
     static constexpr ::std::string_view operationName = "opStringStringDictList";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
@@ -911,7 +911,7 @@ Test::TestIntfPrx::_iceI_opESeq(const ::std::shared_ptr<::IceInternal::OutgoingA
     static constexpr ::std::string_view operationName = "opESeq";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
@@ -955,7 +955,7 @@ Test::TestIntfPrx::_iceI_opEList(const ::std::shared_ptr<::IceInternal::Outgoing
     static constexpr ::std::string_view operationName = "opEList";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
@@ -999,7 +999,7 @@ Test::TestIntfPrx::_iceI_opDPrxSeq(const ::std::shared_ptr<::IceInternal::Outgoi
     static constexpr ::std::string_view operationName = "opDPrxSeq";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
@@ -1043,7 +1043,7 @@ Test::TestIntfPrx::_iceI_opDPrxList(const ::std::shared_ptr<::IceInternal::Outgo
     static constexpr ::std::string_view operationName = "opDPrxList";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
@@ -1087,7 +1087,7 @@ Test::TestIntfPrx::_iceI_opCSeq(const ::std::shared_ptr<::IceInternal::OutgoingA
     static constexpr ::std::string_view operationName = "opCSeq";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
@@ -1133,7 +1133,7 @@ Test::TestIntfPrx::_iceI_opCList(const ::std::shared_ptr<::IceInternal::Outgoing
     static constexpr ::std::string_view operationName = "opCList";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inSeq);
@@ -1173,7 +1173,7 @@ Test::TestIntfPrx::_iceI_opOutArrayByteSeq(const ::std::shared_ptr<::IceInternal
     static constexpr ::std::string_view operationName = "opOutArrayByteSeq";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_org);
@@ -1187,7 +1187,7 @@ Test::TestIntfPrx::_iceIL_opOutArrayByteSeq(const ::std::shared_ptr<::IceInterna
     static constexpr ::std::string_view operationName = "opOutArrayByteSeq";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_org);
@@ -1225,7 +1225,7 @@ Test::TestIntfPrx::_iceI_opIntStringDict(const ::std::shared_ptr<::IceInternal::
     static constexpr ::std::string_view operationName = "opIntStringDict";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_idict);
@@ -1269,7 +1269,7 @@ Test::TestIntfPrx::_iceI_opVarDict(const ::std::shared_ptr<::IceInternal::Outgoi
     static constexpr ::std::string_view operationName = "opVarDict";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_idict);
@@ -1313,7 +1313,7 @@ Test::TestIntfPrx::_iceI_opShortBuffer(const ::std::shared_ptr<::IceInternal::Ou
     static constexpr ::std::string_view operationName = "opShortBuffer";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inS);
@@ -1357,7 +1357,7 @@ Test::TestIntfPrx::_iceI_opBoolBuffer(const ::std::shared_ptr<::IceInternal::Out
     static constexpr ::std::string_view operationName = "opBoolBuffer";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_inS);
@@ -1395,7 +1395,7 @@ Test::TestIntfPrx::_iceI_opBufferStruct(const ::std::shared_ptr<::IceInternal::O
     static constexpr ::std::string_view operationName = "opBufferStruct";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s);
@@ -1426,7 +1426,7 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }

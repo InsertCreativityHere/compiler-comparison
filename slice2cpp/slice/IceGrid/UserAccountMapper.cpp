@@ -69,7 +69,7 @@ IceGrid::UserAccountMapperPrx::_iceI_getUserAccount(const ::std::shared_ptr<::Ic
     static constexpr ::std::string_view operationName = "getUserAccount";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_user);

@@ -63,7 +63,7 @@ Test::BackendPrx::_iceI_check(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 {
     static constexpr ::std::string_view operationName = "check";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -91,7 +91,7 @@ Test::BackendPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -126,7 +126,7 @@ Test::TestControllerPrx::_iceI_step(const ::std::shared_ptr<::IceInternal::Outgo
     static constexpr ::std::string_view operationName = "step";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_currentSession, iceP_currentState);
@@ -157,7 +157,7 @@ Test::TestControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::O
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -191,7 +191,7 @@ Test::TestSessionPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outg
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }

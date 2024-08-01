@@ -65,7 +65,7 @@ Test::CallbackReceiverPrx::_iceI_callback(const ::std::shared_ptr<::IceInternal:
 {
     static constexpr ::std::string_view operationName = "callback";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -94,7 +94,7 @@ Test::CallbackReceiverPrx::_iceI_callbackEx(const ::std::shared_ptr<::IceInterna
     static constexpr ::std::string_view operationName = "callbackEx";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -136,7 +136,7 @@ Test::CallbackReceiverPrx::_iceI_concurrentCallback(const ::std::shared_ptr<::Ic
     static constexpr ::std::string_view operationName = "concurrentCallback";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_number);
@@ -167,7 +167,7 @@ Test::CallbackReceiverPrx::_iceI_waitCallback(const ::std::shared_ptr<::IceInter
 {
     static constexpr ::std::string_view operationName = "waitCallback";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -195,7 +195,7 @@ Test::CallbackReceiverPrx::_iceI_callbackWithPayload(const ::std::shared_ptr<::I
 {
     static constexpr ::std::string_view operationName = "callbackWithPayload";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_payload);
@@ -232,7 +232,7 @@ Test::CallbackPrx::_iceI_initiateCallback(const ::std::shared_ptr<::IceInternal:
 {
     static constexpr ::std::string_view operationName = "initiateCallback";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_proxy);
@@ -264,7 +264,7 @@ Test::CallbackPrx::_iceI_initiateCallbackEx(const ::std::shared_ptr<::IceInterna
     static constexpr ::std::string_view operationName = "initiateCallbackEx";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_proxy);
@@ -309,7 +309,7 @@ Test::CallbackPrx::_iceI_initiateConcurrentCallback(const ::std::shared_ptr<::Ic
     static constexpr ::std::string_view operationName = "initiateConcurrentCallback";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_number, iceP_proxy);
@@ -340,7 +340,7 @@ Test::CallbackPrx::_iceI_initiateWaitCallback(const ::std::shared_ptr<::IceInter
 {
     static constexpr ::std::string_view operationName = "initiateWaitCallback";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_proxy);
@@ -371,7 +371,7 @@ Test::CallbackPrx::_iceI_initiateCallbackWithPayload(const ::std::shared_ptr<::I
 {
     static constexpr ::std::string_view operationName = "initiateCallbackWithPayload";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_proxy);
@@ -402,7 +402,7 @@ Test::CallbackPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }

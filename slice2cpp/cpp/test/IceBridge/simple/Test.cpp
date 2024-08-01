@@ -59,7 +59,7 @@ Test::CallbackPrx::_iceI_ping(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 {
     static constexpr ::std::string_view operationName = "ping";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -88,7 +88,7 @@ Test::CallbackPrx::_iceI_getCount(const ::std::shared_ptr<::IceInternal::Outgoin
     static constexpr ::std::string_view operationName = "getCount";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -116,7 +116,7 @@ Test::CallbackPrx::_iceI_datagram(const ::std::shared_ptr<::IceInternal::Outgoin
 {
     static constexpr ::std::string_view operationName = "datagram";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -145,7 +145,7 @@ Test::CallbackPrx::_iceI_getDatagramCount(const ::std::shared_ptr<::IceInternal:
     static constexpr ::std::string_view operationName = "getDatagramCount";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -179,7 +179,7 @@ Test::MyClassPrx::_iceI_callCallback(const ::std::shared_ptr<::IceInternal::Outg
 {
     static constexpr ::std::string_view operationName = "callCallback";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -208,7 +208,7 @@ Test::MyClassPrx::_iceI_getCallbackCount(const ::std::shared_ptr<::IceInternal::
     static constexpr ::std::string_view operationName = "getCallbackCount";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -236,7 +236,7 @@ Test::MyClassPrx::_iceI_incCounter(const ::std::shared_ptr<::IceInternal::Outgoi
 {
     static constexpr ::std::string_view operationName = "incCounter";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_expected);
@@ -267,7 +267,7 @@ Test::MyClassPrx::_iceI_waitCounter(const ::std::shared_ptr<::IceInternal::Outgo
 {
     static constexpr ::std::string_view operationName = "waitCounter";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_value);
@@ -299,7 +299,7 @@ Test::MyClassPrx::_iceI_getConnectionCount(const ::std::shared_ptr<::IceInternal
     static constexpr ::std::string_view operationName = "getConnectionCount";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -328,7 +328,7 @@ Test::MyClassPrx::_iceI_getConnectionInfo(const ::std::shared_ptr<::IceInternal:
     static constexpr ::std::string_view operationName = "getConnectionInfo";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -356,7 +356,7 @@ Test::MyClassPrx::_iceI_closeConnection(const ::std::shared_ptr<::IceInternal::O
 {
     static constexpr ::std::string_view operationName = "closeConnection";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_force);
@@ -387,7 +387,7 @@ Test::MyClassPrx::_iceI_datagram(const ::std::shared_ptr<::IceInternal::Outgoing
 {
     static constexpr ::std::string_view operationName = "datagram";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -416,7 +416,7 @@ Test::MyClassPrx::_iceI_getDatagramCount(const ::std::shared_ptr<::IceInternal::
     static constexpr ::std::string_view operationName = "getDatagramCount";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -444,7 +444,7 @@ Test::MyClassPrx::_iceI_callDatagramCallback(const ::std::shared_ptr<::IceIntern
 {
     static constexpr ::std::string_view operationName = "callDatagramCallback";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -473,7 +473,7 @@ Test::MyClassPrx::_iceI_getCallbackDatagramCount(const ::std::shared_ptr<::IceIn
     static constexpr ::std::string_view operationName = "getCallbackDatagramCount";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -501,7 +501,7 @@ Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }

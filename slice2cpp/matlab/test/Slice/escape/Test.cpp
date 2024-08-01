@@ -70,7 +70,7 @@ classdef::_cpp_break::elseifPrx::_iceI_events(const ::std::shared_ptr<::IceInter
 {
     static constexpr ::std::string_view operationName = "events";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -98,7 +98,7 @@ classdef::_cpp_break::elseifPrx::_iceI_function(const ::std::shared_ptr<::IceInt
 {
     static constexpr ::std::string_view operationName = "function";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -126,7 +126,7 @@ classdef::_cpp_break::elseifPrx::_iceI_delete(const ::std::shared_ptr<::IceInter
 {
     static constexpr ::std::string_view operationName = "delete";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -154,7 +154,7 @@ classdef::_cpp_break::elseifPrx::_iceI_checkedCast(const ::std::shared_ptr<::Ice
 {
     static constexpr ::std::string_view operationName = "checkedCast";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }

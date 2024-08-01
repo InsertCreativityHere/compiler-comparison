@@ -66,7 +66,7 @@ IceStormElection::ReplicaObserverPrx::_iceI_init(const ::std::shared_ptr<::IceIn
     static constexpr ::std::string_view operationName = "init";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_llu, iceP_content);
@@ -111,7 +111,7 @@ IceStormElection::ReplicaObserverPrx::_iceI_createTopic(const ::std::shared_ptr<
     static constexpr ::std::string_view operationName = "createTopic";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_llu, iceP_name);
@@ -156,7 +156,7 @@ IceStormElection::ReplicaObserverPrx::_iceI_destroyTopic(const ::std::shared_ptr
     static constexpr ::std::string_view operationName = "destroyTopic";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_llu, iceP_name);
@@ -201,7 +201,7 @@ IceStormElection::ReplicaObserverPrx::_iceI_addSubscriber(const ::std::shared_pt
     static constexpr ::std::string_view operationName = "addSubscriber";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_llu, iceP_topic, iceP_record);
@@ -246,7 +246,7 @@ IceStormElection::ReplicaObserverPrx::_iceI_removeSubscriber(const ::std::shared
     static constexpr ::std::string_view operationName = "removeSubscriber";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_llu, iceP_topic, iceP_subscribers);
@@ -303,7 +303,7 @@ IceStormElection::TopicManagerSyncPrx::_iceI_getContent(const ::std::shared_ptr<
     static constexpr ::std::string_view operationName = "getContent";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -343,7 +343,7 @@ IceStormElection::NodePrx::_iceI_invitation(const ::std::shared_ptr<::IceInterna
 {
     static constexpr ::std::string_view operationName = "invitation";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_j, iceP_gn);
@@ -374,7 +374,7 @@ IceStormElection::NodePrx::_iceI_ready(const ::std::shared_ptr<::IceInternal::Ou
 {
     static constexpr ::std::string_view operationName = "ready";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_j, iceP_gn, iceP_coordinator, iceP_max, iceP_generation);
@@ -405,7 +405,7 @@ IceStormElection::NodePrx::_iceI_accept(const ::std::shared_ptr<::IceInternal::O
 {
     static constexpr ::std::string_view operationName = "accept";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_j, iceP_gn, iceP_forwardedInvites, iceP_observer, iceP_llu, iceP_max);
@@ -437,7 +437,7 @@ IceStormElection::NodePrx::_iceI_areYouCoordinator(const ::std::shared_ptr<::Ice
     static constexpr ::std::string_view operationName = "areYouCoordinator";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -466,7 +466,7 @@ IceStormElection::NodePrx::_iceI_areYouThere(const ::std::shared_ptr<::IceIntern
     static constexpr ::std::string_view operationName = "areYouThere";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_gn, iceP_j);
@@ -498,7 +498,7 @@ IceStormElection::NodePrx::_iceI_sync(const ::std::shared_ptr<::IceInternal::Out
     static constexpr ::std::string_view operationName = "sync";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -527,7 +527,7 @@ IceStormElection::NodePrx::_iceI_nodes(const ::std::shared_ptr<::IceInternal::Ou
     static constexpr ::std::string_view operationName = "nodes";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -556,7 +556,7 @@ IceStormElection::NodePrx::_iceI_query(const ::std::shared_ptr<::IceInternal::Ou
     static constexpr ::std::string_view operationName = "query";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::std::nullopt, context,
         nullptr,
         nullptr);
 }

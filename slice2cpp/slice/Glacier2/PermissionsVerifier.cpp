@@ -75,7 +75,7 @@ Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions(const ::std::shared_ptr
     static constexpr ::std::string_view operationName = "checkPermissions";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_userId, iceP_password);
@@ -138,7 +138,7 @@ Glacier2::SSLPermissionsVerifierPrx::_iceI_authorize(const ::std::shared_ptr<::I
     static constexpr ::std::string_view operationName = "authorize";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_info);

@@ -60,7 +60,7 @@ Test::TestFacetPrx::_iceI_getChanges(const ::std::shared_ptr<::IceInternal::Outg
     static constexpr ::std::string_view operationName = "getChanges";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }

@@ -59,7 +59,7 @@ Test::CallbackReceiverPrx::_iceI_callback(const ::std::shared_ptr<::IceInternal:
 {
     static constexpr ::std::string_view operationName = "callback";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_token);
@@ -90,7 +90,7 @@ Test::CallbackReceiverPrx::_iceI_callbackWithPayload(const ::std::shared_ptr<::I
 {
     static constexpr ::std::string_view operationName = "callbackWithPayload";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_payload);
@@ -127,7 +127,7 @@ Test::CallbackPrx::_iceI_initiateCallback(const ::std::shared_ptr<::IceInternal:
 {
     static constexpr ::std::string_view operationName = "initiateCallback";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_proxy, iceP_token);
@@ -158,7 +158,7 @@ Test::CallbackPrx::_iceI_initiateCallbackWithPayload(const ::std::shared_ptr<::I
 {
     static constexpr ::std::string_view operationName = "initiateCallbackWithPayload";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_proxy);
@@ -189,7 +189,7 @@ Test::CallbackPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }

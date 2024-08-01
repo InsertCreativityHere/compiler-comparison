@@ -73,7 +73,7 @@ Test1::WstringClassPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::Ou
     static constexpr ::std::string_view operationName = "opString";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s1);
@@ -117,7 +117,7 @@ Test1::WstringClassPrx::_iceI_opStruct(const ::std::shared_ptr<::IceInternal::Ou
     static constexpr ::std::string_view operationName = "opStruct";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s1);
@@ -155,7 +155,7 @@ Test1::WstringClassPrx::_iceI_throwExcept(const ::std::shared_ptr<::IceInternal:
     static constexpr ::std::string_view operationName = "throwExcept";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_reason);
@@ -212,7 +212,7 @@ Test2::WstringClassPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::Ou
     static constexpr ::std::string_view operationName = "opString";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s1);
@@ -256,7 +256,7 @@ Test2::WstringClassPrx::_iceI_opStruct(const ::std::shared_ptr<::IceInternal::Ou
     static constexpr ::std::string_view operationName = "opStruct";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s1);
@@ -294,7 +294,7 @@ Test2::WstringClassPrx::_iceI_throwExcept(const ::std::shared_ptr<::IceInternal:
     static constexpr ::std::string_view operationName = "throwExcept";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_reason);

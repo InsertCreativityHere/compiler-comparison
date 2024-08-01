@@ -60,7 +60,7 @@ Test::TestIntfPrx::_iceI_getProperty(const ::std::shared_ptr<::IceInternal::Outg
     static constexpr ::std::string_view operationName = "getProperty";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_name);
@@ -92,7 +92,7 @@ Test::TestIntfPrx::_iceI_getArgs(const ::std::shared_ptr<::IceInternal::Outgoing
     static constexpr ::std::string_view operationName = "getArgs";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }

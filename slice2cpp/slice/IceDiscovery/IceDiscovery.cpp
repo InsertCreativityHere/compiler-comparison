@@ -59,7 +59,7 @@ IceDiscovery::LookupReplyPrx::_iceI_foundObjectById(const ::std::shared_ptr<::Ic
 {
     static constexpr ::std::string_view operationName = "foundObjectById";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_id, iceP_prx);
@@ -90,7 +90,7 @@ IceDiscovery::LookupReplyPrx::_iceI_foundAdapterById(const ::std::shared_ptr<::I
 {
     static constexpr ::std::string_view operationName = "foundAdapterById";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_id, iceP_prx, iceP_isReplicaGroup);
@@ -127,7 +127,7 @@ IceDiscovery::LookupPrx::_iceI_findObjectById(const ::std::shared_ptr<::IceInter
 {
     static constexpr ::std::string_view operationName = "findObjectById";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_domainId, iceP_id, iceP_reply);
@@ -158,7 +158,7 @@ IceDiscovery::LookupPrx::_iceI_findAdapterById(const ::std::shared_ptr<::IceInte
 {
     static constexpr ::std::string_view operationName = "findAdapterById";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_domainId, iceP_id, iceP_reply);

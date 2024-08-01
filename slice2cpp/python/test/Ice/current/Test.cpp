@@ -60,7 +60,7 @@ Test::TestIntfPrx::_iceI_getAdapterName(const ::std::shared_ptr<::IceInternal::O
     static constexpr ::std::string_view operationName = "getAdapterName";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -89,7 +89,7 @@ Test::TestIntfPrx::_iceI_getConnection(const ::std::shared_ptr<::IceInternal::Ou
     static constexpr ::std::string_view operationName = "getConnection";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -118,7 +118,7 @@ Test::TestIntfPrx::_iceI_getIdentity(const ::std::shared_ptr<::IceInternal::Outg
     static constexpr ::std::string_view operationName = "getIdentity";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -147,7 +147,7 @@ Test::TestIntfPrx::_iceI_getFacet(const ::std::shared_ptr<::IceInternal::Outgoin
     static constexpr ::std::string_view operationName = "getFacet";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -176,7 +176,7 @@ Test::TestIntfPrx::_iceI_getOperation(const ::std::shared_ptr<::IceInternal::Out
     static constexpr ::std::string_view operationName = "getOperation";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -205,7 +205,7 @@ Test::TestIntfPrx::_iceI_getMode(const ::std::shared_ptr<::IceInternal::Outgoing
     static constexpr ::std::string_view operationName = "getMode";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -234,7 +234,7 @@ Test::TestIntfPrx::_iceI_getContext(const ::std::shared_ptr<::IceInternal::Outgo
     static constexpr ::std::string_view operationName = "getContext";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -263,7 +263,7 @@ Test::TestIntfPrx::_iceI_getRequestId(const ::std::shared_ptr<::IceInternal::Out
     static constexpr ::std::string_view operationName = "getRequestId";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -292,7 +292,7 @@ Test::TestIntfPrx::_iceI_getEncoding(const ::std::shared_ptr<::IceInternal::Outg
     static constexpr ::std::string_view operationName = "getEncoding";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -320,7 +320,7 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }

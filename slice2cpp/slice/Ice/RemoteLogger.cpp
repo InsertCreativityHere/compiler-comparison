@@ -68,7 +68,7 @@ Ice::RemoteLoggerPrx::_iceI_init(const ::std::shared_ptr<::IceInternal::Outgoing
 {
     static constexpr ::std::string_view operationName = "init";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](OutputStream* ostr)
         {
             ostr->writeAll(iceP_prefix, iceP_logMessages);
@@ -99,7 +99,7 @@ Ice::RemoteLoggerPrx::_iceI_log(const ::std::shared_ptr<::IceInternal::OutgoingA
 {
     static constexpr ::std::string_view operationName = "log";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](OutputStream* ostr)
         {
             ostr->writeAll(iceP_message);
@@ -137,7 +137,7 @@ Ice::LoggerAdminPrx::_iceI_attachRemoteLogger(const ::std::shared_ptr<::IceInter
     static constexpr ::std::string_view operationName = "attachRemoteLogger";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](OutputStream* ostr)
         {
             ostr->writeAll(iceP_prx, iceP_messageTypes, iceP_traceCategories, iceP_messageMax);
@@ -182,7 +182,7 @@ Ice::LoggerAdminPrx::_iceI_detachRemoteLogger(const ::std::shared_ptr<::IceInter
     static constexpr ::std::string_view operationName = "detachRemoteLogger";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](OutputStream* ostr)
         {
             ostr->writeAll(iceP_prx);
@@ -220,7 +220,7 @@ Ice::LoggerAdminPrx::_iceI_getLog(const ::std::shared_ptr<::IceInternal::Outgoin
     static constexpr ::std::string_view operationName = "getLog";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](OutputStream* ostr)
         {
             ostr->writeAll(iceP_messageTypes, iceP_traceCategories, iceP_messageMax);

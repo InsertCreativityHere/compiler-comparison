@@ -67,7 +67,7 @@ BEGIN::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsync
 {
     static constexpr ::std::string_view operationName = "case";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_clone, iceP_def);
@@ -98,7 +98,7 @@ BEGIN::breakPrx::_iceI_to_a(const ::std::shared_ptr<::IceInternal::OutgoingAsync
 {
     static constexpr ::std::string_view operationName = "to_a";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -126,7 +126,7 @@ BEGIN::breakPrx::_iceI_instance_variable_set(const ::std::shared_ptr<::IceIntern
 {
     static constexpr ::std::string_view operationName = "instance_variable_set";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -154,7 +154,7 @@ BEGIN::breakPrx::_iceI_instance_variables(const ::std::shared_ptr<::IceInternal:
 {
     static constexpr ::std::string_view operationName = "instance_variables";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -195,7 +195,7 @@ BEGIN::extendPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsync
     static constexpr ::std::string_view operationName = "for";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods);

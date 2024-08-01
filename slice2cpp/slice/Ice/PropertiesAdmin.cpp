@@ -63,7 +63,7 @@ Ice::PropertiesAdminPrx::_iceI_getProperty(const ::std::shared_ptr<::IceInternal
     static constexpr ::std::string_view operationName = "getProperty";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](OutputStream* ostr)
         {
             ostr->writeAll(iceP_key);
@@ -95,7 +95,7 @@ Ice::PropertiesAdminPrx::_iceI_getPropertiesForPrefix(const ::std::shared_ptr<::
     static constexpr ::std::string_view operationName = "getPropertiesForPrefix";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](OutputStream* ostr)
         {
             ostr->writeAll(iceP_prefix);
@@ -126,7 +126,7 @@ Ice::PropertiesAdminPrx::_iceI_setProperties(const ::std::shared_ptr<::IceIntern
 {
     static constexpr ::std::string_view operationName = "setProperties";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](OutputStream* ostr)
         {
             ostr->writeAll(iceP_newProperties);

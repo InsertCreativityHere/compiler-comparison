@@ -66,7 +66,7 @@ IceGrid::SessionPrx::_iceI_keepAlive(const ::std::shared_ptr<::IceInternal::Outg
 {
     static constexpr ::std::string_view operationName = "keepAlive";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -95,7 +95,7 @@ IceGrid::SessionPrx::_iceI_allocateObjectById(const ::std::shared_ptr<::IceInter
     static constexpr ::std::string_view operationName = "allocateObjectById";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_id);
@@ -144,7 +144,7 @@ IceGrid::SessionPrx::_iceI_allocateObjectByType(const ::std::shared_ptr<::IceInt
     static constexpr ::std::string_view operationName = "allocateObjectByType";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_type);
@@ -189,7 +189,7 @@ IceGrid::SessionPrx::_iceI_releaseObject(const ::std::shared_ptr<::IceInternal::
     static constexpr ::std::string_view operationName = "releaseObject";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_id);
@@ -237,7 +237,7 @@ IceGrid::SessionPrx::_iceI_setAllocationTimeout(const ::std::shared_ptr<::IceInt
 {
     static constexpr ::std::string_view operationName = "setAllocationTimeout";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_timeout);

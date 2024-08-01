@@ -66,7 +66,7 @@ Test::TestIntfPrx::_iceI_requestFailedException(const ::std::shared_ptr<::IceInt
 {
     static constexpr ::std::string_view operationName = "requestFailedException";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -94,7 +94,7 @@ Test::TestIntfPrx::_iceI_unknownUserException(const ::std::shared_ptr<::IceInter
 {
     static constexpr ::std::string_view operationName = "unknownUserException";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -122,7 +122,7 @@ Test::TestIntfPrx::_iceI_unknownLocalException(const ::std::shared_ptr<::IceInte
 {
     static constexpr ::std::string_view operationName = "unknownLocalException";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -150,7 +150,7 @@ Test::TestIntfPrx::_iceI_unknownException(const ::std::shared_ptr<::IceInternal:
 {
     static constexpr ::std::string_view operationName = "unknownException";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -178,7 +178,7 @@ Test::TestIntfPrx::_iceI_localException(const ::std::shared_ptr<::IceInternal::O
 {
     static constexpr ::std::string_view operationName = "localException";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -206,7 +206,7 @@ Test::TestIntfPrx::_iceI_userException(const ::std::shared_ptr<::IceInternal::Ou
 {
     static constexpr ::std::string_view operationName = "userException";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -234,7 +234,7 @@ Test::TestIntfPrx::_iceI_pythonException(const ::std::shared_ptr<::IceInternal::
 {
     static constexpr ::std::string_view operationName = "pythonException";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -262,7 +262,7 @@ Test::TestIntfPrx::_iceI_unknownExceptionWithServantException(const ::std::share
 {
     static constexpr ::std::string_view operationName = "unknownExceptionWithServantException";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -291,7 +291,7 @@ Test::TestIntfPrx::_iceI_impossibleException(const ::std::shared_ptr<::IceIntern
     static constexpr ::std::string_view operationName = "impossibleException";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_throw);
@@ -336,7 +336,7 @@ Test::TestIntfPrx::_iceI_intfUserException(const ::std::shared_ptr<::IceInternal
     static constexpr ::std::string_view operationName = "intfUserException";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_throw);
@@ -385,7 +385,7 @@ Test::TestIntfPrx::_iceI_asyncResponse(const ::std::shared_ptr<::IceInternal::Ou
     static constexpr ::std::string_view operationName = "asyncResponse";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -431,7 +431,7 @@ Test::TestIntfPrx::_iceI_asyncException(const ::std::shared_ptr<::IceInternal::O
     static constexpr ::std::string_view operationName = "asyncException";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -476,7 +476,7 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -510,7 +510,7 @@ Test::TestActivationPrx::_iceI_activateServantLocator(const ::std::shared_ptr<::
 {
     static constexpr ::std::string_view operationName = "activateServantLocator";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_activate);

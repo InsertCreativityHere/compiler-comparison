@@ -59,7 +59,7 @@ Test::SinglePrx::_iceI_event(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
 {
     static constexpr ::std::string_view operationName = "event";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_i);

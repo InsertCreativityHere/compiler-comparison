@@ -60,7 +60,7 @@ Test::TestIntfPrx::_iceI_getAdapterId(const ::std::shared_ptr<::IceInternal::Out
     static constexpr ::std::string_view operationName = "getAdapterId";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -94,7 +94,7 @@ Test::ControllerPrx::_iceI_activateObjectAdapter(const ::std::shared_ptr<::IceIn
 {
     static constexpr ::std::string_view operationName = "activateObjectAdapter";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_name, iceP_adapterId, iceP_replicaGroupId);
@@ -125,7 +125,7 @@ Test::ControllerPrx::_iceI_deactivateObjectAdapter(const ::std::shared_ptr<::Ice
 {
     static constexpr ::std::string_view operationName = "deactivateObjectAdapter";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_name);
@@ -156,7 +156,7 @@ Test::ControllerPrx::_iceI_addObject(const ::std::shared_ptr<::IceInternal::Outg
 {
     static constexpr ::std::string_view operationName = "addObject";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_oaName, iceP_id);
@@ -187,7 +187,7 @@ Test::ControllerPrx::_iceI_removeObject(const ::std::shared_ptr<::IceInternal::O
 {
     static constexpr ::std::string_view operationName = "removeObject";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_oaName, iceP_id);
@@ -218,7 +218,7 @@ Test::ControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgo
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }

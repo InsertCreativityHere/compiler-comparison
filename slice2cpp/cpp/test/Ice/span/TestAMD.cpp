@@ -66,7 +66,7 @@ Test::TestIntfPrx::_iceI_opByteSpan(const ::std::shared_ptr<::IceInternal::Outgo
     static constexpr ::std::string_view operationName = "opByteSpan";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_dataIn);
@@ -110,7 +110,7 @@ Test::TestIntfPrx::_iceI_opShortSpan(const ::std::shared_ptr<::IceInternal::Outg
     static constexpr ::std::string_view operationName = "opShortSpan";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_dataIn);
@@ -154,7 +154,7 @@ Test::TestIntfPrx::_iceI_opStringSpan(const ::std::shared_ptr<::IceInternal::Out
     static constexpr ::std::string_view operationName = "opStringSpan";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_dataIn);
@@ -198,7 +198,7 @@ Test::TestIntfPrx::_iceI_opOptionalByteSpan(const ::std::shared_ptr<::IceInterna
     static constexpr ::std::string_view operationName = "opOptionalByteSpan";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1}, iceP_dataIn);
@@ -242,7 +242,7 @@ Test::TestIntfPrx::_iceI_opOptionalShortSpan(const ::std::shared_ptr<::IceIntern
     static constexpr ::std::string_view operationName = "opOptionalShortSpan";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1}, iceP_dataIn);
@@ -286,7 +286,7 @@ Test::TestIntfPrx::_iceI_opOptionalStringSpan(const ::std::shared_ptr<::IceInter
     static constexpr ::std::string_view operationName = "opOptionalStringSpan";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1}, iceP_dataIn);
@@ -323,7 +323,7 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }

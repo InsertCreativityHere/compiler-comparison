@@ -60,7 +60,7 @@ Test::TestIntfPrx::_iceI_getAdapterName(const ::std::shared_ptr<::IceInternal::O
     static constexpr ::std::string_view operationName = "getAdapterName";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -95,7 +95,7 @@ Test::RemoteObjectAdapterPrx::_iceI_getTestIntf(const ::std::shared_ptr<::IceInt
     static constexpr ::std::string_view operationName = "getTestIntf";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -123,7 +123,7 @@ Test::RemoteObjectAdapterPrx::_iceI_deactivate(const ::std::shared_ptr<::IceInte
 {
     static constexpr ::std::string_view operationName = "deactivate";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -158,7 +158,7 @@ Test::RemoteCommunicatorPrx::_iceI_createObjectAdapter(const ::std::shared_ptr<:
     static constexpr ::std::string_view operationName = "createObjectAdapter";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_name, iceP_endpoints);
@@ -189,7 +189,7 @@ Test::RemoteCommunicatorPrx::_iceI_deactivateObjectAdapter(const ::std::shared_p
 {
     static constexpr ::std::string_view operationName = "deactivateObjectAdapter";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_adapter);
@@ -220,7 +220,7 @@ Test::RemoteCommunicatorPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInterna
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }

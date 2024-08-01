@@ -64,7 +64,7 @@ Test::InitialPrx::_iceI_getTest1C2AsC1(const ::std::shared_ptr<::IceInternal::Ou
     static constexpr ::std::string_view operationName = "getTest1C2AsC1";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -100,7 +100,7 @@ Test::InitialPrx::_iceI_getTest1C2AsC2(const ::std::shared_ptr<::IceInternal::Ou
     static constexpr ::std::string_view operationName = "getTest1C2AsC2";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -136,7 +136,7 @@ Test::InitialPrx::_iceI_throwTest1E2AsE1(const ::std::shared_ptr<::IceInternal::
     static constexpr ::std::string_view operationName = "throwTest1E2AsE1";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -178,7 +178,7 @@ Test::InitialPrx::_iceI_throwTest1E2AsE2(const ::std::shared_ptr<::IceInternal::
     static constexpr ::std::string_view operationName = "throwTest1E2AsE2";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -220,7 +220,7 @@ Test::InitialPrx::_iceI_throwTest1Notify(const ::std::shared_ptr<::IceInternal::
     static constexpr ::std::string_view operationName = "throwTest1Notify";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -262,7 +262,7 @@ Test::InitialPrx::_iceI_getTest2C2AsC1(const ::std::shared_ptr<::IceInternal::Ou
     static constexpr ::std::string_view operationName = "getTest2C2AsC1";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -298,7 +298,7 @@ Test::InitialPrx::_iceI_getTest2C2AsC2(const ::std::shared_ptr<::IceInternal::Ou
     static constexpr ::std::string_view operationName = "getTest2C2AsC2";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -334,7 +334,7 @@ Test::InitialPrx::_iceI_throwTest2E2AsE1(const ::std::shared_ptr<::IceInternal::
     static constexpr ::std::string_view operationName = "throwTest2E2AsE1";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -376,7 +376,7 @@ Test::InitialPrx::_iceI_throwTest2E2AsE2(const ::std::shared_ptr<::IceInternal::
     static constexpr ::std::string_view operationName = "throwTest2E2AsE2";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -418,7 +418,7 @@ Test::InitialPrx::_iceI_getTest3C2AsC1(const ::std::shared_ptr<::IceInternal::Ou
     static constexpr ::std::string_view operationName = "getTest3C2AsC1";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -454,7 +454,7 @@ Test::InitialPrx::_iceI_getTest3C2AsC2(const ::std::shared_ptr<::IceInternal::Ou
     static constexpr ::std::string_view operationName = "getTest3C2AsC2";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -490,7 +490,7 @@ Test::InitialPrx::_iceI_throwTest3E2AsE1(const ::std::shared_ptr<::IceInternal::
     static constexpr ::std::string_view operationName = "throwTest3E2AsE1";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -532,7 +532,7 @@ Test::InitialPrx::_iceI_throwTest3E2AsE2(const ::std::shared_ptr<::IceInternal::
     static constexpr ::std::string_view operationName = "throwTest3E2AsE2";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -573,7 +573,7 @@ Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }

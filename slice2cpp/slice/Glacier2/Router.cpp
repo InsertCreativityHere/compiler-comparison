@@ -69,7 +69,7 @@ Glacier2::RouterPrx::_iceI_getCategoryForClient(const ::std::shared_ptr<::IceInt
     static constexpr ::std::string_view operationName = "getCategoryForClient";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -98,7 +98,7 @@ Glacier2::RouterPrx::_iceI_createSession(const ::std::shared_ptr<::IceInternal::
     static constexpr ::std::string_view operationName = "createSession";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_userId, iceP_password);
@@ -109,11 +109,11 @@ Glacier2::RouterPrx::_iceI_createSession(const ::std::shared_ptr<::IceInternal::
             {
                 ex.ice_throw();
             }
-            catch(const PermissionDeniedException&)
+            catch(const CannotCreateSessionException&)
             {
                 throw;
             }
-            catch(const CannotCreateSessionException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
@@ -147,7 +147,7 @@ Glacier2::RouterPrx::_iceI_createSessionFromSecureConnection(const ::std::shared
     static constexpr ::std::string_view operationName = "createSessionFromSecureConnection";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -155,11 +155,11 @@ Glacier2::RouterPrx::_iceI_createSessionFromSecureConnection(const ::std::shared
             {
                 ex.ice_throw();
             }
-            catch(const PermissionDeniedException&)
+            catch(const CannotCreateSessionException&)
             {
                 throw;
             }
-            catch(const CannotCreateSessionException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
@@ -193,7 +193,7 @@ Glacier2::RouterPrx::_iceI_refreshSession(const ::std::shared_ptr<::IceInternal:
     static constexpr ::std::string_view operationName = "refreshSession";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -235,7 +235,7 @@ Glacier2::RouterPrx::_iceI_destroySession(const ::std::shared_ptr<::IceInternal:
     static constexpr ::std::string_view operationName = "destroySession";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -277,7 +277,7 @@ Glacier2::RouterPrx::_iceI_getSessionTimeout(const ::std::shared_ptr<::IceIntern
     static constexpr ::std::string_view operationName = "getSessionTimeout";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -306,7 +306,7 @@ Glacier2::RouterPrx::_iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal::
     static constexpr ::std::string_view operationName = "getACMTimeout";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
