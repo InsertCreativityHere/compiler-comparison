@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 /// Traits for Slice interface`TestIntf`.
 public struct TestIntfTraits: Ice.SliceTraits {
@@ -165,21 +164,21 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.String>` - The result of the operation
-    func getPropertyAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.String> {
-        return _impl._invokeAsync(operation: "getProperty",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_name)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.String = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.String` - The result of the operation
+    func getPropertyAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.String {
+        return try await _impl._invokeAsync(operation: "getProperty",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_name)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.String = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -207,18 +206,18 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Ice.StringSeq>` - The result of the operation
-    func getArgsAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.StringSeq> {
-        return _impl._invokeAsync(operation: "getArgs",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: Ice.StringSeq = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Ice.StringSeq` - The result of the operation
+    func getArgsAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.StringSeq {
+        return try await _impl._invokeAsync(operation: "getArgs",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                let iceP_returnValue: Ice.StringSeq = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -232,22 +231,22 @@ public struct TestIntfDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "getArgs":
-            servant._iceD_getArgs(request)
+            try await servant._iceD_getArgs(request)
         case "getProperty":
-            servant._iceD_getProperty(request)
+            try await servant._iceD_getProperty(request)
         case "ice_id":
-            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -276,35 +275,29 @@ public protocol TestIntf {
 ///
 ///  - getArgs: 
 extension TestIntf {
-    public func _iceD_getProperty(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_name: Swift.String = try istr.read()
+    public func _iceD_getProperty(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_name: Swift.String = try istr.read()
 
-            let iceP_returnValue = try self.getProperty(name: iceP_name, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getProperty(name: iceP_name, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_getArgs(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_getArgs(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.getArgs(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getArgs(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }

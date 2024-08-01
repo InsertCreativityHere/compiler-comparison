@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 /// :nodoc:
 public class TestIntfUserException_TypeResolver: Ice.UserExceptionTypeResolver {
@@ -306,14 +305,14 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func requestFailedExceptionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "requestFailedException",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func requestFailedExceptionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "requestFailedException",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -335,14 +334,14 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func unknownUserExceptionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "unknownUserException",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func unknownUserExceptionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "unknownUserException",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -364,14 +363,14 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func unknownLocalExceptionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "unknownLocalException",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func unknownLocalExceptionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "unknownLocalException",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -393,14 +392,14 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func unknownExceptionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "unknownException",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func unknownExceptionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "unknownException",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -422,14 +421,14 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func localExceptionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "localException",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func localExceptionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "localException",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -451,14 +450,14 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func userExceptionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "userException",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func userExceptionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "userException",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -480,14 +479,14 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func csExceptionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "csException",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func csExceptionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "csException",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -509,14 +508,14 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func unknownExceptionWithServantExceptionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "unknownExceptionWithServantException",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func unknownExceptionWithServantExceptionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "unknownExceptionWithServantException",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -558,28 +557,28 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.String>` - The result of the operation
-    func impossibleExceptionAsync(_ iceP_throw: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.String> {
-        return _impl._invokeAsync(operation: "impossibleException",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_throw)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.String = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as TestImpossibleException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.String` - The result of the operation
+    func impossibleExceptionAsync(_ iceP_throw: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.String {
+        return try await _impl._invokeAsync(operation: "impossibleException",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_throw)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.String = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as TestImpossibleException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -623,30 +622,30 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.String>` - The result of the operation
-    func intfUserExceptionAsync(_ iceP_throw: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.String> {
-        return _impl._invokeAsync(operation: "intfUserException",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_throw)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.String = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as TestIntfUserException {
-                                          throw error
-                                      } catch let error as TestImpossibleException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.String` - The result of the operation
+    func intfUserExceptionAsync(_ iceP_throw: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.String {
+        return try await _impl._invokeAsync(operation: "intfUserException",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_throw)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.String = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as TestIntfUserException {
+                                                    throw error
+                                                } catch let error as TestImpossibleException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -677,23 +676,23 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func asyncResponseAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "asyncResponse",
-                                  mode: .Normal,
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as TestIntfUserException {
-                                          throw error
-                                      } catch let error as TestImpossibleException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func asyncResponseAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "asyncResponse",
+                                            mode: .Normal,
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as TestIntfUserException {
+                                                    throw error
+                                                } catch let error as TestImpossibleException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -724,23 +723,23 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func asyncExceptionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "asyncException",
-                                  mode: .Normal,
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as TestIntfUserException {
-                                          throw error
-                                      } catch let error as TestImpossibleException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func asyncExceptionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "asyncException",
+                                            mode: .Normal,
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as TestIntfUserException {
+                                                    throw error
+                                                } catch let error as TestImpossibleException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -762,14 +761,14 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "shutdown",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "shutdown",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -901,17 +900,17 @@ public extension TestActivationPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func activateServantLocatorAsync(_ iceP_activate: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "activateServantLocator",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_activate)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func activateServantLocatorAsync(_ iceP_activate: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "activateServantLocator",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_activate)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -925,44 +924,44 @@ public struct TestIntfDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "asyncException":
-            servant._iceD_asyncException(request)
+            try await servant._iceD_asyncException(request)
         case "asyncResponse":
-            servant._iceD_asyncResponse(request)
+            try await servant._iceD_asyncResponse(request)
         case "csException":
-            servant._iceD_csException(request)
+            try await servant._iceD_csException(request)
         case "ice_id":
-            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
         case "impossibleException":
-            servant._iceD_impossibleException(request)
+            try await servant._iceD_impossibleException(request)
         case "intfUserException":
-            servant._iceD_intfUserException(request)
+            try await servant._iceD_intfUserException(request)
         case "localException":
-            servant._iceD_localException(request)
+            try await servant._iceD_localException(request)
         case "requestFailedException":
-            servant._iceD_requestFailedException(request)
+            try await servant._iceD_requestFailedException(request)
         case "shutdown":
-            servant._iceD_shutdown(request)
+            try await servant._iceD_shutdown(request)
         case "unknownException":
-            servant._iceD_unknownException(request)
+            try await servant._iceD_unknownException(request)
         case "unknownExceptionWithServantException":
-            servant._iceD_unknownExceptionWithServantException(request)
+            try await servant._iceD_unknownExceptionWithServantException(request)
         case "unknownLocalException":
-            servant._iceD_unknownLocalException(request)
+            try await servant._iceD_unknownLocalException(request)
         case "unknownUserException":
-            servant._iceD_unknownUserException(request)
+            try await servant._iceD_unknownUserException(request)
         case "userException":
-            servant._iceD_userException(request)
+            try await servant._iceD_userException(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1039,20 +1038,20 @@ public struct TestActivationDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "activateServantLocator":
-            servant._iceD_activateServantLocator(request)
+            try await servant._iceD_activateServantLocator(request)
         case "ice_id":
-            (servant as? Ice.Object ?? TestActivationDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? TestActivationDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? TestActivationDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? TestActivationDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? TestActivationDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? TestActivationDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? TestActivationDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? TestActivationDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1095,159 +1094,120 @@ public protocol TestActivation {
 ///
 ///  - shutdown: 
 extension TestIntf {
-    public func _iceD_requestFailedException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_requestFailedException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.requestFailedException(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.requestFailedException(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_unknownUserException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_unknownUserException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.unknownUserException(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.unknownUserException(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_unknownLocalException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_unknownLocalException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.unknownLocalException(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.unknownLocalException(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_unknownException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_unknownException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.unknownException(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.unknownException(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_localException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_localException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.localException(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.localException(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_userException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_userException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.userException(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.userException(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_csException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_csException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.csException(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.csException(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_unknownExceptionWithServantException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_unknownExceptionWithServantException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.unknownExceptionWithServantException(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.unknownExceptionWithServantException(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_impossibleException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_throw: Swift.Bool = try istr.read()
+    public func _iceD_impossibleException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_throw: Swift.Bool = try istr.read()
 
-            let iceP_returnValue = try self.impossibleException(throw: iceP_throw, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.impossibleException(throw: iceP_throw, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_intfUserException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_throw: Swift.Bool = try istr.read()
+    public func _iceD_intfUserException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_throw: Swift.Bool = try istr.read()
 
-            let iceP_returnValue = try self.intfUserException(throw: iceP_throw, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.intfUserException(throw: iceP_throw, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_asyncResponse(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_asyncResponse(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.asyncResponse(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.asyncResponse(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_asyncException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_asyncException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.asyncException(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.asyncException(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.shutdown(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.shutdown(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }
 
@@ -1257,16 +1217,13 @@ extension TestIntf {
 ///
 ///  - activateServantLocator: 
 extension TestActivation {
-    public func _iceD_activateServantLocator(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_activate: Swift.Bool = try istr.read()
+    public func _iceD_activateServantLocator(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_activate: Swift.Bool = try istr.read()
 
-            try self.activateServantLocator(activate: iceP_activate, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.activateServantLocator(activate: iceP_activate, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }

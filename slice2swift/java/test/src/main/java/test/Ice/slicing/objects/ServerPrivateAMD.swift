@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 public typealias BSeq = [B?]
 
@@ -938,21 +937,21 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Ice.Value?>` - The result of the operation
-    func SBaseAsObjectAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.Value?> {
-        return _impl._invokeAsync(operation: "SBaseAsObject",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  read: { istr in
-                                      var iceP_returnValue: Ice.Value?
-                                      try istr.read() { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Ice.Value?` - The result of the operation
+    func SBaseAsObjectAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.Value? {
+        return try await _impl._invokeAsync(operation: "SBaseAsObject",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            read: { istr in
+                                                var iceP_returnValue: Ice.Value?
+                                                try istr.read() { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -983,21 +982,21 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<SBase?>` - The result of the operation
-    func SBaseAsSBaseAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<SBase?> {
-        return _impl._invokeAsync(operation: "SBaseAsSBase",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  read: { istr in
-                                      var iceP_returnValue: SBase?
-                                      try istr.read(SBase.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `SBase?` - The result of the operation
+    func SBaseAsSBaseAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> SBase? {
+        return try await _impl._invokeAsync(operation: "SBaseAsSBase",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            read: { istr in
+                                                var iceP_returnValue: SBase?
+                                                try istr.read(SBase.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1028,21 +1027,21 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<SBase?>` - The result of the operation
-    func SBSKnownDerivedAsSBaseAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<SBase?> {
-        return _impl._invokeAsync(operation: "SBSKnownDerivedAsSBase",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  read: { istr in
-                                      var iceP_returnValue: SBase?
-                                      try istr.read(SBase.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `SBase?` - The result of the operation
+    func SBSKnownDerivedAsSBaseAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> SBase? {
+        return try await _impl._invokeAsync(operation: "SBSKnownDerivedAsSBase",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            read: { istr in
+                                                var iceP_returnValue: SBase?
+                                                try istr.read(SBase.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1073,21 +1072,21 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<SBSKnownDerived?>` - The result of the operation
-    func SBSKnownDerivedAsSBSKnownDerivedAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<SBSKnownDerived?> {
-        return _impl._invokeAsync(operation: "SBSKnownDerivedAsSBSKnownDerived",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  read: { istr in
-                                      var iceP_returnValue: SBSKnownDerived?
-                                      try istr.read(SBSKnownDerived.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `SBSKnownDerived?` - The result of the operation
+    func SBSKnownDerivedAsSBSKnownDerivedAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> SBSKnownDerived? {
+        return try await _impl._invokeAsync(operation: "SBSKnownDerivedAsSBSKnownDerived",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            read: { istr in
+                                                var iceP_returnValue: SBSKnownDerived?
+                                                try istr.read(SBSKnownDerived.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1118,21 +1117,21 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<SBase?>` - The result of the operation
-    func SBSUnknownDerivedAsSBaseAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<SBase?> {
-        return _impl._invokeAsync(operation: "SBSUnknownDerivedAsSBase",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  read: { istr in
-                                      var iceP_returnValue: SBase?
-                                      try istr.read(SBase.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `SBase?` - The result of the operation
+    func SBSUnknownDerivedAsSBaseAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> SBase? {
+        return try await _impl._invokeAsync(operation: "SBSUnknownDerivedAsSBase",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            read: { istr in
+                                                var iceP_returnValue: SBase?
+                                                try istr.read(SBase.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1163,21 +1162,21 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<SBase?>` - The result of the operation
-    func SBSUnknownDerivedAsSBaseCompactAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<SBase?> {
-        return _impl._invokeAsync(operation: "SBSUnknownDerivedAsSBaseCompact",
-                                  mode: .Normal,
-                                  format: .CompactFormat,
-                                  read: { istr in
-                                      var iceP_returnValue: SBase?
-                                      try istr.read(SBase.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `SBase?` - The result of the operation
+    func SBSUnknownDerivedAsSBaseCompactAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> SBase? {
+        return try await _impl._invokeAsync(operation: "SBSUnknownDerivedAsSBaseCompact",
+                                            mode: .Normal,
+                                            format: .CompactFormat,
+                                            read: { istr in
+                                                var iceP_returnValue: SBase?
+                                                try istr.read(SBase.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1208,21 +1207,21 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Ice.Value?>` - The result of the operation
-    func SUnknownAsObjectAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.Value?> {
-        return _impl._invokeAsync(operation: "SUnknownAsObject",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  read: { istr in
-                                      var iceP_returnValue: Ice.Value?
-                                      try istr.read() { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Ice.Value?` - The result of the operation
+    func SUnknownAsObjectAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.Value? {
+        return try await _impl._invokeAsync(operation: "SUnknownAsObject",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            read: { istr in
+                                                var iceP_returnValue: Ice.Value?
+                                                try istr.read() { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1253,19 +1252,19 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func checkSUnknownAsync(_ iceP_o: Ice.Value?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "checkSUnknown",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  write: { ostr in
-                                      ostr.write(iceP_o)
-                                      ostr.writePendingValues()
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func checkSUnknownAsync(_ iceP_o: Ice.Value?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "checkSUnknown",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            write: { ostr in
+                                                ostr.write(iceP_o)
+                                                ostr.writePendingValues()
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1296,21 +1295,21 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<B?>` - The result of the operation
-    func oneElementCycleAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<B?> {
-        return _impl._invokeAsync(operation: "oneElementCycle",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  read: { istr in
-                                      var iceP_returnValue: B?
-                                      try istr.read(B.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `B?` - The result of the operation
+    func oneElementCycleAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> B? {
+        return try await _impl._invokeAsync(operation: "oneElementCycle",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            read: { istr in
+                                                var iceP_returnValue: B?
+                                                try istr.read(B.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1341,21 +1340,21 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<B?>` - The result of the operation
-    func twoElementCycleAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<B?> {
-        return _impl._invokeAsync(operation: "twoElementCycle",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  read: { istr in
-                                      var iceP_returnValue: B?
-                                      try istr.read(B.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `B?` - The result of the operation
+    func twoElementCycleAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> B? {
+        return try await _impl._invokeAsync(operation: "twoElementCycle",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            read: { istr in
+                                                var iceP_returnValue: B?
+                                                try istr.read(B.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1386,21 +1385,21 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<B?>` - The result of the operation
-    func D1AsBAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<B?> {
-        return _impl._invokeAsync(operation: "D1AsB",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  read: { istr in
-                                      var iceP_returnValue: B?
-                                      try istr.read(B.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `B?` - The result of the operation
+    func D1AsBAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> B? {
+        return try await _impl._invokeAsync(operation: "D1AsB",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            read: { istr in
+                                                var iceP_returnValue: B?
+                                                try istr.read(B.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1431,21 +1430,21 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<D1?>` - The result of the operation
-    func D1AsD1Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<D1?> {
-        return _impl._invokeAsync(operation: "D1AsD1",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  read: { istr in
-                                      var iceP_returnValue: D1?
-                                      try istr.read(D1.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `D1?` - The result of the operation
+    func D1AsD1Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> D1? {
+        return try await _impl._invokeAsync(operation: "D1AsD1",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            read: { istr in
+                                                var iceP_returnValue: D1?
+                                                try istr.read(D1.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1476,21 +1475,21 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<B?>` - The result of the operation
-    func D2AsBAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<B?> {
-        return _impl._invokeAsync(operation: "D2AsB",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  read: { istr in
-                                      var iceP_returnValue: B?
-                                      try istr.read(B.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `B?` - The result of the operation
+    func D2AsBAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> B? {
+        return try await _impl._invokeAsync(operation: "D2AsB",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            read: { istr in
+                                                var iceP_returnValue: B?
+                                                try istr.read(B.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1527,23 +1526,23 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(p1: B?, p2: B?)>` - The result of the operation
-    func paramTest1Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(p1: B?, p2: B?)> {
-        return _impl._invokeAsync(operation: "paramTest1",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  read: { istr in
-                                      var iceP_p1: B?
-                                      try istr.read(B.self) { iceP_p1 = $0 }
-                                      var iceP_p2: B?
-                                      try istr.read(B.self) { iceP_p2 = $0 }
-                                      try istr.readPendingValues()
-                                      return (iceP_p1, iceP_p2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(p1: B?, p2: B?)` - The result of the operation
+    func paramTest1Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (p1: B?, p2: B?) {
+        return try await _impl._invokeAsync(operation: "paramTest1",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            read: { istr in
+                                                var iceP_p1: B?
+                                                try istr.read(B.self) { iceP_p1 = $0 }
+                                                var iceP_p2: B?
+                                                try istr.read(B.self) { iceP_p2 = $0 }
+                                                try istr.readPendingValues()
+                                                return (iceP_p1, iceP_p2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1580,23 +1579,23 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(p2: B?, p1: B?)>` - The result of the operation
-    func paramTest2Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(p2: B?, p1: B?)> {
-        return _impl._invokeAsync(operation: "paramTest2",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  read: { istr in
-                                      var iceP_p2: B?
-                                      try istr.read(B.self) { iceP_p2 = $0 }
-                                      var iceP_p1: B?
-                                      try istr.read(B.self) { iceP_p1 = $0 }
-                                      try istr.readPendingValues()
-                                      return (iceP_p2, iceP_p1)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(p2: B?, p1: B?)` - The result of the operation
+    func paramTest2Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (p2: B?, p1: B?) {
+        return try await _impl._invokeAsync(operation: "paramTest2",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            read: { istr in
+                                                var iceP_p2: B?
+                                                try istr.read(B.self) { iceP_p2 = $0 }
+                                                var iceP_p1: B?
+                                                try istr.read(B.self) { iceP_p1 = $0 }
+                                                try istr.readPendingValues()
+                                                return (iceP_p2, iceP_p1)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1637,25 +1636,25 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: B?, p1: B?, p2: B?)>` - The result of the operation
-    func paramTest3Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: B?, p1: B?, p2: B?)> {
-        return _impl._invokeAsync(operation: "paramTest3",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  read: { istr in
-                                      var iceP_p1: B?
-                                      try istr.read(B.self) { iceP_p1 = $0 }
-                                      var iceP_p2: B?
-                                      try istr.read(B.self) { iceP_p2 = $0 }
-                                      var iceP_returnValue: B?
-                                      try istr.read(B.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return (iceP_returnValue, iceP_p1, iceP_p2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: B?, p1: B?, p2: B?)` - The result of the operation
+    func paramTest3Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: B?, p1: B?, p2: B?) {
+        return try await _impl._invokeAsync(operation: "paramTest3",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            read: { istr in
+                                                var iceP_p1: B?
+                                                try istr.read(B.self) { iceP_p1 = $0 }
+                                                var iceP_p2: B?
+                                                try istr.read(B.self) { iceP_p2 = $0 }
+                                                var iceP_returnValue: B?
+                                                try istr.read(B.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return (iceP_returnValue, iceP_p1, iceP_p2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1692,23 +1691,23 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: B?, p: B?)>` - The result of the operation
-    func paramTest4Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: B?, p: B?)> {
-        return _impl._invokeAsync(operation: "paramTest4",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  read: { istr in
-                                      var iceP_p: B?
-                                      try istr.read(B.self) { iceP_p = $0 }
-                                      var iceP_returnValue: B?
-                                      try istr.read(B.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return (iceP_returnValue, iceP_p)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: B?, p: B?)` - The result of the operation
+    func paramTest4Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: B?, p: B?) {
+        return try await _impl._invokeAsync(operation: "paramTest4",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            read: { istr in
+                                                var iceP_p: B?
+                                                try istr.read(B.self) { iceP_p = $0 }
+                                                var iceP_returnValue: B?
+                                                try istr.read(B.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return (iceP_returnValue, iceP_p)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1749,25 +1748,25 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: B?, p1: B?, p2: B?)>` - The result of the operation
-    func returnTest1Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: B?, p1: B?, p2: B?)> {
-        return _impl._invokeAsync(operation: "returnTest1",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  read: { istr in
-                                      var iceP_p1: B?
-                                      try istr.read(B.self) { iceP_p1 = $0 }
-                                      var iceP_p2: B?
-                                      try istr.read(B.self) { iceP_p2 = $0 }
-                                      var iceP_returnValue: B?
-                                      try istr.read(B.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return (iceP_returnValue, iceP_p1, iceP_p2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: B?, p1: B?, p2: B?)` - The result of the operation
+    func returnTest1Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: B?, p1: B?, p2: B?) {
+        return try await _impl._invokeAsync(operation: "returnTest1",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            read: { istr in
+                                                var iceP_p1: B?
+                                                try istr.read(B.self) { iceP_p1 = $0 }
+                                                var iceP_p2: B?
+                                                try istr.read(B.self) { iceP_p2 = $0 }
+                                                var iceP_returnValue: B?
+                                                try istr.read(B.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return (iceP_returnValue, iceP_p1, iceP_p2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1808,25 +1807,25 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: B?, p2: B?, p1: B?)>` - The result of the operation
-    func returnTest2Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: B?, p2: B?, p1: B?)> {
-        return _impl._invokeAsync(operation: "returnTest2",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  read: { istr in
-                                      var iceP_p2: B?
-                                      try istr.read(B.self) { iceP_p2 = $0 }
-                                      var iceP_p1: B?
-                                      try istr.read(B.self) { iceP_p1 = $0 }
-                                      var iceP_returnValue: B?
-                                      try istr.read(B.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return (iceP_returnValue, iceP_p2, iceP_p1)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: B?, p2: B?, p1: B?)` - The result of the operation
+    func returnTest2Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: B?, p2: B?, p1: B?) {
+        return try await _impl._invokeAsync(operation: "returnTest2",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            read: { istr in
+                                                var iceP_p2: B?
+                                                try istr.read(B.self) { iceP_p2 = $0 }
+                                                var iceP_p1: B?
+                                                try istr.read(B.self) { iceP_p1 = $0 }
+                                                var iceP_returnValue: B?
+                                                try istr.read(B.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return (iceP_returnValue, iceP_p2, iceP_p1)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1870,26 +1869,26 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<B?>` - The result of the operation
-    func returnTest3Async(p1 iceP_p1: B?, p2 iceP_p2: B?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<B?> {
-        return _impl._invokeAsync(operation: "returnTest3",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  write: { ostr in
-                                      ostr.write(iceP_p1)
-                                      ostr.write(iceP_p2)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      var iceP_returnValue: B?
-                                      try istr.read(B.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `B?` - The result of the operation
+    func returnTest3Async(p1 iceP_p1: B?, p2 iceP_p2: B?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> B? {
+        return try await _impl._invokeAsync(operation: "returnTest3",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            write: { ostr in
+                                                ostr.write(iceP_p1)
+                                                ostr.write(iceP_p2)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                var iceP_returnValue: B?
+                                                try istr.read(B.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1932,25 +1931,25 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<SS3>` - The result of the operation
-    func sequenceTestAsync(p1 iceP_p1: SS1?, p2 iceP_p2: SS2?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<SS3> {
-        return _impl._invokeAsync(operation: "sequenceTest",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  write: { ostr in
-                                      ostr.write(iceP_p1)
-                                      ostr.write(iceP_p2)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: SS3 = try istr.read()
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `SS3` - The result of the operation
+    func sequenceTestAsync(p1 iceP_p1: SS1?, p2 iceP_p2: SS2?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> SS3 {
+        return try await _impl._invokeAsync(operation: "sequenceTest",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            write: { ostr in
+                                                ostr.write(iceP_p1)
+                                                ostr.write(iceP_p2)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: SS3 = try istr.read()
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1993,25 +1992,25 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: BDict, bout: BDict)>` - The result of the operation
-    func dictionaryTestAsync(_ iceP_bin: BDict, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: BDict, bout: BDict)> {
-        return _impl._invokeAsync(operation: "dictionaryTest",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  write: { ostr in
-                                      BDictHelper.write(to: ostr, value: iceP_bin)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      let iceP_bout: BDict = try BDictHelper.read(from: istr)
-                                      let iceP_returnValue: BDict = try BDictHelper.read(from: istr)
-                                      try istr.readPendingValues()
-                                      return (iceP_returnValue, iceP_bout)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: BDict, bout: BDict)` - The result of the operation
+    func dictionaryTestAsync(_ iceP_bin: BDict, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: BDict, bout: BDict) {
+        return try await _impl._invokeAsync(operation: "dictionaryTest",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            write: { ostr in
+                                                BDictHelper.write(to: ostr, value: iceP_bin)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                let iceP_bout: BDict = try BDictHelper.read(from: istr)
+                                                let iceP_returnValue: BDict = try BDictHelper.read(from: istr)
+                                                try istr.readPendingValues()
+                                                return (iceP_returnValue, iceP_bout)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2050,25 +2049,25 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<PBase?>` - The result of the operation
-    func exchangePBaseAsync(_ iceP_pb: PBase?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<PBase?> {
-        return _impl._invokeAsync(operation: "exchangePBase",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  write: { ostr in
-                                      ostr.write(iceP_pb)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      var iceP_returnValue: PBase?
-                                      try istr.read(PBase.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `PBase?` - The result of the operation
+    func exchangePBaseAsync(_ iceP_pb: PBase?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> PBase? {
+        return try await _impl._invokeAsync(operation: "exchangePBase",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            write: { ostr in
+                                                ostr.write(iceP_pb)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                var iceP_returnValue: PBase?
+                                                try istr.read(PBase.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2099,21 +2098,21 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Preserved?>` - The result of the operation
-    func PBSUnknownAsPreservedAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Preserved?> {
-        return _impl._invokeAsync(operation: "PBSUnknownAsPreserved",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  read: { istr in
-                                      var iceP_returnValue: Preserved?
-                                      try istr.read(Preserved.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Preserved?` - The result of the operation
+    func PBSUnknownAsPreservedAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Preserved? {
+        return try await _impl._invokeAsync(operation: "PBSUnknownAsPreserved",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            read: { istr in
+                                                var iceP_returnValue: Preserved?
+                                                try istr.read(Preserved.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2144,19 +2143,19 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func checkPBSUnknownAsync(_ iceP_p: Preserved?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "checkPBSUnknown",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  write: { ostr in
-                                      ostr.write(iceP_p)
-                                      ostr.writePendingValues()
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func checkPBSUnknownAsync(_ iceP_p: Preserved?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "checkPBSUnknown",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            write: { ostr in
+                                                ostr.write(iceP_p)
+                                                ostr.writePendingValues()
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2187,21 +2186,21 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Preserved?>` - The result of the operation
-    func PBSUnknownAsPreservedWithGraphAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Preserved?> {
-        return _impl._invokeAsync(operation: "PBSUnknownAsPreservedWithGraph",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  read: { istr in
-                                      var iceP_returnValue: Preserved?
-                                      try istr.read(Preserved.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Preserved?` - The result of the operation
+    func PBSUnknownAsPreservedWithGraphAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Preserved? {
+        return try await _impl._invokeAsync(operation: "PBSUnknownAsPreservedWithGraph",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            read: { istr in
+                                                var iceP_returnValue: Preserved?
+                                                try istr.read(Preserved.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2232,19 +2231,19 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func checkPBSUnknownWithGraphAsync(_ iceP_p: Preserved?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "checkPBSUnknownWithGraph",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  write: { ostr in
-                                      ostr.write(iceP_p)
-                                      ostr.writePendingValues()
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func checkPBSUnknownWithGraphAsync(_ iceP_p: Preserved?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "checkPBSUnknownWithGraph",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            write: { ostr in
+                                                ostr.write(iceP_p)
+                                                ostr.writePendingValues()
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2275,21 +2274,21 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Preserved?>` - The result of the operation
-    func PBSUnknown2AsPreservedWithGraphAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Preserved?> {
-        return _impl._invokeAsync(operation: "PBSUnknown2AsPreservedWithGraph",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  read: { istr in
-                                      var iceP_returnValue: Preserved?
-                                      try istr.read(Preserved.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Preserved?` - The result of the operation
+    func PBSUnknown2AsPreservedWithGraphAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Preserved? {
+        return try await _impl._invokeAsync(operation: "PBSUnknown2AsPreservedWithGraph",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            read: { istr in
+                                                var iceP_returnValue: Preserved?
+                                                try istr.read(Preserved.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2320,19 +2319,19 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func checkPBSUnknown2WithGraphAsync(_ iceP_p: Preserved?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "checkPBSUnknown2WithGraph",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  write: { ostr in
-                                      ostr.write(iceP_p)
-                                      ostr.writePendingValues()
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func checkPBSUnknown2WithGraphAsync(_ iceP_p: Preserved?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "checkPBSUnknown2WithGraph",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            write: { ostr in
+                                                ostr.write(iceP_p)
+                                                ostr.writePendingValues()
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2371,25 +2370,25 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<PNode?>` - The result of the operation
-    func exchangePNodeAsync(_ iceP_pn: PNode?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<PNode?> {
-        return _impl._invokeAsync(operation: "exchangePNode",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  write: { ostr in
-                                      ostr.write(iceP_pn)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      var iceP_returnValue: PNode?
-                                      try istr.read(PNode.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `PNode?` - The result of the operation
+    func exchangePNodeAsync(_ iceP_pn: PNode?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> PNode? {
+        return try await _impl._invokeAsync(operation: "exchangePNode",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            write: { ostr in
+                                                ostr.write(iceP_pn)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                var iceP_returnValue: PNode?
+                                                try istr.read(PNode.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2419,22 +2418,22 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func throwBaseAsBaseAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "throwBaseAsBase",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as BaseException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func throwBaseAsBaseAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "throwBaseAsBase",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as BaseException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2464,22 +2463,22 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func throwDerivedAsBaseAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "throwDerivedAsBase",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as BaseException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func throwDerivedAsBaseAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "throwDerivedAsBase",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as BaseException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2509,22 +2508,22 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func throwDerivedAsDerivedAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "throwDerivedAsDerived",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as DerivedException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func throwDerivedAsDerivedAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "throwDerivedAsDerived",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as DerivedException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2554,22 +2553,22 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func throwUnknownDerivedAsBaseAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "throwUnknownDerivedAsBase",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as BaseException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func throwUnknownDerivedAsBaseAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "throwUnknownDerivedAsBase",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as BaseException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2599,22 +2598,22 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func throwPreservedExceptionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "throwPreservedException",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as PreservedException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func throwPreservedExceptionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "throwPreservedException",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as PreservedException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Use of forward-declared class to verify that code is generated correctly.
@@ -2647,21 +2646,21 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Forward?>` - The result of the operation
-    func useForwardAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Forward?> {
-        return _impl._invokeAsync(operation: "useForward",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  read: { istr in
-                                      var iceP_f: Forward?
-                                      try istr.read(Forward.self) { iceP_f = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_f
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Forward?` - The result of the operation
+    func useForwardAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Forward? {
+        return try await _impl._invokeAsync(operation: "useForward",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            read: { istr in
+                                                var iceP_f: Forward?
+                                                try istr.read(Forward.self) { iceP_f = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_f
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2684,15 +2683,15 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "shutdown",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "shutdown",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -3539,92 +3538,92 @@ public struct TestIntfDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "D1AsB":
-            servant._iceD_D1AsB(request)
+            try await servant._iceD_D1AsB(request)
         case "D1AsD1":
-            servant._iceD_D1AsD1(request)
+            try await servant._iceD_D1AsD1(request)
         case "D2AsB":
-            servant._iceD_D2AsB(request)
+            try await servant._iceD_D2AsB(request)
         case "PBSUnknown2AsPreservedWithGraph":
-            servant._iceD_PBSUnknown2AsPreservedWithGraph(request)
+            try await servant._iceD_PBSUnknown2AsPreservedWithGraph(request)
         case "PBSUnknownAsPreserved":
-            servant._iceD_PBSUnknownAsPreserved(request)
+            try await servant._iceD_PBSUnknownAsPreserved(request)
         case "PBSUnknownAsPreservedWithGraph":
-            servant._iceD_PBSUnknownAsPreservedWithGraph(request)
+            try await servant._iceD_PBSUnknownAsPreservedWithGraph(request)
         case "SBSKnownDerivedAsSBSKnownDerived":
-            servant._iceD_SBSKnownDerivedAsSBSKnownDerived(request)
+            try await servant._iceD_SBSKnownDerivedAsSBSKnownDerived(request)
         case "SBSKnownDerivedAsSBase":
-            servant._iceD_SBSKnownDerivedAsSBase(request)
+            try await servant._iceD_SBSKnownDerivedAsSBase(request)
         case "SBSUnknownDerivedAsSBase":
-            servant._iceD_SBSUnknownDerivedAsSBase(request)
+            try await servant._iceD_SBSUnknownDerivedAsSBase(request)
         case "SBSUnknownDerivedAsSBaseCompact":
-            servant._iceD_SBSUnknownDerivedAsSBaseCompact(request)
+            try await servant._iceD_SBSUnknownDerivedAsSBaseCompact(request)
         case "SBaseAsObject":
-            servant._iceD_SBaseAsObject(request)
+            try await servant._iceD_SBaseAsObject(request)
         case "SBaseAsSBase":
-            servant._iceD_SBaseAsSBase(request)
+            try await servant._iceD_SBaseAsSBase(request)
         case "SUnknownAsObject":
-            servant._iceD_SUnknownAsObject(request)
+            try await servant._iceD_SUnknownAsObject(request)
         case "checkPBSUnknown":
-            servant._iceD_checkPBSUnknown(request)
+            try await servant._iceD_checkPBSUnknown(request)
         case "checkPBSUnknown2WithGraph":
-            servant._iceD_checkPBSUnknown2WithGraph(request)
+            try await servant._iceD_checkPBSUnknown2WithGraph(request)
         case "checkPBSUnknownWithGraph":
-            servant._iceD_checkPBSUnknownWithGraph(request)
+            try await servant._iceD_checkPBSUnknownWithGraph(request)
         case "checkSUnknown":
-            servant._iceD_checkSUnknown(request)
+            try await servant._iceD_checkSUnknown(request)
         case "dictionaryTest":
-            servant._iceD_dictionaryTest(request)
+            try await servant._iceD_dictionaryTest(request)
         case "exchangePBase":
-            servant._iceD_exchangePBase(request)
+            try await servant._iceD_exchangePBase(request)
         case "exchangePNode":
-            servant._iceD_exchangePNode(request)
+            try await servant._iceD_exchangePNode(request)
         case "ice_id":
-            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
         case "oneElementCycle":
-            servant._iceD_oneElementCycle(request)
+            try await servant._iceD_oneElementCycle(request)
         case "paramTest1":
-            servant._iceD_paramTest1(request)
+            try await servant._iceD_paramTest1(request)
         case "paramTest2":
-            servant._iceD_paramTest2(request)
+            try await servant._iceD_paramTest2(request)
         case "paramTest3":
-            servant._iceD_paramTest3(request)
+            try await servant._iceD_paramTest3(request)
         case "paramTest4":
-            servant._iceD_paramTest4(request)
+            try await servant._iceD_paramTest4(request)
         case "returnTest1":
-            servant._iceD_returnTest1(request)
+            try await servant._iceD_returnTest1(request)
         case "returnTest2":
-            servant._iceD_returnTest2(request)
+            try await servant._iceD_returnTest2(request)
         case "returnTest3":
-            servant._iceD_returnTest3(request)
+            try await servant._iceD_returnTest3(request)
         case "sequenceTest":
-            servant._iceD_sequenceTest(request)
+            try await servant._iceD_sequenceTest(request)
         case "shutdown":
-            servant._iceD_shutdown(request)
+            try await servant._iceD_shutdown(request)
         case "throwBaseAsBase":
-            servant._iceD_throwBaseAsBase(request)
+            try await servant._iceD_throwBaseAsBase(request)
         case "throwDerivedAsBase":
-            servant._iceD_throwDerivedAsBase(request)
+            try await servant._iceD_throwDerivedAsBase(request)
         case "throwDerivedAsDerived":
-            servant._iceD_throwDerivedAsDerived(request)
+            try await servant._iceD_throwDerivedAsDerived(request)
         case "throwPreservedException":
-            servant._iceD_throwPreservedException(request)
+            try await servant._iceD_throwPreservedException(request)
         case "throwUnknownDerivedAsBase":
-            servant._iceD_throwUnknownDerivedAsBase(request)
+            try await servant._iceD_throwUnknownDerivedAsBase(request)
         case "twoElementCycle":
-            servant._iceD_twoElementCycle(request)
+            try await servant._iceD_twoElementCycle(request)
         case "useForward":
-            servant._iceD_useForward(request)
+            try await servant._iceD_useForward(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -3633,118 +3632,118 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<Ice.Value?>` - The result of the operation
-    func SBaseAsObjectAsync(current: Ice.Current) -> PromiseKit.Promise<Ice.Value?>
+    /// - returns: `Ice.Value?` - The result of the operation
+    func SBaseAsObjectAsync(current: Ice.Current) async throws -> Ice.Value?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<SBase?>` - The result of the operation
-    func SBaseAsSBaseAsync(current: Ice.Current) -> PromiseKit.Promise<SBase?>
+    /// - returns: `SBase?` - The result of the operation
+    func SBaseAsSBaseAsync(current: Ice.Current) async throws -> SBase?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<SBase?>` - The result of the operation
-    func SBSKnownDerivedAsSBaseAsync(current: Ice.Current) -> PromiseKit.Promise<SBase?>
+    /// - returns: `SBase?` - The result of the operation
+    func SBSKnownDerivedAsSBaseAsync(current: Ice.Current) async throws -> SBase?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<SBSKnownDerived?>` - The result of the operation
-    func SBSKnownDerivedAsSBSKnownDerivedAsync(current: Ice.Current) -> PromiseKit.Promise<SBSKnownDerived?>
+    /// - returns: `SBSKnownDerived?` - The result of the operation
+    func SBSKnownDerivedAsSBSKnownDerivedAsync(current: Ice.Current) async throws -> SBSKnownDerived?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<SBase?>` - The result of the operation
-    func SBSUnknownDerivedAsSBaseAsync(current: Ice.Current) -> PromiseKit.Promise<SBase?>
+    /// - returns: `SBase?` - The result of the operation
+    func SBSUnknownDerivedAsSBaseAsync(current: Ice.Current) async throws -> SBase?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<SBase?>` - The result of the operation
-    func SBSUnknownDerivedAsSBaseCompactAsync(current: Ice.Current) -> PromiseKit.Promise<SBase?>
+    /// - returns: `SBase?` - The result of the operation
+    func SBSUnknownDerivedAsSBaseCompactAsync(current: Ice.Current) async throws -> SBase?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<Ice.Value?>` - The result of the operation
-    func SUnknownAsObjectAsync(current: Ice.Current) -> PromiseKit.Promise<Ice.Value?>
+    /// - returns: `Ice.Value?` - The result of the operation
+    func SUnknownAsObjectAsync(current: Ice.Current) async throws -> Ice.Value?
 
     ///
     /// - parameter o: `Ice.Value?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func checkSUnknownAsync(o: Ice.Value?, current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
+    /// - returns: `` - The result of the operation
+    func checkSUnknownAsync(o: Ice.Value?, current: Ice.Current) async throws -> Swift.Void
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<B?>` - The result of the operation
-    func oneElementCycleAsync(current: Ice.Current) -> PromiseKit.Promise<B?>
+    /// - returns: `B?` - The result of the operation
+    func oneElementCycleAsync(current: Ice.Current) async throws -> B?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<B?>` - The result of the operation
-    func twoElementCycleAsync(current: Ice.Current) -> PromiseKit.Promise<B?>
+    /// - returns: `B?` - The result of the operation
+    func twoElementCycleAsync(current: Ice.Current) async throws -> B?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<B?>` - The result of the operation
-    func D1AsBAsync(current: Ice.Current) -> PromiseKit.Promise<B?>
+    /// - returns: `B?` - The result of the operation
+    func D1AsBAsync(current: Ice.Current) async throws -> B?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<D1?>` - The result of the operation
-    func D1AsD1Async(current: Ice.Current) -> PromiseKit.Promise<D1?>
+    /// - returns: `D1?` - The result of the operation
+    func D1AsD1Async(current: Ice.Current) async throws -> D1?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<B?>` - The result of the operation
-    func D2AsBAsync(current: Ice.Current) -> PromiseKit.Promise<B?>
+    /// - returns: `B?` - The result of the operation
+    func D2AsBAsync(current: Ice.Current) async throws -> B?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<(p1: B?, p2: B?)>` - The result of the operation
-    func paramTest1Async(current: Ice.Current) -> PromiseKit.Promise<(p1: B?, p2: B?)>
+    /// - returns: `(p1: B?, p2: B?)` - The result of the operation
+    func paramTest1Async(current: Ice.Current) async throws -> (p1: B?, p2: B?)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<(p2: B?, p1: B?)>` - The result of the operation
-    func paramTest2Async(current: Ice.Current) -> PromiseKit.Promise<(p2: B?, p1: B?)>
+    /// - returns: `(p2: B?, p1: B?)` - The result of the operation
+    func paramTest2Async(current: Ice.Current) async throws -> (p2: B?, p1: B?)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: B?, p1: B?, p2: B?)>` - The result of the operation
-    func paramTest3Async(current: Ice.Current) -> PromiseKit.Promise<(returnValue: B?, p1: B?, p2: B?)>
+    /// - returns: `(returnValue: B?, p1: B?, p2: B?)` - The result of the operation
+    func paramTest3Async(current: Ice.Current) async throws -> (returnValue: B?, p1: B?, p2: B?)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: B?, p: B?)>` - The result of the operation
-    func paramTest4Async(current: Ice.Current) -> PromiseKit.Promise<(returnValue: B?, p: B?)>
+    /// - returns: `(returnValue: B?, p: B?)` - The result of the operation
+    func paramTest4Async(current: Ice.Current) async throws -> (returnValue: B?, p: B?)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: B?, p1: B?, p2: B?)>` - The result of the operation
-    func returnTest1Async(current: Ice.Current) -> PromiseKit.Promise<(returnValue: B?, p1: B?, p2: B?)>
+    /// - returns: `(returnValue: B?, p1: B?, p2: B?)` - The result of the operation
+    func returnTest1Async(current: Ice.Current) async throws -> (returnValue: B?, p1: B?, p2: B?)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: B?, p2: B?, p1: B?)>` - The result of the operation
-    func returnTest2Async(current: Ice.Current) -> PromiseKit.Promise<(returnValue: B?, p2: B?, p1: B?)>
+    /// - returns: `(returnValue: B?, p2: B?, p1: B?)` - The result of the operation
+    func returnTest2Async(current: Ice.Current) async throws -> (returnValue: B?, p2: B?, p1: B?)
 
     ///
     /// - parameter p1: `B?`
@@ -3753,8 +3752,8 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<B?>` - The result of the operation
-    func returnTest3Async(p1: B?, p2: B?, current: Ice.Current) -> PromiseKit.Promise<B?>
+    /// - returns: `B?` - The result of the operation
+    func returnTest3Async(p1: B?, p2: B?, current: Ice.Current) async throws -> B?
 
     ///
     /// - parameter p1: `SS1?`
@@ -3763,117 +3762,117 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<SS3>` - The result of the operation
-    func sequenceTestAsync(p1: SS1?, p2: SS2?, current: Ice.Current) -> PromiseKit.Promise<SS3>
+    /// - returns: `SS3` - The result of the operation
+    func sequenceTestAsync(p1: SS1?, p2: SS2?, current: Ice.Current) async throws -> SS3
 
     ///
     /// - parameter bin: `BDict`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: BDict, bout: BDict)>` - The result of the operation
-    func dictionaryTestAsync(bin: BDict, current: Ice.Current) -> PromiseKit.Promise<(returnValue: BDict, bout: BDict)>
+    /// - returns: `(returnValue: BDict, bout: BDict)` - The result of the operation
+    func dictionaryTestAsync(bin: BDict, current: Ice.Current) async throws -> (returnValue: BDict, bout: BDict)
 
     ///
     /// - parameter pb: `PBase?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<PBase?>` - The result of the operation
-    func exchangePBaseAsync(pb: PBase?, current: Ice.Current) -> PromiseKit.Promise<PBase?>
+    /// - returns: `PBase?` - The result of the operation
+    func exchangePBaseAsync(pb: PBase?, current: Ice.Current) async throws -> PBase?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<Preserved?>` - The result of the operation
-    func PBSUnknownAsPreservedAsync(current: Ice.Current) -> PromiseKit.Promise<Preserved?>
-
-    ///
-    /// - parameter p: `Preserved?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func checkPBSUnknownAsync(p: Preserved?, current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PromiseKit.Promise<Preserved?>` - The result of the operation
-    func PBSUnknownAsPreservedWithGraphAsync(current: Ice.Current) -> PromiseKit.Promise<Preserved?>
+    /// - returns: `Preserved?` - The result of the operation
+    func PBSUnknownAsPreservedAsync(current: Ice.Current) async throws -> Preserved?
 
     ///
     /// - parameter p: `Preserved?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func checkPBSUnknownWithGraphAsync(p: Preserved?, current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
+    /// - returns: `` - The result of the operation
+    func checkPBSUnknownAsync(p: Preserved?, current: Ice.Current) async throws -> Swift.Void
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<Preserved?>` - The result of the operation
-    func PBSUnknown2AsPreservedWithGraphAsync(current: Ice.Current) -> PromiseKit.Promise<Preserved?>
+    /// - returns: `Preserved?` - The result of the operation
+    func PBSUnknownAsPreservedWithGraphAsync(current: Ice.Current) async throws -> Preserved?
 
     ///
     /// - parameter p: `Preserved?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func checkPBSUnknown2WithGraphAsync(p: Preserved?, current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
+    /// - returns: `` - The result of the operation
+    func checkPBSUnknownWithGraphAsync(p: Preserved?, current: Ice.Current) async throws -> Swift.Void
+
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `Preserved?` - The result of the operation
+    func PBSUnknown2AsPreservedWithGraphAsync(current: Ice.Current) async throws -> Preserved?
+
+    ///
+    /// - parameter p: `Preserved?`
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `` - The result of the operation
+    func checkPBSUnknown2WithGraphAsync(p: Preserved?, current: Ice.Current) async throws -> Swift.Void
 
     ///
     /// - parameter pn: `PNode?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<PNode?>` - The result of the operation
-    func exchangePNodeAsync(pn: PNode?, current: Ice.Current) -> PromiseKit.Promise<PNode?>
+    /// - returns: `PNode?` - The result of the operation
+    func exchangePNodeAsync(pn: PNode?, current: Ice.Current) async throws -> PNode?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func throwBaseAsBaseAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
+    /// - returns: `` - The result of the operation
+    func throwBaseAsBaseAsync(current: Ice.Current) async throws -> Swift.Void
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func throwDerivedAsBaseAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
+    /// - returns: `` - The result of the operation
+    func throwDerivedAsBaseAsync(current: Ice.Current) async throws -> Swift.Void
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func throwDerivedAsDerivedAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
+    /// - returns: `` - The result of the operation
+    func throwDerivedAsDerivedAsync(current: Ice.Current) async throws -> Swift.Void
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func throwUnknownDerivedAsBaseAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
+    /// - returns: `` - The result of the operation
+    func throwUnknownDerivedAsBaseAsync(current: Ice.Current) async throws -> Swift.Void
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func throwPreservedExceptionAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
+    /// - returns: `` - The result of the operation
+    func throwPreservedExceptionAsync(current: Ice.Current) async throws -> Swift.Void
 
     /// Use of forward-declared class to verify that code is generated correctly.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<Forward?>` - The result of the operation
-    func useForwardAsync(current: Ice.Current) -> PromiseKit.Promise<Forward?>
+    /// - returns: `Forward?` - The result of the operation
+    func useForwardAsync(current: Ice.Current) async throws -> Forward?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func shutdownAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
+    /// - returns: `` - The result of the operation
+    func shutdownAsync(current: Ice.Current) async throws -> Swift.Void
 }
 
 /// TestIntf overview.
@@ -3954,641 +3953,456 @@ public protocol TestIntf {
 ///
 ///  - shutdown: 
 extension TestIntf {
-    public func _iceD_SBaseAsObject(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.SBaseAsObjectAsync(
-                current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let iceP_returnValue = value
-                    ostr.write(iceP_returnValue)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_SBaseAsObject(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.SBaseAsObjectAsync(
+            current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_SBaseAsSBase(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.SBaseAsSBaseAsync(
-                current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let iceP_returnValue = value
-                    ostr.write(iceP_returnValue)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_SBaseAsSBase(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.SBaseAsSBaseAsync(
+            current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_SBSKnownDerivedAsSBase(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.SBSKnownDerivedAsSBaseAsync(
-                current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let iceP_returnValue = value
-                    ostr.write(iceP_returnValue)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_SBSKnownDerivedAsSBase(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.SBSKnownDerivedAsSBaseAsync(
+            current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_SBSKnownDerivedAsSBSKnownDerived(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.SBSKnownDerivedAsSBSKnownDerivedAsync(
-                current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let iceP_returnValue = value
-                    ostr.write(iceP_returnValue)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_SBSKnownDerivedAsSBSKnownDerived(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.SBSKnownDerivedAsSBSKnownDerivedAsync(
+            current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_SBSUnknownDerivedAsSBase(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.SBSUnknownDerivedAsSBaseAsync(
-                current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let iceP_returnValue = value
-                    ostr.write(iceP_returnValue)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_SBSUnknownDerivedAsSBase(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.SBSUnknownDerivedAsSBaseAsync(
+            current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_SBSUnknownDerivedAsSBaseCompact(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.SBSUnknownDerivedAsSBaseCompactAsync(
-                current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.CompactFormat) { ostr, value in 
-                    let iceP_returnValue = value
-                    ostr.write(iceP_returnValue)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_SBSUnknownDerivedAsSBaseCompact(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.SBSUnknownDerivedAsSBaseCompactAsync(
+            current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.CompactFormat) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_SUnknownAsObject(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.SUnknownAsObjectAsync(
-                current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let iceP_returnValue = value
-                    ostr.write(iceP_returnValue)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_SUnknownAsObject(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.SUnknownAsObjectAsync(
+            current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_checkSUnknown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            var iceP_o: Ice.Value?
-            try istr.read() { iceP_o = $0 }
-            try istr.readPendingValues()
-            return self.checkSUnknownAsync(
-                o: iceP_o, current: request.current
-            ).map(on: nil) {
-                request.current.makeEmptyOutgoingResponse()
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_checkSUnknown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        var iceP_o: Ice.Value?
+        try istr.read() { iceP_o = $0 }
+        try istr.readPendingValues()
+        try await self.checkSUnknownAsync(
+            o: iceP_o, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
+    }
+
+    public func _iceD_oneElementCycle(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.oneElementCycleAsync(
+            current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_oneElementCycle(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.oneElementCycleAsync(
-                current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let iceP_returnValue = value
-                    ostr.write(iceP_returnValue)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_twoElementCycle(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.twoElementCycleAsync(
+            current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_twoElementCycle(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.twoElementCycleAsync(
-                current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let iceP_returnValue = value
-                    ostr.write(iceP_returnValue)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_D1AsB(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.D1AsBAsync(
+            current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_D1AsB(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.D1AsBAsync(
-                current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let iceP_returnValue = value
-                    ostr.write(iceP_returnValue)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_D1AsD1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.D1AsD1Async(
+            current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_D1AsD1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.D1AsD1Async(
-                current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let iceP_returnValue = value
-                    ostr.write(iceP_returnValue)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_D2AsB(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.D2AsBAsync(
+            current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_D2AsB(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.D2AsBAsync(
-                current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let iceP_returnValue = value
-                    ostr.write(iceP_returnValue)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_paramTest1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.paramTest1Async(
+            current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let (iceP_p1, iceP_p2) = value
+            ostr.write(iceP_p1)
+            ostr.write(iceP_p2)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_paramTest1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.paramTest1Async(
-                current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let (iceP_p1, iceP_p2) = value
-                    ostr.write(iceP_p1)
-                    ostr.write(iceP_p2)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_paramTest2(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.paramTest2Async(
+            current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let (iceP_p2, iceP_p1) = value
+            ostr.write(iceP_p2)
+            ostr.write(iceP_p1)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_paramTest2(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.paramTest2Async(
-                current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let (iceP_p2, iceP_p1) = value
-                    ostr.write(iceP_p2)
-                    ostr.write(iceP_p1)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_paramTest3(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.paramTest3Async(
+            current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let (iceP_returnValue, iceP_p1, iceP_p2) = value
+            ostr.write(iceP_p1)
+            ostr.write(iceP_p2)
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_paramTest3(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.paramTest3Async(
-                current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let (iceP_returnValue, iceP_p1, iceP_p2) = value
-                    ostr.write(iceP_p1)
-                    ostr.write(iceP_p2)
-                    ostr.write(iceP_returnValue)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_paramTest4(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.paramTest4Async(
+            current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let (iceP_returnValue, iceP_p) = value
+            ostr.write(iceP_p)
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_paramTest4(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.paramTest4Async(
-                current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let (iceP_returnValue, iceP_p) = value
-                    ostr.write(iceP_p)
-                    ostr.write(iceP_returnValue)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_returnTest1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.returnTest1Async(
+            current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let (iceP_returnValue, iceP_p1, iceP_p2) = value
+            ostr.write(iceP_p1)
+            ostr.write(iceP_p2)
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_returnTest1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.returnTest1Async(
-                current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let (iceP_returnValue, iceP_p1, iceP_p2) = value
-                    ostr.write(iceP_p1)
-                    ostr.write(iceP_p2)
-                    ostr.write(iceP_returnValue)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_returnTest2(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.returnTest2Async(
+            current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let (iceP_returnValue, iceP_p2, iceP_p1) = value
+            ostr.write(iceP_p2)
+            ostr.write(iceP_p1)
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_returnTest2(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.returnTest2Async(
-                current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let (iceP_returnValue, iceP_p2, iceP_p1) = value
-                    ostr.write(iceP_p2)
-                    ostr.write(iceP_p1)
-                    ostr.write(iceP_returnValue)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_returnTest3(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        var iceP_p1: B?
+        try istr.read(B.self) { iceP_p1 = $0 }
+        var iceP_p2: B?
+        try istr.read(B.self) { iceP_p2 = $0 }
+        try istr.readPendingValues()
+        let result = try await self.returnTest3Async(
+            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_returnTest3(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            var iceP_p1: B?
-            try istr.read(B.self) { iceP_p1 = $0 }
-            var iceP_p2: B?
-            try istr.read(B.self) { iceP_p2 = $0 }
-            try istr.readPendingValues()
-            return self.returnTest3Async(
-                p1: iceP_p1, p2: iceP_p2, current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let iceP_returnValue = value
-                    ostr.write(iceP_returnValue)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_sequenceTest(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        var iceP_p1: SS1?
+        try istr.read(SS1.self) { iceP_p1 = $0 }
+        var iceP_p2: SS2?
+        try istr.read(SS2.self) { iceP_p2 = $0 }
+        try istr.readPendingValues()
+        let result = try await self.sequenceTestAsync(
+            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_sequenceTest(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            var iceP_p1: SS1?
-            try istr.read(SS1.self) { iceP_p1 = $0 }
-            var iceP_p2: SS2?
-            try istr.read(SS2.self) { iceP_p2 = $0 }
-            try istr.readPendingValues()
-            return self.sequenceTestAsync(
-                p1: iceP_p1, p2: iceP_p2, current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let iceP_returnValue = value
-                    ostr.write(iceP_returnValue)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_dictionaryTest(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_bin: BDict = try BDictHelper.read(from: istr)
+        try istr.readPendingValues()
+        let result = try await self.dictionaryTestAsync(
+            bin: iceP_bin, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let (iceP_returnValue, iceP_bout) = value
+            BDictHelper.write(to: ostr, value: iceP_bout)
+            BDictHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_dictionaryTest(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_bin: BDict = try BDictHelper.read(from: istr)
-            try istr.readPendingValues()
-            return self.dictionaryTestAsync(
-                bin: iceP_bin, current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let (iceP_returnValue, iceP_bout) = value
-                    BDictHelper.write(to: ostr, value: iceP_bout)
-                    BDictHelper.write(to: ostr, value: iceP_returnValue)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_exchangePBase(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        var iceP_pb: PBase?
+        try istr.read(PBase.self) { iceP_pb = $0 }
+        try istr.readPendingValues()
+        let result = try await self.exchangePBaseAsync(
+            pb: iceP_pb, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_exchangePBase(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            var iceP_pb: PBase?
-            try istr.read(PBase.self) { iceP_pb = $0 }
-            try istr.readPendingValues()
-            return self.exchangePBaseAsync(
-                pb: iceP_pb, current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let iceP_returnValue = value
-                    ostr.write(iceP_returnValue)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_PBSUnknownAsPreserved(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.PBSUnknownAsPreservedAsync(
+            current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_PBSUnknownAsPreserved(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.PBSUnknownAsPreservedAsync(
-                current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let iceP_returnValue = value
-                    ostr.write(iceP_returnValue)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_checkPBSUnknown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        var iceP_p: Preserved?
+        try istr.read(Preserved.self) { iceP_p = $0 }
+        try istr.readPendingValues()
+        try await self.checkPBSUnknownAsync(
+            p: iceP_p, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
+    }
+
+    public func _iceD_PBSUnknownAsPreservedWithGraph(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.PBSUnknownAsPreservedWithGraphAsync(
+            current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_checkPBSUnknown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            var iceP_p: Preserved?
-            try istr.read(Preserved.self) { iceP_p = $0 }
-            try istr.readPendingValues()
-            return self.checkPBSUnknownAsync(
-                p: iceP_p, current: request.current
-            ).map(on: nil) {
-                request.current.makeEmptyOutgoingResponse()
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_checkPBSUnknownWithGraph(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        var iceP_p: Preserved?
+        try istr.read(Preserved.self) { iceP_p = $0 }
+        try istr.readPendingValues()
+        try await self.checkPBSUnknownWithGraphAsync(
+            p: iceP_p, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
+    }
+
+    public func _iceD_PBSUnknown2AsPreservedWithGraph(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.PBSUnknown2AsPreservedWithGraphAsync(
+            current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_PBSUnknownAsPreservedWithGraph(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.PBSUnknownAsPreservedWithGraphAsync(
-                current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let iceP_returnValue = value
-                    ostr.write(iceP_returnValue)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_checkPBSUnknown2WithGraph(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        var iceP_p: Preserved?
+        try istr.read(Preserved.self) { iceP_p = $0 }
+        try istr.readPendingValues()
+        try await self.checkPBSUnknown2WithGraphAsync(
+            p: iceP_p, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
+    }
+
+    public func _iceD_exchangePNode(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        var iceP_pn: PNode?
+        try istr.read(PNode.self) { iceP_pn = $0 }
+        try istr.readPendingValues()
+        let result = try await self.exchangePNodeAsync(
+            pn: iceP_pn, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_checkPBSUnknownWithGraph(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            var iceP_p: Preserved?
-            try istr.read(Preserved.self) { iceP_p = $0 }
-            try istr.readPendingValues()
-            return self.checkPBSUnknownWithGraphAsync(
-                p: iceP_p, current: request.current
-            ).map(on: nil) {
-                request.current.makeEmptyOutgoingResponse()
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_throwBaseAsBase(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        try await self.throwBaseAsBaseAsync(
+            current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
+    }
+
+    public func _iceD_throwDerivedAsBase(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        try await self.throwDerivedAsBaseAsync(
+            current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
+    }
+
+    public func _iceD_throwDerivedAsDerived(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        try await self.throwDerivedAsDerivedAsync(
+            current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
+    }
+
+    public func _iceD_throwUnknownDerivedAsBase(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        try await self.throwUnknownDerivedAsBaseAsync(
+            current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
+    }
+
+    public func _iceD_throwPreservedException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        try await self.throwPreservedExceptionAsync(
+            current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
+    }
+
+    public func _iceD_useForward(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.useForwardAsync(
+            current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+            let iceP_f = value
+            ostr.write(iceP_f)
+            ostr.writePendingValues()
         }
     }
 
-    public func _iceD_PBSUnknown2AsPreservedWithGraph(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.PBSUnknown2AsPreservedWithGraphAsync(
-                current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let iceP_returnValue = value
-                    ostr.write(iceP_returnValue)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
-    }
-
-    public func _iceD_checkPBSUnknown2WithGraph(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            var iceP_p: Preserved?
-            try istr.read(Preserved.self) { iceP_p = $0 }
-            try istr.readPendingValues()
-            return self.checkPBSUnknown2WithGraphAsync(
-                p: iceP_p, current: request.current
-            ).map(on: nil) {
-                request.current.makeEmptyOutgoingResponse()
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
-    }
-
-    public func _iceD_exchangePNode(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            var iceP_pn: PNode?
-            try istr.read(PNode.self) { iceP_pn = $0 }
-            try istr.readPendingValues()
-            return self.exchangePNodeAsync(
-                pn: iceP_pn, current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let iceP_returnValue = value
-                    ostr.write(iceP_returnValue)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
-    }
-
-    public func _iceD_throwBaseAsBase(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.throwBaseAsBaseAsync(
-                current: request.current
-            ).map(on: nil) {
-                request.current.makeEmptyOutgoingResponse()
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
-    }
-
-    public func _iceD_throwDerivedAsBase(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.throwDerivedAsBaseAsync(
-                current: request.current
-            ).map(on: nil) {
-                request.current.makeEmptyOutgoingResponse()
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
-    }
-
-    public func _iceD_throwDerivedAsDerived(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.throwDerivedAsDerivedAsync(
-                current: request.current
-            ).map(on: nil) {
-                request.current.makeEmptyOutgoingResponse()
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
-    }
-
-    public func _iceD_throwUnknownDerivedAsBase(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.throwUnknownDerivedAsBaseAsync(
-                current: request.current
-            ).map(on: nil) {
-                request.current.makeEmptyOutgoingResponse()
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
-    }
-
-    public func _iceD_throwPreservedException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.throwPreservedExceptionAsync(
-                current: request.current
-            ).map(on: nil) {
-                request.current.makeEmptyOutgoingResponse()
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
-    }
-
-    public func _iceD_useForward(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.useForwardAsync(
-                current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
-                    let iceP_f = value
-                    ostr.write(iceP_f)
-                    ostr.writePendingValues()
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
-    }
-
-    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.shutdownAsync(
-                current: request.current
-            ).map(on: nil) {
-                request.current.makeEmptyOutgoingResponse()
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        try await self.shutdownAsync(
+            current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }

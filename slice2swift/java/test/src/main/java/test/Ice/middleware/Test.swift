@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 /// Traits for Slice interface`MyObject`.
 public struct MyObjectTraits: Ice.SliceTraits {
@@ -150,18 +149,18 @@ public extension MyObjectPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.String>` - The result of the operation
-    func getNameAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.String> {
-        return _impl._invokeAsync(operation: "getName",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.String = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.String` - The result of the operation
+    func getNameAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.String {
+        return try await _impl._invokeAsync(operation: "getName",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.String = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -175,20 +174,20 @@ public struct MyObjectDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "getName":
-            servant._iceD_getName(request)
+            try await servant._iceD_getName(request)
         case "ice_id":
-            (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -197,8 +196,8 @@ public protocol MyObject {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.String>` - The result of the operation
-    func getNameAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.String>
+    /// - returns: `Swift.String` - The result of the operation
+    func getNameAsync(current: Ice.Current) async throws -> Swift.String
 }
 
 /// MyObject overview.
@@ -207,19 +206,14 @@ public protocol MyObject {
 ///
 ///  - getName: 
 extension MyObject {
-    public func _iceD_getName(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.getNameAsync(
-                current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
-                    let iceP_returnValue = value
-                    ostr.write(iceP_returnValue)
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_getName(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.getNameAsync(
+            current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
         }
     }
 }

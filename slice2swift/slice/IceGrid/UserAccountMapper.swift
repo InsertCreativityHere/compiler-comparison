@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 /// :nodoc:
 public class UserAccountNotFoundException_TypeResolver: Ice.UserExceptionTypeResolver {
@@ -207,28 +206,28 @@ public extension UserAccountMapperPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.String>` - The result of the operation
-    func getUserAccountAsync(_ iceP_user: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.String> {
-        return _impl._invokeAsync(operation: "getUserAccount",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_user)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.String = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as UserAccountNotFoundException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.String` - The result of the operation
+    func getUserAccountAsync(_ iceP_user: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.String {
+        return try await _impl._invokeAsync(operation: "getUserAccount",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_user)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.String = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as UserAccountNotFoundException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -242,20 +241,20 @@ public struct UserAccountMapperDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "getUserAccount":
-            servant._iceD_getUserAccount(request)
+            try await servant._iceD_getUserAccount(request)
         case "ice_id":
-            (servant as? Ice.Object ?? UserAccountMapperDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? UserAccountMapperDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? UserAccountMapperDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? UserAccountMapperDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? UserAccountMapperDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? UserAccountMapperDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? UserAccountMapperDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? UserAccountMapperDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -285,20 +284,17 @@ public protocol UserAccountMapper {
 ///
 ///  - getUserAccount: Get the name of the user account for the given user.
 extension UserAccountMapper {
-    public func _iceD_getUserAccount(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_user: Swift.String = try istr.read()
+    public func _iceD_getUserAccount(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_user: Swift.String = try istr.read()
 
-            let iceP_returnValue = try self.getUserAccount(user: iceP_user, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getUserAccount(user: iceP_user, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }

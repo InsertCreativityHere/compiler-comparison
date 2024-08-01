@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 /// Traits for Slice interface`MyClass`.
 public struct MyClassTraits: Ice.SliceTraits {
@@ -170,14 +169,14 @@ public extension MyClassPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "shutdown",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "shutdown",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -205,18 +204,18 @@ public extension MyClassPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Ice.Context>` - The result of the operation
-    func getContextAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.Context> {
-        return _impl._invokeAsync(operation: "getContext",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: Ice.Context = try Ice.ContextHelper.read(from: istr)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Ice.Context` - The result of the operation
+    func getContextAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.Context {
+        return try await _impl._invokeAsync(operation: "getContext",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                let iceP_returnValue: Ice.Context = try Ice.ContextHelper.read(from: istr)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -354,21 +353,21 @@ public extension MyDerivedClassPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Ice.ObjectPrx?>` - The result of the operation
-    func echoAsync(_ iceP_obj: Ice.ObjectPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.ObjectPrx?> {
-        return _impl._invokeAsync(operation: "echo",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_obj)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    func echoAsync(_ iceP_obj: Ice.ObjectPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.ObjectPrx? {
+        return try await _impl._invokeAsync(operation: "echo",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_obj)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -564,22 +563,22 @@ public struct MyClassDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "getContext":
-            servant._iceD_getContext(request)
+            try await servant._iceD_getContext(request)
         case "ice_id":
-            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
-            servant._iceD_shutdown(request)
+            try await servant._iceD_shutdown(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -606,24 +605,24 @@ public struct MyDerivedClassDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "echo":
-            servant._iceD_echo(request)
+            try await servant._iceD_echo(request)
         case "getContext":
-            servant._iceD_getContext(request)
+            try await servant._iceD_getContext(request)
         case "ice_id":
-            (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
-            servant._iceD_shutdown(request)
+            try await servant._iceD_shutdown(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -648,22 +647,22 @@ public struct MyOtherDerivedClassDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "getContext":
-            servant._iceD_getContext(request)
+            try await servant._iceD_getContext(request)
         case "ice_id":
-            (servant as? Ice.Object ?? MyOtherDerivedClassDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? MyOtherDerivedClassDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? MyOtherDerivedClassDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? MyOtherDerivedClassDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? MyOtherDerivedClassDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? MyOtherDerivedClassDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? MyOtherDerivedClassDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? MyOtherDerivedClassDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
-            servant._iceD_shutdown(request)
+            try await servant._iceD_shutdown(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -680,24 +679,24 @@ public struct DiamondClassDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "echo":
-            servant._iceD_echo(request)
+            try await servant._iceD_echo(request)
         case "getContext":
-            servant._iceD_getContext(request)
+            try await servant._iceD_getContext(request)
         case "ice_id":
-            (servant as? Ice.Object ?? DiamondClassDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? DiamondClassDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? DiamondClassDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? DiamondClassDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? DiamondClassDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? DiamondClassDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? DiamondClassDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? DiamondClassDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
-            servant._iceD_shutdown(request)
+            try await servant._iceD_shutdown(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -712,30 +711,24 @@ public protocol DiamondClass: MyDerivedClass, MyOtherDerivedClass {}
 ///
 ///  - getContext: 
 extension MyClass {
-    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.shutdown(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.shutdown(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_getContext(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_getContext(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.getContext(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            Ice.ContextHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getContext(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        Ice.ContextHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }
 
@@ -745,21 +738,18 @@ extension MyClass {
 ///
 ///  - echo: 
 extension MyDerivedClass {
-    public func _iceD_echo(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_obj: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+    public func _iceD_echo(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_obj: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
 
-            let iceP_returnValue = try self.echo(obj: iceP_obj, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.echo(obj: iceP_obj, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }
 

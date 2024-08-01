@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 /// Traits for Slice interface`TestIntf`.
 public struct TestIntfTraits: Ice.SliceTraits {
@@ -162,18 +161,18 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.String>` - The result of the operation
-    func getAdapterNameAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.String> {
-        return _impl._invokeAsync(operation: "getAdapterName",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.String = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.String` - The result of the operation
+    func getAdapterNameAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.String {
+        return try await _impl._invokeAsync(operation: "getAdapterName",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.String = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -312,18 +311,18 @@ public extension RemoteObjectAdapterPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<TestIntfPrx?>` - The result of the operation
-    func getTestIntfAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<TestIntfPrx?> {
-        return _impl._invokeAsync(operation: "getTestIntf",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: TestIntfPrx? = try istr.read(TestIntfPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `TestIntfPrx?` - The result of the operation
+    func getTestIntfAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> TestIntfPrx? {
+        return try await _impl._invokeAsync(operation: "getTestIntf",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                let iceP_returnValue: TestIntfPrx? = try istr.read(TestIntfPrx.self)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -345,14 +344,14 @@ public extension RemoteObjectAdapterPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func deactivateAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "deactivate",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func deactivateAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "deactivate",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -511,22 +510,22 @@ public extension RemoteCommunicatorPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<RemoteObjectAdapterPrx?>` - The result of the operation
-    func createObjectAdapterAsync(name iceP_name: Swift.String, endpoints iceP_endpoints: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<RemoteObjectAdapterPrx?> {
-        return _impl._invokeAsync(operation: "createObjectAdapter",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_name)
-                                      ostr.write(iceP_endpoints)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: RemoteObjectAdapterPrx? = try istr.read(RemoteObjectAdapterPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `RemoteObjectAdapterPrx?` - The result of the operation
+    func createObjectAdapterAsync(name iceP_name: Swift.String, endpoints iceP_endpoints: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> RemoteObjectAdapterPrx? {
+        return try await _impl._invokeAsync(operation: "createObjectAdapter",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_name)
+                                                ostr.write(iceP_endpoints)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: RemoteObjectAdapterPrx? = try istr.read(RemoteObjectAdapterPrx.self)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -555,17 +554,17 @@ public extension RemoteCommunicatorPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func deactivateObjectAdapterAsync(_ iceP_adapter: RemoteObjectAdapterPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "deactivateObjectAdapter",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_adapter)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func deactivateObjectAdapterAsync(_ iceP_adapter: RemoteObjectAdapterPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "deactivateObjectAdapter",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_adapter)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -587,14 +586,14 @@ public extension RemoteCommunicatorPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "shutdown",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "shutdown",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -608,20 +607,20 @@ public struct TestIntfDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "getAdapterName":
-            servant._iceD_getAdapterName(request)
+            try await servant._iceD_getAdapterName(request)
         case "ice_id":
-            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -644,22 +643,22 @@ public struct RemoteObjectAdapterDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "deactivate":
-            servant._iceD_deactivate(request)
+            try await servant._iceD_deactivate(request)
         case "getTestIntf":
-            servant._iceD_getTestIntf(request)
+            try await servant._iceD_getTestIntf(request)
         case "ice_id":
-            (servant as? Ice.Object ?? RemoteObjectAdapterDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? RemoteObjectAdapterDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? RemoteObjectAdapterDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? RemoteObjectAdapterDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? RemoteObjectAdapterDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? RemoteObjectAdapterDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? RemoteObjectAdapterDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? RemoteObjectAdapterDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -686,24 +685,24 @@ public struct RemoteCommunicatorDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "createObjectAdapter":
-            servant._iceD_createObjectAdapter(request)
+            try await servant._iceD_createObjectAdapter(request)
         case "deactivateObjectAdapter":
-            servant._iceD_deactivateObjectAdapter(request)
+            try await servant._iceD_deactivateObjectAdapter(request)
         case "ice_id":
-            (servant as? Ice.Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
-            servant._iceD_shutdown(request)
+            try await servant._iceD_shutdown(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -736,19 +735,16 @@ public protocol RemoteCommunicator {
 ///
 ///  - getAdapterName: 
 extension TestIntf {
-    public func _iceD_getAdapterName(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_getAdapterName(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.getAdapterName(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getAdapterName(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }
 
@@ -760,30 +756,24 @@ extension TestIntf {
 ///
 ///  - deactivate: 
 extension RemoteObjectAdapter {
-    public func _iceD_getTestIntf(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_getTestIntf(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.getTestIntf(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getTestIntf(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_deactivate(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_deactivate(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.deactivate(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.deactivate(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }
 
@@ -797,45 +787,36 @@ extension RemoteObjectAdapter {
 ///
 ///  - shutdown: 
 extension RemoteCommunicator {
-    public func _iceD_createObjectAdapter(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_name: Swift.String = try istr.read()
-            let iceP_endpoints: Swift.String = try istr.read()
+    public func _iceD_createObjectAdapter(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_name: Swift.String = try istr.read()
+        let iceP_endpoints: Swift.String = try istr.read()
 
-            let iceP_returnValue = try self.createObjectAdapter(name: iceP_name, endpoints: iceP_endpoints, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.createObjectAdapter(name: iceP_name, endpoints: iceP_endpoints, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_deactivateObjectAdapter(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_adapter: RemoteObjectAdapterPrx? = try istr.read(RemoteObjectAdapterPrx.self)
+    public func _iceD_deactivateObjectAdapter(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_adapter: RemoteObjectAdapterPrx? = try istr.read(RemoteObjectAdapterPrx.self)
 
-            try self.deactivateObjectAdapter(adapter: iceP_adapter, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.deactivateObjectAdapter(adapter: iceP_adapter, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.shutdown(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.shutdown(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }

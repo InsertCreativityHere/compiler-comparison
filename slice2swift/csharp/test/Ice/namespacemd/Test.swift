@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 import NoNamespace
 import WithNamespace
 
@@ -226,20 +225,20 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<NoNamespace.C1?>` - The result of the operation
-    func getNoNamespaceC2AsC1Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<NoNamespace.C1?> {
-        return _impl._invokeAsync(operation: "getNoNamespaceC2AsC1",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      var iceP_returnValue: NoNamespace.C1?
-                                      try istr.read(NoNamespace.C1.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `NoNamespace.C1?` - The result of the operation
+    func getNoNamespaceC2AsC1Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> NoNamespace.C1? {
+        return try await _impl._invokeAsync(operation: "getNoNamespaceC2AsC1",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                var iceP_returnValue: NoNamespace.C1?
+                                                try istr.read(NoNamespace.C1.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -269,20 +268,20 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<NoNamespace.C2?>` - The result of the operation
-    func getNoNamespaceC2AsC2Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<NoNamespace.C2?> {
-        return _impl._invokeAsync(operation: "getNoNamespaceC2AsC2",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      var iceP_returnValue: NoNamespace.C2?
-                                      try istr.read(NoNamespace.C2.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `NoNamespace.C2?` - The result of the operation
+    func getNoNamespaceC2AsC2Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> NoNamespace.C2? {
+        return try await _impl._invokeAsync(operation: "getNoNamespaceC2AsC2",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                var iceP_returnValue: NoNamespace.C2?
+                                                try istr.read(NoNamespace.C2.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -311,21 +310,21 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func throwNoNamespaceE2AsE1Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "throwNoNamespaceE2AsE1",
-                                  mode: .Normal,
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as NoNamespace.E1 {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func throwNoNamespaceE2AsE1Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "throwNoNamespaceE2AsE1",
+                                            mode: .Normal,
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as NoNamespace.E1 {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -354,21 +353,21 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func throwNoNamespaceE2AsE2Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "throwNoNamespaceE2AsE2",
-                                  mode: .Normal,
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as NoNamespace.E2 {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func throwNoNamespaceE2AsE2Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "throwNoNamespaceE2AsE2",
+                                            mode: .Normal,
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as NoNamespace.E2 {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -397,21 +396,21 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func throwNoNamespaceNotifyAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "throwNoNamespaceNotify",
-                                  mode: .Normal,
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as NoNamespace.notify {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func throwNoNamespaceNotifyAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "throwNoNamespaceNotify",
+                                            mode: .Normal,
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as NoNamespace.notify {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -441,20 +440,20 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<WithNamespace.C1?>` - The result of the operation
-    func getWithNamespaceC2AsC1Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<WithNamespace.C1?> {
-        return _impl._invokeAsync(operation: "getWithNamespaceC2AsC1",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      var iceP_returnValue: WithNamespace.C1?
-                                      try istr.read(WithNamespace.C1.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `WithNamespace.C1?` - The result of the operation
+    func getWithNamespaceC2AsC1Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> WithNamespace.C1? {
+        return try await _impl._invokeAsync(operation: "getWithNamespaceC2AsC1",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                var iceP_returnValue: WithNamespace.C1?
+                                                try istr.read(WithNamespace.C1.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -484,20 +483,20 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<WithNamespace.C2?>` - The result of the operation
-    func getWithNamespaceC2AsC2Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<WithNamespace.C2?> {
-        return _impl._invokeAsync(operation: "getWithNamespaceC2AsC2",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      var iceP_returnValue: WithNamespace.C2?
-                                      try istr.read(WithNamespace.C2.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `WithNamespace.C2?` - The result of the operation
+    func getWithNamespaceC2AsC2Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> WithNamespace.C2? {
+        return try await _impl._invokeAsync(operation: "getWithNamespaceC2AsC2",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                var iceP_returnValue: WithNamespace.C2?
+                                                try istr.read(WithNamespace.C2.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -526,21 +525,21 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func throwWithNamespaceE2AsE1Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "throwWithNamespaceE2AsE1",
-                                  mode: .Normal,
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as WithNamespace.E1 {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func throwWithNamespaceE2AsE1Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "throwWithNamespaceE2AsE1",
+                                            mode: .Normal,
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as WithNamespace.E1 {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -569,21 +568,21 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func throwWithNamespaceE2AsE2Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "throwWithNamespaceE2AsE2",
-                                  mode: .Normal,
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as WithNamespace.E2 {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func throwWithNamespaceE2AsE2Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "throwWithNamespaceE2AsE2",
+                                            mode: .Normal,
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as WithNamespace.E2 {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -605,14 +604,14 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "shutdown",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "shutdown",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -626,38 +625,38 @@ public struct InitialDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "getNoNamespaceC2AsC1":
-            servant._iceD_getNoNamespaceC2AsC1(request)
+            try await servant._iceD_getNoNamespaceC2AsC1(request)
         case "getNoNamespaceC2AsC2":
-            servant._iceD_getNoNamespaceC2AsC2(request)
+            try await servant._iceD_getNoNamespaceC2AsC2(request)
         case "getWithNamespaceC2AsC1":
-            servant._iceD_getWithNamespaceC2AsC1(request)
+            try await servant._iceD_getWithNamespaceC2AsC1(request)
         case "getWithNamespaceC2AsC2":
-            servant._iceD_getWithNamespaceC2AsC2(request)
+            try await servant._iceD_getWithNamespaceC2AsC2(request)
         case "ice_id":
-            (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
-            servant._iceD_shutdown(request)
+            try await servant._iceD_shutdown(request)
         case "throwNoNamespaceE2AsE1":
-            servant._iceD_throwNoNamespaceE2AsE1(request)
+            try await servant._iceD_throwNoNamespaceE2AsE1(request)
         case "throwNoNamespaceE2AsE2":
-            servant._iceD_throwNoNamespaceE2AsE2(request)
+            try await servant._iceD_throwNoNamespaceE2AsE2(request)
         case "throwNoNamespaceNotify":
-            servant._iceD_throwNoNamespaceNotify(request)
+            try await servant._iceD_throwNoNamespaceNotify(request)
         case "throwWithNamespaceE2AsE1":
-            servant._iceD_throwWithNamespaceE2AsE1(request)
+            try await servant._iceD_throwWithNamespaceE2AsE1(request)
         case "throwWithNamespaceE2AsE2":
-            servant._iceD_throwWithNamespaceE2AsE2(request)
+            try await servant._iceD_throwWithNamespaceE2AsE2(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -736,133 +735,103 @@ public protocol Initial {
 ///
 ///  - shutdown: 
 extension Initial {
-    public func _iceD_getNoNamespaceC2AsC1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_getNoNamespaceC2AsC1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.getNoNamespaceC2AsC1(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getNoNamespaceC2AsC1(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_getNoNamespaceC2AsC2(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_getNoNamespaceC2AsC2(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.getNoNamespaceC2AsC2(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getNoNamespaceC2AsC2(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_throwNoNamespaceE2AsE1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_throwNoNamespaceE2AsE1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.throwNoNamespaceE2AsE1(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.throwNoNamespaceE2AsE1(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_throwNoNamespaceE2AsE2(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_throwNoNamespaceE2AsE2(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.throwNoNamespaceE2AsE2(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.throwNoNamespaceE2AsE2(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_throwNoNamespaceNotify(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_throwNoNamespaceNotify(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.throwNoNamespaceNotify(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.throwNoNamespaceNotify(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_getWithNamespaceC2AsC1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_getWithNamespaceC2AsC1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.getWithNamespaceC2AsC1(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getWithNamespaceC2AsC1(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_getWithNamespaceC2AsC2(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_getWithNamespaceC2AsC2(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.getWithNamespaceC2AsC2(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getWithNamespaceC2AsC2(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_throwWithNamespaceE2AsE1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_throwWithNamespaceE2AsE1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.throwWithNamespaceE2AsE1(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.throwWithNamespaceE2AsE1(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_throwWithNamespaceE2AsE2(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_throwWithNamespaceE2AsE2(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.throwWithNamespaceE2AsE2(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.throwWithNamespaceE2AsE2(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.shutdown(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.shutdown(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }

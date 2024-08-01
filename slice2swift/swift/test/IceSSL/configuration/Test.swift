@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 /// Traits for Slice interface`SSLServer`.
 public struct SSLServerTraits: Ice.SliceTraits {
@@ -225,14 +224,14 @@ public extension SSLServerPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func noCertAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "noCert",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func noCertAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "noCert",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -266,18 +265,18 @@ public extension SSLServerPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func checkCertAsync(subjectDN iceP_subjectDN: Swift.String, issuerDN iceP_issuerDN: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "checkCert",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_subjectDN)
-                                      ostr.write(iceP_issuerDN)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func checkCertAsync(subjectDN iceP_subjectDN: Swift.String, issuerDN iceP_issuerDN: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "checkCert",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_subjectDN)
+                                                ostr.write(iceP_issuerDN)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -431,21 +430,21 @@ public extension SSLServerFactoryPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<SSLServerPrx?>` - The result of the operation
-    func createServerAsync(_ iceP_props: SSLProperties, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<SSLServerPrx?> {
-        return _impl._invokeAsync(operation: "createServer",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      SSLPropertiesHelper.write(to: ostr, value: iceP_props)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: SSLServerPrx? = try istr.read(SSLServerPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `SSLServerPrx?` - The result of the operation
+    func createServerAsync(_ iceP_props: SSLProperties, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> SSLServerPrx? {
+        return try await _impl._invokeAsync(operation: "createServer",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                SSLPropertiesHelper.write(to: ostr, value: iceP_props)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: SSLServerPrx? = try istr.read(SSLServerPrx.self)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -474,17 +473,17 @@ public extension SSLServerFactoryPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func destroyServerAsync(_ iceP_srv: SSLServerPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "destroyServer",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_srv)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func destroyServerAsync(_ iceP_srv: SSLServerPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "destroyServer",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_srv)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -506,14 +505,14 @@ public extension SSLServerFactoryPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "shutdown",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "shutdown",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -527,22 +526,22 @@ public struct SSLServerDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "checkCert":
-            servant._iceD_checkCert(request)
+            try await servant._iceD_checkCert(request)
         case "ice_id":
-            (servant as? Ice.Object ?? SSLServerDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? SSLServerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? SSLServerDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? SSLServerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? SSLServerDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? SSLServerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? SSLServerDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? SSLServerDisp.defaultObject)._iceD_ice_ping(request)
         case "noCert":
-            servant._iceD_noCert(request)
+            try await servant._iceD_noCert(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -571,24 +570,24 @@ public struct SSLServerFactoryDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "createServer":
-            servant._iceD_createServer(request)
+            try await servant._iceD_createServer(request)
         case "destroyServer":
-            servant._iceD_destroyServer(request)
+            try await servant._iceD_destroyServer(request)
         case "ice_id":
-            (servant as? Ice.Object ?? SSLServerFactoryDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? SSLServerFactoryDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? SSLServerFactoryDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? SSLServerFactoryDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? SSLServerFactoryDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? SSLServerFactoryDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? SSLServerFactoryDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? SSLServerFactoryDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
-            servant._iceD_shutdown(request)
+            try await servant._iceD_shutdown(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -621,29 +620,23 @@ public protocol SSLServerFactory {
 ///
 ///  - checkCert: 
 extension SSLServer {
-    public func _iceD_noCert(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_noCert(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.noCert(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.noCert(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_checkCert(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_subjectDN: Swift.String = try istr.read()
-            let iceP_issuerDN: Swift.String = try istr.read()
+    public func _iceD_checkCert(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_subjectDN: Swift.String = try istr.read()
+        let iceP_issuerDN: Swift.String = try istr.read()
 
-            try self.checkCert(subjectDN: iceP_subjectDN, issuerDN: iceP_issuerDN, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.checkCert(subjectDN: iceP_subjectDN, issuerDN: iceP_issuerDN, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }
 
@@ -657,44 +650,35 @@ extension SSLServer {
 ///
 ///  - shutdown: 
 extension SSLServerFactory {
-    public func _iceD_createServer(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_props: SSLProperties = try SSLPropertiesHelper.read(from: istr)
+    public func _iceD_createServer(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_props: SSLProperties = try SSLPropertiesHelper.read(from: istr)
 
-            let iceP_returnValue = try self.createServer(props: iceP_props, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.createServer(props: iceP_props, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_destroyServer(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_srv: SSLServerPrx? = try istr.read(SSLServerPrx.self)
+    public func _iceD_destroyServer(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_srv: SSLServerPrx? = try istr.read(SSLServerPrx.self)
 
-            try self.destroyServer(srv: iceP_srv, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.destroyServer(srv: iceP_srv, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.shutdown(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.shutdown(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }

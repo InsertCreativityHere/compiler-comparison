@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 /// Traits for Slice interface`Intf`.
 public struct IntfTraits: Ice.SliceTraits {
@@ -348,14 +347,14 @@ public extension IntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func contextAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "context",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func contextAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "context",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -377,14 +376,14 @@ public extension IntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func currentAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "current",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func currentAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "current",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -406,14 +405,14 @@ public extension IntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func responseAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "response",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func responseAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "response",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -435,14 +434,14 @@ public extension IntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func upCastAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "upCast",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func upCastAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "upCast",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -464,14 +463,14 @@ public extension IntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func typeIdAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "typeId",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func typeIdAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "typeId",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -493,14 +492,14 @@ public extension IntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func delAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "del",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func delAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "del",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -522,14 +521,14 @@ public extension IntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func cookieAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "cookie",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func cookieAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "cookie",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -551,14 +550,14 @@ public extension IntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func syncAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "sync",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func syncAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "sync",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -580,14 +579,14 @@ public extension IntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func inSAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "inS",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func inSAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "inS",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -609,14 +608,14 @@ public extension IntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func istrAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "istr",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func istrAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "istr",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -695,27 +694,27 @@ public extension IntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func opAsync(context iceP_context: Swift.String, current iceP_current: Swift.String, response iceP_response: Swift.String, ex iceP_ex: Swift.String, sent iceP_sent: Swift.String, cookie iceP_cookie: Swift.String, sync iceP_sync: Swift.String, result iceP_result: Swift.String, istr iceP_istr: Swift.String, ostr iceP_ostr: Swift.String, proxy iceP_proxy: Swift.String? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "op",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_context)
-                                      ostr.write(iceP_current)
-                                      ostr.write(iceP_response)
-                                      ostr.write(iceP_ex)
-                                      ostr.write(iceP_sent)
-                                      ostr.write(iceP_cookie)
-                                      ostr.write(iceP_sync)
-                                      ostr.write(iceP_result)
-                                      ostr.write(iceP_istr)
-                                      ostr.write(iceP_ostr)
-                                      ostr.write(tag: 1, value: iceP_proxy)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func opAsync(context iceP_context: Swift.String, current iceP_current: Swift.String, response iceP_response: Swift.String, ex iceP_ex: Swift.String, sent iceP_sent: Swift.String, cookie iceP_cookie: Swift.String, sync iceP_sync: Swift.String, result iceP_result: Swift.String, istr iceP_istr: Swift.String, ostr iceP_ostr: Swift.String, proxy iceP_proxy: Swift.String? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "op",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_context)
+                                                ostr.write(iceP_current)
+                                                ostr.write(iceP_response)
+                                                ostr.write(iceP_ex)
+                                                ostr.write(iceP_sent)
+                                                ostr.write(iceP_cookie)
+                                                ostr.write(iceP_sync)
+                                                ostr.write(iceP_result)
+                                                ostr.write(iceP_istr)
+                                                ostr.write(iceP_ostr)
+                                                ostr.write(tag: 1, value: iceP_proxy)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -775,28 +774,28 @@ public extension IntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(context: Swift.String, current: Swift.String, response: Swift.String, ex: Swift.String, sent: Swift.String, cookie: Swift.String, sync: Swift.String, result: Swift.String, istr: Swift.String, ostr: Swift.String, proxy: Swift.String?)>` - The result of the operation
-    func opOutAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(context: Swift.String, current: Swift.String, response: Swift.String, ex: Swift.String, sent: Swift.String, cookie: Swift.String, sync: Swift.String, result: Swift.String, istr: Swift.String, ostr: Swift.String, proxy: Swift.String?)> {
-        return _impl._invokeAsync(operation: "opOut",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_context: Swift.String = try istr.read()
-                                      let iceP_current: Swift.String = try istr.read()
-                                      let iceP_response: Swift.String = try istr.read()
-                                      let iceP_ex: Swift.String = try istr.read()
-                                      let iceP_sent: Swift.String = try istr.read()
-                                      let iceP_cookie: Swift.String = try istr.read()
-                                      let iceP_sync: Swift.String = try istr.read()
-                                      let iceP_result: Swift.String = try istr.read()
-                                      let iceP_istr: Swift.String = try istr.read()
-                                      let iceP_ostr: Swift.String = try istr.read()
-                                      let iceP_proxy: Swift.String? = try istr.read(tag: 1)
-                                      return (iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(context: Swift.String, current: Swift.String, response: Swift.String, ex: Swift.String, sent: Swift.String, cookie: Swift.String, sync: Swift.String, result: Swift.String, istr: Swift.String, ostr: Swift.String, proxy: Swift.String?)` - The result of the operation
+    func opOutAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (context: Swift.String, current: Swift.String, response: Swift.String, ex: Swift.String, sent: Swift.String, cookie: Swift.String, sync: Swift.String, result: Swift.String, istr: Swift.String, ostr: Swift.String, proxy: Swift.String?) {
+        return try await _impl._invokeAsync(operation: "opOut",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                let iceP_context: Swift.String = try istr.read()
+                                                let iceP_current: Swift.String = try istr.read()
+                                                let iceP_response: Swift.String = try istr.read()
+                                                let iceP_ex: Swift.String = try istr.read()
+                                                let iceP_sent: Swift.String = try istr.read()
+                                                let iceP_cookie: Swift.String = try istr.read()
+                                                let iceP_sync: Swift.String = try istr.read()
+                                                let iceP_result: Swift.String = try istr.read()
+                                                let iceP_istr: Swift.String = try istr.read()
+                                                let iceP_ostr: Swift.String = try istr.read()
+                                                let iceP_proxy: Swift.String? = try istr.read(tag: 1)
+                                                return (iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -906,42 +905,42 @@ public struct IntfDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "context":
-            servant._iceD_context(request)
+            try await servant._iceD_context(request)
         case "cookie":
-            servant._iceD_cookie(request)
+            try await servant._iceD_cookie(request)
         case "current":
-            servant._iceD_current(request)
+            try await servant._iceD_current(request)
         case "del":
-            servant._iceD_del(request)
+            try await servant._iceD_del(request)
         case "ice_id":
-            (servant as? Ice.Object ?? IntfDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? IntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? IntfDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? IntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? IntfDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? IntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? IntfDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? IntfDisp.defaultObject)._iceD_ice_ping(request)
         case "inS":
-            servant._iceD_inS(request)
+            try await servant._iceD_inS(request)
         case "istr":
-            servant._iceD_istr(request)
+            try await servant._iceD_istr(request)
         case "op":
-            servant._iceD_op(request)
+            try await servant._iceD_op(request)
         case "opOut":
-            servant._iceD_opOut(request)
+            try await servant._iceD_opOut(request)
         case "response":
-            servant._iceD_response(request)
+            try await servant._iceD_response(request)
         case "sync":
-            servant._iceD_sync(request)
+            try await servant._iceD_sync(request)
         case "typeId":
-            servant._iceD_typeId(request)
+            try await servant._iceD_typeId(request)
         case "upCast":
-            servant._iceD_upCast(request)
+            try await servant._iceD_upCast(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1070,161 +1069,125 @@ public protocol Intf {
 ///
 ///  - opOut: 
 extension Intf {
-    public func _iceD_context(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_context(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.context(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.context(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_current(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_current(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.current(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.current(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_response(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_response(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.response(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.response(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_upCast(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_upCast(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.upCast(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.upCast(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_typeId(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_typeId(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.typeId(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.typeId(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_del(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_del(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.del(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.del(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_cookie(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_cookie(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.cookie(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.cookie(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_sync(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_sync(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.sync(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.sync(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_inS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_inS(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.inS(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.inS(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_istr(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_istr(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.istr(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.istr(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_op(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_context: Swift.String = try istr.read()
-            let iceP_current: Swift.String = try istr.read()
-            let iceP_response: Swift.String = try istr.read()
-            let iceP_ex: Swift.String = try istr.read()
-            let iceP_sent: Swift.String = try istr.read()
-            let iceP_cookie: Swift.String = try istr.read()
-            let iceP_sync: Swift.String = try istr.read()
-            let iceP_result: Swift.String = try istr.read()
-            let iceP_istr: Swift.String = try istr.read()
-            let iceP_ostr: Swift.String = try istr.read()
-            let iceP_proxy: Swift.String? = try istr.read(tag: 1)
+    public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_context: Swift.String = try istr.read()
+        let iceP_current: Swift.String = try istr.read()
+        let iceP_response: Swift.String = try istr.read()
+        let iceP_ex: Swift.String = try istr.read()
+        let iceP_sent: Swift.String = try istr.read()
+        let iceP_cookie: Swift.String = try istr.read()
+        let iceP_sync: Swift.String = try istr.read()
+        let iceP_result: Swift.String = try istr.read()
+        let iceP_istr: Swift.String = try istr.read()
+        let iceP_ostr: Swift.String = try istr.read()
+        let iceP_proxy: Swift.String? = try istr.read(tag: 1)
 
-            try self.op(context: iceP_context, current: iceP_current, response: iceP_response, ex: iceP_ex, sent: iceP_sent, cookie: iceP_cookie, sync: iceP_sync, result: iceP_result, istr: iceP_istr, ostr: iceP_ostr, proxy: iceP_proxy, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.op(context: iceP_context, current: iceP_current, response: iceP_response, ex: iceP_ex, sent: iceP_sent, cookie: iceP_cookie, sync: iceP_sync, result: iceP_result, istr: iceP_istr, ostr: iceP_ostr, proxy: iceP_proxy, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_opOut(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_opOut(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let (iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy) = try self.opOut(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_context)
-            ostr.write(iceP_current)
-            ostr.write(iceP_response)
-            ostr.write(iceP_ex)
-            ostr.write(iceP_sent)
-            ostr.write(iceP_cookie)
-            ostr.write(iceP_sync)
-            ostr.write(iceP_result)
-            ostr.write(iceP_istr)
-            ostr.write(iceP_ostr)
-            ostr.write(tag: 1, value: iceP_proxy)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy) = try self.opOut(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_context)
+        ostr.write(iceP_current)
+        ostr.write(iceP_response)
+        ostr.write(iceP_ex)
+        ostr.write(iceP_sent)
+        ostr.write(iceP_cookie)
+        ostr.write(iceP_sync)
+        ostr.write(iceP_result)
+        ostr.write(iceP_istr)
+        ostr.write(iceP_ostr)
+        ostr.write(tag: 1, value: iceP_proxy)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }

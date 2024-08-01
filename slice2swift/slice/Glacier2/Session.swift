@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 /// :nodoc:
 public class CannotCreateSessionException_TypeResolver: Ice.UserExceptionTypeResolver {
@@ -218,14 +217,14 @@ public extension SessionPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func destroyAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "destroy",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func destroyAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "destroy",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -379,17 +378,17 @@ public extension StringSetPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func addAsync(_ iceP_additions: Ice.StringSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "add",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      ostr.write(iceP_additions)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func addAsync(_ iceP_additions: Ice.StringSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "add",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                ostr.write(iceP_additions)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
@@ -420,17 +419,17 @@ public extension StringSetPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func removeAsync(_ iceP_deletions: Ice.StringSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "remove",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      ostr.write(iceP_deletions)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func removeAsync(_ iceP_deletions: Ice.StringSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "remove",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                ostr.write(iceP_deletions)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Returns a sequence of strings describing the constraints in this set.
@@ -460,18 +459,18 @@ public extension StringSetPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Ice.StringSeq>` - The result of the operation
-    func getAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.StringSeq> {
-        return _impl._invokeAsync(operation: "get",
-                                  mode: .Idempotent,
-                                  read: { istr in
-                                      let iceP_returnValue: Ice.StringSeq = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Ice.StringSeq` - The result of the operation
+    func getAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.StringSeq {
+        return try await _impl._invokeAsync(operation: "get",
+                                            mode: .Idempotent,
+                                            read: { istr in
+                                                let iceP_returnValue: Ice.StringSeq = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -623,17 +622,17 @@ public extension IdentitySetPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func addAsync(_ iceP_additions: Ice.IdentitySeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "add",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      Ice.IdentitySeqHelper.write(to: ostr, value: iceP_additions)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func addAsync(_ iceP_additions: Ice.IdentitySeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "add",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                Ice.IdentitySeqHelper.write(to: ostr, value: iceP_additions)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
@@ -666,17 +665,17 @@ public extension IdentitySetPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func removeAsync(_ iceP_deletions: Ice.IdentitySeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "remove",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      Ice.IdentitySeqHelper.write(to: ostr, value: iceP_deletions)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func removeAsync(_ iceP_deletions: Ice.IdentitySeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "remove",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                Ice.IdentitySeqHelper.write(to: ostr, value: iceP_deletions)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Returns a sequence of identities describing the constraints in this set.
@@ -706,18 +705,18 @@ public extension IdentitySetPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Ice.IdentitySeq>` - The result of the operation
-    func getAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.IdentitySeq> {
-        return _impl._invokeAsync(operation: "get",
-                                  mode: .Idempotent,
-                                  read: { istr in
-                                      let iceP_returnValue: Ice.IdentitySeq = try Ice.IdentitySeqHelper.read(from: istr)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Ice.IdentitySeq` - The result of the operation
+    func getAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.IdentitySeq {
+        return try await _impl._invokeAsync(operation: "get",
+                                            mode: .Idempotent,
+                                            read: { istr in
+                                                let iceP_returnValue: Ice.IdentitySeq = try Ice.IdentitySeqHelper.read(from: istr)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -882,18 +881,18 @@ public extension SessionControlPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<StringSetPrx?>` - The result of the operation
-    func categoriesAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<StringSetPrx?> {
-        return _impl._invokeAsync(operation: "categories",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: StringSetPrx? = try istr.read(StringSetPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `StringSetPrx?` - The result of the operation
+    func categoriesAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> StringSetPrx? {
+        return try await _impl._invokeAsync(operation: "categories",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                let iceP_returnValue: StringSetPrx? = try istr.read(StringSetPrx.self)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Access the object that manages the allowable adapter identities for objects for this session.
@@ -923,18 +922,18 @@ public extension SessionControlPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<StringSetPrx?>` - The result of the operation
-    func adapterIdsAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<StringSetPrx?> {
-        return _impl._invokeAsync(operation: "adapterIds",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: StringSetPrx? = try istr.read(StringSetPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `StringSetPrx?` - The result of the operation
+    func adapterIdsAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> StringSetPrx? {
+        return try await _impl._invokeAsync(operation: "adapterIds",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                let iceP_returnValue: StringSetPrx? = try istr.read(StringSetPrx.self)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Access the object that manages the allowable object identities for this session.
@@ -964,18 +963,18 @@ public extension SessionControlPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<IdentitySetPrx?>` - The result of the operation
-    func identitiesAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<IdentitySetPrx?> {
-        return _impl._invokeAsync(operation: "identities",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: IdentitySetPrx? = try istr.read(IdentitySetPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `IdentitySetPrx?` - The result of the operation
+    func identitiesAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> IdentitySetPrx? {
+        return try await _impl._invokeAsync(operation: "identities",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                let iceP_returnValue: IdentitySetPrx? = try istr.read(IdentitySetPrx.self)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Get the session timeout.
@@ -1005,18 +1004,18 @@ public extension SessionControlPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
-    func getSessionTimeoutAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
-        return _impl._invokeAsync(operation: "getSessionTimeout",
-                                  mode: .Idempotent,
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Int32 = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.Int32` - The result of the operation
+    func getSessionTimeoutAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invokeAsync(operation: "getSessionTimeout",
+                                            mode: .Idempotent,
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.Int32 = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Destroy the associated session.
@@ -1040,14 +1039,14 @@ public extension SessionControlPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func destroyAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "destroy",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func destroyAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "destroy",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -1213,29 +1212,29 @@ public extension SessionManagerPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<SessionPrx?>` - The result of the operation
-    func createAsync(userId iceP_userId: Swift.String, control iceP_control: SessionControlPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<SessionPrx?> {
-        return _impl._invokeAsync(operation: "create",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_userId)
-                                      ostr.write(iceP_control)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: SessionPrx? = try istr.read(SessionPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as CannotCreateSessionException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `SessionPrx?` - The result of the operation
+    func createAsync(userId iceP_userId: Swift.String, control iceP_control: SessionControlPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> SessionPrx? {
+        return try await _impl._invokeAsync(operation: "create",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_userId)
+                                                ostr.write(iceP_control)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: SessionPrx? = try istr.read(SessionPrx.self)
+                                                return iceP_returnValue
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as CannotCreateSessionException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -1395,29 +1394,29 @@ public extension SSLSessionManagerPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<SessionPrx?>` - The result of the operation
-    func createAsync(info iceP_info: SSLInfo, control iceP_control: SessionControlPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<SessionPrx?> {
-        return _impl._invokeAsync(operation: "create",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_info)
-                                      ostr.write(iceP_control)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: SessionPrx? = try istr.read(SessionPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as CannotCreateSessionException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `SessionPrx?` - The result of the operation
+    func createAsync(info iceP_info: SSLInfo, control iceP_control: SessionControlPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> SessionPrx? {
+        return try await _impl._invokeAsync(operation: "create",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_info)
+                                                ostr.write(iceP_control)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: SessionPrx? = try istr.read(SessionPrx.self)
+                                                return iceP_returnValue
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as CannotCreateSessionException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -1431,20 +1430,20 @@ public struct SessionDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "destroy":
-            servant._iceD_destroy(request)
+            try await servant._iceD_destroy(request)
         case "ice_id":
-            (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1467,24 +1466,24 @@ public struct StringSetDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "add":
-            servant._iceD_add(request)
+            try await servant._iceD_add(request)
         case "get":
-            servant._iceD_get(request)
+            try await servant._iceD_get(request)
         case "ice_id":
-            (servant as? Ice.Object ?? StringSetDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? StringSetDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? StringSetDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? StringSetDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? StringSetDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? StringSetDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? StringSetDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? StringSetDisp.defaultObject)._iceD_ice_ping(request)
         case "remove":
-            servant._iceD_remove(request)
+            try await servant._iceD_remove(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1525,24 +1524,24 @@ public struct IdentitySetDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "add":
-            servant._iceD_add(request)
+            try await servant._iceD_add(request)
         case "get":
-            servant._iceD_get(request)
+            try await servant._iceD_get(request)
         case "ice_id":
-            (servant as? Ice.Object ?? IdentitySetDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? IdentitySetDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? IdentitySetDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? IdentitySetDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? IdentitySetDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? IdentitySetDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? IdentitySetDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? IdentitySetDisp.defaultObject)._iceD_ice_ping(request)
         case "remove":
-            servant._iceD_remove(request)
+            try await servant._iceD_remove(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1583,28 +1582,28 @@ public struct SessionControlDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "adapterIds":
-            servant._iceD_adapterIds(request)
+            try await servant._iceD_adapterIds(request)
         case "categories":
-            servant._iceD_categories(request)
+            try await servant._iceD_categories(request)
         case "destroy":
-            servant._iceD_destroy(request)
+            try await servant._iceD_destroy(request)
         case "getSessionTimeout":
-            servant._iceD_getSessionTimeout(request)
+            try await servant._iceD_getSessionTimeout(request)
         case "ice_id":
-            (servant as? Ice.Object ?? SessionControlDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? SessionControlDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? SessionControlDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? SessionControlDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? SessionControlDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? SessionControlDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? SessionControlDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? SessionControlDisp.defaultObject)._iceD_ice_ping(request)
         case "identities":
-            servant._iceD_identities(request)
+            try await servant._iceD_identities(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1655,20 +1654,20 @@ public struct SessionManagerDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "create":
-            servant._iceD_create(request)
+            try await servant._iceD_create(request)
         case "ice_id":
-            (servant as? Ice.Object ?? SessionManagerDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? SessionManagerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? SessionManagerDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? SessionManagerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? SessionManagerDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? SessionManagerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? SessionManagerDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? SessionManagerDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1706,20 +1705,20 @@ public struct SSLSessionManagerDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "create":
-            servant._iceD_create(request)
+            try await servant._iceD_create(request)
         case "ice_id":
-            (servant as? Ice.Object ?? SSLSessionManagerDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? SSLSessionManagerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? SSLSessionManagerDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? SSLSessionManagerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? SSLSessionManagerDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? SSLSessionManagerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? SSLSessionManagerDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? SSLSessionManagerDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1750,15 +1749,12 @@ public protocol SSLSessionManager {
 ///
 ///  - destroy: Destroy the session.
 extension Session {
-    public func _iceD_destroy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_destroy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.destroy(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.destroy(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }
 
@@ -1773,45 +1769,36 @@ extension Session {
 ///
 ///  - `get`: Returns a sequence of strings describing the constraints in this set.
 extension StringSet {
-    public func _iceD_add(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_additions: Ice.StringSeq = try istr.read()
+    public func _iceD_add(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_additions: Ice.StringSeq = try istr.read()
 
-            try self.add(additions: iceP_additions, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.add(additions: iceP_additions, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_remove(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_deletions: Ice.StringSeq = try istr.read()
+    public func _iceD_remove(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_deletions: Ice.StringSeq = try istr.read()
 
-            try self.remove(deletions: iceP_deletions, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.remove(deletions: iceP_deletions, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_get(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_get(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.`get`(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.`get`(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }
 
@@ -1825,45 +1812,36 @@ extension StringSet {
 ///
 ///  - `get`: Returns a sequence of identities describing the constraints in this set.
 extension IdentitySet {
-    public func _iceD_add(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_additions: Ice.IdentitySeq = try Ice.IdentitySeqHelper.read(from: istr)
+    public func _iceD_add(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_additions: Ice.IdentitySeq = try Ice.IdentitySeqHelper.read(from: istr)
 
-            try self.add(additions: iceP_additions, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.add(additions: iceP_additions, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_remove(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_deletions: Ice.IdentitySeq = try Ice.IdentitySeqHelper.read(from: istr)
+    public func _iceD_remove(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_deletions: Ice.IdentitySeq = try Ice.IdentitySeqHelper.read(from: istr)
 
-            try self.remove(deletions: iceP_deletions, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.remove(deletions: iceP_deletions, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_get(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_get(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.`get`(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            Ice.IdentitySeqHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.`get`(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        Ice.IdentitySeqHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }
 
@@ -1881,75 +1859,60 @@ extension IdentitySet {
 ///
 ///  - destroy: Destroy the associated session.
 extension SessionControl {
-    public func _iceD_categories(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_categories(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.categories(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.categories(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_adapterIds(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_adapterIds(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.adapterIds(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.adapterIds(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_identities(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_identities(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.identities(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.identities(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_getSessionTimeout(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_getSessionTimeout(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.getSessionTimeout(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getSessionTimeout(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_destroy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_destroy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.destroy(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.destroy(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }
 
@@ -1962,22 +1925,19 @@ extension SessionControl {
 ///
 ///  - create: Create a new session.
 extension SessionManager {
-    public func _iceD_create(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_userId: Swift.String = try istr.read()
-            let iceP_control: SessionControlPrx? = try istr.read(SessionControlPrx.self)
+    public func _iceD_create(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_userId: Swift.String = try istr.read()
+        let iceP_control: SessionControlPrx? = try istr.read(SessionControlPrx.self)
 
-            let iceP_returnValue = try self.create(userId: iceP_userId, control: iceP_control, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.create(userId: iceP_userId, control: iceP_control, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }
 
@@ -1989,21 +1949,18 @@ extension SessionManager {
 ///
 ///  - create: Create a new session.
 extension SSLSessionManager {
-    public func _iceD_create(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_info: SSLInfo = try istr.read()
-            let iceP_control: SessionControlPrx? = try istr.read(SessionControlPrx.self)
+    public func _iceD_create(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_info: SSLInfo = try istr.read()
+        let iceP_control: SessionControlPrx? = try istr.read(SessionControlPrx.self)
 
-            let iceP_returnValue = try self.create(info: iceP_info, control: iceP_control, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.create(info: iceP_info, control: iceP_control, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }

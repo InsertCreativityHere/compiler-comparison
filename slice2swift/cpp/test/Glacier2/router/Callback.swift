@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 /// :nodoc:
 public class CallbackException_TypeResolver: Ice.UserExceptionTypeResolver {
@@ -226,14 +225,14 @@ public extension CallbackReceiverPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func callbackAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "callback",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func callbackAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "callback",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -262,21 +261,21 @@ public extension CallbackReceiverPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func callbackExAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "callbackEx",
-                                  mode: .Normal,
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as CallbackException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func callbackExAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "callbackEx",
+                                            mode: .Normal,
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as CallbackException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -311,21 +310,21 @@ public extension CallbackReceiverPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
-    func concurrentCallbackAsync(_ iceP_number: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
-        return _impl._invokeAsync(operation: "concurrentCallback",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_number)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Int32 = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.Int32` - The result of the operation
+    func concurrentCallbackAsync(_ iceP_number: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invokeAsync(operation: "concurrentCallback",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_number)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.Int32 = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -347,14 +346,14 @@ public extension CallbackReceiverPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func waitCallbackAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "waitCallback",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func waitCallbackAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "waitCallback",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -383,17 +382,17 @@ public extension CallbackReceiverPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func callbackWithPayloadAsync(_ iceP_payload: Ice.ByteSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "callbackWithPayload",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_payload)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func callbackWithPayloadAsync(_ iceP_payload: Ice.ByteSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "callbackWithPayload",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_payload)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -565,17 +564,17 @@ public extension CallbackPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func initiateCallbackAsync(_ iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "initiateCallback",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_proxy)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func initiateCallbackAsync(_ iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "initiateCallback",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_proxy)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -611,24 +610,24 @@ public extension CallbackPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func initiateCallbackExAsync(_ iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "initiateCallbackEx",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_proxy)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as CallbackException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func initiateCallbackExAsync(_ iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "initiateCallbackEx",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_proxy)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as CallbackException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -668,22 +667,22 @@ public extension CallbackPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
-    func initiateConcurrentCallbackAsync(number iceP_number: Swift.Int32, proxy iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
-        return _impl._invokeAsync(operation: "initiateConcurrentCallback",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_number)
-                                      ostr.write(iceP_proxy)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Int32 = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.Int32` - The result of the operation
+    func initiateConcurrentCallbackAsync(number iceP_number: Swift.Int32, proxy iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invokeAsync(operation: "initiateConcurrentCallback",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_number)
+                                                ostr.write(iceP_proxy)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.Int32 = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -712,17 +711,17 @@ public extension CallbackPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func initiateWaitCallbackAsync(_ iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "initiateWaitCallback",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_proxy)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func initiateWaitCallbackAsync(_ iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "initiateWaitCallback",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_proxy)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -751,17 +750,17 @@ public extension CallbackPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func initiateCallbackWithPayloadAsync(_ iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "initiateCallbackWithPayload",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_proxy)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func initiateCallbackWithPayloadAsync(_ iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "initiateCallbackWithPayload",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_proxy)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -783,14 +782,14 @@ public extension CallbackPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "shutdown",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "shutdown",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -804,28 +803,28 @@ public struct CallbackReceiverDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "callback":
-            servant._iceD_callback(request)
+            try await servant._iceD_callback(request)
         case "callbackEx":
-            servant._iceD_callbackEx(request)
+            try await servant._iceD_callbackEx(request)
         case "callbackWithPayload":
-            servant._iceD_callbackWithPayload(request)
+            try await servant._iceD_callbackWithPayload(request)
         case "concurrentCallback":
-            servant._iceD_concurrentCallback(request)
+            try await servant._iceD_concurrentCallback(request)
         case "ice_id":
-            (servant as? Ice.Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_ping(request)
         case "waitCallback":
-            servant._iceD_waitCallback(request)
+            try await servant._iceD_waitCallback(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -844,8 +843,8 @@ public protocol CallbackReceiver {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
-    func concurrentCallbackAsync(number: Swift.Int32, current: Ice.Current) -> PromiseKit.Promise<Swift.Int32>
+    /// - returns: `Swift.Int32` - The result of the operation
+    func concurrentCallbackAsync(number: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
@@ -868,30 +867,30 @@ public struct CallbackDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_ping(request)
         case "initiateCallback":
-            servant._iceD_initiateCallback(request)
+            try await servant._iceD_initiateCallback(request)
         case "initiateCallbackEx":
-            servant._iceD_initiateCallbackEx(request)
+            try await servant._iceD_initiateCallbackEx(request)
         case "initiateCallbackWithPayload":
-            servant._iceD_initiateCallbackWithPayload(request)
+            try await servant._iceD_initiateCallbackWithPayload(request)
         case "initiateConcurrentCallback":
-            servant._iceD_initiateConcurrentCallback(request)
+            try await servant._iceD_initiateConcurrentCallback(request)
         case "initiateWaitCallback":
-            servant._iceD_initiateWaitCallback(request)
+            try await servant._iceD_initiateWaitCallback(request)
         case "shutdown":
-            servant._iceD_shutdown(request)
+            try await servant._iceD_shutdown(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -902,16 +901,16 @@ public protocol Callback {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func initiateCallbackAsync(proxy: CallbackReceiverPrx?, current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
+    /// - returns: `` - The result of the operation
+    func initiateCallbackAsync(proxy: CallbackReceiverPrx?, current: Ice.Current) async throws -> Swift.Void
 
     ///
     /// - parameter proxy: `CallbackReceiverPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func initiateCallbackExAsync(proxy: CallbackReceiverPrx?, current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
+    /// - returns: `` - The result of the operation
+    func initiateCallbackExAsync(proxy: CallbackReceiverPrx?, current: Ice.Current) async throws -> Swift.Void
 
     ///
     /// - parameter number: `Swift.Int32`
@@ -920,24 +919,24 @@ public protocol Callback {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
-    func initiateConcurrentCallbackAsync(number: Swift.Int32, proxy: CallbackReceiverPrx?, current: Ice.Current) -> PromiseKit.Promise<Swift.Int32>
+    /// - returns: `Swift.Int32` - The result of the operation
+    func initiateConcurrentCallbackAsync(number: Swift.Int32, proxy: CallbackReceiverPrx?, current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter proxy: `CallbackReceiverPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func initiateWaitCallbackAsync(proxy: CallbackReceiverPrx?, current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
+    /// - returns: `` - The result of the operation
+    func initiateWaitCallbackAsync(proxy: CallbackReceiverPrx?, current: Ice.Current) async throws -> Swift.Void
 
     ///
     /// - parameter proxy: `CallbackReceiverPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func initiateCallbackWithPayloadAsync(proxy: CallbackReceiverPrx?, current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
+    /// - returns: `` - The result of the operation
+    func initiateCallbackWithPayloadAsync(proxy: CallbackReceiverPrx?, current: Ice.Current) async throws -> Swift.Void
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
@@ -958,68 +957,51 @@ public protocol Callback {
 ///
 ///  - callbackWithPayload: 
 extension CallbackReceiver {
-    public func _iceD_callback(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_callback(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.callback(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
+        try self.callback(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
+    }
+
+    public func _iceD_callbackEx(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+
+        try self.callbackEx(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
+    }
+
+    public func _iceD_concurrentCallback(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_number: Swift.Int32 = try istr.read()
+        let result = try await self.concurrentCallbackAsync(
+            number: iceP_number, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
         }
     }
 
-    public func _iceD_callbackEx(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_waitCallback(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.callbackEx(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.waitCallback(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_concurrentCallback(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_number: Swift.Int32 = try istr.read()
-            return self.concurrentCallbackAsync(
-                number: iceP_number, current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
-                    let iceP_returnValue = value
-                    ostr.write(iceP_returnValue)
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
-    }
+    public func _iceD_callbackWithPayload(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_payload: Ice.ByteSeq = try istr.read()
 
-    public func _iceD_waitCallback(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-
-            try self.waitCallback(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
-    }
-
-    public func _iceD_callbackWithPayload(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_payload: Ice.ByteSeq = try istr.read()
-
-            try self.callbackWithPayload(payload: iceP_payload, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.callbackWithPayload(payload: iceP_payload, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }
 
@@ -1039,93 +1021,65 @@ extension CallbackReceiver {
 ///
 ///  - shutdown: 
 extension Callback {
-    public func _iceD_initiateCallback(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_proxy: CallbackReceiverPrx? = try istr.read(CallbackReceiverPrx.self)
-            return self.initiateCallbackAsync(
-                proxy: iceP_proxy, current: request.current
-            ).map(on: nil) {
-                request.current.makeEmptyOutgoingResponse()
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_initiateCallback(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_proxy: CallbackReceiverPrx? = try istr.read(CallbackReceiverPrx.self)
+        try await self.initiateCallbackAsync(
+            proxy: iceP_proxy, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
+    }
+
+    public func _iceD_initiateCallbackEx(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_proxy: CallbackReceiverPrx? = try istr.read(CallbackReceiverPrx.self)
+        try await self.initiateCallbackExAsync(
+            proxy: iceP_proxy, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
+    }
+
+    public func _iceD_initiateConcurrentCallback(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_number: Swift.Int32 = try istr.read()
+        let iceP_proxy: CallbackReceiverPrx? = try istr.read(CallbackReceiverPrx.self)
+        let result = try await self.initiateConcurrentCallbackAsync(
+            number: iceP_number, proxy: iceP_proxy, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
         }
     }
 
-    public func _iceD_initiateCallbackEx(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_proxy: CallbackReceiverPrx? = try istr.read(CallbackReceiverPrx.self)
-            return self.initiateCallbackExAsync(
-                proxy: iceP_proxy, current: request.current
-            ).map(on: nil) {
-                request.current.makeEmptyOutgoingResponse()
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+    public func _iceD_initiateWaitCallback(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_proxy: CallbackReceiverPrx? = try istr.read(CallbackReceiverPrx.self)
+        try await self.initiateWaitCallbackAsync(
+            proxy: iceP_proxy, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_initiateConcurrentCallback(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_number: Swift.Int32 = try istr.read()
-            let iceP_proxy: CallbackReceiverPrx? = try istr.read(CallbackReceiverPrx.self)
-            return self.initiateConcurrentCallbackAsync(
-                number: iceP_number, proxy: iceP_proxy, current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
-                    let iceP_returnValue = value
-                    ostr.write(iceP_returnValue)
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+    public func _iceD_initiateCallbackWithPayload(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_proxy: CallbackReceiverPrx? = try istr.read(CallbackReceiverPrx.self)
+        try await self.initiateCallbackWithPayloadAsync(
+            proxy: iceP_proxy, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_initiateWaitCallback(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_proxy: CallbackReceiverPrx? = try istr.read(CallbackReceiverPrx.self)
-            return self.initiateWaitCallbackAsync(
-                proxy: iceP_proxy, current: request.current
-            ).map(on: nil) {
-                request.current.makeEmptyOutgoingResponse()
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
-    }
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-    public func _iceD_initiateCallbackWithPayload(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_proxy: CallbackReceiverPrx? = try istr.read(CallbackReceiverPrx.self)
-            return self.initiateCallbackWithPayloadAsync(
-                proxy: iceP_proxy, current: request.current
-            ).map(on: nil) {
-                request.current.makeEmptyOutgoingResponse()
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
-    }
-
-    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-
-            try self.shutdown(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.shutdown(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }

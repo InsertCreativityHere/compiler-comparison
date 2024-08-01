@@ -14,7 +14,6 @@
 //
 
 import Foundation
-import PromiseKit
 
 /// :nodoc:
 public class AdapterNotFoundException_TypeResolver: UserExceptionTypeResolver {
@@ -360,28 +359,28 @@ public extension LocatorPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<ObjectPrx?>` - The result of the operation
-    func findObjectByIdAsync(_ iceP_id: Identity, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<ObjectPrx?> {
-        return _impl._invokeAsync(operation: "findObjectById",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      ostr.write(iceP_id)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: ObjectPrx? = try istr.read(ObjectPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as ObjectNotFoundException {
-                                          throw error
-                                      } catch is UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `ObjectPrx?` - The result of the operation
+    func findObjectByIdAsync(_ iceP_id: Identity, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> ObjectPrx? {
+        return try await _impl._invokeAsync(operation: "findObjectById",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                ostr.write(iceP_id)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: ObjectPrx? = try istr.read(ObjectPrx.self)
+                                                return iceP_returnValue
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as ObjectNotFoundException {
+                                                    throw error
+                                                } catch is UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Find an adapter by id and return a proxy that contains its endpoints.
@@ -429,28 +428,28 @@ public extension LocatorPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<ObjectPrx?>` - The result of the operation
-    func findAdapterByIdAsync(_ iceP_id: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<ObjectPrx?> {
-        return _impl._invokeAsync(operation: "findAdapterById",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      ostr.write(iceP_id)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: ObjectPrx? = try istr.read(ObjectPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as AdapterNotFoundException {
-                                          throw error
-                                      } catch is UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `ObjectPrx?` - The result of the operation
+    func findAdapterByIdAsync(_ iceP_id: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> ObjectPrx? {
+        return try await _impl._invokeAsync(operation: "findAdapterById",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                ostr.write(iceP_id)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: ObjectPrx? = try istr.read(ObjectPrx.self)
+                                                return iceP_returnValue
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as AdapterNotFoundException {
+                                                    throw error
+                                                } catch is UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Get the locator registry.
@@ -480,18 +479,18 @@ public extension LocatorPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<LocatorRegistryPrx?>` - The result of the operation
-    func getRegistryAsync(context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<LocatorRegistryPrx?> {
-        return _impl._invokeAsync(operation: "getRegistry",
-                                  mode: .Idempotent,
-                                  read: { istr in
-                                      let iceP_returnValue: LocatorRegistryPrx? = try istr.read(LocatorRegistryPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `LocatorRegistryPrx?` - The result of the operation
+    func getRegistryAsync(context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> LocatorRegistryPrx? {
+        return try await _impl._invokeAsync(operation: "getRegistry",
+                                            mode: .Idempotent,
+                                            read: { istr in
+                                                let iceP_returnValue: LocatorRegistryPrx? = try istr.read(LocatorRegistryPrx.self)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -670,27 +669,27 @@ public extension LocatorRegistryPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func setAdapterDirectProxyAsync(id iceP_id: Swift.String, proxy iceP_proxy: ObjectPrx?, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "setAdapterDirectProxy",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      ostr.write(iceP_id)
-                                      ostr.write(iceP_proxy)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as AdapterNotFoundException {
-                                          throw error
-                                      } catch let error as AdapterAlreadyActiveException {
-                                          throw error
-                                      } catch is UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func setAdapterDirectProxyAsync(id iceP_id: Swift.String, proxy iceP_proxy: ObjectPrx?, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "setAdapterDirectProxy",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                ostr.write(iceP_id)
+                                                ostr.write(iceP_proxy)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as AdapterNotFoundException {
+                                                    throw error
+                                                } catch let error as AdapterAlreadyActiveException {
+                                                    throw error
+                                                } catch is UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Set the adapter endpoints with the locator registry.
@@ -754,30 +753,30 @@ public extension LocatorRegistryPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func setReplicatedAdapterDirectProxyAsync(adapterId iceP_adapterId: Swift.String, replicaGroupId iceP_replicaGroupId: Swift.String, proxy iceP_proxy: ObjectPrx?, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "setReplicatedAdapterDirectProxy",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      ostr.write(iceP_adapterId)
-                                      ostr.write(iceP_replicaGroupId)
-                                      ostr.write(iceP_proxy)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as AdapterNotFoundException {
-                                          throw error
-                                      } catch let error as InvalidReplicaGroupIdException {
-                                          throw error
-                                      } catch let error as AdapterAlreadyActiveException {
-                                          throw error
-                                      } catch is UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func setReplicatedAdapterDirectProxyAsync(adapterId iceP_adapterId: Swift.String, replicaGroupId iceP_replicaGroupId: Swift.String, proxy iceP_proxy: ObjectPrx?, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "setReplicatedAdapterDirectProxy",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                ostr.write(iceP_adapterId)
+                                                ostr.write(iceP_replicaGroupId)
+                                                ostr.write(iceP_proxy)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as AdapterNotFoundException {
+                                                    throw error
+                                                } catch let error as InvalidReplicaGroupIdException {
+                                                    throw error
+                                                } catch let error as AdapterAlreadyActiveException {
+                                                    throw error
+                                                } catch is UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Set the process proxy for a server.
@@ -824,25 +823,25 @@ public extension LocatorRegistryPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func setServerProcessProxyAsync(id iceP_id: Swift.String, proxy iceP_proxy: ProcessPrx?, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "setServerProcessProxy",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      ostr.write(iceP_id)
-                                      ostr.write(iceP_proxy)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as ServerNotFoundException {
-                                          throw error
-                                      } catch is UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func setServerProcessProxyAsync(id iceP_id: Swift.String, proxy iceP_proxy: ProcessPrx?, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "setServerProcessProxy",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                ostr.write(iceP_id)
+                                                ostr.write(iceP_proxy)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as ServerNotFoundException {
+                                                    throw error
+                                                } catch is UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -981,18 +980,18 @@ public extension LocatorFinderPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<LocatorPrx?>` - The result of the operation
-    func getLocatorAsync(context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<LocatorPrx?> {
-        return _impl._invokeAsync(operation: "getLocator",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: LocatorPrx? = try istr.read(LocatorPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `LocatorPrx?` - The result of the operation
+    func getLocatorAsync(context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> LocatorPrx? {
+        return try await _impl._invokeAsync(operation: "getLocator",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                let iceP_returnValue: LocatorPrx? = try istr.read(LocatorPrx.self)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -1006,24 +1005,24 @@ public struct LocatorDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "findAdapterById":
-            servant._iceD_findAdapterById(request)
+            try await servant._iceD_findAdapterById(request)
         case "findObjectById":
-            servant._iceD_findObjectById(request)
+            try await servant._iceD_findObjectById(request)
         case "getRegistry":
-            servant._iceD_getRegistry(request)
+            try await servant._iceD_getRegistry(request)
         case "ice_id":
-            (servant as? Ice.Object ?? LocatorDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? LocatorDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? LocatorDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? LocatorDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? LocatorDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? LocatorDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? LocatorDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? LocatorDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1040,8 +1039,8 @@ public protocol Locator {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<ObjectPrx?>` - The result of the operation
-    func findObjectByIdAsync(id: Identity, current: Current) -> PromiseKit.Promise<ObjectPrx?>
+    /// - returns: `ObjectPrx?` - The result of the operation
+    func findObjectByIdAsync(id: Identity, current: Current) async throws -> ObjectPrx?
 
     /// Find an adapter by id and return a proxy that contains its endpoints.
     ///
@@ -1049,8 +1048,8 @@ public protocol Locator {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<ObjectPrx?>` - The result of the operation
-    func findAdapterByIdAsync(id: Swift.String, current: Current) -> PromiseKit.Promise<ObjectPrx?>
+    /// - returns: `ObjectPrx?` - The result of the operation
+    func findAdapterByIdAsync(id: Swift.String, current: Current) async throws -> ObjectPrx?
 
     /// Get the locator registry.
     ///
@@ -1070,24 +1069,24 @@ public struct LocatorRegistryDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            (servant as? Ice.Object ?? LocatorRegistryDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? LocatorRegistryDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? LocatorRegistryDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? LocatorRegistryDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? LocatorRegistryDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? LocatorRegistryDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? LocatorRegistryDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? LocatorRegistryDisp.defaultObject)._iceD_ice_ping(request)
         case "setAdapterDirectProxy":
-            servant._iceD_setAdapterDirectProxy(request)
+            try await servant._iceD_setAdapterDirectProxy(request)
         case "setReplicatedAdapterDirectProxy":
-            servant._iceD_setReplicatedAdapterDirectProxy(request)
+            try await servant._iceD_setReplicatedAdapterDirectProxy(request)
         case "setServerProcessProxy":
-            servant._iceD_setServerProcessProxy(request)
+            try await servant._iceD_setServerProcessProxy(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1106,8 +1105,8 @@ public protocol LocatorRegistry {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func setAdapterDirectProxyAsync(id: Swift.String, proxy: ObjectPrx?, current: Current) -> PromiseKit.Promise<Swift.Void>
+    /// - returns: `` - The result of the operation
+    func setAdapterDirectProxyAsync(id: Swift.String, proxy: ObjectPrx?, current: Current) async throws -> Swift.Void
 
     /// Set the adapter endpoints with the locator registry.
     ///
@@ -1120,8 +1119,8 @@ public protocol LocatorRegistry {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func setReplicatedAdapterDirectProxyAsync(adapterId: Swift.String, replicaGroupId: Swift.String, proxy: ObjectPrx?, current: Current) -> PromiseKit.Promise<Swift.Void>
+    /// - returns: `` - The result of the operation
+    func setReplicatedAdapterDirectProxyAsync(adapterId: Swift.String, replicaGroupId: Swift.String, proxy: ObjectPrx?, current: Current) async throws -> Swift.Void
 
     /// Set the process proxy for a server.
     ///
@@ -1131,8 +1130,8 @@ public protocol LocatorRegistry {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func setServerProcessProxyAsync(id: Swift.String, proxy: ProcessPrx?, current: Current) -> PromiseKit.Promise<Swift.Void>
+    /// - returns: `` - The result of the operation
+    func setServerProcessProxyAsync(id: Swift.String, proxy: ProcessPrx?, current: Current) async throws -> Swift.Void
 }
 
 
@@ -1145,20 +1144,20 @@ public struct LocatorFinderDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "getLocator":
-            servant._iceD_getLocator(request)
+            try await servant._iceD_getLocator(request)
         case "ice_id":
-            (servant as? Ice.Object ?? LocatorFinderDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? LocatorFinderDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? LocatorFinderDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? LocatorFinderDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? LocatorFinderDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? LocatorFinderDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? LocatorFinderDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? LocatorFinderDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1189,55 +1188,42 @@ public protocol LocatorFinder {
 ///
 ///  - getRegistry: Get the locator registry.
 extension Locator {
-    public func _iceD_findObjectById(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_id: Identity = try istr.read()
-            return self.findObjectByIdAsync(
-                id: iceP_id, current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
-                    let iceP_returnValue = value
-                    ostr.write(iceP_returnValue)
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
-    }
-
-    public func _iceD_findAdapterById(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_id: Swift.String = try istr.read()
-            return self.findAdapterByIdAsync(
-                id: iceP_id, current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
-                    let iceP_returnValue = value
-                    ostr.write(iceP_returnValue)
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
-    }
-
-    public func _iceD_getRegistry(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-
-            let iceP_returnValue = try self.getRegistry(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+    public func _iceD_findObjectById(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_id: Identity = try istr.read()
+        let result = try await self.findObjectByIdAsync(
+            id: iceP_id, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+            let iceP_returnValue = value
             ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
         }
+    }
+
+    public func _iceD_findAdapterById(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_id: Swift.String = try istr.read()
+        let result = try await self.findAdapterByIdAsync(
+            id: iceP_id, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
+    }
+
+    public func _iceD_getRegistry(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+
+        let iceP_returnValue = try self.getRegistry(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }
 
@@ -1254,53 +1240,38 @@ extension Locator {
 ///
 ///  - setServerProcessProxy: Set the process proxy for a server.
 extension LocatorRegistry {
-    public func _iceD_setAdapterDirectProxy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_id: Swift.String = try istr.read()
-            let iceP_proxy: ObjectPrx? = try istr.read(ObjectPrx.self)
-            return self.setAdapterDirectProxyAsync(
-                id: iceP_id, proxy: iceP_proxy, current: request.current
-            ).map(on: nil) {
-                request.current.makeEmptyOutgoingResponse()
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+    public func _iceD_setAdapterDirectProxy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_id: Swift.String = try istr.read()
+        let iceP_proxy: ObjectPrx? = try istr.read(ObjectPrx.self)
+        try await self.setAdapterDirectProxyAsync(
+            id: iceP_id, proxy: iceP_proxy, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_setReplicatedAdapterDirectProxy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_adapterId: Swift.String = try istr.read()
-            let iceP_replicaGroupId: Swift.String = try istr.read()
-            let iceP_proxy: ObjectPrx? = try istr.read(ObjectPrx.self)
-            return self.setReplicatedAdapterDirectProxyAsync(
-                adapterId: iceP_adapterId, replicaGroupId: iceP_replicaGroupId, proxy: iceP_proxy, current: request.current
-            ).map(on: nil) {
-                request.current.makeEmptyOutgoingResponse()
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+    public func _iceD_setReplicatedAdapterDirectProxy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_adapterId: Swift.String = try istr.read()
+        let iceP_replicaGroupId: Swift.String = try istr.read()
+        let iceP_proxy: ObjectPrx? = try istr.read(ObjectPrx.self)
+        try await self.setReplicatedAdapterDirectProxyAsync(
+            adapterId: iceP_adapterId, replicaGroupId: iceP_replicaGroupId, proxy: iceP_proxy, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_setServerProcessProxy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_id: Swift.String = try istr.read()
-            let iceP_proxy: ProcessPrx? = try istr.read(ProcessPrx.self)
-            return self.setServerProcessProxyAsync(
-                id: iceP_id, proxy: iceP_proxy, current: request.current
-            ).map(on: nil) {
-                request.current.makeEmptyOutgoingResponse()
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+    public func _iceD_setServerProcessProxy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_id: Swift.String = try istr.read()
+        let iceP_proxy: ProcessPrx? = try istr.read(ProcessPrx.self)
+        try await self.setServerProcessProxyAsync(
+            id: iceP_id, proxy: iceP_proxy, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }
 
@@ -1312,18 +1283,15 @@ extension LocatorRegistry {
 ///
 ///  - getLocator: Get the locator proxy implemented by the process hosting this finder object.
 extension LocatorFinder {
-    public func _iceD_getLocator(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_getLocator(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.getLocator(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getLocator(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }

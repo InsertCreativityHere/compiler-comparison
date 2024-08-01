@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 /// Traits for Slice interface`LookupReply`.
 public struct LookupReplyTraits: Ice.SliceTraits {
@@ -161,17 +160,17 @@ public extension LookupReplyPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func foundLocatorAsync(_ iceP_prx: Ice.LocatorPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "foundLocator",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_prx)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func foundLocatorAsync(_ iceP_prx: Ice.LocatorPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "foundLocator",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_prx)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -318,18 +317,18 @@ public extension LookupPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func findLocatorAsync(instanceName iceP_instanceName: Swift.String, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "findLocator",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      ostr.write(iceP_instanceName)
-                                      ostr.write(iceP_reply)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func findLocatorAsync(instanceName iceP_instanceName: Swift.String, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "findLocator",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                ostr.write(iceP_instanceName)
+                                                ostr.write(iceP_reply)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -343,20 +342,20 @@ public struct LookupReplyDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "foundLocator":
-            servant._iceD_foundLocator(request)
+            try await servant._iceD_foundLocator(request)
         case "ice_id":
-            (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -382,20 +381,20 @@ public struct LookupDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "findLocator":
-            servant._iceD_findLocator(request)
+            try await servant._iceD_findLocator(request)
         case "ice_id":
-            (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -423,17 +422,14 @@ public protocol Lookup {
 ///
 ///  - foundLocator: This method is called by the implementation of the Lookup interface to reply to a findLocator request.
 extension LookupReply {
-    public func _iceD_foundLocator(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_prx: Ice.LocatorPrx? = try istr.read(Ice.LocatorPrx.self)
+    public func _iceD_foundLocator(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_prx: Ice.LocatorPrx? = try istr.read(Ice.LocatorPrx.self)
 
-            try self.foundLocator(prx: iceP_prx, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.foundLocator(prx: iceP_prx, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }
 
@@ -446,17 +442,14 @@ extension LookupReply {
 ///
 ///  - findLocator: Find a locator proxy with the given instance name.
 extension Lookup {
-    public func _iceD_findLocator(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_instanceName: Swift.String = try istr.read()
-            let iceP_reply: LookupReplyPrx? = try istr.read(LookupReplyPrx.self)
+    public func _iceD_findLocator(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_instanceName: Swift.String = try istr.read()
+        let iceP_reply: LookupReplyPrx? = try istr.read(LookupReplyPrx.self)
 
-            try self.findLocator(instanceName: iceP_instanceName, reply: iceP_reply, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.findLocator(instanceName: iceP_instanceName, reply: iceP_reply, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }

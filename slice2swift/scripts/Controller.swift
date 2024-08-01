@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 public typealias CommonBoolSeq = [Swift.Bool]
 
@@ -343,29 +342,29 @@ public extension CommonTestCasePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.String>` - The result of the operation
-    func startServerSideAsync(_ iceP_config: CommonConfig?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.String> {
-        return _impl._invokeAsync(operation: "startServerSide",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_config)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.String = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as CommonTestCaseFailedException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.String` - The result of the operation
+    func startServerSideAsync(_ iceP_config: CommonConfig?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.String {
+        return try await _impl._invokeAsync(operation: "startServerSide",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_config)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.String = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as CommonTestCaseFailedException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -407,28 +406,28 @@ public extension CommonTestCasePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.String>` - The result of the operation
-    func stopServerSideAsync(_ iceP_success: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.String> {
-        return _impl._invokeAsync(operation: "stopServerSide",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_success)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.String = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as CommonTestCaseFailedException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.String` - The result of the operation
+    func stopServerSideAsync(_ iceP_success: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.String {
+        return try await _impl._invokeAsync(operation: "stopServerSide",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_success)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.String = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as CommonTestCaseFailedException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -476,30 +475,30 @@ public extension CommonTestCasePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.String>` - The result of the operation
-    func runClientSideAsync(host iceP_host: Swift.String, config iceP_config: CommonConfig?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.String> {
-        return _impl._invokeAsync(operation: "runClientSide",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_host)
-                                      ostr.write(iceP_config)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.String = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as CommonTestCaseFailedException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.String` - The result of the operation
+    func runClientSideAsync(host iceP_host: Swift.String, config iceP_config: CommonConfig?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.String {
+        return try await _impl._invokeAsync(operation: "runClientSide",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_host)
+                                                ostr.write(iceP_config)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.String = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as CommonTestCaseFailedException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -521,14 +520,14 @@ public extension CommonTestCasePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func destroyAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "destroy",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func destroyAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "destroy",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -712,31 +711,31 @@ public extension CommonControllerPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<CommonTestCasePrx?>` - The result of the operation
-    func runTestCaseAsync(mapping iceP_mapping: Swift.String, testsuite iceP_testsuite: Swift.String, testcase iceP_testcase: Swift.String, cross iceP_cross: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<CommonTestCasePrx?> {
-        return _impl._invokeAsync(operation: "runTestCase",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_mapping)
-                                      ostr.write(iceP_testsuite)
-                                      ostr.write(iceP_testcase)
-                                      ostr.write(iceP_cross)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: CommonTestCasePrx? = try istr.read(CommonTestCasePrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as CommonTestCaseNotExistException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `CommonTestCasePrx?` - The result of the operation
+    func runTestCaseAsync(mapping iceP_mapping: Swift.String, testsuite iceP_testsuite: Swift.String, testcase iceP_testcase: Swift.String, cross iceP_cross: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> CommonTestCasePrx? {
+        return try await _impl._invokeAsync(operation: "runTestCase",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_mapping)
+                                                ostr.write(iceP_testsuite)
+                                                ostr.write(iceP_testcase)
+                                                ostr.write(iceP_cross)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: CommonTestCasePrx? = try istr.read(CommonTestCasePrx.self)
+                                                return iceP_returnValue
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as CommonTestCaseNotExistException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -766,20 +765,20 @@ public extension CommonControllerPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<CommonOptionOverrides?>` - The result of the operation
-    func getOptionOverridesAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<CommonOptionOverrides?> {
-        return _impl._invokeAsync(operation: "getOptionOverrides",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      var iceP_returnValue: CommonOptionOverrides?
-                                      try istr.read(CommonOptionOverrides.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `CommonOptionOverrides?` - The result of the operation
+    func getOptionOverridesAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> CommonOptionOverrides? {
+        return try await _impl._invokeAsync(operation: "getOptionOverrides",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                var iceP_returnValue: CommonOptionOverrides?
+                                                try istr.read(CommonOptionOverrides.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -814,21 +813,21 @@ public extension CommonControllerPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<CommonStringSeq>` - The result of the operation
-    func getTestSuitesAsync(_ iceP_mapping: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<CommonStringSeq> {
-        return _impl._invokeAsync(operation: "getTestSuites",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_mapping)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: CommonStringSeq = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `CommonStringSeq` - The result of the operation
+    func getTestSuitesAsync(_ iceP_mapping: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> CommonStringSeq {
+        return try await _impl._invokeAsync(operation: "getTestSuites",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_mapping)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: CommonStringSeq = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -868,22 +867,22 @@ public extension CommonControllerPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.String>` - The result of the operation
-    func getHostAsync(protocol iceP_protocol: Swift.String, ipv6 iceP_ipv6: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.String> {
-        return _impl._invokeAsync(operation: "getHost",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_protocol)
-                                      ostr.write(iceP_ipv6)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.String = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.String` - The result of the operation
+    func getHostAsync(protocol iceP_protocol: Swift.String, ipv6 iceP_ipv6: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.String {
+        return try await _impl._invokeAsync(operation: "getHost",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_protocol)
+                                                ostr.write(iceP_ipv6)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.String = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -1038,24 +1037,24 @@ public extension CommonProcessPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func waitReadyAsync(_ iceP_timeout: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "waitReady",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_timeout)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as CommonProcessFailedException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func waitReadyAsync(_ iceP_timeout: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "waitReady",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_timeout)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as CommonProcessFailedException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1097,28 +1096,28 @@ public extension CommonProcessPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
-    func waitSuccessAsync(_ iceP_timeout: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
-        return _impl._invokeAsync(operation: "waitSuccess",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_timeout)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Int32 = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as CommonProcessFailedException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.Int32` - The result of the operation
+    func waitSuccessAsync(_ iceP_timeout: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invokeAsync(operation: "waitSuccess",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_timeout)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.Int32 = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as CommonProcessFailedException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1146,18 +1145,18 @@ public extension CommonProcessPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.String>` - The result of the operation
-    func terminateAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.String> {
-        return _impl._invokeAsync(operation: "terminate",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.String = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.String` - The result of the operation
+    func terminateAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.String {
+        return try await _impl._invokeAsync(operation: "terminate",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.String = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -1320,30 +1319,30 @@ public extension CommonProcessControllerPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<CommonProcessPrx?>` - The result of the operation
-    func startAsync(testsuite iceP_testsuite: Swift.String, exe iceP_exe: Swift.String, args iceP_args: CommonStringSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<CommonProcessPrx?> {
-        return _impl._invokeAsync(operation: "start",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_testsuite)
-                                      ostr.write(iceP_exe)
-                                      ostr.write(iceP_args)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: CommonProcessPrx? = try istr.read(CommonProcessPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as CommonProcessFailedException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `CommonProcessPrx?` - The result of the operation
+    func startAsync(testsuite iceP_testsuite: Swift.String, exe iceP_exe: Swift.String, args iceP_args: CommonStringSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> CommonProcessPrx? {
+        return try await _impl._invokeAsync(operation: "start",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_testsuite)
+                                                ostr.write(iceP_exe)
+                                                ostr.write(iceP_args)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: CommonProcessPrx? = try istr.read(CommonProcessPrx.self)
+                                                return iceP_returnValue
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as CommonProcessFailedException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1383,22 +1382,22 @@ public extension CommonProcessControllerPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.String>` - The result of the operation
-    func getHostAsync(protocol iceP_protocol: Swift.String, ipv6 iceP_ipv6: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.String> {
-        return _impl._invokeAsync(operation: "getHost",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_protocol)
-                                      ostr.write(iceP_ipv6)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.String = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.String` - The result of the operation
+    func getHostAsync(protocol iceP_protocol: Swift.String, ipv6 iceP_ipv6: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.String {
+        return try await _impl._invokeAsync(operation: "getHost",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_protocol)
+                                                ostr.write(iceP_ipv6)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.String = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -1530,17 +1529,17 @@ public extension CommonBrowserProcessControllerPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func redirectAsync(_ iceP_url: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "redirect",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_url)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func redirectAsync(_ iceP_url: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "redirect",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_url)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -1672,17 +1671,17 @@ public extension CommonProcessControllerRegistryPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func setProcessControllerAsync(_ iceP_controller: CommonProcessControllerPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "setProcessController",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_controller)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func setProcessControllerAsync(_ iceP_controller: CommonProcessControllerPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "setProcessController",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_controller)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -1816,26 +1815,26 @@ public struct CommonTestCaseDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "destroy":
-            servant._iceD_destroy(request)
+            try await servant._iceD_destroy(request)
         case "ice_id":
-            (servant as? Ice.Object ?? CommonTestCaseDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? CommonTestCaseDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? CommonTestCaseDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? CommonTestCaseDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? CommonTestCaseDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? CommonTestCaseDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? CommonTestCaseDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? CommonTestCaseDisp.defaultObject)._iceD_ice_ping(request)
         case "runClientSide":
-            servant._iceD_runClientSide(request)
+            try await servant._iceD_runClientSide(request)
         case "startServerSide":
-            servant._iceD_startServerSide(request)
+            try await servant._iceD_startServerSide(request)
         case "stopServerSide":
-            servant._iceD_stopServerSide(request)
+            try await servant._iceD_stopServerSide(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1882,26 +1881,26 @@ public struct CommonControllerDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "getHost":
-            servant._iceD_getHost(request)
+            try await servant._iceD_getHost(request)
         case "getOptionOverrides":
-            servant._iceD_getOptionOverrides(request)
+            try await servant._iceD_getOptionOverrides(request)
         case "getTestSuites":
-            servant._iceD_getTestSuites(request)
+            try await servant._iceD_getTestSuites(request)
         case "ice_id":
-            (servant as? Ice.Object ?? CommonControllerDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? CommonControllerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? CommonControllerDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? CommonControllerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? CommonControllerDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? CommonControllerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? CommonControllerDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? CommonControllerDisp.defaultObject)._iceD_ice_ping(request)
         case "runTestCase":
-            servant._iceD_runTestCase(request)
+            try await servant._iceD_runTestCase(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1956,24 +1955,24 @@ public struct CommonProcessDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            (servant as? Ice.Object ?? CommonProcessDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? CommonProcessDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? CommonProcessDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? CommonProcessDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? CommonProcessDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? CommonProcessDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? CommonProcessDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? CommonProcessDisp.defaultObject)._iceD_ice_ping(request)
         case "terminate":
-            servant._iceD_terminate(request)
+            try await servant._iceD_terminate(request)
         case "waitReady":
-            servant._iceD_waitReady(request)
+            try await servant._iceD_waitReady(request)
         case "waitSuccess":
-            servant._iceD_waitSuccess(request)
+            try await servant._iceD_waitSuccess(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -2010,22 +2009,22 @@ public struct CommonProcessControllerDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "getHost":
-            servant._iceD_getHost(request)
+            try await servant._iceD_getHost(request)
         case "ice_id":
-            (servant as? Ice.Object ?? CommonProcessControllerDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? CommonProcessControllerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? CommonProcessControllerDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? CommonProcessControllerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? CommonProcessControllerDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? CommonProcessControllerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? CommonProcessControllerDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? CommonProcessControllerDisp.defaultObject)._iceD_ice_ping(request)
         case "start":
-            servant._iceD_start(request)
+            try await servant._iceD_start(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -2064,24 +2063,24 @@ public struct CommonBrowserProcessControllerDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "getHost":
-            servant._iceD_getHost(request)
+            try await servant._iceD_getHost(request)
         case "ice_id":
-            (servant as? Ice.Object ?? CommonBrowserProcessControllerDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? CommonBrowserProcessControllerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? CommonBrowserProcessControllerDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? CommonBrowserProcessControllerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? CommonBrowserProcessControllerDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? CommonBrowserProcessControllerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? CommonBrowserProcessControllerDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? CommonBrowserProcessControllerDisp.defaultObject)._iceD_ice_ping(request)
         case "redirect":
-            servant._iceD_redirect(request)
+            try await servant._iceD_redirect(request)
         case "start":
-            servant._iceD_start(request)
+            try await servant._iceD_start(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -2104,20 +2103,20 @@ public struct CommonProcessControllerRegistryDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            (servant as? Ice.Object ?? CommonProcessControllerRegistryDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? CommonProcessControllerRegistryDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? CommonProcessControllerRegistryDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? CommonProcessControllerRegistryDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? CommonProcessControllerRegistryDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? CommonProcessControllerRegistryDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? CommonProcessControllerRegistryDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? CommonProcessControllerRegistryDisp.defaultObject)._iceD_ice_ping(request)
         case "setProcessController":
-            servant._iceD_setProcessController(request)
+            try await servant._iceD_setProcessController(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -2142,71 +2141,59 @@ public protocol CommonProcessControllerRegistry {
 ///
 ///  - destroy: 
 extension CommonTestCase {
-    public func _iceD_startServerSide(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            var iceP_config: CommonConfig?
-            try istr.read(CommonConfig.self) { iceP_config = $0 }
-            try istr.readPendingValues()
+    public func _iceD_startServerSide(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        var iceP_config: CommonConfig?
+        try istr.read(CommonConfig.self) { iceP_config = $0 }
+        try istr.readPendingValues()
 
-            let iceP_returnValue = try self.startServerSide(config: iceP_config, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.startServerSide(config: iceP_config, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_stopServerSide(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_success: Swift.Bool = try istr.read()
+    public func _iceD_stopServerSide(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_success: Swift.Bool = try istr.read()
 
-            let iceP_returnValue = try self.stopServerSide(success: iceP_success, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.stopServerSide(success: iceP_success, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_runClientSide(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_host: Swift.String = try istr.read()
-            var iceP_config: CommonConfig?
-            try istr.read(CommonConfig.self) { iceP_config = $0 }
-            try istr.readPendingValues()
+    public func _iceD_runClientSide(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_host: Swift.String = try istr.read()
+        var iceP_config: CommonConfig?
+        try istr.read(CommonConfig.self) { iceP_config = $0 }
+        try istr.readPendingValues()
 
-            let iceP_returnValue = try self.runClientSide(host: iceP_host, config: iceP_config, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.runClientSide(host: iceP_host, config: iceP_config, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_destroy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_destroy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.destroy(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.destroy(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }
 
@@ -2222,75 +2209,63 @@ extension CommonTestCase {
 ///
 ///  - getHost: 
 extension CommonController {
-    public func _iceD_runTestCase(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_mapping: Swift.String = try istr.read()
-            let iceP_testsuite: Swift.String = try istr.read()
-            let iceP_testcase: Swift.String = try istr.read()
-            let iceP_cross: Swift.String = try istr.read()
+    public func _iceD_runTestCase(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_mapping: Swift.String = try istr.read()
+        let iceP_testsuite: Swift.String = try istr.read()
+        let iceP_testcase: Swift.String = try istr.read()
+        let iceP_cross: Swift.String = try istr.read()
 
-            let iceP_returnValue = try self.runTestCase(mapping: iceP_mapping, testsuite: iceP_testsuite, testcase: iceP_testcase, cross: iceP_cross, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.runTestCase(mapping: iceP_mapping, testsuite: iceP_testsuite, testcase: iceP_testcase, cross: iceP_cross, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_getOptionOverrides(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_getOptionOverrides(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.getOptionOverrides(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getOptionOverrides(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_getTestSuites(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_mapping: Swift.String = try istr.read()
+    public func _iceD_getTestSuites(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_mapping: Swift.String = try istr.read()
 
-            let iceP_returnValue = try self.getTestSuites(mapping: iceP_mapping, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getTestSuites(mapping: iceP_mapping, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_getHost(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_protocol: Swift.String = try istr.read()
-            let iceP_ipv6: Swift.Bool = try istr.read()
+    public func _iceD_getHost(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_protocol: Swift.String = try istr.read()
+        let iceP_ipv6: Swift.Bool = try istr.read()
 
-            let iceP_returnValue = try self.getHost(protocol: iceP_protocol, ipv6: iceP_ipv6, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getHost(protocol: iceP_protocol, ipv6: iceP_ipv6, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }
 
@@ -2304,49 +2279,40 @@ extension CommonController {
 ///
 ///  - terminate: 
 extension CommonProcess {
-    public func _iceD_waitReady(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_timeout: Swift.Int32 = try istr.read()
+    public func _iceD_waitReady(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_timeout: Swift.Int32 = try istr.read()
 
-            try self.waitReady(timeout: iceP_timeout, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.waitReady(timeout: iceP_timeout, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_waitSuccess(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_timeout: Swift.Int32 = try istr.read()
+    public func _iceD_waitSuccess(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_timeout: Swift.Int32 = try istr.read()
 
-            let iceP_returnValue = try self.waitSuccess(timeout: iceP_timeout, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.waitSuccess(timeout: iceP_timeout, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_terminate(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_terminate(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.terminate(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.terminate(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }
 
@@ -2358,41 +2324,35 @@ extension CommonProcess {
 ///
 ///  - getHost: 
 extension CommonProcessController {
-    public func _iceD_start(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_testsuite: Swift.String = try istr.read()
-            let iceP_exe: Swift.String = try istr.read()
-            let iceP_args: CommonStringSeq = try istr.read()
+    public func _iceD_start(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_testsuite: Swift.String = try istr.read()
+        let iceP_exe: Swift.String = try istr.read()
+        let iceP_args: CommonStringSeq = try istr.read()
 
-            let iceP_returnValue = try self.start(testsuite: iceP_testsuite, exe: iceP_exe, args: iceP_args, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.start(testsuite: iceP_testsuite, exe: iceP_exe, args: iceP_args, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_getHost(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_protocol: Swift.String = try istr.read()
-            let iceP_ipv6: Swift.Bool = try istr.read()
+    public func _iceD_getHost(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_protocol: Swift.String = try istr.read()
+        let iceP_ipv6: Swift.Bool = try istr.read()
 
-            let iceP_returnValue = try self.getHost(protocol: iceP_protocol, ipv6: iceP_ipv6, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getHost(protocol: iceP_protocol, ipv6: iceP_ipv6, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }
 
@@ -2402,17 +2362,14 @@ extension CommonProcessController {
 ///
 ///  - redirect: 
 extension CommonBrowserProcessController {
-    public func _iceD_redirect(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_url: Swift.String = try istr.read()
+    public func _iceD_redirect(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_url: Swift.String = try istr.read()
 
-            try self.redirect(url: iceP_url, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.redirect(url: iceP_url, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }
 
@@ -2422,16 +2379,13 @@ extension CommonBrowserProcessController {
 ///
 ///  - setProcessController: 
 extension CommonProcessControllerRegistry {
-    public func _iceD_setProcessController(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_controller: CommonProcessControllerPrx? = try istr.read(CommonProcessControllerPrx.self)
+    public func _iceD_setProcessController(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_controller: CommonProcessControllerPrx? = try istr.read(CommonProcessControllerPrx.self)
 
-            try self.setProcessController(controller: iceP_controller, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.setProcessController(controller: iceP_controller, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }

@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 /// Traits for Slice interface`LookupReply`.
 public struct LookupReplyTraits: Ice.SliceTraits {
@@ -172,18 +171,18 @@ public extension LookupReplyPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func foundObjectByIdAsync(id iceP_id: Ice.Identity, prx iceP_prx: Ice.ObjectPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "foundObjectById",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_id)
-                                      ostr.write(iceP_prx)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func foundObjectByIdAsync(id iceP_id: Ice.Identity, prx iceP_prx: Ice.ObjectPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "foundObjectById",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_id)
+                                                ostr.write(iceP_prx)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Reply to the findAdpaterById request.
@@ -226,19 +225,19 @@ public extension LookupReplyPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func foundAdapterByIdAsync(id iceP_id: Swift.String, prx iceP_prx: Ice.ObjectPrx?, isReplicaGroup iceP_isReplicaGroup: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "foundAdapterById",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_id)
-                                      ostr.write(iceP_prx)
-                                      ostr.write(iceP_isReplicaGroup)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func foundAdapterByIdAsync(id iceP_id: Swift.String, prx iceP_prx: Ice.ObjectPrx?, isReplicaGroup iceP_isReplicaGroup: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "foundAdapterById",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_id)
+                                                ostr.write(iceP_prx)
+                                                ostr.write(iceP_isReplicaGroup)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -394,19 +393,19 @@ public extension LookupPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func findObjectByIdAsync(domainId iceP_domainId: Swift.String, id iceP_id: Ice.Identity, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "findObjectById",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      ostr.write(iceP_domainId)
-                                      ostr.write(iceP_id)
-                                      ostr.write(iceP_reply)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func findObjectByIdAsync(domainId iceP_domainId: Swift.String, id iceP_id: Ice.Identity, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "findObjectById",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                ostr.write(iceP_domainId)
+                                                ostr.write(iceP_id)
+                                                ostr.write(iceP_reply)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Request to find an object adapter
@@ -451,19 +450,19 @@ public extension LookupPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func findAdapterByIdAsync(domainId iceP_domainId: Swift.String, id iceP_id: Swift.String, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "findAdapterById",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      ostr.write(iceP_domainId)
-                                      ostr.write(iceP_id)
-                                      ostr.write(iceP_reply)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func findAdapterByIdAsync(domainId iceP_domainId: Swift.String, id iceP_id: Swift.String, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "findAdapterById",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                ostr.write(iceP_domainId)
+                                                ostr.write(iceP_id)
+                                                ostr.write(iceP_reply)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -477,22 +476,22 @@ public struct LookupReplyDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "foundAdapterById":
-            servant._iceD_foundAdapterById(request)
+            try await servant._iceD_foundAdapterById(request)
         case "foundObjectById":
-            servant._iceD_foundObjectById(request)
+            try await servant._iceD_foundObjectById(request)
         case "ice_id":
-            (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -531,22 +530,22 @@ public struct LookupDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "findAdapterById":
-            servant._iceD_findAdapterById(request)
+            try await servant._iceD_findAdapterById(request)
         case "findObjectById":
-            servant._iceD_findObjectById(request)
+            try await servant._iceD_findObjectById(request)
         case "ice_id":
-            (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -588,33 +587,27 @@ public protocol Lookup {
 ///
 ///  - foundAdapterById: Reply to the findAdpaterById request.
 extension LookupReply {
-    public func _iceD_foundObjectById(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_id: Ice.Identity = try istr.read()
-            let iceP_prx: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+    public func _iceD_foundObjectById(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_id: Ice.Identity = try istr.read()
+        let iceP_prx: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
 
-            try self.foundObjectById(id: iceP_id, prx: iceP_prx, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.foundObjectById(id: iceP_id, prx: iceP_prx, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_foundAdapterById(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_id: Swift.String = try istr.read()
-            let iceP_prx: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-            let iceP_isReplicaGroup: Swift.Bool = try istr.read()
+    public func _iceD_foundAdapterById(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_id: Swift.String = try istr.read()
+        let iceP_prx: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+        let iceP_isReplicaGroup: Swift.Bool = try istr.read()
 
-            try self.foundAdapterById(id: iceP_id, prx: iceP_prx, isReplicaGroup: iceP_isReplicaGroup, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.foundAdapterById(id: iceP_id, prx: iceP_prx, isReplicaGroup: iceP_isReplicaGroup, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }
 
@@ -626,33 +619,27 @@ extension LookupReply {
 ///
 ///  - findAdapterById: Request to find an object adapter
 extension Lookup {
-    public func _iceD_findObjectById(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_domainId: Swift.String = try istr.read()
-            let iceP_id: Ice.Identity = try istr.read()
-            let iceP_reply: LookupReplyPrx? = try istr.read(LookupReplyPrx.self)
+    public func _iceD_findObjectById(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_domainId: Swift.String = try istr.read()
+        let iceP_id: Ice.Identity = try istr.read()
+        let iceP_reply: LookupReplyPrx? = try istr.read(LookupReplyPrx.self)
 
-            try self.findObjectById(domainId: iceP_domainId, id: iceP_id, reply: iceP_reply, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.findObjectById(domainId: iceP_domainId, id: iceP_id, reply: iceP_reply, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_findAdapterById(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_domainId: Swift.String = try istr.read()
-            let iceP_id: Swift.String = try istr.read()
-            let iceP_reply: LookupReplyPrx? = try istr.read(LookupReplyPrx.self)
+    public func _iceD_findAdapterById(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_domainId: Swift.String = try istr.read()
+        let iceP_id: Swift.String = try istr.read()
+        let iceP_reply: LookupReplyPrx? = try istr.read(LookupReplyPrx.self)
 
-            try self.findAdapterById(domainId: iceP_domainId, id: iceP_id, reply: iceP_reply, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.findAdapterById(domainId: iceP_domainId, id: iceP_id, reply: iceP_reply, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }

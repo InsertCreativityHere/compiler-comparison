@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 public typealias SerialSmall = Foundation.Data
 
@@ -548,14 +547,14 @@ public extension MyClassPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "shutdown",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "shutdown",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -595,22 +594,22 @@ public extension MyClassPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: SerialSmall, o: SerialSmall)>` - The result of the operation
-    func opSerialSmallJavaAsync(_ iceP_i: SerialSmall, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: SerialSmall, o: SerialSmall)> {
-        return _impl._invokeAsync(operation: "opSerialSmallJava",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_i)
-                                  },
-                                  read: { istr in
-                                      let iceP_o: SerialSmall = try istr.read()
-                                      let iceP_returnValue: SerialSmall = try istr.read()
-                                      return (iceP_returnValue, iceP_o)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: SerialSmall, o: SerialSmall)` - The result of the operation
+    func opSerialSmallJavaAsync(_ iceP_i: SerialSmall, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: SerialSmall, o: SerialSmall) {
+        return try await _impl._invokeAsync(operation: "opSerialSmallJava",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_i)
+                                            },
+                                            read: { istr in
+                                                let iceP_o: SerialSmall = try istr.read()
+                                                let iceP_returnValue: SerialSmall = try istr.read()
+                                                return (iceP_returnValue, iceP_o)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -650,22 +649,22 @@ public extension MyClassPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: SerialLarge, o: SerialLarge)>` - The result of the operation
-    func opSerialLargeJavaAsync(_ iceP_i: SerialLarge, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: SerialLarge, o: SerialLarge)> {
-        return _impl._invokeAsync(operation: "opSerialLargeJava",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_i)
-                                  },
-                                  read: { istr in
-                                      let iceP_o: SerialLarge = try istr.read()
-                                      let iceP_returnValue: SerialLarge = try istr.read()
-                                      return (iceP_returnValue, iceP_o)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: SerialLarge, o: SerialLarge)` - The result of the operation
+    func opSerialLargeJavaAsync(_ iceP_i: SerialLarge, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: SerialLarge, o: SerialLarge) {
+        return try await _impl._invokeAsync(operation: "opSerialLargeJava",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_i)
+                                            },
+                                            read: { istr in
+                                                let iceP_o: SerialLarge = try istr.read()
+                                                let iceP_returnValue: SerialLarge = try istr.read()
+                                                return (iceP_returnValue, iceP_o)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -705,22 +704,22 @@ public extension MyClassPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: SerialStruct, o: SerialStruct)>` - The result of the operation
-    func opSerialStructJavaAsync(_ iceP_i: SerialStruct, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: SerialStruct, o: SerialStruct)> {
-        return _impl._invokeAsync(operation: "opSerialStructJava",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_i)
-                                  },
-                                  read: { istr in
-                                      let iceP_o: SerialStruct = try istr.read()
-                                      let iceP_returnValue: SerialStruct = try istr.read()
-                                      return (iceP_returnValue, iceP_o)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: SerialStruct, o: SerialStruct)` - The result of the operation
+    func opSerialStructJavaAsync(_ iceP_i: SerialStruct, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: SerialStruct, o: SerialStruct) {
+        return try await _impl._invokeAsync(operation: "opSerialStructJava",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_i)
+                                            },
+                                            read: { istr in
+                                                let iceP_o: SerialStruct = try istr.read()
+                                                let iceP_returnValue: SerialStruct = try istr.read()
+                                                return (iceP_returnValue, iceP_o)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -778,26 +777,26 @@ public struct MyClassDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(request)
         case "opSerialLargeJava":
-            servant._iceD_opSerialLargeJava(request)
+            try await servant._iceD_opSerialLargeJava(request)
         case "opSerialSmallJava":
-            servant._iceD_opSerialSmallJava(request)
+            try await servant._iceD_opSerialSmallJava(request)
         case "opSerialStructJava":
-            servant._iceD_opSerialStructJava(request)
+            try await servant._iceD_opSerialStructJava(request)
         case "shutdown":
-            servant._iceD_shutdown(request)
+            try await servant._iceD_shutdown(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -856,68 +855,56 @@ public protocol MyClass {
 ///
 ///  - opSerialStructJava: 
 extension MyClass {
-    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.shutdown(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.shutdown(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_opSerialSmallJava(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_i: SerialSmall = try istr.read()
+    public func _iceD_opSerialSmallJava(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_i: SerialSmall = try istr.read()
 
-            let (iceP_returnValue, iceP_o) = try self.opSerialSmallJava(i: iceP_i, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_o)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_o) = try self.opSerialSmallJava(i: iceP_i, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_o)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opSerialLargeJava(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_i: SerialLarge = try istr.read()
+    public func _iceD_opSerialLargeJava(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_i: SerialLarge = try istr.read()
 
-            let (iceP_returnValue, iceP_o) = try self.opSerialLargeJava(i: iceP_i, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_o)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_o) = try self.opSerialLargeJava(i: iceP_i, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_o)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opSerialStructJava(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_i: SerialStruct = try istr.read()
+    public func _iceD_opSerialStructJava(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_i: SerialStruct = try istr.read()
 
-            let (iceP_returnValue, iceP_o) = try self.opSerialStructJava(i: iceP_i, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_o)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_o) = try self.opSerialStructJava(i: iceP_i, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_o)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }

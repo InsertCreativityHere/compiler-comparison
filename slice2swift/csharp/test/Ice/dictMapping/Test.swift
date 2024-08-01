@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 public typealias NV = [Swift.Int32: Swift.Int32]
 
@@ -816,14 +815,14 @@ public extension MyClassPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "shutdown",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "shutdown",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -863,22 +862,22 @@ public extension MyClassPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: NV, o: NV)>` - The result of the operation
-    func opNVAsync(_ iceP_i: NV, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: NV, o: NV)> {
-        return _impl._invokeAsync(operation: "opNV",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      NVHelper.write(to: ostr, value: iceP_i)
-                                  },
-                                  read: { istr in
-                                      let iceP_o: NV = try NVHelper.read(from: istr)
-                                      let iceP_returnValue: NV = try NVHelper.read(from: istr)
-                                      return (iceP_returnValue, iceP_o)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: NV, o: NV)` - The result of the operation
+    func opNVAsync(_ iceP_i: NV, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: NV, o: NV) {
+        return try await _impl._invokeAsync(operation: "opNV",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                NVHelper.write(to: ostr, value: iceP_i)
+                                            },
+                                            read: { istr in
+                                                let iceP_o: NV = try NVHelper.read(from: istr)
+                                                let iceP_returnValue: NV = try NVHelper.read(from: istr)
+                                                return (iceP_returnValue, iceP_o)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -918,22 +917,22 @@ public extension MyClassPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: NR, o: NR)>` - The result of the operation
-    func opNRAsync(_ iceP_i: NR, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: NR, o: NR)> {
-        return _impl._invokeAsync(operation: "opNR",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      NRHelper.write(to: ostr, value: iceP_i)
-                                  },
-                                  read: { istr in
-                                      let iceP_o: NR = try NRHelper.read(from: istr)
-                                      let iceP_returnValue: NR = try NRHelper.read(from: istr)
-                                      return (iceP_returnValue, iceP_o)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: NR, o: NR)` - The result of the operation
+    func opNRAsync(_ iceP_i: NR, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: NR, o: NR) {
+        return try await _impl._invokeAsync(operation: "opNR",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                NRHelper.write(to: ostr, value: iceP_i)
+                                            },
+                                            read: { istr in
+                                                let iceP_o: NR = try NRHelper.read(from: istr)
+                                                let iceP_returnValue: NR = try NRHelper.read(from: istr)
+                                                return (iceP_returnValue, iceP_o)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -973,22 +972,22 @@ public extension MyClassPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: NDV, o: NDV)>` - The result of the operation
-    func opNDVAsync(_ iceP_i: NDV, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: NDV, o: NDV)> {
-        return _impl._invokeAsync(operation: "opNDV",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      NDVHelper.write(to: ostr, value: iceP_i)
-                                  },
-                                  read: { istr in
-                                      let iceP_o: NDV = try NDVHelper.read(from: istr)
-                                      let iceP_returnValue: NDV = try NDVHelper.read(from: istr)
-                                      return (iceP_returnValue, iceP_o)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: NDV, o: NDV)` - The result of the operation
+    func opNDVAsync(_ iceP_i: NDV, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: NDV, o: NDV) {
+        return try await _impl._invokeAsync(operation: "opNDV",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                NDVHelper.write(to: ostr, value: iceP_i)
+                                            },
+                                            read: { istr in
+                                                let iceP_o: NDV = try NDVHelper.read(from: istr)
+                                                let iceP_returnValue: NDV = try NDVHelper.read(from: istr)
+                                                return (iceP_returnValue, iceP_o)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1028,22 +1027,22 @@ public extension MyClassPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: NDR, o: NDR)>` - The result of the operation
-    func opNDRAsync(_ iceP_i: NDR, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: NDR, o: NDR)> {
-        return _impl._invokeAsync(operation: "opNDR",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      NDRHelper.write(to: ostr, value: iceP_i)
-                                  },
-                                  read: { istr in
-                                      let iceP_o: NDR = try NDRHelper.read(from: istr)
-                                      let iceP_returnValue: NDR = try NDRHelper.read(from: istr)
-                                      return (iceP_returnValue, iceP_o)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: NDR, o: NDR)` - The result of the operation
+    func opNDRAsync(_ iceP_i: NDR, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: NDR, o: NDR) {
+        return try await _impl._invokeAsync(operation: "opNDR",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                NDRHelper.write(to: ostr, value: iceP_i)
+                                            },
+                                            read: { istr in
+                                                let iceP_o: NDR = try NDRHelper.read(from: istr)
+                                                let iceP_returnValue: NDR = try NDRHelper.read(from: istr)
+                                                return (iceP_returnValue, iceP_o)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1083,22 +1082,22 @@ public extension MyClassPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: NDAIS, o: NDAIS)>` - The result of the operation
-    func opNDAISAsync(_ iceP_i: NDAIS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: NDAIS, o: NDAIS)> {
-        return _impl._invokeAsync(operation: "opNDAIS",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      NDAISHelper.write(to: ostr, value: iceP_i)
-                                  },
-                                  read: { istr in
-                                      let iceP_o: NDAIS = try NDAISHelper.read(from: istr)
-                                      let iceP_returnValue: NDAIS = try NDAISHelper.read(from: istr)
-                                      return (iceP_returnValue, iceP_o)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: NDAIS, o: NDAIS)` - The result of the operation
+    func opNDAISAsync(_ iceP_i: NDAIS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: NDAIS, o: NDAIS) {
+        return try await _impl._invokeAsync(operation: "opNDAIS",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                NDAISHelper.write(to: ostr, value: iceP_i)
+                                            },
+                                            read: { istr in
+                                                let iceP_o: NDAIS = try NDAISHelper.read(from: istr)
+                                                let iceP_returnValue: NDAIS = try NDAISHelper.read(from: istr)
+                                                return (iceP_returnValue, iceP_o)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1138,22 +1137,22 @@ public extension MyClassPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: NDGIS, o: NDGIS)>` - The result of the operation
-    func opNDGISAsync(_ iceP_i: NDGIS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: NDGIS, o: NDGIS)> {
-        return _impl._invokeAsync(operation: "opNDGIS",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      NDGISHelper.write(to: ostr, value: iceP_i)
-                                  },
-                                  read: { istr in
-                                      let iceP_o: NDGIS = try NDGISHelper.read(from: istr)
-                                      let iceP_returnValue: NDGIS = try NDGISHelper.read(from: istr)
-                                      return (iceP_returnValue, iceP_o)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: NDGIS, o: NDGIS)` - The result of the operation
+    func opNDGISAsync(_ iceP_i: NDGIS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: NDGIS, o: NDGIS) {
+        return try await _impl._invokeAsync(operation: "opNDGIS",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                NDGISHelper.write(to: ostr, value: iceP_i)
+                                            },
+                                            read: { istr in
+                                                let iceP_o: NDGIS = try NDGISHelper.read(from: istr)
+                                                let iceP_returnValue: NDGIS = try NDGISHelper.read(from: istr)
+                                                return (iceP_returnValue, iceP_o)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1193,22 +1192,22 @@ public extension MyClassPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: NDASS, o: NDASS)>` - The result of the operation
-    func opNDASSAsync(_ iceP_i: NDASS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: NDASS, o: NDASS)> {
-        return _impl._invokeAsync(operation: "opNDASS",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      NDASSHelper.write(to: ostr, value: iceP_i)
-                                  },
-                                  read: { istr in
-                                      let iceP_o: NDASS = try NDASSHelper.read(from: istr)
-                                      let iceP_returnValue: NDASS = try NDASSHelper.read(from: istr)
-                                      return (iceP_returnValue, iceP_o)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: NDASS, o: NDASS)` - The result of the operation
+    func opNDASSAsync(_ iceP_i: NDASS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: NDASS, o: NDASS) {
+        return try await _impl._invokeAsync(operation: "opNDASS",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                NDASSHelper.write(to: ostr, value: iceP_i)
+                                            },
+                                            read: { istr in
+                                                let iceP_o: NDASS = try NDASSHelper.read(from: istr)
+                                                let iceP_returnValue: NDASS = try NDASSHelper.read(from: istr)
+                                                return (iceP_returnValue, iceP_o)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -1248,22 +1247,22 @@ public extension MyClassPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: NDGSS, o: NDGSS)>` - The result of the operation
-    func opNDGSSAsync(_ iceP_i: NDGSS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: NDGSS, o: NDGSS)> {
-        return _impl._invokeAsync(operation: "opNDGSS",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      NDGSSHelper.write(to: ostr, value: iceP_i)
-                                  },
-                                  read: { istr in
-                                      let iceP_o: NDGSS = try NDGSSHelper.read(from: istr)
-                                      let iceP_returnValue: NDGSS = try NDGSSHelper.read(from: istr)
-                                      return (iceP_returnValue, iceP_o)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: NDGSS, o: NDGSS)` - The result of the operation
+    func opNDGSSAsync(_ iceP_i: NDGSS, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: NDGSS, o: NDGSS) {
+        return try await _impl._invokeAsync(operation: "opNDGSS",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                NDGSSHelper.write(to: ostr, value: iceP_i)
+                                            },
+                                            read: { istr in
+                                                let iceP_o: NDGSS = try NDGSSHelper.read(from: istr)
+                                                let iceP_returnValue: NDGSS = try NDGSSHelper.read(from: istr)
+                                                return (iceP_returnValue, iceP_o)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -1277,36 +1276,36 @@ public struct MyClassDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(request)
         case "opNDAIS":
-            servant._iceD_opNDAIS(request)
+            try await servant._iceD_opNDAIS(request)
         case "opNDASS":
-            servant._iceD_opNDASS(request)
+            try await servant._iceD_opNDASS(request)
         case "opNDGIS":
-            servant._iceD_opNDGIS(request)
+            try await servant._iceD_opNDGIS(request)
         case "opNDGSS":
-            servant._iceD_opNDGSS(request)
+            try await servant._iceD_opNDGSS(request)
         case "opNDR":
-            servant._iceD_opNDR(request)
+            try await servant._iceD_opNDR(request)
         case "opNDV":
-            servant._iceD_opNDV(request)
+            try await servant._iceD_opNDV(request)
         case "opNR":
-            servant._iceD_opNR(request)
+            try await servant._iceD_opNR(request)
         case "opNV":
-            servant._iceD_opNV(request)
+            try await servant._iceD_opNV(request)
         case "shutdown":
-            servant._iceD_shutdown(request)
+            try await servant._iceD_shutdown(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1435,158 +1434,131 @@ public protocol MyClass {
 ///
 ///  - opNDGSS: 
 extension MyClass {
-    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.shutdown(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.shutdown(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_opNV(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_i: NV = try NVHelper.read(from: istr)
+    public func _iceD_opNV(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_i: NV = try NVHelper.read(from: istr)
 
-            let (iceP_returnValue, iceP_o) = try self.opNV(i: iceP_i, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            NVHelper.write(to: ostr, value: iceP_o)
-            NVHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_o) = try self.opNV(i: iceP_i, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        NVHelper.write(to: ostr, value: iceP_o)
+        NVHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opNR(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_i: NR = try NRHelper.read(from: istr)
+    public func _iceD_opNR(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_i: NR = try NRHelper.read(from: istr)
 
-            let (iceP_returnValue, iceP_o) = try self.opNR(i: iceP_i, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            NRHelper.write(to: ostr, value: iceP_o)
-            NRHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_o) = try self.opNR(i: iceP_i, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        NRHelper.write(to: ostr, value: iceP_o)
+        NRHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opNDV(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_i: NDV = try NDVHelper.read(from: istr)
+    public func _iceD_opNDV(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_i: NDV = try NDVHelper.read(from: istr)
 
-            let (iceP_returnValue, iceP_o) = try self.opNDV(i: iceP_i, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            NDVHelper.write(to: ostr, value: iceP_o)
-            NDVHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_o) = try self.opNDV(i: iceP_i, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        NDVHelper.write(to: ostr, value: iceP_o)
+        NDVHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opNDR(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_i: NDR = try NDRHelper.read(from: istr)
+    public func _iceD_opNDR(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_i: NDR = try NDRHelper.read(from: istr)
 
-            let (iceP_returnValue, iceP_o) = try self.opNDR(i: iceP_i, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            NDRHelper.write(to: ostr, value: iceP_o)
-            NDRHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_o) = try self.opNDR(i: iceP_i, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        NDRHelper.write(to: ostr, value: iceP_o)
+        NDRHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opNDAIS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_i: NDAIS = try NDAISHelper.read(from: istr)
+    public func _iceD_opNDAIS(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_i: NDAIS = try NDAISHelper.read(from: istr)
 
-            let (iceP_returnValue, iceP_o) = try self.opNDAIS(i: iceP_i, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            NDAISHelper.write(to: ostr, value: iceP_o)
-            NDAISHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_o) = try self.opNDAIS(i: iceP_i, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        NDAISHelper.write(to: ostr, value: iceP_o)
+        NDAISHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opNDGIS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_i: NDGIS = try NDGISHelper.read(from: istr)
+    public func _iceD_opNDGIS(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_i: NDGIS = try NDGISHelper.read(from: istr)
 
-            let (iceP_returnValue, iceP_o) = try self.opNDGIS(i: iceP_i, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            NDGISHelper.write(to: ostr, value: iceP_o)
-            NDGISHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_o) = try self.opNDGIS(i: iceP_i, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        NDGISHelper.write(to: ostr, value: iceP_o)
+        NDGISHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opNDASS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_i: NDASS = try NDASSHelper.read(from: istr)
+    public func _iceD_opNDASS(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_i: NDASS = try NDASSHelper.read(from: istr)
 
-            let (iceP_returnValue, iceP_o) = try self.opNDASS(i: iceP_i, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            NDASSHelper.write(to: ostr, value: iceP_o)
-            NDASSHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_o) = try self.opNDASS(i: iceP_i, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        NDASSHelper.write(to: ostr, value: iceP_o)
+        NDASSHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opNDGSS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_i: NDGSS = try NDGSSHelper.read(from: istr)
+    public func _iceD_opNDGSS(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_i: NDGSS = try NDGSSHelper.read(from: istr)
 
-            let (iceP_returnValue, iceP_o) = try self.opNDGSS(i: iceP_i, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            NDGSSHelper.write(to: ostr, value: iceP_o)
-            NDGSSHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_o) = try self.opNDGSS(i: iceP_i, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        NDGSSHelper.write(to: ostr, value: iceP_o)
+        NDGSSHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }

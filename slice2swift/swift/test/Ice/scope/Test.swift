@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 public struct S: Swift.Hashable {
     public var v: Swift.Int32 = 0
@@ -1995,22 +1994,22 @@ public extension IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: S, s2: S)>` - The result of the operation
-    func opSAsync(_ iceP_s1: S, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: S, s2: S)> {
-        return _impl._invokeAsync(operation: "opS",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_s1)
-                                  },
-                                  read: { istr in
-                                      let iceP_s2: S = try istr.read()
-                                      let iceP_returnValue: S = try istr.read()
-                                      return (iceP_returnValue, iceP_s2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: S, s2: S)` - The result of the operation
+    func opSAsync(_ iceP_s1: S, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: S, s2: S) {
+        return try await _impl._invokeAsync(operation: "opS",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_s1)
+                                            },
+                                            read: { istr in
+                                                let iceP_s2: S = try istr.read()
+                                                let iceP_returnValue: S = try istr.read()
+                                                return (iceP_returnValue, iceP_s2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2050,22 +2049,22 @@ public extension IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: SSeq, s2: SSeq)>` - The result of the operation
-    func opSSeqAsync(_ iceP_s1: SSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: SSeq, s2: SSeq)> {
-        return _impl._invokeAsync(operation: "opSSeq",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      SSeqHelper.write(to: ostr, value: iceP_s1)
-                                  },
-                                  read: { istr in
-                                      let iceP_s2: SSeq = try SSeqHelper.read(from: istr)
-                                      let iceP_returnValue: SSeq = try SSeqHelper.read(from: istr)
-                                      return (iceP_returnValue, iceP_s2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: SSeq, s2: SSeq)` - The result of the operation
+    func opSSeqAsync(_ iceP_s1: SSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: SSeq, s2: SSeq) {
+        return try await _impl._invokeAsync(operation: "opSSeq",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                SSeqHelper.write(to: ostr, value: iceP_s1)
+                                            },
+                                            read: { istr in
+                                                let iceP_s2: SSeq = try SSeqHelper.read(from: istr)
+                                                let iceP_returnValue: SSeq = try SSeqHelper.read(from: istr)
+                                                return (iceP_returnValue, iceP_s2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2105,22 +2104,22 @@ public extension IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: SMap, s2: SMap)>` - The result of the operation
-    func opSMapAsync(_ iceP_s1: SMap, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: SMap, s2: SMap)> {
-        return _impl._invokeAsync(operation: "opSMap",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      SMapHelper.write(to: ostr, value: iceP_s1)
-                                  },
-                                  read: { istr in
-                                      let iceP_s2: SMap = try SMapHelper.read(from: istr)
-                                      let iceP_returnValue: SMap = try SMapHelper.read(from: istr)
-                                      return (iceP_returnValue, iceP_s2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: SMap, s2: SMap)` - The result of the operation
+    func opSMapAsync(_ iceP_s1: SMap, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: SMap, s2: SMap) {
+        return try await _impl._invokeAsync(operation: "opSMap",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                SMapHelper.write(to: ostr, value: iceP_s1)
+                                            },
+                                            read: { istr in
+                                                let iceP_s2: SMap = try SMapHelper.read(from: istr)
+                                                let iceP_returnValue: SMap = try SMapHelper.read(from: istr)
+                                                return (iceP_returnValue, iceP_s2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2164,26 +2163,26 @@ public extension IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: C?, c2: C?)>` - The result of the operation
-    func opCAsync(_ iceP_c1: C?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: C?, c2: C?)> {
-        return _impl._invokeAsync(operation: "opC",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_c1)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      var iceP_c2: C?
-                                      try istr.read(C.self) { iceP_c2 = $0 }
-                                      var iceP_returnValue: C?
-                                      try istr.read(C.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return (iceP_returnValue, iceP_c2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: C?, c2: C?)` - The result of the operation
+    func opCAsync(_ iceP_c1: C?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: C?, c2: C?) {
+        return try await _impl._invokeAsync(operation: "opC",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_c1)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                var iceP_c2: C?
+                                                try istr.read(C.self) { iceP_c2 = $0 }
+                                                var iceP_returnValue: C?
+                                                try istr.read(C.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return (iceP_returnValue, iceP_c2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2225,24 +2224,24 @@ public extension IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: CSeq, s2: CSeq)>` - The result of the operation
-    func opCSeqAsync(_ iceP_s1: CSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: CSeq, s2: CSeq)> {
-        return _impl._invokeAsync(operation: "opCSeq",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      CSeqHelper.write(to: ostr, value: iceP_s1)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      let iceP_s2: CSeq = try CSeqHelper.read(from: istr)
-                                      let iceP_returnValue: CSeq = try CSeqHelper.read(from: istr)
-                                      try istr.readPendingValues()
-                                      return (iceP_returnValue, iceP_s2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: CSeq, s2: CSeq)` - The result of the operation
+    func opCSeqAsync(_ iceP_s1: CSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: CSeq, s2: CSeq) {
+        return try await _impl._invokeAsync(operation: "opCSeq",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                CSeqHelper.write(to: ostr, value: iceP_s1)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                let iceP_s2: CSeq = try CSeqHelper.read(from: istr)
+                                                let iceP_returnValue: CSeq = try CSeqHelper.read(from: istr)
+                                                try istr.readPendingValues()
+                                                return (iceP_returnValue, iceP_s2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2284,24 +2283,24 @@ public extension IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: CMap, c2: CMap)>` - The result of the operation
-    func opCMapAsync(_ iceP_c1: CMap, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: CMap, c2: CMap)> {
-        return _impl._invokeAsync(operation: "opCMap",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      CMapHelper.write(to: ostr, value: iceP_c1)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      let iceP_c2: CMap = try CMapHelper.read(from: istr)
-                                      let iceP_returnValue: CMap = try CMapHelper.read(from: istr)
-                                      try istr.readPendingValues()
-                                      return (iceP_returnValue, iceP_c2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: CMap, c2: CMap)` - The result of the operation
+    func opCMapAsync(_ iceP_c1: CMap, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: CMap, c2: CMap) {
+        return try await _impl._invokeAsync(operation: "opCMap",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                CMapHelper.write(to: ostr, value: iceP_c1)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                let iceP_c2: CMap = try CMapHelper.read(from: istr)
+                                                let iceP_returnValue: CMap = try CMapHelper.read(from: istr)
+                                                try istr.readPendingValues()
+                                                return (iceP_returnValue, iceP_c2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2336,21 +2335,21 @@ public extension IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<E1>` - The result of the operation
-    func opE1Async(_ iceP_E1: E1, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<E1> {
-        return _impl._invokeAsync(operation: "opE1",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_E1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: E1 = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `E1` - The result of the operation
+    func opE1Async(_ iceP_E1: E1, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> E1 {
+        return try await _impl._invokeAsync(operation: "opE1",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_E1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: E1 = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2385,21 +2384,21 @@ public extension IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<S1>` - The result of the operation
-    func opS1Async(_ iceP_S1: S1, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<S1> {
-        return _impl._invokeAsync(operation: "opS1",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_S1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: S1 = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `S1` - The result of the operation
+    func opS1Async(_ iceP_S1: S1, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> S1 {
+        return try await _impl._invokeAsync(operation: "opS1",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_S1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: S1 = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2437,24 +2436,24 @@ public extension IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<C1?>` - The result of the operation
-    func opC1Async(_ iceP_C1: C1?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<C1?> {
-        return _impl._invokeAsync(operation: "opC1",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_C1)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      var iceP_returnValue: C1?
-                                      try istr.read(C1.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `C1?` - The result of the operation
+    func opC1Async(_ iceP_C1: C1?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> C1? {
+        return try await _impl._invokeAsync(operation: "opC1",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_C1)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                var iceP_returnValue: C1?
+                                                try istr.read(C1.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2489,21 +2488,21 @@ public extension IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<S1Seq>` - The result of the operation
-    func opS1SeqAsync(_ iceP_S1Seq: S1Seq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<S1Seq> {
-        return _impl._invokeAsync(operation: "opS1Seq",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      S1SeqHelper.write(to: ostr, value: iceP_S1Seq)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: S1Seq = try S1SeqHelper.read(from: istr)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `S1Seq` - The result of the operation
+    func opS1SeqAsync(_ iceP_S1Seq: S1Seq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> S1Seq {
+        return try await _impl._invokeAsync(operation: "opS1Seq",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                S1SeqHelper.write(to: ostr, value: iceP_S1Seq)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: S1Seq = try S1SeqHelper.read(from: istr)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2538,21 +2537,21 @@ public extension IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<S1Map>` - The result of the operation
-    func opS1MapAsync(_ iceP_S1Map: S1Map, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<S1Map> {
-        return _impl._invokeAsync(operation: "opS1Map",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      S1MapHelper.write(to: ostr, value: iceP_S1Map)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: S1Map = try S1MapHelper.read(from: istr)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `S1Map` - The result of the operation
+    func opS1MapAsync(_ iceP_S1Map: S1Map, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> S1Map {
+        return try await _impl._invokeAsync(operation: "opS1Map",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                S1MapHelper.write(to: ostr, value: iceP_S1Map)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: S1Map = try S1MapHelper.read(from: istr)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2574,14 +2573,14 @@ public extension IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "shutdown",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "shutdown",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -2772,22 +2771,22 @@ public extension InnerInner2IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: InnerInner2S, s2: InnerInner2S)>` - The result of the operation
-    func opSAsync(_ iceP_s1: InnerInner2S, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: InnerInner2S, s2: InnerInner2S)> {
-        return _impl._invokeAsync(operation: "opS",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_s1)
-                                  },
-                                  read: { istr in
-                                      let iceP_s2: InnerInner2S = try istr.read()
-                                      let iceP_returnValue: InnerInner2S = try istr.read()
-                                      return (iceP_returnValue, iceP_s2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: InnerInner2S, s2: InnerInner2S)` - The result of the operation
+    func opSAsync(_ iceP_s1: InnerInner2S, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: InnerInner2S, s2: InnerInner2S) {
+        return try await _impl._invokeAsync(operation: "opS",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_s1)
+                                            },
+                                            read: { istr in
+                                                let iceP_s2: InnerInner2S = try istr.read()
+                                                let iceP_returnValue: InnerInner2S = try istr.read()
+                                                return (iceP_returnValue, iceP_s2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2827,22 +2826,22 @@ public extension InnerInner2IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)>` - The result of the operation
-    func opSSeqAsync(_ iceP_s1: InnerInner2SSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)> {
-        return _impl._invokeAsync(operation: "opSSeq",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      InnerInner2SSeqHelper.write(to: ostr, value: iceP_s1)
-                                  },
-                                  read: { istr in
-                                      let iceP_s2: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
-                                      let iceP_returnValue: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
-                                      return (iceP_returnValue, iceP_s2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)` - The result of the operation
+    func opSSeqAsync(_ iceP_s1: InnerInner2SSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: InnerInner2SSeq, s2: InnerInner2SSeq) {
+        return try await _impl._invokeAsync(operation: "opSSeq",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                InnerInner2SSeqHelper.write(to: ostr, value: iceP_s1)
+                                            },
+                                            read: { istr in
+                                                let iceP_s2: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
+                                                let iceP_returnValue: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
+                                                return (iceP_returnValue, iceP_s2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2882,22 +2881,22 @@ public extension InnerInner2IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: InnerInner2SMap, s2: InnerInner2SMap)>` - The result of the operation
-    func opSMapAsync(_ iceP_s1: InnerInner2SMap, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: InnerInner2SMap, s2: InnerInner2SMap)> {
-        return _impl._invokeAsync(operation: "opSMap",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      InnerInner2SMapHelper.write(to: ostr, value: iceP_s1)
-                                  },
-                                  read: { istr in
-                                      let iceP_s2: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
-                                      let iceP_returnValue: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
-                                      return (iceP_returnValue, iceP_s2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: InnerInner2SMap, s2: InnerInner2SMap)` - The result of the operation
+    func opSMapAsync(_ iceP_s1: InnerInner2SMap, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: InnerInner2SMap, s2: InnerInner2SMap) {
+        return try await _impl._invokeAsync(operation: "opSMap",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                InnerInner2SMapHelper.write(to: ostr, value: iceP_s1)
+                                            },
+                                            read: { istr in
+                                                let iceP_s2: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
+                                                let iceP_returnValue: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
+                                                return (iceP_returnValue, iceP_s2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2941,26 +2940,26 @@ public extension InnerInner2IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: InnerInner2C?, c2: InnerInner2C?)>` - The result of the operation
-    func opCAsync(_ iceP_c1: InnerInner2C?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: InnerInner2C?, c2: InnerInner2C?)> {
-        return _impl._invokeAsync(operation: "opC",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_c1)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      var iceP_c2: InnerInner2C?
-                                      try istr.read(InnerInner2C.self) { iceP_c2 = $0 }
-                                      var iceP_returnValue: InnerInner2C?
-                                      try istr.read(InnerInner2C.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return (iceP_returnValue, iceP_c2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: InnerInner2C?, c2: InnerInner2C?)` - The result of the operation
+    func opCAsync(_ iceP_c1: InnerInner2C?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: InnerInner2C?, c2: InnerInner2C?) {
+        return try await _impl._invokeAsync(operation: "opC",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_c1)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                var iceP_c2: InnerInner2C?
+                                                try istr.read(InnerInner2C.self) { iceP_c2 = $0 }
+                                                var iceP_returnValue: InnerInner2C?
+                                                try istr.read(InnerInner2C.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return (iceP_returnValue, iceP_c2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3002,24 +3001,24 @@ public extension InnerInner2IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)>` - The result of the operation
-    func opCSeqAsync(_ iceP_c1: InnerInner2CSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)> {
-        return _impl._invokeAsync(operation: "opCSeq",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      InnerInner2CSeqHelper.write(to: ostr, value: iceP_c1)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      let iceP_c2: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
-                                      let iceP_returnValue: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
-                                      try istr.readPendingValues()
-                                      return (iceP_returnValue, iceP_c2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)` - The result of the operation
+    func opCSeqAsync(_ iceP_c1: InnerInner2CSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: InnerInner2CSeq, c2: InnerInner2CSeq) {
+        return try await _impl._invokeAsync(operation: "opCSeq",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                InnerInner2CSeqHelper.write(to: ostr, value: iceP_c1)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                let iceP_c2: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
+                                                let iceP_returnValue: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
+                                                try istr.readPendingValues()
+                                                return (iceP_returnValue, iceP_c2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3061,24 +3060,24 @@ public extension InnerInner2IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: InnerInner2CMap, c2: InnerInner2CMap)>` - The result of the operation
-    func opCMapAsync(_ iceP_c1: InnerInner2CMap, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: InnerInner2CMap, c2: InnerInner2CMap)> {
-        return _impl._invokeAsync(operation: "opCMap",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      InnerInner2CMapHelper.write(to: ostr, value: iceP_c1)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      let iceP_c2: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
-                                      let iceP_returnValue: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
-                                      try istr.readPendingValues()
-                                      return (iceP_returnValue, iceP_c2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: InnerInner2CMap, c2: InnerInner2CMap)` - The result of the operation
+    func opCMapAsync(_ iceP_c1: InnerInner2CMap, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: InnerInner2CMap, c2: InnerInner2CMap) {
+        return try await _impl._invokeAsync(operation: "opCMap",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                InnerInner2CMapHelper.write(to: ostr, value: iceP_c1)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                let iceP_c2: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
+                                                let iceP_returnValue: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
+                                                try istr.readPendingValues()
+                                                return (iceP_returnValue, iceP_c2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3100,14 +3099,14 @@ public extension InnerInner2IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "shutdown",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "shutdown",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -3298,22 +3297,22 @@ public extension InnerIPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: InnerInner2S, s2: InnerInner2S)>` - The result of the operation
-    func opSAsync(_ iceP_s1: InnerInner2S, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: InnerInner2S, s2: InnerInner2S)> {
-        return _impl._invokeAsync(operation: "opS",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_s1)
-                                  },
-                                  read: { istr in
-                                      let iceP_s2: InnerInner2S = try istr.read()
-                                      let iceP_returnValue: InnerInner2S = try istr.read()
-                                      return (iceP_returnValue, iceP_s2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: InnerInner2S, s2: InnerInner2S)` - The result of the operation
+    func opSAsync(_ iceP_s1: InnerInner2S, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: InnerInner2S, s2: InnerInner2S) {
+        return try await _impl._invokeAsync(operation: "opS",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_s1)
+                                            },
+                                            read: { istr in
+                                                let iceP_s2: InnerInner2S = try istr.read()
+                                                let iceP_returnValue: InnerInner2S = try istr.read()
+                                                return (iceP_returnValue, iceP_s2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3353,22 +3352,22 @@ public extension InnerIPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)>` - The result of the operation
-    func opSSeqAsync(_ iceP_s1: InnerInner2SSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)> {
-        return _impl._invokeAsync(operation: "opSSeq",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      InnerInner2SSeqHelper.write(to: ostr, value: iceP_s1)
-                                  },
-                                  read: { istr in
-                                      let iceP_s2: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
-                                      let iceP_returnValue: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
-                                      return (iceP_returnValue, iceP_s2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)` - The result of the operation
+    func opSSeqAsync(_ iceP_s1: InnerInner2SSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: InnerInner2SSeq, s2: InnerInner2SSeq) {
+        return try await _impl._invokeAsync(operation: "opSSeq",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                InnerInner2SSeqHelper.write(to: ostr, value: iceP_s1)
+                                            },
+                                            read: { istr in
+                                                let iceP_s2: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
+                                                let iceP_returnValue: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
+                                                return (iceP_returnValue, iceP_s2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3408,22 +3407,22 @@ public extension InnerIPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: InnerInner2SMap, s2: InnerInner2SMap)>` - The result of the operation
-    func opSMapAsync(_ iceP_s1: InnerInner2SMap, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: InnerInner2SMap, s2: InnerInner2SMap)> {
-        return _impl._invokeAsync(operation: "opSMap",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      InnerInner2SMapHelper.write(to: ostr, value: iceP_s1)
-                                  },
-                                  read: { istr in
-                                      let iceP_s2: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
-                                      let iceP_returnValue: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
-                                      return (iceP_returnValue, iceP_s2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: InnerInner2SMap, s2: InnerInner2SMap)` - The result of the operation
+    func opSMapAsync(_ iceP_s1: InnerInner2SMap, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: InnerInner2SMap, s2: InnerInner2SMap) {
+        return try await _impl._invokeAsync(operation: "opSMap",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                InnerInner2SMapHelper.write(to: ostr, value: iceP_s1)
+                                            },
+                                            read: { istr in
+                                                let iceP_s2: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
+                                                let iceP_returnValue: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
+                                                return (iceP_returnValue, iceP_s2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3467,26 +3466,26 @@ public extension InnerIPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: InnerInner2C?, c2: InnerInner2C?)>` - The result of the operation
-    func opCAsync(_ iceP_c1: InnerInner2C?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: InnerInner2C?, c2: InnerInner2C?)> {
-        return _impl._invokeAsync(operation: "opC",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_c1)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      var iceP_c2: InnerInner2C?
-                                      try istr.read(InnerInner2C.self) { iceP_c2 = $0 }
-                                      var iceP_returnValue: InnerInner2C?
-                                      try istr.read(InnerInner2C.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return (iceP_returnValue, iceP_c2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: InnerInner2C?, c2: InnerInner2C?)` - The result of the operation
+    func opCAsync(_ iceP_c1: InnerInner2C?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: InnerInner2C?, c2: InnerInner2C?) {
+        return try await _impl._invokeAsync(operation: "opC",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_c1)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                var iceP_c2: InnerInner2C?
+                                                try istr.read(InnerInner2C.self) { iceP_c2 = $0 }
+                                                var iceP_returnValue: InnerInner2C?
+                                                try istr.read(InnerInner2C.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return (iceP_returnValue, iceP_c2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3528,24 +3527,24 @@ public extension InnerIPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)>` - The result of the operation
-    func opCSeqAsync(_ iceP_c1: InnerInner2CSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)> {
-        return _impl._invokeAsync(operation: "opCSeq",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      InnerInner2CSeqHelper.write(to: ostr, value: iceP_c1)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      let iceP_c2: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
-                                      let iceP_returnValue: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
-                                      try istr.readPendingValues()
-                                      return (iceP_returnValue, iceP_c2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)` - The result of the operation
+    func opCSeqAsync(_ iceP_c1: InnerInner2CSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: InnerInner2CSeq, c2: InnerInner2CSeq) {
+        return try await _impl._invokeAsync(operation: "opCSeq",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                InnerInner2CSeqHelper.write(to: ostr, value: iceP_c1)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                let iceP_c2: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
+                                                let iceP_returnValue: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
+                                                try istr.readPendingValues()
+                                                return (iceP_returnValue, iceP_c2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3587,24 +3586,24 @@ public extension InnerIPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: InnerInner2CMap, c2: InnerInner2CMap)>` - The result of the operation
-    func opCMapAsync(_ iceP_c1: InnerInner2CMap, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: InnerInner2CMap, c2: InnerInner2CMap)> {
-        return _impl._invokeAsync(operation: "opCMap",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      InnerInner2CMapHelper.write(to: ostr, value: iceP_c1)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      let iceP_c2: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
-                                      let iceP_returnValue: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
-                                      try istr.readPendingValues()
-                                      return (iceP_returnValue, iceP_c2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: InnerInner2CMap, c2: InnerInner2CMap)` - The result of the operation
+    func opCMapAsync(_ iceP_c1: InnerInner2CMap, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: InnerInner2CMap, c2: InnerInner2CMap) {
+        return try await _impl._invokeAsync(operation: "opCMap",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                InnerInner2CMapHelper.write(to: ostr, value: iceP_c1)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                let iceP_c2: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
+                                                let iceP_returnValue: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
+                                                try istr.readPendingValues()
+                                                return (iceP_returnValue, iceP_c2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3626,14 +3625,14 @@ public extension InnerIPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "shutdown",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "shutdown",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -3824,22 +3823,22 @@ public extension InnerTestInner2IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: S, s2: S)>` - The result of the operation
-    func opSAsync(_ iceP_s1: S, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: S, s2: S)> {
-        return _impl._invokeAsync(operation: "opS",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_s1)
-                                  },
-                                  read: { istr in
-                                      let iceP_s2: S = try istr.read()
-                                      let iceP_returnValue: S = try istr.read()
-                                      return (iceP_returnValue, iceP_s2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: S, s2: S)` - The result of the operation
+    func opSAsync(_ iceP_s1: S, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: S, s2: S) {
+        return try await _impl._invokeAsync(operation: "opS",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_s1)
+                                            },
+                                            read: { istr in
+                                                let iceP_s2: S = try istr.read()
+                                                let iceP_returnValue: S = try istr.read()
+                                                return (iceP_returnValue, iceP_s2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3879,22 +3878,22 @@ public extension InnerTestInner2IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: SSeq, s2: SSeq)>` - The result of the operation
-    func opSSeqAsync(_ iceP_s1: SSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: SSeq, s2: SSeq)> {
-        return _impl._invokeAsync(operation: "opSSeq",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      SSeqHelper.write(to: ostr, value: iceP_s1)
-                                  },
-                                  read: { istr in
-                                      let iceP_s2: SSeq = try SSeqHelper.read(from: istr)
-                                      let iceP_returnValue: SSeq = try SSeqHelper.read(from: istr)
-                                      return (iceP_returnValue, iceP_s2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: SSeq, s2: SSeq)` - The result of the operation
+    func opSSeqAsync(_ iceP_s1: SSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: SSeq, s2: SSeq) {
+        return try await _impl._invokeAsync(operation: "opSSeq",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                SSeqHelper.write(to: ostr, value: iceP_s1)
+                                            },
+                                            read: { istr in
+                                                let iceP_s2: SSeq = try SSeqHelper.read(from: istr)
+                                                let iceP_returnValue: SSeq = try SSeqHelper.read(from: istr)
+                                                return (iceP_returnValue, iceP_s2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3934,22 +3933,22 @@ public extension InnerTestInner2IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: SMap, s2: SMap)>` - The result of the operation
-    func opSMapAsync(_ iceP_s1: SMap, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: SMap, s2: SMap)> {
-        return _impl._invokeAsync(operation: "opSMap",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      SMapHelper.write(to: ostr, value: iceP_s1)
-                                  },
-                                  read: { istr in
-                                      let iceP_s2: SMap = try SMapHelper.read(from: istr)
-                                      let iceP_returnValue: SMap = try SMapHelper.read(from: istr)
-                                      return (iceP_returnValue, iceP_s2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: SMap, s2: SMap)` - The result of the operation
+    func opSMapAsync(_ iceP_s1: SMap, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: SMap, s2: SMap) {
+        return try await _impl._invokeAsync(operation: "opSMap",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                SMapHelper.write(to: ostr, value: iceP_s1)
+                                            },
+                                            read: { istr in
+                                                let iceP_s2: SMap = try SMapHelper.read(from: istr)
+                                                let iceP_returnValue: SMap = try SMapHelper.read(from: istr)
+                                                return (iceP_returnValue, iceP_s2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3993,26 +3992,26 @@ public extension InnerTestInner2IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: C?, c2: C?)>` - The result of the operation
-    func opCAsync(_ iceP_c1: C?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: C?, c2: C?)> {
-        return _impl._invokeAsync(operation: "opC",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_c1)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      var iceP_c2: C?
-                                      try istr.read(C.self) { iceP_c2 = $0 }
-                                      var iceP_returnValue: C?
-                                      try istr.read(C.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return (iceP_returnValue, iceP_c2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: C?, c2: C?)` - The result of the operation
+    func opCAsync(_ iceP_c1: C?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: C?, c2: C?) {
+        return try await _impl._invokeAsync(operation: "opC",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_c1)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                var iceP_c2: C?
+                                                try istr.read(C.self) { iceP_c2 = $0 }
+                                                var iceP_returnValue: C?
+                                                try istr.read(C.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return (iceP_returnValue, iceP_c2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -4054,24 +4053,24 @@ public extension InnerTestInner2IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: CSeq, c2: CSeq)>` - The result of the operation
-    func opCSeqAsync(_ iceP_c1: CSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: CSeq, c2: CSeq)> {
-        return _impl._invokeAsync(operation: "opCSeq",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      CSeqHelper.write(to: ostr, value: iceP_c1)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      let iceP_c2: CSeq = try CSeqHelper.read(from: istr)
-                                      let iceP_returnValue: CSeq = try CSeqHelper.read(from: istr)
-                                      try istr.readPendingValues()
-                                      return (iceP_returnValue, iceP_c2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: CSeq, c2: CSeq)` - The result of the operation
+    func opCSeqAsync(_ iceP_c1: CSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: CSeq, c2: CSeq) {
+        return try await _impl._invokeAsync(operation: "opCSeq",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                CSeqHelper.write(to: ostr, value: iceP_c1)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                let iceP_c2: CSeq = try CSeqHelper.read(from: istr)
+                                                let iceP_returnValue: CSeq = try CSeqHelper.read(from: istr)
+                                                try istr.readPendingValues()
+                                                return (iceP_returnValue, iceP_c2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -4113,24 +4112,24 @@ public extension InnerTestInner2IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: CMap, c2: CMap)>` - The result of the operation
-    func opCMapAsync(_ iceP_c1: CMap, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: CMap, c2: CMap)> {
-        return _impl._invokeAsync(operation: "opCMap",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      CMapHelper.write(to: ostr, value: iceP_c1)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      let iceP_c2: CMap = try CMapHelper.read(from: istr)
-                                      let iceP_returnValue: CMap = try CMapHelper.read(from: istr)
-                                      try istr.readPendingValues()
-                                      return (iceP_returnValue, iceP_c2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: CMap, c2: CMap)` - The result of the operation
+    func opCMapAsync(_ iceP_c1: CMap, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: CMap, c2: CMap) {
+        return try await _impl._invokeAsync(operation: "opCMap",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                CMapHelper.write(to: ostr, value: iceP_c1)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                let iceP_c2: CMap = try CMapHelper.read(from: istr)
+                                                let iceP_returnValue: CMap = try CMapHelper.read(from: istr)
+                                                try istr.readPendingValues()
+                                                return (iceP_returnValue, iceP_c2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -4152,14 +4151,14 @@ public extension InnerTestInner2IPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "shutdown",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "shutdown",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -4393,42 +4392,42 @@ public struct IDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            (servant as? Ice.Object ?? IDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? IDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? IDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? IDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? IDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? IDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? IDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? IDisp.defaultObject)._iceD_ice_ping(request)
         case "opC":
-            servant._iceD_opC(request)
+            try await servant._iceD_opC(request)
         case "opC1":
-            servant._iceD_opC1(request)
+            try await servant._iceD_opC1(request)
         case "opCMap":
-            servant._iceD_opCMap(request)
+            try await servant._iceD_opCMap(request)
         case "opCSeq":
-            servant._iceD_opCSeq(request)
+            try await servant._iceD_opCSeq(request)
         case "opE1":
-            servant._iceD_opE1(request)
+            try await servant._iceD_opE1(request)
         case "opS":
-            servant._iceD_opS(request)
+            try await servant._iceD_opS(request)
         case "opS1":
-            servant._iceD_opS1(request)
+            try await servant._iceD_opS1(request)
         case "opS1Map":
-            servant._iceD_opS1Map(request)
+            try await servant._iceD_opS1Map(request)
         case "opS1Seq":
-            servant._iceD_opS1Seq(request)
+            try await servant._iceD_opS1Seq(request)
         case "opSMap":
-            servant._iceD_opSMap(request)
+            try await servant._iceD_opSMap(request)
         case "opSSeq":
-            servant._iceD_opSSeq(request)
+            try await servant._iceD_opSSeq(request)
         case "shutdown":
-            servant._iceD_shutdown(request)
+            try await servant._iceD_shutdown(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -4561,32 +4560,32 @@ public struct InnerInner2IDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            (servant as? Ice.Object ?? InnerInner2IDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? InnerInner2IDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? InnerInner2IDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? InnerInner2IDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? InnerInner2IDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? InnerInner2IDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? InnerInner2IDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? InnerInner2IDisp.defaultObject)._iceD_ice_ping(request)
         case "opC":
-            servant._iceD_opC(request)
+            try await servant._iceD_opC(request)
         case "opCMap":
-            servant._iceD_opCMap(request)
+            try await servant._iceD_opCMap(request)
         case "opCSeq":
-            servant._iceD_opCSeq(request)
+            try await servant._iceD_opCSeq(request)
         case "opS":
-            servant._iceD_opS(request)
+            try await servant._iceD_opS(request)
         case "opSMap":
-            servant._iceD_opSMap(request)
+            try await servant._iceD_opSMap(request)
         case "opSSeq":
-            servant._iceD_opSSeq(request)
+            try await servant._iceD_opSSeq(request)
         case "shutdown":
-            servant._iceD_shutdown(request)
+            try await servant._iceD_shutdown(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -4679,32 +4678,32 @@ public struct InnerIDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            (servant as? Ice.Object ?? InnerIDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? InnerIDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? InnerIDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? InnerIDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? InnerIDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? InnerIDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? InnerIDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? InnerIDisp.defaultObject)._iceD_ice_ping(request)
         case "opC":
-            servant._iceD_opC(request)
+            try await servant._iceD_opC(request)
         case "opCMap":
-            servant._iceD_opCMap(request)
+            try await servant._iceD_opCMap(request)
         case "opCSeq":
-            servant._iceD_opCSeq(request)
+            try await servant._iceD_opCSeq(request)
         case "opS":
-            servant._iceD_opS(request)
+            try await servant._iceD_opS(request)
         case "opSMap":
-            servant._iceD_opSMap(request)
+            try await servant._iceD_opSMap(request)
         case "opSSeq":
-            servant._iceD_opSSeq(request)
+            try await servant._iceD_opSSeq(request)
         case "shutdown":
-            servant._iceD_shutdown(request)
+            try await servant._iceD_shutdown(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -4797,32 +4796,32 @@ public struct InnerTestInner2IDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            (servant as? Ice.Object ?? InnerTestInner2IDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? InnerTestInner2IDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? InnerTestInner2IDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? InnerTestInner2IDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? InnerTestInner2IDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? InnerTestInner2IDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? InnerTestInner2IDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? InnerTestInner2IDisp.defaultObject)._iceD_ice_ping(request)
         case "opC":
-            servant._iceD_opC(request)
+            try await servant._iceD_opC(request)
         case "opCMap":
-            servant._iceD_opCMap(request)
+            try await servant._iceD_opCMap(request)
         case "opCSeq":
-            servant._iceD_opCSeq(request)
+            try await servant._iceD_opCSeq(request)
         case "opS":
-            servant._iceD_opS(request)
+            try await servant._iceD_opS(request)
         case "opSMap":
-            servant._iceD_opSMap(request)
+            try await servant._iceD_opSMap(request)
         case "opSSeq":
-            servant._iceD_opSSeq(request)
+            try await servant._iceD_opSSeq(request)
         case "shutdown":
-            servant._iceD_shutdown(request)
+            try await servant._iceD_shutdown(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -4933,218 +4932,182 @@ public protocol InnerTestInner2I {
 ///
 ///  - shutdown: 
 extension I {
-    public func _iceD_opS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_s1: S = try istr.read()
+    public func _iceD_opS(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_s1: S = try istr.read()
 
-            let (iceP_returnValue, iceP_s2) = try self.opS(s1: iceP_s1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_s2)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_s2) = try self.opS(s1: iceP_s1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_s2)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opSSeq(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_s1: SSeq = try SSeqHelper.read(from: istr)
+    public func _iceD_opSSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_s1: SSeq = try SSeqHelper.read(from: istr)
 
-            let (iceP_returnValue, iceP_s2) = try self.opSSeq(s1: iceP_s1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            SSeqHelper.write(to: ostr, value: iceP_s2)
-            SSeqHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_s2) = try self.opSSeq(s1: iceP_s1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        SSeqHelper.write(to: ostr, value: iceP_s2)
+        SSeqHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opSMap(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_s1: SMap = try SMapHelper.read(from: istr)
+    public func _iceD_opSMap(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_s1: SMap = try SMapHelper.read(from: istr)
 
-            let (iceP_returnValue, iceP_s2) = try self.opSMap(s1: iceP_s1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            SMapHelper.write(to: ostr, value: iceP_s2)
-            SMapHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_s2) = try self.opSMap(s1: iceP_s1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        SMapHelper.write(to: ostr, value: iceP_s2)
+        SMapHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opC(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            var iceP_c1: C?
-            try istr.read(C.self) { iceP_c1 = $0 }
-            try istr.readPendingValues()
+    public func _iceD_opC(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        var iceP_c1: C?
+        try istr.read(C.self) { iceP_c1 = $0 }
+        try istr.readPendingValues()
 
-            let (iceP_returnValue, iceP_c2) = try self.opC(c1: iceP_c1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_c2)
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_c2) = try self.opC(c1: iceP_c1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_c2)
+        ostr.write(iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opCSeq(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_s1: CSeq = try CSeqHelper.read(from: istr)
-            try istr.readPendingValues()
+    public func _iceD_opCSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_s1: CSeq = try CSeqHelper.read(from: istr)
+        try istr.readPendingValues()
 
-            let (iceP_returnValue, iceP_s2) = try self.opCSeq(s1: iceP_s1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            CSeqHelper.write(to: ostr, value: iceP_s2)
-            CSeqHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_s2) = try self.opCSeq(s1: iceP_s1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        CSeqHelper.write(to: ostr, value: iceP_s2)
+        CSeqHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opCMap(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_c1: CMap = try CMapHelper.read(from: istr)
-            try istr.readPendingValues()
+    public func _iceD_opCMap(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_c1: CMap = try CMapHelper.read(from: istr)
+        try istr.readPendingValues()
 
-            let (iceP_returnValue, iceP_c2) = try self.opCMap(c1: iceP_c1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            CMapHelper.write(to: ostr, value: iceP_c2)
-            CMapHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_c2) = try self.opCMap(c1: iceP_c1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        CMapHelper.write(to: ostr, value: iceP_c2)
+        CMapHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opE1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_E1: E1 = try istr.read()
+    public func _iceD_opE1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_E1: E1 = try istr.read()
 
-            let iceP_returnValue = try self.opE1(E1: iceP_E1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.opE1(E1: iceP_E1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opS1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_S1: S1 = try istr.read()
+    public func _iceD_opS1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_S1: S1 = try istr.read()
 
-            let iceP_returnValue = try self.opS1(S1: iceP_S1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.opS1(S1: iceP_S1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opC1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            var iceP_C1: C1?
-            try istr.read(C1.self) { iceP_C1 = $0 }
-            try istr.readPendingValues()
+    public func _iceD_opC1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        var iceP_C1: C1?
+        try istr.read(C1.self) { iceP_C1 = $0 }
+        try istr.readPendingValues()
 
-            let iceP_returnValue = try self.opC1(C1: iceP_C1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.opC1(C1: iceP_C1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opS1Seq(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_S1Seq: S1Seq = try S1SeqHelper.read(from: istr)
+    public func _iceD_opS1Seq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_S1Seq: S1Seq = try S1SeqHelper.read(from: istr)
 
-            let iceP_returnValue = try self.opS1Seq(S1Seq: iceP_S1Seq, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            S1SeqHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.opS1Seq(S1Seq: iceP_S1Seq, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        S1SeqHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opS1Map(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_S1Map: S1Map = try S1MapHelper.read(from: istr)
+    public func _iceD_opS1Map(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_S1Map: S1Map = try S1MapHelper.read(from: istr)
 
-            let iceP_returnValue = try self.opS1Map(S1Map: iceP_S1Map, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            S1MapHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.opS1Map(S1Map: iceP_S1Map, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        S1MapHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.shutdown(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.shutdown(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }
 
@@ -5166,130 +5129,109 @@ extension I {
 ///
 ///  - shutdown: 
 extension InnerInner2I {
-    public func _iceD_opS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_s1: InnerInner2S = try istr.read()
+    public func _iceD_opS(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_s1: InnerInner2S = try istr.read()
 
-            let (iceP_returnValue, iceP_s2) = try self.opS(s1: iceP_s1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_s2)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_s2) = try self.opS(s1: iceP_s1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_s2)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opSSeq(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_s1: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
+    public func _iceD_opSSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_s1: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
 
-            let (iceP_returnValue, iceP_s2) = try self.opSSeq(s1: iceP_s1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            InnerInner2SSeqHelper.write(to: ostr, value: iceP_s2)
-            InnerInner2SSeqHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_s2) = try self.opSSeq(s1: iceP_s1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        InnerInner2SSeqHelper.write(to: ostr, value: iceP_s2)
+        InnerInner2SSeqHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opSMap(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_s1: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
+    public func _iceD_opSMap(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_s1: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
 
-            let (iceP_returnValue, iceP_s2) = try self.opSMap(s1: iceP_s1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            InnerInner2SMapHelper.write(to: ostr, value: iceP_s2)
-            InnerInner2SMapHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_s2) = try self.opSMap(s1: iceP_s1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        InnerInner2SMapHelper.write(to: ostr, value: iceP_s2)
+        InnerInner2SMapHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opC(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            var iceP_c1: InnerInner2C?
-            try istr.read(InnerInner2C.self) { iceP_c1 = $0 }
-            try istr.readPendingValues()
+    public func _iceD_opC(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        var iceP_c1: InnerInner2C?
+        try istr.read(InnerInner2C.self) { iceP_c1 = $0 }
+        try istr.readPendingValues()
 
-            let (iceP_returnValue, iceP_c2) = try self.opC(c1: iceP_c1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_c2)
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_c2) = try self.opC(c1: iceP_c1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_c2)
+        ostr.write(iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opCSeq(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_c1: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
-            try istr.readPendingValues()
+    public func _iceD_opCSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_c1: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
+        try istr.readPendingValues()
 
-            let (iceP_returnValue, iceP_c2) = try self.opCSeq(c1: iceP_c1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            InnerInner2CSeqHelper.write(to: ostr, value: iceP_c2)
-            InnerInner2CSeqHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_c2) = try self.opCSeq(c1: iceP_c1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        InnerInner2CSeqHelper.write(to: ostr, value: iceP_c2)
+        InnerInner2CSeqHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opCMap(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_c1: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
-            try istr.readPendingValues()
+    public func _iceD_opCMap(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_c1: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
+        try istr.readPendingValues()
 
-            let (iceP_returnValue, iceP_c2) = try self.opCMap(c1: iceP_c1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            InnerInner2CMapHelper.write(to: ostr, value: iceP_c2)
-            InnerInner2CMapHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_c2) = try self.opCMap(c1: iceP_c1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        InnerInner2CMapHelper.write(to: ostr, value: iceP_c2)
+        InnerInner2CMapHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.shutdown(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.shutdown(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }
 
@@ -5311,130 +5253,109 @@ extension InnerInner2I {
 ///
 ///  - shutdown: 
 extension InnerI {
-    public func _iceD_opS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_s1: InnerInner2S = try istr.read()
+    public func _iceD_opS(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_s1: InnerInner2S = try istr.read()
 
-            let (iceP_returnValue, iceP_s2) = try self.opS(s1: iceP_s1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_s2)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_s2) = try self.opS(s1: iceP_s1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_s2)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opSSeq(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_s1: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
+    public func _iceD_opSSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_s1: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
 
-            let (iceP_returnValue, iceP_s2) = try self.opSSeq(s1: iceP_s1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            InnerInner2SSeqHelper.write(to: ostr, value: iceP_s2)
-            InnerInner2SSeqHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_s2) = try self.opSSeq(s1: iceP_s1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        InnerInner2SSeqHelper.write(to: ostr, value: iceP_s2)
+        InnerInner2SSeqHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opSMap(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_s1: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
+    public func _iceD_opSMap(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_s1: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
 
-            let (iceP_returnValue, iceP_s2) = try self.opSMap(s1: iceP_s1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            InnerInner2SMapHelper.write(to: ostr, value: iceP_s2)
-            InnerInner2SMapHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_s2) = try self.opSMap(s1: iceP_s1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        InnerInner2SMapHelper.write(to: ostr, value: iceP_s2)
+        InnerInner2SMapHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opC(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            var iceP_c1: InnerInner2C?
-            try istr.read(InnerInner2C.self) { iceP_c1 = $0 }
-            try istr.readPendingValues()
+    public func _iceD_opC(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        var iceP_c1: InnerInner2C?
+        try istr.read(InnerInner2C.self) { iceP_c1 = $0 }
+        try istr.readPendingValues()
 
-            let (iceP_returnValue, iceP_c2) = try self.opC(c1: iceP_c1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_c2)
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_c2) = try self.opC(c1: iceP_c1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_c2)
+        ostr.write(iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opCSeq(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_c1: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
-            try istr.readPendingValues()
+    public func _iceD_opCSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_c1: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
+        try istr.readPendingValues()
 
-            let (iceP_returnValue, iceP_c2) = try self.opCSeq(c1: iceP_c1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            InnerInner2CSeqHelper.write(to: ostr, value: iceP_c2)
-            InnerInner2CSeqHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_c2) = try self.opCSeq(c1: iceP_c1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        InnerInner2CSeqHelper.write(to: ostr, value: iceP_c2)
+        InnerInner2CSeqHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opCMap(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_c1: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
-            try istr.readPendingValues()
+    public func _iceD_opCMap(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_c1: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
+        try istr.readPendingValues()
 
-            let (iceP_returnValue, iceP_c2) = try self.opCMap(c1: iceP_c1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            InnerInner2CMapHelper.write(to: ostr, value: iceP_c2)
-            InnerInner2CMapHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_c2) = try self.opCMap(c1: iceP_c1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        InnerInner2CMapHelper.write(to: ostr, value: iceP_c2)
+        InnerInner2CMapHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.shutdown(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.shutdown(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }
 
@@ -5456,129 +5377,108 @@ extension InnerI {
 ///
 ///  - shutdown: 
 extension InnerTestInner2I {
-    public func _iceD_opS(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_s1: S = try istr.read()
+    public func _iceD_opS(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_s1: S = try istr.read()
 
-            let (iceP_returnValue, iceP_s2) = try self.opS(s1: iceP_s1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_s2)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_s2) = try self.opS(s1: iceP_s1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_s2)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opSSeq(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_s1: SSeq = try SSeqHelper.read(from: istr)
+    public func _iceD_opSSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_s1: SSeq = try SSeqHelper.read(from: istr)
 
-            let (iceP_returnValue, iceP_s2) = try self.opSSeq(s1: iceP_s1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            SSeqHelper.write(to: ostr, value: iceP_s2)
-            SSeqHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_s2) = try self.opSSeq(s1: iceP_s1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        SSeqHelper.write(to: ostr, value: iceP_s2)
+        SSeqHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opSMap(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_s1: SMap = try SMapHelper.read(from: istr)
+    public func _iceD_opSMap(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_s1: SMap = try SMapHelper.read(from: istr)
 
-            let (iceP_returnValue, iceP_s2) = try self.opSMap(s1: iceP_s1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            SMapHelper.write(to: ostr, value: iceP_s2)
-            SMapHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_s2) = try self.opSMap(s1: iceP_s1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        SMapHelper.write(to: ostr, value: iceP_s2)
+        SMapHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opC(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            var iceP_c1: C?
-            try istr.read(C.self) { iceP_c1 = $0 }
-            try istr.readPendingValues()
+    public func _iceD_opC(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        var iceP_c1: C?
+        try istr.read(C.self) { iceP_c1 = $0 }
+        try istr.readPendingValues()
 
-            let (iceP_returnValue, iceP_c2) = try self.opC(c1: iceP_c1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_c2)
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_c2) = try self.opC(c1: iceP_c1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_c2)
+        ostr.write(iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opCSeq(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_c1: CSeq = try CSeqHelper.read(from: istr)
-            try istr.readPendingValues()
+    public func _iceD_opCSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_c1: CSeq = try CSeqHelper.read(from: istr)
+        try istr.readPendingValues()
 
-            let (iceP_returnValue, iceP_c2) = try self.opCSeq(c1: iceP_c1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            CSeqHelper.write(to: ostr, value: iceP_c2)
-            CSeqHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_c2) = try self.opCSeq(c1: iceP_c1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        CSeqHelper.write(to: ostr, value: iceP_c2)
+        CSeqHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opCMap(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_c1: CMap = try CMapHelper.read(from: istr)
-            try istr.readPendingValues()
+    public func _iceD_opCMap(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_c1: CMap = try CMapHelper.read(from: istr)
+        try istr.readPendingValues()
 
-            let (iceP_returnValue, iceP_c2) = try self.opCMap(c1: iceP_c1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            CMapHelper.write(to: ostr, value: iceP_c2)
-            CMapHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_c2) = try self.opCMap(c1: iceP_c1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        CMapHelper.write(to: ostr, value: iceP_c2)
+        CMapHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.shutdown(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.shutdown(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }

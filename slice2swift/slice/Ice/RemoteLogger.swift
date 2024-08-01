@@ -14,7 +14,6 @@
 //
 
 import Foundation
-import PromiseKit
 
 /// An enumeration representing the different types of log messages.
 public enum LogMessageType: Swift.UInt8 {
@@ -479,18 +478,18 @@ public extension RemoteLoggerPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func initAsync(prefix iceP_prefix: Swift.String, logMessages iceP_logMessages: LogMessageSeq, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "init",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_prefix)
-                                      LogMessageSeqHelper.write(to: ostr, value: iceP_logMessages)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func initAsync(prefix iceP_prefix: Swift.String, logMessages iceP_logMessages: LogMessageSeq, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "init",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_prefix)
+                                                LogMessageSeqHelper.write(to: ostr, value: iceP_logMessages)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Log a LogMessage. Note that log may be called by LoggerAdmin before init.
@@ -521,17 +520,17 @@ public extension RemoteLoggerPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func logAsync(_ iceP_message: LogMessage, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "log",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_message)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func logAsync(_ iceP_message: LogMessage, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "log",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_message)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -720,27 +719,27 @@ public extension LoggerAdminPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func attachRemoteLoggerAsync(prx iceP_prx: RemoteLoggerPrx?, messageTypes iceP_messageTypes: LogMessageTypeSeq, traceCategories iceP_traceCategories: StringSeq, messageMax iceP_messageMax: Swift.Int32, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "attachRemoteLogger",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_prx)
-                                      LogMessageTypeSeqHelper.write(to: ostr, value: iceP_messageTypes)
-                                      ostr.write(iceP_traceCategories)
-                                      ostr.write(iceP_messageMax)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as RemoteLoggerAlreadyAttachedException {
-                                          throw error
-                                      } catch is UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func attachRemoteLoggerAsync(prx iceP_prx: RemoteLoggerPrx?, messageTypes iceP_messageTypes: LogMessageTypeSeq, traceCategories iceP_traceCategories: StringSeq, messageMax iceP_messageMax: Swift.Int32, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "attachRemoteLogger",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_prx)
+                                                LogMessageTypeSeqHelper.write(to: ostr, value: iceP_messageTypes)
+                                                ostr.write(iceP_traceCategories)
+                                                ostr.write(iceP_messageMax)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as RemoteLoggerAlreadyAttachedException {
+                                                    throw error
+                                                } catch is UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Detaches a RemoteLogger object from the local logger.
@@ -777,21 +776,21 @@ public extension LoggerAdminPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
-    func detachRemoteLoggerAsync(_ iceP_prx: RemoteLoggerPrx?, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Bool> {
-        return _impl._invokeAsync(operation: "detachRemoteLogger",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_prx)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Bool = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.Bool` - The result of the operation
+    func detachRemoteLoggerAsync(_ iceP_prx: RemoteLoggerPrx?, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Bool {
+        return try await _impl._invokeAsync(operation: "detachRemoteLogger",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_prx)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.Bool = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Retrieves log messages recently logged.
@@ -851,24 +850,24 @@ public extension LoggerAdminPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: LogMessageSeq, prefix: Swift.String)>` - The result of the operation
-    func getLogAsync(messageTypes iceP_messageTypes: LogMessageTypeSeq, traceCategories iceP_traceCategories: StringSeq, messageMax iceP_messageMax: Swift.Int32, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: LogMessageSeq, prefix: Swift.String)> {
-        return _impl._invokeAsync(operation: "getLog",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      LogMessageTypeSeqHelper.write(to: ostr, value: iceP_messageTypes)
-                                      ostr.write(iceP_traceCategories)
-                                      ostr.write(iceP_messageMax)
-                                  },
-                                  read: { istr in
-                                      let iceP_prefix: Swift.String = try istr.read()
-                                      let iceP_returnValue: LogMessageSeq = try LogMessageSeqHelper.read(from: istr)
-                                      return (iceP_returnValue, iceP_prefix)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: LogMessageSeq, prefix: Swift.String)` - The result of the operation
+    func getLogAsync(messageTypes iceP_messageTypes: LogMessageTypeSeq, traceCategories iceP_traceCategories: StringSeq, messageMax iceP_messageMax: Swift.Int32, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: LogMessageSeq, prefix: Swift.String) {
+        return try await _impl._invokeAsync(operation: "getLog",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                LogMessageTypeSeqHelper.write(to: ostr, value: iceP_messageTypes)
+                                                ostr.write(iceP_traceCategories)
+                                                ostr.write(iceP_messageMax)
+                                            },
+                                            read: { istr in
+                                                let iceP_prefix: Swift.String = try istr.read()
+                                                let iceP_returnValue: LogMessageSeq = try LogMessageSeqHelper.read(from: istr)
+                                                return (iceP_returnValue, iceP_prefix)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -882,22 +881,22 @@ public struct RemoteLoggerDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            (servant as? Ice.Object ?? RemoteLoggerDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? RemoteLoggerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? RemoteLoggerDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? RemoteLoggerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? RemoteLoggerDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? RemoteLoggerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? RemoteLoggerDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? RemoteLoggerDisp.defaultObject)._iceD_ice_ping(request)
         case "init":
-            servant._iceD_init(request)
+            try await servant._iceD_init(request)
         case "log":
-            servant._iceD_log(request)
+            try await servant._iceD_log(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -932,24 +931,24 @@ public struct LoggerAdminDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "attachRemoteLogger":
-            servant._iceD_attachRemoteLogger(request)
+            try await servant._iceD_attachRemoteLogger(request)
         case "detachRemoteLogger":
-            servant._iceD_detachRemoteLogger(request)
+            try await servant._iceD_detachRemoteLogger(request)
         case "getLog":
-            servant._iceD_getLog(request)
+            try await servant._iceD_getLog(request)
         case "ice_id":
-            (servant as? Ice.Object ?? LoggerAdminDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? LoggerAdminDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? LoggerAdminDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? LoggerAdminDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? LoggerAdminDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? LoggerAdminDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? LoggerAdminDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? LoggerAdminDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1020,31 +1019,25 @@ public protocol LoggerAdmin {
 ///
 ///  - log: Log a LogMessage.
 extension RemoteLogger {
-    public func _iceD_init(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_prefix: Swift.String = try istr.read()
-            let iceP_logMessages: LogMessageSeq = try LogMessageSeqHelper.read(from: istr)
+    public func _iceD_init(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_prefix: Swift.String = try istr.read()
+        let iceP_logMessages: LogMessageSeq = try LogMessageSeqHelper.read(from: istr)
 
-            try self.`init`(prefix: iceP_prefix, logMessages: iceP_logMessages, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.`init`(prefix: iceP_prefix, logMessages: iceP_logMessages, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_log(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_message: LogMessage = try istr.read()
+    public func _iceD_log(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_message: LogMessage = try istr.read()
 
-            try self.log(message: iceP_message, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.log(message: iceP_message, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }
 
@@ -1059,56 +1052,47 @@ extension RemoteLogger {
 ///
 ///  - getLog: Retrieves log messages recently logged.
 extension LoggerAdmin {
-    public func _iceD_attachRemoteLogger(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_prx: RemoteLoggerPrx? = try istr.read(RemoteLoggerPrx.self)
-            let iceP_messageTypes: LogMessageTypeSeq = try LogMessageTypeSeqHelper.read(from: istr)
-            let iceP_traceCategories: StringSeq = try istr.read()
-            let iceP_messageMax: Swift.Int32 = try istr.read()
+    public func _iceD_attachRemoteLogger(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_prx: RemoteLoggerPrx? = try istr.read(RemoteLoggerPrx.self)
+        let iceP_messageTypes: LogMessageTypeSeq = try LogMessageTypeSeqHelper.read(from: istr)
+        let iceP_traceCategories: StringSeq = try istr.read()
+        let iceP_messageMax: Swift.Int32 = try istr.read()
 
-            try self.attachRemoteLogger(prx: iceP_prx, messageTypes: iceP_messageTypes, traceCategories: iceP_traceCategories, messageMax: iceP_messageMax, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.attachRemoteLogger(prx: iceP_prx, messageTypes: iceP_messageTypes, traceCategories: iceP_traceCategories, messageMax: iceP_messageMax, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_detachRemoteLogger(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_prx: RemoteLoggerPrx? = try istr.read(RemoteLoggerPrx.self)
+    public func _iceD_detachRemoteLogger(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_prx: RemoteLoggerPrx? = try istr.read(RemoteLoggerPrx.self)
 
-            let iceP_returnValue = try self.detachRemoteLogger(prx: iceP_prx, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.detachRemoteLogger(prx: iceP_prx, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_getLog(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_messageTypes: LogMessageTypeSeq = try LogMessageTypeSeqHelper.read(from: istr)
-            let iceP_traceCategories: StringSeq = try istr.read()
-            let iceP_messageMax: Swift.Int32 = try istr.read()
+    public func _iceD_getLog(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_messageTypes: LogMessageTypeSeq = try LogMessageTypeSeqHelper.read(from: istr)
+        let iceP_traceCategories: StringSeq = try istr.read()
+        let iceP_messageMax: Swift.Int32 = try istr.read()
 
-            let (iceP_returnValue, iceP_prefix) = try self.getLog(messageTypes: iceP_messageTypes, traceCategories: iceP_traceCategories, messageMax: iceP_messageMax, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_prefix)
-            LogMessageSeqHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_prefix) = try self.getLog(messageTypes: iceP_messageTypes, traceCategories: iceP_traceCategories, messageMax: iceP_messageMax, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_prefix)
+        LogMessageSeqHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }

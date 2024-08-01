@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 public typealias ByteSeq = Foundation.Data
 
@@ -216,22 +215,22 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: ByteSeq, dataOut: ByteSeq)>` - The result of the operation
-    func opByteSpanAsync(_ iceP_dataIn: ByteSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: ByteSeq, dataOut: ByteSeq)> {
-        return _impl._invokeAsync(operation: "opByteSpan",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_dataIn)
-                                  },
-                                  read: { istr in
-                                      let iceP_dataOut: ByteSeq = try istr.read()
-                                      let iceP_returnValue: ByteSeq = try istr.read()
-                                      return (iceP_returnValue, iceP_dataOut)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: ByteSeq, dataOut: ByteSeq)` - The result of the operation
+    func opByteSpanAsync(_ iceP_dataIn: ByteSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ByteSeq, dataOut: ByteSeq) {
+        return try await _impl._invokeAsync(operation: "opByteSpan",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_dataIn)
+                                            },
+                                            read: { istr in
+                                                let iceP_dataOut: ByteSeq = try istr.read()
+                                                let iceP_returnValue: ByteSeq = try istr.read()
+                                                return (iceP_returnValue, iceP_dataOut)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -271,22 +270,22 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: ShortSeq, dataOut: ShortSeq)>` - The result of the operation
-    func opShortSpanAsync(_ iceP_dataIn: ShortSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: ShortSeq, dataOut: ShortSeq)> {
-        return _impl._invokeAsync(operation: "opShortSpan",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_dataIn)
-                                  },
-                                  read: { istr in
-                                      let iceP_dataOut: ShortSeq = try istr.read()
-                                      let iceP_returnValue: ShortSeq = try istr.read()
-                                      return (iceP_returnValue, iceP_dataOut)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: ShortSeq, dataOut: ShortSeq)` - The result of the operation
+    func opShortSpanAsync(_ iceP_dataIn: ShortSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ShortSeq, dataOut: ShortSeq) {
+        return try await _impl._invokeAsync(operation: "opShortSpan",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_dataIn)
+                                            },
+                                            read: { istr in
+                                                let iceP_dataOut: ShortSeq = try istr.read()
+                                                let iceP_returnValue: ShortSeq = try istr.read()
+                                                return (iceP_returnValue, iceP_dataOut)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -326,22 +325,22 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: StringSeq, dataOut: StringSeq)>` - The result of the operation
-    func opStringSpanAsync(_ iceP_dataIn: StringSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: StringSeq, dataOut: StringSeq)> {
-        return _impl._invokeAsync(operation: "opStringSpan",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_dataIn)
-                                  },
-                                  read: { istr in
-                                      let iceP_dataOut: StringSeq = try istr.read()
-                                      let iceP_returnValue: StringSeq = try istr.read()
-                                      return (iceP_returnValue, iceP_dataOut)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: StringSeq, dataOut: StringSeq)` - The result of the operation
+    func opStringSpanAsync(_ iceP_dataIn: StringSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: StringSeq, dataOut: StringSeq) {
+        return try await _impl._invokeAsync(operation: "opStringSpan",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_dataIn)
+                                            },
+                                            read: { istr in
+                                                let iceP_dataOut: StringSeq = try istr.read()
+                                                let iceP_returnValue: StringSeq = try istr.read()
+                                                return (iceP_returnValue, iceP_dataOut)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -381,22 +380,22 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: ByteSeq?, dataOut: ByteSeq?)>` - The result of the operation
-    func opOptionalByteSpanAsync(_ iceP_dataIn: ByteSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: ByteSeq?, dataOut: ByteSeq?)> {
-        return _impl._invokeAsync(operation: "opOptionalByteSpan",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 1, value: iceP_dataIn)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: ByteSeq? = try istr.read(tag: 10)
-                                      let iceP_dataOut: ByteSeq? = try istr.read(tag: 11)
-                                      return (iceP_returnValue, iceP_dataOut)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: ByteSeq?, dataOut: ByteSeq?)` - The result of the operation
+    func opOptionalByteSpanAsync(_ iceP_dataIn: ByteSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ByteSeq?, dataOut: ByteSeq?) {
+        return try await _impl._invokeAsync(operation: "opOptionalByteSpan",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 1, value: iceP_dataIn)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: ByteSeq? = try istr.read(tag: 10)
+                                                let iceP_dataOut: ByteSeq? = try istr.read(tag: 11)
+                                                return (iceP_returnValue, iceP_dataOut)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -436,22 +435,22 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: ShortSeq?, dataOut: ShortSeq?)>` - The result of the operation
-    func opOptionalShortSpanAsync(_ iceP_dataIn: ShortSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: ShortSeq?, dataOut: ShortSeq?)> {
-        return _impl._invokeAsync(operation: "opOptionalShortSpan",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 1, value: iceP_dataIn)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: ShortSeq? = try istr.read(tag: 10)
-                                      let iceP_dataOut: ShortSeq? = try istr.read(tag: 11)
-                                      return (iceP_returnValue, iceP_dataOut)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: ShortSeq?, dataOut: ShortSeq?)` - The result of the operation
+    func opOptionalShortSpanAsync(_ iceP_dataIn: ShortSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ShortSeq?, dataOut: ShortSeq?) {
+        return try await _impl._invokeAsync(operation: "opOptionalShortSpan",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 1, value: iceP_dataIn)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: ShortSeq? = try istr.read(tag: 10)
+                                                let iceP_dataOut: ShortSeq? = try istr.read(tag: 11)
+                                                return (iceP_returnValue, iceP_dataOut)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -491,22 +490,22 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: StringSeq?, dataOut: StringSeq?)>` - The result of the operation
-    func opOptionalStringSpanAsync(_ iceP_dataIn: StringSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: StringSeq?, dataOut: StringSeq?)> {
-        return _impl._invokeAsync(operation: "opOptionalStringSpan",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 1, value: iceP_dataIn)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: StringSeq? = try istr.read(tag: 10)
-                                      let iceP_dataOut: StringSeq? = try istr.read(tag: 11)
-                                      return (iceP_returnValue, iceP_dataOut)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: StringSeq?, dataOut: StringSeq?)` - The result of the operation
+    func opOptionalStringSpanAsync(_ iceP_dataIn: StringSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: StringSeq?, dataOut: StringSeq?) {
+        return try await _impl._invokeAsync(operation: "opOptionalStringSpan",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 1, value: iceP_dataIn)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: StringSeq? = try istr.read(tag: 10)
+                                                let iceP_dataOut: StringSeq? = try istr.read(tag: 11)
+                                                return (iceP_returnValue, iceP_dataOut)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -528,14 +527,14 @@ public extension TestIntfPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "shutdown",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "shutdown",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -549,32 +548,32 @@ public struct TestIntfDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
         case "opByteSpan":
-            servant._iceD_opByteSpan(request)
+            try await servant._iceD_opByteSpan(request)
         case "opOptionalByteSpan":
-            servant._iceD_opOptionalByteSpan(request)
+            try await servant._iceD_opOptionalByteSpan(request)
         case "opOptionalShortSpan":
-            servant._iceD_opOptionalShortSpan(request)
+            try await servant._iceD_opOptionalShortSpan(request)
         case "opOptionalStringSpan":
-            servant._iceD_opOptionalStringSpan(request)
+            try await servant._iceD_opOptionalStringSpan(request)
         case "opShortSpan":
-            servant._iceD_opShortSpan(request)
+            try await servant._iceD_opShortSpan(request)
         case "opStringSpan":
-            servant._iceD_opStringSpan(request)
+            try await servant._iceD_opStringSpan(request)
         case "shutdown":
-            servant._iceD_shutdown(request)
+            try await servant._iceD_shutdown(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -585,54 +584,54 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: ByteSeq, dataOut: ByteSeq)>` - The result of the operation
-    func opByteSpanAsync(dataIn: ByteSeq, current: Ice.Current) -> PromiseKit.Promise<(returnValue: ByteSeq, dataOut: ByteSeq)>
+    /// - returns: `(returnValue: ByteSeq, dataOut: ByteSeq)` - The result of the operation
+    func opByteSpanAsync(dataIn: ByteSeq, current: Ice.Current) async throws -> (returnValue: ByteSeq, dataOut: ByteSeq)
 
     ///
     /// - parameter dataIn: `ShortSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: ShortSeq, dataOut: ShortSeq)>` - The result of the operation
-    func opShortSpanAsync(dataIn: ShortSeq, current: Ice.Current) -> PromiseKit.Promise<(returnValue: ShortSeq, dataOut: ShortSeq)>
+    /// - returns: `(returnValue: ShortSeq, dataOut: ShortSeq)` - The result of the operation
+    func opShortSpanAsync(dataIn: ShortSeq, current: Ice.Current) async throws -> (returnValue: ShortSeq, dataOut: ShortSeq)
 
     ///
     /// - parameter dataIn: `StringSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: StringSeq, dataOut: StringSeq)>` - The result of the operation
-    func opStringSpanAsync(dataIn: StringSeq, current: Ice.Current) -> PromiseKit.Promise<(returnValue: StringSeq, dataOut: StringSeq)>
+    /// - returns: `(returnValue: StringSeq, dataOut: StringSeq)` - The result of the operation
+    func opStringSpanAsync(dataIn: StringSeq, current: Ice.Current) async throws -> (returnValue: StringSeq, dataOut: StringSeq)
 
     ///
     /// - parameter dataIn: `ByteSeq?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: ByteSeq?, dataOut: ByteSeq?)>` - The result of the operation
-    func opOptionalByteSpanAsync(dataIn: ByteSeq?, current: Ice.Current) -> PromiseKit.Promise<(returnValue: ByteSeq?, dataOut: ByteSeq?)>
+    /// - returns: `(returnValue: ByteSeq?, dataOut: ByteSeq?)` - The result of the operation
+    func opOptionalByteSpanAsync(dataIn: ByteSeq?, current: Ice.Current) async throws -> (returnValue: ByteSeq?, dataOut: ByteSeq?)
 
     ///
     /// - parameter dataIn: `ShortSeq?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: ShortSeq?, dataOut: ShortSeq?)>` - The result of the operation
-    func opOptionalShortSpanAsync(dataIn: ShortSeq?, current: Ice.Current) -> PromiseKit.Promise<(returnValue: ShortSeq?, dataOut: ShortSeq?)>
+    /// - returns: `(returnValue: ShortSeq?, dataOut: ShortSeq?)` - The result of the operation
+    func opOptionalShortSpanAsync(dataIn: ShortSeq?, current: Ice.Current) async throws -> (returnValue: ShortSeq?, dataOut: ShortSeq?)
 
     ///
     /// - parameter dataIn: `StringSeq?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: StringSeq?, dataOut: StringSeq?)>` - The result of the operation
-    func opOptionalStringSpanAsync(dataIn: StringSeq?, current: Ice.Current) -> PromiseKit.Promise<(returnValue: StringSeq?, dataOut: StringSeq?)>
+    /// - returns: `(returnValue: StringSeq?, dataOut: StringSeq?)` - The result of the operation
+    func opOptionalStringSpanAsync(dataIn: StringSeq?, current: Ice.Current) async throws -> (returnValue: StringSeq?, dataOut: StringSeq?)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func shutdownAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
+    /// - returns: `` - The result of the operation
+    func shutdownAsync(current: Ice.Current) async throws -> Swift.Void
 }
 
 /// TestIntf overview.
@@ -653,130 +652,95 @@ public protocol TestIntf {
 ///
 ///  - shutdown: 
 extension TestIntf {
-    public func _iceD_opByteSpan(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_dataIn: ByteSeq = try istr.read()
-            return self.opByteSpanAsync(
-                dataIn: iceP_dataIn, current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
-                    let (iceP_returnValue, iceP_dataOut) = value
-                    ostr.write(iceP_dataOut)
-                    ostr.write(iceP_returnValue)
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_opByteSpan(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_dataIn: ByteSeq = try istr.read()
+        let result = try await self.opByteSpanAsync(
+            dataIn: iceP_dataIn, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+            let (iceP_returnValue, iceP_dataOut) = value
+            ostr.write(iceP_dataOut)
+            ostr.write(iceP_returnValue)
         }
     }
 
-    public func _iceD_opShortSpan(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_dataIn: ShortSeq = try istr.read()
-            return self.opShortSpanAsync(
-                dataIn: iceP_dataIn, current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
-                    let (iceP_returnValue, iceP_dataOut) = value
-                    ostr.write(iceP_dataOut)
-                    ostr.write(iceP_returnValue)
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_opShortSpan(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_dataIn: ShortSeq = try istr.read()
+        let result = try await self.opShortSpanAsync(
+            dataIn: iceP_dataIn, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+            let (iceP_returnValue, iceP_dataOut) = value
+            ostr.write(iceP_dataOut)
+            ostr.write(iceP_returnValue)
         }
     }
 
-    public func _iceD_opStringSpan(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_dataIn: StringSeq = try istr.read()
-            return self.opStringSpanAsync(
-                dataIn: iceP_dataIn, current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
-                    let (iceP_returnValue, iceP_dataOut) = value
-                    ostr.write(iceP_dataOut)
-                    ostr.write(iceP_returnValue)
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_opStringSpan(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_dataIn: StringSeq = try istr.read()
+        let result = try await self.opStringSpanAsync(
+            dataIn: iceP_dataIn, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+            let (iceP_returnValue, iceP_dataOut) = value
+            ostr.write(iceP_dataOut)
+            ostr.write(iceP_returnValue)
         }
     }
 
-    public func _iceD_opOptionalByteSpan(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_dataIn: ByteSeq? = try istr.read(tag: 1)
-            return self.opOptionalByteSpanAsync(
-                dataIn: iceP_dataIn, current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
-                    let (iceP_returnValue, iceP_dataOut) = value
-                    ostr.write(tag: 10, value: iceP_returnValue)
-                    ostr.write(tag: 11, value: iceP_dataOut)
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_opOptionalByteSpan(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_dataIn: ByteSeq? = try istr.read(tag: 1)
+        let result = try await self.opOptionalByteSpanAsync(
+            dataIn: iceP_dataIn, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+            let (iceP_returnValue, iceP_dataOut) = value
+            ostr.write(tag: 10, value: iceP_returnValue)
+            ostr.write(tag: 11, value: iceP_dataOut)
         }
     }
 
-    public func _iceD_opOptionalShortSpan(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_dataIn: ShortSeq? = try istr.read(tag: 1)
-            return self.opOptionalShortSpanAsync(
-                dataIn: iceP_dataIn, current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
-                    let (iceP_returnValue, iceP_dataOut) = value
-                    ostr.write(tag: 10, value: iceP_returnValue)
-                    ostr.write(tag: 11, value: iceP_dataOut)
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_opOptionalShortSpan(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_dataIn: ShortSeq? = try istr.read(tag: 1)
+        let result = try await self.opOptionalShortSpanAsync(
+            dataIn: iceP_dataIn, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+            let (iceP_returnValue, iceP_dataOut) = value
+            ostr.write(tag: 10, value: iceP_returnValue)
+            ostr.write(tag: 11, value: iceP_dataOut)
         }
     }
 
-    public func _iceD_opOptionalStringSpan(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_dataIn: StringSeq? = try istr.read(tag: 1)
-            return self.opOptionalStringSpanAsync(
-                dataIn: iceP_dataIn, current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
-                    let (iceP_returnValue, iceP_dataOut) = value
-                    ostr.write(tag: 10, value: iceP_returnValue)
-                    ostr.write(tag: 11, value: iceP_dataOut)
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_opOptionalStringSpan(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_dataIn: StringSeq? = try istr.read(tag: 1)
+        let result = try await self.opOptionalStringSpanAsync(
+            dataIn: iceP_dataIn, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+            let (iceP_returnValue, iceP_dataOut) = value
+            ostr.write(tag: 10, value: iceP_returnValue)
+            ostr.write(tag: 11, value: iceP_dataOut)
         }
     }
 
-    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.shutdownAsync(
-                current: request.current
-            ).map(on: nil) {
-                request.current.makeEmptyOutgoingResponse()
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        try await self.shutdownAsync(
+            current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }

@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 /// Traits for Slice interface`Initial2`.
 public struct Initial2Traits: Ice.SliceTraits {
@@ -165,19 +164,19 @@ public extension Initial2Prx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func opClassAndUnknownOptionalAsync(p iceP_p: A?, ovs iceP_ovs: VarStruct? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "opClassAndUnknownOptional",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_p)
-                                      ostr.write(tag: 1, value: iceP_ovs)
-                                      ostr.writePendingValues()
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func opClassAndUnknownOptionalAsync(p iceP_p: A?, ovs iceP_ovs: VarStruct? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "opClassAndUnknownOptional",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_p)
+                                                ostr.write(tag: 1, value: iceP_ovs)
+                                                ostr.writePendingValues()
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -211,18 +210,18 @@ public extension Initial2Prx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func opVoidAsync(a iceP_a: Swift.Int32? = nil, v iceP_v: Swift.String? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "opVoid",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 1, value: iceP_a)
-                                      ostr.write(tag: 2, value: iceP_v)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func opVoidAsync(a iceP_a: Swift.Int32? = nil, v iceP_v: Swift.String? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "opVoid",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 1, value: iceP_a)
+                                                ostr.write(tag: 2, value: iceP_v)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -236,22 +235,22 @@ public struct Initial2Disp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            (servant as? Ice.Object ?? Initial2Disp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? Initial2Disp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? Initial2Disp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? Initial2Disp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? Initial2Disp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? Initial2Disp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? Initial2Disp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? Initial2Disp.defaultObject)._iceD_ice_ping(request)
         case "opClassAndUnknownOptional":
-            servant._iceD_opClassAndUnknownOptional(request)
+            try await servant._iceD_opClassAndUnknownOptional(request)
         case "opVoid":
-            servant._iceD_opVoid(request)
+            try await servant._iceD_opVoid(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -282,33 +281,27 @@ public protocol Initial2 {
 ///
 ///  - opVoid: 
 extension Initial2 {
-    public func _iceD_opClassAndUnknownOptional(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            var iceP_p: A?
-            try istr.read(A.self) { iceP_p = $0 }
-            let iceP_ovs: VarStruct? = try istr.read(tag: 1)
-            try istr.readPendingValues()
+    public func _iceD_opClassAndUnknownOptional(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        var iceP_p: A?
+        try istr.read(A.self) { iceP_p = $0 }
+        let iceP_ovs: VarStruct? = try istr.read(tag: 1)
+        try istr.readPendingValues()
 
-            try self.opClassAndUnknownOptional(p: iceP_p, ovs: iceP_ovs, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.opClassAndUnknownOptional(p: iceP_p, ovs: iceP_ovs, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_opVoid(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_a: Swift.Int32? = try istr.read(tag: 1)
-            let iceP_v: Swift.String? = try istr.read(tag: 2)
+    public func _iceD_opVoid(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_a: Swift.Int32? = try istr.read(tag: 1)
+        let iceP_v: Swift.String? = try istr.read(tag: 2)
 
-            try self.opVoid(a: iceP_a, v: iceP_v, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.opVoid(a: iceP_a, v: iceP_v, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }

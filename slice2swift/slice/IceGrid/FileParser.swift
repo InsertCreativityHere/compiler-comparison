@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 /// :nodoc:
 public class ParseException_TypeResolver: Ice.UserExceptionTypeResolver {
@@ -220,30 +219,30 @@ public extension FileParserPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<ApplicationDescriptor>` - The result of the operation
-    func parseAsync(xmlFile iceP_xmlFile: Swift.String, adminProxy iceP_adminProxy: AdminPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<ApplicationDescriptor> {
-        return _impl._invokeAsync(operation: "parse",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      ostr.write(iceP_xmlFile)
-                                      ostr.write(iceP_adminProxy)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: ApplicationDescriptor = try istr.read()
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as ParseException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `ApplicationDescriptor` - The result of the operation
+    func parseAsync(xmlFile iceP_xmlFile: Swift.String, adminProxy iceP_adminProxy: AdminPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> ApplicationDescriptor {
+        return try await _impl._invokeAsync(operation: "parse",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                ostr.write(iceP_xmlFile)
+                                                ostr.write(iceP_adminProxy)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: ApplicationDescriptor = try istr.read()
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as ParseException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -257,20 +256,20 @@ public struct FileParserDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            (servant as? Ice.Object ?? FileParserDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? FileParserDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? FileParserDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? FileParserDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? FileParserDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? FileParserDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? FileParserDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? FileParserDisp.defaultObject)._iceD_ice_ping(request)
         case "parse":
-            servant._iceD_parse(request)
+            try await servant._iceD_parse(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -301,22 +300,19 @@ public protocol FileParser {
 ///
 ///  - parse: Parse a file.
 extension FileParser {
-    public func _iceD_parse(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_xmlFile: Swift.String = try istr.read()
-            let iceP_adminProxy: AdminPrx? = try istr.read(AdminPrx.self)
+    public func _iceD_parse(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_xmlFile: Swift.String = try istr.read()
+        let iceP_adminProxy: AdminPrx? = try istr.read(AdminPrx.self)
 
-            let iceP_returnValue = try self.parse(xmlFile: iceP_xmlFile, adminProxy: iceP_adminProxy, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.parse(xmlFile: iceP_xmlFile, adminProxy: iceP_adminProxy, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }

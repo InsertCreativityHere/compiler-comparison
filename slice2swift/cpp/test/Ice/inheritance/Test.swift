@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 /// Traits for Slice interface`MAIA`.
 public struct MAIATraits: Ice.SliceTraits {
@@ -181,21 +180,21 @@ public extension MAIAPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<MAIAPrx?>` - The result of the operation
-    func iaopAsync(_ iceP_p: MAIAPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<MAIAPrx?> {
-        return _impl._invokeAsync(operation: "iaop",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_p)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: MAIAPrx? = try istr.read(MAIAPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `MAIAPrx?` - The result of the operation
+    func iaopAsync(_ iceP_p: MAIAPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> MAIAPrx? {
+        return try await _impl._invokeAsync(operation: "iaop",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_p)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: MAIAPrx? = try istr.read(MAIAPrx.self)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -333,21 +332,21 @@ public extension MBIB1Prx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<MBIB1Prx?>` - The result of the operation
-    func ib1opAsync(_ iceP_p: MBIB1Prx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<MBIB1Prx?> {
-        return _impl._invokeAsync(operation: "ib1op",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_p)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: MBIB1Prx? = try istr.read(MBIB1Prx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `MBIB1Prx?` - The result of the operation
+    func ib1opAsync(_ iceP_p: MBIB1Prx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> MBIB1Prx? {
+        return try await _impl._invokeAsync(operation: "ib1op",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_p)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: MBIB1Prx? = try istr.read(MBIB1Prx.self)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -485,21 +484,21 @@ public extension MBIB2Prx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<MBIB2Prx?>` - The result of the operation
-    func ib2opAsync(_ iceP_p: MBIB2Prx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<MBIB2Prx?> {
-        return _impl._invokeAsync(operation: "ib2op",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_p)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: MBIB2Prx? = try istr.read(MBIB2Prx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `MBIB2Prx?` - The result of the operation
+    func ib2opAsync(_ iceP_p: MBIB2Prx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> MBIB2Prx? {
+        return try await _impl._invokeAsync(operation: "ib2op",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_p)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: MBIB2Prx? = try istr.read(MBIB2Prx.self)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -637,21 +636,21 @@ public extension MAICPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<MAICPrx?>` - The result of the operation
-    func icopAsync(_ iceP_p: MAICPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<MAICPrx?> {
-        return _impl._invokeAsync(operation: "icop",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_p)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: MAICPrx? = try istr.read(MAICPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `MAICPrx?` - The result of the operation
+    func icopAsync(_ iceP_p: MAICPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> MAICPrx? {
+        return try await _impl._invokeAsync(operation: "icop",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_p)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: MAICPrx? = try istr.read(MAICPrx.self)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -808,14 +807,14 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "shutdown",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "shutdown",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -843,18 +842,18 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<MAIAPrx?>` - The result of the operation
-    func iaopAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<MAIAPrx?> {
-        return _impl._invokeAsync(operation: "iaop",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: MAIAPrx? = try istr.read(MAIAPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `MAIAPrx?` - The result of the operation
+    func iaopAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> MAIAPrx? {
+        return try await _impl._invokeAsync(operation: "iaop",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                let iceP_returnValue: MAIAPrx? = try istr.read(MAIAPrx.self)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -882,18 +881,18 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<MBIB1Prx?>` - The result of the operation
-    func ib1opAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<MBIB1Prx?> {
-        return _impl._invokeAsync(operation: "ib1op",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: MBIB1Prx? = try istr.read(MBIB1Prx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `MBIB1Prx?` - The result of the operation
+    func ib1opAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> MBIB1Prx? {
+        return try await _impl._invokeAsync(operation: "ib1op",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                let iceP_returnValue: MBIB1Prx? = try istr.read(MBIB1Prx.self)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -921,18 +920,18 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<MBIB2Prx?>` - The result of the operation
-    func ib2opAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<MBIB2Prx?> {
-        return _impl._invokeAsync(operation: "ib2op",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: MBIB2Prx? = try istr.read(MBIB2Prx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `MBIB2Prx?` - The result of the operation
+    func ib2opAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> MBIB2Prx? {
+        return try await _impl._invokeAsync(operation: "ib2op",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                let iceP_returnValue: MBIB2Prx? = try istr.read(MBIB2Prx.self)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -960,18 +959,18 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<MAICPrx?>` - The result of the operation
-    func icopAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<MAICPrx?> {
-        return _impl._invokeAsync(operation: "icop",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: MAICPrx? = try istr.read(MAICPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `MAICPrx?` - The result of the operation
+    func icopAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> MAICPrx? {
+        return try await _impl._invokeAsync(operation: "icop",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                let iceP_returnValue: MAICPrx? = try istr.read(MAICPrx.self)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -2035,20 +2034,20 @@ public struct MAIADisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "iaop":
-            servant._iceD_iaop(request)
+            try await servant._iceD_iaop(request)
         case "ice_id":
-            (servant as? Ice.Object ?? MAIADisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? MAIADisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? MAIADisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? MAIADisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? MAIADisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? MAIADisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? MAIADisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? MAIADisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -2073,22 +2072,22 @@ public struct MBIB1Disp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "iaop":
-            servant._iceD_iaop(request)
+            try await servant._iceD_iaop(request)
         case "ib1op":
-            servant._iceD_ib1op(request)
+            try await servant._iceD_ib1op(request)
         case "ice_id":
-            (servant as? Ice.Object ?? MBIB1Disp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? MBIB1Disp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? MBIB1Disp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? MBIB1Disp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? MBIB1Disp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? MBIB1Disp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? MBIB1Disp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? MBIB1Disp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -2113,22 +2112,22 @@ public struct MBIB2Disp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "iaop":
-            servant._iceD_iaop(request)
+            try await servant._iceD_iaop(request)
         case "ib2op":
-            servant._iceD_ib2op(request)
+            try await servant._iceD_ib2op(request)
         case "ice_id":
-            (servant as? Ice.Object ?? MBIB2Disp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? MBIB2Disp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? MBIB2Disp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? MBIB2Disp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? MBIB2Disp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? MBIB2Disp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? MBIB2Disp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? MBIB2Disp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -2153,26 +2152,26 @@ public struct MAICDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "iaop":
-            servant._iceD_iaop(request)
+            try await servant._iceD_iaop(request)
         case "ib1op":
-            servant._iceD_ib1op(request)
+            try await servant._iceD_ib1op(request)
         case "ib2op":
-            servant._iceD_ib2op(request)
+            try await servant._iceD_ib2op(request)
         case "ice_id":
-            (servant as? Ice.Object ?? MAICDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? MAICDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? MAICDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? MAICDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? MAICDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? MAICDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? MAICDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? MAICDisp.defaultObject)._iceD_ice_ping(request)
         case "icop":
-            servant._iceD_icop(request)
+            try await servant._iceD_icop(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -2197,28 +2196,28 @@ public struct InitialDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "iaop":
-            servant._iceD_iaop(request)
+            try await servant._iceD_iaop(request)
         case "ib1op":
-            servant._iceD_ib1op(request)
+            try await servant._iceD_ib1op(request)
         case "ib2op":
-            servant._iceD_ib2op(request)
+            try await servant._iceD_ib2op(request)
         case "ice_id":
-            (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ping(request)
         case "icop":
-            servant._iceD_icop(request)
+            try await servant._iceD_icop(request)
         case "shutdown":
-            servant._iceD_shutdown(request)
+            try await servant._iceD_shutdown(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -2259,21 +2258,18 @@ public protocol Initial {
 ///
 ///  - iaop: 
 extension MAIA {
-    public func _iceD_iaop(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p: MAIAPrx? = try istr.read(MAIAPrx.self)
+    public func _iceD_iaop(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p: MAIAPrx? = try istr.read(MAIAPrx.self)
 
-            let iceP_returnValue = try self.iaop(p: iceP_p, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.iaop(p: iceP_p, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }
 
@@ -2283,21 +2279,18 @@ extension MAIA {
 ///
 ///  - ib1op: 
 extension MBIB1 {
-    public func _iceD_ib1op(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p: MBIB1Prx? = try istr.read(MBIB1Prx.self)
+    public func _iceD_ib1op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p: MBIB1Prx? = try istr.read(MBIB1Prx.self)
 
-            let iceP_returnValue = try self.ib1op(p: iceP_p, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.ib1op(p: iceP_p, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }
 
@@ -2307,21 +2300,18 @@ extension MBIB1 {
 ///
 ///  - ib2op: 
 extension MBIB2 {
-    public func _iceD_ib2op(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p: MBIB2Prx? = try istr.read(MBIB2Prx.self)
+    public func _iceD_ib2op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p: MBIB2Prx? = try istr.read(MBIB2Prx.self)
 
-            let iceP_returnValue = try self.ib2op(p: iceP_p, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.ib2op(p: iceP_p, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }
 
@@ -2331,21 +2321,18 @@ extension MBIB2 {
 ///
 ///  - icop: 
 extension MAIC {
-    public func _iceD_icop(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p: MAICPrx? = try istr.read(MAICPrx.self)
+    public func _iceD_icop(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p: MAICPrx? = try istr.read(MAICPrx.self)
 
-            let iceP_returnValue = try self.icop(p: iceP_p, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.icop(p: iceP_p, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }
 
@@ -2363,74 +2350,59 @@ extension MAIC {
 ///
 ///  - icop: 
 extension Initial {
-    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.shutdown(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.shutdown(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_iaop(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_iaop(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.iaop(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.iaop(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_ib1op(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_ib1op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.ib1op(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.ib1op(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_ib2op(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_ib2op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.ib2op(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.ib2op(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_icop(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_icop(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.icop(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.icop(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }

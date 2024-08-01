@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 /// Traits for Slice interface`Registry`.
 public struct RegistryTraits: Ice.SliceTraits {
@@ -166,30 +165,30 @@ public extension RegistryPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<UserInfo?>` - The result of the operation
-    func getUserInfoAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<UserInfo?> {
-        return _impl._invokeAsync(operation: "getUserInfo",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_id)
-                                  },
-                                  read: { istr in
-                                      var iceP_returnValue: UserInfo?
-                                      try istr.read(UserInfo.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as Core.ArgumentException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `UserInfo?` - The result of the operation
+    func getUserInfoAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> UserInfo? {
+        return try await _impl._invokeAsync(operation: "getUserInfo",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_id)
+                                            },
+                                            read: { istr in
+                                                var iceP_returnValue: UserInfo?
+                                                try istr.read(UserInfo.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as Core.ArgumentException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -233,20 +232,20 @@ public struct RegistryDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "getUserInfo":
-            servant._iceD_getUserInfo(request)
+            try await servant._iceD_getUserInfo(request)
         case "ice_id":
-            (servant as? Ice.Object ?? RegistryDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? RegistryDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? RegistryDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? RegistryDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? RegistryDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? RegistryDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? RegistryDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? RegistryDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -267,21 +266,18 @@ public protocol Registry {
 ///
 ///  - getUserInfo: 
 extension Registry {
-    public func _iceD_getUserInfo(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_id: Swift.String = try istr.read()
+    public func _iceD_getUserInfo(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_id: Swift.String = try istr.read()
 
-            let iceP_returnValue = try self.getUserInfo(id: iceP_id, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getUserInfo(id: iceP_id, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }

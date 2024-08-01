@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 /// Traits for Slice interface`Single`.
 public struct SingleTraits: Ice.SliceTraits {
@@ -151,17 +150,17 @@ public extension SinglePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func eventAsync(_ iceP_i: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "event",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_i)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func eventAsync(_ iceP_i: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "event",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_i)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -175,20 +174,20 @@ public struct SingleDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "event":
-            servant._iceD_event(request)
+            try await servant._iceD_event(request)
         case "ice_id":
-            (servant as? Ice.Object ?? SingleDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? SingleDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? SingleDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? SingleDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? SingleDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? SingleDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? SingleDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? SingleDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -207,16 +206,13 @@ public protocol Single {
 ///
 ///  - event: 
 extension Single {
-    public func _iceD_event(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_i: Swift.Int32 = try istr.read()
+    public func _iceD_event(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_i: Swift.Int32 = try istr.read()
 
-            try self.event(i: iceP_i, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.event(i: iceP_i, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }

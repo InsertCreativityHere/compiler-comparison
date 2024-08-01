@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 /// Traits for Slice interface`UnexpectedObjectExceptionTest`.
 public struct UnexpectedObjectExceptionTestTraits: Ice.SliceTraits {
@@ -520,20 +519,20 @@ public extension UnexpectedObjectExceptionTestPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Empty?>` - The result of the operation
-    func opAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Empty?> {
-        return _impl._invokeAsync(operation: "op",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      var iceP_returnValue: Empty?
-                                      try istr.read(Empty.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Empty?` - The result of the operation
+    func opAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Empty? {
+        return try await _impl._invokeAsync(operation: "op",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                var iceP_returnValue: Empty?
+                                                try istr.read(Empty.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -691,20 +690,20 @@ public struct UnexpectedObjectExceptionTestDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            (servant as? Ice.Object ?? UnexpectedObjectExceptionTestDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? UnexpectedObjectExceptionTestDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? UnexpectedObjectExceptionTestDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? UnexpectedObjectExceptionTestDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? UnexpectedObjectExceptionTestDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? UnexpectedObjectExceptionTestDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? UnexpectedObjectExceptionTestDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? UnexpectedObjectExceptionTestDisp.defaultObject)._iceD_ice_ping(request)
         case "op":
-            servant._iceD_op(request)
+            try await servant._iceD_op(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -723,19 +722,16 @@ public protocol UnexpectedObjectExceptionTest {
 ///
 ///  - op: 
 extension UnexpectedObjectExceptionTest {
-    public func _iceD_op(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.op(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.op(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }

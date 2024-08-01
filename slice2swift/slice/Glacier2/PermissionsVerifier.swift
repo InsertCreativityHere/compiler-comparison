@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 /// :nodoc:
 public class PermissionDeniedException_TypeResolver: Ice.UserExceptionTypeResolver {
@@ -229,30 +228,30 @@ public extension PermissionsVerifierPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: Swift.Bool, reason: Swift.String)>` - The result of the operation
-    func checkPermissionsAsync(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: Swift.Bool, reason: Swift.String)> {
-        return _impl._invokeAsync(operation: "checkPermissions",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      ostr.write(iceP_userId)
-                                      ostr.write(iceP_password)
-                                  },
-                                  read: { istr in
-                                      let iceP_reason: Swift.String = try istr.read()
-                                      let iceP_returnValue: Swift.Bool = try istr.read()
-                                      return (iceP_returnValue, iceP_reason)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as PermissionDeniedException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: Swift.Bool, reason: Swift.String)` - The result of the operation
+    func checkPermissionsAsync(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: Swift.Bool, reason: Swift.String) {
+        return try await _impl._invokeAsync(operation: "checkPermissions",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                ostr.write(iceP_userId)
+                                                ostr.write(iceP_password)
+                                            },
+                                            read: { istr in
+                                                let iceP_reason: Swift.String = try istr.read()
+                                                let iceP_returnValue: Swift.Bool = try istr.read()
+                                                return (iceP_returnValue, iceP_reason)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as PermissionDeniedException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -409,29 +408,29 @@ public extension SSLPermissionsVerifierPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: Swift.Bool, reason: Swift.String)>` - The result of the operation
-    func authorizeAsync(_ iceP_info: SSLInfo, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: Swift.Bool, reason: Swift.String)> {
-        return _impl._invokeAsync(operation: "authorize",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      ostr.write(iceP_info)
-                                  },
-                                  read: { istr in
-                                      let iceP_reason: Swift.String = try istr.read()
-                                      let iceP_returnValue: Swift.Bool = try istr.read()
-                                      return (iceP_returnValue, iceP_reason)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as PermissionDeniedException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: Swift.Bool, reason: Swift.String)` - The result of the operation
+    func authorizeAsync(_ iceP_info: SSLInfo, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: Swift.Bool, reason: Swift.String) {
+        return try await _impl._invokeAsync(operation: "authorize",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                ostr.write(iceP_info)
+                                            },
+                                            read: { istr in
+                                                let iceP_reason: Swift.String = try istr.read()
+                                                let iceP_returnValue: Swift.Bool = try istr.read()
+                                                return (iceP_returnValue, iceP_reason)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as PermissionDeniedException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -445,20 +444,20 @@ public struct PermissionsVerifierDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "checkPermissions":
-            servant._iceD_checkPermissions(request)
+            try await servant._iceD_checkPermissions(request)
         case "ice_id":
-            (servant as? Ice.Object ?? PermissionsVerifierDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? PermissionsVerifierDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? PermissionsVerifierDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? PermissionsVerifierDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? PermissionsVerifierDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? PermissionsVerifierDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? PermissionsVerifierDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? PermissionsVerifierDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -496,20 +495,20 @@ public struct SSLPermissionsVerifierDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "authorize":
-            servant._iceD_authorize(request)
+            try await servant._iceD_authorize(request)
         case "ice_id":
-            (servant as? Ice.Object ?? SSLPermissionsVerifierDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? SSLPermissionsVerifierDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? SSLPermissionsVerifierDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? SSLPermissionsVerifierDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? SSLPermissionsVerifierDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? SSLPermissionsVerifierDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? SSLPermissionsVerifierDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? SSLPermissionsVerifierDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -541,23 +540,20 @@ public protocol SSLPermissionsVerifier {
 ///
 ///  - checkPermissions: Check whether a user has permission to access the router.
 extension PermissionsVerifier {
-    public func _iceD_checkPermissions(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_userId: Swift.String = try istr.read()
-            let iceP_password: Swift.String = try istr.read()
+    public func _iceD_checkPermissions(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_userId: Swift.String = try istr.read()
+        let iceP_password: Swift.String = try istr.read()
 
-            let (iceP_returnValue, iceP_reason) = try self.checkPermissions(userId: iceP_userId, password: iceP_password, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_reason)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_reason) = try self.checkPermissions(userId: iceP_userId, password: iceP_password, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_reason)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }
 
@@ -567,21 +563,18 @@ extension PermissionsVerifier {
 ///
 ///  - authorize: Check whether a user has permission to access the router.
 extension SSLPermissionsVerifier {
-    public func _iceD_authorize(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_info: SSLInfo = try istr.read()
+    public func _iceD_authorize(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_info: SSLInfo = try istr.read()
 
-            let (iceP_returnValue, iceP_reason) = try self.authorize(info: iceP_info, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_reason)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_reason) = try self.authorize(info: iceP_info, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_reason)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }

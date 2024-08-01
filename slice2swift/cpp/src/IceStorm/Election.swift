@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 import IceStorm
 
 /// The contents of topic.
@@ -810,25 +809,25 @@ public extension ReplicaObserverPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func initAsync(llu iceP_llu: LogUpdate, content iceP_content: TopicContentSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "init",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_llu)
-                                      TopicContentSeqHelper.write(to: ostr, value: iceP_content)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as ObserverInconsistencyException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func initAsync(llu iceP_llu: LogUpdate, content iceP_content: TopicContentSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "init",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_llu)
+                                                TopicContentSeqHelper.write(to: ostr, value: iceP_content)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as ObserverInconsistencyException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Create the topic with the given name.
@@ -876,25 +875,25 @@ public extension ReplicaObserverPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func createTopicAsync(llu iceP_llu: LogUpdate, name iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "createTopic",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_llu)
-                                      ostr.write(iceP_name)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as ObserverInconsistencyException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func createTopicAsync(llu iceP_llu: LogUpdate, name iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "createTopic",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_llu)
+                                                ostr.write(iceP_name)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as ObserverInconsistencyException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Destroy the topic with the given name.
@@ -942,25 +941,25 @@ public extension ReplicaObserverPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func destroyTopicAsync(llu iceP_llu: LogUpdate, name iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "destroyTopic",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_llu)
-                                      ostr.write(iceP_name)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as ObserverInconsistencyException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func destroyTopicAsync(llu iceP_llu: LogUpdate, name iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "destroyTopic",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_llu)
+                                                ostr.write(iceP_name)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as ObserverInconsistencyException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Add a subscriber to a topic.
@@ -1013,26 +1012,26 @@ public extension ReplicaObserverPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func addSubscriberAsync(llu iceP_llu: LogUpdate, topic iceP_topic: Swift.String, record iceP_record: IceStorm.SubscriberRecord, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "addSubscriber",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_llu)
-                                      ostr.write(iceP_topic)
-                                      ostr.write(iceP_record)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as ObserverInconsistencyException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func addSubscriberAsync(llu iceP_llu: LogUpdate, topic iceP_topic: Swift.String, record iceP_record: IceStorm.SubscriberRecord, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "addSubscriber",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_llu)
+                                                ostr.write(iceP_topic)
+                                                ostr.write(iceP_record)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as ObserverInconsistencyException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Remove a subscriber from a topic.
@@ -1084,26 +1083,26 @@ public extension ReplicaObserverPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func removeSubscriberAsync(llu iceP_llu: LogUpdate, topic iceP_topic: Swift.String, subscribers iceP_subscribers: Ice.IdentitySeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "removeSubscriber",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_llu)
-                                      ostr.write(iceP_topic)
-                                      Ice.IdentitySeqHelper.write(to: ostr, value: iceP_subscribers)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as ObserverInconsistencyException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func removeSubscriberAsync(llu iceP_llu: LogUpdate, topic iceP_topic: Swift.String, subscribers iceP_subscribers: Ice.IdentitySeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "removeSubscriber",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_llu)
+                                                ostr.write(iceP_topic)
+                                                Ice.IdentitySeqHelper.write(to: ostr, value: iceP_subscribers)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as ObserverInconsistencyException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -1241,19 +1240,19 @@ public extension TopicManagerSyncPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(llu: LogUpdate, content: TopicContentSeq)>` - The result of the operation
-    func getContentAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(llu: LogUpdate, content: TopicContentSeq)> {
-        return _impl._invokeAsync(operation: "getContent",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_llu: LogUpdate = try istr.read()
-                                      let iceP_content: TopicContentSeq = try TopicContentSeqHelper.read(from: istr)
-                                      return (iceP_llu, iceP_content)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(llu: LogUpdate, content: TopicContentSeq)` - The result of the operation
+    func getContentAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (llu: LogUpdate, content: TopicContentSeq) {
+        return try await _impl._invokeAsync(operation: "getContent",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                let iceP_llu: LogUpdate = try istr.read()
+                                                let iceP_content: TopicContentSeq = try TopicContentSeqHelper.read(from: istr)
+                                                return (iceP_llu, iceP_content)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -1448,18 +1447,18 @@ public extension NodePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func invitationAsync(j iceP_j: Swift.Int32, gn iceP_gn: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "invitation",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_j)
-                                      ostr.write(iceP_gn)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func invitationAsync(j iceP_j: Swift.Int32, gn iceP_gn: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "invitation",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_j)
+                                                ostr.write(iceP_gn)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Call from the group coordinator to a node to inform the node that the replica group is active.
@@ -1510,21 +1509,21 @@ public extension NodePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func readyAsync(j iceP_j: Swift.Int32, gn iceP_gn: Swift.String, coordinator iceP_coordinator: Ice.ObjectPrx?, max iceP_max: Swift.Int32, generation iceP_generation: Swift.Int64, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "ready",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_j)
-                                      ostr.write(iceP_gn)
-                                      ostr.write(iceP_coordinator)
-                                      ostr.write(iceP_max)
-                                      ostr.write(iceP_generation)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func readyAsync(j iceP_j: Swift.Int32, gn iceP_gn: Swift.String, coordinator iceP_coordinator: Ice.ObjectPrx?, max iceP_max: Swift.Int32, generation iceP_generation: Swift.Int64, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "ready",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_j)
+                                                ostr.write(iceP_gn)
+                                                ostr.write(iceP_coordinator)
+                                                ostr.write(iceP_max)
+                                                ostr.write(iceP_generation)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Called to accept an invitation into the given group.
@@ -1580,22 +1579,22 @@ public extension NodePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func acceptAsync(j iceP_j: Swift.Int32, gn iceP_gn: Swift.String, forwardedInvites iceP_forwardedInvites: Ice.IntSeq, observer iceP_observer: Ice.ObjectPrx?, llu iceP_llu: LogUpdate, max iceP_max: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "accept",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_j)
-                                      ostr.write(iceP_gn)
-                                      ostr.write(iceP_forwardedInvites)
-                                      ostr.write(iceP_observer)
-                                      ostr.write(iceP_llu)
-                                      ostr.write(iceP_max)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func acceptAsync(j iceP_j: Swift.Int32, gn iceP_gn: Swift.String, forwardedInvites iceP_forwardedInvites: Ice.IntSeq, observer iceP_observer: Ice.ObjectPrx?, llu iceP_llu: LogUpdate, max iceP_max: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "accept",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_j)
+                                                ostr.write(iceP_gn)
+                                                ostr.write(iceP_forwardedInvites)
+                                                ostr.write(iceP_observer)
+                                                ostr.write(iceP_llu)
+                                                ostr.write(iceP_max)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Determine if this node is a coordinator.
@@ -1625,18 +1624,18 @@ public extension NodePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
-    func areYouCoordinatorAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Bool> {
-        return _impl._invokeAsync(operation: "areYouCoordinator",
-                                  mode: .Idempotent,
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Bool = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.Bool` - The result of the operation
+    func areYouCoordinatorAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Bool {
+        return try await _impl._invokeAsync(operation: "areYouCoordinator",
+                                            mode: .Idempotent,
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.Bool = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Determine if the node is a member of the given group with the given coordinator.
@@ -1678,22 +1677,22 @@ public extension NodePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
-    func areYouThereAsync(gn iceP_gn: Swift.String, j iceP_j: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Bool> {
-        return _impl._invokeAsync(operation: "areYouThere",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      ostr.write(iceP_gn)
-                                      ostr.write(iceP_j)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Bool = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.Bool` - The result of the operation
+    func areYouThereAsync(gn iceP_gn: Swift.String, j iceP_j: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Bool {
+        return try await _impl._invokeAsync(operation: "areYouThere",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                ostr.write(iceP_gn)
+                                                ostr.write(iceP_j)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.Bool = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Get the sync object for the replica hosted by this node.
@@ -1723,18 +1722,18 @@ public extension NodePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Ice.ObjectPrx?>` - The result of the operation
-    func syncAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.ObjectPrx?> {
-        return _impl._invokeAsync(operation: "sync",
-                                  mode: .Idempotent,
-                                  read: { istr in
-                                      let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    func syncAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.ObjectPrx? {
+        return try await _impl._invokeAsync(operation: "sync",
+                                            mode: .Idempotent,
+                                            read: { istr in
+                                                let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Get the replication group information.
@@ -1764,18 +1763,18 @@ public extension NodePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<NodeInfoSeq>` - The result of the operation
-    func nodesAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<NodeInfoSeq> {
-        return _impl._invokeAsync(operation: "nodes",
-                                  mode: .Idempotent,
-                                  read: { istr in
-                                      let iceP_returnValue: NodeInfoSeq = try NodeInfoSeqHelper.read(from: istr)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `NodeInfoSeq` - The result of the operation
+    func nodesAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> NodeInfoSeq {
+        return try await _impl._invokeAsync(operation: "nodes",
+                                            mode: .Idempotent,
+                                            read: { istr in
+                                                let iceP_returnValue: NodeInfoSeq = try NodeInfoSeqHelper.read(from: istr)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Get the query information for the given node.
@@ -1805,18 +1804,18 @@ public extension NodePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<QueryInfo>` - The result of the operation
-    func queryAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<QueryInfo> {
-        return _impl._invokeAsync(operation: "query",
-                                  mode: .Idempotent,
-                                  read: { istr in
-                                      let iceP_returnValue: QueryInfo = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `QueryInfo` - The result of the operation
+    func queryAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> QueryInfo {
+        return try await _impl._invokeAsync(operation: "query",
+                                            mode: .Idempotent,
+                                            read: { istr in
+                                                let iceP_returnValue: QueryInfo = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -1830,28 +1829,28 @@ public struct ReplicaObserverDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "addSubscriber":
-            servant._iceD_addSubscriber(request)
+            try await servant._iceD_addSubscriber(request)
         case "createTopic":
-            servant._iceD_createTopic(request)
+            try await servant._iceD_createTopic(request)
         case "destroyTopic":
-            servant._iceD_destroyTopic(request)
+            try await servant._iceD_destroyTopic(request)
         case "ice_id":
-            (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_ping(request)
         case "init":
-            servant._iceD_init(request)
+            try await servant._iceD_init(request)
         case "removeSubscriber":
-            servant._iceD_removeSubscriber(request)
+            try await servant._iceD_removeSubscriber(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1942,20 +1941,20 @@ public struct TopicManagerSyncDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "getContent":
-            servant._iceD_getContent(request)
+            try await servant._iceD_getContent(request)
         case "ice_id":
-            (servant as? Ice.Object ?? TopicManagerSyncDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? TopicManagerSyncDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? TopicManagerSyncDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? TopicManagerSyncDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? TopicManagerSyncDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? TopicManagerSyncDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? TopicManagerSyncDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? TopicManagerSyncDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1984,34 +1983,34 @@ public struct NodeDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "accept":
-            servant._iceD_accept(request)
+            try await servant._iceD_accept(request)
         case "areYouCoordinator":
-            servant._iceD_areYouCoordinator(request)
+            try await servant._iceD_areYouCoordinator(request)
         case "areYouThere":
-            servant._iceD_areYouThere(request)
+            try await servant._iceD_areYouThere(request)
         case "ice_id":
-            (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_ping(request)
         case "invitation":
-            servant._iceD_invitation(request)
+            try await servant._iceD_invitation(request)
         case "nodes":
-            servant._iceD_nodes(request)
+            try await servant._iceD_nodes(request)
         case "query":
-            servant._iceD_query(request)
+            try await servant._iceD_query(request)
         case "ready":
-            servant._iceD_ready(request)
+            try await servant._iceD_ready(request)
         case "sync":
-            servant._iceD_sync(request)
+            try await servant._iceD_sync(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -2113,76 +2112,61 @@ public protocol Node {
 ///
 ///  - removeSubscriber: Remove a subscriber from a topic.
 extension ReplicaObserver {
-    public func _iceD_init(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_llu: LogUpdate = try istr.read()
-            let iceP_content: TopicContentSeq = try TopicContentSeqHelper.read(from: istr)
+    public func _iceD_init(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_llu: LogUpdate = try istr.read()
+        let iceP_content: TopicContentSeq = try TopicContentSeqHelper.read(from: istr)
 
-            try self.`init`(llu: iceP_llu, content: iceP_content, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.`init`(llu: iceP_llu, content: iceP_content, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_createTopic(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_llu: LogUpdate = try istr.read()
-            let iceP_name: Swift.String = try istr.read()
+    public func _iceD_createTopic(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_llu: LogUpdate = try istr.read()
+        let iceP_name: Swift.String = try istr.read()
 
-            try self.createTopic(llu: iceP_llu, name: iceP_name, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.createTopic(llu: iceP_llu, name: iceP_name, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_destroyTopic(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_llu: LogUpdate = try istr.read()
-            let iceP_name: Swift.String = try istr.read()
+    public func _iceD_destroyTopic(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_llu: LogUpdate = try istr.read()
+        let iceP_name: Swift.String = try istr.read()
 
-            try self.destroyTopic(llu: iceP_llu, name: iceP_name, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.destroyTopic(llu: iceP_llu, name: iceP_name, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_addSubscriber(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_llu: LogUpdate = try istr.read()
-            let iceP_topic: Swift.String = try istr.read()
-            let iceP_record: IceStorm.SubscriberRecord = try istr.read()
+    public func _iceD_addSubscriber(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_llu: LogUpdate = try istr.read()
+        let iceP_topic: Swift.String = try istr.read()
+        let iceP_record: IceStorm.SubscriberRecord = try istr.read()
 
-            try self.addSubscriber(llu: iceP_llu, topic: iceP_topic, record: iceP_record, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.addSubscriber(llu: iceP_llu, topic: iceP_topic, record: iceP_record, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_removeSubscriber(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_llu: LogUpdate = try istr.read()
-            let iceP_topic: Swift.String = try istr.read()
-            let iceP_subscribers: Ice.IdentitySeq = try Ice.IdentitySeqHelper.read(from: istr)
+    public func _iceD_removeSubscriber(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_llu: LogUpdate = try istr.read()
+        let iceP_topic: Swift.String = try istr.read()
+        let iceP_subscribers: Ice.IdentitySeq = try Ice.IdentitySeqHelper.read(from: istr)
 
-            try self.removeSubscriber(llu: iceP_llu, topic: iceP_topic, subscribers: iceP_subscribers, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.removeSubscriber(llu: iceP_llu, topic: iceP_topic, subscribers: iceP_subscribers, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }
 
@@ -2192,20 +2176,17 @@ extension ReplicaObserver {
 ///
 ///  - getContent: Retrieve the topic content.
 extension TopicManagerSync {
-    public func _iceD_getContent(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_getContent(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let (iceP_llu, iceP_content) = try self.getContent(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_llu)
-            TopicContentSeqHelper.write(to: ostr, value: iceP_content)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_llu, iceP_content) = try self.getContent(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_llu)
+        TopicContentSeqHelper.write(to: ostr, value: iceP_content)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }
 
@@ -2229,130 +2210,106 @@ extension TopicManagerSync {
 ///
 ///  - query: Get the query information for the given node.
 extension Node {
-    public func _iceD_invitation(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_j: Swift.Int32 = try istr.read()
-            let iceP_gn: Swift.String = try istr.read()
+    public func _iceD_invitation(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_j: Swift.Int32 = try istr.read()
+        let iceP_gn: Swift.String = try istr.read()
 
-            try self.invitation(j: iceP_j, gn: iceP_gn, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.invitation(j: iceP_j, gn: iceP_gn, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_ready(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_j: Swift.Int32 = try istr.read()
-            let iceP_gn: Swift.String = try istr.read()
-            let iceP_coordinator: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-            let iceP_max: Swift.Int32 = try istr.read()
-            let iceP_generation: Swift.Int64 = try istr.read()
+    public func _iceD_ready(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_j: Swift.Int32 = try istr.read()
+        let iceP_gn: Swift.String = try istr.read()
+        let iceP_coordinator: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+        let iceP_max: Swift.Int32 = try istr.read()
+        let iceP_generation: Swift.Int64 = try istr.read()
 
-            try self.ready(j: iceP_j, gn: iceP_gn, coordinator: iceP_coordinator, max: iceP_max, generation: iceP_generation, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.ready(j: iceP_j, gn: iceP_gn, coordinator: iceP_coordinator, max: iceP_max, generation: iceP_generation, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_accept(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_j: Swift.Int32 = try istr.read()
-            let iceP_gn: Swift.String = try istr.read()
-            let iceP_forwardedInvites: Ice.IntSeq = try istr.read()
-            let iceP_observer: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-            let iceP_llu: LogUpdate = try istr.read()
-            let iceP_max: Swift.Int32 = try istr.read()
+    public func _iceD_accept(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_j: Swift.Int32 = try istr.read()
+        let iceP_gn: Swift.String = try istr.read()
+        let iceP_forwardedInvites: Ice.IntSeq = try istr.read()
+        let iceP_observer: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+        let iceP_llu: LogUpdate = try istr.read()
+        let iceP_max: Swift.Int32 = try istr.read()
 
-            try self.accept(j: iceP_j, gn: iceP_gn, forwardedInvites: iceP_forwardedInvites, observer: iceP_observer, llu: iceP_llu, max: iceP_max, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.accept(j: iceP_j, gn: iceP_gn, forwardedInvites: iceP_forwardedInvites, observer: iceP_observer, llu: iceP_llu, max: iceP_max, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_areYouCoordinator(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_areYouCoordinator(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.areYouCoordinator(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.areYouCoordinator(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_areYouThere(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_gn: Swift.String = try istr.read()
-            let iceP_j: Swift.Int32 = try istr.read()
+    public func _iceD_areYouThere(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_gn: Swift.String = try istr.read()
+        let iceP_j: Swift.Int32 = try istr.read()
 
-            let iceP_returnValue = try self.areYouThere(gn: iceP_gn, j: iceP_j, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.areYouThere(gn: iceP_gn, j: iceP_j, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_sync(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_sync(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.sync(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.sync(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_nodes(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_nodes(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.nodes(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            NodeInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.nodes(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        NodeInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_query(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_query(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.query(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.query(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }

@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 /// Traits for Slice interface`MyInterface`.
 public struct MyInterfaceTraits: Ice.SliceTraits {
@@ -1523,14 +1522,14 @@ public extension MyInterfacePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func opAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "op",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func opAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "op",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -2007,14 +2006,14 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "shutdown",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "shutdown",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2052,24 +2051,24 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Ice.Value?>` - The result of the operation
-    func pingPongAsync(_ iceP_o: Ice.Value?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.Value?> {
-        return _impl._invokeAsync(operation: "pingPong",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_o)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      var iceP_returnValue: Ice.Value?
-                                      try istr.read() { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Ice.Value?` - The result of the operation
+    func pingPongAsync(_ iceP_o: Ice.Value?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.Value? {
+        return try await _impl._invokeAsync(operation: "pingPong",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_o)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                var iceP_returnValue: Ice.Value?
+                                                try istr.read() { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2110,25 +2109,25 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func opOptionalExceptionAsync(a iceP_a: Swift.Int32? = nil, b iceP_b: Swift.String? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "opOptionalException",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 1, value: iceP_a)
-                                      ostr.write(tag: 2, value: iceP_b)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as OptionalException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func opOptionalExceptionAsync(a iceP_a: Swift.Int32? = nil, b iceP_b: Swift.String? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "opOptionalException",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 1, value: iceP_a)
+                                                ostr.write(tag: 2, value: iceP_b)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as OptionalException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2169,25 +2168,25 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func opDerivedExceptionAsync(a iceP_a: Swift.Int32? = nil, b iceP_b: Swift.String? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "opDerivedException",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 1, value: iceP_a)
-                                      ostr.write(tag: 2, value: iceP_b)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as OptionalException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func opDerivedExceptionAsync(a iceP_a: Swift.Int32? = nil, b iceP_b: Swift.String? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "opDerivedException",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 1, value: iceP_a)
+                                                ostr.write(tag: 2, value: iceP_b)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as OptionalException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2228,25 +2227,25 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func opRequiredExceptionAsync(a iceP_a: Swift.Int32? = nil, b iceP_b: Swift.String? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "opRequiredException",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 1, value: iceP_a)
-                                      ostr.write(tag: 2, value: iceP_b)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as OptionalException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func opRequiredExceptionAsync(a iceP_a: Swift.Int32? = nil, b iceP_b: Swift.String? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "opRequiredException",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 1, value: iceP_a)
+                                                ostr.write(tag: 2, value: iceP_b)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as OptionalException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2286,22 +2285,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: Swift.UInt8?, p3: Swift.UInt8?)>` - The result of the operation
-    func opByteAsync(_ iceP_p1: Swift.UInt8? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: Swift.UInt8?, p3: Swift.UInt8?)> {
-        return _impl._invokeAsync(operation: "opByte",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.UInt8? = try istr.read(tag: 1)
-                                      let iceP_p3: Swift.UInt8? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: Swift.UInt8?, p3: Swift.UInt8?)` - The result of the operation
+    func opByteAsync(_ iceP_p1: Swift.UInt8? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: Swift.UInt8?, p3: Swift.UInt8?) {
+        return try await _impl._invokeAsync(operation: "opByte",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.UInt8? = try istr.read(tag: 1)
+                                                let iceP_p3: Swift.UInt8? = try istr.read(tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2341,22 +2340,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: Swift.Bool?, p3: Swift.Bool?)>` - The result of the operation
-    func opBoolAsync(_ iceP_p1: Swift.Bool? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: Swift.Bool?, p3: Swift.Bool?)> {
-        return _impl._invokeAsync(operation: "opBool",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Bool? = try istr.read(tag: 1)
-                                      let iceP_p3: Swift.Bool? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: Swift.Bool?, p3: Swift.Bool?)` - The result of the operation
+    func opBoolAsync(_ iceP_p1: Swift.Bool? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: Swift.Bool?, p3: Swift.Bool?) {
+        return try await _impl._invokeAsync(operation: "opBool",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.Bool? = try istr.read(tag: 1)
+                                                let iceP_p3: Swift.Bool? = try istr.read(tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2396,22 +2395,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: Swift.Int16?, p3: Swift.Int16?)>` - The result of the operation
-    func opShortAsync(_ iceP_p1: Swift.Int16? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: Swift.Int16?, p3: Swift.Int16?)> {
-        return _impl._invokeAsync(operation: "opShort",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Int16? = try istr.read(tag: 1)
-                                      let iceP_p3: Swift.Int16? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: Swift.Int16?, p3: Swift.Int16?)` - The result of the operation
+    func opShortAsync(_ iceP_p1: Swift.Int16? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: Swift.Int16?, p3: Swift.Int16?) {
+        return try await _impl._invokeAsync(operation: "opShort",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.Int16? = try istr.read(tag: 1)
+                                                let iceP_p3: Swift.Int16? = try istr.read(tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2451,22 +2450,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: Swift.Int32?, p3: Swift.Int32?)>` - The result of the operation
-    func opIntAsync(_ iceP_p1: Swift.Int32? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: Swift.Int32?, p3: Swift.Int32?)> {
-        return _impl._invokeAsync(operation: "opInt",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Int32? = try istr.read(tag: 1)
-                                      let iceP_p3: Swift.Int32? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: Swift.Int32?, p3: Swift.Int32?)` - The result of the operation
+    func opIntAsync(_ iceP_p1: Swift.Int32? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: Swift.Int32?, p3: Swift.Int32?) {
+        return try await _impl._invokeAsync(operation: "opInt",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.Int32? = try istr.read(tag: 1)
+                                                let iceP_p3: Swift.Int32? = try istr.read(tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2506,22 +2505,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: Swift.Int64?, p3: Swift.Int64?)>` - The result of the operation
-    func opLongAsync(_ iceP_p1: Swift.Int64? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: Swift.Int64?, p3: Swift.Int64?)> {
-        return _impl._invokeAsync(operation: "opLong",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 1, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_p3: Swift.Int64? = try istr.read(tag: 2)
-                                      let iceP_returnValue: Swift.Int64? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: Swift.Int64?, p3: Swift.Int64?)` - The result of the operation
+    func opLongAsync(_ iceP_p1: Swift.Int64? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: Swift.Int64?, p3: Swift.Int64?) {
+        return try await _impl._invokeAsync(operation: "opLong",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 1, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_p3: Swift.Int64? = try istr.read(tag: 2)
+                                                let iceP_returnValue: Swift.Int64? = try istr.read(tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2561,22 +2560,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: Swift.Float?, p3: Swift.Float?)>` - The result of the operation
-    func opFloatAsync(_ iceP_p1: Swift.Float? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: Swift.Float?, p3: Swift.Float?)> {
-        return _impl._invokeAsync(operation: "opFloat",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Float? = try istr.read(tag: 1)
-                                      let iceP_p3: Swift.Float? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: Swift.Float?, p3: Swift.Float?)` - The result of the operation
+    func opFloatAsync(_ iceP_p1: Swift.Float? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: Swift.Float?, p3: Swift.Float?) {
+        return try await _impl._invokeAsync(operation: "opFloat",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.Float? = try istr.read(tag: 1)
+                                                let iceP_p3: Swift.Float? = try istr.read(tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2616,22 +2615,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: Swift.Double?, p3: Swift.Double?)>` - The result of the operation
-    func opDoubleAsync(_ iceP_p1: Swift.Double? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: Swift.Double?, p3: Swift.Double?)> {
-        return _impl._invokeAsync(operation: "opDouble",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Double? = try istr.read(tag: 1)
-                                      let iceP_p3: Swift.Double? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: Swift.Double?, p3: Swift.Double?)` - The result of the operation
+    func opDoubleAsync(_ iceP_p1: Swift.Double? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: Swift.Double?, p3: Swift.Double?) {
+        return try await _impl._invokeAsync(operation: "opDouble",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.Double? = try istr.read(tag: 1)
+                                                let iceP_p3: Swift.Double? = try istr.read(tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2671,22 +2670,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: Swift.String?, p3: Swift.String?)>` - The result of the operation
-    func opStringAsync(_ iceP_p1: Swift.String? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: Swift.String?, p3: Swift.String?)> {
-        return _impl._invokeAsync(operation: "opString",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.String? = try istr.read(tag: 1)
-                                      let iceP_p3: Swift.String? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: Swift.String?, p3: Swift.String?)` - The result of the operation
+    func opStringAsync(_ iceP_p1: Swift.String? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: Swift.String?, p3: Swift.String?) {
+        return try await _impl._invokeAsync(operation: "opString",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.String? = try istr.read(tag: 1)
+                                                let iceP_p3: Swift.String? = try istr.read(tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2726,22 +2725,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: MyEnum?, p3: MyEnum?)>` - The result of the operation
-    func opMyEnumAsync(_ iceP_p1: MyEnum? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: MyEnum?, p3: MyEnum?)> {
-        return _impl._invokeAsync(operation: "opMyEnum",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: MyEnum? = try istr.read(tag: 1)
-                                      let iceP_p3: MyEnum? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: MyEnum?, p3: MyEnum?)` - The result of the operation
+    func opMyEnumAsync(_ iceP_p1: MyEnum? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: MyEnum?, p3: MyEnum?) {
+        return try await _impl._invokeAsync(operation: "opMyEnum",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: MyEnum? = try istr.read(tag: 1)
+                                                let iceP_p3: MyEnum? = try istr.read(tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2781,22 +2780,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: SmallStruct?, p3: SmallStruct?)>` - The result of the operation
-    func opSmallStructAsync(_ iceP_p1: SmallStruct? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: SmallStruct?, p3: SmallStruct?)> {
-        return _impl._invokeAsync(operation: "opSmallStruct",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: SmallStruct? = try istr.read(tag: 1)
-                                      let iceP_p3: SmallStruct? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: SmallStruct?, p3: SmallStruct?)` - The result of the operation
+    func opSmallStructAsync(_ iceP_p1: SmallStruct? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: SmallStruct?, p3: SmallStruct?) {
+        return try await _impl._invokeAsync(operation: "opSmallStruct",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: SmallStruct? = try istr.read(tag: 1)
+                                                let iceP_p3: SmallStruct? = try istr.read(tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2836,22 +2835,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: FixedStruct?, p3: FixedStruct?)>` - The result of the operation
-    func opFixedStructAsync(_ iceP_p1: FixedStruct? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: FixedStruct?, p3: FixedStruct?)> {
-        return _impl._invokeAsync(operation: "opFixedStruct",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: FixedStruct? = try istr.read(tag: 1)
-                                      let iceP_p3: FixedStruct? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: FixedStruct?, p3: FixedStruct?)` - The result of the operation
+    func opFixedStructAsync(_ iceP_p1: FixedStruct? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: FixedStruct?, p3: FixedStruct?) {
+        return try await _impl._invokeAsync(operation: "opFixedStruct",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: FixedStruct? = try istr.read(tag: 1)
+                                                let iceP_p3: FixedStruct? = try istr.read(tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2891,22 +2890,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: VarStruct?, p3: VarStruct?)>` - The result of the operation
-    func opVarStructAsync(_ iceP_p1: VarStruct? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: VarStruct?, p3: VarStruct?)> {
-        return _impl._invokeAsync(operation: "opVarStruct",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: VarStruct? = try istr.read(tag: 1)
-                                      let iceP_p3: VarStruct? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: VarStruct?, p3: VarStruct?)` - The result of the operation
+    func opVarStructAsync(_ iceP_p1: VarStruct? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: VarStruct?, p3: VarStruct?) {
+        return try await _impl._invokeAsync(operation: "opVarStruct",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: VarStruct? = try istr.read(tag: 1)
+                                                let iceP_p3: VarStruct? = try istr.read(tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -2946,22 +2945,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: MyInterfacePrx?, p3: MyInterfacePrx?)>` - The result of the operation
-    func opMyInterfaceProxyAsync(_ iceP_p1: MyInterfacePrx? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: MyInterfacePrx?, p3: MyInterfacePrx?)> {
-        return _impl._invokeAsync(operation: "opMyInterfaceProxy",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: MyInterfacePrx? = try istr.read(tag: 1, type: MyInterfacePrx.self)
-                                      let iceP_p3: MyInterfacePrx? = try istr.read(tag: 3, type: MyInterfacePrx.self)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: MyInterfacePrx?, p3: MyInterfacePrx?)` - The result of the operation
+    func opMyInterfaceProxyAsync(_ iceP_p1: MyInterfacePrx? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: MyInterfacePrx?, p3: MyInterfacePrx?) {
+        return try await _impl._invokeAsync(operation: "opMyInterfaceProxy",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: MyInterfacePrx? = try istr.read(tag: 1, type: MyInterfacePrx.self)
+                                                let iceP_p3: MyInterfacePrx? = try istr.read(tag: 3, type: MyInterfacePrx.self)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3005,26 +3004,26 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: OneOptional?, p3: OneOptional?)>` - The result of the operation
-    func opOneOptionalAsync(_ iceP_p1: OneOptional?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: OneOptional?, p3: OneOptional?)> {
-        return _impl._invokeAsync(operation: "opOneOptional",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_p1)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      var iceP_p3: OneOptional?
-                                      try istr.read(OneOptional.self) { iceP_p3 = $0 }
-                                      var iceP_returnValue: OneOptional?
-                                      try istr.read(OneOptional.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: OneOptional?, p3: OneOptional?)` - The result of the operation
+    func opOneOptionalAsync(_ iceP_p1: OneOptional?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: OneOptional?, p3: OneOptional?) {
+        return try await _impl._invokeAsync(operation: "opOneOptional",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_p1)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                var iceP_p3: OneOptional?
+                                                try istr.read(OneOptional.self) { iceP_p3 = $0 }
+                                                var iceP_returnValue: OneOptional?
+                                                try istr.read(OneOptional.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3064,22 +3063,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: ByteSeq?, p3: ByteSeq?)>` - The result of the operation
-    func opByteSeqAsync(_ iceP_p1: ByteSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: ByteSeq?, p3: ByteSeq?)> {
-        return _impl._invokeAsync(operation: "opByteSeq",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: ByteSeq? = try istr.read(tag: 1)
-                                      let iceP_p3: ByteSeq? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: ByteSeq?, p3: ByteSeq?)` - The result of the operation
+    func opByteSeqAsync(_ iceP_p1: ByteSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ByteSeq?, p3: ByteSeq?) {
+        return try await _impl._invokeAsync(operation: "opByteSeq",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: ByteSeq? = try istr.read(tag: 1)
+                                                let iceP_p3: ByteSeq? = try istr.read(tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3119,22 +3118,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: BoolSeq?, p3: BoolSeq?)>` - The result of the operation
-    func opBoolSeqAsync(_ iceP_p1: BoolSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: BoolSeq?, p3: BoolSeq?)> {
-        return _impl._invokeAsync(operation: "opBoolSeq",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: BoolSeq? = try istr.read(tag: 1)
-                                      let iceP_p3: BoolSeq? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: BoolSeq?, p3: BoolSeq?)` - The result of the operation
+    func opBoolSeqAsync(_ iceP_p1: BoolSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: BoolSeq?, p3: BoolSeq?) {
+        return try await _impl._invokeAsync(operation: "opBoolSeq",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: BoolSeq? = try istr.read(tag: 1)
+                                                let iceP_p3: BoolSeq? = try istr.read(tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3174,22 +3173,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: ShortSeq?, p3: ShortSeq?)>` - The result of the operation
-    func opShortSeqAsync(_ iceP_p1: ShortSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: ShortSeq?, p3: ShortSeq?)> {
-        return _impl._invokeAsync(operation: "opShortSeq",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: ShortSeq? = try istr.read(tag: 1)
-                                      let iceP_p3: ShortSeq? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: ShortSeq?, p3: ShortSeq?)` - The result of the operation
+    func opShortSeqAsync(_ iceP_p1: ShortSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ShortSeq?, p3: ShortSeq?) {
+        return try await _impl._invokeAsync(operation: "opShortSeq",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: ShortSeq? = try istr.read(tag: 1)
+                                                let iceP_p3: ShortSeq? = try istr.read(tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3229,22 +3228,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: IntSeq?, p3: IntSeq?)>` - The result of the operation
-    func opIntSeqAsync(_ iceP_p1: IntSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: IntSeq?, p3: IntSeq?)> {
-        return _impl._invokeAsync(operation: "opIntSeq",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: IntSeq? = try istr.read(tag: 1)
-                                      let iceP_p3: IntSeq? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: IntSeq?, p3: IntSeq?)` - The result of the operation
+    func opIntSeqAsync(_ iceP_p1: IntSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: IntSeq?, p3: IntSeq?) {
+        return try await _impl._invokeAsync(operation: "opIntSeq",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: IntSeq? = try istr.read(tag: 1)
+                                                let iceP_p3: IntSeq? = try istr.read(tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3284,22 +3283,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: LongSeq?, p3: LongSeq?)>` - The result of the operation
-    func opLongSeqAsync(_ iceP_p1: LongSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: LongSeq?, p3: LongSeq?)> {
-        return _impl._invokeAsync(operation: "opLongSeq",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: LongSeq? = try istr.read(tag: 1)
-                                      let iceP_p3: LongSeq? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: LongSeq?, p3: LongSeq?)` - The result of the operation
+    func opLongSeqAsync(_ iceP_p1: LongSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: LongSeq?, p3: LongSeq?) {
+        return try await _impl._invokeAsync(operation: "opLongSeq",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: LongSeq? = try istr.read(tag: 1)
+                                                let iceP_p3: LongSeq? = try istr.read(tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3339,22 +3338,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: FloatSeq?, p3: FloatSeq?)>` - The result of the operation
-    func opFloatSeqAsync(_ iceP_p1: FloatSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: FloatSeq?, p3: FloatSeq?)> {
-        return _impl._invokeAsync(operation: "opFloatSeq",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: FloatSeq? = try istr.read(tag: 1)
-                                      let iceP_p3: FloatSeq? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: FloatSeq?, p3: FloatSeq?)` - The result of the operation
+    func opFloatSeqAsync(_ iceP_p1: FloatSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: FloatSeq?, p3: FloatSeq?) {
+        return try await _impl._invokeAsync(operation: "opFloatSeq",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: FloatSeq? = try istr.read(tag: 1)
+                                                let iceP_p3: FloatSeq? = try istr.read(tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3394,22 +3393,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: DoubleSeq?, p3: DoubleSeq?)>` - The result of the operation
-    func opDoubleSeqAsync(_ iceP_p1: DoubleSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: DoubleSeq?, p3: DoubleSeq?)> {
-        return _impl._invokeAsync(operation: "opDoubleSeq",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: DoubleSeq? = try istr.read(tag: 1)
-                                      let iceP_p3: DoubleSeq? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: DoubleSeq?, p3: DoubleSeq?)` - The result of the operation
+    func opDoubleSeqAsync(_ iceP_p1: DoubleSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: DoubleSeq?, p3: DoubleSeq?) {
+        return try await _impl._invokeAsync(operation: "opDoubleSeq",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: DoubleSeq? = try istr.read(tag: 1)
+                                                let iceP_p3: DoubleSeq? = try istr.read(tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3449,22 +3448,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: StringSeq?, p3: StringSeq?)>` - The result of the operation
-    func opStringSeqAsync(_ iceP_p1: StringSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: StringSeq?, p3: StringSeq?)> {
-        return _impl._invokeAsync(operation: "opStringSeq",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: StringSeq? = try istr.read(tag: 1)
-                                      let iceP_p3: StringSeq? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: StringSeq?, p3: StringSeq?)` - The result of the operation
+    func opStringSeqAsync(_ iceP_p1: StringSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: StringSeq?, p3: StringSeq?) {
+        return try await _impl._invokeAsync(operation: "opStringSeq",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: StringSeq? = try istr.read(tag: 1)
+                                                let iceP_p3: StringSeq? = try istr.read(tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3504,22 +3503,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: SmallStructSeq?, p3: SmallStructSeq?)>` - The result of the operation
-    func opSmallStructSeqAsync(_ iceP_p1: SmallStructSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: SmallStructSeq?, p3: SmallStructSeq?)> {
-        return _impl._invokeAsync(operation: "opSmallStructSeq",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      SmallStructSeqHelper.write(to: ostr, tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: SmallStructSeq? = try SmallStructSeqHelper.read(from: istr, tag: 1)
-                                      let iceP_p3: SmallStructSeq? = try SmallStructSeqHelper.read(from: istr, tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: SmallStructSeq?, p3: SmallStructSeq?)` - The result of the operation
+    func opSmallStructSeqAsync(_ iceP_p1: SmallStructSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: SmallStructSeq?, p3: SmallStructSeq?) {
+        return try await _impl._invokeAsync(operation: "opSmallStructSeq",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                SmallStructSeqHelper.write(to: ostr, tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: SmallStructSeq? = try SmallStructSeqHelper.read(from: istr, tag: 1)
+                                                let iceP_p3: SmallStructSeq? = try SmallStructSeqHelper.read(from: istr, tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3559,22 +3558,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: SmallStructList?, p3: SmallStructList?)>` - The result of the operation
-    func opSmallStructListAsync(_ iceP_p1: SmallStructList? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: SmallStructList?, p3: SmallStructList?)> {
-        return _impl._invokeAsync(operation: "opSmallStructList",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      SmallStructListHelper.write(to: ostr, tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: SmallStructList? = try SmallStructListHelper.read(from: istr, tag: 1)
-                                      let iceP_p3: SmallStructList? = try SmallStructListHelper.read(from: istr, tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: SmallStructList?, p3: SmallStructList?)` - The result of the operation
+    func opSmallStructListAsync(_ iceP_p1: SmallStructList? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: SmallStructList?, p3: SmallStructList?) {
+        return try await _impl._invokeAsync(operation: "opSmallStructList",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                SmallStructListHelper.write(to: ostr, tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: SmallStructList? = try SmallStructListHelper.read(from: istr, tag: 1)
+                                                let iceP_p3: SmallStructList? = try SmallStructListHelper.read(from: istr, tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3614,22 +3613,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: FixedStructSeq?, p3: FixedStructSeq?)>` - The result of the operation
-    func opFixedStructSeqAsync(_ iceP_p1: FixedStructSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: FixedStructSeq?, p3: FixedStructSeq?)> {
-        return _impl._invokeAsync(operation: "opFixedStructSeq",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      FixedStructSeqHelper.write(to: ostr, tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: FixedStructSeq? = try FixedStructSeqHelper.read(from: istr, tag: 1)
-                                      let iceP_p3: FixedStructSeq? = try FixedStructSeqHelper.read(from: istr, tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: FixedStructSeq?, p3: FixedStructSeq?)` - The result of the operation
+    func opFixedStructSeqAsync(_ iceP_p1: FixedStructSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: FixedStructSeq?, p3: FixedStructSeq?) {
+        return try await _impl._invokeAsync(operation: "opFixedStructSeq",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                FixedStructSeqHelper.write(to: ostr, tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: FixedStructSeq? = try FixedStructSeqHelper.read(from: istr, tag: 1)
+                                                let iceP_p3: FixedStructSeq? = try FixedStructSeqHelper.read(from: istr, tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3669,22 +3668,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: FixedStructList?, p3: FixedStructList?)>` - The result of the operation
-    func opFixedStructListAsync(_ iceP_p1: FixedStructList? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: FixedStructList?, p3: FixedStructList?)> {
-        return _impl._invokeAsync(operation: "opFixedStructList",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      FixedStructListHelper.write(to: ostr, tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: FixedStructList? = try FixedStructListHelper.read(from: istr, tag: 1)
-                                      let iceP_p3: FixedStructList? = try FixedStructListHelper.read(from: istr, tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: FixedStructList?, p3: FixedStructList?)` - The result of the operation
+    func opFixedStructListAsync(_ iceP_p1: FixedStructList? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: FixedStructList?, p3: FixedStructList?) {
+        return try await _impl._invokeAsync(operation: "opFixedStructList",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                FixedStructListHelper.write(to: ostr, tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: FixedStructList? = try FixedStructListHelper.read(from: istr, tag: 1)
+                                                let iceP_p3: FixedStructList? = try FixedStructListHelper.read(from: istr, tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3724,22 +3723,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: VarStructSeq?, p3: VarStructSeq?)>` - The result of the operation
-    func opVarStructSeqAsync(_ iceP_p1: VarStructSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: VarStructSeq?, p3: VarStructSeq?)> {
-        return _impl._invokeAsync(operation: "opVarStructSeq",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      VarStructSeqHelper.write(to: ostr, tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: VarStructSeq? = try VarStructSeqHelper.read(from: istr, tag: 1)
-                                      let iceP_p3: VarStructSeq? = try VarStructSeqHelper.read(from: istr, tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: VarStructSeq?, p3: VarStructSeq?)` - The result of the operation
+    func opVarStructSeqAsync(_ iceP_p1: VarStructSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: VarStructSeq?, p3: VarStructSeq?) {
+        return try await _impl._invokeAsync(operation: "opVarStructSeq",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                VarStructSeqHelper.write(to: ostr, tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: VarStructSeq? = try VarStructSeqHelper.read(from: istr, tag: 1)
+                                                let iceP_p3: VarStructSeq? = try VarStructSeqHelper.read(from: istr, tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3779,22 +3778,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: Serializable?, p3: Serializable?)>` - The result of the operation
-    func opSerializableAsync(_ iceP_p1: Serializable? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: Serializable?, p3: Serializable?)> {
-        return _impl._invokeAsync(operation: "opSerializable",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Serializable? = try istr.read(tag: 1)
-                                      let iceP_p3: Serializable? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: Serializable?, p3: Serializable?)` - The result of the operation
+    func opSerializableAsync(_ iceP_p1: Serializable? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: Serializable?, p3: Serializable?) {
+        return try await _impl._invokeAsync(operation: "opSerializable",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: Serializable? = try istr.read(tag: 1)
+                                                let iceP_p3: Serializable? = try istr.read(tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3834,22 +3833,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: IntIntDict?, p3: IntIntDict?)>` - The result of the operation
-    func opIntIntDictAsync(_ iceP_p1: IntIntDict? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: IntIntDict?, p3: IntIntDict?)> {
-        return _impl._invokeAsync(operation: "opIntIntDict",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      IntIntDictHelper.write(to: ostr, tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: IntIntDict? = try IntIntDictHelper.read(from: istr, tag: 1)
-                                      let iceP_p3: IntIntDict? = try IntIntDictHelper.read(from: istr, tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: IntIntDict?, p3: IntIntDict?)` - The result of the operation
+    func opIntIntDictAsync(_ iceP_p1: IntIntDict? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: IntIntDict?, p3: IntIntDict?) {
+        return try await _impl._invokeAsync(operation: "opIntIntDict",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                IntIntDictHelper.write(to: ostr, tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: IntIntDict? = try IntIntDictHelper.read(from: istr, tag: 1)
+                                                let iceP_p3: IntIntDict? = try IntIntDictHelper.read(from: istr, tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3889,22 +3888,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: StringIntDict?, p3: StringIntDict?)>` - The result of the operation
-    func opStringIntDictAsync(_ iceP_p1: StringIntDict? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: StringIntDict?, p3: StringIntDict?)> {
-        return _impl._invokeAsync(operation: "opStringIntDict",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      StringIntDictHelper.write(to: ostr, tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: StringIntDict? = try StringIntDictHelper.read(from: istr, tag: 1)
-                                      let iceP_p3: StringIntDict? = try StringIntDictHelper.read(from: istr, tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: StringIntDict?, p3: StringIntDict?)` - The result of the operation
+    func opStringIntDictAsync(_ iceP_p1: StringIntDict? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: StringIntDict?, p3: StringIntDict?) {
+        return try await _impl._invokeAsync(operation: "opStringIntDict",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                StringIntDictHelper.write(to: ostr, tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: StringIntDict? = try StringIntDictHelper.read(from: istr, tag: 1)
+                                                let iceP_p3: StringIntDict? = try StringIntDictHelper.read(from: istr, tag: 3)
+                                                return (iceP_returnValue, iceP_p3)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3934,18 +3933,18 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func opClassAndUnknownOptionalAsync(_ iceP_p: A?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "opClassAndUnknownOptional",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_p)
-                                      ostr.writePendingValues()
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func opClassAndUnknownOptionalAsync(_ iceP_p: A?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "opClassAndUnknownOptional",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_p)
+                                                ostr.writePendingValues()
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -3983,24 +3982,24 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<G?>` - The result of the operation
-    func opGAsync(_ iceP_g: G?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<G?> {
-        return _impl._invokeAsync(operation: "opG",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_g)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      var iceP_returnValue: G?
-                                      try istr.read(G.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `G?` - The result of the operation
+    func opGAsync(_ iceP_g: G?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> G? {
+        return try await _impl._invokeAsync(operation: "opG",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_g)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                var iceP_returnValue: G?
+                                                try istr.read(G.self) { iceP_returnValue = $0 }
+                                                try istr.readPendingValues()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -4022,14 +4021,14 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func opVoidAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "opVoid",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func opVoidAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "opVoid",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -4057,18 +4056,18 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<SmallStruct?>` - The result of the operation
-    func opMStruct1Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<SmallStruct?> {
-        return _impl._invokeAsync(operation: "opMStruct1",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: SmallStruct? = try istr.read(tag: 1)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `SmallStruct?` - The result of the operation
+    func opMStruct1Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> SmallStruct? {
+        return try await _impl._invokeAsync(operation: "opMStruct1",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                let iceP_returnValue: SmallStruct? = try istr.read(tag: 1)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -4108,22 +4107,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: SmallStruct?, p2: SmallStruct?)>` - The result of the operation
-    func opMStruct2Async(_ iceP_p1: SmallStruct? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: SmallStruct?, p2: SmallStruct?)> {
-        return _impl._invokeAsync(operation: "opMStruct2",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: SmallStruct? = try istr.read(tag: 1)
-                                      let iceP_p2: SmallStruct? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: SmallStruct?, p2: SmallStruct?)` - The result of the operation
+    func opMStruct2Async(_ iceP_p1: SmallStruct? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: SmallStruct?, p2: SmallStruct?) {
+        return try await _impl._invokeAsync(operation: "opMStruct2",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: SmallStruct? = try istr.read(tag: 1)
+                                                let iceP_p2: SmallStruct? = try istr.read(tag: 3)
+                                                return (iceP_returnValue, iceP_p2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -4151,18 +4150,18 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<StringSeq?>` - The result of the operation
-    func opMSeq1Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<StringSeq?> {
-        return _impl._invokeAsync(operation: "opMSeq1",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: StringSeq? = try istr.read(tag: 1)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `StringSeq?` - The result of the operation
+    func opMSeq1Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> StringSeq? {
+        return try await _impl._invokeAsync(operation: "opMSeq1",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                let iceP_returnValue: StringSeq? = try istr.read(tag: 1)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -4202,22 +4201,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: StringSeq?, p2: StringSeq?)>` - The result of the operation
-    func opMSeq2Async(_ iceP_p1: StringSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: StringSeq?, p2: StringSeq?)> {
-        return _impl._invokeAsync(operation: "opMSeq2",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: StringSeq? = try istr.read(tag: 1)
-                                      let iceP_p2: StringSeq? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: StringSeq?, p2: StringSeq?)` - The result of the operation
+    func opMSeq2Async(_ iceP_p1: StringSeq? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: StringSeq?, p2: StringSeq?) {
+        return try await _impl._invokeAsync(operation: "opMSeq2",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: StringSeq? = try istr.read(tag: 1)
+                                                let iceP_p2: StringSeq? = try istr.read(tag: 3)
+                                                return (iceP_returnValue, iceP_p2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -4245,18 +4244,18 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<StringIntDict?>` - The result of the operation
-    func opMDict1Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<StringIntDict?> {
-        return _impl._invokeAsync(operation: "opMDict1",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: StringIntDict? = try StringIntDictHelper.read(from: istr, tag: 1)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `StringIntDict?` - The result of the operation
+    func opMDict1Async(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> StringIntDict? {
+        return try await _impl._invokeAsync(operation: "opMDict1",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                let iceP_returnValue: StringIntDict? = try StringIntDictHelper.read(from: istr, tag: 1)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -4296,22 +4295,22 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: StringIntDict?, p2: StringIntDict?)>` - The result of the operation
-    func opMDict2Async(_ iceP_p1: StringIntDict? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: StringIntDict?, p2: StringIntDict?)> {
-        return _impl._invokeAsync(operation: "opMDict2",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      StringIntDictHelper.write(to: ostr, tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: StringIntDict? = try StringIntDictHelper.read(from: istr, tag: 1)
-                                      let iceP_p2: StringIntDict? = try StringIntDictHelper.read(from: istr, tag: 3)
-                                      return (iceP_returnValue, iceP_p2)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: StringIntDict?, p2: StringIntDict?)` - The result of the operation
+    func opMDict2Async(_ iceP_p1: StringIntDict? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: StringIntDict?, p2: StringIntDict?) {
+        return try await _impl._invokeAsync(operation: "opMDict2",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                StringIntDictHelper.write(to: ostr, tag: 2, value: iceP_p1)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: StringIntDict? = try StringIntDictHelper.read(from: istr, tag: 1)
+                                                let iceP_p2: StringIntDict? = try StringIntDictHelper.read(from: istr, tag: 3)
+                                                return (iceP_returnValue, iceP_p2)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -4339,18 +4338,18 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
-    func supportsJavaSerializableAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Bool> {
-        return _impl._invokeAsync(operation: "supportsJavaSerializable",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Bool = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.Bool` - The result of the operation
+    func supportsJavaSerializableAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Bool {
+        return try await _impl._invokeAsync(operation: "supportsJavaSerializable",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.Bool = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -4499,14 +4498,14 @@ public extension EchoPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func setConnectionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "setConnection",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func setConnectionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "setConnection",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -4528,14 +4527,14 @@ public extension EchoPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func startBatchAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "startBatch",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func startBatchAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "startBatch",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -4557,14 +4556,14 @@ public extension EchoPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func flushBatchAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "flushBatch",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func flushBatchAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "flushBatch",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -4586,14 +4585,14 @@ public extension EchoPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "shutdown",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "shutdown",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -5166,20 +5165,20 @@ public struct MyInterfaceDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            (servant as? Ice.Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_ping(request)
         case "op":
-            servant._iceD_op(request)
+            try await servant._iceD_op(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -5200,108 +5199,108 @@ public struct InitialDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ping(request)
         case "opBool":
-            servant._iceD_opBool(request)
+            try await servant._iceD_opBool(request)
         case "opBoolSeq":
-            servant._iceD_opBoolSeq(request)
+            try await servant._iceD_opBoolSeq(request)
         case "opByte":
-            servant._iceD_opByte(request)
+            try await servant._iceD_opByte(request)
         case "opByteSeq":
-            servant._iceD_opByteSeq(request)
+            try await servant._iceD_opByteSeq(request)
         case "opClassAndUnknownOptional":
-            servant._iceD_opClassAndUnknownOptional(request)
+            try await servant._iceD_opClassAndUnknownOptional(request)
         case "opDerivedException":
-            servant._iceD_opDerivedException(request)
+            try await servant._iceD_opDerivedException(request)
         case "opDouble":
-            servant._iceD_opDouble(request)
+            try await servant._iceD_opDouble(request)
         case "opDoubleSeq":
-            servant._iceD_opDoubleSeq(request)
+            try await servant._iceD_opDoubleSeq(request)
         case "opFixedStruct":
-            servant._iceD_opFixedStruct(request)
+            try await servant._iceD_opFixedStruct(request)
         case "opFixedStructList":
-            servant._iceD_opFixedStructList(request)
+            try await servant._iceD_opFixedStructList(request)
         case "opFixedStructSeq":
-            servant._iceD_opFixedStructSeq(request)
+            try await servant._iceD_opFixedStructSeq(request)
         case "opFloat":
-            servant._iceD_opFloat(request)
+            try await servant._iceD_opFloat(request)
         case "opFloatSeq":
-            servant._iceD_opFloatSeq(request)
+            try await servant._iceD_opFloatSeq(request)
         case "opG":
-            servant._iceD_opG(request)
+            try await servant._iceD_opG(request)
         case "opInt":
-            servant._iceD_opInt(request)
+            try await servant._iceD_opInt(request)
         case "opIntIntDict":
-            servant._iceD_opIntIntDict(request)
+            try await servant._iceD_opIntIntDict(request)
         case "opIntSeq":
-            servant._iceD_opIntSeq(request)
+            try await servant._iceD_opIntSeq(request)
         case "opLong":
-            servant._iceD_opLong(request)
+            try await servant._iceD_opLong(request)
         case "opLongSeq":
-            servant._iceD_opLongSeq(request)
+            try await servant._iceD_opLongSeq(request)
         case "opMDict1":
-            servant._iceD_opMDict1(request)
+            try await servant._iceD_opMDict1(request)
         case "opMDict2":
-            servant._iceD_opMDict2(request)
+            try await servant._iceD_opMDict2(request)
         case "opMSeq1":
-            servant._iceD_opMSeq1(request)
+            try await servant._iceD_opMSeq1(request)
         case "opMSeq2":
-            servant._iceD_opMSeq2(request)
+            try await servant._iceD_opMSeq2(request)
         case "opMStruct1":
-            servant._iceD_opMStruct1(request)
+            try await servant._iceD_opMStruct1(request)
         case "opMStruct2":
-            servant._iceD_opMStruct2(request)
+            try await servant._iceD_opMStruct2(request)
         case "opMyEnum":
-            servant._iceD_opMyEnum(request)
+            try await servant._iceD_opMyEnum(request)
         case "opMyInterfaceProxy":
-            servant._iceD_opMyInterfaceProxy(request)
+            try await servant._iceD_opMyInterfaceProxy(request)
         case "opOneOptional":
-            servant._iceD_opOneOptional(request)
+            try await servant._iceD_opOneOptional(request)
         case "opOptionalException":
-            servant._iceD_opOptionalException(request)
+            try await servant._iceD_opOptionalException(request)
         case "opRequiredException":
-            servant._iceD_opRequiredException(request)
+            try await servant._iceD_opRequiredException(request)
         case "opSerializable":
-            servant._iceD_opSerializable(request)
+            try await servant._iceD_opSerializable(request)
         case "opShort":
-            servant._iceD_opShort(request)
+            try await servant._iceD_opShort(request)
         case "opShortSeq":
-            servant._iceD_opShortSeq(request)
+            try await servant._iceD_opShortSeq(request)
         case "opSmallStruct":
-            servant._iceD_opSmallStruct(request)
+            try await servant._iceD_opSmallStruct(request)
         case "opSmallStructList":
-            servant._iceD_opSmallStructList(request)
+            try await servant._iceD_opSmallStructList(request)
         case "opSmallStructSeq":
-            servant._iceD_opSmallStructSeq(request)
+            try await servant._iceD_opSmallStructSeq(request)
         case "opString":
-            servant._iceD_opString(request)
+            try await servant._iceD_opString(request)
         case "opStringIntDict":
-            servant._iceD_opStringIntDict(request)
+            try await servant._iceD_opStringIntDict(request)
         case "opStringSeq":
-            servant._iceD_opStringSeq(request)
+            try await servant._iceD_opStringSeq(request)
         case "opVarStruct":
-            servant._iceD_opVarStruct(request)
+            try await servant._iceD_opVarStruct(request)
         case "opVarStructSeq":
-            servant._iceD_opVarStructSeq(request)
+            try await servant._iceD_opVarStructSeq(request)
         case "opVoid":
-            servant._iceD_opVoid(request)
+            try await servant._iceD_opVoid(request)
         case "pingPong":
-            servant._iceD_pingPong(request)
+            try await servant._iceD_pingPong(request)
         case "shutdown":
-            servant._iceD_shutdown(request)
+            try await servant._iceD_shutdown(request)
         case "supportsJavaSerializable":
-            servant._iceD_supportsJavaSerializable(request)
+            try await servant._iceD_supportsJavaSerializable(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -5792,26 +5791,26 @@ public struct EchoDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "flushBatch":
-            servant._iceD_flushBatch(request)
+            try await servant._iceD_flushBatch(request)
         case "ice_id":
-            (servant as? Ice.Object ?? EchoDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? EchoDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? EchoDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? EchoDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? EchoDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? EchoDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? EchoDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? EchoDisp.defaultObject)._iceD_ice_ping(request)
         case "setConnection":
-            servant._iceD_setConnection(request)
+            try await servant._iceD_setConnection(request)
         case "shutdown":
-            servant._iceD_shutdown(request)
+            try await servant._iceD_shutdown(request)
         case "startBatch":
-            servant._iceD_startBatch(request)
+            try await servant._iceD_startBatch(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -5840,15 +5839,12 @@ public protocol Echo {
 ///
 ///  - op: 
 extension MyInterface {
-    public func _iceD_op(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.op(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.op(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }
 
@@ -5946,780 +5942,645 @@ extension MyInterface {
 ///
 ///  - supportsJavaSerializable: 
 extension Initial {
-    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.shutdown(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.shutdown(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_pingPong(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            var iceP_o: Ice.Value?
-            try istr.read() { iceP_o = $0 }
-            try istr.readPendingValues()
+    public func _iceD_pingPong(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        var iceP_o: Ice.Value?
+        try istr.read() { iceP_o = $0 }
+        try istr.readPendingValues()
 
-            let iceP_returnValue = try self.pingPong(o: iceP_o, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.pingPong(o: iceP_o, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opOptionalException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_a: Swift.Int32? = try istr.read(tag: 1)
-            let iceP_b: Swift.String? = try istr.read(tag: 2)
+    public func _iceD_opOptionalException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_a: Swift.Int32? = try istr.read(tag: 1)
+        let iceP_b: Swift.String? = try istr.read(tag: 2)
 
-            try self.opOptionalException(a: iceP_a, b: iceP_b, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.opOptionalException(a: iceP_a, b: iceP_b, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_opDerivedException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_a: Swift.Int32? = try istr.read(tag: 1)
-            let iceP_b: Swift.String? = try istr.read(tag: 2)
+    public func _iceD_opDerivedException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_a: Swift.Int32? = try istr.read(tag: 1)
+        let iceP_b: Swift.String? = try istr.read(tag: 2)
 
-            try self.opDerivedException(a: iceP_a, b: iceP_b, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.opDerivedException(a: iceP_a, b: iceP_b, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_opRequiredException(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_a: Swift.Int32? = try istr.read(tag: 1)
-            let iceP_b: Swift.String? = try istr.read(tag: 2)
+    public func _iceD_opRequiredException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_a: Swift.Int32? = try istr.read(tag: 1)
+        let iceP_b: Swift.String? = try istr.read(tag: 2)
 
-            try self.opRequiredException(a: iceP_a, b: iceP_b, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.opRequiredException(a: iceP_a, b: iceP_b, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_opByte(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: Swift.UInt8? = try istr.read(tag: 2)
+    public func _iceD_opByte(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: Swift.UInt8? = try istr.read(tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opByte(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opByte(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 1, value: iceP_returnValue)
+        ostr.write(tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opBool(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: Swift.Bool? = try istr.read(tag: 2)
+    public func _iceD_opBool(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: Swift.Bool? = try istr.read(tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opBool(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opBool(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 1, value: iceP_returnValue)
+        ostr.write(tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opShort(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: Swift.Int16? = try istr.read(tag: 2)
+    public func _iceD_opShort(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: Swift.Int16? = try istr.read(tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opShort(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opShort(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 1, value: iceP_returnValue)
+        ostr.write(tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opInt(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: Swift.Int32? = try istr.read(tag: 2)
+    public func _iceD_opInt(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: Swift.Int32? = try istr.read(tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opInt(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opInt(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 1, value: iceP_returnValue)
+        ostr.write(tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opLong(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: Swift.Int64? = try istr.read(tag: 1)
+    public func _iceD_opLong(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: Swift.Int64? = try istr.read(tag: 1)
 
-            let (iceP_returnValue, iceP_p3) = try self.opLong(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 2, value: iceP_p3)
-            ostr.write(tag: 3, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opLong(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 2, value: iceP_p3)
+        ostr.write(tag: 3, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opFloat(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: Swift.Float? = try istr.read(tag: 2)
+    public func _iceD_opFloat(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: Swift.Float? = try istr.read(tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opFloat(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opFloat(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 1, value: iceP_returnValue)
+        ostr.write(tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opDouble(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: Swift.Double? = try istr.read(tag: 2)
+    public func _iceD_opDouble(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: Swift.Double? = try istr.read(tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opDouble(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opDouble(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 1, value: iceP_returnValue)
+        ostr.write(tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opString(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: Swift.String? = try istr.read(tag: 2)
+    public func _iceD_opString(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: Swift.String? = try istr.read(tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opString(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opString(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 1, value: iceP_returnValue)
+        ostr.write(tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opMyEnum(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: MyEnum? = try istr.read(tag: 2)
+    public func _iceD_opMyEnum(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: MyEnum? = try istr.read(tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opMyEnum(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opMyEnum(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 1, value: iceP_returnValue)
+        ostr.write(tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opSmallStruct(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: SmallStruct? = try istr.read(tag: 2)
+    public func _iceD_opSmallStruct(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: SmallStruct? = try istr.read(tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opSmallStruct(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opSmallStruct(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 1, value: iceP_returnValue)
+        ostr.write(tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opFixedStruct(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: FixedStruct? = try istr.read(tag: 2)
+    public func _iceD_opFixedStruct(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: FixedStruct? = try istr.read(tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opFixedStruct(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opFixedStruct(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 1, value: iceP_returnValue)
+        ostr.write(tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opVarStruct(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: VarStruct? = try istr.read(tag: 2)
+    public func _iceD_opVarStruct(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: VarStruct? = try istr.read(tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opVarStruct(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opVarStruct(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 1, value: iceP_returnValue)
+        ostr.write(tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opMyInterfaceProxy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: MyInterfacePrx? = try istr.read(tag: 2, type: MyInterfacePrx.self)
+    public func _iceD_opMyInterfaceProxy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: MyInterfacePrx? = try istr.read(tag: 2, type: MyInterfacePrx.self)
 
-            let (iceP_returnValue, iceP_p3) = try self.opMyInterfaceProxy(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opMyInterfaceProxy(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 1, value: iceP_returnValue)
+        ostr.write(tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opOneOptional(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            var iceP_p1: OneOptional?
-            try istr.read(OneOptional.self) { iceP_p1 = $0 }
-            try istr.readPendingValues()
+    public func _iceD_opOneOptional(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        var iceP_p1: OneOptional?
+        try istr.read(OneOptional.self) { iceP_p1 = $0 }
+        try istr.readPendingValues()
 
-            let (iceP_returnValue, iceP_p3) = try self.opOneOptional(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_p3)
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opOneOptional(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_p3)
+        ostr.write(iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opByteSeq(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: ByteSeq? = try istr.read(tag: 2)
+    public func _iceD_opByteSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: ByteSeq? = try istr.read(tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opByteSeq(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opByteSeq(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 1, value: iceP_returnValue)
+        ostr.write(tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opBoolSeq(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: BoolSeq? = try istr.read(tag: 2)
+    public func _iceD_opBoolSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: BoolSeq? = try istr.read(tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opBoolSeq(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opBoolSeq(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 1, value: iceP_returnValue)
+        ostr.write(tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opShortSeq(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: ShortSeq? = try istr.read(tag: 2)
+    public func _iceD_opShortSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: ShortSeq? = try istr.read(tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opShortSeq(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opShortSeq(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 1, value: iceP_returnValue)
+        ostr.write(tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opIntSeq(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: IntSeq? = try istr.read(tag: 2)
+    public func _iceD_opIntSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: IntSeq? = try istr.read(tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opIntSeq(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opIntSeq(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 1, value: iceP_returnValue)
+        ostr.write(tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opLongSeq(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: LongSeq? = try istr.read(tag: 2)
+    public func _iceD_opLongSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: LongSeq? = try istr.read(tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opLongSeq(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opLongSeq(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 1, value: iceP_returnValue)
+        ostr.write(tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opFloatSeq(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: FloatSeq? = try istr.read(tag: 2)
+    public func _iceD_opFloatSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: FloatSeq? = try istr.read(tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opFloatSeq(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opFloatSeq(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 1, value: iceP_returnValue)
+        ostr.write(tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opDoubleSeq(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: DoubleSeq? = try istr.read(tag: 2)
+    public func _iceD_opDoubleSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: DoubleSeq? = try istr.read(tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opDoubleSeq(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opDoubleSeq(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 1, value: iceP_returnValue)
+        ostr.write(tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opStringSeq(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: StringSeq? = try istr.read(tag: 2)
+    public func _iceD_opStringSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: StringSeq? = try istr.read(tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opStringSeq(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opStringSeq(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 1, value: iceP_returnValue)
+        ostr.write(tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opSmallStructSeq(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: SmallStructSeq? = try SmallStructSeqHelper.read(from: istr, tag: 2)
+    public func _iceD_opSmallStructSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: SmallStructSeq? = try SmallStructSeqHelper.read(from: istr, tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opSmallStructSeq(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            SmallStructSeqHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
-            SmallStructSeqHelper.write(to: ostr, tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opSmallStructSeq(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        SmallStructSeqHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
+        SmallStructSeqHelper.write(to: ostr, tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opSmallStructList(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: SmallStructList? = try SmallStructListHelper.read(from: istr, tag: 2)
+    public func _iceD_opSmallStructList(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: SmallStructList? = try SmallStructListHelper.read(from: istr, tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opSmallStructList(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            SmallStructListHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
-            SmallStructListHelper.write(to: ostr, tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opSmallStructList(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        SmallStructListHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
+        SmallStructListHelper.write(to: ostr, tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opFixedStructSeq(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: FixedStructSeq? = try FixedStructSeqHelper.read(from: istr, tag: 2)
+    public func _iceD_opFixedStructSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: FixedStructSeq? = try FixedStructSeqHelper.read(from: istr, tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opFixedStructSeq(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            FixedStructSeqHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
-            FixedStructSeqHelper.write(to: ostr, tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opFixedStructSeq(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        FixedStructSeqHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
+        FixedStructSeqHelper.write(to: ostr, tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opFixedStructList(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: FixedStructList? = try FixedStructListHelper.read(from: istr, tag: 2)
+    public func _iceD_opFixedStructList(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: FixedStructList? = try FixedStructListHelper.read(from: istr, tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opFixedStructList(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            FixedStructListHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
-            FixedStructListHelper.write(to: ostr, tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opFixedStructList(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        FixedStructListHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
+        FixedStructListHelper.write(to: ostr, tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opVarStructSeq(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: VarStructSeq? = try VarStructSeqHelper.read(from: istr, tag: 2)
+    public func _iceD_opVarStructSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: VarStructSeq? = try VarStructSeqHelper.read(from: istr, tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opVarStructSeq(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            VarStructSeqHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
-            VarStructSeqHelper.write(to: ostr, tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opVarStructSeq(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        VarStructSeqHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
+        VarStructSeqHelper.write(to: ostr, tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opSerializable(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: Serializable? = try istr.read(tag: 2)
+    public func _iceD_opSerializable(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: Serializable? = try istr.read(tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opSerializable(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opSerializable(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 1, value: iceP_returnValue)
+        ostr.write(tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opIntIntDict(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: IntIntDict? = try IntIntDictHelper.read(from: istr, tag: 2)
+    public func _iceD_opIntIntDict(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: IntIntDict? = try IntIntDictHelper.read(from: istr, tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opIntIntDict(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            IntIntDictHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
-            IntIntDictHelper.write(to: ostr, tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opIntIntDict(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        IntIntDictHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
+        IntIntDictHelper.write(to: ostr, tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opStringIntDict(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: StringIntDict? = try StringIntDictHelper.read(from: istr, tag: 2)
+    public func _iceD_opStringIntDict(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: StringIntDict? = try StringIntDictHelper.read(from: istr, tag: 2)
 
-            let (iceP_returnValue, iceP_p3) = try self.opStringIntDict(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            StringIntDictHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
-            StringIntDictHelper.write(to: ostr, tag: 3, value: iceP_p3)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p3) = try self.opStringIntDict(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        StringIntDictHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
+        StringIntDictHelper.write(to: ostr, tag: 3, value: iceP_p3)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opClassAndUnknownOptional(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            var iceP_p: A?
-            try istr.read(A.self) { iceP_p = $0 }
-            try istr.readPendingValues()
+    public func _iceD_opClassAndUnknownOptional(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        var iceP_p: A?
+        try istr.read(A.self) { iceP_p = $0 }
+        try istr.readPendingValues()
 
-            try self.opClassAndUnknownOptional(p: iceP_p, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.opClassAndUnknownOptional(p: iceP_p, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_opG(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            var iceP_g: G?
-            try istr.read(G.self) { iceP_g = $0 }
-            try istr.readPendingValues()
+    public func _iceD_opG(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        var iceP_g: G?
+        try istr.read(G.self) { iceP_g = $0 }
+        try istr.readPendingValues()
 
-            let iceP_returnValue = try self.opG(g: iceP_g, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.opG(g: iceP_g, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opVoid(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_opVoid(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.opVoid(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.opVoid(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_opMStruct1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_opMStruct1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.opMStruct1(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.opMStruct1(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 1, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opMStruct2(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: SmallStruct? = try istr.read(tag: 2)
+    public func _iceD_opMStruct2(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: SmallStruct? = try istr.read(tag: 2)
 
-            let (iceP_returnValue, iceP_p2) = try self.opMStruct2(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p2)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p2) = try self.opMStruct2(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 1, value: iceP_returnValue)
+        ostr.write(tag: 3, value: iceP_p2)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opMSeq1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_opMSeq1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.opMSeq1(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.opMSeq1(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 1, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opMSeq2(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: StringSeq? = try istr.read(tag: 2)
+    public func _iceD_opMSeq2(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: StringSeq? = try istr.read(tag: 2)
 
-            let (iceP_returnValue, iceP_p2) = try self.opMSeq2(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p2)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p2) = try self.opMSeq2(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(tag: 1, value: iceP_returnValue)
+        ostr.write(tag: 3, value: iceP_p2)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opMDict1(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_opMDict1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.opMDict1(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            StringIntDictHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.opMDict1(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        StringIntDictHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_opMDict2(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_p1: StringIntDict? = try StringIntDictHelper.read(from: istr, tag: 2)
+    public func _iceD_opMDict2(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_p1: StringIntDict? = try StringIntDictHelper.read(from: istr, tag: 2)
 
-            let (iceP_returnValue, iceP_p2) = try self.opMDict2(p1: iceP_p1, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            StringIntDictHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
-            StringIntDictHelper.write(to: ostr, tag: 3, value: iceP_p2)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_p2) = try self.opMDict2(p1: iceP_p1, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        StringIntDictHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
+        StringIntDictHelper.write(to: ostr, tag: 3, value: iceP_p2)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_supportsJavaSerializable(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_supportsJavaSerializable(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.supportsJavaSerializable(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.supportsJavaSerializable(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }
 
@@ -6735,47 +6596,35 @@ extension Initial {
 ///
 ///  - shutdown: 
 extension Echo {
-    public func _iceD_setConnection(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_setConnection(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.setConnection(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.setConnection(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_startBatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_startBatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.startBatch(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.startBatch(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_flushBatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_flushBatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.flushBatch(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.flushBatch(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.shutdown(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.shutdown(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }

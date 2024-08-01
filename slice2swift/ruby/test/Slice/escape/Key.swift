@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 public enum END: Swift.UInt8 {
     /// alias
@@ -531,18 +530,18 @@ public extension breakPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func caseAsync(clone iceP_clone: Swift.Int32, def iceP_def: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "case",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_clone)
-                                      ostr.write(iceP_def)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func caseAsync(clone iceP_clone: Swift.Int32, def iceP_def: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "case",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_clone)
+                                                ostr.write(iceP_def)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -564,14 +563,14 @@ public extension breakPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func to_aAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "to_a",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func to_aAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "to_a",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -593,14 +592,14 @@ public extension breakPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func instance_variable_setAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "instance_variable_set",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func instance_variable_setAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "instance_variable_set",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -622,14 +621,14 @@ public extension breakPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func instance_variablesAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "instance_variables",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func instance_variablesAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "instance_variables",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -891,34 +890,34 @@ public extension extendPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<END>` - The result of the operation
-    func forAsync(freeze iceP_freeze: display?, hash iceP_hash: elsifPrx?, if iceP_if: breakPrx?, inspect iceP_inspect: display?, method iceP_method: elsifPrx?, methods iceP_methods: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<END> {
-        return _impl._invokeAsync(operation: "for",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_freeze)
-                                      ostr.write(iceP_hash)
-                                      ostr.write(iceP_if)
-                                      ostr.write(iceP_inspect)
-                                      ostr.write(iceP_method)
-                                      ostr.write(iceP_methods)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: END = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as nil {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `END` - The result of the operation
+    func forAsync(freeze iceP_freeze: display?, hash iceP_hash: elsifPrx?, if iceP_if: breakPrx?, inspect iceP_inspect: display?, method iceP_method: elsifPrx?, methods iceP_methods: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> END {
+        return try await _impl._invokeAsync(operation: "for",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_freeze)
+                                                ostr.write(iceP_hash)
+                                                ostr.write(iceP_if)
+                                                ostr.write(iceP_inspect)
+                                                ostr.write(iceP_method)
+                                                ostr.write(iceP_methods)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: END = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as nil {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -984,26 +983,26 @@ public struct breakDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "case":
-            servant._iceD_case(request)
+            try await servant._iceD_case(request)
         case "ice_id":
-            (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_ping(request)
         case "instance_variable_set":
-            servant._iceD_instance_variable_set(request)
+            try await servant._iceD_instance_variable_set(request)
         case "instance_variables":
-            servant._iceD_instance_variables(request)
+            try await servant._iceD_instance_variables(request)
         case "to_a":
-            servant._iceD_to_a(request)
+            try await servant._iceD_to_a(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1040,26 +1039,26 @@ public struct elsifDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "case":
-            servant._iceD_case(request)
+            try await servant._iceD_case(request)
         case "ice_id":
-            (servant as? Ice.Object ?? elsifDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? elsifDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? elsifDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? elsifDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? elsifDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? elsifDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? elsifDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? elsifDisp.defaultObject)._iceD_ice_ping(request)
         case "instance_variable_set":
-            servant._iceD_instance_variable_set(request)
+            try await servant._iceD_instance_variable_set(request)
         case "instance_variables":
-            servant._iceD_instance_variables(request)
+            try await servant._iceD_instance_variables(request)
         case "to_a":
-            servant._iceD_to_a(request)
+            try await servant._iceD_to_a(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1076,20 +1075,20 @@ public struct extendDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "for":
-            servant._iceD_for(request)
+            try await servant._iceD_for(request)
         case "ice_id":
-            (servant as? Ice.Object ?? extendDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? extendDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? extendDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? extendDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? extendDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? extendDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? extendDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? extendDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1126,51 +1125,39 @@ public protocol extend {
 ///
 ///  - instance_variables: 
 extension `break` {
-    public func _iceD_case(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_clone: Swift.Int32 = try istr.read()
-            let iceP_def: Swift.Int32 = try istr.read()
+    public func _iceD_case(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_clone: Swift.Int32 = try istr.read()
+        let iceP_def: Swift.Int32 = try istr.read()
 
-            try self.`case`(clone: iceP_clone, def: iceP_def, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.`case`(clone: iceP_clone, def: iceP_def, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_to_a(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_to_a(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.to_a(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.to_a(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_instance_variable_set(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_instance_variable_set(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.instance_variable_set(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.instance_variable_set(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_instance_variables(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_instance_variables(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.instance_variables(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.instance_variables(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }
 
@@ -1183,28 +1170,25 @@ extension elsif {}
 ///
 ///  - `for`: 
 extension extend {
-    public func _iceD_for(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            var iceP_freeze: display?
-            try istr.read(display.self) { iceP_freeze = $0 }
-            let iceP_hash: elsifPrx? = try istr.read(elsifPrx.self)
-            let iceP_if: breakPrx? = try istr.read(breakPrx.self)
-            var iceP_inspect: display?
-            try istr.read(display.self) { iceP_inspect = $0 }
-            let iceP_method: elsifPrx? = try istr.read(elsifPrx.self)
-            let iceP_methods: Swift.Int32 = try istr.read()
-            try istr.readPendingValues()
+    public func _iceD_for(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        var iceP_freeze: display?
+        try istr.read(display.self) { iceP_freeze = $0 }
+        let iceP_hash: elsifPrx? = try istr.read(elsifPrx.self)
+        let iceP_if: breakPrx? = try istr.read(breakPrx.self)
+        var iceP_inspect: display?
+        try istr.read(display.self) { iceP_inspect = $0 }
+        let iceP_method: elsifPrx? = try istr.read(elsifPrx.self)
+        let iceP_methods: Swift.Int32 = try istr.read()
+        try istr.readPendingValues()
 
-            let iceP_returnValue = try self.`for`(freeze: iceP_freeze, hash: iceP_hash, if: iceP_if, inspect: iceP_inspect, method: iceP_method, methods: iceP_methods, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.`for`(freeze: iceP_freeze, hash: iceP_hash, if: iceP_if, inspect: iceP_inspect, method: iceP_method, methods: iceP_methods, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }

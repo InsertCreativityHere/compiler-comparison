@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 /// Traits for Slice interface`Event`.
 public struct EventTraits: Ice.SliceTraits {
@@ -151,17 +150,17 @@ public extension EventPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func pubAsync(_ iceP_counter: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "pub",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_counter)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func pubAsync(_ iceP_counter: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "pub",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_counter)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -175,20 +174,20 @@ public struct EventDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            (servant as? Ice.Object ?? EventDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? EventDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? EventDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? EventDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? EventDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? EventDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? EventDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? EventDisp.defaultObject)._iceD_ice_ping(request)
         case "pub":
-            servant._iceD_pub(request)
+            try await servant._iceD_pub(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -207,16 +206,13 @@ public protocol Event {
 ///
 ///  - pub: 
 extension Event {
-    public func _iceD_pub(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_counter: Swift.Int32 = try istr.read()
+    public func _iceD_pub(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_counter: Swift.Int32 = try istr.read()
 
-            try self.pub(counter: iceP_counter, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.pub(counter: iceP_counter, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }

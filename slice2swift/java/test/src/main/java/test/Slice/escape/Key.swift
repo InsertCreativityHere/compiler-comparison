@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 public enum assert: Swift.UInt8 {
     /// boolean
@@ -536,21 +535,21 @@ public extension catchPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
-    func checkedCastAsync(_ iceP_clone: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
-        return _impl._invokeAsync(operation: "checkedCast",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_clone)
-                                  },
-                                  read: { istr in
-                                      let iceP_continue: Swift.Int32 = try istr.read()
-                                      return iceP_continue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.Int32` - The result of the operation
+    func checkedCastAsync(_ iceP_clone: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invokeAsync(operation: "checkedCast",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_clone)
+                                            },
+                                            read: { istr in
+                                                let iceP_continue: Swift.Int32 = try istr.read()
+                                                return iceP_continue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -675,14 +674,14 @@ public extension defaultPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func doAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "do",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func doAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "do",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -956,38 +955,38 @@ public extension newPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<assert>` - The result of the operation
-    func notifyAsync(notifyAll iceP_notifyAll: `break`, null iceP_null: `else`?, package iceP_package: finalizePrx?, public iceP_public: catchPrx?, return iceP_return: defaultPrx?, static iceP_static: Swift.Int32, strictfp iceP_strictfp: Swift.Int32, super iceP_super: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<assert> {
-        return _impl._invokeAsync(operation: "notify",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_notifyAll)
-                                      ostr.write(iceP_null)
-                                      ostr.write(iceP_package)
-                                      ostr.write(iceP_public)
-                                      ostr.write(iceP_return)
-                                      ostr.write(iceP_static)
-                                      ostr.write(iceP_strictfp)
-                                      ostr.write(iceP_super)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: assert = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as hashCode {
-                                          throw error
-                                      } catch let error as import {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `assert` - The result of the operation
+    func notifyAsync(notifyAll iceP_notifyAll: `break`, null iceP_null: `else`?, package iceP_package: finalizePrx?, public iceP_public: catchPrx?, return iceP_return: defaultPrx?, static iceP_static: Swift.Int32, strictfp iceP_strictfp: Swift.Int32, super iceP_super: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> assert {
+        return try await _impl._invokeAsync(operation: "notify",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_notifyAll)
+                                                ostr.write(iceP_null)
+                                                ostr.write(iceP_package)
+                                                ostr.write(iceP_public)
+                                                ostr.write(iceP_return)
+                                                ostr.write(iceP_static)
+                                                ostr.write(iceP_strictfp)
+                                                ostr.write(iceP_super)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: assert = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as hashCode {
+                                                    throw error
+                                                } catch let error as import {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -1049,20 +1048,20 @@ public struct catchDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "checkedCast":
-            servant._iceD_checkedCast(request)
+            try await servant._iceD_checkedCast(request)
         case "ice_id":
-            (servant as? Ice.Object ?? catchDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? catchDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? catchDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? catchDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? catchDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? catchDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? catchDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? catchDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1073,8 +1072,8 @@ public protocol `catch` {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
-    func checkedCastAsync(clone: Swift.Int32, current: Ice.Current) -> PromiseKit.Promise<Swift.Int32>
+    /// - returns: `Swift.Int32` - The result of the operation
+    func checkedCastAsync(clone: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 }
 
 
@@ -1087,20 +1086,20 @@ public struct defaultDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "do":
-            servant._iceD_do(request)
+            try await servant._iceD_do(request)
         case "ice_id":
-            (servant as? Ice.Object ?? defaultDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? defaultDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? defaultDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? defaultDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? defaultDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? defaultDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? defaultDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? defaultDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1121,22 +1120,22 @@ public struct finalizeDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "checkedCast":
-            servant._iceD_checkedCast(request)
+            try await servant._iceD_checkedCast(request)
         case "do":
-            servant._iceD_do(request)
+            try await servant._iceD_do(request)
         case "ice_id":
-            (servant as? Ice.Object ?? finalizeDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? finalizeDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? finalizeDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? finalizeDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? finalizeDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? finalizeDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? finalizeDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? finalizeDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1153,20 +1152,20 @@ public struct newDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            (servant as? Ice.Object ?? newDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? newDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? newDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? newDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? newDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? newDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? newDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? newDisp.defaultObject)._iceD_ice_ping(request)
         case "notify":
-            servant._iceD_notify(request)
+            try await servant._iceD_notify(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1201,21 +1200,16 @@ public protocol new {
 ///
 ///  - checkedCast: 
 extension `catch` {
-    public func _iceD_checkedCast(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_clone: Swift.Int32 = try istr.read()
-            return self.checkedCastAsync(
-                clone: iceP_clone, current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
-                    let iceP_continue = value
-                    ostr.write(iceP_continue)
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
+    public func _iceD_checkedCast(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_clone: Swift.Int32 = try istr.read()
+        let result = try await self.checkedCastAsync(
+            clone: iceP_clone, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+            let iceP_continue = value
+            ostr.write(iceP_continue)
         }
     }
 }
@@ -1226,15 +1220,12 @@ extension `catch` {
 ///
 ///  - `do`: 
 extension `default` {
-    public func _iceD_do(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_do(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.`do`(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.`do`(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }
 
@@ -1247,29 +1238,26 @@ extension finalize {}
 ///
 ///  - notify: 
 extension new {
-    public func _iceD_notify(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_notifyAll: `break` = try istr.read()
-            var iceP_null: `else`?
-            try istr.read(else.self) { iceP_null = $0 }
-            let iceP_package: finalizePrx? = try istr.read(finalizePrx.self)
-            let iceP_public: catchPrx? = try istr.read(catchPrx.self)
-            let iceP_return: defaultPrx? = try istr.read(defaultPrx.self)
-            let iceP_static: Swift.Int32 = try istr.read()
-            let iceP_strictfp: Swift.Int32 = try istr.read()
-            let iceP_super: Swift.Int32 = try istr.read()
-            try istr.readPendingValues()
+    public func _iceD_notify(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_notifyAll: `break` = try istr.read()
+        var iceP_null: `else`?
+        try istr.read(else.self) { iceP_null = $0 }
+        let iceP_package: finalizePrx? = try istr.read(finalizePrx.self)
+        let iceP_public: catchPrx? = try istr.read(catchPrx.self)
+        let iceP_return: defaultPrx? = try istr.read(defaultPrx.self)
+        let iceP_static: Swift.Int32 = try istr.read()
+        let iceP_strictfp: Swift.Int32 = try istr.read()
+        let iceP_super: Swift.Int32 = try istr.read()
+        try istr.readPendingValues()
 
-            let iceP_returnValue = try self.notify(notifyAll: iceP_notifyAll, null: iceP_null, package: iceP_package, public: iceP_public, return: iceP_return, static: iceP_static, strictfp: iceP_strictfp, super: iceP_super, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.notify(notifyAll: iceP_notifyAll, null: iceP_null, package: iceP_package, public: iceP_public, return: iceP_return, static: iceP_static, strictfp: iceP_strictfp, super: iceP_super, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }

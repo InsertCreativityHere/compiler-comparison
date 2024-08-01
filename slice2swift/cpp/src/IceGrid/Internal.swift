@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 public typealias InternalDbEnvDescriptorSeq = [InternalDbEnvDescriptor?]
 
@@ -924,18 +923,18 @@ public extension AdapterPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Ice.ObjectPrx?>` - The result of the operation
-    func activateAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.ObjectPrx?> {
-        return _impl._invokeAsync(operation: "activate",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    func activateAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.ObjectPrx? {
+        return try await _impl._invokeAsync(operation: "activate",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
@@ -974,25 +973,25 @@ public extension AdapterPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Ice.ObjectPrx?>` - The result of the operation
-    func getDirectProxyAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.ObjectPrx?> {
-        return _impl._invokeAsync(operation: "getDirectProxy",
-                                  mode: .Idempotent,
-                                  read: { istr in
-                                      let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as AdapterNotActiveException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    func getDirectProxyAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.ObjectPrx? {
+        return try await _impl._invokeAsync(operation: "getDirectProxy",
+                                            mode: .Idempotent,
+                                            read: { istr in
+                                                let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+                                                return iceP_returnValue
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as AdapterNotActiveException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Set the direct proxy for this adapter.
@@ -1035,24 +1034,24 @@ public extension AdapterPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func setDirectProxyAsync(_ iceP_proxy: Ice.ObjectPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "setDirectProxy",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_proxy)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as AdapterActiveException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func setDirectProxyAsync(_ iceP_proxy: Ice.ObjectPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "setDirectProxy",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_proxy)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as AdapterActiveException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -1212,29 +1211,29 @@ public extension FileReaderPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.Int64>` - The result of the operation
-    func getOffsetFromEndAsync(filename iceP_filename: Swift.String, lines iceP_lines: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int64> {
-        return _impl._invokeAsync(operation: "getOffsetFromEnd",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      ostr.write(iceP_filename)
-                                      ostr.write(iceP_lines)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Int64 = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as FileNotAvailableException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.Int64` - The result of the operation
+    func getOffsetFromEndAsync(filename iceP_filename: Swift.String, lines iceP_lines: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Int64 {
+        return try await _impl._invokeAsync(operation: "getOffsetFromEnd",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                ostr.write(iceP_filename)
+                                                ostr.write(iceP_lines)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.Int64 = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as FileNotAvailableException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Read lines (or size bytes) at the specified position from the given file.
@@ -1296,32 +1295,32 @@ public extension FileReaderPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: Swift.Bool, newPos: Swift.Int64, lines: Ice.StringSeq)>` - The result of the operation
-    func readAsync(filename iceP_filename: Swift.String, pos iceP_pos: Swift.Int64, size iceP_size: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: Swift.Bool, newPos: Swift.Int64, lines: Ice.StringSeq)> {
-        return _impl._invokeAsync(operation: "read",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      ostr.write(iceP_filename)
-                                      ostr.write(iceP_pos)
-                                      ostr.write(iceP_size)
-                                  },
-                                  read: { istr in
-                                      let iceP_newPos: Swift.Int64 = try istr.read()
-                                      let iceP_lines: Ice.StringSeq = try istr.read()
-                                      let iceP_returnValue: Swift.Bool = try istr.read()
-                                      return (iceP_returnValue, iceP_newPos, iceP_lines)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as FileNotAvailableException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: Swift.Bool, newPos: Swift.Int64, lines: Ice.StringSeq)` - The result of the operation
+    func readAsync(filename iceP_filename: Swift.String, pos iceP_pos: Swift.Int64, size iceP_size: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: Swift.Bool, newPos: Swift.Int64, lines: Ice.StringSeq) {
+        return try await _impl._invokeAsync(operation: "read",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                ostr.write(iceP_filename)
+                                                ostr.write(iceP_pos)
+                                                ostr.write(iceP_size)
+                                            },
+                                            read: { istr in
+                                                let iceP_newPos: Swift.Int64 = try istr.read()
+                                                let iceP_lines: Ice.StringSeq = try istr.read()
+                                                let iceP_returnValue: Swift.Bool = try istr.read()
+                                                return (iceP_returnValue, iceP_newPos, iceP_lines)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as FileNotAvailableException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -1527,21 +1526,21 @@ public extension ServerPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func startAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "start",
-                                  mode: .Normal,
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as ServerStartException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func startAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "start",
+                                            mode: .Normal,
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as ServerStartException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
@@ -1574,21 +1573,21 @@ public extension ServerPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func stopAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "stop",
-                                  mode: .Normal,
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as ServerStopException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func stopAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "stop",
+                                            mode: .Normal,
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as ServerStopException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Check if the given server can be loaded on this node.
@@ -1642,30 +1641,30 @@ public extension ServerPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
-    func checkUpdateAsync(svr iceP_svr: InternalServerDescriptor?, noRestart iceP_noRestart: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Bool> {
-        return _impl._invokeAsync(operation: "checkUpdate",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_svr)
-                                      ostr.write(iceP_noRestart)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Bool = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as DeploymentException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.Bool` - The result of the operation
+    func checkUpdateAsync(svr iceP_svr: InternalServerDescriptor?, noRestart iceP_noRestart: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Bool {
+        return try await _impl._invokeAsync(operation: "checkUpdate",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_svr)
+                                                ostr.write(iceP_noRestart)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.Bool = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as DeploymentException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Enable or disable the server.
@@ -1696,17 +1695,17 @@ public extension ServerPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func setEnabledAsync(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "setEnabled",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_enable)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func setEnabledAsync(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "setEnabled",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_enable)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Check if the server is enabled.
@@ -1736,18 +1735,18 @@ public extension ServerPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
-    func isEnabledAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Bool> {
-        return _impl._invokeAsync(operation: "isEnabled",
-                                  mode: .Idempotent,
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Bool = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.Bool` - The result of the operation
+    func isEnabledAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Bool {
+        return try await _impl._invokeAsync(operation: "isEnabled",
+                                            mode: .Idempotent,
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.Bool = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Send signal to the server
@@ -1785,24 +1784,24 @@ public extension ServerPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func sendSignalAsync(_ iceP_signal: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "sendSignal",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_signal)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as BadSignalException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func sendSignalAsync(_ iceP_signal: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "sendSignal",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_signal)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as BadSignalException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Write message on servers' stdout or stderr.
@@ -1838,18 +1837,18 @@ public extension ServerPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func writeMessageAsync(message iceP_message: Swift.String, fd iceP_fd: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "writeMessage",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_message)
-                                      ostr.write(iceP_fd)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func writeMessageAsync(message iceP_message: Swift.String, fd iceP_fd: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "writeMessage",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_message)
+                                                ostr.write(iceP_fd)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Return the server state.
@@ -1879,18 +1878,18 @@ public extension ServerPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<ServerState>` - The result of the operation
-    func getStateAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<ServerState> {
-        return _impl._invokeAsync(operation: "getState",
-                                  mode: .Idempotent,
-                                  read: { istr in
-                                      let iceP_returnValue: ServerState = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `ServerState` - The result of the operation
+    func getStateAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> ServerState {
+        return try await _impl._invokeAsync(operation: "getState",
+                                            mode: .Idempotent,
+                                            read: { istr in
+                                                let iceP_returnValue: ServerState = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
@@ -1922,18 +1921,18 @@ public extension ServerPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
-    func getPidAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
-        return _impl._invokeAsync(operation: "getPid",
-                                  mode: .Idempotent,
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Int32 = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.Int32` - The result of the operation
+    func getPidAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invokeAsync(operation: "getPid",
+                                            mode: .Idempotent,
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.Int32 = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Set the process proxy.
@@ -1964,17 +1963,17 @@ public extension ServerPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func setProcessAsync(_ iceP_proc: Ice.ProcessPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "setProcess",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_proc)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func setProcessAsync(_ iceP_proc: Ice.ProcessPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "setProcess",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_proc)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -2124,17 +2123,17 @@ public extension ReplicaObserverPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func replicaInitAsync(_ iceP_replicas: InternalRegistryPrxSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "replicaInit",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      InternalRegistryPrxSeqHelper.write(to: ostr, value: iceP_replicas)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func replicaInitAsync(_ iceP_replicas: InternalRegistryPrxSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "replicaInit",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                InternalRegistryPrxSeqHelper.write(to: ostr, value: iceP_replicas)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Notification that a replica has been added. The node should establish a session with this new replica.
@@ -2165,17 +2164,17 @@ public extension ReplicaObserverPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func replicaAddedAsync(_ iceP_replica: InternalRegistryPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "replicaAdded",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_replica)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func replicaAddedAsync(_ iceP_replica: InternalRegistryPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "replicaAdded",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_replica)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Notification that a replica has been removed. The node should destroy the session to this replica.
@@ -2206,17 +2205,17 @@ public extension ReplicaObserverPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func replicaRemovedAsync(_ iceP_replica: InternalRegistryPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "replicaRemoved",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_replica)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func replicaRemovedAsync(_ iceP_replica: InternalRegistryPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "replicaRemoved",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_replica)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -2454,33 +2453,33 @@ public extension NodePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)>` - The result of the operation
-    func loadServerAsync(svr iceP_svr: InternalServerDescriptor?, replicaName iceP_replicaName: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)> {
-        return _impl._invokeAsync(operation: "loadServer",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      ostr.write(iceP_svr)
-                                      ostr.write(iceP_replicaName)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      let iceP_adapters: AdapterPrxDict = try AdapterPrxDictHelper.read(from: istr)
-                                      let iceP_activateTimeout: Swift.Int32 = try istr.read()
-                                      let iceP_deactivateTimeout: Swift.Int32 = try istr.read()
-                                      let iceP_returnValue: ServerPrx? = try istr.read(ServerPrx.self)
-                                      return (iceP_returnValue, iceP_adapters, iceP_activateTimeout, iceP_deactivateTimeout)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as DeploymentException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)` - The result of the operation
+    func loadServerAsync(svr iceP_svr: InternalServerDescriptor?, replicaName iceP_replicaName: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32) {
+        return try await _impl._invokeAsync(operation: "loadServer",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                ostr.write(iceP_svr)
+                                                ostr.write(iceP_replicaName)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                let iceP_adapters: AdapterPrxDict = try AdapterPrxDictHelper.read(from: istr)
+                                                let iceP_activateTimeout: Swift.Int32 = try istr.read()
+                                                let iceP_deactivateTimeout: Swift.Int32 = try istr.read()
+                                                let iceP_returnValue: ServerPrx? = try istr.read(ServerPrx.self)
+                                                return (iceP_returnValue, iceP_adapters, iceP_activateTimeout, iceP_deactivateTimeout)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as DeploymentException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Load the given server and ensure the server won't be restarted. If the server resources weren't already created
@@ -2545,33 +2544,33 @@ public extension NodePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)>` - The result of the operation
-    func loadServerWithoutRestartAsync(svr iceP_svr: InternalServerDescriptor?, replicaName iceP_replicaName: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)> {
-        return _impl._invokeAsync(operation: "loadServerWithoutRestart",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      ostr.write(iceP_svr)
-                                      ostr.write(iceP_replicaName)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      let iceP_adapters: AdapterPrxDict = try AdapterPrxDictHelper.read(from: istr)
-                                      let iceP_activateTimeout: Swift.Int32 = try istr.read()
-                                      let iceP_deactivateTimeout: Swift.Int32 = try istr.read()
-                                      let iceP_returnValue: ServerPrx? = try istr.read(ServerPrx.self)
-                                      return (iceP_returnValue, iceP_adapters, iceP_activateTimeout, iceP_deactivateTimeout)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as DeploymentException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)` - The result of the operation
+    func loadServerWithoutRestartAsync(svr iceP_svr: InternalServerDescriptor?, replicaName iceP_replicaName: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32) {
+        return try await _impl._invokeAsync(operation: "loadServerWithoutRestart",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                ostr.write(iceP_svr)
+                                                ostr.write(iceP_replicaName)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                let iceP_adapters: AdapterPrxDict = try AdapterPrxDictHelper.read(from: istr)
+                                                let iceP_activateTimeout: Swift.Int32 = try istr.read()
+                                                let iceP_deactivateTimeout: Swift.Int32 = try istr.read()
+                                                let iceP_returnValue: ServerPrx? = try istr.read(ServerPrx.self)
+                                                return (iceP_returnValue, iceP_adapters, iceP_activateTimeout, iceP_deactivateTimeout)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as DeploymentException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Destroy the given server.
@@ -2624,27 +2623,27 @@ public extension NodePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func destroyServerAsync(name iceP_name: Swift.String, uuid iceP_uuid: Swift.String, revision iceP_revision: Swift.Int32, replicaName iceP_replicaName: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "destroyServer",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      ostr.write(iceP_name)
-                                      ostr.write(iceP_uuid)
-                                      ostr.write(iceP_revision)
-                                      ostr.write(iceP_replicaName)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as DeploymentException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func destroyServerAsync(name iceP_name: Swift.String, uuid iceP_uuid: Swift.String, revision iceP_revision: Swift.Int32, replicaName iceP_replicaName: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "destroyServer",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                ostr.write(iceP_name)
+                                                ostr.write(iceP_uuid)
+                                                ostr.write(iceP_revision)
+                                                ostr.write(iceP_replicaName)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as DeploymentException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Destroy the server if it's not active.
@@ -2697,27 +2696,27 @@ public extension NodePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func destroyServerWithoutRestartAsync(name iceP_name: Swift.String, uuid iceP_uuid: Swift.String, revision iceP_revision: Swift.Int32, replicaName iceP_replicaName: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "destroyServerWithoutRestart",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      ostr.write(iceP_name)
-                                      ostr.write(iceP_uuid)
-                                      ostr.write(iceP_revision)
-                                      ostr.write(iceP_replicaName)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as DeploymentException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func destroyServerWithoutRestartAsync(name iceP_name: Swift.String, uuid iceP_uuid: Swift.String, revision iceP_revision: Swift.Int32, replicaName iceP_replicaName: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "destroyServerWithoutRestart",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                ostr.write(iceP_name)
+                                                ostr.write(iceP_uuid)
+                                                ostr.write(iceP_revision)
+                                                ostr.write(iceP_replicaName)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as DeploymentException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Establish a session to the given replica, this method only returns once the registration was attempted (unlike
@@ -2750,17 +2749,17 @@ public extension NodePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func registerWithReplicaAsync(_ iceP_replica: InternalRegistryPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "registerWithReplica",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_replica)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func registerWithReplicaAsync(_ iceP_replica: InternalRegistryPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "registerWithReplica",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_replica)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Get the node name.
@@ -2790,18 +2789,18 @@ public extension NodePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.String>` - The result of the operation
-    func getNameAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.String> {
-        return _impl._invokeAsync(operation: "getName",
-                                  mode: .Idempotent,
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.String = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.String` - The result of the operation
+    func getNameAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.String {
+        return try await _impl._invokeAsync(operation: "getName",
+                                            mode: .Idempotent,
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.String = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Get the node hostname.
@@ -2831,18 +2830,18 @@ public extension NodePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.String>` - The result of the operation
-    func getHostnameAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.String> {
-        return _impl._invokeAsync(operation: "getHostname",
-                                  mode: .Idempotent,
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.String = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.String` - The result of the operation
+    func getHostnameAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.String {
+        return try await _impl._invokeAsync(operation: "getHostname",
+                                            mode: .Idempotent,
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.String = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Get the node load.
@@ -2872,18 +2871,18 @@ public extension NodePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<LoadInfo>` - The result of the operation
-    func getLoadAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<LoadInfo> {
-        return _impl._invokeAsync(operation: "getLoad",
-                                  mode: .Idempotent,
-                                  read: { istr in
-                                      let iceP_returnValue: LoadInfo = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `LoadInfo` - The result of the operation
+    func getLoadAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> LoadInfo {
+        return try await _impl._invokeAsync(operation: "getLoad",
+                                            mode: .Idempotent,
+                                            read: { istr in
+                                                let iceP_returnValue: LoadInfo = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Get the number of processor sockets for the machine where this node is running.
@@ -2913,18 +2912,18 @@ public extension NodePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
-    func getProcessorSocketCountAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
-        return _impl._invokeAsync(operation: "getProcessorSocketCount",
-                                  mode: .Idempotent,
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Int32 = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.Int32` - The result of the operation
+    func getProcessorSocketCountAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invokeAsync(operation: "getProcessorSocketCount",
+                                            mode: .Idempotent,
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.Int32 = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Shutdown the node.
@@ -2948,14 +2947,14 @@ public extension NodePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "shutdown",
-                                  mode: .Idempotent,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "shutdown",
+                                            mode: .Idempotent,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -3145,17 +3144,17 @@ public extension NodeSessionPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func keepAliveAsync(_ iceP_load: LoadInfo, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "keepAlive",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_load)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func keepAliveAsync(_ iceP_load: LoadInfo, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "keepAlive",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_load)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
@@ -3188,17 +3187,17 @@ public extension NodeSessionPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func setReplicaObserverAsync(_ iceP_observer: ReplicaObserverPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "setReplicaObserver",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_observer)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func setReplicaObserverAsync(_ iceP_observer: ReplicaObserverPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "setReplicaObserver",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_observer)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Return the node session timeout.
@@ -3228,18 +3227,18 @@ public extension NodeSessionPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
-    func getTimeoutAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
-        return _impl._invokeAsync(operation: "getTimeout",
-                                  mode: .Idempotent,
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Int32 = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.Int32` - The result of the operation
+    func getTimeoutAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invokeAsync(operation: "getTimeout",
+                                            mode: .Idempotent,
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.Int32 = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Return the node observer.
@@ -3269,18 +3268,18 @@ public extension NodeSessionPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<NodeObserverPrx?>` - The result of the operation
-    func getObserverAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<NodeObserverPrx?> {
-        return _impl._invokeAsync(operation: "getObserver",
-                                  mode: .Idempotent,
-                                  read: { istr in
-                                      let iceP_returnValue: NodeObserverPrx? = try istr.read(NodeObserverPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `NodeObserverPrx?` - The result of the operation
+    func getObserverAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> NodeObserverPrx? {
+        return try await _impl._invokeAsync(operation: "getObserver",
+                                            mode: .Idempotent,
+                                            read: { istr in
+                                                let iceP_returnValue: NodeObserverPrx? = try istr.read(NodeObserverPrx.self)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Ask the registry to load the servers on the node.
@@ -3304,14 +3303,14 @@ public extension NodeSessionPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func loadServersAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "loadServers",
-                                  mode: .Idempotent,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func loadServersAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "loadServers",
+                                            mode: .Idempotent,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Get the name of the servers deployed on the node.
@@ -3341,18 +3340,18 @@ public extension NodeSessionPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Ice.StringSeq>` - The result of the operation
-    func getServersAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.StringSeq> {
-        return _impl._invokeAsync(operation: "getServers",
-                                  mode: .Idempotent,
-                                  read: { istr in
-                                      let iceP_returnValue: Ice.StringSeq = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Ice.StringSeq` - The result of the operation
+    func getServersAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.StringSeq {
+        return try await _impl._invokeAsync(operation: "getServers",
+                                            mode: .Idempotent,
+                                            read: { istr in
+                                                let iceP_returnValue: Ice.StringSeq = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Wait for the application update to complete (the application is completely updated once all the registry
@@ -3392,18 +3391,18 @@ public extension NodeSessionPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func waitForApplicationUpdateAsync(application iceP_application: Swift.String, revision iceP_revision: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "waitForApplicationUpdate",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_application)
-                                      ostr.write(iceP_revision)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func waitForApplicationUpdateAsync(application iceP_application: Swift.String, revision iceP_revision: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "waitForApplicationUpdate",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_application)
+                                                ostr.write(iceP_revision)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Destroy the session.
@@ -3427,14 +3426,14 @@ public extension NodeSessionPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func destroyAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "destroy",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func destroyAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "destroy",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -3708,14 +3707,14 @@ public extension ReplicaSessionPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func keepAliveAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "keepAlive",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func keepAliveAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "keepAlive",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Return the replica session timeout.
@@ -3745,18 +3744,18 @@ public extension ReplicaSessionPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
-    func getTimeoutAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
-        return _impl._invokeAsync(operation: "getTimeout",
-                                  mode: .Idempotent,
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Int32 = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Swift.Int32` - The result of the operation
+    func getTimeoutAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invokeAsync(operation: "getTimeout",
+                                            mode: .Idempotent,
+                                            read: { istr in
+                                                let iceP_returnValue: Swift.Int32 = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
@@ -3801,27 +3800,27 @@ public extension ReplicaSessionPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func setDatabaseObserverAsync(dbObs iceP_dbObs: DatabaseObserverPrx?, serials iceP_serials: StringLongDict? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "setDatabaseObserver",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      ostr.write(iceP_dbObs)
-                                      StringLongDictHelper.write(to: ostr, tag: 1, value: iceP_serials)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as DeploymentException {
-                                          throw error
-                                      } catch let error as ObserverAlreadyRegisteredException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func setDatabaseObserverAsync(dbObs iceP_dbObs: DatabaseObserverPrx?, serials iceP_serials: StringLongDict? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "setDatabaseObserver",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                ostr.write(iceP_dbObs)
+                                                StringLongDictHelper.write(to: ostr, tag: 1, value: iceP_serials)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as DeploymentException {
+                                                    throw error
+                                                } catch let error as ObserverAlreadyRegisteredException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
@@ -3854,17 +3853,17 @@ public extension ReplicaSessionPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func setEndpointsAsync(_ iceP_endpoints: StringObjectProxyDict, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "setEndpoints",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      StringObjectProxyDictHelper.write(to: ostr, value: iceP_endpoints)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func setEndpointsAsync(_ iceP_endpoints: StringObjectProxyDict, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "setEndpoints",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                StringObjectProxyDictHelper.write(to: ostr, value: iceP_endpoints)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Registers the replica well-known objects with the master.
@@ -3895,17 +3894,17 @@ public extension ReplicaSessionPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func registerWellKnownObjectsAsync(_ iceP_objects: ObjectInfoSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "registerWellKnownObjects",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      ObjectInfoSeqHelper.write(to: ostr, value: iceP_objects)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func registerWellKnownObjectsAsync(_ iceP_objects: ObjectInfoSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "registerWellKnownObjects",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                ObjectInfoSeqHelper.write(to: ostr, value: iceP_objects)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
@@ -3957,28 +3956,28 @@ public extension ReplicaSessionPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func setAdapterDirectProxyAsync(adapterId iceP_adapterId: Swift.String, replicaGroupId iceP_replicaGroupId: Swift.String, proxy iceP_proxy: Ice.ObjectPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "setAdapterDirectProxy",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      ostr.write(iceP_adapterId)
-                                      ostr.write(iceP_replicaGroupId)
-                                      ostr.write(iceP_proxy)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as AdapterNotExistException {
-                                          throw error
-                                      } catch let error as AdapterExistsException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func setAdapterDirectProxyAsync(adapterId iceP_adapterId: Swift.String, replicaGroupId iceP_replicaGroupId: Swift.String, proxy iceP_proxy: Ice.ObjectPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "setAdapterDirectProxy",
+                                            mode: .Idempotent,
+                                            write: { ostr in
+                                                ostr.write(iceP_adapterId)
+                                                ostr.write(iceP_replicaGroupId)
+                                                ostr.write(iceP_proxy)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as AdapterNotExistException {
+                                                    throw error
+                                                } catch let error as AdapterExistsException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Notify the master that an update was received. The master might wait for replication updates to be received by
@@ -4021,19 +4020,19 @@ public extension ReplicaSessionPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func receivedUpdateAsync(name iceP_name: TopicName, serial iceP_serial: Swift.Int32, failure iceP_failure: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "receivedUpdate",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_name)
-                                      ostr.write(iceP_serial)
-                                      ostr.write(iceP_failure)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func receivedUpdateAsync(name iceP_name: TopicName, serial iceP_serial: Swift.Int32, failure iceP_failure: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "receivedUpdate",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_name)
+                                                ostr.write(iceP_serial)
+                                                ostr.write(iceP_failure)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Destroy the session.
@@ -4057,14 +4056,14 @@ public extension ReplicaSessionPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func destroyAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "destroy",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func destroyAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "destroy",
+                                            mode: .Normal,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -4267,9 +4266,9 @@ public extension InternalRegistryPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as NodeActiveException {
-                                         throw error
                                      } catch let error as PermissionDeniedException {
+                                         throw error
+                                     } catch let error as NodeActiveException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -4296,33 +4295,33 @@ public extension InternalRegistryPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<NodeSessionPrx?>` - The result of the operation
-    func registerNodeAsync(info iceP_info: InternalNodeInfo?, prx iceP_prx: NodePrx?, loadInf iceP_loadInf: LoadInfo, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<NodeSessionPrx?> {
-        return _impl._invokeAsync(operation: "registerNode",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_info)
-                                      ostr.write(iceP_prx)
-                                      ostr.write(iceP_loadInf)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: NodeSessionPrx? = try istr.read(NodeSessionPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as NodeActiveException {
-                                          throw error
-                                      } catch let error as PermissionDeniedException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `NodeSessionPrx?` - The result of the operation
+    func registerNodeAsync(info iceP_info: InternalNodeInfo?, prx iceP_prx: NodePrx?, loadInf iceP_loadInf: LoadInfo, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> NodeSessionPrx? {
+        return try await _impl._invokeAsync(operation: "registerNode",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_info)
+                                                ostr.write(iceP_prx)
+                                                ostr.write(iceP_loadInf)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: NodeSessionPrx? = try istr.read(NodeSessionPrx.self)
+                                                return iceP_returnValue
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as PermissionDeniedException {
+                                                    throw error
+                                                } catch let error as NodeActiveException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Register a replica with the registry. If a replica with the same name is already registered,
@@ -4355,9 +4354,9 @@ public extension InternalRegistryPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as ReplicaActiveException {
-                                         throw error
                                      } catch let error as PermissionDeniedException {
+                                         throw error
+                                     } catch let error as ReplicaActiveException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -4382,32 +4381,32 @@ public extension InternalRegistryPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<ReplicaSessionPrx?>` - The result of the operation
-    func registerReplicaAsync(info iceP_info: InternalReplicaInfo?, prx iceP_prx: InternalRegistryPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<ReplicaSessionPrx?> {
-        return _impl._invokeAsync(operation: "registerReplica",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_info)
-                                      ostr.write(iceP_prx)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: ReplicaSessionPrx? = try istr.read(ReplicaSessionPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as ReplicaActiveException {
-                                          throw error
-                                      } catch let error as PermissionDeniedException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `ReplicaSessionPrx?` - The result of the operation
+    func registerReplicaAsync(info iceP_info: InternalReplicaInfo?, prx iceP_prx: InternalRegistryPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> ReplicaSessionPrx? {
+        return try await _impl._invokeAsync(operation: "registerReplica",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_info)
+                                                ostr.write(iceP_prx)
+                                                ostr.writePendingValues()
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: ReplicaSessionPrx? = try istr.read(ReplicaSessionPrx.self)
+                                                return iceP_returnValue
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as PermissionDeniedException {
+                                                    throw error
+                                                } catch let error as ReplicaActiveException {
+                                                    throw error
+                                                } catch is Ice.UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Create a session with the given registry replica. This method returns only once the session creation has been
@@ -4440,17 +4439,17 @@ public extension InternalRegistryPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func registerWithReplicaAsync(_ iceP_prx: InternalRegistryPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "registerWithReplica",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_prx)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func registerWithReplicaAsync(_ iceP_prx: InternalRegistryPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "registerWithReplica",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_prx)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Return the proxies of all the nodes known by this registry.
@@ -4480,18 +4479,18 @@ public extension InternalRegistryPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<NodePrxSeq>` - The result of the operation
-    func getNodesAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<NodePrxSeq> {
-        return _impl._invokeAsync(operation: "getNodes",
-                                  mode: .Idempotent,
-                                  read: { istr in
-                                      let iceP_returnValue: NodePrxSeq = try NodePrxSeqHelper.read(from: istr)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `NodePrxSeq` - The result of the operation
+    func getNodesAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> NodePrxSeq {
+        return try await _impl._invokeAsync(operation: "getNodes",
+                                            mode: .Idempotent,
+                                            read: { istr in
+                                                let iceP_returnValue: NodePrxSeq = try NodePrxSeqHelper.read(from: istr)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Return the proxies of all the registry replicas known by this registry.
@@ -4521,18 +4520,18 @@ public extension InternalRegistryPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<InternalRegistryPrxSeq>` - The result of the operation
-    func getReplicasAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<InternalRegistryPrxSeq> {
-        return _impl._invokeAsync(operation: "getReplicas",
-                                  mode: .Idempotent,
-                                  read: { istr in
-                                      let iceP_returnValue: InternalRegistryPrxSeq = try InternalRegistryPrxSeqHelper.read(from: istr)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `InternalRegistryPrxSeq` - The result of the operation
+    func getReplicasAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> InternalRegistryPrxSeq {
+        return try await _impl._invokeAsync(operation: "getReplicas",
+                                            mode: .Idempotent,
+                                            read: { istr in
+                                                let iceP_returnValue: InternalRegistryPrxSeq = try InternalRegistryPrxSeqHelper.read(from: istr)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Return applications, adapters, objects from this replica.
@@ -4568,20 +4567,20 @@ public extension InternalRegistryPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: ApplicationInfoSeq, serial: Swift.Int64)>` - The result of the operation
-    func getApplicationsAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: ApplicationInfoSeq, serial: Swift.Int64)> {
-        return _impl._invokeAsync(operation: "getApplications",
-                                  mode: .Idempotent,
-                                  read: { istr in
-                                      let iceP_serial: Swift.Int64 = try istr.read()
-                                      let iceP_returnValue: ApplicationInfoSeq = try ApplicationInfoSeqHelper.read(from: istr)
-                                      try istr.readPendingValues()
-                                      return (iceP_returnValue, iceP_serial)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: ApplicationInfoSeq, serial: Swift.Int64)` - The result of the operation
+    func getApplicationsAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ApplicationInfoSeq, serial: Swift.Int64) {
+        return try await _impl._invokeAsync(operation: "getApplications",
+                                            mode: .Idempotent,
+                                            read: { istr in
+                                                let iceP_serial: Swift.Int64 = try istr.read()
+                                                let iceP_returnValue: ApplicationInfoSeq = try ApplicationInfoSeqHelper.read(from: istr)
+                                                try istr.readPendingValues()
+                                                return (iceP_returnValue, iceP_serial)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -4614,19 +4613,19 @@ public extension InternalRegistryPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: AdapterInfoSeq, serial: Swift.Int64)>` - The result of the operation
-    func getAdaptersAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: AdapterInfoSeq, serial: Swift.Int64)> {
-        return _impl._invokeAsync(operation: "getAdapters",
-                                  mode: .Idempotent,
-                                  read: { istr in
-                                      let iceP_serial: Swift.Int64 = try istr.read()
-                                      let iceP_returnValue: AdapterInfoSeq = try AdapterInfoSeqHelper.read(from: istr)
-                                      return (iceP_returnValue, iceP_serial)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: AdapterInfoSeq, serial: Swift.Int64)` - The result of the operation
+    func getAdaptersAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: AdapterInfoSeq, serial: Swift.Int64) {
+        return try await _impl._invokeAsync(operation: "getAdapters",
+                                            mode: .Idempotent,
+                                            read: { istr in
+                                                let iceP_serial: Swift.Int64 = try istr.read()
+                                                let iceP_returnValue: AdapterInfoSeq = try AdapterInfoSeqHelper.read(from: istr)
+                                                return (iceP_returnValue, iceP_serial)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     ///
@@ -4659,19 +4658,19 @@ public extension InternalRegistryPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: ObjectInfoSeq, serial: Swift.Int64)>` - The result of the operation
-    func getObjectsAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: ObjectInfoSeq, serial: Swift.Int64)> {
-        return _impl._invokeAsync(operation: "getObjects",
-                                  mode: .Idempotent,
-                                  read: { istr in
-                                      let iceP_serial: Swift.Int64 = try istr.read()
-                                      let iceP_returnValue: ObjectInfoSeq = try ObjectInfoSeqHelper.read(from: istr)
-                                      return (iceP_returnValue, iceP_serial)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: ObjectInfoSeq, serial: Swift.Int64)` - The result of the operation
+    func getObjectsAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: ObjectInfoSeq, serial: Swift.Int64) {
+        return try await _impl._invokeAsync(operation: "getObjects",
+                                            mode: .Idempotent,
+                                            read: { istr in
+                                                let iceP_serial: Swift.Int64 = try istr.read()
+                                                let iceP_returnValue: ObjectInfoSeq = try ObjectInfoSeqHelper.read(from: istr)
+                                                return (iceP_returnValue, iceP_serial)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Shutdown this registry.
@@ -4695,14 +4694,14 @@ public extension InternalRegistryPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "shutdown",
-                                  mode: .Idempotent,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "shutdown",
+                                            mode: .Idempotent,
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -5062,24 +5061,24 @@ public struct AdapterDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "activate":
-            servant._iceD_activate(request)
+            try await servant._iceD_activate(request)
         case "getDirectProxy":
-            servant._iceD_getDirectProxy(request)
+            try await servant._iceD_getDirectProxy(request)
         case "ice_id":
-            (servant as? Ice.Object ?? AdapterDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? AdapterDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? AdapterDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? AdapterDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? AdapterDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? AdapterDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? AdapterDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? AdapterDisp.defaultObject)._iceD_ice_ping(request)
         case "setDirectProxy":
-            servant._iceD_setDirectProxy(request)
+            try await servant._iceD_setDirectProxy(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -5091,8 +5090,8 @@ public protocol Adapter {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<Ice.ObjectPrx?>` - The result of the operation
-    func activateAsync(current: Ice.Current) -> PromiseKit.Promise<Ice.ObjectPrx?>
+    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    func activateAsync(current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
     /// contains the last known adapter endpoints.
@@ -5125,22 +5124,22 @@ public struct FileReaderDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "getOffsetFromEnd":
-            servant._iceD_getOffsetFromEnd(request)
+            try await servant._iceD_getOffsetFromEnd(request)
         case "ice_id":
-            (servant as? Ice.Object ?? FileReaderDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? FileReaderDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? FileReaderDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? FileReaderDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? FileReaderDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? FileReaderDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? FileReaderDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? FileReaderDisp.defaultObject)._iceD_ice_ping(request)
         case "read":
-            servant._iceD_read(request)
+            try await servant._iceD_read(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -5187,42 +5186,42 @@ public struct ServerDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "checkUpdate":
-            servant._iceD_checkUpdate(request)
+            try await servant._iceD_checkUpdate(request)
         case "getOffsetFromEnd":
-            servant._iceD_getOffsetFromEnd(request)
+            try await servant._iceD_getOffsetFromEnd(request)
         case "getPid":
-            servant._iceD_getPid(request)
+            try await servant._iceD_getPid(request)
         case "getState":
-            servant._iceD_getState(request)
+            try await servant._iceD_getState(request)
         case "ice_id":
-            (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_ping(request)
         case "isEnabled":
-            servant._iceD_isEnabled(request)
+            try await servant._iceD_isEnabled(request)
         case "read":
-            servant._iceD_read(request)
+            try await servant._iceD_read(request)
         case "sendSignal":
-            servant._iceD_sendSignal(request)
+            try await servant._iceD_sendSignal(request)
         case "setEnabled":
-            servant._iceD_setEnabled(request)
+            try await servant._iceD_setEnabled(request)
         case "setProcess":
-            servant._iceD_setProcess(request)
+            try await servant._iceD_setProcess(request)
         case "start":
-            servant._iceD_start(request)
+            try await servant._iceD_start(request)
         case "stop":
-            servant._iceD_stop(request)
+            try await servant._iceD_stop(request)
         case "writeMessage":
-            servant._iceD_writeMessage(request)
+            try await servant._iceD_writeMessage(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -5232,16 +5231,16 @@ public protocol Server: FileReader {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func startAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
+    /// - returns: `` - The result of the operation
+    func startAsync(current: Ice.Current) async throws -> Swift.Void
 
     /// Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
     /// configurable amount of time, it will be killed.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func stopAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
+    /// - returns: `` - The result of the operation
+    func stopAsync(current: Ice.Current) async throws -> Swift.Void
 
     /// Check if the given server can be loaded on this node.
     ///
@@ -5309,8 +5308,8 @@ public protocol Server: FileReader {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func setProcessAsync(proc: Ice.ProcessPrx?, current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
+    /// - returns: `` - The result of the operation
+    func setProcessAsync(proc: Ice.ProcessPrx?, current: Ice.Current) async throws -> Swift.Void
 }
 
 
@@ -5323,24 +5322,24 @@ public struct ReplicaObserverDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_ping(request)
         case "replicaAdded":
-            servant._iceD_replicaAdded(request)
+            try await servant._iceD_replicaAdded(request)
         case "replicaInit":
-            servant._iceD_replicaInit(request)
+            try await servant._iceD_replicaInit(request)
         case "replicaRemoved":
-            servant._iceD_replicaRemoved(request)
+            try await servant._iceD_replicaRemoved(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -5378,48 +5377,48 @@ public struct NodeDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "destroyServer":
-            servant._iceD_destroyServer(request)
+            try await servant._iceD_destroyServer(request)
         case "destroyServerWithoutRestart":
-            servant._iceD_destroyServerWithoutRestart(request)
+            try await servant._iceD_destroyServerWithoutRestart(request)
         case "getHostname":
-            servant._iceD_getHostname(request)
+            try await servant._iceD_getHostname(request)
         case "getLoad":
-            servant._iceD_getLoad(request)
+            try await servant._iceD_getLoad(request)
         case "getName":
-            servant._iceD_getName(request)
+            try await servant._iceD_getName(request)
         case "getOffsetFromEnd":
-            servant._iceD_getOffsetFromEnd(request)
+            try await servant._iceD_getOffsetFromEnd(request)
         case "getProcessorSocketCount":
-            servant._iceD_getProcessorSocketCount(request)
+            try await servant._iceD_getProcessorSocketCount(request)
         case "ice_id":
-            (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_ping(request)
         case "loadServer":
-            servant._iceD_loadServer(request)
+            try await servant._iceD_loadServer(request)
         case "loadServerWithoutRestart":
-            servant._iceD_loadServerWithoutRestart(request)
+            try await servant._iceD_loadServerWithoutRestart(request)
         case "read":
-            servant._iceD_read(request)
+            try await servant._iceD_read(request)
         case "registerWithReplica":
-            servant._iceD_registerWithReplica(request)
+            try await servant._iceD_registerWithReplica(request)
         case "replicaAdded":
-            servant._iceD_replicaAdded(request)
+            try await servant._iceD_replicaAdded(request)
         case "replicaInit":
-            servant._iceD_replicaInit(request)
+            try await servant._iceD_replicaInit(request)
         case "replicaRemoved":
-            servant._iceD_replicaRemoved(request)
+            try await servant._iceD_replicaRemoved(request)
         case "shutdown":
-            servant._iceD_shutdown(request)
+            try await servant._iceD_shutdown(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -5434,8 +5433,8 @@ public protocol Node: FileReader, ReplicaObserver {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)>` - The result of the operation
-    func loadServerAsync(svr: InternalServerDescriptor?, replicaName: Swift.String, current: Ice.Current) -> PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)>
+    /// - returns: `(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)` - The result of the operation
+    func loadServerAsync(svr: InternalServerDescriptor?, replicaName: Swift.String, current: Ice.Current) async throws -> (returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)
 
     /// Load the given server and ensure the server won't be restarted. If the server resources weren't already created
     /// (database environment directories, property files, etc), they will be created. If the server can't be updated
@@ -5447,8 +5446,8 @@ public protocol Node: FileReader, ReplicaObserver {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)>` - The result of the operation
-    func loadServerWithoutRestartAsync(svr: InternalServerDescriptor?, replicaName: Swift.String, current: Ice.Current) -> PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)>
+    /// - returns: `(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)` - The result of the operation
+    func loadServerWithoutRestartAsync(svr: InternalServerDescriptor?, replicaName: Swift.String, current: Ice.Current) async throws -> (returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)
 
     /// Destroy the given server.
     ///
@@ -5462,8 +5461,8 @@ public protocol Node: FileReader, ReplicaObserver {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func destroyServerAsync(name: Swift.String, uuid: Swift.String, revision: Swift.Int32, replicaName: Swift.String, current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
+    /// - returns: `` - The result of the operation
+    func destroyServerAsync(name: Swift.String, uuid: Swift.String, revision: Swift.Int32, replicaName: Swift.String, current: Ice.Current) async throws -> Swift.Void
 
     /// Destroy the server if it's not active.
     ///
@@ -5477,8 +5476,8 @@ public protocol Node: FileReader, ReplicaObserver {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func destroyServerWithoutRestartAsync(name: Swift.String, uuid: Swift.String, revision: Swift.Int32, replicaName: Swift.String, current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
+    /// - returns: `` - The result of the operation
+    func destroyServerWithoutRestartAsync(name: Swift.String, uuid: Swift.String, revision: Swift.Int32, replicaName: Swift.String, current: Ice.Current) async throws -> Swift.Void
 
     /// Establish a session to the given replica, this method only returns once the registration was attempted (unlike
     /// replicaAdded below).
@@ -5532,34 +5531,34 @@ public struct NodeSessionDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "destroy":
-            servant._iceD_destroy(request)
+            try await servant._iceD_destroy(request)
         case "getObserver":
-            servant._iceD_getObserver(request)
+            try await servant._iceD_getObserver(request)
         case "getServers":
-            servant._iceD_getServers(request)
+            try await servant._iceD_getServers(request)
         case "getTimeout":
-            servant._iceD_getTimeout(request)
+            try await servant._iceD_getTimeout(request)
         case "ice_id":
-            (servant as? Ice.Object ?? NodeSessionDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? NodeSessionDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? NodeSessionDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? NodeSessionDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? NodeSessionDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? NodeSessionDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? NodeSessionDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? NodeSessionDisp.defaultObject)._iceD_ice_ping(request)
         case "keepAlive":
-            servant._iceD_keepAlive(request)
+            try await servant._iceD_keepAlive(request)
         case "loadServers":
-            servant._iceD_loadServers(request)
+            try await servant._iceD_loadServers(request)
         case "setReplicaObserver":
-            servant._iceD_setReplicaObserver(request)
+            try await servant._iceD_setReplicaObserver(request)
         case "waitForApplicationUpdate":
-            servant._iceD_waitForApplicationUpdate(request)
+            try await servant._iceD_waitForApplicationUpdate(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -5598,8 +5597,8 @@ public protocol NodeSession {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func loadServersAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
+    /// - returns: `` - The result of the operation
+    func loadServersAsync(current: Ice.Current) async throws -> Swift.Void
 
     /// Get the name of the servers deployed on the node.
     ///
@@ -5618,8 +5617,8 @@ public protocol NodeSession {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func waitForApplicationUpdateAsync(application: Swift.String, revision: Swift.Int32, current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
+    /// - returns: `` - The result of the operation
+    func waitForApplicationUpdateAsync(application: Swift.String, revision: Swift.Int32, current: Ice.Current) async throws -> Swift.Void
 
     /// Destroy the session.
     ///
@@ -5637,42 +5636,42 @@ public struct DatabaseObserverDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "adapterAdded":
-            servant._iceD_adapterAdded(request)
+            try await servant._iceD_adapterAdded(request)
         case "adapterInit":
-            servant._iceD_adapterInit(request)
+            try await servant._iceD_adapterInit(request)
         case "adapterRemoved":
-            servant._iceD_adapterRemoved(request)
+            try await servant._iceD_adapterRemoved(request)
         case "adapterUpdated":
-            servant._iceD_adapterUpdated(request)
+            try await servant._iceD_adapterUpdated(request)
         case "applicationAdded":
-            servant._iceD_applicationAdded(request)
+            try await servant._iceD_applicationAdded(request)
         case "applicationInit":
-            servant._iceD_applicationInit(request)
+            try await servant._iceD_applicationInit(request)
         case "applicationRemoved":
-            servant._iceD_applicationRemoved(request)
+            try await servant._iceD_applicationRemoved(request)
         case "applicationUpdated":
-            servant._iceD_applicationUpdated(request)
+            try await servant._iceD_applicationUpdated(request)
         case "ice_id":
-            (servant as? Ice.Object ?? DatabaseObserverDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? DatabaseObserverDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? DatabaseObserverDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? DatabaseObserverDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? DatabaseObserverDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? DatabaseObserverDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? DatabaseObserverDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? DatabaseObserverDisp.defaultObject)._iceD_ice_ping(request)
         case "objectAdded":
-            servant._iceD_objectAdded(request)
+            try await servant._iceD_objectAdded(request)
         case "objectInit":
-            servant._iceD_objectInit(request)
+            try await servant._iceD_objectInit(request)
         case "objectRemoved":
-            servant._iceD_objectRemoved(request)
+            try await servant._iceD_objectRemoved(request)
         case "objectUpdated":
-            servant._iceD_objectUpdated(request)
+            try await servant._iceD_objectUpdated(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -5689,34 +5688,34 @@ public struct ReplicaSessionDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "destroy":
-            servant._iceD_destroy(request)
+            try await servant._iceD_destroy(request)
         case "getTimeout":
-            servant._iceD_getTimeout(request)
+            try await servant._iceD_getTimeout(request)
         case "ice_id":
-            (servant as? Ice.Object ?? ReplicaSessionDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? ReplicaSessionDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? ReplicaSessionDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? ReplicaSessionDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? ReplicaSessionDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? ReplicaSessionDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? ReplicaSessionDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? ReplicaSessionDisp.defaultObject)._iceD_ice_ping(request)
         case "keepAlive":
-            servant._iceD_keepAlive(request)
+            try await servant._iceD_keepAlive(request)
         case "receivedUpdate":
-            servant._iceD_receivedUpdate(request)
+            try await servant._iceD_receivedUpdate(request)
         case "registerWellKnownObjects":
-            servant._iceD_registerWellKnownObjects(request)
+            try await servant._iceD_registerWellKnownObjects(request)
         case "setAdapterDirectProxy":
-            servant._iceD_setAdapterDirectProxy(request)
+            try await servant._iceD_setAdapterDirectProxy(request)
         case "setDatabaseObserver":
-            servant._iceD_setDatabaseObserver(request)
+            try await servant._iceD_setDatabaseObserver(request)
         case "setEndpoints":
-            servant._iceD_setEndpoints(request)
+            try await servant._iceD_setEndpoints(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -5798,40 +5797,40 @@ public struct InternalRegistryDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "getAdapters":
-            servant._iceD_getAdapters(request)
+            try await servant._iceD_getAdapters(request)
         case "getApplications":
-            servant._iceD_getApplications(request)
+            try await servant._iceD_getApplications(request)
         case "getNodes":
-            servant._iceD_getNodes(request)
+            try await servant._iceD_getNodes(request)
         case "getObjects":
-            servant._iceD_getObjects(request)
+            try await servant._iceD_getObjects(request)
         case "getOffsetFromEnd":
-            servant._iceD_getOffsetFromEnd(request)
+            try await servant._iceD_getOffsetFromEnd(request)
         case "getReplicas":
-            servant._iceD_getReplicas(request)
+            try await servant._iceD_getReplicas(request)
         case "ice_id":
-            (servant as? Ice.Object ?? InternalRegistryDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? InternalRegistryDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? InternalRegistryDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? InternalRegistryDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? InternalRegistryDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? InternalRegistryDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? InternalRegistryDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? InternalRegistryDisp.defaultObject)._iceD_ice_ping(request)
         case "read":
-            servant._iceD_read(request)
+            try await servant._iceD_read(request)
         case "registerNode":
-            servant._iceD_registerNode(request)
+            try await servant._iceD_registerNode(request)
         case "registerReplica":
-            servant._iceD_registerReplica(request)
+            try await servant._iceD_registerReplica(request)
         case "registerWithReplica":
-            servant._iceD_registerWithReplica(request)
+            try await servant._iceD_registerWithReplica(request)
         case "shutdown":
-            servant._iceD_shutdown(request)
+            try await servant._iceD_shutdown(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -5942,48 +5941,37 @@ public protocol InternalRegistry: FileReader {
 ///
 ///  - setDirectProxy: Set the direct proxy for this adapter.
 extension Adapter {
-    public func _iceD_activate(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.activateAsync(
-                current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
-                    let iceP_returnValue = value
-                    ostr.write(iceP_returnValue)
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
-    }
-
-    public func _iceD_getDirectProxy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-
-            let iceP_returnValue = try self.getDirectProxy(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+    public func _iceD_activate(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.activateAsync(
+            current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+            let iceP_returnValue = value
             ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
         }
     }
 
-    public func _iceD_setDirectProxy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_proxy: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+    public func _iceD_getDirectProxy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.setDirectProxy(proxy: iceP_proxy, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getDirectProxy(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
+    }
+
+    public func _iceD_setDirectProxy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_proxy: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+
+        try self.setDirectProxy(proxy: iceP_proxy, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }
 
@@ -5995,43 +5983,37 @@ extension Adapter {
 ///
 ///  - read: Read lines (or size bytes) at the specified position from the given file.
 extension FileReader {
-    public func _iceD_getOffsetFromEnd(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_filename: Swift.String = try istr.read()
-            let iceP_lines: Swift.Int32 = try istr.read()
+    public func _iceD_getOffsetFromEnd(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_filename: Swift.String = try istr.read()
+        let iceP_lines: Swift.Int32 = try istr.read()
 
-            let iceP_returnValue = try self.getOffsetFromEnd(filename: iceP_filename, lines: iceP_lines, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getOffsetFromEnd(filename: iceP_filename, lines: iceP_lines, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_read(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_filename: Swift.String = try istr.read()
-            let iceP_pos: Swift.Int64 = try istr.read()
-            let iceP_size: Swift.Int32 = try istr.read()
+    public func _iceD_read(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_filename: Swift.String = try istr.read()
+        let iceP_pos: Swift.Int64 = try istr.read()
+        let iceP_size: Swift.Int32 = try istr.read()
 
-            let (iceP_returnValue, iceP_newPos, iceP_lines) = try self.read(filename: iceP_filename, pos: iceP_pos, size: iceP_size, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_newPos)
-            ostr.write(iceP_lines)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_newPos, iceP_lines) = try self.read(filename: iceP_filename, pos: iceP_pos, size: iceP_size, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_newPos)
+        ostr.write(iceP_lines)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }
 
@@ -6059,150 +6041,114 @@ extension FileReader {
 ///
 ///  - setProcess: Set the process proxy.
 extension Server {
-    public func _iceD_start(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.startAsync(
-                current: request.current
-            ).map(on: nil) {
-                request.current.makeEmptyOutgoingResponse()
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+    public func _iceD_start(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        try await self.startAsync(
+            current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_stop(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.stopAsync(
-                current: request.current
-            ).map(on: nil) {
-                request.current.makeEmptyOutgoingResponse()
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+    public func _iceD_stop(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        try await self.stopAsync(
+            current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_checkUpdate(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            var iceP_svr: InternalServerDescriptor?
-            try istr.read(InternalServerDescriptor.self) { iceP_svr = $0 }
-            let iceP_noRestart: Swift.Bool = try istr.read()
-            try istr.readPendingValues()
+    public func _iceD_checkUpdate(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        var iceP_svr: InternalServerDescriptor?
+        try istr.read(InternalServerDescriptor.self) { iceP_svr = $0 }
+        let iceP_noRestart: Swift.Bool = try istr.read()
+        try istr.readPendingValues()
 
-            let iceP_returnValue = try self.checkUpdate(svr: iceP_svr, noRestart: iceP_noRestart, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.checkUpdate(svr: iceP_svr, noRestart: iceP_noRestart, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_setEnabled(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_enable: Swift.Bool = try istr.read()
+    public func _iceD_setEnabled(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_enable: Swift.Bool = try istr.read()
 
-            try self.setEnabled(enable: iceP_enable, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.setEnabled(enable: iceP_enable, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_isEnabled(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_isEnabled(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.isEnabled(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.isEnabled(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_sendSignal(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_signal: Swift.String = try istr.read()
+    public func _iceD_sendSignal(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_signal: Swift.String = try istr.read()
 
-            try self.sendSignal(signal: iceP_signal, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.sendSignal(signal: iceP_signal, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_writeMessage(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_message: Swift.String = try istr.read()
-            let iceP_fd: Swift.Int32 = try istr.read()
+    public func _iceD_writeMessage(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_message: Swift.String = try istr.read()
+        let iceP_fd: Swift.Int32 = try istr.read()
 
-            try self.writeMessage(message: iceP_message, fd: iceP_fd, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.writeMessage(message: iceP_message, fd: iceP_fd, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_getState(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_getState(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.getState(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getState(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_getPid(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_getPid(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.getPid(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getPid(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_setProcess(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_proc: Ice.ProcessPrx? = try istr.read(Ice.ProcessPrx.self)
-            return self.setProcessAsync(
-                proc: iceP_proc, current: request.current
-            ).map(on: nil) {
-                request.current.makeEmptyOutgoingResponse()
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+    public func _iceD_setProcess(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_proc: Ice.ProcessPrx? = try istr.read(Ice.ProcessPrx.self)
+        try await self.setProcessAsync(
+            proc: iceP_proc, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }
 
@@ -6216,43 +6162,34 @@ extension Server {
 ///
 ///  - replicaRemoved: Notification that a replica has been removed.
 extension ReplicaObserver {
-    public func _iceD_replicaInit(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_replicas: InternalRegistryPrxSeq = try InternalRegistryPrxSeqHelper.read(from: istr)
+    public func _iceD_replicaInit(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_replicas: InternalRegistryPrxSeq = try InternalRegistryPrxSeqHelper.read(from: istr)
 
-            try self.replicaInit(replicas: iceP_replicas, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.replicaInit(replicas: iceP_replicas, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_replicaAdded(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_replica: InternalRegistryPrx? = try istr.read(InternalRegistryPrx.self)
+    public func _iceD_replicaAdded(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_replica: InternalRegistryPrx? = try istr.read(InternalRegistryPrx.self)
 
-            try self.replicaAdded(replica: iceP_replica, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.replicaAdded(replica: iceP_replica, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_replicaRemoved(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_replica: InternalRegistryPrx? = try istr.read(InternalRegistryPrx.self)
+    public func _iceD_replicaRemoved(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_replica: InternalRegistryPrx? = try istr.read(InternalRegistryPrx.self)
 
-            try self.replicaRemoved(replica: iceP_replica, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.replicaRemoved(replica: iceP_replica, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }
 
@@ -6280,172 +6217,134 @@ extension ReplicaObserver {
 ///
 ///  - shutdown: Shutdown the node.
 extension Node {
-    public func _iceD_loadServer(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            var iceP_svr: InternalServerDescriptor?
-            try istr.read(InternalServerDescriptor.self) { iceP_svr = $0 }
-            let iceP_replicaName: Swift.String = try istr.read()
-            try istr.readPendingValues()
-            return self.loadServerAsync(
-                svr: iceP_svr, replicaName: iceP_replicaName, current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
-                    let (iceP_returnValue, iceP_adapters, iceP_activateTimeout, iceP_deactivateTimeout) = value
-                    AdapterPrxDictHelper.write(to: ostr, value: iceP_adapters)
-                    ostr.write(iceP_activateTimeout)
-                    ostr.write(iceP_deactivateTimeout)
-                    ostr.write(iceP_returnValue)
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
-    }
-
-    public func _iceD_loadServerWithoutRestart(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            var iceP_svr: InternalServerDescriptor?
-            try istr.read(InternalServerDescriptor.self) { iceP_svr = $0 }
-            let iceP_replicaName: Swift.String = try istr.read()
-            try istr.readPendingValues()
-            return self.loadServerWithoutRestartAsync(
-                svr: iceP_svr, replicaName: iceP_replicaName, current: request.current
-            ).map(on: nil) { result in 
-                request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
-                    let (iceP_returnValue, iceP_adapters, iceP_activateTimeout, iceP_deactivateTimeout) = value
-                    AdapterPrxDictHelper.write(to: ostr, value: iceP_adapters)
-                    ostr.write(iceP_activateTimeout)
-                    ostr.write(iceP_deactivateTimeout)
-                    ostr.write(iceP_returnValue)
-                }
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
-    }
-
-    public func _iceD_destroyServer(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_name: Swift.String = try istr.read()
-            let iceP_uuid: Swift.String = try istr.read()
-            let iceP_revision: Swift.Int32 = try istr.read()
-            let iceP_replicaName: Swift.String = try istr.read()
-            return self.destroyServerAsync(
-                name: iceP_name, uuid: iceP_uuid, revision: iceP_revision, replicaName: iceP_replicaName, current: request.current
-            ).map(on: nil) {
-                request.current.makeEmptyOutgoingResponse()
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
-    }
-
-    public func _iceD_destroyServerWithoutRestart(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_name: Swift.String = try istr.read()
-            let iceP_uuid: Swift.String = try istr.read()
-            let iceP_revision: Swift.Int32 = try istr.read()
-            let iceP_replicaName: Swift.String = try istr.read()
-            return self.destroyServerWithoutRestartAsync(
-                name: iceP_name, uuid: iceP_uuid, revision: iceP_revision, replicaName: iceP_replicaName, current: request.current
-            ).map(on: nil) {
-                request.current.makeEmptyOutgoingResponse()
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
-    }
-
-    public func _iceD_registerWithReplica(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_replica: InternalRegistryPrx? = try istr.read(InternalRegistryPrx.self)
-
-            try self.registerWithReplica(replica: iceP_replica, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
-    }
-
-    public func _iceD_getName(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-
-            let iceP_returnValue = try self.getName(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+    public func _iceD_loadServer(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        var iceP_svr: InternalServerDescriptor?
+        try istr.read(InternalServerDescriptor.self) { iceP_svr = $0 }
+        let iceP_replicaName: Swift.String = try istr.read()
+        try istr.readPendingValues()
+        let result = try await self.loadServerAsync(
+            svr: iceP_svr, replicaName: iceP_replicaName, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+            let (iceP_returnValue, iceP_adapters, iceP_activateTimeout, iceP_deactivateTimeout) = value
+            AdapterPrxDictHelper.write(to: ostr, value: iceP_adapters)
+            ostr.write(iceP_activateTimeout)
+            ostr.write(iceP_deactivateTimeout)
             ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
         }
     }
 
-    public func _iceD_getHostname(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-
-            let iceP_returnValue = try self.getHostname(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+    public func _iceD_loadServerWithoutRestart(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        var iceP_svr: InternalServerDescriptor?
+        try istr.read(InternalServerDescriptor.self) { iceP_svr = $0 }
+        let iceP_replicaName: Swift.String = try istr.read()
+        try istr.readPendingValues()
+        let result = try await self.loadServerWithoutRestartAsync(
+            svr: iceP_svr, replicaName: iceP_replicaName, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+            let (iceP_returnValue, iceP_adapters, iceP_activateTimeout, iceP_deactivateTimeout) = value
+            AdapterPrxDictHelper.write(to: ostr, value: iceP_adapters)
+            ostr.write(iceP_activateTimeout)
+            ostr.write(iceP_deactivateTimeout)
             ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
         }
     }
 
-    public func _iceD_getLoad(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-
-            let iceP_returnValue = try self.getLoad(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+    public func _iceD_destroyServer(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_name: Swift.String = try istr.read()
+        let iceP_uuid: Swift.String = try istr.read()
+        let iceP_revision: Swift.Int32 = try istr.read()
+        let iceP_replicaName: Swift.String = try istr.read()
+        try await self.destroyServerAsync(
+            name: iceP_name, uuid: iceP_uuid, revision: iceP_revision, replicaName: iceP_replicaName, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_getProcessorSocketCount(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-
-            let iceP_returnValue = try self.getProcessorSocketCount(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+    public func _iceD_destroyServerWithoutRestart(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_name: Swift.String = try istr.read()
+        let iceP_uuid: Swift.String = try istr.read()
+        let iceP_revision: Swift.Int32 = try istr.read()
+        let iceP_replicaName: Swift.String = try istr.read()
+        try await self.destroyServerWithoutRestartAsync(
+            name: iceP_name, uuid: iceP_uuid, revision: iceP_revision, replicaName: iceP_replicaName, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_registerWithReplica(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_replica: InternalRegistryPrx? = try istr.read(InternalRegistryPrx.self)
 
-            try self.shutdown(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.registerWithReplica(replica: iceP_replica, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
+    }
+
+    public func _iceD_getName(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+
+        let iceP_returnValue = try self.getName(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
+    }
+
+    public func _iceD_getHostname(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+
+        let iceP_returnValue = try self.getHostname(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
+    }
+
+    public func _iceD_getLoad(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+
+        let iceP_returnValue = try self.getLoad(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
+    }
+
+    public func _iceD_getProcessorSocketCount(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+
+        let iceP_returnValue = try self.getProcessorSocketCount(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
+    }
+
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+
+        try self.shutdown(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }
 
@@ -6469,115 +6368,87 @@ extension Node {
 ///
 ///  - destroy: Destroy the session.
 extension NodeSession {
-    public func _iceD_keepAlive(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_load: LoadInfo = try istr.read()
+    public func _iceD_keepAlive(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_load: LoadInfo = try istr.read()
 
-            try self.keepAlive(load: iceP_load, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.keepAlive(load: iceP_load, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_setReplicaObserver(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_observer: ReplicaObserverPrx? = try istr.read(ReplicaObserverPrx.self)
+    public func _iceD_setReplicaObserver(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_observer: ReplicaObserverPrx? = try istr.read(ReplicaObserverPrx.self)
 
-            try self.setReplicaObserver(observer: iceP_observer, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.setReplicaObserver(observer: iceP_observer, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_getTimeout(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_getTimeout(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.getTimeout(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getTimeout(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_getObserver(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_getObserver(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.getObserver(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getObserver(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_loadServers(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
-            return self.loadServersAsync(
-                current: request.current
-            ).map(on: nil) {
-                request.current.makeEmptyOutgoingResponse()
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+    public func _iceD_loadServers(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        try await self.loadServersAsync(
+            current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_getServers(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_getServers(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.getServers(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getServers(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_waitForApplicationUpdate(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_application: Swift.String = try istr.read()
-            let iceP_revision: Swift.Int32 = try istr.read()
-            return self.waitForApplicationUpdateAsync(
-                application: iceP_application, revision: iceP_revision, current: request.current
-            ).map(on: nil) {
-                request.current.makeEmptyOutgoingResponse()
-            }
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+    public func _iceD_waitForApplicationUpdate(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_application: Swift.String = try istr.read()
+        let iceP_revision: Swift.Int32 = try istr.read()
+        try await self.waitForApplicationUpdateAsync(
+            application: iceP_application, revision: iceP_revision, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_destroy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_destroy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.destroy(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.destroy(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }
 
@@ -6604,111 +6475,87 @@ extension DatabaseObserver {}
 ///
 ///  - destroy: Destroy the session.
 extension ReplicaSession {
-    public func _iceD_keepAlive(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_keepAlive(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.keepAlive(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.keepAlive(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_getTimeout(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_getTimeout(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.getTimeout(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getTimeout(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_setDatabaseObserver(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_dbObs: DatabaseObserverPrx? = try istr.read(DatabaseObserverPrx.self)
-            let iceP_serials: StringLongDict? = try StringLongDictHelper.read(from: istr, tag: 1)
+    public func _iceD_setDatabaseObserver(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_dbObs: DatabaseObserverPrx? = try istr.read(DatabaseObserverPrx.self)
+        let iceP_serials: StringLongDict? = try StringLongDictHelper.read(from: istr, tag: 1)
 
-            try self.setDatabaseObserver(dbObs: iceP_dbObs, serials: iceP_serials, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.setDatabaseObserver(dbObs: iceP_dbObs, serials: iceP_serials, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_setEndpoints(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_endpoints: StringObjectProxyDict = try StringObjectProxyDictHelper.read(from: istr)
+    public func _iceD_setEndpoints(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_endpoints: StringObjectProxyDict = try StringObjectProxyDictHelper.read(from: istr)
 
-            try self.setEndpoints(endpoints: iceP_endpoints, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.setEndpoints(endpoints: iceP_endpoints, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_registerWellKnownObjects(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_objects: ObjectInfoSeq = try ObjectInfoSeqHelper.read(from: istr)
+    public func _iceD_registerWellKnownObjects(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_objects: ObjectInfoSeq = try ObjectInfoSeqHelper.read(from: istr)
 
-            try self.registerWellKnownObjects(objects: iceP_objects, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.registerWellKnownObjects(objects: iceP_objects, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_setAdapterDirectProxy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_adapterId: Swift.String = try istr.read()
-            let iceP_replicaGroupId: Swift.String = try istr.read()
-            let iceP_proxy: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+    public func _iceD_setAdapterDirectProxy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_adapterId: Swift.String = try istr.read()
+        let iceP_replicaGroupId: Swift.String = try istr.read()
+        let iceP_proxy: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
 
-            try self.setAdapterDirectProxy(adapterId: iceP_adapterId, replicaGroupId: iceP_replicaGroupId, proxy: iceP_proxy, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.setAdapterDirectProxy(adapterId: iceP_adapterId, replicaGroupId: iceP_replicaGroupId, proxy: iceP_proxy, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_receivedUpdate(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_name: TopicName = try istr.read()
-            let iceP_serial: Swift.Int32 = try istr.read()
-            let iceP_failure: Swift.String = try istr.read()
+    public func _iceD_receivedUpdate(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_name: TopicName = try istr.read()
+        let iceP_serial: Swift.Int32 = try istr.read()
+        let iceP_failure: Swift.String = try istr.read()
 
-            try self.receivedUpdate(name: iceP_name, serial: iceP_serial, failure: iceP_failure, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.receivedUpdate(name: iceP_name, serial: iceP_serial, failure: iceP_failure, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_destroy(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_destroy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.destroy(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.destroy(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }
 
@@ -6734,147 +6581,120 @@ extension ReplicaSession {
 ///
 ///  - shutdown: Shutdown this registry.
 extension InternalRegistry {
-    public func _iceD_registerNode(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            var iceP_info: InternalNodeInfo?
-            try istr.read(InternalNodeInfo.self) { iceP_info = $0 }
-            let iceP_prx: NodePrx? = try istr.read(NodePrx.self)
-            let iceP_loadInf: LoadInfo = try istr.read()
-            try istr.readPendingValues()
+    public func _iceD_registerNode(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        var iceP_info: InternalNodeInfo?
+        try istr.read(InternalNodeInfo.self) { iceP_info = $0 }
+        let iceP_prx: NodePrx? = try istr.read(NodePrx.self)
+        let iceP_loadInf: LoadInfo = try istr.read()
+        try istr.readPendingValues()
 
-            let iceP_returnValue = try self.registerNode(info: iceP_info, prx: iceP_prx, loadInf: iceP_loadInf, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.registerNode(info: iceP_info, prx: iceP_prx, loadInf: iceP_loadInf, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_registerReplica(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            var iceP_info: InternalReplicaInfo?
-            try istr.read(InternalReplicaInfo.self) { iceP_info = $0 }
-            let iceP_prx: InternalRegistryPrx? = try istr.read(InternalRegistryPrx.self)
-            try istr.readPendingValues()
+    public func _iceD_registerReplica(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        var iceP_info: InternalReplicaInfo?
+        try istr.read(InternalReplicaInfo.self) { iceP_info = $0 }
+        let iceP_prx: InternalRegistryPrx? = try istr.read(InternalRegistryPrx.self)
+        try istr.readPendingValues()
 
-            let iceP_returnValue = try self.registerReplica(info: iceP_info, prx: iceP_prx, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.registerReplica(info: iceP_info, prx: iceP_prx, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_registerWithReplica(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_prx: InternalRegistryPrx? = try istr.read(InternalRegistryPrx.self)
+    public func _iceD_registerWithReplica(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_prx: InternalRegistryPrx? = try istr.read(InternalRegistryPrx.self)
 
-            try self.registerWithReplica(prx: iceP_prx, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.registerWithReplica(prx: iceP_prx, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_getNodes(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_getNodes(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.getNodes(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            NodePrxSeqHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getNodes(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        NodePrxSeqHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_getReplicas(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_getReplicas(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.getReplicas(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            InternalRegistryPrxSeqHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getReplicas(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        InternalRegistryPrxSeqHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_getApplications(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_getApplications(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let (iceP_returnValue, iceP_serial) = try self.getApplications(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_serial)
-            ApplicationInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_serial) = try self.getApplications(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_serial)
+        ApplicationInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_getAdapters(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_getAdapters(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let (iceP_returnValue, iceP_serial) = try self.getAdapters(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_serial)
-            AdapterInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_serial) = try self.getAdapters(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_serial)
+        AdapterInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_getObjects(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_getObjects(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let (iceP_returnValue, iceP_serial) = try self.getObjects(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_serial)
-            ObjectInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_serial) = try self.getObjects(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_serial)
+        ObjectInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_shutdown(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            try self.shutdown(current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.shutdown(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 }

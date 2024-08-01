@@ -14,7 +14,6 @@
 //
 
 import Foundation
-import PromiseKit
 
 /// A dictionary of strings to integers.
 public typealias MXStringIntDict = [Swift.String: Swift.Int32]
@@ -568,19 +567,19 @@ public extension MXMetricsAdminPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: StringSeq, disabledViews: StringSeq)>` - The result of the operation
-    func getMetricsViewNamesAsync(context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: StringSeq, disabledViews: StringSeq)> {
-        return _impl._invokeAsync(operation: "getMetricsViewNames",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_disabledViews: StringSeq = try istr.read()
-                                      let iceP_returnValue: StringSeq = try istr.read()
-                                      return (iceP_returnValue, iceP_disabledViews)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: StringSeq, disabledViews: StringSeq)` - The result of the operation
+    func getMetricsViewNamesAsync(context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: StringSeq, disabledViews: StringSeq) {
+        return try await _impl._invokeAsync(operation: "getMetricsViewNames",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                let iceP_disabledViews: StringSeq = try istr.read()
+                                                let iceP_returnValue: StringSeq = try istr.read()
+                                                return (iceP_returnValue, iceP_disabledViews)
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Enables a metrics view.
@@ -622,24 +621,24 @@ public extension MXMetricsAdminPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func enableMetricsViewAsync(_ iceP_name: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "enableMetricsView",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_name)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as MXUnknownMetricsView {
-                                          throw error
-                                      } catch is UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func enableMetricsViewAsync(_ iceP_name: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "enableMetricsView",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_name)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as MXUnknownMetricsView {
+                                                    throw error
+                                                } catch is UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Disable a metrics view.
@@ -681,24 +680,24 @@ public extension MXMetricsAdminPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func disableMetricsViewAsync(_ iceP_name: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "disableMetricsView",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_name)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as MXUnknownMetricsView {
-                                          throw error
-                                      } catch is UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `` - The result of the operation
+    func disableMetricsViewAsync(_ iceP_name: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Swift.Void {
+        return try await _impl._invokeAsync(operation: "disableMetricsView",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_name)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as MXUnknownMetricsView {
+                                                    throw error
+                                                } catch is UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
@@ -757,31 +756,31 @@ public extension MXMetricsAdminPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: MXMetricsView, timestamp: Swift.Int64)>` - The result of the operation
-    func getMetricsViewAsync(_ iceP_view: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: MXMetricsView, timestamp: Swift.Int64)> {
-        return _impl._invokeAsync(operation: "getMetricsView",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  write: { ostr in
-                                      ostr.write(iceP_view)
-                                  },
-                                  read: { istr in
-                                      let iceP_timestamp: Swift.Int64 = try istr.read()
-                                      let iceP_returnValue: MXMetricsView = try MXMetricsViewHelper.read(from: istr)
-                                      try istr.readPendingValues()
-                                      return (iceP_returnValue, iceP_timestamp)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as MXUnknownMetricsView {
-                                          throw error
-                                      } catch is UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `(returnValue: MXMetricsView, timestamp: Swift.Int64)` - The result of the operation
+    func getMetricsViewAsync(_ iceP_view: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> (returnValue: MXMetricsView, timestamp: Swift.Int64) {
+        return try await _impl._invokeAsync(operation: "getMetricsView",
+                                            mode: .Normal,
+                                            format: .SlicedFormat,
+                                            write: { ostr in
+                                                ostr.write(iceP_view)
+                                            },
+                                            read: { istr in
+                                                let iceP_timestamp: Swift.Int64 = try istr.read()
+                                                let iceP_returnValue: MXMetricsView = try MXMetricsViewHelper.read(from: istr)
+                                                try istr.readPendingValues()
+                                                return (iceP_returnValue, iceP_timestamp)
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as MXUnknownMetricsView {
+                                                    throw error
+                                                } catch is UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Get the metrics failures associated with the given view and map.
@@ -834,29 +833,29 @@ public extension MXMetricsAdminPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<MXMetricsFailuresSeq>` - The result of the operation
-    func getMapMetricsFailuresAsync(view iceP_view: Swift.String, map iceP_map: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<MXMetricsFailuresSeq> {
-        return _impl._invokeAsync(operation: "getMapMetricsFailures",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_view)
-                                      ostr.write(iceP_map)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: MXMetricsFailuresSeq = try MXMetricsFailuresSeqHelper.read(from: istr)
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as MXUnknownMetricsView {
-                                          throw error
-                                      } catch is UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `MXMetricsFailuresSeq` - The result of the operation
+    func getMapMetricsFailuresAsync(view iceP_view: Swift.String, map iceP_map: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> MXMetricsFailuresSeq {
+        return try await _impl._invokeAsync(operation: "getMapMetricsFailures",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_view)
+                                                ostr.write(iceP_map)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: MXMetricsFailuresSeq = try MXMetricsFailuresSeqHelper.read(from: istr)
+                                                return iceP_returnValue
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as MXUnknownMetricsView {
+                                                    throw error
+                                                } catch is UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 
     /// Get the metrics failure associated for the given metrics.
@@ -914,30 +913,30 @@ public extension MXMetricsAdminPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<MXMetricsFailures>` - The result of the operation
-    func getMetricsFailuresAsync(view iceP_view: Swift.String, map iceP_map: Swift.String, id iceP_id: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<MXMetricsFailures> {
-        return _impl._invokeAsync(operation: "getMetricsFailures",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_view)
-                                      ostr.write(iceP_map)
-                                      ostr.write(iceP_id)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: MXMetricsFailures = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as MXUnknownMetricsView {
-                                          throw error
-                                      } catch is UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `MXMetricsFailures` - The result of the operation
+    func getMetricsFailuresAsync(view iceP_view: Swift.String, map iceP_map: Swift.String, id iceP_id: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> MXMetricsFailures {
+        return try await _impl._invokeAsync(operation: "getMetricsFailures",
+                                            mode: .Normal,
+                                            write: { ostr in
+                                                ostr.write(iceP_view)
+                                                ostr.write(iceP_map)
+                                                ostr.write(iceP_id)
+                                            },
+                                            read: { istr in
+                                                let iceP_returnValue: MXMetricsFailures = try istr.read()
+                                                return iceP_returnValue
+                                            },
+                                            userException:{ ex in
+                                                do  {
+                                                    throw ex
+                                                } catch let error as MXUnknownMetricsView {
+                                                    throw error
+                                                } catch is UserException {}
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -1368,30 +1367,30 @@ public struct MXMetricsAdminDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "disableMetricsView":
-            servant._iceD_disableMetricsView(request)
+            try await servant._iceD_disableMetricsView(request)
         case "enableMetricsView":
-            servant._iceD_enableMetricsView(request)
+            try await servant._iceD_enableMetricsView(request)
         case "getMapMetricsFailures":
-            servant._iceD_getMapMetricsFailures(request)
+            try await servant._iceD_getMapMetricsFailures(request)
         case "getMetricsFailures":
-            servant._iceD_getMetricsFailures(request)
+            try await servant._iceD_getMetricsFailures(request)
         case "getMetricsView":
-            servant._iceD_getMetricsView(request)
+            try await servant._iceD_getMetricsView(request)
         case "getMetricsViewNames":
-            servant._iceD_getMetricsViewNames(request)
+            try await servant._iceD_getMetricsViewNames(request)
         case "ice_id":
-            (servant as? Ice.Object ?? MXMetricsAdminDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? MXMetricsAdminDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? MXMetricsAdminDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? MXMetricsAdminDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? MXMetricsAdminDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? MXMetricsAdminDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? MXMetricsAdminDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? MXMetricsAdminDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -1501,101 +1500,83 @@ public protocol MXMetricsAdmin {
 ///
 ///  - getMetricsFailures: Get the metrics failure associated for the given metrics.
 extension MXMetricsAdmin {
-    public func _iceD_getMetricsViewNames(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_getMetricsViewNames(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let (iceP_returnValue, iceP_disabledViews) = try self.getMetricsViewNames(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_disabledViews)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_disabledViews) = try self.getMetricsViewNames(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_disabledViews)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_enableMetricsView(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_name: Swift.String = try istr.read()
+    public func _iceD_enableMetricsView(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_name: Swift.String = try istr.read()
 
-            try self.enableMetricsView(name: iceP_name, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.enableMetricsView(name: iceP_name, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_disableMetricsView(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_name: Swift.String = try istr.read()
+    public func _iceD_disableMetricsView(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_name: Swift.String = try istr.read()
 
-            try self.disableMetricsView(name: iceP_name, current: request.current)
-            return PromiseKit.Promise.value(request.current.makeEmptyOutgoingResponse())
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        try self.disableMetricsView(name: iceP_name, current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
     }
 
-    public func _iceD_getMetricsView(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_view: Swift.String = try istr.read()
+    public func _iceD_getMetricsView(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_view: Swift.String = try istr.read()
 
-            let (iceP_returnValue, iceP_timestamp) = try self.getMetricsView(view: iceP_view, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .SlicedFormat)
-            ostr.write(iceP_timestamp)
-            MXMetricsViewHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.writePendingValues()
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let (iceP_returnValue, iceP_timestamp) = try self.getMetricsView(view: iceP_view, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .SlicedFormat)
+        ostr.write(iceP_timestamp)
+        MXMetricsViewHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.writePendingValues()
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_getMapMetricsFailures(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_view: Swift.String = try istr.read()
-            let iceP_map: Swift.String = try istr.read()
+    public func _iceD_getMapMetricsFailures(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_view: Swift.String = try istr.read()
+        let iceP_map: Swift.String = try istr.read()
 
-            let iceP_returnValue = try self.getMapMetricsFailures(view: iceP_view, map: iceP_map, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            MXMetricsFailuresSeqHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getMapMetricsFailures(view: iceP_view, map: iceP_map, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        MXMetricsFailuresSeqHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 
-    public func _iceD_getMetricsFailures(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            let istr = request.inputStream
-            _ = try istr.startEncapsulation()
-            let iceP_view: Swift.String = try istr.read()
-            let iceP_map: Swift.String = try istr.read()
-            let iceP_id: Swift.String = try istr.read()
+    public func _iceD_getMetricsFailures(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_view: Swift.String = try istr.read()
+        let iceP_map: Swift.String = try istr.read()
+        let iceP_id: Swift.String = try istr.read()
 
-            let iceP_returnValue = try self.getMetricsFailures(view: iceP_view, map: iceP_map, id: iceP_id, current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            ostr.write(iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getMetricsFailures(view: iceP_view, map: iceP_map, id: iceP_id, current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.write(iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }

@@ -15,7 +15,6 @@
 
 import Foundation
 import Ice
-import PromiseKit
 
 /// Traits for Slice interface`TestFacet`.
 public struct TestFacetTraits: Ice.SliceTraits {
@@ -150,18 +149,18 @@ public extension TestFacetPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<Ice.PropertyDict>` - The result of the operation
-    func getChangesAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.PropertyDict> {
-        return _impl._invokeAsync(operation: "getChanges",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: Ice.PropertyDict = try Ice.PropertyDictHelper.read(from: istr)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
+    /// - returns: `Ice.PropertyDict` - The result of the operation
+    func getChangesAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) async throws -> Ice.PropertyDict {
+        return try await _impl._invokeAsync(operation: "getChanges",
+                                            mode: .Normal,
+                                            read: { istr in
+                                                let iceP_returnValue: Ice.PropertyDict = try Ice.PropertyDictHelper.read(from: istr)
+                                                return iceP_returnValue
+                                            },
+                                            context: context,
+                                            sentOn: sentOn,
+                                            sentFlags: sentFlags,
+                                            sent: sent)
     }
 }
 
@@ -175,20 +174,20 @@ public struct TestFacetDisp: Ice.Dispatcher {
         self.servant = servant
     }
 
-    public func dispatch(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "getChanges":
-            servant._iceD_getChanges(request)
+            try await servant._iceD_getChanges(request)
         case "ice_id":
-            (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_id(request)
+            try (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_ids(request)
+            try (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_isA(request)
+            try (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_ping(request)
+            try (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_ping(request)
         default:
-            PromiseKit.Promise(error: Ice.OperationNotExistException())
+            throw Ice.OperationNotExistException()
         }
     }
 }
@@ -207,18 +206,15 @@ public protocol TestFacet {
 ///
 ///  - getChanges: 
 extension TestFacet {
-    public func _iceD_getChanges(_ request: Ice.IncomingRequest) -> PromiseKit.Promise<Ice.OutgoingResponse> {
-        do {
-            _ = try request.inputStream.skipEmptyEncapsulation()
+    public func _iceD_getChanges(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
 
-            let iceP_returnValue = try self.getChanges(current: request.current)
-            let ostr = request.current.startReplyStream()
-            ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
-            Ice.PropertyDictHelper.write(to: ostr, value: iceP_returnValue)
-            ostr.endEncapsulation()
-            return PromiseKit.Promise.value(Ice.OutgoingResponse(ostr))
-        } catch {
-            return PromiseKit.Promise(error: error)
-        }
+        let iceP_returnValue = try self.getChanges(current: request.current)
+        let ostr = request.current.startReplyStream()
+        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        Ice.PropertyDictHelper.write(to: ostr, value: iceP_returnValue)
+        ostr.endEncapsulation()
+        return Ice.OutgoingResponse(ostr)
     }
 }
