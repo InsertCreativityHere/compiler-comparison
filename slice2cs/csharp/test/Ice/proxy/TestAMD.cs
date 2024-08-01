@@ -142,7 +142,7 @@ namespace Ice.proxy.AMD
                 outAsync.invoke(
                     _shutdown_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -168,7 +168,7 @@ namespace Ice.proxy.AMD
                 outAsync.invoke(
                     _getContext_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     read: (Ice.InputStream istr) =>
@@ -287,7 +287,7 @@ namespace Ice.proxy.AMD
                 outAsync.invoke(
                     _shutdown_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -313,7 +313,7 @@ namespace Ice.proxy.AMD
                 outAsync.invoke(
                     _getContext_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     read: (Ice.InputStream istr) =>
@@ -345,7 +345,7 @@ namespace Ice.proxy.AMD
                 outAsync.invoke(
                     _echo_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>

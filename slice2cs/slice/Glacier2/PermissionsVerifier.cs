@@ -267,7 +267,7 @@ namespace Glacier2
             outAsync.invoke(
                 _checkPermissions_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -385,7 +385,7 @@ namespace Glacier2
             outAsync.invoke(
                 _authorize_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -530,7 +530,7 @@ namespace Glacier2
             string iceP_reason;
             var ret = obj.checkPermissions(iceP_userId, iceP_password, out iceP_reason, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeString(iceP_reason);
             ostr.writeBool(ret);
             ostr.endEncapsulation();
@@ -553,7 +553,7 @@ namespace Glacier2
             string iceP_reason;
             var ret = obj.authorize(iceP_info, out iceP_reason, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeString(iceP_reason);
             ostr.writeBool(ret);
             ostr.endEncapsulation();

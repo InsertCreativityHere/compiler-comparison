@@ -279,7 +279,7 @@ namespace Test
             outAsync.invoke(
                 _opByteSpan_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -316,7 +316,7 @@ namespace Test
             outAsync.invoke(
                 _opShortSpan_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -353,7 +353,7 @@ namespace Test
             outAsync.invoke(
                 _opStringSpan_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -390,7 +390,7 @@ namespace Test
             outAsync.invoke(
                 _opOptionalByteSpan_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -445,7 +445,7 @@ namespace Test
             outAsync.invoke(
                 _opOptionalShortSpan_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -502,7 +502,7 @@ namespace Test
             outAsync.invoke(
                 _opOptionalStringSpan_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -558,7 +558,7 @@ namespace Test
             outAsync.invoke(
                 _shutdown_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }

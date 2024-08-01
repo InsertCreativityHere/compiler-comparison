@@ -116,7 +116,7 @@ namespace Ice.idleTimeout
                 outAsync.invoke(
                     _sleep_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -145,7 +145,7 @@ namespace Ice.idleTimeout
                 outAsync.invoke(
                     _shutdown_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }

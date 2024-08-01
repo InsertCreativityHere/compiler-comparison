@@ -108,7 +108,7 @@ namespace Test
             outAsync.invoke(
                 _transient_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -133,7 +133,7 @@ namespace Test
             outAsync.invoke(
                 _deactivate_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }

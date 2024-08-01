@@ -337,7 +337,7 @@ namespace Test
             outAsync.invoke(
                 _getTest1C2AsC1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -370,7 +370,7 @@ namespace Test
             outAsync.invoke(
                 _getTest1C2AsC2_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -403,7 +403,7 @@ namespace Test
             outAsync.invoke(
                 _throwTest1E2AsE1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -443,7 +443,7 @@ namespace Test
             outAsync.invoke(
                 _throwTest1E2AsE2_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -483,7 +483,7 @@ namespace Test
             outAsync.invoke(
                 _throwTest1Notify_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -523,7 +523,7 @@ namespace Test
             outAsync.invoke(
                 _getTest2C2AsC1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -556,7 +556,7 @@ namespace Test
             outAsync.invoke(
                 _getTest2C2AsC2_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -589,7 +589,7 @@ namespace Test
             outAsync.invoke(
                 _throwTest2E2AsE1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -629,7 +629,7 @@ namespace Test
             outAsync.invoke(
                 _throwTest2E2AsE2_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -669,7 +669,7 @@ namespace Test
             outAsync.invoke(
                 _getTest3C2AsC1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -702,7 +702,7 @@ namespace Test
             outAsync.invoke(
                 _getTest3C2AsC2_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -735,7 +735,7 @@ namespace Test
             outAsync.invoke(
                 _throwTest3E2AsE1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -775,7 +775,7 @@ namespace Test
             outAsync.invoke(
                 _throwTest3E2AsE2_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -814,7 +814,7 @@ namespace Test
             outAsync.invoke(
                 _shutdown_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -944,7 +944,7 @@ namespace Test
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getTest1C2AsC1(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeValue(ret);
             ostr.writePendingValues();
             ostr.endEncapsulation();
@@ -959,7 +959,7 @@ namespace Test
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getTest1C2AsC2(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeValue(ret);
             ostr.writePendingValues();
             ostr.endEncapsulation();
@@ -1004,7 +1004,7 @@ namespace Test
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getTest2C2AsC1(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeValue(ret);
             ostr.writePendingValues();
             ostr.endEncapsulation();
@@ -1019,7 +1019,7 @@ namespace Test
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getTest2C2AsC2(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeValue(ret);
             ostr.writePendingValues();
             ostr.endEncapsulation();
@@ -1054,7 +1054,7 @@ namespace Test
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getTest3C2AsC1(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeValue(ret);
             ostr.writePendingValues();
             ostr.endEncapsulation();
@@ -1069,7 +1069,7 @@ namespace Test
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getTest3C2AsC2(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeValue(ret);
             ostr.writePendingValues();
             ostr.endEncapsulation();

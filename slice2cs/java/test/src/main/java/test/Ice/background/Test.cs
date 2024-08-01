@@ -223,7 +223,7 @@ namespace Test
             outAsync.invoke(
                 _op_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -248,7 +248,7 @@ namespace Test
             outAsync.invoke(
                 _opWithPayload_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -277,7 +277,7 @@ namespace Test
             outAsync.invoke(
                 _shutdown_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -486,7 +486,7 @@ namespace Test
             outAsync.invoke(
                 _pauseCall_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -515,7 +515,7 @@ namespace Test
             outAsync.invoke(
                 _resumeCall_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -544,7 +544,7 @@ namespace Test
             outAsync.invoke(
                 _holdAdapter_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -569,7 +569,7 @@ namespace Test
             outAsync.invoke(
                 _resumeAdapter_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -594,7 +594,7 @@ namespace Test
             outAsync.invoke(
                 _initializeSocketStatus_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -623,7 +623,7 @@ namespace Test
             outAsync.invoke(
                 _initializeException_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -652,7 +652,7 @@ namespace Test
             outAsync.invoke(
                 _readReady_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -681,7 +681,7 @@ namespace Test
             outAsync.invoke(
                 _readException_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -710,7 +710,7 @@ namespace Test
             outAsync.invoke(
                 _writeReady_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -739,7 +739,7 @@ namespace Test
             outAsync.invoke(
                 _writeException_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -768,7 +768,7 @@ namespace Test
             outAsync.invoke(
                 _buffered_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>

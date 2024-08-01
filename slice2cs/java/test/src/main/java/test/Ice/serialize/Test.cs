@@ -817,7 +817,7 @@ namespace Test
             outAsync.invoke(
                 _getStruct1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -849,7 +849,7 @@ namespace Test
             outAsync.invoke(
                 _getBase_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -881,7 +881,7 @@ namespace Test
             outAsync.invoke(
                 _getEx_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -912,7 +912,7 @@ namespace Test
             outAsync.invoke(
                 _shutdown_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -1012,7 +1012,7 @@ namespace Test
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getStruct1(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ByteSHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -1026,7 +1026,7 @@ namespace Test
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getBase(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ByteSHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -1040,7 +1040,7 @@ namespace Test
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getEx(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ByteSHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));

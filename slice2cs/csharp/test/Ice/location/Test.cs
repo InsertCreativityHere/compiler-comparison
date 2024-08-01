@@ -266,7 +266,7 @@ namespace Ice.location
                 outAsync.invoke(
                     _setAdapterDirectProxy_name,
                     Ice.OperationMode.Idempotent,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -315,7 +315,7 @@ namespace Ice.location
                 outAsync.invoke(
                     _setReplicatedAdapterDirectProxy_name,
                     Ice.OperationMode.Idempotent,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -369,7 +369,7 @@ namespace Ice.location
                 outAsync.invoke(
                     _setServerProcessProxy_name,
                     Ice.OperationMode.Idempotent,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -413,7 +413,7 @@ namespace Ice.location
                 outAsync.invoke(
                     _addObject_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -544,7 +544,7 @@ namespace Ice.location
                 outAsync.invoke(
                     _findObjectById_name,
                     Ice.OperationMode.Idempotent,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -594,7 +594,7 @@ namespace Ice.location
                 outAsync.invoke(
                     _findAdapterById_name,
                     Ice.OperationMode.Idempotent,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -644,7 +644,7 @@ namespace Ice.location
                 outAsync.invoke(
                     _getRegistry_name,
                     Ice.OperationMode.Idempotent,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     read: (Ice.InputStream istr) =>
@@ -676,7 +676,7 @@ namespace Ice.location
                 outAsync.invoke(
                     _getRequestCount_name,
                     Ice.OperationMode.Idempotent,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     read: (Ice.InputStream istr) =>
@@ -784,7 +784,7 @@ namespace Ice.location
                 outAsync.invoke(
                     _startServer_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -809,7 +809,7 @@ namespace Ice.location
                 outAsync.invoke(
                     _shutdown_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -898,7 +898,7 @@ namespace Ice.location
                 outAsync.invoke(
                     _sayHello_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -1023,7 +1023,7 @@ namespace Ice.location
                 outAsync.invoke(
                     _shutdown_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -1049,7 +1049,7 @@ namespace Ice.location
                 outAsync.invoke(
                     _getHello_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     read: (Ice.InputStream istr) =>
@@ -1081,7 +1081,7 @@ namespace Ice.location
                 outAsync.invoke(
                     _getReplicatedHello_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     read: (Ice.InputStream istr) =>
@@ -1112,7 +1112,7 @@ namespace Ice.location
                 outAsync.invoke(
                     _migrateHello_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -1344,7 +1344,7 @@ namespace Ice.location
                 request.inputStream.skipEmptyEncapsulation();
                 var ret = obj.getRequestCount(request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeInt(ret);
                 ostr.endEncapsulation();
                 return new(new Ice.OutgoingResponse(ostr));
@@ -1407,7 +1407,7 @@ namespace Ice.location
                 request.inputStream.skipEmptyEncapsulation();
                 var ret = obj.getHello(request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 HelloPrxHelper.write(ostr, ret);
                 ostr.endEncapsulation();
                 return new(new Ice.OutgoingResponse(ostr));
@@ -1421,7 +1421,7 @@ namespace Ice.location
                 request.inputStream.skipEmptyEncapsulation();
                 var ret = obj.getReplicatedHello(request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 HelloPrxHelper.write(ostr, ret);
                 ostr.endEncapsulation();
                 return new(new Ice.OutgoingResponse(ostr));

@@ -1101,7 +1101,7 @@ namespace IceStormElection
             outAsync.invoke(
                 _init_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -1146,7 +1146,7 @@ namespace IceStormElection
             outAsync.invoke(
                 _createTopic_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -1191,7 +1191,7 @@ namespace IceStormElection
             outAsync.invoke(
                 _destroyTopic_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -1236,7 +1236,7 @@ namespace IceStormElection
             outAsync.invoke(
                 _addSubscriber_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -1282,7 +1282,7 @@ namespace IceStormElection
             outAsync.invoke(
                 _removeSubscriber_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -1394,7 +1394,7 @@ namespace IceStormElection
             outAsync.invoke(
                 _getContent_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -1642,7 +1642,7 @@ namespace IceStormElection
             outAsync.invoke(
                 _invitation_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -1672,7 +1672,7 @@ namespace IceStormElection
             outAsync.invoke(
                 _ready_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -1705,7 +1705,7 @@ namespace IceStormElection
             outAsync.invoke(
                 _accept_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -1740,7 +1740,7 @@ namespace IceStormElection
             outAsync.invoke(
                 _areYouCoordinator_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -1772,7 +1772,7 @@ namespace IceStormElection
             outAsync.invoke(
                 _areYouThere_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -1809,7 +1809,7 @@ namespace IceStormElection
             outAsync.invoke(
                 _sync_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -1841,7 +1841,7 @@ namespace IceStormElection
             outAsync.invoke(
                 _nodes_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -1873,7 +1873,7 @@ namespace IceStormElection
             outAsync.invoke(
                 _query_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -2136,7 +2136,7 @@ namespace IceStormElection
             TopicContent[] iceP_content;
             obj.getContent(out iceP_llu, out iceP_content, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             iceP_llu.ice_writeMembers(ostr);
             TopicContentSeqHelper.write(ostr, iceP_content);
             ostr.endEncapsulation();
@@ -2216,7 +2216,7 @@ namespace IceStormElection
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.areYouCoordinator(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeBool(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -2236,7 +2236,7 @@ namespace IceStormElection
             istr.endEncapsulation();
             var ret = obj.areYouThere(iceP_gn, iceP_j, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeBool(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -2250,7 +2250,7 @@ namespace IceStormElection
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.sync(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeProxy(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -2264,7 +2264,7 @@ namespace IceStormElection
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.nodes(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             NodeInfoSeqHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -2278,7 +2278,7 @@ namespace IceStormElection
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.query(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             QueryInfo.ice_write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));

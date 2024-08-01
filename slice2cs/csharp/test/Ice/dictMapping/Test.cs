@@ -718,7 +718,7 @@ namespace Ice.dictMapping
                 outAsync.invoke(
                     _shutdown_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -744,7 +744,7 @@ namespace Ice.dictMapping
                 outAsync.invoke(
                     _opNV_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -781,7 +781,7 @@ namespace Ice.dictMapping
                 outAsync.invoke(
                     _opNR_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -818,7 +818,7 @@ namespace Ice.dictMapping
                 outAsync.invoke(
                     _opNDV_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -855,7 +855,7 @@ namespace Ice.dictMapping
                 outAsync.invoke(
                     _opNDR_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -892,7 +892,7 @@ namespace Ice.dictMapping
                 outAsync.invoke(
                     _opNDAIS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -929,7 +929,7 @@ namespace Ice.dictMapping
                 outAsync.invoke(
                     _opNDGIS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -966,7 +966,7 @@ namespace Ice.dictMapping
                 outAsync.invoke(
                     _opNDASS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -1003,7 +1003,7 @@ namespace Ice.dictMapping
                 outAsync.invoke(
                     _opNDGSS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -1150,7 +1150,7 @@ namespace Ice.dictMapping
                 global::System.Collections.Generic.Dictionary<int, int> iceP_o;
                 var ret = obj.opNV(iceP_i, out iceP_o, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 NVHelper.write(ostr, iceP_o);
                 NVHelper.write(ostr, ret);
                 ostr.endEncapsulation();
@@ -1170,7 +1170,7 @@ namespace Ice.dictMapping
                 global::System.Collections.Generic.Dictionary<string, string> iceP_o;
                 var ret = obj.opNR(iceP_i, out iceP_o, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 NRHelper.write(ostr, iceP_o);
                 NRHelper.write(ostr, ret);
                 ostr.endEncapsulation();
@@ -1190,7 +1190,7 @@ namespace Ice.dictMapping
                 global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> iceP_o;
                 var ret = obj.opNDV(iceP_i, out iceP_o, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 NDVHelper.write(ostr, iceP_o);
                 NDVHelper.write(ostr, ret);
                 ostr.endEncapsulation();
@@ -1210,7 +1210,7 @@ namespace Ice.dictMapping
                 global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> iceP_o;
                 var ret = obj.opNDR(iceP_i, out iceP_o, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 NDRHelper.write(ostr, iceP_o);
                 NDRHelper.write(ostr, ret);
                 ostr.endEncapsulation();
@@ -1230,7 +1230,7 @@ namespace Ice.dictMapping
                 global::System.Collections.Generic.Dictionary<string, int[]> iceP_o;
                 var ret = obj.opNDAIS(iceP_i, out iceP_o, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 NDAISHelper.write(ostr, iceP_o);
                 NDAISHelper.write(ostr, ret);
                 ostr.endEncapsulation();
@@ -1250,7 +1250,7 @@ namespace Ice.dictMapping
                 global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> iceP_o;
                 var ret = obj.opNDGIS(iceP_i, out iceP_o, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 NDGISHelper.write(ostr, iceP_o);
                 NDGISHelper.write(ostr, ret);
                 ostr.endEncapsulation();
@@ -1270,7 +1270,7 @@ namespace Ice.dictMapping
                 global::System.Collections.Generic.Dictionary<string, string[]> iceP_o;
                 var ret = obj.opNDASS(iceP_i, out iceP_o, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 NDASSHelper.write(ostr, iceP_o);
                 NDASSHelper.write(ostr, ret);
                 ostr.endEncapsulation();
@@ -1290,7 +1290,7 @@ namespace Ice.dictMapping
                 global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> iceP_o;
                 var ret = obj.opNDGSS(iceP_i, out iceP_o, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 NDGSSHelper.write(ostr, iceP_o);
                 NDGSSHelper.write(ostr, ret);
                 ostr.endEncapsulation();

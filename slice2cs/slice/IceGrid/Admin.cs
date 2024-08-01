@@ -4969,7 +4969,7 @@ namespace IceGrid
             outAsync.invoke(
                 _addApplication_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5018,7 +5018,7 @@ namespace IceGrid
             outAsync.invoke(
                 _syncApplication_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5071,7 +5071,7 @@ namespace IceGrid
             outAsync.invoke(
                 _updateApplication_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5124,7 +5124,7 @@ namespace IceGrid
             outAsync.invoke(
                 _syncApplicationWithoutRestart_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5177,7 +5177,7 @@ namespace IceGrid
             outAsync.invoke(
                 _updateApplicationWithoutRestart_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5230,7 +5230,7 @@ namespace IceGrid
             outAsync.invoke(
                 _removeApplication_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5282,7 +5282,7 @@ namespace IceGrid
             outAsync.invoke(
                 _instantiateServer_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5336,7 +5336,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getApplicationInfo_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5387,7 +5387,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getDefaultApplicationDescriptor_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -5434,7 +5434,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getAllApplicationNames_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -5466,7 +5466,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getServerInfo_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5517,7 +5517,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getServerState_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5575,7 +5575,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getServerPid_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5633,7 +5633,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getServerAdminCategory_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -5665,7 +5665,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getServerAdmin_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5723,7 +5723,7 @@ namespace IceGrid
             outAsync.invoke(
                 _enableServer_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5776,7 +5776,7 @@ namespace IceGrid
             outAsync.invoke(
                 _isServerEnabled_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5834,7 +5834,7 @@ namespace IceGrid
             outAsync.invoke(
                 _startServer_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5890,7 +5890,7 @@ namespace IceGrid
             outAsync.invoke(
                 _stopServer_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5946,7 +5946,7 @@ namespace IceGrid
             outAsync.invoke(
                 _sendSignal_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -6003,7 +6003,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getAllServerIds_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -6035,7 +6035,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getAdapterInfo_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -6085,7 +6085,7 @@ namespace IceGrid
             outAsync.invoke(
                 _removeAdapter_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -6133,7 +6133,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getAllAdapterIds_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -6165,7 +6165,7 @@ namespace IceGrid
             outAsync.invoke(
                 _addObject_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -6213,7 +6213,7 @@ namespace IceGrid
             outAsync.invoke(
                 _updateObject_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -6261,7 +6261,7 @@ namespace IceGrid
             outAsync.invoke(
                 _addObjectWithType_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -6310,7 +6310,7 @@ namespace IceGrid
             outAsync.invoke(
                 _removeObject_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -6358,7 +6358,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getObjectInfo_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -6408,7 +6408,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getObjectInfosByType_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -6444,7 +6444,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getAllObjectInfos_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -6480,7 +6480,7 @@ namespace IceGrid
             outAsync.invoke(
                 _pingNode_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -6530,7 +6530,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getNodeLoad_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -6584,7 +6584,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getNodeInfo_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -6638,7 +6638,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getNodeAdmin_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -6692,7 +6692,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getNodeProcessorSocketCount_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -6746,7 +6746,7 @@ namespace IceGrid
             outAsync.invoke(
                 _shutdownNode_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -6794,7 +6794,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getNodeHostname_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -6848,7 +6848,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getAllNodeNames_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -6880,7 +6880,7 @@ namespace IceGrid
             outAsync.invoke(
                 _pingRegistry_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -6930,7 +6930,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getRegistryInfo_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -6984,7 +6984,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getRegistryAdmin_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7034,7 +7034,7 @@ namespace IceGrid
             outAsync.invoke(
                 _shutdownRegistry_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7082,7 +7082,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getAllRegistryNames_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -7113,7 +7113,7 @@ namespace IceGrid
             outAsync.invoke(
                 _shutdown_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -7217,7 +7217,7 @@ namespace IceGrid
             outAsync.invoke(
                 _read_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7267,7 +7267,7 @@ namespace IceGrid
             outAsync.invoke(
                 _destroy_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -7448,7 +7448,7 @@ namespace IceGrid
             outAsync.invoke(
                 _registryInit_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7477,7 +7477,7 @@ namespace IceGrid
             outAsync.invoke(
                 _registryUp_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7506,7 +7506,7 @@ namespace IceGrid
             outAsync.invoke(
                 _registryDown_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7681,7 +7681,7 @@ namespace IceGrid
             outAsync.invoke(
                 _nodeInit_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7710,7 +7710,7 @@ namespace IceGrid
             outAsync.invoke(
                 _nodeUp_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7739,7 +7739,7 @@ namespace IceGrid
             outAsync.invoke(
                 _nodeDown_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7768,7 +7768,7 @@ namespace IceGrid
             outAsync.invoke(
                 _updateServer_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7798,7 +7798,7 @@ namespace IceGrid
             outAsync.invoke(
                 _updateAdapter_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7928,7 +7928,7 @@ namespace IceGrid
             outAsync.invoke(
                 _applicationInit_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7959,7 +7959,7 @@ namespace IceGrid
             outAsync.invoke(
                 _applicationAdded_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7990,7 +7990,7 @@ namespace IceGrid
             outAsync.invoke(
                 _applicationRemoved_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8020,7 +8020,7 @@ namespace IceGrid
             outAsync.invoke(
                 _applicationUpdated_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8151,7 +8151,7 @@ namespace IceGrid
             outAsync.invoke(
                 _adapterInit_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8180,7 +8180,7 @@ namespace IceGrid
             outAsync.invoke(
                 _adapterAdded_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8209,7 +8209,7 @@ namespace IceGrid
             outAsync.invoke(
                 _adapterUpdated_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8238,7 +8238,7 @@ namespace IceGrid
             outAsync.invoke(
                 _adapterRemoved_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8367,7 +8367,7 @@ namespace IceGrid
             outAsync.invoke(
                 _objectInit_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8396,7 +8396,7 @@ namespace IceGrid
             outAsync.invoke(
                 _objectAdded_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8425,7 +8425,7 @@ namespace IceGrid
             outAsync.invoke(
                 _objectUpdated_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8454,7 +8454,7 @@ namespace IceGrid
             outAsync.invoke(
                 _objectRemoved_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8727,7 +8727,7 @@ namespace IceGrid
             outAsync.invoke(
                 _destroy_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -8752,7 +8752,7 @@ namespace IceGrid
             outAsync.invoke(
                 _keepAlive_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -8778,7 +8778,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getAdmin_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -8810,7 +8810,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getAdminCallbackTemplate_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -8842,7 +8842,7 @@ namespace IceGrid
             outAsync.invoke(
                 _setObservers_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8890,7 +8890,7 @@ namespace IceGrid
             outAsync.invoke(
                 _setObserversByIdentity_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8938,7 +8938,7 @@ namespace IceGrid
             outAsync.invoke(
                 _startUpdate_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -8984,7 +8984,7 @@ namespace IceGrid
             outAsync.invoke(
                 _finishUpdate_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -9024,7 +9024,7 @@ namespace IceGrid
             outAsync.invoke(
                 _getReplicaName_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -9056,7 +9056,7 @@ namespace IceGrid
             outAsync.invoke(
                 _openServerLog_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -9120,7 +9120,7 @@ namespace IceGrid
             outAsync.invoke(
                 _openServerStdErr_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -9183,7 +9183,7 @@ namespace IceGrid
             outAsync.invoke(
                 _openServerStdOut_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -9246,7 +9246,7 @@ namespace IceGrid
             outAsync.invoke(
                 _openNodeStdErr_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -9305,7 +9305,7 @@ namespace IceGrid
             outAsync.invoke(
                 _openNodeStdOut_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -9364,7 +9364,7 @@ namespace IceGrid
             outAsync.invoke(
                 _openRegistryStdErr_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -9423,7 +9423,7 @@ namespace IceGrid
             outAsync.invoke(
                 _openRegistryStdOut_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -10038,7 +10038,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.getApplicationInfo(iceP_name, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ApplicationInfo.ice_write(ostr, ret);
             ostr.writePendingValues();
             ostr.endEncapsulation();
@@ -10053,7 +10053,7 @@ namespace IceGrid
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getDefaultApplicationDescriptor(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ApplicationDescriptor.ice_write(ostr, ret);
             ostr.writePendingValues();
             ostr.endEncapsulation();
@@ -10068,7 +10068,7 @@ namespace IceGrid
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getAllApplicationNames(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             global::Ice.StringSeqHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -10086,7 +10086,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.getServerInfo(iceP_id, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ServerInfo.ice_write(ostr, ret);
             ostr.writePendingValues();
             ostr.endEncapsulation();
@@ -10105,7 +10105,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.getServerState(iceP_id, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeEnum((int)ret, 6);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -10123,7 +10123,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.getServerPid(iceP_id, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeInt(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -10137,7 +10137,7 @@ namespace IceGrid
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getServerAdminCategory(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeString(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -10155,7 +10155,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.getServerAdmin(iceP_id, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeProxy(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -10189,7 +10189,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.isServerEnabled(iceP_id, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeBool(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -10247,7 +10247,7 @@ namespace IceGrid
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getAllServerIds(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             global::Ice.StringSeqHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -10265,7 +10265,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.getAdapterInfo(iceP_id, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             AdapterInfoSeqHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -10293,7 +10293,7 @@ namespace IceGrid
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getAllAdapterIds(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             global::Ice.StringSeqHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -10369,7 +10369,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.getObjectInfo(iceP_id, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ObjectInfo.ice_write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -10387,7 +10387,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.getObjectInfosByType(iceP_type, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ObjectInfoSeqHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -10405,7 +10405,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.getAllObjectInfos(iceP_expr, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ObjectInfoSeqHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -10423,7 +10423,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.pingNode(iceP_name, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeBool(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -10441,7 +10441,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.getNodeLoad(iceP_name, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ret.ice_writeMembers(ostr);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -10459,7 +10459,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.getNodeInfo(iceP_name, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             NodeInfo.ice_write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -10477,7 +10477,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.getNodeAdmin(iceP_name, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeProxy(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -10495,7 +10495,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.getNodeProcessorSocketCount(iceP_name, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeInt(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -10527,7 +10527,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.getNodeHostname(iceP_name, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeString(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -10541,7 +10541,7 @@ namespace IceGrid
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getAllNodeNames(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             global::Ice.StringSeqHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -10559,7 +10559,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.pingRegistry(iceP_name, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeBool(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -10577,7 +10577,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.getRegistryInfo(iceP_name, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             RegistryInfo.ice_write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -10595,7 +10595,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.getRegistryAdmin(iceP_name, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeProxy(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -10623,7 +10623,7 @@ namespace IceGrid
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getAllRegistryNames(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             global::Ice.StringSeqHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -10655,7 +10655,7 @@ namespace IceGrid
             string[] iceP_lines;
             var ret = obj.read(iceP_size, out iceP_lines, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             global::Ice.StringSeqHelper.write(ostr, iceP_lines);
             ostr.writeBool(ret);
             ostr.endEncapsulation();
@@ -11003,7 +11003,7 @@ namespace IceGrid
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getAdmin(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             AdminPrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -11017,7 +11017,7 @@ namespace IceGrid
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getAdminCallbackTemplate(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeProxy(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -11075,7 +11075,7 @@ namespace IceGrid
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.startUpdate(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeInt(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -11099,7 +11099,7 @@ namespace IceGrid
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getReplicaName(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeString(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -11121,7 +11121,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.openServerLog(iceP_id, iceP_path, iceP_count, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             FileIteratorPrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -11141,7 +11141,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.openServerStdErr(iceP_id, iceP_count, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             FileIteratorPrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -11161,7 +11161,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.openServerStdOut(iceP_id, iceP_count, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             FileIteratorPrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -11181,7 +11181,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.openNodeStdErr(iceP_name, iceP_count, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             FileIteratorPrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -11201,7 +11201,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.openNodeStdOut(iceP_name, iceP_count, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             FileIteratorPrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -11221,7 +11221,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.openRegistryStdErr(iceP_name, iceP_count, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             FileIteratorPrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -11241,7 +11241,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.openRegistryStdOut(iceP_name, iceP_count, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             FileIteratorPrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));

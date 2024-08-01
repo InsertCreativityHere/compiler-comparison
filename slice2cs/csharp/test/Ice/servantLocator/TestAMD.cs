@@ -417,7 +417,7 @@ namespace Ice.servantLocator.AMD
                 outAsync.invoke(
                     _requestFailedException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -442,7 +442,7 @@ namespace Ice.servantLocator.AMD
                 outAsync.invoke(
                     _unknownUserException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -467,7 +467,7 @@ namespace Ice.servantLocator.AMD
                 outAsync.invoke(
                     _unknownLocalException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -492,7 +492,7 @@ namespace Ice.servantLocator.AMD
                 outAsync.invoke(
                     _unknownException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -517,7 +517,7 @@ namespace Ice.servantLocator.AMD
                 outAsync.invoke(
                     _localException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -542,7 +542,7 @@ namespace Ice.servantLocator.AMD
                 outAsync.invoke(
                     _userException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -567,7 +567,7 @@ namespace Ice.servantLocator.AMD
                 outAsync.invoke(
                     _csException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -592,7 +592,7 @@ namespace Ice.servantLocator.AMD
                 outAsync.invoke(
                     _unknownExceptionWithServantException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -618,7 +618,7 @@ namespace Ice.servantLocator.AMD
                 outAsync.invoke(
                     _impossibleException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -668,7 +668,7 @@ namespace Ice.servantLocator.AMD
                 outAsync.invoke(
                     _intfUserException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -722,7 +722,7 @@ namespace Ice.servantLocator.AMD
                 outAsync.invoke(
                     _asyncResponse_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     userException: (Ice.UserException ex) =>
@@ -766,7 +766,7 @@ namespace Ice.servantLocator.AMD
                 outAsync.invoke(
                     _asyncException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     userException: (Ice.UserException ex) =>
@@ -809,7 +809,7 @@ namespace Ice.servantLocator.AMD
                 outAsync.invoke(
                     _shutdown_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -898,7 +898,7 @@ namespace Ice.servantLocator.AMD
                 outAsync.invoke(
                     _activateServantLocator_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>

@@ -516,7 +516,7 @@ namespace Test
             outAsync.invoke(
                 _op_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -684,7 +684,7 @@ namespace Test
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.op(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeValue(ret);
             ostr.writePendingValues();
             ostr.endEncapsulation();

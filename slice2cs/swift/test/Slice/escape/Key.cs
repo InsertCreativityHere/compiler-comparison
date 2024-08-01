@@ -476,7 +476,7 @@ namespace and
             outAsync.invoke(
                 _case_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -575,7 +575,7 @@ namespace and
             outAsync.invoke(
                 _public_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -676,7 +676,7 @@ namespace and
             outAsync.invoke(
                 _public_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -702,7 +702,7 @@ namespace and
             outAsync.invoke(
                 _case_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>

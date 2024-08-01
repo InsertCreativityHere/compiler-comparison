@@ -453,7 +453,7 @@ namespace Test1
             outAsync.invoke(
                 _opString_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -490,7 +490,7 @@ namespace Test1
             outAsync.invoke(
                 _opStruct_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -527,7 +527,7 @@ namespace Test1
             outAsync.invoke(
                 _throwExcept_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -719,7 +719,7 @@ namespace Test2
             outAsync.invoke(
                 _opString_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -756,7 +756,7 @@ namespace Test2
             outAsync.invoke(
                 _opStruct_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -793,7 +793,7 @@ namespace Test2
             outAsync.invoke(
                 _throwExcept_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>

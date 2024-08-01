@@ -417,7 +417,7 @@ namespace Ice.servantLocator
                 outAsync.invoke(
                     _requestFailedException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -442,7 +442,7 @@ namespace Ice.servantLocator
                 outAsync.invoke(
                     _unknownUserException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -467,7 +467,7 @@ namespace Ice.servantLocator
                 outAsync.invoke(
                     _unknownLocalException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -492,7 +492,7 @@ namespace Ice.servantLocator
                 outAsync.invoke(
                     _unknownException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -517,7 +517,7 @@ namespace Ice.servantLocator
                 outAsync.invoke(
                     _localException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -542,7 +542,7 @@ namespace Ice.servantLocator
                 outAsync.invoke(
                     _userException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -567,7 +567,7 @@ namespace Ice.servantLocator
                 outAsync.invoke(
                     _csException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -592,7 +592,7 @@ namespace Ice.servantLocator
                 outAsync.invoke(
                     _unknownExceptionWithServantException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -618,7 +618,7 @@ namespace Ice.servantLocator
                 outAsync.invoke(
                     _impossibleException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -668,7 +668,7 @@ namespace Ice.servantLocator
                 outAsync.invoke(
                     _intfUserException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -722,7 +722,7 @@ namespace Ice.servantLocator
                 outAsync.invoke(
                     _asyncResponse_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     userException: (Ice.UserException ex) =>
@@ -766,7 +766,7 @@ namespace Ice.servantLocator
                 outAsync.invoke(
                     _asyncException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     userException: (Ice.UserException ex) =>
@@ -809,7 +809,7 @@ namespace Ice.servantLocator
                 outAsync.invoke(
                     _shutdown_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -898,7 +898,7 @@ namespace Ice.servantLocator
                 outAsync.invoke(
                     _activateServantLocator_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -1141,7 +1141,7 @@ namespace Ice.servantLocator
                 istr.endEncapsulation();
                 var ret = obj.impossibleException(iceP_throw, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeString(ret);
                 ostr.endEncapsulation();
                 return new(new Ice.OutgoingResponse(ostr));
@@ -1159,7 +1159,7 @@ namespace Ice.servantLocator
                 istr.endEncapsulation();
                 var ret = obj.intfUserException(iceP_throw, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeString(ret);
                 ostr.endEncapsulation();
                 return new(new Ice.OutgoingResponse(ostr));

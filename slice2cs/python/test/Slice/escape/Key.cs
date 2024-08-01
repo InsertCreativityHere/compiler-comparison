@@ -434,7 +434,7 @@ namespace and
             outAsync.invoke(
                 _elif_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -533,7 +533,7 @@ namespace and
             outAsync.invoke(
                 _finally_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -634,7 +634,7 @@ namespace and
             outAsync.invoke(
                 _finally_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -660,7 +660,7 @@ namespace and
             outAsync.invoke(
                 _elif_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -833,7 +833,7 @@ namespace and
             outAsync.invoke(
                 _raise_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -1078,7 +1078,7 @@ namespace and
             istr.endEncapsulation();
             var ret = obj.raise(iceP_else, iceP_return, iceP_while, iceP_yield, iceP_or, iceP_global, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeEnum((int)ret, 0);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));

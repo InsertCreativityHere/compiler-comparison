@@ -274,7 +274,7 @@ namespace Ice
             outAsync.invoke(
                 _getClientProxy_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -310,7 +310,7 @@ namespace Ice
             outAsync.invoke(
                 _getServerProxy_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -342,7 +342,7 @@ namespace Ice
             outAsync.invoke(
                 _addProxies_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -442,7 +442,7 @@ namespace Ice
             outAsync.invoke(
                 _getRouter_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -568,7 +568,7 @@ namespace Ice
             bool? iceP_hasRoutingTable;
             var ret = obj.getClientProxy(out iceP_hasRoutingTable, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeProxy(ret);
             ostr.writeBool(1, iceP_hasRoutingTable);
             ostr.endEncapsulation();
@@ -583,7 +583,7 @@ namespace Ice
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getServerProxy(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeProxy(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -601,7 +601,7 @@ namespace Ice
             istr.endEncapsulation();
             var ret = obj.addProxies(iceP_proxies, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ObjectProxySeqHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -618,7 +618,7 @@ namespace Ice
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getRouter(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             RouterPrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));

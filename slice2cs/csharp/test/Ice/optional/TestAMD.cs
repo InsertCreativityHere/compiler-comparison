@@ -1784,7 +1784,7 @@ namespace Ice.optional.AMD
             public Initial_OpMStruct1MarshaledResult(SmallStruct? ret, Ice.Current current)
             {
                 _ostr = Ice.CurrentExtensions.startReplyStream(current);
-                _ostr.startEncapsulation(current.encoding, Ice.FormatType.DefaultFormat);
+                _ostr.startEncapsulation(current.encoding, null);
                 if (ret is not null && _ostr.writeOptional(1, Ice.OptionalFormat.VSize))
                 {
                     _ostr.writeSize(1);
@@ -1806,7 +1806,7 @@ namespace Ice.optional.AMD
             public Initial_OpMStruct2MarshaledResult(SmallStruct? ret, SmallStruct? p2, Ice.Current current)
             {
                 _ostr = Ice.CurrentExtensions.startReplyStream(current);
-                _ostr.startEncapsulation(current.encoding, Ice.FormatType.DefaultFormat);
+                _ostr.startEncapsulation(current.encoding, null);
                 if (ret is not null && _ostr.writeOptional(1, Ice.OptionalFormat.VSize))
                 {
                     _ostr.writeSize(1);
@@ -1831,7 +1831,7 @@ namespace Ice.optional.AMD
             public Initial_OpMSeq1MarshaledResult(string[]? ret, Ice.Current current)
             {
                 _ostr = Ice.CurrentExtensions.startReplyStream(current);
-                _ostr.startEncapsulation(current.encoding, Ice.FormatType.DefaultFormat);
+                _ostr.startEncapsulation(current.encoding, null);
                 _ostr.writeStringSeq(1, ret);
                 _ostr.endEncapsulation();
             }
@@ -1849,7 +1849,7 @@ namespace Ice.optional.AMD
             public Initial_OpMSeq2MarshaledResult(string[]? ret, string[]? p2, Ice.Current current)
             {
                 _ostr = Ice.CurrentExtensions.startReplyStream(current);
-                _ostr.startEncapsulation(current.encoding, Ice.FormatType.DefaultFormat);
+                _ostr.startEncapsulation(current.encoding, null);
                 _ostr.writeStringSeq(1, ret);
                 _ostr.writeStringSeq(3, p2);
                 _ostr.endEncapsulation();
@@ -1866,7 +1866,7 @@ namespace Ice.optional.AMD
             public Initial_OpMDict1MarshaledResult(global::System.Collections.Generic.Dictionary<string, int>? ret, Ice.Current current)
             {
                 _ostr = Ice.CurrentExtensions.startReplyStream(current);
-                _ostr.startEncapsulation(current.encoding, Ice.FormatType.DefaultFormat);
+                _ostr.startEncapsulation(current.encoding, null);
                 if (ret is not null && _ostr.writeOptional(1, Ice.OptionalFormat.FSize))
                 {
                     int pos = _ostr.startSize();
@@ -1889,7 +1889,7 @@ namespace Ice.optional.AMD
             public Initial_OpMDict2MarshaledResult(global::System.Collections.Generic.Dictionary<string, int>? ret, global::System.Collections.Generic.Dictionary<string, int>? p2, Ice.Current current)
             {
                 _ostr = Ice.CurrentExtensions.startReplyStream(current);
-                _ostr.startEncapsulation(current.encoding, Ice.FormatType.DefaultFormat);
+                _ostr.startEncapsulation(current.encoding, null);
                 if (ret is not null && _ostr.writeOptional(1, Ice.OptionalFormat.FSize))
                 {
                     int pos = _ostr.startSize();
@@ -2146,7 +2146,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _op_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -3406,7 +3406,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _shutdown_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -3432,7 +3432,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _pingPong_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -3470,7 +3470,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opOptionalException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -3515,7 +3515,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opDerivedException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -3560,7 +3560,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opRequiredException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -3605,7 +3605,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opByte_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -3648,7 +3648,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opBool_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -3691,7 +3691,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opShort_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -3728,7 +3728,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opInt_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -3765,7 +3765,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opLong_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -3802,7 +3802,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opFloat_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -3839,7 +3839,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opDouble_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -3876,7 +3876,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opString_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -3913,7 +3913,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opMyEnum_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -3971,7 +3971,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opSmallStruct_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4032,7 +4032,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opFixedStruct_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4093,7 +4093,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opVarStruct_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4155,7 +4155,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opMyInterfaceProxy_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4217,7 +4217,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opOneOptional_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4256,7 +4256,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opByteSeq_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4311,7 +4311,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opBoolSeq_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4366,7 +4366,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opShortSeq_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4423,7 +4423,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opIntSeq_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4480,7 +4480,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opLongSeq_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4537,7 +4537,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opFloatSeq_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4594,7 +4594,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opDoubleSeq_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4651,7 +4651,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opStringSeq_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4708,7 +4708,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opSmallStructSeq_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4766,7 +4766,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opSmallStructList_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4824,7 +4824,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opFixedStructSeq_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4885,7 +4885,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opFixedStructList_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4946,7 +4946,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opVarStructSeq_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5008,7 +5008,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opIntIntDict_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5069,7 +5069,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opStringIntDict_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5130,7 +5130,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opClassAndUnknownOptional_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5161,7 +5161,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opG_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5198,7 +5198,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opVoid_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -5224,7 +5224,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opMStruct1_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     read: (Ice.InputStream istr) =>
@@ -5266,7 +5266,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opMStruct2_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5327,7 +5327,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opMSeq1_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     read: (Ice.InputStream istr) =>
@@ -5369,7 +5369,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opMSeq2_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5426,7 +5426,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opMDict1_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     read: (Ice.InputStream istr) =>
@@ -5468,7 +5468,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _opMDict2_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5530,7 +5530,7 @@ namespace Ice.optional.AMD
                 outAsync.invoke(
                     _supportsJavaSerializable_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     read: (Ice.InputStream istr) =>

@@ -90,7 +90,7 @@ namespace Test
             outAsync.invoke(
                 _getName_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>

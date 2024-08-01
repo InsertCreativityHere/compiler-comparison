@@ -611,7 +611,7 @@ namespace Ice
             outAsync.invoke(
                 _findObjectById_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -661,7 +661,7 @@ namespace Ice
             outAsync.invoke(
                 _findAdapterById_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -711,7 +711,7 @@ namespace Ice
             outAsync.invoke(
                 _getRegistry_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -831,7 +831,7 @@ namespace Ice
             outAsync.invoke(
                 _setAdapterDirectProxy_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -880,7 +880,7 @@ namespace Ice
             outAsync.invoke(
                 _setReplicatedAdapterDirectProxy_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -934,7 +934,7 @@ namespace Ice
             outAsync.invoke(
                 _setServerProcessProxy_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -1043,7 +1043,7 @@ namespace Ice
             outAsync.invoke(
                 _getLocator_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -1236,7 +1236,7 @@ namespace Ice
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getRegistry(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             LocatorRegistryPrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -1306,7 +1306,7 @@ namespace Ice
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getLocator(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             LocatorPrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));

@@ -647,7 +647,7 @@ namespace Ice.dictMapping.AMD
                 outAsync.invoke(
                     _shutdown_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -673,7 +673,7 @@ namespace Ice.dictMapping.AMD
                 outAsync.invoke(
                     _opNV_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -710,7 +710,7 @@ namespace Ice.dictMapping.AMD
                 outAsync.invoke(
                     _opNR_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -747,7 +747,7 @@ namespace Ice.dictMapping.AMD
                 outAsync.invoke(
                     _opNDV_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -784,7 +784,7 @@ namespace Ice.dictMapping.AMD
                 outAsync.invoke(
                     _opNDR_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -821,7 +821,7 @@ namespace Ice.dictMapping.AMD
                 outAsync.invoke(
                     _opNDAIS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -858,7 +858,7 @@ namespace Ice.dictMapping.AMD
                 outAsync.invoke(
                     _opNDGIS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -895,7 +895,7 @@ namespace Ice.dictMapping.AMD
                 outAsync.invoke(
                     _opNDASS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -932,7 +932,7 @@ namespace Ice.dictMapping.AMD
                 outAsync.invoke(
                     _opNDGSS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>

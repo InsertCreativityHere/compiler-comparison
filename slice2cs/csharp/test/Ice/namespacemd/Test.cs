@@ -269,7 +269,7 @@ namespace Ice.namespacemd
                 outAsync.invoke(
                     _getNoNamespaceC2AsC1_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     read: (Ice.InputStream istr) =>
@@ -302,7 +302,7 @@ namespace Ice.namespacemd
                 outAsync.invoke(
                     _getNoNamespaceC2AsC2_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     read: (Ice.InputStream istr) =>
@@ -335,7 +335,7 @@ namespace Ice.namespacemd
                 outAsync.invoke(
                     _throwNoNamespaceE2AsE1_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     userException: (Ice.UserException ex) =>
@@ -375,7 +375,7 @@ namespace Ice.namespacemd
                 outAsync.invoke(
                     _throwNoNamespaceE2AsE2_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     userException: (Ice.UserException ex) =>
@@ -415,7 +415,7 @@ namespace Ice.namespacemd
                 outAsync.invoke(
                     _throwNoNamespaceNotify_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     userException: (Ice.UserException ex) =>
@@ -455,7 +455,7 @@ namespace Ice.namespacemd
                 outAsync.invoke(
                     _getWithNamespaceC2AsC1_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     read: (Ice.InputStream istr) =>
@@ -488,7 +488,7 @@ namespace Ice.namespacemd
                 outAsync.invoke(
                     _getWithNamespaceC2AsC2_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     read: (Ice.InputStream istr) =>
@@ -521,7 +521,7 @@ namespace Ice.namespacemd
                 outAsync.invoke(
                     _throwWithNamespaceE2AsE1_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     userException: (Ice.UserException ex) =>
@@ -561,7 +561,7 @@ namespace Ice.namespacemd
                 outAsync.invoke(
                     _throwWithNamespaceE2AsE2_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     userException: (Ice.UserException ex) =>
@@ -600,7 +600,7 @@ namespace Ice.namespacemd
                 outAsync.invoke(
                     _shutdown_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -724,7 +724,7 @@ namespace Ice.namespacemd
                 request.inputStream.skipEmptyEncapsulation();
                 var ret = obj.getNoNamespaceC2AsC1(request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeValue(ret);
                 ostr.writePendingValues();
                 ostr.endEncapsulation();
@@ -739,7 +739,7 @@ namespace Ice.namespacemd
                 request.inputStream.skipEmptyEncapsulation();
                 var ret = obj.getNoNamespaceC2AsC2(request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeValue(ret);
                 ostr.writePendingValues();
                 ostr.endEncapsulation();
@@ -784,7 +784,7 @@ namespace Ice.namespacemd
                 request.inputStream.skipEmptyEncapsulation();
                 var ret = obj.getWithNamespaceC2AsC1(request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeValue(ret);
                 ostr.writePendingValues();
                 ostr.endEncapsulation();
@@ -799,7 +799,7 @@ namespace Ice.namespacemd
                 request.inputStream.skipEmptyEncapsulation();
                 var ret = obj.getWithNamespaceC2AsC2(request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeValue(ret);
                 ostr.writePendingValues();
                 ostr.endEncapsulation();

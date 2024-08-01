@@ -857,7 +857,7 @@ namespace Test
             outAsync.invoke(
                 _knownPreservedAsBase_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -897,7 +897,7 @@ namespace Test
             outAsync.invoke(
                 _knownPreservedAsKnownPreserved_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -937,7 +937,7 @@ namespace Test
             outAsync.invoke(
                 _unknownPreservedAsBase_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -977,7 +977,7 @@ namespace Test
             outAsync.invoke(
                 _unknownPreservedAsKnownPreserved_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -1345,7 +1345,7 @@ namespace Test
             outAsync.invoke(
                 _baseAsBase_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -1385,7 +1385,7 @@ namespace Test
             outAsync.invoke(
                 _unknownDerivedAsBase_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -1425,7 +1425,7 @@ namespace Test
             outAsync.invoke(
                 _knownDerivedAsBase_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -1465,7 +1465,7 @@ namespace Test
             outAsync.invoke(
                 _knownDerivedAsKnownDerived_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -1505,7 +1505,7 @@ namespace Test
             outAsync.invoke(
                 _unknownIntermediateAsBase_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -1545,7 +1545,7 @@ namespace Test
             outAsync.invoke(
                 _knownIntermediateAsBase_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -1585,7 +1585,7 @@ namespace Test
             outAsync.invoke(
                 _knownMostDerivedAsBase_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -1625,7 +1625,7 @@ namespace Test
             outAsync.invoke(
                 _knownIntermediateAsKnownIntermediate_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -1665,7 +1665,7 @@ namespace Test
             outAsync.invoke(
                 _knownMostDerivedAsKnownIntermediate_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -1705,7 +1705,7 @@ namespace Test
             outAsync.invoke(
                 _knownMostDerivedAsKnownMostDerived_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -1745,7 +1745,7 @@ namespace Test
             outAsync.invoke(
                 _unknownMostDerived1AsBase_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -1785,7 +1785,7 @@ namespace Test
             outAsync.invoke(
                 _unknownMostDerived1AsKnownIntermediate_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -1825,7 +1825,7 @@ namespace Test
             outAsync.invoke(
                 _unknownMostDerived2AsBase_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -1905,7 +1905,7 @@ namespace Test
             outAsync.invoke(
                 _knownPreservedAsBase_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -1945,7 +1945,7 @@ namespace Test
             outAsync.invoke(
                 _knownPreservedAsKnownPreserved_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -1985,7 +1985,7 @@ namespace Test
             outAsync.invoke(
                 _relayKnownPreservedAsBase_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -2029,7 +2029,7 @@ namespace Test
             outAsync.invoke(
                 _relayKnownPreservedAsKnownPreserved_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -2073,7 +2073,7 @@ namespace Test
             outAsync.invoke(
                 _unknownPreservedAsBase_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -2113,7 +2113,7 @@ namespace Test
             outAsync.invoke(
                 _unknownPreservedAsKnownPreserved_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -2153,7 +2153,7 @@ namespace Test
             outAsync.invoke(
                 _relayUnknownPreservedAsBase_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -2197,7 +2197,7 @@ namespace Test
             outAsync.invoke(
                 _relayUnknownPreservedAsKnownPreserved_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -2240,7 +2240,7 @@ namespace Test
             outAsync.invoke(
                 _shutdown_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }

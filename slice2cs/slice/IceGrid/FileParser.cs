@@ -184,7 +184,7 @@ namespace IceGrid
             outAsync.invoke(
                 _parse_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -307,7 +307,7 @@ namespace IceGrid
             istr.endEncapsulation();
             var ret = obj.parse(iceP_xmlFile, iceP_adminProxy, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ApplicationDescriptor.ice_write(ostr, ret);
             ostr.writePendingValues();
             ostr.endEncapsulation();

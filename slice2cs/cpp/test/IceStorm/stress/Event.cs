@@ -89,7 +89,7 @@ namespace Test
             outAsync.invoke(
                 _pub_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>

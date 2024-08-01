@@ -304,7 +304,7 @@ namespace Test
             outAsync.invoke(
                 _reply_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -561,7 +561,7 @@ namespace Test
             outAsync.invoke(
                 _op_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -586,7 +586,7 @@ namespace Test
             outAsync.invoke(
                 _opWithPayload_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -616,7 +616,7 @@ namespace Test
             outAsync.invoke(
                 _opWithResult_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -648,7 +648,7 @@ namespace Test
             outAsync.invoke(
                 _opWithUE_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -687,7 +687,7 @@ namespace Test
             outAsync.invoke(
                 _opBatch_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -713,7 +713,7 @@ namespace Test
             outAsync.invoke(
                 _opBatchCount_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -745,7 +745,7 @@ namespace Test
             outAsync.invoke(
                 _waitForBatch_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -780,7 +780,7 @@ namespace Test
             outAsync.invoke(
                 _close_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -809,7 +809,7 @@ namespace Test
             outAsync.invoke(
                 _sleep_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -838,7 +838,7 @@ namespace Test
             outAsync.invoke(
                 _startDispatch_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -863,7 +863,7 @@ namespace Test
             outAsync.invoke(
                 _finishDispatch_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -888,7 +888,7 @@ namespace Test
             outAsync.invoke(
                 _shutdown_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -914,7 +914,7 @@ namespace Test
             outAsync.invoke(
                 _supportsAMD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -946,7 +946,7 @@ namespace Test
             outAsync.invoke(
                 _supportsFunctionalTests_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -977,7 +977,7 @@ namespace Test
             outAsync.invoke(
                 _pingBidDir_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -1082,7 +1082,7 @@ namespace Test
             outAsync.invoke(
                 _holdAdapter_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -1107,7 +1107,7 @@ namespace Test
             outAsync.invoke(
                 _resumeAdapter_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -1324,7 +1324,7 @@ namespace Test
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.opWithResult(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeInt(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -1358,7 +1358,7 @@ namespace Test
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.opBatchCount(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeInt(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -1376,7 +1376,7 @@ namespace Test
             istr.endEncapsulation();
             var ret = obj.waitForBatch(iceP_count, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeBool(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -1448,7 +1448,7 @@ namespace Test
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.supportsAMD(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeBool(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -1462,7 +1462,7 @@ namespace Test
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.supportsFunctionalTests(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeBool(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));

@@ -1306,7 +1306,7 @@ namespace Ice.scope
                 outAsync.invoke(
                     _opS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -1343,7 +1343,7 @@ namespace Ice.scope
                 outAsync.invoke(
                     _opSSeq_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -1380,7 +1380,7 @@ namespace Ice.scope
                 outAsync.invoke(
                     _opSMap_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -1417,7 +1417,7 @@ namespace Ice.scope
                 outAsync.invoke(
                     _opC_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -1456,7 +1456,7 @@ namespace Ice.scope
                 outAsync.invoke(
                     _opCSeq_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -1495,7 +1495,7 @@ namespace Ice.scope
                 outAsync.invoke(
                     _opCMap_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -1534,7 +1534,7 @@ namespace Ice.scope
                 outAsync.invoke(
                     _opE1_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -1570,7 +1570,7 @@ namespace Ice.scope
                 outAsync.invoke(
                     _opS1_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -1606,7 +1606,7 @@ namespace Ice.scope
                 outAsync.invoke(
                     _opC1_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -1643,7 +1643,7 @@ namespace Ice.scope
                 outAsync.invoke(
                     _shutdown_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -2032,7 +2032,7 @@ namespace Ice.scope
                         outAsync.invoke(
                             _opS_name,
                             Ice.OperationMode.Normal,
-                            Ice.FormatType.DefaultFormat,
+                            null,
                             context,
                             synchronous,
                             write: (Ice.OutputStream ostr) =>
@@ -2069,7 +2069,7 @@ namespace Ice.scope
                         outAsync.invoke(
                             _opSSeq_name,
                             Ice.OperationMode.Normal,
-                            Ice.FormatType.DefaultFormat,
+                            null,
                             context,
                             synchronous,
                             write: (Ice.OutputStream ostr) =>
@@ -2106,7 +2106,7 @@ namespace Ice.scope
                         outAsync.invoke(
                             _opSMap_name,
                             Ice.OperationMode.Normal,
-                            Ice.FormatType.DefaultFormat,
+                            null,
                             context,
                             synchronous,
                             write: (Ice.OutputStream ostr) =>
@@ -2143,7 +2143,7 @@ namespace Ice.scope
                         outAsync.invoke(
                             _opC_name,
                             Ice.OperationMode.Normal,
-                            Ice.FormatType.DefaultFormat,
+                            null,
                             context,
                             synchronous,
                             write: (Ice.OutputStream ostr) =>
@@ -2182,7 +2182,7 @@ namespace Ice.scope
                         outAsync.invoke(
                             _opCSeq_name,
                             Ice.OperationMode.Normal,
-                            Ice.FormatType.DefaultFormat,
+                            null,
                             context,
                             synchronous,
                             write: (Ice.OutputStream ostr) =>
@@ -2221,7 +2221,7 @@ namespace Ice.scope
                         outAsync.invoke(
                             _opCMap_name,
                             Ice.OperationMode.Normal,
-                            Ice.FormatType.DefaultFormat,
+                            null,
                             context,
                             synchronous,
                             write: (Ice.OutputStream ostr) =>
@@ -2259,7 +2259,7 @@ namespace Ice.scope
                         outAsync.invoke(
                             _shutdown_name,
                             Ice.OperationMode.Normal,
-                            Ice.FormatType.DefaultFormat,
+                            null,
                             context,
                             synchronous);
                     }
@@ -2645,7 +2645,7 @@ namespace Ice.scope
                     outAsync.invoke(
                         _opS_name,
                         Ice.OperationMode.Normal,
-                        Ice.FormatType.DefaultFormat,
+                        null,
                         context,
                         synchronous,
                         write: (Ice.OutputStream ostr) =>
@@ -2682,7 +2682,7 @@ namespace Ice.scope
                     outAsync.invoke(
                         _opSSeq_name,
                         Ice.OperationMode.Normal,
-                        Ice.FormatType.DefaultFormat,
+                        null,
                         context,
                         synchronous,
                         write: (Ice.OutputStream ostr) =>
@@ -2719,7 +2719,7 @@ namespace Ice.scope
                     outAsync.invoke(
                         _opSMap_name,
                         Ice.OperationMode.Normal,
-                        Ice.FormatType.DefaultFormat,
+                        null,
                         context,
                         synchronous,
                         write: (Ice.OutputStream ostr) =>
@@ -2756,7 +2756,7 @@ namespace Ice.scope
                     outAsync.invoke(
                         _opC_name,
                         Ice.OperationMode.Normal,
-                        Ice.FormatType.DefaultFormat,
+                        null,
                         context,
                         synchronous,
                         write: (Ice.OutputStream ostr) =>
@@ -2795,7 +2795,7 @@ namespace Ice.scope
                     outAsync.invoke(
                         _opCSeq_name,
                         Ice.OperationMode.Normal,
-                        Ice.FormatType.DefaultFormat,
+                        null,
                         context,
                         synchronous,
                         write: (Ice.OutputStream ostr) =>
@@ -2834,7 +2834,7 @@ namespace Ice.scope
                     outAsync.invoke(
                         _opCMap_name,
                         Ice.OperationMode.Normal,
-                        Ice.FormatType.DefaultFormat,
+                        null,
                         context,
                         synchronous,
                         write: (Ice.OutputStream ostr) =>
@@ -2872,7 +2872,7 @@ namespace Ice.scope
                     outAsync.invoke(
                         _shutdown_name,
                         Ice.OperationMode.Normal,
-                        Ice.FormatType.DefaultFormat,
+                        null,
                         context,
                         synchronous);
                 }
@@ -3126,7 +3126,7 @@ namespace Inner
                     outAsync.invoke(
                         _opS_name,
                         Ice.OperationMode.Normal,
-                        Ice.FormatType.DefaultFormat,
+                        null,
                         context,
                         synchronous,
                         write: (Ice.OutputStream ostr) =>
@@ -3163,7 +3163,7 @@ namespace Inner
                     outAsync.invoke(
                         _opSSeq_name,
                         Ice.OperationMode.Normal,
-                        Ice.FormatType.DefaultFormat,
+                        null,
                         context,
                         synchronous,
                         write: (Ice.OutputStream ostr) =>
@@ -3200,7 +3200,7 @@ namespace Inner
                     outAsync.invoke(
                         _opSMap_name,
                         Ice.OperationMode.Normal,
-                        Ice.FormatType.DefaultFormat,
+                        null,
                         context,
                         synchronous,
                         write: (Ice.OutputStream ostr) =>
@@ -3237,7 +3237,7 @@ namespace Inner
                     outAsync.invoke(
                         _opC_name,
                         Ice.OperationMode.Normal,
-                        Ice.FormatType.DefaultFormat,
+                        null,
                         context,
                         synchronous,
                         write: (Ice.OutputStream ostr) =>
@@ -3276,7 +3276,7 @@ namespace Inner
                     outAsync.invoke(
                         _opCSeq_name,
                         Ice.OperationMode.Normal,
-                        Ice.FormatType.DefaultFormat,
+                        null,
                         context,
                         synchronous,
                         write: (Ice.OutputStream ostr) =>
@@ -3315,7 +3315,7 @@ namespace Inner
                     outAsync.invoke(
                         _opCMap_name,
                         Ice.OperationMode.Normal,
-                        Ice.FormatType.DefaultFormat,
+                        null,
                         context,
                         synchronous,
                         write: (Ice.OutputStream ostr) =>
@@ -3353,7 +3353,7 @@ namespace Inner
                     outAsync.invoke(
                         _shutdown_name,
                         Ice.OperationMode.Normal,
-                        Ice.FormatType.DefaultFormat,
+                        null,
                         context,
                         synchronous);
                 }
@@ -3618,7 +3618,7 @@ namespace Ice.scope
                 S iceP_s2;
                 var ret = obj.opS(iceP_s1, out iceP_s2, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 iceP_s2.ice_writeMembers(ostr);
                 ret.ice_writeMembers(ostr);
                 ostr.endEncapsulation();
@@ -3638,7 +3638,7 @@ namespace Ice.scope
                 S[] iceP_s2;
                 var ret = obj.opSSeq(iceP_s1, out iceP_s2, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 SSeqHelper.write(ostr, iceP_s2);
                 SSeqHelper.write(ostr, ret);
                 ostr.endEncapsulation();
@@ -3658,7 +3658,7 @@ namespace Ice.scope
                 global::System.Collections.Generic.Dictionary<string, S> iceP_s2;
                 var ret = obj.opSMap(iceP_s1, out iceP_s2, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 SMapHelper.write(ostr, iceP_s2);
                 SMapHelper.write(ostr, ret);
                 ostr.endEncapsulation();
@@ -3679,7 +3679,7 @@ namespace Ice.scope
                 C? iceP_c2;
                 var ret = obj.opC(iceP_c1, out iceP_c2, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeValue(iceP_c2);
                 ostr.writeValue(ret);
                 ostr.writePendingValues();
@@ -3701,7 +3701,7 @@ namespace Ice.scope
                 C?[] iceP_c2;
                 var ret = obj.opCSeq(iceP_c1, out iceP_c2, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 CSeqHelper.write(ostr, iceP_c2);
                 CSeqHelper.write(ostr, ret);
                 ostr.writePendingValues();
@@ -3723,7 +3723,7 @@ namespace Ice.scope
                 global::System.Collections.Generic.Dictionary<string, C?> iceP_c2;
                 var ret = obj.opCMap(iceP_c1, out iceP_c2, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 CMapHelper.write(ostr, iceP_c2);
                 CMapHelper.write(ostr, ret);
                 ostr.writePendingValues();
@@ -3743,7 +3743,7 @@ namespace Ice.scope
                 istr.endEncapsulation();
                 var ret = obj.opE1(iceP_E1, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeEnum((int)ret, 2);
                 ostr.endEncapsulation();
                 return new(new Ice.OutgoingResponse(ostr));
@@ -3761,7 +3761,7 @@ namespace Ice.scope
                 istr.endEncapsulation();
                 var ret = obj.opS1(iceP_S1, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 S1.ice_write(ostr, ret);
                 ostr.endEncapsulation();
                 return new(new Ice.OutgoingResponse(ostr));
@@ -3780,7 +3780,7 @@ namespace Ice.scope
                 istr.endEncapsulation();
                 var ret = obj.opC1(iceP_C1, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeValue(ret);
                 ostr.writePendingValues();
                 ostr.endEncapsulation();
@@ -3817,7 +3817,7 @@ namespace Ice.scope
                         S iceP_s2;
                         var ret = obj.opS(iceP_s1, out iceP_s2, request.current);
                         var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                        ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                        ostr.startEncapsulation(request.current.encoding, null);
                         iceP_s2.ice_writeMembers(ostr);
                         ret.ice_writeMembers(ostr);
                         ostr.endEncapsulation();
@@ -3837,7 +3837,7 @@ namespace Ice.scope
                         S[] iceP_s2;
                         var ret = obj.opSSeq(iceP_s1, out iceP_s2, request.current);
                         var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                        ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                        ostr.startEncapsulation(request.current.encoding, null);
                         SSeqHelper.write(ostr, iceP_s2);
                         SSeqHelper.write(ostr, ret);
                         ostr.endEncapsulation();
@@ -3857,7 +3857,7 @@ namespace Ice.scope
                         global::System.Collections.Generic.Dictionary<string, S> iceP_s2;
                         var ret = obj.opSMap(iceP_s1, out iceP_s2, request.current);
                         var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                        ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                        ostr.startEncapsulation(request.current.encoding, null);
                         SMapHelper.write(ostr, iceP_s2);
                         SMapHelper.write(ostr, ret);
                         ostr.endEncapsulation();
@@ -3878,7 +3878,7 @@ namespace Ice.scope
                         C? iceP_c2;
                         var ret = obj.opC(iceP_c1, out iceP_c2, request.current);
                         var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                        ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                        ostr.startEncapsulation(request.current.encoding, null);
                         ostr.writeValue(iceP_c2);
                         ostr.writeValue(ret);
                         ostr.writePendingValues();
@@ -3900,7 +3900,7 @@ namespace Ice.scope
                         C?[] iceP_c2;
                         var ret = obj.opCSeq(iceP_c1, out iceP_c2, request.current);
                         var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                        ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                        ostr.startEncapsulation(request.current.encoding, null);
                         CSeqHelper.write(ostr, iceP_c2);
                         CSeqHelper.write(ostr, ret);
                         ostr.writePendingValues();
@@ -3922,7 +3922,7 @@ namespace Ice.scope
                         global::System.Collections.Generic.Dictionary<string, C?> iceP_c2;
                         var ret = obj.opCMap(iceP_c1, out iceP_c2, request.current);
                         var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                        ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                        ostr.startEncapsulation(request.current.encoding, null);
                         CMapHelper.write(ostr, iceP_c2);
                         CMapHelper.write(ostr, ret);
                         ostr.writePendingValues();
@@ -3957,7 +3957,7 @@ namespace Ice.scope
                     global::Ice.scope.Test.Inner.Inner2.S iceP_s2;
                     var ret = obj.opS(iceP_s1, out iceP_s2, request.current);
                     var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                    ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                    ostr.startEncapsulation(request.current.encoding, null);
                     iceP_s2.ice_writeMembers(ostr);
                     ret.ice_writeMembers(ostr);
                     ostr.endEncapsulation();
@@ -3977,7 +3977,7 @@ namespace Ice.scope
                     global::Ice.scope.Test.Inner.Inner2.S[] iceP_s2;
                     var ret = obj.opSSeq(iceP_s1, out iceP_s2, request.current);
                     var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                    ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                    ostr.startEncapsulation(request.current.encoding, null);
                     global::Ice.scope.Test.Inner.Inner2.SSeqHelper.write(ostr, iceP_s2);
                     global::Ice.scope.Test.Inner.Inner2.SSeqHelper.write(ostr, ret);
                     ostr.endEncapsulation();
@@ -3997,7 +3997,7 @@ namespace Ice.scope
                     global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> iceP_s2;
                     var ret = obj.opSMap(iceP_s1, out iceP_s2, request.current);
                     var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                    ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                    ostr.startEncapsulation(request.current.encoding, null);
                     global::Ice.scope.Test.Inner.Inner2.SMapHelper.write(ostr, iceP_s2);
                     global::Ice.scope.Test.Inner.Inner2.SMapHelper.write(ostr, ret);
                     ostr.endEncapsulation();
@@ -4018,7 +4018,7 @@ namespace Ice.scope
                     global::Ice.scope.Test.Inner.Inner2.C? iceP_c2;
                     var ret = obj.opC(iceP_c1, out iceP_c2, request.current);
                     var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                    ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                    ostr.startEncapsulation(request.current.encoding, null);
                     ostr.writeValue(iceP_c2);
                     ostr.writeValue(ret);
                     ostr.writePendingValues();
@@ -4040,7 +4040,7 @@ namespace Ice.scope
                     global::Ice.scope.Test.Inner.Inner2.C?[] iceP_c2;
                     var ret = obj.opCSeq(iceP_c1, out iceP_c2, request.current);
                     var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                    ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                    ostr.startEncapsulation(request.current.encoding, null);
                     global::Ice.scope.Test.Inner.Inner2.CSeqHelper.write(ostr, iceP_c2);
                     global::Ice.scope.Test.Inner.Inner2.CSeqHelper.write(ostr, ret);
                     ostr.writePendingValues();
@@ -4062,7 +4062,7 @@ namespace Ice.scope
                     global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> iceP_c2;
                     var ret = obj.opCMap(iceP_c1, out iceP_c2, request.current);
                     var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                    ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                    ostr.startEncapsulation(request.current.encoding, null);
                     global::Ice.scope.Test.Inner.Inner2.CMapHelper.write(ostr, iceP_c2);
                     global::Ice.scope.Test.Inner.Inner2.CMapHelper.write(ostr, ret);
                     ostr.writePendingValues();
@@ -4105,7 +4105,7 @@ namespace Inner
                     global::Ice.scope.Test.S iceP_s2;
                     var ret = obj.opS(iceP_s1, out iceP_s2, request.current);
                     var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                    ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                    ostr.startEncapsulation(request.current.encoding, null);
                     iceP_s2.ice_writeMembers(ostr);
                     ret.ice_writeMembers(ostr);
                     ostr.endEncapsulation();
@@ -4125,7 +4125,7 @@ namespace Inner
                     global::Ice.scope.Test.S[] iceP_s2;
                     var ret = obj.opSSeq(iceP_s1, out iceP_s2, request.current);
                     var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                    ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                    ostr.startEncapsulation(request.current.encoding, null);
                     global::Ice.scope.Test.SSeqHelper.write(ostr, iceP_s2);
                     global::Ice.scope.Test.SSeqHelper.write(ostr, ret);
                     ostr.endEncapsulation();
@@ -4145,7 +4145,7 @@ namespace Inner
                     global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> iceP_s2;
                     var ret = obj.opSMap(iceP_s1, out iceP_s2, request.current);
                     var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                    ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                    ostr.startEncapsulation(request.current.encoding, null);
                     global::Ice.scope.Test.SMapHelper.write(ostr, iceP_s2);
                     global::Ice.scope.Test.SMapHelper.write(ostr, ret);
                     ostr.endEncapsulation();
@@ -4166,7 +4166,7 @@ namespace Inner
                     global::Ice.scope.Test.C? iceP_c2;
                     var ret = obj.opC(iceP_c1, out iceP_c2, request.current);
                     var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                    ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                    ostr.startEncapsulation(request.current.encoding, null);
                     ostr.writeValue(iceP_c2);
                     ostr.writeValue(ret);
                     ostr.writePendingValues();
@@ -4188,7 +4188,7 @@ namespace Inner
                     global::Ice.scope.Test.C?[] iceP_c2;
                     var ret = obj.opCSeq(iceP_c1, out iceP_c2, request.current);
                     var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                    ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                    ostr.startEncapsulation(request.current.encoding, null);
                     global::Ice.scope.Test.CSeqHelper.write(ostr, iceP_c2);
                     global::Ice.scope.Test.CSeqHelper.write(ostr, ret);
                     ostr.writePendingValues();
@@ -4210,7 +4210,7 @@ namespace Inner
                     global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> iceP_c2;
                     var ret = obj.opCMap(iceP_c1, out iceP_c2, request.current);
                     var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                    ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                    ostr.startEncapsulation(request.current.encoding, null);
                     global::Ice.scope.Test.CMapHelper.write(ostr, iceP_c2);
                     global::Ice.scope.Test.CMapHelper.write(ostr, ret);
                     ostr.writePendingValues();

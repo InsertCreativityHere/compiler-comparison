@@ -467,7 +467,7 @@ namespace Glacier2
             outAsync.invoke(
                 _getClientProxy_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -503,7 +503,7 @@ namespace Glacier2
             outAsync.invoke(
                 _getServerProxy_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -535,7 +535,7 @@ namespace Glacier2
             outAsync.invoke(
                 _addProxies_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -571,7 +571,7 @@ namespace Glacier2
             outAsync.invoke(
                 _getCategoryForClient_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -603,7 +603,7 @@ namespace Glacier2
             outAsync.invoke(
                 _createSession_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -658,7 +658,7 @@ namespace Glacier2
             outAsync.invoke(
                 _createSessionFromSecureConnection_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -708,7 +708,7 @@ namespace Glacier2
             outAsync.invoke(
                 _refreshSession_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -748,7 +748,7 @@ namespace Glacier2
             outAsync.invoke(
                 _destroySession_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -788,7 +788,7 @@ namespace Glacier2
             outAsync.invoke(
                 _getSessionTimeout_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -820,7 +820,7 @@ namespace Glacier2
             outAsync.invoke(
                 _getACMTimeout_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -945,7 +945,7 @@ namespace Glacier2
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getCategoryForClient(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeString(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -1017,7 +1017,7 @@ namespace Glacier2
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getSessionTimeout(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeLong(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -1031,7 +1031,7 @@ namespace Glacier2
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getACMTimeout(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeInt(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));

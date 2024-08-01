@@ -142,7 +142,7 @@ namespace Ice.proxy
                 outAsync.invoke(
                     _shutdown_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -168,7 +168,7 @@ namespace Ice.proxy
                 outAsync.invoke(
                     _getContext_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     read: (Ice.InputStream istr) =>
@@ -287,7 +287,7 @@ namespace Ice.proxy
                 outAsync.invoke(
                     _shutdown_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -313,7 +313,7 @@ namespace Ice.proxy
                 outAsync.invoke(
                     _getContext_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     read: (Ice.InputStream istr) =>
@@ -345,7 +345,7 @@ namespace Ice.proxy
                 outAsync.invoke(
                     _echo_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -494,7 +494,7 @@ namespace Ice.proxy
                 request.inputStream.skipEmptyEncapsulation();
                 var ret = obj.getContext(request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 global::Ice.ContextHelper.write(ostr, ret);
                 ostr.endEncapsulation();
                 return new(new Ice.OutgoingResponse(ostr));
@@ -515,7 +515,7 @@ namespace Ice.proxy
                 istr.endEncapsulation();
                 var ret = obj.echo(iceP_obj, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeProxy(ret);
                 ostr.endEncapsulation();
                 return new(new Ice.OutgoingResponse(ostr));

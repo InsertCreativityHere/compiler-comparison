@@ -389,7 +389,7 @@ namespace Test
             outAsync.invoke(
                 _shutdown_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -415,7 +415,7 @@ namespace Test
             outAsync.invoke(
                 _opSerialSmallJava_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -452,7 +452,7 @@ namespace Test
             outAsync.invoke(
                 _opSerialLargeJava_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -489,7 +489,7 @@ namespace Test
             outAsync.invoke(
                 _opSerialStructJava_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -757,7 +757,7 @@ namespace Test
             byte[] iceP_o;
             var ret = obj.opSerialSmallJava(iceP_i, out iceP_o, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             SerialSmallHelper.write(ostr, iceP_o);
             SerialSmallHelper.write(ostr, ret);
             ostr.endEncapsulation();
@@ -777,7 +777,7 @@ namespace Test
             byte[] iceP_o;
             var ret = obj.opSerialLargeJava(iceP_i, out iceP_o, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             SerialLargeHelper.write(ostr, iceP_o);
             SerialLargeHelper.write(ostr, ret);
             ostr.endEncapsulation();
@@ -797,7 +797,7 @@ namespace Test
             byte[] iceP_o;
             var ret = obj.opSerialStructJava(iceP_i, out iceP_o, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             SerialStructHelper.write(ostr, iceP_o);
             SerialStructHelper.write(ostr, ret);
             ostr.endEncapsulation();

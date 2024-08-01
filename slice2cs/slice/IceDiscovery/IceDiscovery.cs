@@ -286,7 +286,7 @@ namespace IceDiscovery
             outAsync.invoke(
                 _foundObjectById_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -316,7 +316,7 @@ namespace IceDiscovery
             outAsync.invoke(
                 _foundAdapterById_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -423,7 +423,7 @@ namespace IceDiscovery
             outAsync.invoke(
                 _findObjectById_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -454,7 +454,7 @@ namespace IceDiscovery
             outAsync.invoke(
                 _findAdapterById_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>

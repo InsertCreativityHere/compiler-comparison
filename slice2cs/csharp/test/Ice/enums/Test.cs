@@ -597,7 +597,7 @@ namespace Ice.enums
                 outAsync.invoke(
                     _opByte_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -634,7 +634,7 @@ namespace Ice.enums
                 outAsync.invoke(
                     _opShort_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -671,7 +671,7 @@ namespace Ice.enums
                 outAsync.invoke(
                     _opInt_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -708,7 +708,7 @@ namespace Ice.enums
                 outAsync.invoke(
                     _opSimple_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -745,7 +745,7 @@ namespace Ice.enums
                 outAsync.invoke(
                     _opByteSeq_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -782,7 +782,7 @@ namespace Ice.enums
                 outAsync.invoke(
                     _opShortSeq_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -819,7 +819,7 @@ namespace Ice.enums
                 outAsync.invoke(
                     _opIntSeq_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -856,7 +856,7 @@ namespace Ice.enums
                 outAsync.invoke(
                     _opSimpleSeq_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -892,7 +892,7 @@ namespace Ice.enums
                 outAsync.invoke(
                     _shutdown_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -1018,7 +1018,7 @@ namespace Ice.enums
                 ByteEnum iceP_b2;
                 var ret = obj.opByte(iceP_b1, out iceP_b2, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeEnum((int)iceP_b2, 126);
                 ostr.writeEnum((int)ret, 126);
                 ostr.endEncapsulation();
@@ -1038,7 +1038,7 @@ namespace Ice.enums
                 ShortEnum iceP_s2;
                 var ret = obj.opShort(iceP_s1, out iceP_s2, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeEnum((int)iceP_s2, 32766);
                 ostr.writeEnum((int)ret, 32766);
                 ostr.endEncapsulation();
@@ -1058,7 +1058,7 @@ namespace Ice.enums
                 IntEnum iceP_i2;
                 var ret = obj.opInt(iceP_i1, out iceP_i2, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeEnum((int)iceP_i2, 2147483647);
                 ostr.writeEnum((int)ret, 2147483647);
                 ostr.endEncapsulation();
@@ -1078,7 +1078,7 @@ namespace Ice.enums
                 SimpleEnum iceP_s2;
                 var ret = obj.opSimple(iceP_s1, out iceP_s2, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeEnum((int)iceP_s2, 2);
                 ostr.writeEnum((int)ret, 2);
                 ostr.endEncapsulation();
@@ -1098,7 +1098,7 @@ namespace Ice.enums
                 ByteEnum[] iceP_b2;
                 var ret = obj.opByteSeq(iceP_b1, out iceP_b2, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ByteEnumSeqHelper.write(ostr, iceP_b2);
                 ByteEnumSeqHelper.write(ostr, ret);
                 ostr.endEncapsulation();
@@ -1118,7 +1118,7 @@ namespace Ice.enums
                 ShortEnum[] iceP_s2;
                 var ret = obj.opShortSeq(iceP_s1, out iceP_s2, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ShortEnumSeqHelper.write(ostr, iceP_s2);
                 ShortEnumSeqHelper.write(ostr, ret);
                 ostr.endEncapsulation();
@@ -1138,7 +1138,7 @@ namespace Ice.enums
                 IntEnum[] iceP_i2;
                 var ret = obj.opIntSeq(iceP_i1, out iceP_i2, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 IntEnumSeqHelper.write(ostr, iceP_i2);
                 IntEnumSeqHelper.write(ostr, ret);
                 ostr.endEncapsulation();
@@ -1158,7 +1158,7 @@ namespace Ice.enums
                 SimpleEnum[] iceP_s2;
                 var ret = obj.opSimpleSeq(iceP_s1, out iceP_s2, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 SimpleEnumSeqHelper.write(ostr, iceP_s2);
                 SimpleEnumSeqHelper.write(ostr, ret);
                 ostr.endEncapsulation();

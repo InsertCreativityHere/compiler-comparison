@@ -3986,7 +3986,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _shutdown_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -4012,7 +4012,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opAByteS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4049,7 +4049,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opLByteS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4086,7 +4086,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opKByteS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4123,7 +4123,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opQByteS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4160,7 +4160,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opSByteS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4197,7 +4197,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opABoolS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4234,7 +4234,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opLBoolS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4271,7 +4271,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opKBoolS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4308,7 +4308,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opQBoolS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4345,7 +4345,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opSBoolS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4382,7 +4382,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opAShortS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4419,7 +4419,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opLShortS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4456,7 +4456,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opKShortS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4493,7 +4493,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opQShortS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4530,7 +4530,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opSShortS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4567,7 +4567,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opAIntS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4604,7 +4604,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opLIntS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4641,7 +4641,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opKIntS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4678,7 +4678,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opQIntS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4715,7 +4715,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opSIntS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4752,7 +4752,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opALongS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4789,7 +4789,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opLLongS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4826,7 +4826,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opKLongS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4863,7 +4863,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opQLongS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4900,7 +4900,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opSLongS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4937,7 +4937,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opAFloatS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -4974,7 +4974,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opLFloatS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5011,7 +5011,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opKFloatS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5048,7 +5048,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opQFloatS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5085,7 +5085,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opSFloatS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5122,7 +5122,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opADoubleS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5159,7 +5159,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opLDoubleS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5196,7 +5196,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opKDoubleS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5233,7 +5233,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opQDoubleS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5270,7 +5270,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opSDoubleS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5307,7 +5307,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opAStringS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5344,7 +5344,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opLStringS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5381,7 +5381,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opKStringS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5418,7 +5418,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opQStringS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5455,7 +5455,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opSStringS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5492,7 +5492,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opAObjectS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5531,7 +5531,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opLObjectS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5570,7 +5570,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opAObjectPrxS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5607,7 +5607,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opLObjectPrxS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5644,7 +5644,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opKObjectPrxS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5681,7 +5681,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opQObjectPrxS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5718,7 +5718,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opSObjectPrxS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5755,7 +5755,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opAStructS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5792,7 +5792,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opLStructS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5829,7 +5829,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opKStructS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5866,7 +5866,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opQStructS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5903,7 +5903,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opSStructS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5940,7 +5940,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opAStructSD_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -5977,7 +5977,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opLStructSD_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -6014,7 +6014,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opKStructSD_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -6051,7 +6051,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opQStructSD_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -6088,7 +6088,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opSStructSD_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -6125,7 +6125,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opACVS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -6164,7 +6164,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opLCVS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -6203,7 +6203,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opACRS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -6242,7 +6242,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opLCRS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -6281,7 +6281,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opAEnS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -6318,7 +6318,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opLEnS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -6355,7 +6355,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opKEnS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -6392,7 +6392,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opQEnS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -6429,7 +6429,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opSEnS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -6466,7 +6466,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opAIPrxS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -6503,7 +6503,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opLIPrxS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -6540,7 +6540,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opKIPrxS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -6577,7 +6577,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opQIPrxS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -6614,7 +6614,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opSIPrxS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -6651,7 +6651,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opCustomIntS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -6688,7 +6688,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opCustomCVS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -6727,7 +6727,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opCustomIntSS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -6764,7 +6764,7 @@ namespace Ice.seqMapping.AMD
                 outAsync.invoke(
                     _opCustomCVSS_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>

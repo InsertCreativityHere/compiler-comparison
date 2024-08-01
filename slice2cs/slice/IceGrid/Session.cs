@@ -333,7 +333,7 @@ namespace IceGrid
             outAsync.invoke(
                 _destroy_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -358,7 +358,7 @@ namespace IceGrid
             outAsync.invoke(
                 _keepAlive_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -384,7 +384,7 @@ namespace IceGrid
             outAsync.invoke(
                 _allocateObjectById_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -438,7 +438,7 @@ namespace IceGrid
             outAsync.invoke(
                 _allocateObjectByType_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -488,7 +488,7 @@ namespace IceGrid
             outAsync.invoke(
                 _releaseObject_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -535,7 +535,7 @@ namespace IceGrid
             outAsync.invoke(
                 _setAllocationTimeout_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>

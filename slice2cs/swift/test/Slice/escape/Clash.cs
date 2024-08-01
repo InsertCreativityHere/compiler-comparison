@@ -587,7 +587,7 @@ namespace Clash
             outAsync.invoke(
                 _context_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -612,7 +612,7 @@ namespace Clash
             outAsync.invoke(
                 _current_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -637,7 +637,7 @@ namespace Clash
             outAsync.invoke(
                 _response_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -662,7 +662,7 @@ namespace Clash
             outAsync.invoke(
                 _upCast_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -687,7 +687,7 @@ namespace Clash
             outAsync.invoke(
                 _typeId_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -712,7 +712,7 @@ namespace Clash
             outAsync.invoke(
                 _del_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -737,7 +737,7 @@ namespace Clash
             outAsync.invoke(
                 _cookie_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -762,7 +762,7 @@ namespace Clash
             outAsync.invoke(
                 _sync_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -787,7 +787,7 @@ namespace Clash
             outAsync.invoke(
                 _inS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -812,7 +812,7 @@ namespace Clash
             outAsync.invoke(
                 _istr_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -837,7 +837,7 @@ namespace Clash
             outAsync.invoke(
                 _op_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -877,7 +877,7 @@ namespace Clash
             outAsync.invoke(
                 _opOut_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -1162,7 +1162,7 @@ namespace Clash
             string? iceP_proxy;
             obj.opOut(out iceP_context, out iceP_current, out iceP_response, out iceP_ex, out iceP_sent, out iceP_cookie, out iceP_sync, out iceP_result, out iceP_istr, out iceP_ostr, out iceP_proxy, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeString(iceP_context);
             ostr.writeString(iceP_current);
             ostr.writeString(iceP_response);

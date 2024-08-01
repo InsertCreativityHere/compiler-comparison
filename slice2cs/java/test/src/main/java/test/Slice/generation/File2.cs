@@ -89,7 +89,7 @@ namespace Test
             outAsync.invoke(
                 _method_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }

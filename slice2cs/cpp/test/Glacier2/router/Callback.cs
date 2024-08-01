@@ -282,7 +282,7 @@ namespace Test
             outAsync.invoke(
                 _callback_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -308,7 +308,7 @@ namespace Test
             outAsync.invoke(
                 _callbackEx_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 userException: (Ice.UserException ex) =>
@@ -348,7 +348,7 @@ namespace Test
             outAsync.invoke(
                 _concurrentCallback_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -383,7 +383,7 @@ namespace Test
             outAsync.invoke(
                 _waitCallback_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -408,7 +408,7 @@ namespace Test
             outAsync.invoke(
                 _callbackWithPayload_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -561,7 +561,7 @@ namespace Test
             outAsync.invoke(
                 _initiateCallback_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -591,7 +591,7 @@ namespace Test
             outAsync.invoke(
                 _initiateCallbackEx_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -635,7 +635,7 @@ namespace Test
             outAsync.invoke(
                 _initiateConcurrentCallback_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -671,7 +671,7 @@ namespace Test
             outAsync.invoke(
                 _initiateWaitCallback_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -700,7 +700,7 @@ namespace Test
             outAsync.invoke(
                 _initiateCallbackWithPayload_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -729,7 +729,7 @@ namespace Test
             outAsync.invoke(
                 _shutdown_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }

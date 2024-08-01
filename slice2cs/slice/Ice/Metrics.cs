@@ -1161,7 +1161,7 @@ namespace IceMX
             outAsync.invoke(
                 _getMetricsViewNames_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -1194,7 +1194,7 @@ namespace IceMX
             outAsync.invoke(
                 _enableMetricsView_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -1238,7 +1238,7 @@ namespace IceMX
             outAsync.invoke(
                 _disableMetricsView_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -1334,7 +1334,7 @@ namespace IceMX
             outAsync.invoke(
                 _getMapMetricsFailures_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -1385,7 +1385,7 @@ namespace IceMX
             outAsync.invoke(
                 _getMetricsFailures_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -1518,7 +1518,7 @@ namespace IceMX
             string[] iceP_disabledViews;
             var ret = obj.getMetricsViewNames(out iceP_disabledViews, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             global::Ice.StringSeqHelper.write(ostr, iceP_disabledViews);
             global::Ice.StringSeqHelper.write(ostr, ret);
             ostr.endEncapsulation();
@@ -1588,7 +1588,7 @@ namespace IceMX
             istr.endEncapsulation();
             var ret = obj.getMapMetricsFailures(iceP_view, iceP_map, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             MetricsFailuresSeqHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -1610,7 +1610,7 @@ namespace IceMX
             istr.endEncapsulation();
             var ret = obj.getMetricsFailures(iceP_view, iceP_map, iceP_id, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             MetricsFailures.ice_write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));

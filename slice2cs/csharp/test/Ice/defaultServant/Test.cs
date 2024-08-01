@@ -98,7 +98,7 @@ namespace Ice.defaultServant
                 outAsync.invoke(
                     _getName_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     read: (Ice.InputStream istr) =>
@@ -201,7 +201,7 @@ namespace Ice.defaultServant
                 request.inputStream.skipEmptyEncapsulation();
                 var ret = obj.getName(request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeString(ret);
                 ostr.endEncapsulation();
                 return new(new Ice.OutgoingResponse(ostr));

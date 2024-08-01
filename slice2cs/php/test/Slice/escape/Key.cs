@@ -503,7 +503,7 @@ namespace and
             outAsync.invoke(
                 _case_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -602,7 +602,7 @@ namespace and
             outAsync.invoke(
                 _continue_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -696,7 +696,7 @@ namespace and
             outAsync.invoke(
                 _do_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -797,7 +797,7 @@ namespace and
             outAsync.invoke(
                 _do_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -822,7 +822,7 @@ namespace and
             outAsync.invoke(
                 _continue_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -990,7 +990,7 @@ namespace and
             outAsync.invoke(
                 _foreach_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -1212,7 +1212,7 @@ namespace and
             int iceP_try;
             obj.@case(iceP_catch, out iceP_try, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeInt(iceP_try);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -1282,7 +1282,7 @@ namespace and
             istr.endEncapsulation();
             var ret = obj.@foreach(iceP_if, iceP_global, iceP_include, iceP_return, iceP_list, iceP_new, iceP_static, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeEnum((int)ret, 0);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));

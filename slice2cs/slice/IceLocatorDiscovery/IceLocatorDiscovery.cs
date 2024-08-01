@@ -177,7 +177,7 @@ namespace IceLocatorDiscovery
             outAsync.invoke(
                 _foundLocator_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -270,7 +270,7 @@ namespace IceLocatorDiscovery
             outAsync.invoke(
                 _findLocator_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>

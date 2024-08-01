@@ -743,7 +743,7 @@ namespace Test
                 outAsync.invoke(
                     _startServerSide_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -794,7 +794,7 @@ namespace Test
                 outAsync.invoke(
                     _stopServerSide_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -844,7 +844,7 @@ namespace Test
                 outAsync.invoke(
                     _runClientSide_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -895,7 +895,7 @@ namespace Test
                 outAsync.invoke(
                     _destroy_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -1021,7 +1021,7 @@ namespace Test
                 outAsync.invoke(
                     _runTestCase_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -1074,7 +1074,7 @@ namespace Test
                 outAsync.invoke(
                     _getOptionOverrides_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     read: (Ice.InputStream istr) =>
@@ -1107,7 +1107,7 @@ namespace Test
                 outAsync.invoke(
                     _getTestSuites_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -1143,7 +1143,7 @@ namespace Test
                 outAsync.invoke(
                     _getHost_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -1268,7 +1268,7 @@ namespace Test
                 outAsync.invoke(
                     _waitReady_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -1312,7 +1312,7 @@ namespace Test
                 outAsync.invoke(
                     _waitSuccess_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -1362,7 +1362,7 @@ namespace Test
                 outAsync.invoke(
                     _terminate_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     read: (Ice.InputStream istr) =>
@@ -1470,7 +1470,7 @@ namespace Test
                 outAsync.invoke(
                     _start_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -1522,7 +1522,7 @@ namespace Test
                 outAsync.invoke(
                     _getHost_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -1647,7 +1647,7 @@ namespace Test
                 outAsync.invoke(
                     _start_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -1699,7 +1699,7 @@ namespace Test
                 outAsync.invoke(
                     _getHost_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -1735,7 +1735,7 @@ namespace Test
                 outAsync.invoke(
                     _redirect_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -1829,7 +1829,7 @@ namespace Test
                 outAsync.invoke(
                     _setProcessController_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -2078,7 +2078,7 @@ namespace Test
                 istr.endEncapsulation();
                 var ret = obj.startServerSide(iceP_config, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeString(ret);
                 ostr.endEncapsulation();
                 return new(new Ice.OutgoingResponse(ostr));
@@ -2096,7 +2096,7 @@ namespace Test
                 istr.endEncapsulation();
                 var ret = obj.stopServerSide(iceP_success, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeString(ret);
                 ostr.endEncapsulation();
                 return new(new Ice.OutgoingResponse(ostr));
@@ -2117,7 +2117,7 @@ namespace Test
                 istr.endEncapsulation();
                 var ret = obj.runClientSide(iceP_host, iceP_config, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeString(ret);
                 ostr.endEncapsulation();
                 return new(new Ice.OutgoingResponse(ostr));
@@ -2154,7 +2154,7 @@ namespace Test
                 istr.endEncapsulation();
                 var ret = obj.runTestCase(iceP_mapping, iceP_testsuite, iceP_testcase, iceP_cross, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 TestCasePrxHelper.write(ostr, ret);
                 ostr.endEncapsulation();
                 return new(new Ice.OutgoingResponse(ostr));
@@ -2168,7 +2168,7 @@ namespace Test
                 request.inputStream.skipEmptyEncapsulation();
                 var ret = obj.getOptionOverrides(request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeValue(ret);
                 ostr.writePendingValues();
                 ostr.endEncapsulation();
@@ -2187,7 +2187,7 @@ namespace Test
                 istr.endEncapsulation();
                 var ret = obj.getTestSuites(iceP_mapping, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 StringSeqHelper.write(ostr, ret);
                 ostr.endEncapsulation();
                 return new(new Ice.OutgoingResponse(ostr));
@@ -2207,7 +2207,7 @@ namespace Test
                 istr.endEncapsulation();
                 var ret = obj.getHost(iceP_protocol, iceP_ipv6, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeString(ret);
                 ostr.endEncapsulation();
                 return new(new Ice.OutgoingResponse(ostr));
@@ -2242,7 +2242,7 @@ namespace Test
                 istr.endEncapsulation();
                 var ret = obj.waitSuccess(iceP_timeout, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeInt(ret);
                 ostr.endEncapsulation();
                 return new(new Ice.OutgoingResponse(ostr));
@@ -2256,7 +2256,7 @@ namespace Test
                 request.inputStream.skipEmptyEncapsulation();
                 var ret = obj.terminate(request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeString(ret);
                 ostr.endEncapsulation();
                 return new(new Ice.OutgoingResponse(ostr));
@@ -2281,7 +2281,7 @@ namespace Test
                 istr.endEncapsulation();
                 var ret = obj.start(iceP_testsuite, iceP_exe, iceP_args, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ProcessPrxHelper.write(ostr, ret);
                 ostr.endEncapsulation();
                 return new(new Ice.OutgoingResponse(ostr));
@@ -2301,7 +2301,7 @@ namespace Test
                 istr.endEncapsulation();
                 var ret = obj.getHost(iceP_protocol, iceP_ipv6, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeString(ret);
                 ostr.endEncapsulation();
                 return new(new Ice.OutgoingResponse(ostr));

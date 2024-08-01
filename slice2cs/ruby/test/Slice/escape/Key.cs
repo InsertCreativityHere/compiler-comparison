@@ -447,7 +447,7 @@ namespace BEGIN
             outAsync.invoke(
                 _case_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -477,7 +477,7 @@ namespace BEGIN
             outAsync.invoke(
                 _to_a_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -502,7 +502,7 @@ namespace BEGIN
             outAsync.invoke(
                 _instance_variable_set_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -527,7 +527,7 @@ namespace BEGIN
             outAsync.invoke(
                 _instance_variables_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -652,7 +652,7 @@ namespace BEGIN
             outAsync.invoke(
                 _case_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -682,7 +682,7 @@ namespace BEGIN
             outAsync.invoke(
                 _to_a_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -707,7 +707,7 @@ namespace BEGIN
             outAsync.invoke(
                 _instance_variable_set_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -732,7 +732,7 @@ namespace BEGIN
             outAsync.invoke(
                 _instance_variables_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -894,7 +894,7 @@ namespace BEGIN
             outAsync.invoke(
                 _for_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -1145,7 +1145,7 @@ namespace BEGIN
             istr.endEncapsulation();
             var ret = obj.@for(iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeEnum((int)ret, 0);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));

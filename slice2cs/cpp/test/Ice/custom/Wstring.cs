@@ -453,7 +453,7 @@ namespace Test1
             outAsync.invoke(
                 _opString_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -490,7 +490,7 @@ namespace Test1
             outAsync.invoke(
                 _opStruct_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -527,7 +527,7 @@ namespace Test1
             outAsync.invoke(
                 _throwExcept_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -719,7 +719,7 @@ namespace Test2
             outAsync.invoke(
                 _opString_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -756,7 +756,7 @@ namespace Test2
             outAsync.invoke(
                 _opStruct_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -793,7 +793,7 @@ namespace Test2
             outAsync.invoke(
                 _throwExcept_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -944,7 +944,7 @@ namespace Test1
             string iceP_s2;
             var ret = obj.opString(iceP_s1, out iceP_s2, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeString(iceP_s2);
             ostr.writeString(ret);
             ostr.endEncapsulation();
@@ -964,7 +964,7 @@ namespace Test1
             WstringStruct iceP_s2;
             var ret = obj.opStruct(iceP_s1, out iceP_s2, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             WstringStruct.ice_write(ostr, iceP_s2);
             WstringStruct.ice_write(ostr, ret);
             ostr.endEncapsulation();
@@ -1004,7 +1004,7 @@ namespace Test2
             string iceP_s2;
             var ret = obj.opString(iceP_s1, out iceP_s2, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeString(iceP_s2);
             ostr.writeString(ret);
             ostr.endEncapsulation();
@@ -1024,7 +1024,7 @@ namespace Test2
             WstringStruct iceP_s2;
             var ret = obj.opStruct(iceP_s1, out iceP_s2, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             WstringStruct.ice_write(ostr, iceP_s2);
             WstringStruct.ice_write(ostr, ret);
             ostr.endEncapsulation();

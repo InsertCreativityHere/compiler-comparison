@@ -116,7 +116,7 @@ namespace Ice.adapterDeactivation
                 outAsync.invoke(
                     _transient_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -141,7 +141,7 @@ namespace Ice.adapterDeactivation
                 outAsync.invoke(
                     _deactivate_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }

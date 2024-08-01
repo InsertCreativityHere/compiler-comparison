@@ -116,7 +116,7 @@ namespace Ice.threadPoolPriority
                 outAsync.invoke(
                     _shutdown_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -142,7 +142,7 @@ namespace Ice.threadPoolPriority
                 outAsync.invoke(
                     _getPriority_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     read: (Ice.InputStream istr) =>
@@ -258,7 +258,7 @@ namespace Ice.threadPoolPriority
                 request.inputStream.skipEmptyEncapsulation();
                 var ret = obj.getPriority(request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeString(ret);
                 ostr.endEncapsulation();
                 return new(new Ice.OutgoingResponse(ostr));

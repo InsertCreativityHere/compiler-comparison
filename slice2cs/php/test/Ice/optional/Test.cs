@@ -1796,7 +1796,7 @@ namespace Test
         public Initial_OpMStruct1MarshaledResult(SmallStruct? ret, Ice.Current current)
         {
             _ostr = Ice.CurrentExtensions.startReplyStream(current);
-            _ostr.startEncapsulation(current.encoding, Ice.FormatType.DefaultFormat);
+            _ostr.startEncapsulation(current.encoding, null);
             if (ret is not null && _ostr.writeOptional(1, Ice.OptionalFormat.VSize))
             {
                 _ostr.writeSize(1);
@@ -1818,7 +1818,7 @@ namespace Test
         public Initial_OpMStruct2MarshaledResult(SmallStruct? ret, SmallStruct? p2, Ice.Current current)
         {
             _ostr = Ice.CurrentExtensions.startReplyStream(current);
-            _ostr.startEncapsulation(current.encoding, Ice.FormatType.DefaultFormat);
+            _ostr.startEncapsulation(current.encoding, null);
             if (ret is not null && _ostr.writeOptional(1, Ice.OptionalFormat.VSize))
             {
                 _ostr.writeSize(1);
@@ -1843,7 +1843,7 @@ namespace Test
         public Initial_OpMSeq1MarshaledResult(string[]? ret, Ice.Current current)
         {
             _ostr = Ice.CurrentExtensions.startReplyStream(current);
-            _ostr.startEncapsulation(current.encoding, Ice.FormatType.DefaultFormat);
+            _ostr.startEncapsulation(current.encoding, null);
             _ostr.writeStringSeq(1, ret);
             _ostr.endEncapsulation();
         }
@@ -1861,7 +1861,7 @@ namespace Test
         public Initial_OpMSeq2MarshaledResult(string[]? ret, string[]? p2, Ice.Current current)
         {
             _ostr = Ice.CurrentExtensions.startReplyStream(current);
-            _ostr.startEncapsulation(current.encoding, Ice.FormatType.DefaultFormat);
+            _ostr.startEncapsulation(current.encoding, null);
             _ostr.writeStringSeq(1, ret);
             _ostr.writeStringSeq(3, p2);
             _ostr.endEncapsulation();
@@ -1878,7 +1878,7 @@ namespace Test
         public Initial_OpMDict1MarshaledResult(global::System.Collections.Generic.Dictionary<string, int>? ret, Ice.Current current)
         {
             _ostr = Ice.CurrentExtensions.startReplyStream(current);
-            _ostr.startEncapsulation(current.encoding, Ice.FormatType.DefaultFormat);
+            _ostr.startEncapsulation(current.encoding, null);
             if (ret is not null && _ostr.writeOptional(1, Ice.OptionalFormat.FSize))
             {
                 int pos = _ostr.startSize();
@@ -1901,7 +1901,7 @@ namespace Test
         public Initial_OpMDict2MarshaledResult(global::System.Collections.Generic.Dictionary<string, int>? ret, global::System.Collections.Generic.Dictionary<string, int>? p2, Ice.Current current)
         {
             _ostr = Ice.CurrentExtensions.startReplyStream(current);
-            _ostr.startEncapsulation(current.encoding, Ice.FormatType.DefaultFormat);
+            _ostr.startEncapsulation(current.encoding, null);
             if (ret is not null && _ostr.writeOptional(1, Ice.OptionalFormat.FSize))
             {
                 int pos = _ostr.startSize();
@@ -2152,7 +2152,7 @@ namespace Test
             outAsync.invoke(
                 _op_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -3427,7 +3427,7 @@ namespace Test
             outAsync.invoke(
                 _shutdown_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -3453,7 +3453,7 @@ namespace Test
             outAsync.invoke(
                 _pingPong_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -3491,7 +3491,7 @@ namespace Test
             outAsync.invoke(
                 _opOptionalException_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -3536,7 +3536,7 @@ namespace Test
             outAsync.invoke(
                 _opDerivedException_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -3581,7 +3581,7 @@ namespace Test
             outAsync.invoke(
                 _opRequiredException_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -3626,7 +3626,7 @@ namespace Test
             outAsync.invoke(
                 _opByte_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -3669,7 +3669,7 @@ namespace Test
             outAsync.invoke(
                 _opBool_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -3712,7 +3712,7 @@ namespace Test
             outAsync.invoke(
                 _opShort_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -3749,7 +3749,7 @@ namespace Test
             outAsync.invoke(
                 _opInt_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -3786,7 +3786,7 @@ namespace Test
             outAsync.invoke(
                 _opLong_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -3823,7 +3823,7 @@ namespace Test
             outAsync.invoke(
                 _opFloat_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -3860,7 +3860,7 @@ namespace Test
             outAsync.invoke(
                 _opDouble_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -3897,7 +3897,7 @@ namespace Test
             outAsync.invoke(
                 _opString_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -3934,7 +3934,7 @@ namespace Test
             outAsync.invoke(
                 _opMyEnum_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -3992,7 +3992,7 @@ namespace Test
             outAsync.invoke(
                 _opSmallStruct_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4053,7 +4053,7 @@ namespace Test
             outAsync.invoke(
                 _opFixedStruct_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4114,7 +4114,7 @@ namespace Test
             outAsync.invoke(
                 _opVarStruct_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4176,7 +4176,7 @@ namespace Test
             outAsync.invoke(
                 _opMyInterfaceProxy_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4238,7 +4238,7 @@ namespace Test
             outAsync.invoke(
                 _opOneOptional_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4277,7 +4277,7 @@ namespace Test
             outAsync.invoke(
                 _opByteSeq_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4332,7 +4332,7 @@ namespace Test
             outAsync.invoke(
                 _opBoolSeq_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4387,7 +4387,7 @@ namespace Test
             outAsync.invoke(
                 _opShortSeq_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4444,7 +4444,7 @@ namespace Test
             outAsync.invoke(
                 _opIntSeq_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4501,7 +4501,7 @@ namespace Test
             outAsync.invoke(
                 _opLongSeq_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4558,7 +4558,7 @@ namespace Test
             outAsync.invoke(
                 _opFloatSeq_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4615,7 +4615,7 @@ namespace Test
             outAsync.invoke(
                 _opDoubleSeq_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4672,7 +4672,7 @@ namespace Test
             outAsync.invoke(
                 _opStringSeq_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4729,7 +4729,7 @@ namespace Test
             outAsync.invoke(
                 _opSmallStructSeq_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4787,7 +4787,7 @@ namespace Test
             outAsync.invoke(
                 _opSmallStructList_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4845,7 +4845,7 @@ namespace Test
             outAsync.invoke(
                 _opFixedStructSeq_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4906,7 +4906,7 @@ namespace Test
             outAsync.invoke(
                 _opFixedStructList_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4967,7 +4967,7 @@ namespace Test
             outAsync.invoke(
                 _opVarStructSeq_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5029,7 +5029,7 @@ namespace Test
             outAsync.invoke(
                 _opSerializable_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5084,7 +5084,7 @@ namespace Test
             outAsync.invoke(
                 _opIntIntDict_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5145,7 +5145,7 @@ namespace Test
             outAsync.invoke(
                 _opStringIntDict_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5206,7 +5206,7 @@ namespace Test
             outAsync.invoke(
                 _opClassAndUnknownOptional_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5237,7 +5237,7 @@ namespace Test
             outAsync.invoke(
                 _opG_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5275,7 +5275,7 @@ namespace Test
             outAsync.invoke(
                 _opMStruct1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -5317,7 +5317,7 @@ namespace Test
             outAsync.invoke(
                 _opMStruct2_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5378,7 +5378,7 @@ namespace Test
             outAsync.invoke(
                 _opMSeq1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -5420,7 +5420,7 @@ namespace Test
             outAsync.invoke(
                 _opMSeq2_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5477,7 +5477,7 @@ namespace Test
             outAsync.invoke(
                 _opMDict1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -5519,7 +5519,7 @@ namespace Test
             outAsync.invoke(
                 _opMDict2_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5581,7 +5581,7 @@ namespace Test
             outAsync.invoke(
                 _supportsJavaSerializable_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -5857,7 +5857,7 @@ namespace Test
             istr.endEncapsulation();
             var ret = obj.pingPong(iceP_o, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeValue(ret);
             ostr.writePendingValues();
             ostr.endEncapsulation();
@@ -5925,7 +5925,7 @@ namespace Test
             byte? iceP_p3;
             var ret = obj.opByte(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeByte(1, ret);
             ostr.writeByte(3, iceP_p3);
             ostr.endEncapsulation();
@@ -5945,7 +5945,7 @@ namespace Test
             bool? iceP_p3;
             var ret = obj.opBool(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeBool(1, ret);
             ostr.writeBool(3, iceP_p3);
             ostr.endEncapsulation();
@@ -5965,7 +5965,7 @@ namespace Test
             short? iceP_p3;
             var ret = obj.opShort(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeShort(1, ret);
             ostr.writeShort(3, iceP_p3);
             ostr.endEncapsulation();
@@ -5985,7 +5985,7 @@ namespace Test
             int? iceP_p3;
             var ret = obj.opInt(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeInt(1, ret);
             ostr.writeInt(3, iceP_p3);
             ostr.endEncapsulation();
@@ -6005,7 +6005,7 @@ namespace Test
             long? iceP_p3;
             var ret = obj.opLong(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeLong(2, iceP_p3);
             ostr.writeLong(3, ret);
             ostr.endEncapsulation();
@@ -6025,7 +6025,7 @@ namespace Test
             float? iceP_p3;
             var ret = obj.opFloat(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeFloat(1, ret);
             ostr.writeFloat(3, iceP_p3);
             ostr.endEncapsulation();
@@ -6045,7 +6045,7 @@ namespace Test
             double? iceP_p3;
             var ret = obj.opDouble(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeDouble(1, ret);
             ostr.writeDouble(3, iceP_p3);
             ostr.endEncapsulation();
@@ -6065,7 +6065,7 @@ namespace Test
             string? iceP_p3;
             var ret = obj.opString(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeString(1, ret);
             ostr.writeString(3, iceP_p3);
             ostr.endEncapsulation();
@@ -6094,7 +6094,7 @@ namespace Test
             MyEnum? iceP_p3;
             var ret = obj.opMyEnum(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             if (ret is not null)
             {
                 ostr.writeEnum(1, (int)ret.Value, 1);
@@ -6130,7 +6130,7 @@ namespace Test
             SmallStruct? iceP_p3;
             var ret = obj.opSmallStruct(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
             {
                 ostr.writeSize(1);
@@ -6168,7 +6168,7 @@ namespace Test
             FixedStruct? iceP_p3;
             var ret = obj.opFixedStruct(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
             {
                 ostr.writeSize(4);
@@ -6206,7 +6206,7 @@ namespace Test
             VarStruct? iceP_p3;
             var ret = obj.opVarStruct(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
             {
                 int pos = ostr.startSize();
@@ -6246,7 +6246,7 @@ namespace Test
             MyInterfacePrx? iceP_p3;
             var ret = obj.opMyInterfaceProxy(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
             {
                 int pos = ostr.startSize();
@@ -6277,7 +6277,7 @@ namespace Test
             OneOptional? iceP_p3;
             var ret = obj.opOneOptional(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeValue(iceP_p3);
             ostr.writeValue(ret);
             ostr.writePendingValues();
@@ -6307,7 +6307,7 @@ namespace Test
             byte[]? iceP_p3;
             var ret = obj.opByteSeq(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeByteSeq(1, ret);
             ostr.writeByteSeq(3, iceP_p3);
             ostr.endEncapsulation();
@@ -6336,7 +6336,7 @@ namespace Test
             bool[]? iceP_p3;
             var ret = obj.opBoolSeq(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeBoolSeq(1, ret);
             ostr.writeBoolSeq(3, iceP_p3);
             ostr.endEncapsulation();
@@ -6366,7 +6366,7 @@ namespace Test
             short[]? iceP_p3;
             var ret = obj.opShortSeq(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeShortSeq(1, ret);
             ostr.writeShortSeq(3, iceP_p3);
             ostr.endEncapsulation();
@@ -6396,7 +6396,7 @@ namespace Test
             int[]? iceP_p3;
             var ret = obj.opIntSeq(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeIntSeq(1, ret);
             ostr.writeIntSeq(3, iceP_p3);
             ostr.endEncapsulation();
@@ -6426,7 +6426,7 @@ namespace Test
             long[]? iceP_p3;
             var ret = obj.opLongSeq(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeLongSeq(1, ret);
             ostr.writeLongSeq(3, iceP_p3);
             ostr.endEncapsulation();
@@ -6456,7 +6456,7 @@ namespace Test
             float[]? iceP_p3;
             var ret = obj.opFloatSeq(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeFloatSeq(1, ret);
             ostr.writeFloatSeq(3, iceP_p3);
             ostr.endEncapsulation();
@@ -6486,7 +6486,7 @@ namespace Test
             double[]? iceP_p3;
             var ret = obj.opDoubleSeq(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeDoubleSeq(1, ret);
             ostr.writeDoubleSeq(3, iceP_p3);
             ostr.endEncapsulation();
@@ -6516,7 +6516,7 @@ namespace Test
             string[]? iceP_p3;
             var ret = obj.opStringSeq(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeStringSeq(1, ret);
             ostr.writeStringSeq(3, iceP_p3);
             ostr.endEncapsulation();
@@ -6545,7 +6545,7 @@ namespace Test
             SmallStruct[]? iceP_p3;
             var ret = obj.opSmallStructSeq(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
             {
                 SmallStructSeqHelper.write(ostr, ret);
@@ -6580,7 +6580,7 @@ namespace Test
             SmallStruct[]? iceP_p3;
             var ret = obj.opSmallStructList(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
             {
                 SmallStructListHelper.write(ostr, ret);
@@ -6616,7 +6616,7 @@ namespace Test
             FixedStruct[]? iceP_p3;
             var ret = obj.opFixedStructSeq(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
             {
                 ostr.writeSize(ret.Length * 4 + (ret.Length > 254 ? 5 : 1));
@@ -6654,7 +6654,7 @@ namespace Test
             FixedStruct[]? iceP_p3;
             var ret = obj.opFixedStructList(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
             {
                 ostr.writeSize(ret.Length * 4 + (ret.Length > 254 ? 5 : 1));
@@ -6692,7 +6692,7 @@ namespace Test
             VarStruct[]? iceP_p3;
             var ret = obj.opVarStructSeq(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
             {
                 int pos = ostr.startSize();
@@ -6731,7 +6731,7 @@ namespace Test
             byte[]? iceP_p3;
             var ret = obj.opSerializable(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeByteSeq(1, ret);
             ostr.writeByteSeq(3, iceP_p3);
             ostr.endEncapsulation();
@@ -6761,7 +6761,7 @@ namespace Test
             global::System.Collections.Generic.Dictionary<int, int>? iceP_p3;
             var ret = obj.opIntIntDict(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.VSize))
             {
                 ostr.writeSize(ret.Count * 8 + (ret.Count > 254 ? 5 : 1));
@@ -6799,7 +6799,7 @@ namespace Test
             global::System.Collections.Generic.Dictionary<string, int>? iceP_p3;
             var ret = obj.opStringIntDict(iceP_p1, out iceP_p3, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
             {
                 int pos = ostr.startSize();
@@ -6844,7 +6844,7 @@ namespace Test
             istr.endEncapsulation();
             var ret = obj.opG(iceP_g, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeValue(ret);
             ostr.writePendingValues();
             ostr.endEncapsulation();
@@ -6961,7 +6961,7 @@ namespace Test
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.supportsJavaSerializable(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeBool(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));

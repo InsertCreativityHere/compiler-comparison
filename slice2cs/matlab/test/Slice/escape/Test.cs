@@ -786,7 +786,7 @@ namespace classdef
                 outAsync.invoke(
                     _events_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -811,7 +811,7 @@ namespace classdef
                 outAsync.invoke(
                     _function_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -836,7 +836,7 @@ namespace classdef
                 outAsync.invoke(
                     _delete_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -861,7 +861,7 @@ namespace classdef
                 outAsync.invoke(
                     _checkedCast_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }

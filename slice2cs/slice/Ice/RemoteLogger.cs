@@ -577,7 +577,7 @@ namespace Ice
             outAsync.invoke(
                 _init_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -607,7 +607,7 @@ namespace Ice
             outAsync.invoke(
                 _log_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -727,7 +727,7 @@ namespace Ice
             outAsync.invoke(
                 _attachRemoteLogger_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -774,7 +774,7 @@ namespace Ice
             outAsync.invoke(
                 _detachRemoteLogger_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -810,7 +810,7 @@ namespace Ice
             outAsync.invoke(
                 _getLog_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -1002,7 +1002,7 @@ namespace Ice
             istr.endEncapsulation();
             var ret = obj.detachRemoteLogger(iceP_prx, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeBool(ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -1025,7 +1025,7 @@ namespace Ice
             string iceP_prefix;
             var ret = obj.getLog(iceP_messageTypes, iceP_traceCategories, iceP_messageMax, out iceP_prefix, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeString(iceP_prefix);
             LogMessageSeqHelper.write(ostr, ret);
             ostr.endEncapsulation();

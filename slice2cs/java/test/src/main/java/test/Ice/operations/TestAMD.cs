@@ -884,7 +884,7 @@ namespace Test
         public MyClass_OpMStruct1MarshaledResult(Structure ret, Ice.Current current)
         {
             _ostr = Ice.CurrentExtensions.startReplyStream(current);
-            _ostr.startEncapsulation(current.encoding, Ice.FormatType.DefaultFormat);
+            _ostr.startEncapsulation(current.encoding, null);
             Structure.ice_write(_ostr, ret);
             _ostr.endEncapsulation();
         }
@@ -902,7 +902,7 @@ namespace Test
         public MyClass_OpMStruct2MarshaledResult(Structure ret, Structure p2, Ice.Current current)
         {
             _ostr = Ice.CurrentExtensions.startReplyStream(current);
-            _ostr.startEncapsulation(current.encoding, Ice.FormatType.DefaultFormat);
+            _ostr.startEncapsulation(current.encoding, null);
             Structure.ice_write(_ostr, p2);
             Structure.ice_write(_ostr, ret);
             _ostr.endEncapsulation();
@@ -919,7 +919,7 @@ namespace Test
         public MyClass_OpMSeq1MarshaledResult(string[] ret, Ice.Current current)
         {
             _ostr = Ice.CurrentExtensions.startReplyStream(current);
-            _ostr.startEncapsulation(current.encoding, Ice.FormatType.DefaultFormat);
+            _ostr.startEncapsulation(current.encoding, null);
             StringSHelper.write(_ostr, ret);
             _ostr.endEncapsulation();
         }
@@ -937,7 +937,7 @@ namespace Test
         public MyClass_OpMSeq2MarshaledResult(string[] ret, string[] p2, Ice.Current current)
         {
             _ostr = Ice.CurrentExtensions.startReplyStream(current);
-            _ostr.startEncapsulation(current.encoding, Ice.FormatType.DefaultFormat);
+            _ostr.startEncapsulation(current.encoding, null);
             StringSHelper.write(_ostr, p2);
             StringSHelper.write(_ostr, ret);
             _ostr.endEncapsulation();
@@ -954,7 +954,7 @@ namespace Test
         public MyClass_OpMDict1MarshaledResult(global::System.Collections.Generic.Dictionary<string, string> ret, Ice.Current current)
         {
             _ostr = Ice.CurrentExtensions.startReplyStream(current);
-            _ostr.startEncapsulation(current.encoding, Ice.FormatType.DefaultFormat);
+            _ostr.startEncapsulation(current.encoding, null);
             StringStringDHelper.write(_ostr, ret);
             _ostr.endEncapsulation();
         }
@@ -972,7 +972,7 @@ namespace Test
         public MyClass_OpMDict2MarshaledResult(global::System.Collections.Generic.Dictionary<string, string> ret, global::System.Collections.Generic.Dictionary<string, string> p2, Ice.Current current)
         {
             _ostr = Ice.CurrentExtensions.startReplyStream(current);
-            _ostr.startEncapsulation(current.encoding, Ice.FormatType.DefaultFormat);
+            _ostr.startEncapsulation(current.encoding, null);
             StringStringDHelper.write(_ostr, p2);
             StringStringDHelper.write(_ostr, ret);
             _ostr.endEncapsulation();
@@ -3653,7 +3653,7 @@ namespace Test
             outAsync.invoke(
                 _shutdown_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -3679,7 +3679,7 @@ namespace Test
             outAsync.invoke(
                 _supportsCompress_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -3710,7 +3710,7 @@ namespace Test
             outAsync.invoke(
                 _opVoid_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -3736,7 +3736,7 @@ namespace Test
             outAsync.invoke(
                 _opByte_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -3774,7 +3774,7 @@ namespace Test
             outAsync.invoke(
                 _opBool_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -3812,7 +3812,7 @@ namespace Test
             outAsync.invoke(
                 _opShortIntLong_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -3853,7 +3853,7 @@ namespace Test
             outAsync.invoke(
                 _opFloatDouble_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -3892,7 +3892,7 @@ namespace Test
             outAsync.invoke(
                 _opString_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -3930,7 +3930,7 @@ namespace Test
             outAsync.invoke(
                 _opMyEnum_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -3967,7 +3967,7 @@ namespace Test
             outAsync.invoke(
                 _opMyClass_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4005,7 +4005,7 @@ namespace Test
             outAsync.invoke(
                 _opStruct_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4043,7 +4043,7 @@ namespace Test
             outAsync.invoke(
                 _opByteS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4081,7 +4081,7 @@ namespace Test
             outAsync.invoke(
                 _opBoolS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4119,7 +4119,7 @@ namespace Test
             outAsync.invoke(
                 _opShortIntLongS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4160,7 +4160,7 @@ namespace Test
             outAsync.invoke(
                 _opFloatDoubleS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4199,7 +4199,7 @@ namespace Test
             outAsync.invoke(
                 _opStringS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4237,7 +4237,7 @@ namespace Test
             outAsync.invoke(
                 _opByteSS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4275,7 +4275,7 @@ namespace Test
             outAsync.invoke(
                 _opBoolSS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4313,7 +4313,7 @@ namespace Test
             outAsync.invoke(
                 _opShortIntLongSS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4354,7 +4354,7 @@ namespace Test
             outAsync.invoke(
                 _opFloatDoubleSS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4393,7 +4393,7 @@ namespace Test
             outAsync.invoke(
                 _opStringSS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4431,7 +4431,7 @@ namespace Test
             outAsync.invoke(
                 _opStringSSS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4469,7 +4469,7 @@ namespace Test
             outAsync.invoke(
                 _opByteBoolD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4507,7 +4507,7 @@ namespace Test
             outAsync.invoke(
                 _opShortIntD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4545,7 +4545,7 @@ namespace Test
             outAsync.invoke(
                 _opLongFloatD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4583,7 +4583,7 @@ namespace Test
             outAsync.invoke(
                 _opStringStringD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4621,7 +4621,7 @@ namespace Test
             outAsync.invoke(
                 _opStringMyEnumD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4659,7 +4659,7 @@ namespace Test
             outAsync.invoke(
                 _opMyEnumStringD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4697,7 +4697,7 @@ namespace Test
             outAsync.invoke(
                 _opMyStructMyEnumD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4735,7 +4735,7 @@ namespace Test
             outAsync.invoke(
                 _opByteBoolDS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4773,7 +4773,7 @@ namespace Test
             outAsync.invoke(
                 _opShortIntDS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4811,7 +4811,7 @@ namespace Test
             outAsync.invoke(
                 _opLongFloatDS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4849,7 +4849,7 @@ namespace Test
             outAsync.invoke(
                 _opStringStringDS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4887,7 +4887,7 @@ namespace Test
             outAsync.invoke(
                 _opStringMyEnumDS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4925,7 +4925,7 @@ namespace Test
             outAsync.invoke(
                 _opMyEnumStringDS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -4963,7 +4963,7 @@ namespace Test
             outAsync.invoke(
                 _opMyStructMyEnumDS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5001,7 +5001,7 @@ namespace Test
             outAsync.invoke(
                 _opByteByteSD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5039,7 +5039,7 @@ namespace Test
             outAsync.invoke(
                 _opBoolBoolSD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5077,7 +5077,7 @@ namespace Test
             outAsync.invoke(
                 _opShortShortSD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5115,7 +5115,7 @@ namespace Test
             outAsync.invoke(
                 _opIntIntSD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5153,7 +5153,7 @@ namespace Test
             outAsync.invoke(
                 _opLongLongSD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5191,7 +5191,7 @@ namespace Test
             outAsync.invoke(
                 _opStringFloatSD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5229,7 +5229,7 @@ namespace Test
             outAsync.invoke(
                 _opStringDoubleSD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5267,7 +5267,7 @@ namespace Test
             outAsync.invoke(
                 _opStringStringSD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5305,7 +5305,7 @@ namespace Test
             outAsync.invoke(
                 _opMyEnumMyEnumSD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5343,7 +5343,7 @@ namespace Test
             outAsync.invoke(
                 _opIntS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5378,7 +5378,7 @@ namespace Test
             outAsync.invoke(
                 _opByteSOneway_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5408,7 +5408,7 @@ namespace Test
             outAsync.invoke(
                 _opByteSOnewayCallCount_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -5440,7 +5440,7 @@ namespace Test
             outAsync.invoke(
                 _opContext_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -5471,7 +5471,7 @@ namespace Test
             outAsync.invoke(
                 _opDoubleMarshaling_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5501,7 +5501,7 @@ namespace Test
             outAsync.invoke(
                 _opIdempotent_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -5527,7 +5527,7 @@ namespace Test
             outAsync.invoke(
                 _opByte1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5563,7 +5563,7 @@ namespace Test
             outAsync.invoke(
                 _opShort1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5599,7 +5599,7 @@ namespace Test
             outAsync.invoke(
                 _opInt1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5635,7 +5635,7 @@ namespace Test
             outAsync.invoke(
                 _opLong1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5671,7 +5671,7 @@ namespace Test
             outAsync.invoke(
                 _opFloat1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5707,7 +5707,7 @@ namespace Test
             outAsync.invoke(
                 _opDouble1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5743,7 +5743,7 @@ namespace Test
             outAsync.invoke(
                 _opString1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5779,7 +5779,7 @@ namespace Test
             outAsync.invoke(
                 _opStringS1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5815,7 +5815,7 @@ namespace Test
             outAsync.invoke(
                 _opByteBoolD1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5851,7 +5851,7 @@ namespace Test
             outAsync.invoke(
                 _opStringS2_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5887,7 +5887,7 @@ namespace Test
             outAsync.invoke(
                 _opByteBoolD2_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -5923,7 +5923,7 @@ namespace Test
             outAsync.invoke(
                 _opStringLiterals_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -5955,7 +5955,7 @@ namespace Test
             outAsync.invoke(
                 _opWStringLiterals_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -5987,7 +5987,7 @@ namespace Test
             outAsync.invoke(
                 _opMStruct1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -6019,7 +6019,7 @@ namespace Test
             outAsync.invoke(
                 _opMStruct2_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -6056,7 +6056,7 @@ namespace Test
             outAsync.invoke(
                 _opMSeq1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -6088,7 +6088,7 @@ namespace Test
             outAsync.invoke(
                 _opMSeq2_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -6125,7 +6125,7 @@ namespace Test
             outAsync.invoke(
                 _opMDict1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -6157,7 +6157,7 @@ namespace Test
             outAsync.invoke(
                 _opMDict2_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7221,7 +7221,7 @@ namespace Test
             outAsync.invoke(
                 _shutdown_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -7247,7 +7247,7 @@ namespace Test
             outAsync.invoke(
                 _supportsCompress_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -7278,7 +7278,7 @@ namespace Test
             outAsync.invoke(
                 _opVoid_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -7304,7 +7304,7 @@ namespace Test
             outAsync.invoke(
                 _opByte_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7342,7 +7342,7 @@ namespace Test
             outAsync.invoke(
                 _opBool_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7380,7 +7380,7 @@ namespace Test
             outAsync.invoke(
                 _opShortIntLong_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7421,7 +7421,7 @@ namespace Test
             outAsync.invoke(
                 _opFloatDouble_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7460,7 +7460,7 @@ namespace Test
             outAsync.invoke(
                 _opString_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7498,7 +7498,7 @@ namespace Test
             outAsync.invoke(
                 _opMyEnum_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7535,7 +7535,7 @@ namespace Test
             outAsync.invoke(
                 _opMyClass_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7573,7 +7573,7 @@ namespace Test
             outAsync.invoke(
                 _opStruct_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7611,7 +7611,7 @@ namespace Test
             outAsync.invoke(
                 _opByteS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7649,7 +7649,7 @@ namespace Test
             outAsync.invoke(
                 _opBoolS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7687,7 +7687,7 @@ namespace Test
             outAsync.invoke(
                 _opShortIntLongS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7728,7 +7728,7 @@ namespace Test
             outAsync.invoke(
                 _opFloatDoubleS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7767,7 +7767,7 @@ namespace Test
             outAsync.invoke(
                 _opStringS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7805,7 +7805,7 @@ namespace Test
             outAsync.invoke(
                 _opByteSS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7843,7 +7843,7 @@ namespace Test
             outAsync.invoke(
                 _opBoolSS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7881,7 +7881,7 @@ namespace Test
             outAsync.invoke(
                 _opShortIntLongSS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7922,7 +7922,7 @@ namespace Test
             outAsync.invoke(
                 _opFloatDoubleSS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7961,7 +7961,7 @@ namespace Test
             outAsync.invoke(
                 _opStringSS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -7999,7 +7999,7 @@ namespace Test
             outAsync.invoke(
                 _opStringSSS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8037,7 +8037,7 @@ namespace Test
             outAsync.invoke(
                 _opByteBoolD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8075,7 +8075,7 @@ namespace Test
             outAsync.invoke(
                 _opShortIntD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8113,7 +8113,7 @@ namespace Test
             outAsync.invoke(
                 _opLongFloatD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8151,7 +8151,7 @@ namespace Test
             outAsync.invoke(
                 _opStringStringD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8189,7 +8189,7 @@ namespace Test
             outAsync.invoke(
                 _opStringMyEnumD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8227,7 +8227,7 @@ namespace Test
             outAsync.invoke(
                 _opMyEnumStringD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8265,7 +8265,7 @@ namespace Test
             outAsync.invoke(
                 _opMyStructMyEnumD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8303,7 +8303,7 @@ namespace Test
             outAsync.invoke(
                 _opByteBoolDS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8341,7 +8341,7 @@ namespace Test
             outAsync.invoke(
                 _opShortIntDS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8379,7 +8379,7 @@ namespace Test
             outAsync.invoke(
                 _opLongFloatDS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8417,7 +8417,7 @@ namespace Test
             outAsync.invoke(
                 _opStringStringDS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8455,7 +8455,7 @@ namespace Test
             outAsync.invoke(
                 _opStringMyEnumDS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8493,7 +8493,7 @@ namespace Test
             outAsync.invoke(
                 _opMyEnumStringDS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8531,7 +8531,7 @@ namespace Test
             outAsync.invoke(
                 _opMyStructMyEnumDS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8569,7 +8569,7 @@ namespace Test
             outAsync.invoke(
                 _opByteByteSD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8607,7 +8607,7 @@ namespace Test
             outAsync.invoke(
                 _opBoolBoolSD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8645,7 +8645,7 @@ namespace Test
             outAsync.invoke(
                 _opShortShortSD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8683,7 +8683,7 @@ namespace Test
             outAsync.invoke(
                 _opIntIntSD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8721,7 +8721,7 @@ namespace Test
             outAsync.invoke(
                 _opLongLongSD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8759,7 +8759,7 @@ namespace Test
             outAsync.invoke(
                 _opStringFloatSD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8797,7 +8797,7 @@ namespace Test
             outAsync.invoke(
                 _opStringDoubleSD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8835,7 +8835,7 @@ namespace Test
             outAsync.invoke(
                 _opStringStringSD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8873,7 +8873,7 @@ namespace Test
             outAsync.invoke(
                 _opMyEnumMyEnumSD_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8911,7 +8911,7 @@ namespace Test
             outAsync.invoke(
                 _opIntS_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8946,7 +8946,7 @@ namespace Test
             outAsync.invoke(
                 _opByteSOneway_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -8976,7 +8976,7 @@ namespace Test
             outAsync.invoke(
                 _opByteSOnewayCallCount_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -9008,7 +9008,7 @@ namespace Test
             outAsync.invoke(
                 _opContext_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -9039,7 +9039,7 @@ namespace Test
             outAsync.invoke(
                 _opDoubleMarshaling_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -9069,7 +9069,7 @@ namespace Test
             outAsync.invoke(
                 _opIdempotent_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -9095,7 +9095,7 @@ namespace Test
             outAsync.invoke(
                 _opByte1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -9131,7 +9131,7 @@ namespace Test
             outAsync.invoke(
                 _opShort1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -9167,7 +9167,7 @@ namespace Test
             outAsync.invoke(
                 _opInt1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -9203,7 +9203,7 @@ namespace Test
             outAsync.invoke(
                 _opLong1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -9239,7 +9239,7 @@ namespace Test
             outAsync.invoke(
                 _opFloat1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -9275,7 +9275,7 @@ namespace Test
             outAsync.invoke(
                 _opDouble1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -9311,7 +9311,7 @@ namespace Test
             outAsync.invoke(
                 _opString1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -9347,7 +9347,7 @@ namespace Test
             outAsync.invoke(
                 _opStringS1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -9383,7 +9383,7 @@ namespace Test
             outAsync.invoke(
                 _opByteBoolD1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -9419,7 +9419,7 @@ namespace Test
             outAsync.invoke(
                 _opStringS2_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -9455,7 +9455,7 @@ namespace Test
             outAsync.invoke(
                 _opByteBoolD2_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -9491,7 +9491,7 @@ namespace Test
             outAsync.invoke(
                 _opStringLiterals_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -9523,7 +9523,7 @@ namespace Test
             outAsync.invoke(
                 _opWStringLiterals_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -9555,7 +9555,7 @@ namespace Test
             outAsync.invoke(
                 _opMStruct1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -9587,7 +9587,7 @@ namespace Test
             outAsync.invoke(
                 _opMStruct2_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -9624,7 +9624,7 @@ namespace Test
             outAsync.invoke(
                 _opMSeq1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -9656,7 +9656,7 @@ namespace Test
             outAsync.invoke(
                 _opMSeq2_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -9693,7 +9693,7 @@ namespace Test
             outAsync.invoke(
                 _opMDict1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -9725,7 +9725,7 @@ namespace Test
             outAsync.invoke(
                 _opMDict2_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -9761,7 +9761,7 @@ namespace Test
             outAsync.invoke(
                 _opDerived_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -9787,7 +9787,7 @@ namespace Test
             outAsync.invoke(
                 _opMyClass1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -9825,7 +9825,7 @@ namespace Test
             outAsync.invoke(
                 _opMyStruct1_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -10131,6 +10131,30 @@ namespace Test
 
         public abstract global::System.Threading.Tasks.Task<MyStruct1> opMyStruct1Async(MyStruct1 opMyStruct1, Ice.Current current);
 
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpByteSResult> opByteSAsync(byte[] p1, byte[] p2, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpBoolSResult> opBoolSAsync(bool[] p1, bool[] p2, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSResult> opShortIntLongSAsync(short[] p1, int[] p2, long[] p3, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSResult> opFloatDoubleSAsync(float[] p1, double[] p2, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringSResult> opStringSAsync(string[] p1, string[] p2, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpByteSSResult> opByteSSAsync(byte[][] p1, byte[][] p2, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpBoolSSResult> opBoolSSAsync(bool[][] p1, bool[][] p2, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSSResult> opShortIntLongSSAsync(short[][] p1, int[][] p2, long[][] p3, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSSResult> opFloatDoubleSSAsync(float[][] p1, double[][] p2, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringSSResult> opStringSSAsync(string[][] p1, string[][] p2, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringSSSResult> opStringSSSAsync(string[][][] p1, string[][][] p2, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpLongLongSDResult> opLongLongSDAsync(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, Ice.Current current);
+
         public abstract global::System.Threading.Tasks.Task shutdownAsync(Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<bool> supportsCompressAsync(Ice.Current current);
@@ -10153,27 +10177,7 @@ namespace Test
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpStructResult> opStructAsync(Structure p1, Structure p2, Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpByteSResult> opByteSAsync(byte[] p1, byte[] p2, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpBoolSResult> opBoolSAsync(bool[] p1, bool[] p2, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSResult> opShortIntLongSAsync(short[] p1, int[] p2, long[] p3, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSResult> opFloatDoubleSAsync(float[] p1, double[] p2, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringSResult> opStringSAsync(string[] p1, string[] p2, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpByteSSResult> opByteSSAsync(byte[][] p1, byte[][] p2, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpBoolSSResult> opBoolSSAsync(bool[][] p1, bool[][] p2, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSSResult> opShortIntLongSSAsync(short[][] p1, int[][] p2, long[][] p3, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSSResult> opFloatDoubleSSAsync(float[][] p1, double[][] p2, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringSSResult> opStringSSAsync(string[][] p1, string[][] p2, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringSSSResult> opStringSSSAsync(string[][][] p1, string[][][] p2, Ice.Current current);
+        public abstract global::System.Threading.Tasks.Task<int[]> opIntSAsync(int[] s, Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpByteBoolDResult> opByteBoolDAsync(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, Ice.Current current);
 
@@ -10211,8 +10215,6 @@ namespace Test
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpIntIntSDResult> opIntIntSDAsync(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpLongLongSDResult> opLongLongSDAsync(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, Ice.Current current);
-
         public abstract global::System.Threading.Tasks.Task<MyClass_OpStringFloatSDResult> opStringFloatSDAsync(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpStringDoubleSDResult> opStringDoubleSDAsync(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, Ice.Current current);
@@ -10220,8 +10222,6 @@ namespace Test
         public abstract global::System.Threading.Tasks.Task<MyClass_OpStringStringSDResult> opStringStringSDAsync(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpMyEnumMyEnumSDResult> opMyEnumMyEnumSDAsync(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<int[]> opIntSAsync(int[] s, Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task opByteSOnewayAsync(byte[] s, Ice.Current current);
 

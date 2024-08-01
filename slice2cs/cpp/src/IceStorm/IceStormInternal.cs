@@ -393,7 +393,7 @@ namespace IceStorm
             outAsync.invoke(
                 _forward_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -619,7 +619,7 @@ namespace IceStorm
             outAsync.invoke(
                 _getName_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -651,7 +651,7 @@ namespace IceStorm
             outAsync.invoke(
                 _getPublisher_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -683,7 +683,7 @@ namespace IceStorm
             outAsync.invoke(
                 _getNonReplicatedPublisher_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -715,7 +715,7 @@ namespace IceStorm
             outAsync.invoke(
                 _subscribeAndGetPublisher_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -773,7 +773,7 @@ namespace IceStorm
             outAsync.invoke(
                 _unsubscribe_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -803,7 +803,7 @@ namespace IceStorm
             outAsync.invoke(
                 _link_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -848,7 +848,7 @@ namespace IceStorm
             outAsync.invoke(
                 _unlink_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -892,7 +892,7 @@ namespace IceStorm
             outAsync.invoke(
                 _getLinkInfoSeq_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -924,7 +924,7 @@ namespace IceStorm
             outAsync.invoke(
                 _getSubscribers_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -955,7 +955,7 @@ namespace IceStorm
             outAsync.invoke(
                 _destroy_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -981,7 +981,7 @@ namespace IceStorm
             outAsync.invoke(
                 _getLinkProxy_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -1013,7 +1013,7 @@ namespace IceStorm
             outAsync.invoke(
                 _reap_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -1158,7 +1158,7 @@ namespace IceStorm
             outAsync.invoke(
                 _create_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -1208,7 +1208,7 @@ namespace IceStorm
             outAsync.invoke(
                 _retrieve_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -1258,7 +1258,7 @@ namespace IceStorm
             outAsync.invoke(
                 _retrieveAll_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -1290,7 +1290,7 @@ namespace IceStorm
             outAsync.invoke(
                 _getReplicaNode_name,
                 Ice.OperationMode.Idempotent,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 read: (Ice.InputStream istr) =>
@@ -1383,14 +1383,6 @@ namespace IceStorm
 
         public abstract void reap(global::Ice.Identity[] id, Ice.Current current);
 
-        public abstract void unlink(TopicPrx? linkTo, Ice.Current current);
-
-        public abstract LinkInfo[] getLinkInfoSeq(Ice.Current current);
-
-        public abstract global::Ice.Identity[] getSubscribers(Ice.Current current);
-
-        public abstract void destroy(Ice.Current current);
-
         public abstract string getName(Ice.Current current);
 
         public abstract global::Ice.ObjectPrx? getPublisher(Ice.Current current);
@@ -1402,6 +1394,14 @@ namespace IceStorm
         public abstract void unsubscribe(global::Ice.ObjectPrx? subscriber, Ice.Current current);
 
         public abstract void link(TopicPrx? linkTo, int cost, Ice.Current current);
+
+        public abstract void unlink(TopicPrx? linkTo, Ice.Current current);
+
+        public abstract LinkInfo[] getLinkInfoSeq(Ice.Current current);
+
+        public abstract global::Ice.Identity[] getSubscribers(Ice.Current current);
+
+        public abstract void destroy(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -1491,7 +1491,7 @@ namespace IceStorm
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getLinkProxy(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             TopicLinkPrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
@@ -1522,7 +1522,7 @@ namespace IceStorm
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getReplicaNode(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             global::IceStormElection.NodePrxHelper.write(ostr, ret);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));

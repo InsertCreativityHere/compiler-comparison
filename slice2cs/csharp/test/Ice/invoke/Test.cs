@@ -197,7 +197,7 @@ namespace Ice.invoke
                 outAsync.invoke(
                     _opOneway_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -223,7 +223,7 @@ namespace Ice.invoke
                 outAsync.invoke(
                     _opString_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -260,7 +260,7 @@ namespace Ice.invoke
                 outAsync.invoke(
                     _opException_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     userException: (Ice.UserException ex) =>
@@ -299,7 +299,7 @@ namespace Ice.invoke
                 outAsync.invoke(
                     _shutdown_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -420,7 +420,7 @@ namespace Ice.invoke
                 string iceP_s2;
                 var ret = obj.opString(iceP_s1, out iceP_s2, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-                ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+                ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeString(iceP_s2);
                 ostr.writeString(ret);
                 ostr.endEncapsulation();

@@ -144,7 +144,7 @@ namespace Ice.udp
                 outAsync.invoke(
                     _reply_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -285,7 +285,7 @@ namespace Ice.udp
                 outAsync.invoke(
                     _ping_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -314,7 +314,7 @@ namespace Ice.udp
                 outAsync.invoke(
                     _sendByteSeq_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -344,7 +344,7 @@ namespace Ice.udp
                 outAsync.invoke(
                     _pingBiDir_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -373,7 +373,7 @@ namespace Ice.udp
                 outAsync.invoke(
                     _shutdown_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }

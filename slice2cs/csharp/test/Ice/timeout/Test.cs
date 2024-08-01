@@ -191,7 +191,7 @@ namespace Ice.timeout
                 outAsync.invoke(
                     _op_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -216,7 +216,7 @@ namespace Ice.timeout
                 outAsync.invoke(
                     _sendData_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -245,7 +245,7 @@ namespace Ice.timeout
                 outAsync.invoke(
                     _sleep_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -362,7 +362,7 @@ namespace Ice.timeout
                 outAsync.invoke(
                     _holdAdapter_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
@@ -391,7 +391,7 @@ namespace Ice.timeout
                 outAsync.invoke(
                     _resumeAdapter_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }
@@ -416,7 +416,7 @@ namespace Ice.timeout
                 outAsync.invoke(
                     _shutdown_name,
                     Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
+                    null,
                     context,
                     synchronous);
             }

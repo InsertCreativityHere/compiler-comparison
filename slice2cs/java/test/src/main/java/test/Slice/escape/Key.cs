@@ -477,7 +477,7 @@ namespace @abstract
             outAsync.invoke(
                 _checkedCast_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -576,7 +576,7 @@ namespace @abstract
             outAsync.invoke(
                 _do_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -677,7 +677,7 @@ namespace @abstract
             outAsync.invoke(
                 _do_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous);
         }
@@ -703,7 +703,7 @@ namespace @abstract
             outAsync.invoke(
                 _checkedCast_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -876,7 +876,7 @@ namespace @abstract
             outAsync.invoke(
                 _notify_name,
                 Ice.OperationMode.Normal,
-                Ice.FormatType.DefaultFormat,
+                null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
@@ -1131,7 +1131,7 @@ namespace @abstract
             istr.endEncapsulation();
             var ret = obj.notify(iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, Ice.FormatType.DefaultFormat);
+            ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeEnum((int)ret, 0);
             ostr.endEncapsulation();
             return new(new Ice.OutgoingResponse(ostr));
