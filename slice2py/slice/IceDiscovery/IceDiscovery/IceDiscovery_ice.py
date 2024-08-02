@@ -50,45 +50,75 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
 
         def foundObjectById(self, id, prx, context=None):
             """
-             Reply to the findObjectById request.
-            Arguments:
-            id -- The identity of the object.
-            prx -- The proxy of the object. This proxy is never null.
-            context -- The request context for the invocation.
+            Reply to the findObjectById request.
+            
+            Parameters
+            ----------
+            id : Ice.Identity
+                The identity of the object.
+            prx : Ice.ObjectPrx or None
+                The proxy of the object. This proxy is never null.
+            context : Ice.Context
+                The request context for the invocation.
             """
             return _M_IceDiscovery.LookupReply._op_foundObjectById.invoke(self, ((id, prx), context))
 
         def foundObjectByIdAsync(self, id, prx, context=None):
             """
-             Reply to the findObjectById request.
-            Arguments:
-            id -- The identity of the object.
-            prx -- The proxy of the object. This proxy is never null.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Reply to the findObjectById request.
+            
+            Parameters
+            ----------
+            id : Ice.Identity
+                The identity of the object.
+            prx : Ice.ObjectPrx or None
+                The proxy of the object. This proxy is never null.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceDiscovery.LookupReply._op_foundObjectById.invokeAsync(self, ((id, prx), context))
 
         def foundAdapterById(self, id, prx, isReplicaGroup, context=None):
             """
-             Reply to the findAdpaterById request.
-            Arguments:
-            id -- The adapter ID.
-            prx -- The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter endpoints. This proxy is never null.
-            isReplicaGroup -- True if the adapter is also a member of a replica group.
-            context -- The request context for the invocation.
+            Reply to the findAdpaterById request.
+            
+            Parameters
+            ----------
+            id : str
+                The adapter ID.
+            prx : Ice.ObjectPrx or None
+                The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter endpoints. This proxy is never null.
+            isReplicaGroup : bool
+                True if the adapter is also a member of a replica group.
+            context : Ice.Context
+                The request context for the invocation.
             """
             return _M_IceDiscovery.LookupReply._op_foundAdapterById.invoke(self, ((id, prx, isReplicaGroup), context))
 
         def foundAdapterByIdAsync(self, id, prx, isReplicaGroup, context=None):
             """
-             Reply to the findAdpaterById request.
-            Arguments:
-            id -- The adapter ID.
-            prx -- The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter endpoints. This proxy is never null.
-            isReplicaGroup -- True if the adapter is also a member of a replica group.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Reply to the findAdpaterById request.
+            
+            Parameters
+            ----------
+            id : str
+                The adapter ID.
+            prx : Ice.ObjectPrx or None
+                The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter endpoints. This proxy is never null.
+            isReplicaGroup : bool
+                True if the adapter is also a member of a replica group.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceDiscovery.LookupReply._op_foundAdapterById.invokeAsync(self, ((id, prx, isReplicaGroup), context))
 
@@ -123,24 +153,43 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
 
         def foundObjectById(self, id, prx, current=None):
             """
-             Reply to the findObjectById request.
-            Arguments:
-            id -- The identity of the object.
-            prx -- The proxy of the object. This proxy is never null.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Reply to the findObjectById request.
+            
+            Parameters
+            ----------
+            id : Ice.Identity
+                The identity of the object.
+            prx : Ice.ObjectPrx or None
+                The proxy of the object. This proxy is never null.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'foundObjectById' not implemented")
 
         def foundAdapterById(self, id, prx, isReplicaGroup, current=None):
             """
-             Reply to the findAdpaterById request.
-            Arguments:
-            id -- The adapter ID.
-            prx -- The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter endpoints. This proxy is never null.
-            isReplicaGroup -- True if the adapter is also a member of a replica group.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Reply to the findAdpaterById request.
+            
+            Parameters
+            ----------
+            id : str
+                The adapter ID.
+            prx : Ice.ObjectPrx or None
+                The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter endpoints. This proxy is never null.
+            isReplicaGroup : bool
+                True if the adapter is also a member of a replica group.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'foundAdapterById' not implemented")
 
@@ -182,47 +231,79 @@ if 'LookupPrx' not in _M_IceDiscovery.__dict__:
 
         def findObjectById(self, domainId, id, reply, context=None):
             """
-             Request to find an Ice object
-            Arguments:
-            domainId -- The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
-            id -- The object identity.
-            reply -- The proxy of the LookupReply interface that should be used to send the reply if a matching object is found. The reply proxy is never null.
-            context -- The request context for the invocation.
+            Request to find an Ice object
+            
+            Parameters
+            ----------
+            domainId : str
+                The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
+            id : Ice.Identity
+                The object identity.
+            reply : IceDiscovery.LookupReplyPrx or None
+                The proxy of the LookupReply interface that should be used to send the reply if a matching object is found. The reply proxy is never null.
+            context : Ice.Context
+                The request context for the invocation.
             """
             return _M_IceDiscovery.Lookup._op_findObjectById.invoke(self, ((domainId, id, reply), context))
 
         def findObjectByIdAsync(self, domainId, id, reply, context=None):
             """
-             Request to find an Ice object
-            Arguments:
-            domainId -- The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
-            id -- The object identity.
-            reply -- The proxy of the LookupReply interface that should be used to send the reply if a matching object is found. The reply proxy is never null.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Request to find an Ice object
+            
+            Parameters
+            ----------
+            domainId : str
+                The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
+            id : Ice.Identity
+                The object identity.
+            reply : IceDiscovery.LookupReplyPrx or None
+                The proxy of the LookupReply interface that should be used to send the reply if a matching object is found. The reply proxy is never null.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceDiscovery.Lookup._op_findObjectById.invokeAsync(self, ((domainId, id, reply), context))
 
         def findAdapterById(self, domainId, id, reply, context=None):
             """
-             Request to find an object adapter
-            Arguments:
-            domainId -- The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
-            id -- The adapter ID.
-            reply -- The proxy of the LookupReply interface that should be used to send the reply if a matching adapter is found. The reply proxy is never null.
-            context -- The request context for the invocation.
+            Request to find an object adapter
+            
+            Parameters
+            ----------
+            domainId : str
+                The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
+            id : str
+                The adapter ID.
+            reply : IceDiscovery.LookupReplyPrx or None
+                The proxy of the LookupReply interface that should be used to send the reply if a matching adapter is found. The reply proxy is never null.
+            context : Ice.Context
+                The request context for the invocation.
             """
             return _M_IceDiscovery.Lookup._op_findAdapterById.invoke(self, ((domainId, id, reply), context))
 
         def findAdapterByIdAsync(self, domainId, id, reply, context=None):
             """
-             Request to find an object adapter
-            Arguments:
-            domainId -- The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
-            id -- The adapter ID.
-            reply -- The proxy of the LookupReply interface that should be used to send the reply if a matching adapter is found. The reply proxy is never null.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Request to find an object adapter
+            
+            Parameters
+            ----------
+            domainId : str
+                The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
+            id : str
+                The adapter ID.
+            reply : IceDiscovery.LookupReplyPrx or None
+                The proxy of the LookupReply interface that should be used to send the reply if a matching adapter is found. The reply proxy is never null.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceDiscovery.Lookup._op_findAdapterById.invokeAsync(self, ((domainId, id, reply), context))
 
@@ -257,25 +338,45 @@ if 'LookupPrx' not in _M_IceDiscovery.__dict__:
 
         def findObjectById(self, domainId, id, reply, current=None):
             """
-             Request to find an Ice object
-            Arguments:
-            domainId -- The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
-            id -- The object identity.
-            reply -- The proxy of the LookupReply interface that should be used to send the reply if a matching object is found. The reply proxy is never null.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Request to find an Ice object
+            
+            Parameters
+            ----------
+            domainId : str
+                The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
+            id : Ice.Identity
+                The object identity.
+            reply : IceDiscovery.LookupReplyPrx or None
+                The proxy of the LookupReply interface that should be used to send the reply if a matching object is found. The reply proxy is never null.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'findObjectById' not implemented")
 
         def findAdapterById(self, domainId, id, reply, current=None):
             """
-             Request to find an object adapter
-            Arguments:
-            domainId -- The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
-            id -- The adapter ID.
-            reply -- The proxy of the LookupReply interface that should be used to send the reply if a matching adapter is found. The reply proxy is never null.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Request to find an object adapter
+            
+            Parameters
+            ----------
+            domainId : str
+                The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
+            id : str
+                The adapter ID.
+            reply : IceDiscovery.LookupReplyPrx or None
+                The proxy of the LookupReply interface that should be used to send the reply if a matching adapter is found. The reply proxy is never null.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'findAdapterById' not implemented")
 

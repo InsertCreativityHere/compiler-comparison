@@ -115,20 +115,32 @@ if 'TopicLinkPrx' not in _M_IceStorm.__dict__:
 
         def forward(self, events, context=None):
             """
-             Forward a sequence of events.
-            Arguments:
-            events -- The events to forward.
-            context -- The request context for the invocation.
+            Forward a sequence of events.
+            
+            Parameters
+            ----------
+            events : IceStorm.EventData[]
+                The events to forward.
+            context : Ice.Context
+                The request context for the invocation.
             """
             return _M_IceStorm.TopicLink._op_forward.invoke(self, ((events, ), context))
 
         def forwardAsync(self, events, context=None):
             """
-             Forward a sequence of events.
-            Arguments:
-            events -- The events to forward.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Forward a sequence of events.
+            
+            Parameters
+            ----------
+            events : IceStorm.EventData[]
+                The events to forward.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceStorm.TopicLink._op_forward.invokeAsync(self, ((events, ), context))
 
@@ -163,11 +175,19 @@ if 'TopicLinkPrx' not in _M_IceStorm.__dict__:
 
         def forward(self, events, current=None):
             """
-             Forward a sequence of events.
-            Arguments:
-            events -- The events to forward.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Forward a sequence of events.
+            
+            Parameters
+            ----------
+            events : IceStorm.EventData[]
+                The events to forward.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'forward' not implemented")
 
@@ -230,40 +250,69 @@ if 'TopicInternalPrx' not in _M_IceStorm.__dict__:
 
         def getLinkProxy(self, context=None):
             """
-             Retrieve a proxy to the TopicLink interface.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: The TopicLink for the Topic.
+            Retrieve a proxy to the TopicLink interface.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            IceStorm.TopicLinkPrx or None
+                The TopicLink for the Topic.
             """
             return _M_IceStorm.TopicInternal._op_getLinkProxy.invoke(self, ((), context))
 
         def getLinkProxyAsync(self, context=None):
             """
-             Retrieve a proxy to the TopicLink interface.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Retrieve a proxy to the TopicLink interface.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceStorm.TopicInternal._op_getLinkProxy.invokeAsync(self, ((), context))
 
         def reap(self, id, context=None):
             """
-             Reap the given identities.
-            Arguments:
-            id -- The sequence of identities.
-            context -- The request context for the invocation.
-            Throws:
-            ReapWouldBlock -- Raised if the reap call would block.
+            Reap the given identities.
+            
+            Parameters
+            ----------
+            id : Ice.Identity[]
+                The sequence of identities.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Raises
+            ------
+            ReapWouldBlock
+                Raised if the reap call would block.
             """
             return _M_IceStorm.TopicInternal._op_reap.invoke(self, ((id, ), context))
 
         def reapAsync(self, id, context=None):
             """
-             Reap the given identities.
-            Arguments:
-            id -- The sequence of identities.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Reap the given identities.
+            
+            Parameters
+            ----------
+            id : Ice.Identity[]
+                The sequence of identities.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceStorm.TopicInternal._op_reap.invokeAsync(self, ((id, ), context))
 
@@ -298,22 +347,40 @@ if 'TopicInternalPrx' not in _M_IceStorm.__dict__:
 
         def getLinkProxy(self, current=None):
             """
-             Retrieve a proxy to the TopicLink interface.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Retrieve a proxy to the TopicLink interface.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'getLinkProxy' not implemented")
 
         def reap(self, id, current=None):
             """
-             Reap the given identities.
-            Arguments:
-            id -- The sequence of identities.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            ReapWouldBlock -- Raised if the reap call would block.
+            Reap the given identities.
+            
+            Parameters
+            ----------
+            id : Ice.Identity[]
+                The sequence of identities.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            ReapWouldBlock
+                Raised if the reap call would block.
             """
             raise NotImplementedError("servant method 'reap' not implemented")
 
@@ -355,19 +422,33 @@ if 'TopicManagerInternalPrx' not in _M_IceStorm.__dict__:
 
         def getReplicaNode(self, context=None):
             """
-             Return the replica node proxy for this topic manager.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: The replica proxy, or null if this instance is not replicated.
+            Return the replica node proxy for this topic manager.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            IceStormElection.NodePrx or None
+                The replica proxy, or null if this instance is not replicated.
             """
             return _M_IceStorm.TopicManagerInternal._op_getReplicaNode.invoke(self, ((), context))
 
         def getReplicaNodeAsync(self, context=None):
             """
-             Return the replica node proxy for this topic manager.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Return the replica node proxy for this topic manager.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceStorm.TopicManagerInternal._op_getReplicaNode.invokeAsync(self, ((), context))
 
@@ -402,10 +483,17 @@ if 'TopicManagerInternalPrx' not in _M_IceStorm.__dict__:
 
         def getReplicaNode(self, current=None):
             """
-             Return the replica node proxy for this topic manager.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Return the replica node proxy for this topic manager.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'getReplicaNode' not implemented")
 

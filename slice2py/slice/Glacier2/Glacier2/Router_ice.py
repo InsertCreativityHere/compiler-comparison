@@ -82,167 +82,275 @@ if 'RouterPrx' not in _M_Glacier2.__dict__:
 
         def getCategoryForClient(self, context=None):
             """
-             This category must be used in the identities of all of the client's callback objects. This is necessary in
-             order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
-             are not set, the returned category is an empty string.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: The category.
+            This category must be used in the identities of all of the client's callback objects. This is necessary in
+            order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
+            are not set, the returned category is an empty string.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            str
+                The category.
             """
             return _M_Glacier2.Router._op_getCategoryForClient.invoke(self, ((), context))
 
         def getCategoryForClientAsync(self, context=None):
             """
-             This category must be used in the identities of all of the client's callback objects. This is necessary in
-             order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
-             are not set, the returned category is an empty string.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            This category must be used in the identities of all of the client's callback objects. This is necessary in
+            order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
+            are not set, the returned category is an empty string.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_Glacier2.Router._op_getCategoryForClient.invokeAsync(self, ((), context))
 
         def createSession(self, userId, password, context=None):
             """
-             Create a per-client session with the router. If a SessionManager has been installed, a proxy to a
-             Session object is returned to the client. Otherwise, null is returned and only an internal session
-             (i.e., not visible to the client) is created.
-             If a session proxy is returned, it must be configured to route through the router that created it. This will
-             happen automatically if the router is configured as the client's default router at the time the session
-             proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
-            Arguments:
-            userId -- The user id for which to check the password.
-            password -- The password for the given user id.
-            context -- The request context for the invocation.
-            Returns: A proxy for the newly created session, or null if no SessionManager has been installed.
-            Throws:
-            CannotCreateSessionException -- Raised if the session cannot be created.
-            PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
+            Create a per-client session with the router. If a SessionManager has been installed, a proxy to a
+            Session object is returned to the client. Otherwise, null is returned and only an internal session
+            (i.e., not visible to the client) is created.
+            If a session proxy is returned, it must be configured to route through the router that created it. This will
+            happen automatically if the router is configured as the client's default router at the time the session
+            proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
+            
+            Parameters
+            ----------
+            userId : str
+                The user id for which to check the password.
+            password : str
+                The password for the given user id.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Glacier2.SessionPrx or None
+                A proxy for the newly created session, or null if no SessionManager has been installed.
+            
+            Raises
+            ------
+            CannotCreateSessionException
+                Raised if the session cannot be created.
+            PermissionDeniedException
+                Raised if the password for the given user id is not correct, or if the user is not allowed access.
             """
             return _M_Glacier2.Router._op_createSession.invoke(self, ((userId, password), context))
 
         def createSessionAsync(self, userId, password, context=None):
             """
-             Create a per-client session with the router. If a SessionManager has been installed, a proxy to a
-             Session object is returned to the client. Otherwise, null is returned and only an internal session
-             (i.e., not visible to the client) is created.
-             If a session proxy is returned, it must be configured to route through the router that created it. This will
-             happen automatically if the router is configured as the client's default router at the time the session
-             proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
-            Arguments:
-            userId -- The user id for which to check the password.
-            password -- The password for the given user id.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Create a per-client session with the router. If a SessionManager has been installed, a proxy to a
+            Session object is returned to the client. Otherwise, null is returned and only an internal session
+            (i.e., not visible to the client) is created.
+            If a session proxy is returned, it must be configured to route through the router that created it. This will
+            happen automatically if the router is configured as the client's default router at the time the session
+            proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
+            
+            Parameters
+            ----------
+            userId : str
+                The user id for which to check the password.
+            password : str
+                The password for the given user id.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_Glacier2.Router._op_createSession.invokeAsync(self, ((userId, password), context))
 
         def createSessionFromSecureConnection(self, context=None):
             """
-             Create a per-client session with the router. The user is authenticated through the SSL certificates that
-             have been associated with the connection. If a SessionManager has been installed, a proxy to a
-             Session object is returned to the client. Otherwise, null is returned and only an internal session
-             (i.e., not visible to the client) is created.
-             If a session proxy is returned, it must be configured to route through the router that created it. This will
-             happen automatically if the router is configured as the client's default router at the time the session
-             proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: A proxy for the newly created session, or null if no SessionManager has been installed.
-            Throws:
-            CannotCreateSessionException -- Raised if the session cannot be created.
-            PermissionDeniedException -- Raised if the user cannot be authenticated or if the user is not allowed access.
+            Create a per-client session with the router. The user is authenticated through the SSL certificates that
+            have been associated with the connection. If a SessionManager has been installed, a proxy to a
+            Session object is returned to the client. Otherwise, null is returned and only an internal session
+            (i.e., not visible to the client) is created.
+            If a session proxy is returned, it must be configured to route through the router that created it. This will
+            happen automatically if the router is configured as the client's default router at the time the session
+            proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Glacier2.SessionPrx or None
+                A proxy for the newly created session, or null if no SessionManager has been installed.
+            
+            Raises
+            ------
+            CannotCreateSessionException
+                Raised if the session cannot be created.
+            PermissionDeniedException
+                Raised if the user cannot be authenticated or if the user is not allowed access.
             """
             return _M_Glacier2.Router._op_createSessionFromSecureConnection.invoke(self, ((), context))
 
         def createSessionFromSecureConnectionAsync(self, context=None):
             """
-             Create a per-client session with the router. The user is authenticated through the SSL certificates that
-             have been associated with the connection. If a SessionManager has been installed, a proxy to a
-             Session object is returned to the client. Otherwise, null is returned and only an internal session
-             (i.e., not visible to the client) is created.
-             If a session proxy is returned, it must be configured to route through the router that created it. This will
-             happen automatically if the router is configured as the client's default router at the time the session
-             proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Create a per-client session with the router. The user is authenticated through the SSL certificates that
+            have been associated with the connection. If a SessionManager has been installed, a proxy to a
+            Session object is returned to the client. Otherwise, null is returned and only an internal session
+            (i.e., not visible to the client) is created.
+            If a session proxy is returned, it must be configured to route through the router that created it. This will
+            happen automatically if the router is configured as the client's default router at the time the session
+            proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_Glacier2.Router._op_createSessionFromSecureConnection.invokeAsync(self, ((), context))
 
         def refreshSession(self, context=None):
             """
-             Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
-             and earlier and does nothing in newer versions of Glacier2.
-            Arguments:
-            context -- The request context for the invocation.
-            Throws:
-            SessionNotExistException -- Raised if no session exists for the caller (client).
+            Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
+            and earlier and does nothing in newer versions of Glacier2.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Raises
+            ------
+            SessionNotExistException
+                Raised if no session exists for the caller (client).
             """
             return _M_Glacier2.Router._op_refreshSession.invoke(self, ((), context))
 
         def refreshSessionAsync(self, context=None):
             """
-             Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
-             and earlier and does nothing in newer versions of Glacier2.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
+            and earlier and does nothing in newer versions of Glacier2.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_Glacier2.Router._op_refreshSession.invokeAsync(self, ((), context))
 
         def destroySession(self, context=None):
             """
-             Destroy the calling client's session with this router.
-            Arguments:
-            context -- The request context for the invocation.
-            Throws:
-            SessionNotExistException -- Raised if no session exists for the calling client.
+            Destroy the calling client's session with this router.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Raises
+            ------
+            SessionNotExistException
+                Raised if no session exists for the calling client.
             """
             return _M_Glacier2.Router._op_destroySession.invoke(self, ((), context))
 
         def destroySessionAsync(self, context=None):
             """
-             Destroy the calling client's session with this router.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Destroy the calling client's session with this router.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_Glacier2.Router._op_destroySession.invokeAsync(self, ((), context))
 
         def getSessionTimeout(self, context=None):
             """
-             Get the idle timeout used by the server-side of the connection.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: The idle timeout (in seconds).
+            Get the idle timeout used by the server-side of the connection.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            int
+                The idle timeout (in seconds).
             """
             return _M_Glacier2.Router._op_getSessionTimeout.invoke(self, ((), context))
 
         def getSessionTimeoutAsync(self, context=None):
             """
-             Get the idle timeout used by the server-side of the connection.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Get the idle timeout used by the server-side of the connection.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_Glacier2.Router._op_getSessionTimeout.invokeAsync(self, ((), context))
 
         def getACMTimeout(self, context=None):
             """
-             Get the idle timeout used by the server-side of the connection.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: The idle timeout (in seconds).
+            Get the idle timeout used by the server-side of the connection.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            int
+                The idle timeout (in seconds).
             """
             return _M_Glacier2.Router._op_getACMTimeout.invoke(self, ((), context))
 
         def getACMTimeoutAsync(self, context=None):
             """
-             Get the idle timeout used by the server-side of the connection.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Get the idle timeout used by the server-side of the connection.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_Glacier2.Router._op_getACMTimeout.invokeAsync(self, ((), context))
 
@@ -277,90 +385,155 @@ if 'RouterPrx' not in _M_Glacier2.__dict__:
 
         def getCategoryForClient(self, current=None):
             """
-             This category must be used in the identities of all of the client's callback objects. This is necessary in
-             order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
-             are not set, the returned category is an empty string.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            This category must be used in the identities of all of the client's callback objects. This is necessary in
+            order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
+            are not set, the returned category is an empty string.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'getCategoryForClient' not implemented")
 
         def createSession(self, userId, password, current=None):
             """
-             Create a per-client session with the router. If a SessionManager has been installed, a proxy to a
-             Session object is returned to the client. Otherwise, null is returned and only an internal session
-             (i.e., not visible to the client) is created.
-             If a session proxy is returned, it must be configured to route through the router that created it. This will
-             happen automatically if the router is configured as the client's default router at the time the session
-             proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
-            Arguments:
-            userId -- The user id for which to check the password.
-            password -- The password for the given user id.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            CannotCreateSessionException -- Raised if the session cannot be created.
-            PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
+            Create a per-client session with the router. If a SessionManager has been installed, a proxy to a
+            Session object is returned to the client. Otherwise, null is returned and only an internal session
+            (i.e., not visible to the client) is created.
+            If a session proxy is returned, it must be configured to route through the router that created it. This will
+            happen automatically if the router is configured as the client's default router at the time the session
+            proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
+            
+            Parameters
+            ----------
+            userId : str
+                The user id for which to check the password.
+            password : str
+                The password for the given user id.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            CannotCreateSessionException
+                Raised if the session cannot be created.
+            PermissionDeniedException
+                Raised if the password for the given user id is not correct, or if the user is not allowed access.
             """
             raise NotImplementedError("servant method 'createSession' not implemented")
 
         def createSessionFromSecureConnection(self, current=None):
             """
-             Create a per-client session with the router. The user is authenticated through the SSL certificates that
-             have been associated with the connection. If a SessionManager has been installed, a proxy to a
-             Session object is returned to the client. Otherwise, null is returned and only an internal session
-             (i.e., not visible to the client) is created.
-             If a session proxy is returned, it must be configured to route through the router that created it. This will
-             happen automatically if the router is configured as the client's default router at the time the session
-             proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            CannotCreateSessionException -- Raised if the session cannot be created.
-            PermissionDeniedException -- Raised if the user cannot be authenticated or if the user is not allowed access.
+            Create a per-client session with the router. The user is authenticated through the SSL certificates that
+            have been associated with the connection. If a SessionManager has been installed, a proxy to a
+            Session object is returned to the client. Otherwise, null is returned and only an internal session
+            (i.e., not visible to the client) is created.
+            If a session proxy is returned, it must be configured to route through the router that created it. This will
+            happen automatically if the router is configured as the client's default router at the time the session
+            proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            CannotCreateSessionException
+                Raised if the session cannot be created.
+            PermissionDeniedException
+                Raised if the user cannot be authenticated or if the user is not allowed access.
             """
             raise NotImplementedError("servant method 'createSessionFromSecureConnection' not implemented")
 
         def refreshSession(self, current=None):
             """
-             Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
-             and earlier and does nothing in newer versions of Glacier2.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            SessionNotExistException -- Raised if no session exists for the caller (client).
+            Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
+            and earlier and does nothing in newer versions of Glacier2.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            SessionNotExistException
+                Raised if no session exists for the caller (client).
             """
             raise NotImplementedError("servant method 'refreshSession' not implemented")
 
         def destroySession(self, current=None):
             """
-             Destroy the calling client's session with this router.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            SessionNotExistException -- Raised if no session exists for the calling client.
+            Destroy the calling client's session with this router.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            SessionNotExistException
+                Raised if no session exists for the calling client.
             """
             raise NotImplementedError("servant method 'destroySession' not implemented")
 
         def getSessionTimeout(self, current=None):
             """
-             Get the idle timeout used by the server-side of the connection.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Get the idle timeout used by the server-side of the connection.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'getSessionTimeout' not implemented")
 
         def getACMTimeout(self, current=None):
             """
-             Get the idle timeout used by the server-side of the connection.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Get the idle timeout used by the server-side of the connection.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'getACMTimeout' not implemented")
 

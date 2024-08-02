@@ -129,120 +129,207 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
 
         def init(self, llu, content, context=None):
             """
-             Initialize the observer.
-            Arguments:
-            llu -- The last log update seen by the master.
-            content -- The topic content.
-            context -- The request context for the invocation.
-            Throws:
-            ObserverInconsistencyException -- Raised if an inconsisency was detected.
+            Initialize the observer.
+            
+            Parameters
+            ----------
+            llu : IceStormElection.LogUpdate
+                The last log update seen by the master.
+            content : IceStormElection.TopicContent[]
+                The topic content.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Raises
+            ------
+            ObserverInconsistencyException
+                Raised if an inconsisency was detected.
             """
             return _M_IceStormElection.ReplicaObserver._op_init.invoke(self, ((llu, content), context))
 
         def initAsync(self, llu, content, context=None):
             """
-             Initialize the observer.
-            Arguments:
-            llu -- The last log update seen by the master.
-            content -- The topic content.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Initialize the observer.
+            
+            Parameters
+            ----------
+            llu : IceStormElection.LogUpdate
+                The last log update seen by the master.
+            content : IceStormElection.TopicContent[]
+                The topic content.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceStormElection.ReplicaObserver._op_init.invokeAsync(self, ((llu, content), context))
 
         def createTopic(self, llu, name, context=None):
             """
-             Create the topic with the given name.
-            Arguments:
-            llu -- The log update token.
-            name -- The topic name.
-            context -- The request context for the invocation.
-            Throws:
-            ObserverInconsistencyException -- Raised if an inconsisency was detected.
+            Create the topic with the given name.
+            
+            Parameters
+            ----------
+            llu : IceStormElection.LogUpdate
+                The log update token.
+            name : str
+                The topic name.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Raises
+            ------
+            ObserverInconsistencyException
+                Raised if an inconsisency was detected.
             """
             return _M_IceStormElection.ReplicaObserver._op_createTopic.invoke(self, ((llu, name), context))
 
         def createTopicAsync(self, llu, name, context=None):
             """
-             Create the topic with the given name.
-            Arguments:
-            llu -- The log update token.
-            name -- The topic name.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Create the topic with the given name.
+            
+            Parameters
+            ----------
+            llu : IceStormElection.LogUpdate
+                The log update token.
+            name : str
+                The topic name.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceStormElection.ReplicaObserver._op_createTopic.invokeAsync(self, ((llu, name), context))
 
         def destroyTopic(self, llu, name, context=None):
             """
-             Destroy the topic with the given name.
-            Arguments:
-            llu -- The log update token.
-            name -- The topic name.
-            context -- The request context for the invocation.
-            Throws:
-            ObserverInconsistencyException -- Raised if an inconsisency was detected.
+            Destroy the topic with the given name.
+            
+            Parameters
+            ----------
+            llu : IceStormElection.LogUpdate
+                The log update token.
+            name : str
+                The topic name.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Raises
+            ------
+            ObserverInconsistencyException
+                Raised if an inconsisency was detected.
             """
             return _M_IceStormElection.ReplicaObserver._op_destroyTopic.invoke(self, ((llu, name), context))
 
         def destroyTopicAsync(self, llu, name, context=None):
             """
-             Destroy the topic with the given name.
-            Arguments:
-            llu -- The log update token.
-            name -- The topic name.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Destroy the topic with the given name.
+            
+            Parameters
+            ----------
+            llu : IceStormElection.LogUpdate
+                The log update token.
+            name : str
+                The topic name.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceStormElection.ReplicaObserver._op_destroyTopic.invokeAsync(self, ((llu, name), context))
 
         def addSubscriber(self, llu, topic, record, context=None):
             """
-             Add a subscriber to a topic.
-            Arguments:
-            llu -- The log update token.
-            topic -- The topic name to which to add the subscriber.
-            record -- The subscriber information.
-            context -- The request context for the invocation.
-            Throws:
-            ObserverInconsistencyException -- Raised if an inconsisency was detected.
+            Add a subscriber to a topic.
+            
+            Parameters
+            ----------
+            llu : IceStormElection.LogUpdate
+                The log update token.
+            topic : str
+                The topic name to which to add the subscriber.
+            record : IceStorm.SubscriberRecord
+                The subscriber information.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Raises
+            ------
+            ObserverInconsistencyException
+                Raised if an inconsisency was detected.
             """
             return _M_IceStormElection.ReplicaObserver._op_addSubscriber.invoke(self, ((llu, topic, record), context))
 
         def addSubscriberAsync(self, llu, topic, record, context=None):
             """
-             Add a subscriber to a topic.
-            Arguments:
-            llu -- The log update token.
-            topic -- The topic name to which to add the subscriber.
-            record -- The subscriber information.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Add a subscriber to a topic.
+            
+            Parameters
+            ----------
+            llu : IceStormElection.LogUpdate
+                The log update token.
+            topic : str
+                The topic name to which to add the subscriber.
+            record : IceStorm.SubscriberRecord
+                The subscriber information.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceStormElection.ReplicaObserver._op_addSubscriber.invokeAsync(self, ((llu, topic, record), context))
 
         def removeSubscriber(self, llu, topic, subscribers, context=None):
             """
-             Remove a subscriber from a topic.
-            Arguments:
-            llu -- The log update token.
-            topic -- 
-            subscribers -- The identities of the subscribers to remove.
-            context -- The request context for the invocation.
-            Throws:
-            ObserverInconsistencyException -- Raised if an inconsisency was detected.
+            Remove a subscriber from a topic.
+            
+            Parameters
+            ----------
+            llu : IceStormElection.LogUpdate
+                The log update token.
+            topic : str
+            subscribers : Ice.Identity[]
+                The identities of the subscribers to remove.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Raises
+            ------
+            ObserverInconsistencyException
+                Raised if an inconsisency was detected.
             """
             return _M_IceStormElection.ReplicaObserver._op_removeSubscriber.invoke(self, ((llu, topic, subscribers), context))
 
         def removeSubscriberAsync(self, llu, topic, subscribers, context=None):
             """
-             Remove a subscriber from a topic.
-            Arguments:
-            llu -- The log update token.
-            topic -- 
-            subscribers -- The identities of the subscribers to remove.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Remove a subscriber from a topic.
+            
+            Parameters
+            ----------
+            llu : IceStormElection.LogUpdate
+                The log update token.
+            topic : str
+            subscribers : Ice.Identity[]
+                The identities of the subscribers to remove.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceStormElection.ReplicaObserver._op_removeSubscriber.invokeAsync(self, ((llu, topic, subscribers), context))
 
@@ -277,68 +364,129 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
 
         def init(self, llu, content, current=None):
             """
-             Initialize the observer.
-            Arguments:
-            llu -- The last log update seen by the master.
-            content -- The topic content.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            ObserverInconsistencyException -- Raised if an inconsisency was detected.
+            Initialize the observer.
+            
+            Parameters
+            ----------
+            llu : IceStormElection.LogUpdate
+                The last log update seen by the master.
+            content : IceStormElection.TopicContent[]
+                The topic content.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            ObserverInconsistencyException
+                Raised if an inconsisency was detected.
             """
             raise NotImplementedError("servant method 'init' not implemented")
 
         def createTopic(self, llu, name, current=None):
             """
-             Create the topic with the given name.
-            Arguments:
-            llu -- The log update token.
-            name -- The topic name.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            ObserverInconsistencyException -- Raised if an inconsisency was detected.
+            Create the topic with the given name.
+            
+            Parameters
+            ----------
+            llu : IceStormElection.LogUpdate
+                The log update token.
+            name : str
+                The topic name.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            ObserverInconsistencyException
+                Raised if an inconsisency was detected.
             """
             raise NotImplementedError("servant method 'createTopic' not implemented")
 
         def destroyTopic(self, llu, name, current=None):
             """
-             Destroy the topic with the given name.
-            Arguments:
-            llu -- The log update token.
-            name -- The topic name.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            ObserverInconsistencyException -- Raised if an inconsisency was detected.
+            Destroy the topic with the given name.
+            
+            Parameters
+            ----------
+            llu : IceStormElection.LogUpdate
+                The log update token.
+            name : str
+                The topic name.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            ObserverInconsistencyException
+                Raised if an inconsisency was detected.
             """
             raise NotImplementedError("servant method 'destroyTopic' not implemented")
 
         def addSubscriber(self, llu, topic, record, current=None):
             """
-             Add a subscriber to a topic.
-            Arguments:
-            llu -- The log update token.
-            topic -- The topic name to which to add the subscriber.
-            record -- The subscriber information.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            ObserverInconsistencyException -- Raised if an inconsisency was detected.
+            Add a subscriber to a topic.
+            
+            Parameters
+            ----------
+            llu : IceStormElection.LogUpdate
+                The log update token.
+            topic : str
+                The topic name to which to add the subscriber.
+            record : IceStorm.SubscriberRecord
+                The subscriber information.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            ObserverInconsistencyException
+                Raised if an inconsisency was detected.
             """
             raise NotImplementedError("servant method 'addSubscriber' not implemented")
 
         def removeSubscriber(self, llu, topic, subscribers, current=None):
             """
-             Remove a subscriber from a topic.
-            Arguments:
-            llu -- The log update token.
-            topic -- 
-            subscribers -- The identities of the subscribers to remove.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            ObserverInconsistencyException -- Raised if an inconsisency was detected.
+            Remove a subscriber from a topic.
+            
+            Parameters
+            ----------
+            llu : IceStormElection.LogUpdate
+                The log update token.
+            topic : str
+            subscribers : Ice.Identity[]
+                The identities of the subscribers to remove.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            ObserverInconsistencyException
+                Raised if an inconsisency was detected.
             """
             raise NotImplementedError("servant method 'removeSubscriber' not implemented")
 
@@ -383,21 +531,37 @@ if 'TopicManagerSyncPrx' not in _M_IceStormElection.__dict__:
 
         def getContent(self, context=None):
             """
-             Retrieve the topic content.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns a tuple containing the following:
-            llu -- The last log update token.
-            content -- The topic content.
+            Retrieve the topic content.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Returns a tuple of (IceStormElection.LogUpdate, IceStormElection.TopicContent[])
+                A tuple containing:
+                - IceStormElection.LogUpdate
+                    The last log update token.
+                - IceStormElection.TopicContent[]
+                    The topic content.
             """
             return _M_IceStormElection.TopicManagerSync._op_getContent.invoke(self, ((), context))
 
         def getContentAsync(self, context=None):
             """
-             Retrieve the topic content.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Retrieve the topic content.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceStormElection.TopicManagerSync._op_getContent.invokeAsync(self, ((), context))
 
@@ -432,10 +596,17 @@ if 'TopicManagerSyncPrx' not in _M_IceStormElection.__dict__:
 
         def getContent(self, current=None):
             """
-             Retrieve the topic content.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Retrieve the topic content.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'getContent' not implemented")
 
@@ -712,172 +883,302 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
 
         def invitation(self, j, gn, context=None):
             """
-             Invite the node into a group with the given coordinator and group name.
-            Arguments:
-            j -- The group coordinator.
-            gn -- The group name.
-            context -- The request context for the invocation.
+            Invite the node into a group with the given coordinator and group name.
+            
+            Parameters
+            ----------
+            j : int
+                The group coordinator.
+            gn : str
+                The group name.
+            context : Ice.Context
+                The request context for the invocation.
             """
             return _M_IceStormElection.Node._op_invitation.invoke(self, ((j, gn), context))
 
         def invitationAsync(self, j, gn, context=None):
             """
-             Invite the node into a group with the given coordinator and group name.
-            Arguments:
-            j -- The group coordinator.
-            gn -- The group name.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Invite the node into a group with the given coordinator and group name.
+            
+            Parameters
+            ----------
+            j : int
+                The group coordinator.
+            gn : str
+                The group name.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceStormElection.Node._op_invitation.invokeAsync(self, ((j, gn), context))
 
         def ready(self, j, gn, coordinator, max, generation, context=None):
             """
-             Call from the group coordinator to a node to inform the node that the replica group is active.
-            Arguments:
-            j -- The group coordinator.
-            gn -- The group name.
-            coordinator -- The proxy to the coordinator.
-            max -- The highest priority node seen by this replica group.
-            generation -- The current generation count.
-            context -- The request context for the invocation.
+            Call from the group coordinator to a node to inform the node that the replica group is active.
+            
+            Parameters
+            ----------
+            j : int
+                The group coordinator.
+            gn : str
+                The group name.
+            coordinator : Ice.ObjectPrx or None
+                The proxy to the coordinator.
+            max : int
+                The highest priority node seen by this replica group.
+            generation : int
+                The current generation count.
+            context : Ice.Context
+                The request context for the invocation.
             """
             return _M_IceStormElection.Node._op_ready.invoke(self, ((j, gn, coordinator, max, generation), context))
 
         def readyAsync(self, j, gn, coordinator, max, generation, context=None):
             """
-             Call from the group coordinator to a node to inform the node that the replica group is active.
-            Arguments:
-            j -- The group coordinator.
-            gn -- The group name.
-            coordinator -- The proxy to the coordinator.
-            max -- The highest priority node seen by this replica group.
-            generation -- The current generation count.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Call from the group coordinator to a node to inform the node that the replica group is active.
+            
+            Parameters
+            ----------
+            j : int
+                The group coordinator.
+            gn : str
+                The group name.
+            coordinator : Ice.ObjectPrx or None
+                The proxy to the coordinator.
+            max : int
+                The highest priority node seen by this replica group.
+            generation : int
+                The current generation count.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceStormElection.Node._op_ready.invokeAsync(self, ((j, gn, coordinator, max, generation), context))
 
         def accept(self, j, gn, forwardedInvites, observer, llu, max, context=None):
             """
-             Called to accept an invitation into the given group.
-            Arguments:
-            j -- The id of the node accepting the invitation.
-            gn -- The group name.
-            forwardedInvites -- The ids of the nodes to which invitations were forwarded.
-            observer -- The observer.
-            llu -- The last log update for the given node.
-            max -- The highest priority node seen by this replica group.
-            context -- The request context for the invocation.
+            Called to accept an invitation into the given group.
+            
+            Parameters
+            ----------
+            j : int
+                The id of the node accepting the invitation.
+            gn : str
+                The group name.
+            forwardedInvites : int[]
+                The ids of the nodes to which invitations were forwarded.
+            observer : Ice.ObjectPrx or None
+                The observer.
+            llu : IceStormElection.LogUpdate
+                The last log update for the given node.
+            max : int
+                The highest priority node seen by this replica group.
+            context : Ice.Context
+                The request context for the invocation.
             """
             return _M_IceStormElection.Node._op_accept.invoke(self, ((j, gn, forwardedInvites, observer, llu, max), context))
 
         def acceptAsync(self, j, gn, forwardedInvites, observer, llu, max, context=None):
             """
-             Called to accept an invitation into the given group.
-            Arguments:
-            j -- The id of the node accepting the invitation.
-            gn -- The group name.
-            forwardedInvites -- The ids of the nodes to which invitations were forwarded.
-            observer -- The observer.
-            llu -- The last log update for the given node.
-            max -- The highest priority node seen by this replica group.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Called to accept an invitation into the given group.
+            
+            Parameters
+            ----------
+            j : int
+                The id of the node accepting the invitation.
+            gn : str
+                The group name.
+            forwardedInvites : int[]
+                The ids of the nodes to which invitations were forwarded.
+            observer : Ice.ObjectPrx or None
+                The observer.
+            llu : IceStormElection.LogUpdate
+                The last log update for the given node.
+            max : int
+                The highest priority node seen by this replica group.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceStormElection.Node._op_accept.invokeAsync(self, ((j, gn, forwardedInvites, observer, llu, max), context))
 
         def areYouCoordinator(self, context=None):
             """
-             Determine if this node is a coordinator.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: True if the node is a coordinator, false otherwise.
+            Determine if this node is a coordinator.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            bool
+                True if the node is a coordinator, false otherwise.
             """
             return _M_IceStormElection.Node._op_areYouCoordinator.invoke(self, ((), context))
 
         def areYouCoordinatorAsync(self, context=None):
             """
-             Determine if this node is a coordinator.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Determine if this node is a coordinator.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceStormElection.Node._op_areYouCoordinator.invokeAsync(self, ((), context))
 
         def areYouThere(self, gn, j, context=None):
             """
-             Determine if the node is a member of the given group with the given coordinator.
-            Arguments:
-            gn -- The group name.
-            j -- The group coordinator.
-            context -- The request context for the invocation.
-            Returns: True if the node is a member, false otherwise.
+            Determine if the node is a member of the given group with the given coordinator.
+            
+            Parameters
+            ----------
+            gn : str
+                The group name.
+            j : int
+                The group coordinator.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            bool
+                True if the node is a member, false otherwise.
             """
             return _M_IceStormElection.Node._op_areYouThere.invoke(self, ((gn, j), context))
 
         def areYouThereAsync(self, gn, j, context=None):
             """
-             Determine if the node is a member of the given group with the given coordinator.
-            Arguments:
-            gn -- The group name.
-            j -- The group coordinator.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Determine if the node is a member of the given group with the given coordinator.
+            
+            Parameters
+            ----------
+            gn : str
+                The group name.
+            j : int
+                The group coordinator.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceStormElection.Node._op_areYouThere.invokeAsync(self, ((gn, j), context))
 
         def sync(self, context=None):
             """
-             Get the sync object for the replica hosted by this node.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: The sync object.
+            Get the sync object for the replica hosted by this node.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.ObjectPrx or None
+                The sync object.
             """
             return _M_IceStormElection.Node._op_sync.invoke(self, ((), context))
 
         def syncAsync(self, context=None):
             """
-             Get the sync object for the replica hosted by this node.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Get the sync object for the replica hosted by this node.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceStormElection.Node._op_sync.invokeAsync(self, ((), context))
 
         def nodes(self, context=None):
             """
-             Get the replication group information.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: The set of configured nodes and the associated priority.
+            Get the replication group information.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            IceStormElection.NodeInfo[]
+                The set of configured nodes and the associated priority.
             """
             return _M_IceStormElection.Node._op_nodes.invoke(self, ((), context))
 
         def nodesAsync(self, context=None):
             """
-             Get the replication group information.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Get the replication group information.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceStormElection.Node._op_nodes.invokeAsync(self, ((), context))
 
         def query(self, context=None):
             """
-             Get the query information for the given node.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: The query information.
+            Get the query information for the given node.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            IceStormElection.QueryInfo
+                The query information.
             """
             return _M_IceStormElection.Node._op_query.invoke(self, ((), context))
 
         def queryAsync(self, context=None):
             """
-             Get the query information for the given node.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Get the query information for the given node.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceStormElection.Node._op_query.invokeAsync(self, ((), context))
 
@@ -912,88 +1213,159 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
 
         def invitation(self, j, gn, current=None):
             """
-             Invite the node into a group with the given coordinator and group name.
-            Arguments:
-            j -- The group coordinator.
-            gn -- The group name.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Invite the node into a group with the given coordinator and group name.
+            
+            Parameters
+            ----------
+            j : int
+                The group coordinator.
+            gn : str
+                The group name.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'invitation' not implemented")
 
         def ready(self, j, gn, coordinator, max, generation, current=None):
             """
-             Call from the group coordinator to a node to inform the node that the replica group is active.
-            Arguments:
-            j -- The group coordinator.
-            gn -- The group name.
-            coordinator -- The proxy to the coordinator.
-            max -- The highest priority node seen by this replica group.
-            generation -- The current generation count.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Call from the group coordinator to a node to inform the node that the replica group is active.
+            
+            Parameters
+            ----------
+            j : int
+                The group coordinator.
+            gn : str
+                The group name.
+            coordinator : Ice.ObjectPrx or None
+                The proxy to the coordinator.
+            max : int
+                The highest priority node seen by this replica group.
+            generation : int
+                The current generation count.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'ready' not implemented")
 
         def accept(self, j, gn, forwardedInvites, observer, llu, max, current=None):
             """
-             Called to accept an invitation into the given group.
-            Arguments:
-            j -- The id of the node accepting the invitation.
-            gn -- The group name.
-            forwardedInvites -- The ids of the nodes to which invitations were forwarded.
-            observer -- The observer.
-            llu -- The last log update for the given node.
-            max -- The highest priority node seen by this replica group.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Called to accept an invitation into the given group.
+            
+            Parameters
+            ----------
+            j : int
+                The id of the node accepting the invitation.
+            gn : str
+                The group name.
+            forwardedInvites : int[]
+                The ids of the nodes to which invitations were forwarded.
+            observer : Ice.ObjectPrx or None
+                The observer.
+            llu : IceStormElection.LogUpdate
+                The last log update for the given node.
+            max : int
+                The highest priority node seen by this replica group.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'accept' not implemented")
 
         def areYouCoordinator(self, current=None):
             """
-             Determine if this node is a coordinator.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Determine if this node is a coordinator.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'areYouCoordinator' not implemented")
 
         def areYouThere(self, gn, j, current=None):
             """
-             Determine if the node is a member of the given group with the given coordinator.
-            Arguments:
-            gn -- The group name.
-            j -- The group coordinator.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Determine if the node is a member of the given group with the given coordinator.
+            
+            Parameters
+            ----------
+            gn : str
+                The group name.
+            j : int
+                The group coordinator.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'areYouThere' not implemented")
 
         def sync(self, current=None):
             """
-             Get the sync object for the replica hosted by this node.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Get the sync object for the replica hosted by this node.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'sync' not implemented")
 
         def nodes(self, current=None):
             """
-             Get the replication group information.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Get the replication group information.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'nodes' not implemented")
 
         def query(self, current=None):
             """
-             Get the query information for the given node.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Get the query information for the given node.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'query' not implemented")
 

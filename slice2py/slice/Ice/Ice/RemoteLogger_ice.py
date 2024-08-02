@@ -210,41 +210,67 @@ if 'RemoteLoggerPrx' not in _M_Ice.__dict__:
 
         def init(self, prefix, logMessages, context=None):
             """
-             init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
-            Arguments:
-            prefix -- The prefix of the associated local Logger.
-            logMessages -- Old log messages generated before "now".
-            context -- The request context for the invocation.
+            init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
+            
+            Parameters
+            ----------
+            prefix : str
+                The prefix of the associated local Logger.
+            logMessages : Ice.LogMessage[]
+                Old log messages generated before "now".
+            context : Ice.Context
+                The request context for the invocation.
             """
             return _M_Ice.RemoteLogger._op_init.invoke(self, ((prefix, logMessages), context))
 
         def initAsync(self, prefix, logMessages, context=None):
             """
-             init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
-            Arguments:
-            prefix -- The prefix of the associated local Logger.
-            logMessages -- Old log messages generated before "now".
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
+            
+            Parameters
+            ----------
+            prefix : str
+                The prefix of the associated local Logger.
+            logMessages : Ice.LogMessage[]
+                Old log messages generated before "now".
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_Ice.RemoteLogger._op_init.invokeAsync(self, ((prefix, logMessages), context))
 
         def log(self, message, context=None):
             """
-             Log a LogMessage. Note that log may be called by LoggerAdmin before init.
-            Arguments:
-            message -- The message to log.
-            context -- The request context for the invocation.
+            Log a LogMessage. Note that log may be called by LoggerAdmin before init.
+            
+            Parameters
+            ----------
+            message : Ice.LogMessage
+                The message to log.
+            context : Ice.Context
+                The request context for the invocation.
             """
             return _M_Ice.RemoteLogger._op_log.invoke(self, ((message, ), context))
 
         def logAsync(self, message, context=None):
             """
-             Log a LogMessage. Note that log may be called by LoggerAdmin before init.
-            Arguments:
-            message -- The message to log.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Log a LogMessage. Note that log may be called by LoggerAdmin before init.
+            
+            Parameters
+            ----------
+            message : Ice.LogMessage
+                The message to log.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_Ice.RemoteLogger._op_log.invokeAsync(self, ((message, ), context))
 
@@ -279,22 +305,39 @@ if 'RemoteLoggerPrx' not in _M_Ice.__dict__:
 
         def init(self, prefix, logMessages, current=None):
             """
-             init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
-            Arguments:
-            prefix -- The prefix of the associated local Logger.
-            logMessages -- Old log messages generated before "now".
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
+            
+            Parameters
+            ----------
+            prefix : str
+                The prefix of the associated local Logger.
+            logMessages : Ice.LogMessage[]
+                Old log messages generated before "now".
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'init' not implemented")
 
         def log(self, message, current=None):
             """
-             Log a LogMessage. Note that log may be called by LoggerAdmin before init.
-            Arguments:
-            message -- The message to log.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Log a LogMessage. Note that log may be called by LoggerAdmin before init.
+            
+            Parameters
+            ----------
+            message : Ice.LogMessage
+                The message to log.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'log' not implemented")
 
@@ -358,76 +401,135 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
 
         def attachRemoteLogger(self, prx, messageTypes, traceCategories, messageMax, context=None):
             """
-             Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
-             RemoteLogger proxy.
-            Arguments:
-            prx -- A proxy to the remote logger.
-            messageTypes -- The list of message types that the remote logger wishes to receive. An empty list means no filtering (send all message types).
-            traceCategories -- The categories of traces that the remote logger wishes to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
-            messageMax -- The maximum number of log messages (of all types) to be provided to init. A negative value requests all messages available.
-            context -- The request context for the invocation.
-            Throws:
-            RemoteLoggerAlreadyAttachedException -- Raised if this remote logger is already attached to this admin object.
+            Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+            RemoteLogger proxy.
+            
+            Parameters
+            ----------
+            prx : Ice.RemoteLoggerPrx or None
+                A proxy to the remote logger.
+            messageTypes : Ice.LogMessageType[]
+                The list of message types that the remote logger wishes to receive. An empty list means no filtering (send all message types).
+            traceCategories : str[]
+                The categories of traces that the remote logger wishes to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
+            messageMax : int
+                The maximum number of log messages (of all types) to be provided to init. A negative value requests all messages available.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Raises
+            ------
+            RemoteLoggerAlreadyAttachedException
+                Raised if this remote logger is already attached to this admin object.
             """
             return _M_Ice.LoggerAdmin._op_attachRemoteLogger.invoke(self, ((prx, messageTypes, traceCategories, messageMax), context))
 
         def attachRemoteLoggerAsync(self, prx, messageTypes, traceCategories, messageMax, context=None):
             """
-             Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
-             RemoteLogger proxy.
-            Arguments:
-            prx -- A proxy to the remote logger.
-            messageTypes -- The list of message types that the remote logger wishes to receive. An empty list means no filtering (send all message types).
-            traceCategories -- The categories of traces that the remote logger wishes to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
-            messageMax -- The maximum number of log messages (of all types) to be provided to init. A negative value requests all messages available.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+            RemoteLogger proxy.
+            
+            Parameters
+            ----------
+            prx : Ice.RemoteLoggerPrx or None
+                A proxy to the remote logger.
+            messageTypes : Ice.LogMessageType[]
+                The list of message types that the remote logger wishes to receive. An empty list means no filtering (send all message types).
+            traceCategories : str[]
+                The categories of traces that the remote logger wishes to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
+            messageMax : int
+                The maximum number of log messages (of all types) to be provided to init. A negative value requests all messages available.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_Ice.LoggerAdmin._op_attachRemoteLogger.invokeAsync(self, ((prx, messageTypes, traceCategories, messageMax), context))
 
         def detachRemoteLogger(self, prx, context=None):
             """
-             Detaches a RemoteLogger object from the local logger.
-            Arguments:
-            prx -- A proxy to the remote logger.
-            context -- The request context for the invocation.
-            Returns: True if the provided remote logger proxy was detached, and false otherwise.
+            Detaches a RemoteLogger object from the local logger.
+            
+            Parameters
+            ----------
+            prx : Ice.RemoteLoggerPrx or None
+                A proxy to the remote logger.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            bool
+                True if the provided remote logger proxy was detached, and false otherwise.
             """
             return _M_Ice.LoggerAdmin._op_detachRemoteLogger.invoke(self, ((prx, ), context))
 
         def detachRemoteLoggerAsync(self, prx, context=None):
             """
-             Detaches a RemoteLogger object from the local logger.
-            Arguments:
-            prx -- A proxy to the remote logger.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Detaches a RemoteLogger object from the local logger.
+            
+            Parameters
+            ----------
+            prx : Ice.RemoteLoggerPrx or None
+                A proxy to the remote logger.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_Ice.LoggerAdmin._op_detachRemoteLogger.invokeAsync(self, ((prx, ), context))
 
         def getLog(self, messageTypes, traceCategories, messageMax, context=None):
             """
-             Retrieves log messages recently logged.
-            Arguments:
-            messageTypes -- The list of message types that the caller wishes to receive. An empty list means no filtering (send all message types).
-            traceCategories -- The categories of traces that caller wish to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
-            messageMax -- The maximum number of log messages (of all types) to be returned. A negative value requests all messages available.
-            context -- The request context for the invocation.
-            Returns a tuple containing the following:
-            _retval -- The Log messages.
-            prefix -- The prefix of the associated local logger.
+            Retrieves log messages recently logged.
+            
+            Parameters
+            ----------
+            messageTypes : Ice.LogMessageType[]
+                The list of message types that the caller wishes to receive. An empty list means no filtering (send all message types).
+            traceCategories : str[]
+                The categories of traces that caller wish to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
+            messageMax : int
+                The maximum number of log messages (of all types) to be returned. A negative value requests all messages available.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Returns a tuple of (Ice.LogMessage[], str)
+                A tuple containing:
+                - Ice.LogMessage[]
+                    The Log messages.
+                - str
+                    The prefix of the associated local logger.
             """
             return _M_Ice.LoggerAdmin._op_getLog.invoke(self, ((messageTypes, traceCategories, messageMax), context))
 
         def getLogAsync(self, messageTypes, traceCategories, messageMax, context=None):
             """
-             Retrieves log messages recently logged.
-            Arguments:
-            messageTypes -- The list of message types that the caller wishes to receive. An empty list means no filtering (send all message types).
-            traceCategories -- The categories of traces that caller wish to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
-            messageMax -- The maximum number of log messages (of all types) to be returned. A negative value requests all messages available.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Retrieves log messages recently logged.
+            
+            Parameters
+            ----------
+            messageTypes : Ice.LogMessageType[]
+                The list of message types that the caller wishes to receive. An empty list means no filtering (send all message types).
+            traceCategories : str[]
+                The categories of traces that caller wish to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
+            messageMax : int
+                The maximum number of log messages (of all types) to be returned. A negative value requests all messages available.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_Ice.LoggerAdmin._op_getLog.invokeAsync(self, ((messageTypes, traceCategories, messageMax), context))
 
@@ -462,39 +564,71 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
 
         def attachRemoteLogger(self, prx, messageTypes, traceCategories, messageMax, current=None):
             """
-             Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
-             RemoteLogger proxy.
-            Arguments:
-            prx -- A proxy to the remote logger.
-            messageTypes -- The list of message types that the remote logger wishes to receive. An empty list means no filtering (send all message types).
-            traceCategories -- The categories of traces that the remote logger wishes to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
-            messageMax -- The maximum number of log messages (of all types) to be provided to init. A negative value requests all messages available.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            RemoteLoggerAlreadyAttachedException -- Raised if this remote logger is already attached to this admin object.
+            Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+            RemoteLogger proxy.
+            
+            Parameters
+            ----------
+            prx : Ice.RemoteLoggerPrx or None
+                A proxy to the remote logger.
+            messageTypes : Ice.LogMessageType[]
+                The list of message types that the remote logger wishes to receive. An empty list means no filtering (send all message types).
+            traceCategories : str[]
+                The categories of traces that the remote logger wishes to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
+            messageMax : int
+                The maximum number of log messages (of all types) to be provided to init. A negative value requests all messages available.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            RemoteLoggerAlreadyAttachedException
+                Raised if this remote logger is already attached to this admin object.
             """
             raise NotImplementedError("servant method 'attachRemoteLogger' not implemented")
 
         def detachRemoteLogger(self, prx, current=None):
             """
-             Detaches a RemoteLogger object from the local logger.
-            Arguments:
-            prx -- A proxy to the remote logger.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Detaches a RemoteLogger object from the local logger.
+            
+            Parameters
+            ----------
+            prx : Ice.RemoteLoggerPrx or None
+                A proxy to the remote logger.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'detachRemoteLogger' not implemented")
 
         def getLog(self, messageTypes, traceCategories, messageMax, current=None):
             """
-             Retrieves log messages recently logged.
-            Arguments:
-            messageTypes -- The list of message types that the caller wishes to receive. An empty list means no filtering (send all message types).
-            traceCategories -- The categories of traces that caller wish to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
-            messageMax -- The maximum number of log messages (of all types) to be returned. A negative value requests all messages available.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Retrieves log messages recently logged.
+            
+            Parameters
+            ----------
+            messageTypes : Ice.LogMessageType[]
+                The list of message types that the caller wishes to receive. An empty list means no filtering (send all message types).
+            traceCategories : str[]
+                The categories of traces that caller wish to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
+            messageMax : int
+                The maximum number of log messages (of all types) to be returned. A negative value requests all messages available.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'getLog' not implemented")
 

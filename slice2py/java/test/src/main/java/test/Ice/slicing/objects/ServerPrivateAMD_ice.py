@@ -634,19 +634,31 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def useForward(self, context=None):
             """
             Use of forward-declared class to verify that code is generated correctly.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns:
-            f -- 
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Test.Forward
             """
             return _M_Test.TestIntf._op_useForward.invoke(self, ((), context))
 
         def useForwardAsync(self, context=None):
             """
             Use of forward-declared class to verify that code is generated correctly.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_Test.TestIntf._op_useForward.invokeAsync(self, ((), context))
 
@@ -793,9 +805,16 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def useForward(self, current=None):
             """
             Use of forward-declared class to verify that code is generated correctly.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'useForward' not implemented")
 

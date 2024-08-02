@@ -68,25 +68,44 @@ if 'UserAccountMapperPrx' not in _M_IceGrid.__dict__:
 
         def getUserAccount(self, user, context=None):
             """
-             Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
-             account to use to run servers.
-            Arguments:
-            user -- The value of the server descriptor's user attribute. If this attribute is not defined, and the server's activation mode is session, the default value of user is the session identifier.
-            context -- The request context for the invocation.
-            Returns: The user account name.
-            Throws:
-            UserAccountNotFoundException -- Raised if no user account is found for the given user.
+            Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+            account to use to run servers.
+            
+            Parameters
+            ----------
+            user : str
+                The value of the server descriptor's user attribute. If this attribute is not defined, and the server's activation mode is session, the default value of user is the session identifier.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            str
+                The user account name.
+            
+            Raises
+            ------
+            UserAccountNotFoundException
+                Raised if no user account is found for the given user.
             """
             return _M_IceGrid.UserAccountMapper._op_getUserAccount.invoke(self, ((user, ), context))
 
         def getUserAccountAsync(self, user, context=None):
             """
-             Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
-             account to use to run servers.
-            Arguments:
-            user -- The value of the server descriptor's user attribute. If this attribute is not defined, and the server's activation mode is session, the default value of user is the session identifier.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+            account to use to run servers.
+            
+            Parameters
+            ----------
+            user : str
+                The value of the server descriptor's user attribute. If this attribute is not defined, and the server's activation mode is session, the default value of user is the session identifier.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceGrid.UserAccountMapper._op_getUserAccount.invokeAsync(self, ((user, ), context))
 
@@ -121,14 +140,25 @@ if 'UserAccountMapperPrx' not in _M_IceGrid.__dict__:
 
         def getUserAccount(self, user, current=None):
             """
-             Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
-             account to use to run servers.
-            Arguments:
-            user -- The value of the server descriptor's user attribute. If this attribute is not defined, and the server's activation mode is session, the default value of user is the session identifier.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            UserAccountNotFoundException -- Raised if no user account is found for the given user.
+            Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+            account to use to run servers.
+            
+            Parameters
+            ----------
+            user : str
+                The value of the server descriptor's user attribute. If this attribute is not defined, and the server's activation mode is session, the default value of user is the session identifier.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            UserAccountNotFoundException
+                Raised if no user account is found for the given user.
             """
             raise NotImplementedError("servant method 'getUserAccount' not implemented")
 

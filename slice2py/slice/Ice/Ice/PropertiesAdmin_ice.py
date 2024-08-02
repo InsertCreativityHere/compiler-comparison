@@ -49,68 +49,112 @@ if 'PropertiesAdminPrx' not in _M_Ice.__dict__:
 
         def getProperty(self, key, context=None):
             """
-             Get a property by key. If the property is not set, an empty string is returned.
-            Arguments:
-            key -- The property key.
-            context -- The request context for the invocation.
-            Returns: The property value.
+            Get a property by key. If the property is not set, an empty string is returned.
+            
+            Parameters
+            ----------
+            key : str
+                The property key.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            str
+                The property value.
             """
             return _M_Ice.PropertiesAdmin._op_getProperty.invoke(self, ((key, ), context))
 
         def getPropertyAsync(self, key, context=None):
             """
-             Get a property by key. If the property is not set, an empty string is returned.
-            Arguments:
-            key -- The property key.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Get a property by key. If the property is not set, an empty string is returned.
+            
+            Parameters
+            ----------
+            key : str
+                The property key.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_Ice.PropertiesAdmin._op_getProperty.invokeAsync(self, ((key, ), context))
 
         def getPropertiesForPrefix(self, prefix, context=None):
             """
-             Get all properties whose keys begin with prefix. If prefix is an empty string then all
-             properties are returned.
-            Arguments:
-            prefix -- The prefix to search for (empty string if none).
-            context -- The request context for the invocation.
-            Returns: The matching property set.
+            Get all properties whose keys begin with prefix. If prefix is an empty string then all
+            properties are returned.
+            
+            Parameters
+            ----------
+            prefix : str
+                The prefix to search for (empty string if none).
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            dict where keys are str and values are str
+                The matching property set.
             """
             return _M_Ice.PropertiesAdmin._op_getPropertiesForPrefix.invoke(self, ((prefix, ), context))
 
         def getPropertiesForPrefixAsync(self, prefix, context=None):
             """
-             Get all properties whose keys begin with prefix. If prefix is an empty string then all
-             properties are returned.
-            Arguments:
-            prefix -- The prefix to search for (empty string if none).
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Get all properties whose keys begin with prefix. If prefix is an empty string then all
+            properties are returned.
+            
+            Parameters
+            ----------
+            prefix : str
+                The prefix to search for (empty string if none).
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_Ice.PropertiesAdmin._op_getPropertiesForPrefix.invokeAsync(self, ((prefix, ), context))
 
         def setProperties(self, newProperties, context=None):
             """
-             Update the communicator's properties with the given property set. If an entry in newProperties
-             matches the name of an existing property, that property's value is replaced with the new value. If the new
-             value is an empty string, the property is removed. Any existing properties that are not modified or removed
-             by the entries in newProperties are retained with their original values.
-            Arguments:
-            newProperties -- Properties to be added, changed, or removed.
-            context -- The request context for the invocation.
+            Update the communicator's properties with the given property set. If an entry in newProperties
+            matches the name of an existing property, that property's value is replaced with the new value. If the new
+            value is an empty string, the property is removed. Any existing properties that are not modified or removed
+            by the entries in newProperties are retained with their original values.
+            
+            Parameters
+            ----------
+            newProperties : dict where keys are str and values are str
+                Properties to be added, changed, or removed.
+            context : Ice.Context
+                The request context for the invocation.
             """
             return _M_Ice.PropertiesAdmin._op_setProperties.invoke(self, ((newProperties, ), context))
 
         def setPropertiesAsync(self, newProperties, context=None):
             """
-             Update the communicator's properties with the given property set. If an entry in newProperties
-             matches the name of an existing property, that property's value is replaced with the new value. If the new
-             value is an empty string, the property is removed. Any existing properties that are not modified or removed
-             by the entries in newProperties are retained with their original values.
-            Arguments:
-            newProperties -- Properties to be added, changed, or removed.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Update the communicator's properties with the given property set. If an entry in newProperties
+            matches the name of an existing property, that property's value is replaced with the new value. If the new
+            value is an empty string, the property is removed. Any existing properties that are not modified or removed
+            by the entries in newProperties are retained with their original values.
+            
+            Parameters
+            ----------
+            newProperties : dict where keys are str and values are str
+                Properties to be added, changed, or removed.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_Ice.PropertiesAdmin._op_setProperties.invokeAsync(self, ((newProperties, ), context))
 
@@ -145,35 +189,59 @@ if 'PropertiesAdminPrx' not in _M_Ice.__dict__:
 
         def getProperty(self, key, current=None):
             """
-             Get a property by key. If the property is not set, an empty string is returned.
-            Arguments:
-            key -- The property key.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Get a property by key. If the property is not set, an empty string is returned.
+            
+            Parameters
+            ----------
+            key : str
+                The property key.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'getProperty' not implemented")
 
         def getPropertiesForPrefix(self, prefix, current=None):
             """
-             Get all properties whose keys begin with prefix. If prefix is an empty string then all
-             properties are returned.
-            Arguments:
-            prefix -- The prefix to search for (empty string if none).
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Get all properties whose keys begin with prefix. If prefix is an empty string then all
+            properties are returned.
+            
+            Parameters
+            ----------
+            prefix : str
+                The prefix to search for (empty string if none).
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'getPropertiesForPrefix' not implemented")
 
         def setProperties(self, newProperties, current=None):
             """
-             Update the communicator's properties with the given property set. If an entry in newProperties
-             matches the name of an existing property, that property's value is replaced with the new value. If the new
-             value is an empty string, the property is removed. Any existing properties that are not modified or removed
-             by the entries in newProperties are retained with their original values.
-            Arguments:
-            newProperties -- Properties to be added, changed, or removed.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Update the communicator's properties with the given property set. If an entry in newProperties
+            matches the name of an existing property, that property's value is replaced with the new value. If the new
+            value is an empty string, the property is removed. Any existing properties that are not modified or removed
+            by the entries in newProperties are retained with their original values.
+            
+            Parameters
+            ----------
+            newProperties : dict where keys are str and values are str
+                Properties to be added, changed, or removed.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'setProperties' not implemented")
 

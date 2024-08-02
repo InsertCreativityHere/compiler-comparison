@@ -49,61 +49,107 @@ if 'RouterPrx' not in _M_Ice.__dict__:
 
         def getClientProxy(self, context=None):
             """
-             Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
-             If a null proxy is returned, the client will forward requests to the router's endpoints.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns a tuple containing the following:
-            _retval -- The router's client proxy.
-            hasRoutingTable -- Indicates whether or not the router supports a routing table. If it is supported, the Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting with Ice 3.7. The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
+            Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+            If a null proxy is returned, the client will forward requests to the router's endpoints.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Returns a tuple of (Ice.ObjectPrx or None, bool or None)
+                A tuple containing:
+                - Ice.ObjectPrx or None
+                    The router's client proxy.
+                - bool or None
+                    Indicates whether or not the router supports a routing table. If it is supported, the Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting with Ice 3.7. The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
             """
             return _M_Ice.Router._op_getClientProxy.invoke(self, ((), context))
 
         def getClientProxyAsync(self, context=None):
             """
-             Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
-             If a null proxy is returned, the client will forward requests to the router's endpoints.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+            If a null proxy is returned, the client will forward requests to the router's endpoints.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_Ice.Router._op_getClientProxy.invokeAsync(self, ((), context))
 
         def getServerProxy(self, context=None):
             """
-             Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: The router's server proxy.
+            Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.ObjectPrx or None
+                The router's server proxy.
             """
             return _M_Ice.Router._op_getServerProxy.invoke(self, ((), context))
 
         def getServerProxyAsync(self, context=None):
             """
-             Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_Ice.Router._op_getServerProxy.invokeAsync(self, ((), context))
 
         def addProxies(self, proxies, context=None):
             """
-             Add new proxy information to the router's routing table.
-            Arguments:
-            proxies -- The proxies to add. Adding a null proxy is an error.
-            context -- The request context for the invocation.
-            Returns: Proxies discarded by the router. These proxies are all non-null.
+            Add new proxy information to the router's routing table.
+            
+            Parameters
+            ----------
+            proxies : Ice.ObjectPrx or None[]
+                The proxies to add. Adding a null proxy is an error.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.ObjectPrx or None[]
+                Proxies discarded by the router. These proxies are all non-null.
             """
             return _M_Ice.Router._op_addProxies.invoke(self, ((proxies, ), context))
 
         def addProxiesAsync(self, proxies, context=None):
             """
-             Add new proxy information to the router's routing table.
-            Arguments:
-            proxies -- The proxies to add. Adding a null proxy is an error.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Add new proxy information to the router's routing table.
+            
+            Parameters
+            ----------
+            proxies : Ice.ObjectPrx or None[]
+                The proxies to add. Adding a null proxy is an error.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_Ice.Router._op_addProxies.invokeAsync(self, ((proxies, ), context))
 
@@ -138,30 +184,52 @@ if 'RouterPrx' not in _M_Ice.__dict__:
 
         def getClientProxy(self, current=None):
             """
-             Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
-             If a null proxy is returned, the client will forward requests to the router's endpoints.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+            If a null proxy is returned, the client will forward requests to the router's endpoints.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'getClientProxy' not implemented")
 
         def getServerProxy(self, current=None):
             """
-             Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'getServerProxy' not implemented")
 
         def addProxies(self, proxies, current=None):
             """
-             Add new proxy information to the router's routing table.
-            Arguments:
-            proxies -- The proxies to add. Adding a null proxy is an error.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Add new proxy information to the router's routing table.
+            
+            Parameters
+            ----------
+            proxies : Ice.ObjectPrx or None[]
+                The proxies to add. Adding a null proxy is an error.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'addProxies' not implemented")
 
@@ -204,21 +272,35 @@ if 'RouterFinderPrx' not in _M_Ice.__dict__:
 
         def getRouter(self, context=None):
             """
-             Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-             replicas. This proxy is never null.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: The router proxy.
+            Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+            replicas. This proxy is never null.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.RouterPrx or None
+                The router proxy.
             """
             return _M_Ice.RouterFinder._op_getRouter.invoke(self, ((), context))
 
         def getRouterAsync(self, context=None):
             """
-             Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-             replicas. This proxy is never null.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+            replicas. This proxy is never null.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_Ice.RouterFinder._op_getRouter.invokeAsync(self, ((), context))
 
@@ -253,11 +335,18 @@ if 'RouterFinderPrx' not in _M_Ice.__dict__:
 
         def getRouter(self, current=None):
             """
-             Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-             replicas. This proxy is never null.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+            replicas. This proxy is never null.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'getRouter' not implemented")
 

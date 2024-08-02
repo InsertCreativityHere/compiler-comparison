@@ -53,20 +53,32 @@ if 'LookupReplyPrx' not in _M_IceLocatorDiscovery.__dict__:
 
         def foundLocator(self, prx, context=None):
             """
-             This method is called by the implementation of the Lookup interface to reply to a findLocator request.
-            Arguments:
-            prx -- The proxy of the locator.
-            context -- The request context for the invocation.
+            This method is called by the implementation of the Lookup interface to reply to a findLocator request.
+            
+            Parameters
+            ----------
+            prx : Ice.LocatorPrx or None
+                The proxy of the locator.
+            context : Ice.Context
+                The request context for the invocation.
             """
             return _M_IceLocatorDiscovery.LookupReply._op_foundLocator.invoke(self, ((prx, ), context))
 
         def foundLocatorAsync(self, prx, context=None):
             """
-             This method is called by the implementation of the Lookup interface to reply to a findLocator request.
-            Arguments:
-            prx -- The proxy of the locator.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            This method is called by the implementation of the Lookup interface to reply to a findLocator request.
+            
+            Parameters
+            ----------
+            prx : Ice.LocatorPrx or None
+                The proxy of the locator.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceLocatorDiscovery.LookupReply._op_foundLocator.invokeAsync(self, ((prx, ), context))
 
@@ -101,11 +113,19 @@ if 'LookupReplyPrx' not in _M_IceLocatorDiscovery.__dict__:
 
         def foundLocator(self, prx, current=None):
             """
-             This method is called by the implementation of the Lookup interface to reply to a findLocator request.
-            Arguments:
-            prx -- The proxy of the locator.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            This method is called by the implementation of the Lookup interface to reply to a findLocator request.
+            
+            Parameters
+            ----------
+            prx : Ice.LocatorPrx or None
+                The proxy of the locator.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'foundLocator' not implemented")
 
@@ -146,22 +166,36 @@ if 'LookupPrx' not in _M_IceLocatorDiscovery.__dict__:
 
         def findLocator(self, instanceName, reply, context=None):
             """
-             Find a locator proxy with the given instance name.
-            Arguments:
-            instanceName -- Restrict the search to Ice registries configured with the given instance name. If empty, all the available registries will reply.
-            reply -- The reply object to use to send the reply.
-            context -- The request context for the invocation.
+            Find a locator proxy with the given instance name.
+            
+            Parameters
+            ----------
+            instanceName : str
+                Restrict the search to Ice registries configured with the given instance name. If empty, all the available registries will reply.
+            reply : IceLocatorDiscovery.LookupReplyPrx or None
+                The reply object to use to send the reply.
+            context : Ice.Context
+                The request context for the invocation.
             """
             return _M_IceLocatorDiscovery.Lookup._op_findLocator.invoke(self, ((instanceName, reply), context))
 
         def findLocatorAsync(self, instanceName, reply, context=None):
             """
-             Find a locator proxy with the given instance name.
-            Arguments:
-            instanceName -- Restrict the search to Ice registries configured with the given instance name. If empty, all the available registries will reply.
-            reply -- The reply object to use to send the reply.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Find a locator proxy with the given instance name.
+            
+            Parameters
+            ----------
+            instanceName : str
+                Restrict the search to Ice registries configured with the given instance name. If empty, all the available registries will reply.
+            reply : IceLocatorDiscovery.LookupReplyPrx or None
+                The reply object to use to send the reply.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceLocatorDiscovery.Lookup._op_findLocator.invokeAsync(self, ((instanceName, reply), context))
 
@@ -196,12 +230,21 @@ if 'LookupPrx' not in _M_IceLocatorDiscovery.__dict__:
 
         def findLocator(self, instanceName, reply, current=None):
             """
-             Find a locator proxy with the given instance name.
-            Arguments:
-            instanceName -- Restrict the search to Ice registries configured with the given instance name. If empty, all the available registries will reply.
-            reply -- The reply object to use to send the reply.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Find a locator proxy with the given instance name.
+            
+            Parameters
+            ----------
+            instanceName : str
+                Restrict the search to Ice registries configured with the given instance name. If empty, all the available registries will reply.
+            reply : IceLocatorDiscovery.LookupReplyPrx or None
+                The reply object to use to send the reply.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'findLocator' not implemented")
 

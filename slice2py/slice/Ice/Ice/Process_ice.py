@@ -46,39 +46,63 @@ if 'ProcessPrx' not in _M_Ice.__dict__:
 
         def shutdown(self, context=None):
             """
-             Initiate a graceful shut-down.
-            Arguments:
-            context -- The request context for the invocation.
+            Initiate a graceful shut-down.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
             """
             return _M_Ice.Process._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             """
-             Initiate a graceful shut-down.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Initiate a graceful shut-down.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_Ice.Process._op_shutdown.invokeAsync(self, ((), context))
 
         def writeMessage(self, message, fd, context=None):
             """
-             Write a message on the process' stdout or stderr.
-            Arguments:
-            message -- The message.
-            fd -- 1 for stdout, 2 for stderr.
-            context -- The request context for the invocation.
+            Write a message on the process' stdout or stderr.
+            
+            Parameters
+            ----------
+            message : str
+                The message.
+            fd : int
+                1 for stdout, 2 for stderr.
+            context : Ice.Context
+                The request context for the invocation.
             """
             return _M_Ice.Process._op_writeMessage.invoke(self, ((message, fd), context))
 
         def writeMessageAsync(self, message, fd, context=None):
             """
-             Write a message on the process' stdout or stderr.
-            Arguments:
-            message -- The message.
-            fd -- 1 for stdout, 2 for stderr.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Write a message on the process' stdout or stderr.
+            
+            Parameters
+            ----------
+            message : str
+                The message.
+            fd : int
+                1 for stdout, 2 for stderr.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_Ice.Process._op_writeMessage.invokeAsync(self, ((message, fd), context))
 
@@ -113,21 +137,37 @@ if 'ProcessPrx' not in _M_Ice.__dict__:
 
         def shutdown(self, current=None):
             """
-             Initiate a graceful shut-down.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Initiate a graceful shut-down.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'shutdown' not implemented")
 
         def writeMessage(self, message, fd, current=None):
             """
-             Write a message on the process' stdout or stderr.
-            Arguments:
-            message -- The message.
-            fd -- 1 for stdout, 2 for stderr.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Write a message on the process' stdout or stderr.
+            
+            Parameters
+            ----------
+            message : str
+                The message.
+            fd : int
+                1 for stdout, 2 for stderr.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'writeMessage' not implemented")
 

@@ -79,25 +79,46 @@ if 'FileParserPrx' not in _M_IceGrid.__dict__:
 
         def parse(self, xmlFile, adminProxy, context=None):
             """
-             Parse a file.
-            Arguments:
-            xmlFile -- Full pathname to the file.
-            adminProxy -- An Admin proxy, used only to retrieve default templates when needed. May be null.
-            context -- The request context for the invocation.
-            Returns: The application descriptor.
-            Throws:
-            ParseException -- Raised if an error occurred during parsing.
+            Parse a file.
+            
+            Parameters
+            ----------
+            xmlFile : str
+                Full pathname to the file.
+            adminProxy : IceGrid.AdminPrx or None
+                An Admin proxy, used only to retrieve default templates when needed. May be null.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            IceGrid.ApplicationDescriptor
+                The application descriptor.
+            
+            Raises
+            ------
+            ParseException
+                Raised if an error occurred during parsing.
             """
             return _M_IceGrid.FileParser._op_parse.invoke(self, ((xmlFile, adminProxy), context))
 
         def parseAsync(self, xmlFile, adminProxy, context=None):
             """
-             Parse a file.
-            Arguments:
-            xmlFile -- Full pathname to the file.
-            adminProxy -- An Admin proxy, used only to retrieve default templates when needed. May be null.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Parse a file.
+            
+            Parameters
+            ----------
+            xmlFile : str
+                Full pathname to the file.
+            adminProxy : IceGrid.AdminPrx or None
+                An Admin proxy, used only to retrieve default templates when needed. May be null.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceGrid.FileParser._op_parse.invokeAsync(self, ((xmlFile, adminProxy), context))
 
@@ -132,14 +153,26 @@ if 'FileParserPrx' not in _M_IceGrid.__dict__:
 
         def parse(self, xmlFile, adminProxy, current=None):
             """
-             Parse a file.
-            Arguments:
-            xmlFile -- Full pathname to the file.
-            adminProxy -- An Admin proxy, used only to retrieve default templates when needed. May be null.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            ParseException -- Raised if an error occurred during parsing.
+            Parse a file.
+            
+            Parameters
+            ----------
+            xmlFile : str
+                Full pathname to the file.
+            adminProxy : IceGrid.AdminPrx or None
+                An Admin proxy, used only to retrieve default templates when needed. May be null.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            ParseException
+                Raised if an error occurred during parsing.
             """
             raise NotImplementedError("servant method 'parse' not implemented")
 

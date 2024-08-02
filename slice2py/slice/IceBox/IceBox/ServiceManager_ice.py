@@ -120,39 +120,63 @@ if 'ServiceObserverPrx' not in _M_IceBox.__dict__:
 
         def servicesStarted(self, services, context=None):
             """
-             Receives the names of the services that were started.
-            Arguments:
-            services -- The names of the services.
-            context -- The request context for the invocation.
+            Receives the names of the services that were started.
+            
+            Parameters
+            ----------
+            services : str[]
+                The names of the services.
+            context : Ice.Context
+                The request context for the invocation.
             """
             return _M_IceBox.ServiceObserver._op_servicesStarted.invoke(self, ((services, ), context))
 
         def servicesStartedAsync(self, services, context=None):
             """
-             Receives the names of the services that were started.
-            Arguments:
-            services -- The names of the services.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Receives the names of the services that were started.
+            
+            Parameters
+            ----------
+            services : str[]
+                The names of the services.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceBox.ServiceObserver._op_servicesStarted.invokeAsync(self, ((services, ), context))
 
         def servicesStopped(self, services, context=None):
             """
-             Receives the names of the services that were stopped.
-            Arguments:
-            services -- The names of the services.
-            context -- The request context for the invocation.
+            Receives the names of the services that were stopped.
+            
+            Parameters
+            ----------
+            services : str[]
+                The names of the services.
+            context : Ice.Context
+                The request context for the invocation.
             """
             return _M_IceBox.ServiceObserver._op_servicesStopped.invoke(self, ((services, ), context))
 
         def servicesStoppedAsync(self, services, context=None):
             """
-             Receives the names of the services that were stopped.
-            Arguments:
-            services -- The names of the services.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Receives the names of the services that were stopped.
+            
+            Parameters
+            ----------
+            services : str[]
+                The names of the services.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceBox.ServiceObserver._op_servicesStopped.invokeAsync(self, ((services, ), context))
 
@@ -187,21 +211,37 @@ if 'ServiceObserverPrx' not in _M_IceBox.__dict__:
 
         def servicesStarted(self, services, current=None):
             """
-             Receives the names of the services that were started.
-            Arguments:
-            services -- The names of the services.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Receives the names of the services that were started.
+            
+            Parameters
+            ----------
+            services : str[]
+                The names of the services.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'servicesStarted' not implemented")
 
         def servicesStopped(self, services, current=None):
             """
-             Receives the names of the services that were stopped.
-            Arguments:
-            services -- The names of the services.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Receives the names of the services that were stopped.
+            
+            Parameters
+            ----------
+            services : str[]
+                The names of the services.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'servicesStopped' not implemented")
 
@@ -243,81 +283,135 @@ if 'ServiceManagerPrx' not in _M_IceBox.__dict__:
 
         def startService(self, service, context=None):
             """
-             Start an individual service.
-            Arguments:
-            service -- The service name.
-            context -- The request context for the invocation.
-            Throws:
-            AlreadyStartedException -- If the service is already running.
-            NoSuchServiceException -- If no service could be found with the given name.
+            Start an individual service.
+            
+            Parameters
+            ----------
+            service : str
+                The service name.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Raises
+            ------
+            AlreadyStartedException
+                If the service is already running.
+            NoSuchServiceException
+                If no service could be found with the given name.
             """
             return _M_IceBox.ServiceManager._op_startService.invoke(self, ((service, ), context))
 
         def startServiceAsync(self, service, context=None):
             """
-             Start an individual service.
-            Arguments:
-            service -- The service name.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Start an individual service.
+            
+            Parameters
+            ----------
+            service : str
+                The service name.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceBox.ServiceManager._op_startService.invokeAsync(self, ((service, ), context))
 
         def stopService(self, service, context=None):
             """
-             Stop an individual service.
-            Arguments:
-            service -- The service name.
-            context -- The request context for the invocation.
-            Throws:
-            AlreadyStoppedException -- If the service is already stopped.
-            NoSuchServiceException -- If no service could be found with the given name.
+            Stop an individual service.
+            
+            Parameters
+            ----------
+            service : str
+                The service name.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Raises
+            ------
+            AlreadyStoppedException
+                If the service is already stopped.
+            NoSuchServiceException
+                If no service could be found with the given name.
             """
             return _M_IceBox.ServiceManager._op_stopService.invoke(self, ((service, ), context))
 
         def stopServiceAsync(self, service, context=None):
             """
-             Stop an individual service.
-            Arguments:
-            service -- The service name.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Stop an individual service.
+            
+            Parameters
+            ----------
+            service : str
+                The service name.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceBox.ServiceManager._op_stopService.invokeAsync(self, ((service, ), context))
 
         def addObserver(self, observer, context=None):
             """
-             Registers a new observer with the ServiceManager.
-            Arguments:
-            observer -- The new observer
-            context -- The request context for the invocation.
+            Registers a new observer with the ServiceManager.
+            
+            Parameters
+            ----------
+            observer : IceBox.ServiceObserverPrx or None
+                The new observer
+            context : Ice.Context
+                The request context for the invocation.
             """
             return _M_IceBox.ServiceManager._op_addObserver.invoke(self, ((observer, ), context))
 
         def addObserverAsync(self, observer, context=None):
             """
-             Registers a new observer with the ServiceManager.
-            Arguments:
-            observer -- The new observer
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Registers a new observer with the ServiceManager.
+            
+            Parameters
+            ----------
+            observer : IceBox.ServiceObserverPrx or None
+                The new observer
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceBox.ServiceManager._op_addObserver.invokeAsync(self, ((observer, ), context))
 
         def shutdown(self, context=None):
             """
-             Shut down all services. This causes stop to be invoked on all configured services.
-            Arguments:
-            context -- The request context for the invocation.
+            Shut down all services. This causes stop to be invoked on all configured services.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
             """
             return _M_IceBox.ServiceManager._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
             """
-             Shut down all services. This causes stop to be invoked on all configured services.
-            Arguments:
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Shut down all services. This causes stop to be invoked on all configured services.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_IceBox.ServiceManager._op_shutdown.invokeAsync(self, ((), context))
 
@@ -352,46 +446,85 @@ if 'ServiceManagerPrx' not in _M_IceBox.__dict__:
 
         def startService(self, service, current=None):
             """
-             Start an individual service.
-            Arguments:
-            service -- The service name.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            AlreadyStartedException -- If the service is already running.
-            NoSuchServiceException -- If no service could be found with the given name.
+            Start an individual service.
+            
+            Parameters
+            ----------
+            service : str
+                The service name.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            AlreadyStartedException
+                If the service is already running.
+            NoSuchServiceException
+                If no service could be found with the given name.
             """
             raise NotImplementedError("servant method 'startService' not implemented")
 
         def stopService(self, service, current=None):
             """
-             Stop an individual service.
-            Arguments:
-            service -- The service name.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            AlreadyStoppedException -- If the service is already stopped.
-            NoSuchServiceException -- If no service could be found with the given name.
+            Stop an individual service.
+            
+            Parameters
+            ----------
+            service : str
+                The service name.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            AlreadyStoppedException
+                If the service is already stopped.
+            NoSuchServiceException
+                If no service could be found with the given name.
             """
             raise NotImplementedError("servant method 'stopService' not implemented")
 
         def addObserver(self, observer, current=None):
             """
-             Registers a new observer with the ServiceManager.
-            Arguments:
-            observer -- The new observer
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Registers a new observer with the ServiceManager.
+            
+            Parameters
+            ----------
+            observer : IceBox.ServiceObserverPrx or None
+                The new observer
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'addObserver' not implemented")
 
         def shutdown(self, current=None):
             """
-             Shut down all services. This causes stop to be invoked on all configured services.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
+            Shut down all services. This causes stop to be invoked on all configured services.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'shutdown' not implemented")
 

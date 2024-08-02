@@ -76,27 +76,50 @@ if 'PermissionsVerifierPrx' not in _M_Glacier2.__dict__:
 
         def checkPermissions(self, userId, password, context=None):
             """
-             Check whether a user has permission to access the router.
-            Arguments:
-            userId -- The user id for which to check permission.
-            password -- The user's password.
-            context -- The request context for the invocation.
-            Returns a tuple containing the following:
-            _retval -- True if access is granted, or false otherwise.
-            reason -- The reason why access was denied.
-            Throws:
-            PermissionDeniedException -- Raised if the user access is denied. This can be raised in place of returning false with a reason set in the reason out parameter.
+            Check whether a user has permission to access the router.
+            
+            Parameters
+            ----------
+            userId : str
+                The user id for which to check permission.
+            password : str
+                The user's password.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Returns a tuple of (bool, str)
+                A tuple containing:
+                - bool
+                    True if access is granted, or false otherwise.
+                - str
+                    The reason why access was denied.
+            
+            Raises
+            ------
+            PermissionDeniedException
+                Raised if the user access is denied. This can be raised in place of returning false with a reason set in the reason out parameter.
             """
             return _M_Glacier2.PermissionsVerifier._op_checkPermissions.invoke(self, ((userId, password), context))
 
         def checkPermissionsAsync(self, userId, password, context=None):
             """
-             Check whether a user has permission to access the router.
-            Arguments:
-            userId -- The user id for which to check permission.
-            password -- The user's password.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Check whether a user has permission to access the router.
+            
+            Parameters
+            ----------
+            userId : str
+                The user id for which to check permission.
+            password : str
+                The user's password.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_Glacier2.PermissionsVerifier._op_checkPermissions.invokeAsync(self, ((userId, password), context))
 
@@ -131,14 +154,26 @@ if 'PermissionsVerifierPrx' not in _M_Glacier2.__dict__:
 
         def checkPermissions(self, userId, password, current=None):
             """
-             Check whether a user has permission to access the router.
-            Arguments:
-            userId -- The user id for which to check permission.
-            password -- The user's password.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            PermissionDeniedException -- Raised if the user access is denied. This can be raised in place of returning false with a reason set in the reason out parameter.
+            Check whether a user has permission to access the router.
+            
+            Parameters
+            ----------
+            userId : str
+                The user id for which to check permission.
+            password : str
+                The user's password.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            PermissionDeniedException
+                Raised if the user access is denied. This can be raised in place of returning false with a reason set in the reason out parameter.
             """
             raise NotImplementedError("servant method 'checkPermissions' not implemented")
 
@@ -179,25 +214,46 @@ if 'SSLPermissionsVerifierPrx' not in _M_Glacier2.__dict__:
 
         def authorize(self, info, context=None):
             """
-             Check whether a user has permission to access the router.
-            Arguments:
-            info -- The SSL information.
-            context -- The request context for the invocation.
-            Returns a tuple containing the following:
-            _retval -- True if access is granted, or false otherwise.
-            reason -- The reason why access was denied.
-            Throws:
-            PermissionDeniedException -- Raised if the user access is denied. This can be raised in place of returning false with a reason set in the reason out parameter.
+            Check whether a user has permission to access the router.
+            
+            Parameters
+            ----------
+            info : Glacier2.SSLInfo
+                The SSL information.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Returns a tuple of (bool, str)
+                A tuple containing:
+                - bool
+                    True if access is granted, or false otherwise.
+                - str
+                    The reason why access was denied.
+            
+            Raises
+            ------
+            PermissionDeniedException
+                Raised if the user access is denied. This can be raised in place of returning false with a reason set in the reason out parameter.
             """
             return _M_Glacier2.SSLPermissionsVerifier._op_authorize.invoke(self, ((info, ), context))
 
         def authorizeAsync(self, info, context=None):
             """
-             Check whether a user has permission to access the router.
-            Arguments:
-            info -- The SSL information.
-            context -- The request context for the invocation.
-            Returns: A future object for the invocation.
+            Check whether a user has permission to access the router.
+            
+            Parameters
+            ----------
+            info : Glacier2.SSLInfo
+                The SSL information.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
             """
             return _M_Glacier2.SSLPermissionsVerifier._op_authorize.invokeAsync(self, ((info, ), context))
 
@@ -232,13 +288,24 @@ if 'SSLPermissionsVerifierPrx' not in _M_Glacier2.__dict__:
 
         def authorize(self, info, current=None):
             """
-             Check whether a user has permission to access the router.
-            Arguments:
-            info -- The SSL information.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            PermissionDeniedException -- Raised if the user access is denied. This can be raised in place of returning false with a reason set in the reason out parameter.
+            Check whether a user has permission to access the router.
+            
+            Parameters
+            ----------
+            info : Glacier2.SSLInfo
+                The SSL information.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            PermissionDeniedException
+                Raised if the user access is denied. This can be raised in place of returning false with a reason set in the reason out parameter.
             """
             raise NotImplementedError("servant method 'authorize' not implemented")
 
