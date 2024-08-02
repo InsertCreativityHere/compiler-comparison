@@ -419,39 +419,39 @@ Ice.defineOperations(
         ], true, ],
         "syncApplication": [, , , , [[IceGrid.ApplicationDescriptor]], ,
         [
-            IceGrid.ApplicationNotExistException,
             IceGrid.DeploymentException,
-            IceGrid.AccessDeniedException
+            IceGrid.AccessDeniedException,
+            IceGrid.ApplicationNotExistException
         ], true, ],
         "updateApplication": [, , , , [[IceGrid.ApplicationUpdateDescriptor]], ,
         [
-            IceGrid.ApplicationNotExistException,
             IceGrid.DeploymentException,
-            IceGrid.AccessDeniedException
+            IceGrid.AccessDeniedException,
+            IceGrid.ApplicationNotExistException
         ], true, ],
         "syncApplicationWithoutRestart": [, , , , [[IceGrid.ApplicationDescriptor]], ,
         [
-            IceGrid.ApplicationNotExistException,
             IceGrid.DeploymentException,
-            IceGrid.AccessDeniedException
+            IceGrid.AccessDeniedException,
+            IceGrid.ApplicationNotExistException
         ], true, ],
         "updateApplicationWithoutRestart": [, , , , [[IceGrid.ApplicationUpdateDescriptor]], ,
         [
-            IceGrid.ApplicationNotExistException,
             IceGrid.DeploymentException,
-            IceGrid.AccessDeniedException
+            IceGrid.AccessDeniedException,
+            IceGrid.ApplicationNotExistException
         ], true, ],
         "removeApplication": [, , , , [[7]], ,
         [
-            IceGrid.ApplicationNotExistException,
             IceGrid.DeploymentException,
-            IceGrid.AccessDeniedException
+            IceGrid.AccessDeniedException,
+            IceGrid.ApplicationNotExistException
         ], , ],
         "instantiateServer": [, , , , [[7], [7], [IceGrid.ServerInstanceDescriptor]], ,
         [
-            IceGrid.ApplicationNotExistException,
             IceGrid.DeploymentException,
-            IceGrid.AccessDeniedException
+            IceGrid.AccessDeniedException,
+            IceGrid.ApplicationNotExistException
         ], , ],
         "getApplicationInfo": [, 2, , [IceGrid.ApplicationInfo], [[7]], ,
         [
