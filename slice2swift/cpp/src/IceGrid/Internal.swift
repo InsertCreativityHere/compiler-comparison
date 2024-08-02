@@ -3477,9 +3477,9 @@ public extension ReplicaSessionPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as AdapterExistsException {
-                                  throw error
                               } catch let error as AdapterNotExistException {
+                                  throw error
+                              } catch let error as AdapterExistsException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -3509,9 +3509,9 @@ public extension ReplicaSessionPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
-                                                } catch let error as AdapterExistsException {
-                                                    throw error
                                                 } catch let error as AdapterNotExistException {
+                                                    throw error
+                                                } catch let error as AdapterExistsException {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
