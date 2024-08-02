@@ -135,7 +135,7 @@ public interface Session extends com.zeroc.Glacier2.Session
             {
                 ostr.writeProxy(value);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -155,7 +155,7 @@ public interface Session extends com.zeroc.Glacier2.Session
             {
                 ostr.writeProxy(value);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */

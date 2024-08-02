@@ -61,7 +61,7 @@ public interface MyClass extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         java.util.Map<java.lang.String, java.lang.String> ret = obj.getContext(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         com.zeroc.Ice.ContextHelper.write(ostr, ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));

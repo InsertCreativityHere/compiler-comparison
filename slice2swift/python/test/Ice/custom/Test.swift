@@ -1903,7 +1903,7 @@ extension Custom {
 
         let (iceP_returnValue, iceP_b2) = try self.opByteString1(b1: iceP_b1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_b2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -1918,7 +1918,7 @@ extension Custom {
 
         let (iceP_returnValue, iceP_b2) = try self.opByteString2(b1: iceP_b1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_b2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -1933,7 +1933,7 @@ extension Custom {
 
         let (iceP_returnValue, iceP_b2) = try self.opByteList1(b1: iceP_b1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_b2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -1948,7 +1948,7 @@ extension Custom {
 
         let (iceP_returnValue, iceP_b2) = try self.opByteList2(b1: iceP_b1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_b2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -1963,7 +1963,7 @@ extension Custom {
 
         let (iceP_returnValue, iceP_s2) = try self.opStringList1(s1: iceP_s1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_s2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -1978,7 +1978,7 @@ extension Custom {
 
         let (iceP_returnValue, iceP_s2) = try self.opStringList2(s1: iceP_s1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_s2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -1993,7 +1993,7 @@ extension Custom {
 
         let (iceP_returnValue, iceP_s2) = try self.opStringTuple1(s1: iceP_s1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_s2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -2008,7 +2008,7 @@ extension Custom {
 
         let (iceP_returnValue, iceP_s2) = try self.opStringTuple2(s1: iceP_s1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_s2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -2045,7 +2045,7 @@ extension Custom {
 
         let (iceP_returnValue, iceP_v2) = try self.opBoolSeq(v1: iceP_v1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_v2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -2060,7 +2060,7 @@ extension Custom {
 
         let (iceP_returnValue, iceP_v2) = try self.opByteSeq(v1: iceP_v1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_v2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -2075,7 +2075,7 @@ extension Custom {
 
         let (iceP_returnValue, iceP_v2) = try self.opShortSeq(v1: iceP_v1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_v2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -2090,7 +2090,7 @@ extension Custom {
 
         let (iceP_returnValue, iceP_v2) = try self.opIntSeq(v1: iceP_v1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_v2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -2105,7 +2105,7 @@ extension Custom {
 
         let (iceP_returnValue, iceP_v2) = try self.opLongSeq(v1: iceP_v1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_v2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -2120,7 +2120,7 @@ extension Custom {
 
         let (iceP_returnValue, iceP_v2) = try self.opFloatSeq(v1: iceP_v1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_v2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -2135,7 +2135,7 @@ extension Custom {
 
         let (iceP_returnValue, iceP_v2) = try self.opDoubleSeq(v1: iceP_v1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_v2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -2148,7 +2148,7 @@ extension Custom {
 
         let iceP_returnValue = try self.opBogusArrayNotExistsFactory(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -2160,7 +2160,7 @@ extension Custom {
 
         let iceP_returnValue = try self.opBogusArrayThrowFactory(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -2172,7 +2172,7 @@ extension Custom {
 
         let iceP_returnValue = try self.opBogusArrayType(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -2184,7 +2184,7 @@ extension Custom {
 
         let iceP_returnValue = try self.opBogusArrayNoneFactory(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -2196,7 +2196,7 @@ extension Custom {
 
         let iceP_returnValue = try self.opBogusArraySignatureFactory(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -2208,7 +2208,7 @@ extension Custom {
 
         let iceP_returnValue = try self.opBogusArrayNoCallableFactory(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -2224,7 +2224,7 @@ extension Custom {
 
         let iceP_returnValue = try self.opD(d: iceP_d, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()

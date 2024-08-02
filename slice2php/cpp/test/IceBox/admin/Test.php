@@ -52,6 +52,6 @@ namespace Test
     $Test__t_TestFacetPrx = IcePHP_defineProxy('::Test::TestFacet', $Ice__t_ObjectPrx, null);
 
     global $Ice__t_PropertyDict;
-    IcePHP_defineOperation($Test__t_TestFacetPrx, 'getChanges', 0, 0, null, null, array($Ice__t_PropertyDict), null);
+    IcePHP_defineOperation($Test__t_TestFacetPrx, 'getChanges', 0, -1, null, null, array($Ice__t_PropertyDict), null);
 }
 ?>

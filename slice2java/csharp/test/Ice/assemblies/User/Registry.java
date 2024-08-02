@@ -56,7 +56,7 @@ public interface Registry extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         UserInfo ret = obj.getUserInfo(iceP_id, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeValue(ret);
         ostr.writePendingValues();
         ostr.endEncapsulation();

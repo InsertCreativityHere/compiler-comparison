@@ -49,7 +49,7 @@ public interface TestIntfBidirPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_makeSleepAsync(boolean iceP_aborted, int iceP_ms, DelayedTestIntfPrx iceP_target, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "makeSleep", null, sync, null);
-        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(false, context, null, ostr -> {
                      ostr.writeBool(iceP_aborted);
                      ostr.writeInt(iceP_ms);
                      ostr.writeProxy(iceP_target);

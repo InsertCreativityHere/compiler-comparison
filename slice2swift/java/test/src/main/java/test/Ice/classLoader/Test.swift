@@ -357,7 +357,7 @@ extension Initial {
 
         let iceP_returnValue = try self.getConcreteClass(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()

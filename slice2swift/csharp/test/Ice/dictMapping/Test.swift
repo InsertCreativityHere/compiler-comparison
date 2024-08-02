@@ -1351,7 +1351,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_o) = try self.opNV(i: iceP_i, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         NVHelper.write(to: ostr, value: iceP_o)
         NVHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -1366,7 +1366,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_o) = try self.opNR(i: iceP_i, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         NRHelper.write(to: ostr, value: iceP_o)
         NRHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -1381,7 +1381,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_o) = try self.opNDV(i: iceP_i, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         NDVHelper.write(to: ostr, value: iceP_o)
         NDVHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -1396,7 +1396,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_o) = try self.opNDR(i: iceP_i, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         NDRHelper.write(to: ostr, value: iceP_o)
         NDRHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -1411,7 +1411,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_o) = try self.opNDAIS(i: iceP_i, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         NDAISHelper.write(to: ostr, value: iceP_o)
         NDAISHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -1426,7 +1426,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_o) = try self.opNDGIS(i: iceP_i, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         NDGISHelper.write(to: ostr, value: iceP_o)
         NDGISHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -1441,7 +1441,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_o) = try self.opNDASS(i: iceP_i, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         NDASSHelper.write(to: ostr, value: iceP_o)
         NDASSHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -1456,7 +1456,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_o) = try self.opNDGSS(i: iceP_i, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         NDGSSHelper.write(to: ostr, value: iceP_o)
         NDGSSHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()

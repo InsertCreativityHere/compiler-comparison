@@ -693,7 +693,7 @@ extension MyClass {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.getContextAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             Ice.ContextHelper.write(to: ostr, value: iceP_returnValue)
         }
@@ -713,7 +713,7 @@ extension MyDerivedClass {
         let iceP_obj: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
         let result = try await self.echoAsync(
             obj: iceP_obj, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }

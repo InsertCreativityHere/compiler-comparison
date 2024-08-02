@@ -56,10 +56,10 @@ namespace IceGrid
     global $Ice__t_ObjectPrx;
     global $IcePHP__t_string;
     global $IcePHP__t_int;
-    IcePHP_defineOperation($IceGrid__t_SessionPrx, 'keepAlive', 2, 0, null, null, null, null);
-    IcePHP_defineOperation($IceGrid__t_SessionPrx, 'allocateObjectById', 0, 0, array(array($Ice__t_Identity)), null, array($Ice__t_ObjectPrx), array($IceGrid__t_ObjectNotRegisteredException, $IceGrid__t_AllocationException));
-    IcePHP_defineOperation($IceGrid__t_SessionPrx, 'allocateObjectByType', 0, 0, array(array($IcePHP__t_string)), null, array($Ice__t_ObjectPrx), array($IceGrid__t_AllocationException));
-    IcePHP_defineOperation($IceGrid__t_SessionPrx, 'releaseObject', 0, 0, array(array($Ice__t_Identity)), null, null, array($IceGrid__t_ObjectNotRegisteredException, $IceGrid__t_AllocationException));
-    IcePHP_defineOperation($IceGrid__t_SessionPrx, 'setAllocationTimeout', 2, 0, array(array($IcePHP__t_int)), null, null, null);
+    IcePHP_defineOperation($IceGrid__t_SessionPrx, 'keepAlive', 2, -1, null, null, null, null);
+    IcePHP_defineOperation($IceGrid__t_SessionPrx, 'allocateObjectById', 0, -1, array(array($Ice__t_Identity)), null, array($Ice__t_ObjectPrx), array($IceGrid__t_ObjectNotRegisteredException, $IceGrid__t_AllocationException));
+    IcePHP_defineOperation($IceGrid__t_SessionPrx, 'allocateObjectByType', 0, -1, array(array($IcePHP__t_string)), null, array($Ice__t_ObjectPrx), array($IceGrid__t_AllocationException));
+    IcePHP_defineOperation($IceGrid__t_SessionPrx, 'releaseObject', 0, -1, array(array($Ice__t_Identity)), null, null, array($IceGrid__t_ObjectNotRegisteredException, $IceGrid__t_AllocationException));
+    IcePHP_defineOperation($IceGrid__t_SessionPrx, 'setAllocationTimeout', 2, -1, array(array($IcePHP__t_int)), null, null, null);
 }
 ?>

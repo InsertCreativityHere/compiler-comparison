@@ -47,7 +47,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpByteSpanResult> _iceI_opByteSpanAsync(byte[] iceP_dataIn, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpByteSpanResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opByteSpan", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeByteSeq(iceP_dataIn);
                  }, istr -> {
                      TestIntf.OpByteSpanResult ret = new TestIntf.OpByteSpanResult();
@@ -87,7 +87,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpShortSpanResult> _iceI_opShortSpanAsync(short[] iceP_dataIn, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpShortSpanResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opShortSpan", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeShortSeq(iceP_dataIn);
                  }, istr -> {
                      TestIntf.OpShortSpanResult ret = new TestIntf.OpShortSpanResult();
@@ -127,7 +127,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpStringSpanResult> _iceI_opStringSpanAsync(String[] iceP_dataIn, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpStringSpanResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opStringSpan", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeStringSeq(iceP_dataIn);
                  }, istr -> {
                      TestIntf.OpStringSpanResult ret = new TestIntf.OpStringSpanResult();
@@ -177,7 +177,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptionalByteSpanResult> _iceI_opOptionalByteSpanAsync(byte[] iceP_dataIn, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptionalByteSpanResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOptionalByteSpan", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeByteSeq(1, iceP_dataIn);
                  }, istr -> {
                      TestIntf.OpOptionalByteSpanResult ret = new TestIntf.OpOptionalByteSpanResult();
@@ -207,7 +207,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptionalByteSpanResult> _iceI_opOptionalByteSpanAsync(java.util.Optional<byte[]> iceP_dataIn, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptionalByteSpanResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOptionalByteSpan", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeByteSeq(1, iceP_dataIn);
                  }, istr -> {
                      TestIntf.OpOptionalByteSpanResult ret = new TestIntf.OpOptionalByteSpanResult();
@@ -257,7 +257,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptionalShortSpanResult> _iceI_opOptionalShortSpanAsync(short[] iceP_dataIn, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptionalShortSpanResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOptionalShortSpan", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeShortSeq(1, iceP_dataIn);
                  }, istr -> {
                      TestIntf.OpOptionalShortSpanResult ret = new TestIntf.OpOptionalShortSpanResult();
@@ -287,7 +287,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptionalShortSpanResult> _iceI_opOptionalShortSpanAsync(java.util.Optional<short[]> iceP_dataIn, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptionalShortSpanResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOptionalShortSpan", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeShortSeq(1, iceP_dataIn);
                  }, istr -> {
                      TestIntf.OpOptionalShortSpanResult ret = new TestIntf.OpOptionalShortSpanResult();
@@ -337,7 +337,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptionalStringSpanResult> _iceI_opOptionalStringSpanAsync(String[] iceP_dataIn, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptionalStringSpanResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOptionalStringSpan", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeStringSeq(1, iceP_dataIn);
                  }, istr -> {
                      TestIntf.OpOptionalStringSpanResult ret = new TestIntf.OpOptionalStringSpanResult();
@@ -367,7 +367,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptionalStringSpanResult> _iceI_opOptionalStringSpanAsync(java.util.Optional<String[]> iceP_dataIn, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpOptionalStringSpanResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOptionalStringSpan", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeStringSeq(1, iceP_dataIn);
                  }, istr -> {
                      TestIntf.OpOptionalStringSpanResult ret = new TestIntf.OpOptionalStringSpanResult();
@@ -406,7 +406,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
-        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(false, context, null, null, null);
         return f;
     }
 

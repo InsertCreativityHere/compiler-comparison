@@ -582,7 +582,7 @@ extension TestIntf {
         let iceP_dataIn: ByteSeq = try istr.read()
         let result = try await self.opByteSpanAsync(
             dataIn: iceP_dataIn, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_dataOut) = value
             ostr.write(iceP_dataOut)
             ostr.write(iceP_returnValue)
@@ -596,7 +596,7 @@ extension TestIntf {
         let iceP_dataIn: ShortSeq = try istr.read()
         let result = try await self.opShortSpanAsync(
             dataIn: iceP_dataIn, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_dataOut) = value
             ostr.write(iceP_dataOut)
             ostr.write(iceP_returnValue)
@@ -610,7 +610,7 @@ extension TestIntf {
         let iceP_dataIn: StringSeq = try istr.read()
         let result = try await self.opStringSpanAsync(
             dataIn: iceP_dataIn, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_dataOut) = value
             ostr.write(iceP_dataOut)
             ostr.write(iceP_returnValue)
@@ -624,7 +624,7 @@ extension TestIntf {
         let iceP_dataIn: ByteSeq? = try istr.read(tag: 1)
         let result = try await self.opOptionalByteSpanAsync(
             dataIn: iceP_dataIn, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_dataOut) = value
             ostr.write(tag: 10, value: iceP_returnValue)
             ostr.write(tag: 11, value: iceP_dataOut)
@@ -638,7 +638,7 @@ extension TestIntf {
         let iceP_dataIn: ShortSeq? = try istr.read(tag: 1)
         let result = try await self.opOptionalShortSpanAsync(
             dataIn: iceP_dataIn, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_dataOut) = value
             ostr.write(tag: 10, value: iceP_returnValue)
             ostr.write(tag: 11, value: iceP_dataOut)
@@ -652,7 +652,7 @@ extension TestIntf {
         let iceP_dataIn: StringSeq? = try istr.read(tag: 1)
         let result = try await self.opOptionalStringSpanAsync(
             dataIn: iceP_dataIn, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_dataOut) = value
             ostr.write(tag: 10, value: iceP_returnValue)
             ostr.write(tag: 11, value: iceP_dataOut)

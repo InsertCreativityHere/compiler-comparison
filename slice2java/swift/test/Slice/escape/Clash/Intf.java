@@ -280,7 +280,7 @@ public interface Intf extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         Intf.OpOutResult ret = obj.opOut(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ret.write(ostr);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));

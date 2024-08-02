@@ -1836,7 +1836,7 @@ extension Topic {
 
         let iceP_returnValue = try self.getName(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -1848,7 +1848,7 @@ extension Topic {
 
         let iceP_returnValue = try self.getPublisher(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -1860,7 +1860,7 @@ extension Topic {
 
         let iceP_returnValue = try self.getNonReplicatedPublisher(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -1875,7 +1875,7 @@ extension Topic {
 
         let iceP_returnValue = try self.subscribeAndGetPublisher(theQoS: iceP_theQoS, subscriber: iceP_subscriber, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -1918,7 +1918,7 @@ extension Topic {
 
         let iceP_returnValue = try self.getLinkInfoSeq(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         LinkInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -1930,7 +1930,7 @@ extension Topic {
 
         let iceP_returnValue = try self.getSubscribers(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         Ice.IdentitySeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -1963,7 +1963,7 @@ extension TopicManager {
 
         let iceP_returnValue = try self.create(name: iceP_name, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -1977,7 +1977,7 @@ extension TopicManager {
 
         let iceP_returnValue = try self.retrieve(name: iceP_name, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -1989,7 +1989,7 @@ extension TopicManager {
 
         let iceP_returnValue = try self.retrieveAll(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         TopicDictHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -2009,7 +2009,7 @@ extension Finder {
 
         let iceP_returnValue = try self.getTopicManager(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)

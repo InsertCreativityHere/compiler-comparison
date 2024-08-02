@@ -47,6 +47,6 @@ namespace Test
     $Test__t_EventPrx = IcePHP_defineProxy('::Test::Event', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_int;
-    IcePHP_defineOperation($Test__t_EventPrx, 'pub', 0, 0, array(array($IcePHP__t_int)), null, null, null);
+    IcePHP_defineOperation($Test__t_EventPrx, 'pub', 0, -1, array(array($IcePHP__t_int)), null, null, null);
 }
 ?>

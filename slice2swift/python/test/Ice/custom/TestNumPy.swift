@@ -1251,7 +1251,7 @@ extension NumPyCustom {
 
         let (iceP_returnValue, iceP_v2) = try self.opBoolSeq(v1: iceP_v1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_v2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -1266,7 +1266,7 @@ extension NumPyCustom {
 
         let (iceP_returnValue, iceP_v2) = try self.opByteSeq(v1: iceP_v1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_v2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -1281,7 +1281,7 @@ extension NumPyCustom {
 
         let (iceP_returnValue, iceP_v2) = try self.opShortSeq(v1: iceP_v1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_v2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -1296,7 +1296,7 @@ extension NumPyCustom {
 
         let (iceP_returnValue, iceP_v2) = try self.opIntSeq(v1: iceP_v1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_v2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -1311,7 +1311,7 @@ extension NumPyCustom {
 
         let (iceP_returnValue, iceP_v2) = try self.opLongSeq(v1: iceP_v1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_v2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -1326,7 +1326,7 @@ extension NumPyCustom {
 
         let (iceP_returnValue, iceP_v2) = try self.opFloatSeq(v1: iceP_v1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_v2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -1341,7 +1341,7 @@ extension NumPyCustom {
 
         let (iceP_returnValue, iceP_v2) = try self.opDoubleSeq(v1: iceP_v1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_v2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -1356,7 +1356,7 @@ extension NumPyCustom {
 
         let iceP_returnValue = try self.opComplex128Seq(v1: iceP_v1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -1368,7 +1368,7 @@ extension NumPyCustom {
 
         let iceP_returnValue = try self.opBoolMatrix(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -1380,7 +1380,7 @@ extension NumPyCustom {
 
         let iceP_returnValue = try self.opByteMatrix(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -1392,7 +1392,7 @@ extension NumPyCustom {
 
         let iceP_returnValue = try self.opShortMatrix(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -1404,7 +1404,7 @@ extension NumPyCustom {
 
         let iceP_returnValue = try self.opIntMatrix(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -1416,7 +1416,7 @@ extension NumPyCustom {
 
         let iceP_returnValue = try self.opLongMatrix(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -1428,7 +1428,7 @@ extension NumPyCustom {
 
         let iceP_returnValue = try self.opFloatMatrix(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -1440,7 +1440,7 @@ extension NumPyCustom {
 
         let iceP_returnValue = try self.opDoubleMatrix(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -1452,7 +1452,7 @@ extension NumPyCustom {
 
         let iceP_returnValue = try self.opBogusNumpyArrayType(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -1468,7 +1468,7 @@ extension NumPyCustom {
 
         let iceP_returnValue = try self.opD(d: iceP_d, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()

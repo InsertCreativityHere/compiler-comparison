@@ -60,7 +60,7 @@ public interface TestCasePrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.String> _iceI_startServerSideAsync(Config iceP_config, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "startServerSide", null, sync, _iceE_startServerSide);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeValue(iceP_config);
                      ostr.writePendingValues();
                  }, istr -> {
@@ -120,7 +120,7 @@ public interface TestCasePrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.String> _iceI_stopServerSideAsync(boolean iceP_success, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "stopServerSide", null, sync, _iceE_stopServerSide);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeBool(iceP_success);
                  }, istr -> {
                      String ret;
@@ -180,7 +180,7 @@ public interface TestCasePrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.String> _iceI_runClientSideAsync(String iceP_host, Config iceP_config, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "runClientSide", null, sync, _iceE_runClientSide);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_host);
                      ostr.writeValue(iceP_config);
                      ostr.writePendingValues();
@@ -227,7 +227,7 @@ public interface TestCasePrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_destroyAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "destroy", null, sync, null);
-        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(false, context, null, null, null);
         return f;
     }
 

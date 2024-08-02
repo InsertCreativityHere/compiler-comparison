@@ -132,7 +132,7 @@ public interface WstringClass extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -151,7 +151,7 @@ public interface WstringClass extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */

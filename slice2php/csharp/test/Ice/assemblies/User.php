@@ -83,6 +83,6 @@ namespace User
 
     global $IcePHP__t_string;
     global $User__t_UserInfo;
-    IcePHP_defineOperation($User__t_RegistryPrx, 'getUserInfo', 0, 0, array(array($IcePHP__t_string)), null, array($User__t_UserInfo), array($Core__t_ArgumentException));
+    IcePHP_defineOperation($User__t_RegistryPrx, 'getUserInfo', 0, -1, array(array($IcePHP__t_string)), null, array($User__t_UserInfo), array($Core__t_ArgumentException));
 }
 ?>

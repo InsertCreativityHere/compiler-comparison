@@ -111,7 +111,7 @@ public interface FileReader extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         long ret = obj.getOffsetFromEnd(iceP_filename, iceP_lines, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeLong(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -133,7 +133,7 @@ public interface FileReader extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         FileReader.ReadResult ret = obj.read(iceP_filename, iceP_pos, iceP_size, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ret.write(ostr);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));

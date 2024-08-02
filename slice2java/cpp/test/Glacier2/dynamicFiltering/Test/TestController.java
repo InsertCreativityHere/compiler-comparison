@@ -65,7 +65,7 @@ public interface TestController extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         TestToken ret = obj.step(iceP_currentSession, iceP_currentState, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         TestToken.ice_write(ostr, ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));

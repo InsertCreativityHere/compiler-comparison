@@ -123,7 +123,7 @@ public interface LoggerAdminPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_attachRemoteLoggerAsync(RemoteLoggerPrx iceP_prx, LogMessageType[] iceP_messageTypes, String[] iceP_traceCategories, int iceP_messageMax, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "attachRemoteLogger", null, sync, _iceE_attachRemoteLogger);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeProxy(iceP_prx);
                      LogMessageTypeSeqHelper.write(ostr, iceP_messageTypes);
                      ostr.writeStringSeq(iceP_traceCategories);
@@ -190,7 +190,7 @@ public interface LoggerAdminPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> _iceI_detachRemoteLoggerAsync(RemoteLoggerPrx iceP_prx, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "detachRemoteLogger", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeProxy(iceP_prx);
                  }, istr -> {
                      boolean ret;
@@ -278,7 +278,7 @@ public interface LoggerAdminPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<LoggerAdmin.GetLogResult> _iceI_getLogAsync(LogMessageType[] iceP_messageTypes, String[] iceP_traceCategories, int iceP_messageMax, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<LoggerAdmin.GetLogResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getLog", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      LogMessageTypeSeqHelper.write(ostr, iceP_messageTypes);
                      ostr.writeStringSeq(iceP_traceCategories);
                      ostr.writeInt(iceP_messageMax);

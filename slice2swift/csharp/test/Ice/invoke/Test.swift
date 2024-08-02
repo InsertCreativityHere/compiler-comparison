@@ -379,7 +379,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_s2) = try self.opString(s1: iceP_s1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_s2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()

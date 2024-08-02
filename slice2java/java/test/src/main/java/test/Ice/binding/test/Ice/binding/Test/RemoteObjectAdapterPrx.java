@@ -46,7 +46,7 @@ public interface RemoteObjectAdapterPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<TestIntfPrx> _iceI_getTestIntfAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<TestIntfPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getTestIntf", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
+        f.invoke(true, context, null, null, istr -> {
                      TestIntfPrx ret;
                      ret = TestIntfPrx.uncheckedCast(istr.readProxy());
                      return ret;
@@ -83,7 +83,7 @@ public interface RemoteObjectAdapterPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_deactivateAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "deactivate", null, sync, null);
-        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(false, context, null, null, null);
         return f;
     }
 

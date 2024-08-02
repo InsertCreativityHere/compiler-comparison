@@ -81,7 +81,7 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_MyInterfacePrx = IcePHP_defineProxy('::Test::MyInterface', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($Test__t_MyInterfacePrx, 'op', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_MyInterfacePrx, 'op', 0, -1, null, null, null, null);
 }
 
 namespace Test
@@ -1063,51 +1063,51 @@ namespace Test
     global $Test__t_StringIntDict;
     global $Test__t_A;
     global $Test__t_G;
-    IcePHP_defineOperation($Test__t_InitialPrx, 'shutdown', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'pingPong', 0, 0, array(array($Ice__t_Value)), null, array($Ice__t_Value), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opOptionalException', 0, 0, array(array($IcePHP__t_int, 1), array($IcePHP__t_string, 2)), null, null, array($Test__t_OptionalException));
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opDerivedException', 0, 0, array(array($IcePHP__t_int, 1), array($IcePHP__t_string, 2)), null, null, array($Test__t_OptionalException));
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opRequiredException', 0, 0, array(array($IcePHP__t_int, 1), array($IcePHP__t_string, 2)), null, null, array($Test__t_OptionalException));
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opByte', 0, 0, array(array($IcePHP__t_byte, 2)), array(array($IcePHP__t_byte, 3)), array($IcePHP__t_byte, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opBool', 0, 0, array(array($IcePHP__t_bool, 2)), array(array($IcePHP__t_bool, 3)), array($IcePHP__t_bool, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opShort', 0, 0, array(array($IcePHP__t_short, 2)), array(array($IcePHP__t_short, 3)), array($IcePHP__t_short, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opInt', 0, 0, array(array($IcePHP__t_int, 2)), array(array($IcePHP__t_int, 3)), array($IcePHP__t_int, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opLong', 0, 0, array(array($IcePHP__t_long, 1)), array(array($IcePHP__t_long, 2)), array($IcePHP__t_long, 3), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opFloat', 0, 0, array(array($IcePHP__t_float, 2)), array(array($IcePHP__t_float, 3)), array($IcePHP__t_float, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opDouble', 0, 0, array(array($IcePHP__t_double, 2)), array(array($IcePHP__t_double, 3)), array($IcePHP__t_double, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opString', 0, 0, array(array($IcePHP__t_string, 2)), array(array($IcePHP__t_string, 3)), array($IcePHP__t_string, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opMyEnum', 0, 0, array(array($Test__t_MyEnum, 2)), array(array($Test__t_MyEnum, 3)), array($Test__t_MyEnum, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opSmallStruct', 0, 0, array(array($Test__t_SmallStruct, 2)), array(array($Test__t_SmallStruct, 3)), array($Test__t_SmallStruct, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opFixedStruct', 0, 0, array(array($Test__t_FixedStruct, 2)), array(array($Test__t_FixedStruct, 3)), array($Test__t_FixedStruct, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opVarStruct', 0, 0, array(array($Test__t_VarStruct, 2)), array(array($Test__t_VarStruct, 3)), array($Test__t_VarStruct, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opMyInterfaceProxy', 0, 0, array(array($Test__t_MyInterfacePrx, 2)), array(array($Test__t_MyInterfacePrx, 3)), array($Test__t_MyInterfacePrx, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opOneOptional', 0, 0, array(array($Test__t_OneOptional)), array(array($Test__t_OneOptional)), array($Test__t_OneOptional), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opByteSeq', 0, 0, array(array($Test__t_ByteSeq, 2)), array(array($Test__t_ByteSeq, 3)), array($Test__t_ByteSeq, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opBoolSeq', 0, 0, array(array($Test__t_BoolSeq, 2)), array(array($Test__t_BoolSeq, 3)), array($Test__t_BoolSeq, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opShortSeq', 0, 0, array(array($Test__t_ShortSeq, 2)), array(array($Test__t_ShortSeq, 3)), array($Test__t_ShortSeq, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opIntSeq', 0, 0, array(array($Test__t_IntSeq, 2)), array(array($Test__t_IntSeq, 3)), array($Test__t_IntSeq, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opLongSeq', 0, 0, array(array($Test__t_LongSeq, 2)), array(array($Test__t_LongSeq, 3)), array($Test__t_LongSeq, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opFloatSeq', 0, 0, array(array($Test__t_FloatSeq, 2)), array(array($Test__t_FloatSeq, 3)), array($Test__t_FloatSeq, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opDoubleSeq', 0, 0, array(array($Test__t_DoubleSeq, 2)), array(array($Test__t_DoubleSeq, 3)), array($Test__t_DoubleSeq, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opStringSeq', 0, 0, array(array($Test__t_StringSeq, 2)), array(array($Test__t_StringSeq, 3)), array($Test__t_StringSeq, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opSmallStructSeq', 0, 0, array(array($Test__t_SmallStructSeq, 2)), array(array($Test__t_SmallStructSeq, 3)), array($Test__t_SmallStructSeq, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opSmallStructList', 0, 0, array(array($Test__t_SmallStructList, 2)), array(array($Test__t_SmallStructList, 3)), array($Test__t_SmallStructList, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opFixedStructSeq', 0, 0, array(array($Test__t_FixedStructSeq, 2)), array(array($Test__t_FixedStructSeq, 3)), array($Test__t_FixedStructSeq, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opFixedStructList', 0, 0, array(array($Test__t_FixedStructList, 2)), array(array($Test__t_FixedStructList, 3)), array($Test__t_FixedStructList, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opVarStructSeq', 0, 0, array(array($Test__t_VarStructSeq, 2)), array(array($Test__t_VarStructSeq, 3)), array($Test__t_VarStructSeq, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opSerializable', 0, 0, array(array($Test__t_Serializable, 2)), array(array($Test__t_Serializable, 3)), array($Test__t_Serializable, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opIntIntDict', 0, 0, array(array($Test__t_IntIntDict, 2)), array(array($Test__t_IntIntDict, 3)), array($Test__t_IntIntDict, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opStringIntDict', 0, 0, array(array($Test__t_StringIntDict, 2)), array(array($Test__t_StringIntDict, 3)), array($Test__t_StringIntDict, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opClassAndUnknownOptional', 0, 0, array(array($Test__t_A)), null, null, null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opG', 0, 0, array(array($Test__t_G)), null, array($Test__t_G), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opVoid', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opMStruct1', 0, 0, null, null, array($Test__t_SmallStruct, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opMStruct2', 0, 0, array(array($Test__t_SmallStruct, 2)), array(array($Test__t_SmallStruct, 3)), array($Test__t_SmallStruct, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opMSeq1', 0, 0, null, null, array($Test__t_StringSeq, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opMSeq2', 0, 0, array(array($Test__t_StringSeq, 2)), array(array($Test__t_StringSeq, 3)), array($Test__t_StringSeq, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opMDict1', 0, 0, null, null, array($Test__t_StringIntDict, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opMDict2', 0, 0, array(array($Test__t_StringIntDict, 2)), array(array($Test__t_StringIntDict, 3)), array($Test__t_StringIntDict, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'supportsJavaSerializable', 0, 0, null, null, array($IcePHP__t_bool), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'shutdown', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'pingPong', 0, -1, array(array($Ice__t_Value)), null, array($Ice__t_Value), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opOptionalException', 0, -1, array(array($IcePHP__t_int, 1), array($IcePHP__t_string, 2)), null, null, array($Test__t_OptionalException));
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opDerivedException', 0, -1, array(array($IcePHP__t_int, 1), array($IcePHP__t_string, 2)), null, null, array($Test__t_OptionalException));
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opRequiredException', 0, -1, array(array($IcePHP__t_int, 1), array($IcePHP__t_string, 2)), null, null, array($Test__t_OptionalException));
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opByte', 0, -1, array(array($IcePHP__t_byte, 2)), array(array($IcePHP__t_byte, 3)), array($IcePHP__t_byte, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opBool', 0, -1, array(array($IcePHP__t_bool, 2)), array(array($IcePHP__t_bool, 3)), array($IcePHP__t_bool, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opShort', 0, -1, array(array($IcePHP__t_short, 2)), array(array($IcePHP__t_short, 3)), array($IcePHP__t_short, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opInt', 0, -1, array(array($IcePHP__t_int, 2)), array(array($IcePHP__t_int, 3)), array($IcePHP__t_int, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opLong', 0, -1, array(array($IcePHP__t_long, 1)), array(array($IcePHP__t_long, 2)), array($IcePHP__t_long, 3), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opFloat', 0, -1, array(array($IcePHP__t_float, 2)), array(array($IcePHP__t_float, 3)), array($IcePHP__t_float, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opDouble', 0, -1, array(array($IcePHP__t_double, 2)), array(array($IcePHP__t_double, 3)), array($IcePHP__t_double, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opString', 0, -1, array(array($IcePHP__t_string, 2)), array(array($IcePHP__t_string, 3)), array($IcePHP__t_string, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opMyEnum', 0, -1, array(array($Test__t_MyEnum, 2)), array(array($Test__t_MyEnum, 3)), array($Test__t_MyEnum, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opSmallStruct', 0, -1, array(array($Test__t_SmallStruct, 2)), array(array($Test__t_SmallStruct, 3)), array($Test__t_SmallStruct, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opFixedStruct', 0, -1, array(array($Test__t_FixedStruct, 2)), array(array($Test__t_FixedStruct, 3)), array($Test__t_FixedStruct, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opVarStruct', 0, -1, array(array($Test__t_VarStruct, 2)), array(array($Test__t_VarStruct, 3)), array($Test__t_VarStruct, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opMyInterfaceProxy', 0, -1, array(array($Test__t_MyInterfacePrx, 2)), array(array($Test__t_MyInterfacePrx, 3)), array($Test__t_MyInterfacePrx, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opOneOptional', 0, -1, array(array($Test__t_OneOptional)), array(array($Test__t_OneOptional)), array($Test__t_OneOptional), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opByteSeq', 0, -1, array(array($Test__t_ByteSeq, 2)), array(array($Test__t_ByteSeq, 3)), array($Test__t_ByteSeq, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opBoolSeq', 0, -1, array(array($Test__t_BoolSeq, 2)), array(array($Test__t_BoolSeq, 3)), array($Test__t_BoolSeq, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opShortSeq', 0, -1, array(array($Test__t_ShortSeq, 2)), array(array($Test__t_ShortSeq, 3)), array($Test__t_ShortSeq, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opIntSeq', 0, -1, array(array($Test__t_IntSeq, 2)), array(array($Test__t_IntSeq, 3)), array($Test__t_IntSeq, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opLongSeq', 0, -1, array(array($Test__t_LongSeq, 2)), array(array($Test__t_LongSeq, 3)), array($Test__t_LongSeq, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opFloatSeq', 0, -1, array(array($Test__t_FloatSeq, 2)), array(array($Test__t_FloatSeq, 3)), array($Test__t_FloatSeq, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opDoubleSeq', 0, -1, array(array($Test__t_DoubleSeq, 2)), array(array($Test__t_DoubleSeq, 3)), array($Test__t_DoubleSeq, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opStringSeq', 0, -1, array(array($Test__t_StringSeq, 2)), array(array($Test__t_StringSeq, 3)), array($Test__t_StringSeq, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opSmallStructSeq', 0, -1, array(array($Test__t_SmallStructSeq, 2)), array(array($Test__t_SmallStructSeq, 3)), array($Test__t_SmallStructSeq, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opSmallStructList', 0, -1, array(array($Test__t_SmallStructList, 2)), array(array($Test__t_SmallStructList, 3)), array($Test__t_SmallStructList, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opFixedStructSeq', 0, -1, array(array($Test__t_FixedStructSeq, 2)), array(array($Test__t_FixedStructSeq, 3)), array($Test__t_FixedStructSeq, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opFixedStructList', 0, -1, array(array($Test__t_FixedStructList, 2)), array(array($Test__t_FixedStructList, 3)), array($Test__t_FixedStructList, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opVarStructSeq', 0, -1, array(array($Test__t_VarStructSeq, 2)), array(array($Test__t_VarStructSeq, 3)), array($Test__t_VarStructSeq, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opSerializable', 0, -1, array(array($Test__t_Serializable, 2)), array(array($Test__t_Serializable, 3)), array($Test__t_Serializable, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opIntIntDict', 0, -1, array(array($Test__t_IntIntDict, 2)), array(array($Test__t_IntIntDict, 3)), array($Test__t_IntIntDict, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opStringIntDict', 0, -1, array(array($Test__t_StringIntDict, 2)), array(array($Test__t_StringIntDict, 3)), array($Test__t_StringIntDict, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opClassAndUnknownOptional', 0, -1, array(array($Test__t_A)), null, null, null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opG', 0, -1, array(array($Test__t_G)), null, array($Test__t_G), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opVoid', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opMStruct1', 0, -1, null, null, array($Test__t_SmallStruct, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opMStruct2', 0, -1, array(array($Test__t_SmallStruct, 2)), array(array($Test__t_SmallStruct, 3)), array($Test__t_SmallStruct, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opMSeq1', 0, -1, null, null, array($Test__t_StringSeq, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opMSeq2', 0, -1, array(array($Test__t_StringSeq, 2)), array(array($Test__t_StringSeq, 3)), array($Test__t_StringSeq, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opMDict1', 0, -1, null, null, array($Test__t_StringIntDict, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opMDict2', 0, -1, array(array($Test__t_StringIntDict, 2)), array(array($Test__t_StringIntDict, 3)), array($Test__t_StringIntDict, 1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'supportsJavaSerializable', 0, -1, null, null, array($IcePHP__t_bool), null);
 }
 
 namespace Test
@@ -1141,9 +1141,9 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_EchoPrx = IcePHP_defineProxy('::Test::Echo', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($Test__t_EchoPrx, 'setConnection', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_EchoPrx, 'startBatch', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_EchoPrx, 'flushBatch', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_EchoPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_EchoPrx, 'setConnection', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_EchoPrx, 'startBatch', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_EchoPrx, 'flushBatch', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_EchoPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 ?>

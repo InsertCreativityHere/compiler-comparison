@@ -47,6 +47,6 @@ namespace Test
     $Test__t_ClockPrx = IcePHP_defineProxy('::Test::Clock', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_string;
-    IcePHP_defineOperation($Test__t_ClockPrx, 'tick', 0, 0, array(array($IcePHP__t_string)), null, null, null);
+    IcePHP_defineOperation($Test__t_ClockPrx, 'tick', 0, -1, array(array($IcePHP__t_string)), null, null, null);
 }
 ?>

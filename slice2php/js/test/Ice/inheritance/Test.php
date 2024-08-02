@@ -47,7 +47,7 @@ namespace Test\MA
     $Test_MA__t_IAPrx = IcePHP_defineProxy('::Test::MA::IA', $Ice__t_ObjectPrx, null);
 
     global $Test_MA__t_IAPrx;
-    IcePHP_defineOperation($Test_MA__t_IAPrx, 'iaop', 0, 0, array(array($Test_MA__t_IAPrx)), null, array($Test_MA__t_IAPrx), null);
+    IcePHP_defineOperation($Test_MA__t_IAPrx, 'iaop', 0, -1, array(array($Test_MA__t_IAPrx)), null, array($Test_MA__t_IAPrx), null);
 }
 
 namespace Test\MB
@@ -82,7 +82,7 @@ namespace Test\MB
     $Test_MB__t_IB1Prx = IcePHP_defineProxy('::Test::MB::IB1', $Ice__t_ObjectPrx, array($Test_MA__t_IAPrx));
 
     global $Test_MB__t_IB1Prx;
-    IcePHP_defineOperation($Test_MB__t_IB1Prx, 'ib1op', 0, 0, array(array($Test_MB__t_IB1Prx)), null, array($Test_MB__t_IB1Prx), null);
+    IcePHP_defineOperation($Test_MB__t_IB1Prx, 'ib1op', 0, -1, array(array($Test_MB__t_IB1Prx)), null, array($Test_MB__t_IB1Prx), null);
 }
 
 namespace Test\MB
@@ -117,7 +117,7 @@ namespace Test\MB
     $Test_MB__t_IB2Prx = IcePHP_defineProxy('::Test::MB::IB2', $Ice__t_ObjectPrx, array($Test_MA__t_IAPrx));
 
     global $Test_MB__t_IB2Prx;
-    IcePHP_defineOperation($Test_MB__t_IB2Prx, 'ib2op', 0, 0, array(array($Test_MB__t_IB2Prx)), null, array($Test_MB__t_IB2Prx), null);
+    IcePHP_defineOperation($Test_MB__t_IB2Prx, 'ib2op', 0, -1, array(array($Test_MB__t_IB2Prx)), null, array($Test_MB__t_IB2Prx), null);
 }
 
 namespace Test\MA
@@ -152,7 +152,7 @@ namespace Test\MA
     $Test_MA__t_ICPrx = IcePHP_defineProxy('::Test::MA::IC', $Ice__t_ObjectPrx, array($Test_MB__t_IB1Prx, $Test_MB__t_IB2Prx));
 
     global $Test_MA__t_ICPrx;
-    IcePHP_defineOperation($Test_MA__t_ICPrx, 'icop', 0, 0, array(array($Test_MA__t_ICPrx)), null, array($Test_MA__t_ICPrx), null);
+    IcePHP_defineOperation($Test_MA__t_ICPrx, 'icop', 0, -1, array(array($Test_MA__t_ICPrx)), null, array($Test_MA__t_ICPrx), null);
 }
 
 namespace Test
@@ -190,11 +190,11 @@ namespace Test
     global $Test_MB__t_IB1Prx;
     global $Test_MB__t_IB2Prx;
     global $Test_MA__t_ICPrx;
-    IcePHP_defineOperation($Test__t_InitialPrx, 'shutdown', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'iaop', 0, 0, null, null, array($Test_MA__t_IAPrx), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'ib1op', 0, 0, null, null, array($Test_MB__t_IB1Prx), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'ib2op', 0, 0, null, null, array($Test_MB__t_IB2Prx), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'icop', 0, 0, null, null, array($Test_MA__t_ICPrx), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'shutdown', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'iaop', 0, -1, null, null, array($Test_MA__t_IAPrx), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'ib1op', 0, -1, null, null, array($Test_MB__t_IB1Prx), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'ib2op', 0, -1, null, null, array($Test_MB__t_IB2Prx), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'icop', 0, -1, null, null, array($Test_MA__t_ICPrx), null);
 }
 
 namespace Test\MC
@@ -1086,9 +1086,9 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_EchoPrx = IcePHP_defineProxy('::Test::Echo', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($Test__t_EchoPrx, 'setConnection', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_EchoPrx, 'startBatch', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_EchoPrx, 'flushBatch', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_EchoPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_EchoPrx, 'setConnection', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_EchoPrx, 'startBatch', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_EchoPrx, 'flushBatch', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_EchoPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 ?>

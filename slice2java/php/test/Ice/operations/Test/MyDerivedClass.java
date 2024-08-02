@@ -68,7 +68,7 @@ public interface MyDerivedClass extends MyClass
         istr.endEncapsulation();
         MyStruct1 ret = obj.opMyStruct1(iceP_s, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         MyStruct1.ice_write(ostr, ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -87,7 +87,7 @@ public interface MyDerivedClass extends MyClass
         MyClass1 iceP_c = icePP_c.value;
         MyClass1 ret = obj.opMyClass1(iceP_c, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeValue(ret);
         ostr.writePendingValues();
         ostr.endEncapsulation();

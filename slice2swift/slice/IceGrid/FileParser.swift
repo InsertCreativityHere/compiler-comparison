@@ -298,7 +298,7 @@ extension FileParser {
 
         let iceP_returnValue = try self.parse(xmlFile: iceP_xmlFile, adminProxy: iceP_adminProxy, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()

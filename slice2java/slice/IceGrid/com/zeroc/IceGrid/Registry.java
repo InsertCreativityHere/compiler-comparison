@@ -119,7 +119,7 @@ public interface Registry extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         SessionPrx ret = obj.createSession(iceP_userId, iceP_password, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeProxy(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -139,7 +139,7 @@ public interface Registry extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         AdminSessionPrx ret = obj.createAdminSession(iceP_userId, iceP_password, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeProxy(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -153,7 +153,7 @@ public interface Registry extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         SessionPrx ret = obj.createSessionFromSecureConnection(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeProxy(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -167,7 +167,7 @@ public interface Registry extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         AdminSessionPrx ret = obj.createAdminSessionFromSecureConnection(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeProxy(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -180,7 +180,7 @@ public interface Registry extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         int ret = obj.getSessionTimeout(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeInt(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -193,7 +193,7 @@ public interface Registry extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         int ret = obj.getACMTimeout(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeInt(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));

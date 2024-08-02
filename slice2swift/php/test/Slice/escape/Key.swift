@@ -1366,7 +1366,7 @@ extension `break` {
 
         let iceP_try = try self.`case`(catch: iceP_catch, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_try)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -1431,7 +1431,7 @@ extension `for` {
 
         let iceP_returnValue = try self.foreach(if: iceP_if, global: iceP_global, include: iceP_include, return: iceP_return, list: iceP_list, new: iceP_new, static: iceP_static, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)

@@ -65,7 +65,7 @@ public interface extendPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<END> _iceI_forAsync(display iceP_freeze, elsifPrx iceP_hash, breakPrx iceP_if, display iceP_inspect, elsifPrx iceP_method, int iceP_methods, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<END> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "for", null, sync, _iceE_for);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeValue(iceP_freeze);
                      ostr.writeProxy(iceP_hash);
                      ostr.writeProxy(iceP_if);

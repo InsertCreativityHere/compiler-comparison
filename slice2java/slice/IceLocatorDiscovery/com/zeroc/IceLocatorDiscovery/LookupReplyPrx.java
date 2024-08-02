@@ -73,7 +73,7 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_foundLocatorAsync(com.zeroc.Ice.LocatorPrx iceP_prx, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "foundLocator", null, sync, null);
-        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(false, context, null, ostr -> {
                      ostr.writeProxy(iceP_prx);
                  }, null);
         return f;

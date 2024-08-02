@@ -188,7 +188,7 @@ Ice.defineOperations(
         [
             IceMX.UnknownMetricsView
         ], , ],
-        "getMetricsView": [, , 2, [IceMX.MetricsViewHelper], [[7]], [[4]],
+        "getMetricsView": [, , 1, [IceMX.MetricsViewHelper], [[7]], [[4]],
         [
             IceMX.UnknownMetricsView
         ], , true],

@@ -631,7 +631,7 @@ extension Initial {
 
         let iceP_returnValue = try self.getNoNamespaceC2AsC1(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()
@@ -644,7 +644,7 @@ extension Initial {
 
         let iceP_returnValue = try self.getNoNamespaceC2AsC2(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()
@@ -681,7 +681,7 @@ extension Initial {
 
         let iceP_returnValue = try self.getWithNamespaceC2AsC1(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()
@@ -694,7 +694,7 @@ extension Initial {
 
         let iceP_returnValue = try self.getWithNamespaceC2AsC2(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()

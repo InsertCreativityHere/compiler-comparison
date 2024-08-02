@@ -60,7 +60,7 @@ public interface MyDerivedClass extends MyClass
             {
                 ostr.writeProxy(value);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     @Override

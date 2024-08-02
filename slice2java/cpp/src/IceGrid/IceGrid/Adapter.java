@@ -80,7 +80,7 @@ public interface Adapter extends com.zeroc.Ice.Object
             {
                 ostr.writeProxy(value);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -91,7 +91,7 @@ public interface Adapter extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         com.zeroc.Ice.ObjectPrx ret = obj.getDirectProxy(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeProxy(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));

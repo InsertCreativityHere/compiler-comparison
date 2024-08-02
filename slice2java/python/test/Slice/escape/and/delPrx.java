@@ -47,7 +47,7 @@ public interface delPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_elifAsync(int iceP_else, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "elif", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeInt(iceP_else);
                  }, istr -> {
                      int ret;

@@ -46,7 +46,7 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<ConcreteClass> _iceI_getConcreteClassAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<ConcreteClass> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getConcreteClass", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
+        f.invoke(true, context, null, null, istr -> {
                      final com.zeroc.IceInternal.Holder<ConcreteClass> ret = new com.zeroc.IceInternal.Holder<>();
                      istr.readValue(v -> ret.value = v, ConcreteClass.class);
                      istr.readPendingValues();
@@ -97,7 +97,7 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_throwExceptionAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwException", null, sync, _iceE_throwException);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(true, context, null, null, null);
         return f;
     }
 
@@ -136,7 +136,7 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
-        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(false, context, null, null, null);
         return f;
     }
 

@@ -201,7 +201,7 @@ extension TestFacet {
 
         let iceP_returnValue = try self.getChanges(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         Ice.PropertyDictHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)

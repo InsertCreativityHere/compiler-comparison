@@ -340,7 +340,7 @@ extension PropertiesAdmin {
 
         let iceP_returnValue = try self.getProperty(key: iceP_key, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -354,7 +354,7 @@ extension PropertiesAdmin {
 
         let iceP_returnValue = try self.getPropertiesForPrefix(prefix: iceP_prefix, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         PropertyDictHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)

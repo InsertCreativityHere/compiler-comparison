@@ -46,7 +46,7 @@ public interface ServerPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_noCertAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "noCert", null, sync, null);
-        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(false, context, null, null, null);
         return f;
     }
 
@@ -81,7 +81,7 @@ public interface ServerPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_checkCertAsync(String iceP_subjectDN, String iceP_issuerDN, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "checkCert", null, sync, null);
-        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_subjectDN);
                      ostr.writeString(iceP_issuerDN);
                  }, null);
@@ -118,7 +118,7 @@ public interface ServerPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_checkCipherAsync(String iceP_cipher, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "checkCipher", null, sync, null);
-        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_cipher);
                  }, null);
         return f;

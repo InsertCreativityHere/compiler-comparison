@@ -350,18 +350,18 @@ namespace Test
     global $Test__t_C1;
     global $Test__t_S1Seq;
     global $Test__t_S1Map;
-    IcePHP_defineOperation($Test__t_IPrx, 'opS', 0, 0, array(array($Test__t_S)), array(array($Test__t_S)), array($Test__t_S), null);
-    IcePHP_defineOperation($Test__t_IPrx, 'opSSeq', 0, 0, array(array($Test__t_SSeq)), array(array($Test__t_SSeq)), array($Test__t_SSeq), null);
-    IcePHP_defineOperation($Test__t_IPrx, 'opSMap', 0, 0, array(array($Test__t_SMap)), array(array($Test__t_SMap)), array($Test__t_SMap), null);
-    IcePHP_defineOperation($Test__t_IPrx, 'opC', 0, 0, array(array($Test__t_C)), array(array($Test__t_C)), array($Test__t_C), null);
-    IcePHP_defineOperation($Test__t_IPrx, 'opCSeq', 0, 0, array(array($Test__t_CSeq)), array(array($Test__t_CSeq)), array($Test__t_CSeq), null);
-    IcePHP_defineOperation($Test__t_IPrx, 'opCMap', 0, 0, array(array($Test__t_CMap)), array(array($Test__t_CMap)), array($Test__t_CMap), null);
-    IcePHP_defineOperation($Test__t_IPrx, 'opE1', 0, 0, array(array($Test__t_E1)), null, array($Test__t_E1), null);
-    IcePHP_defineOperation($Test__t_IPrx, 'opS1', 0, 0, array(array($Test__t_S1)), null, array($Test__t_S1), null);
-    IcePHP_defineOperation($Test__t_IPrx, 'opC1', 0, 0, array(array($Test__t_C1)), null, array($Test__t_C1), null);
-    IcePHP_defineOperation($Test__t_IPrx, 'opS1Seq', 0, 0, array(array($Test__t_S1Seq)), null, array($Test__t_S1Seq), null);
-    IcePHP_defineOperation($Test__t_IPrx, 'opS1Map', 0, 0, array(array($Test__t_S1Map)), null, array($Test__t_S1Map), null);
-    IcePHP_defineOperation($Test__t_IPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_IPrx, 'opS', 0, -1, array(array($Test__t_S)), array(array($Test__t_S)), array($Test__t_S), null);
+    IcePHP_defineOperation($Test__t_IPrx, 'opSSeq', 0, -1, array(array($Test__t_SSeq)), array(array($Test__t_SSeq)), array($Test__t_SSeq), null);
+    IcePHP_defineOperation($Test__t_IPrx, 'opSMap', 0, -1, array(array($Test__t_SMap)), array(array($Test__t_SMap)), array($Test__t_SMap), null);
+    IcePHP_defineOperation($Test__t_IPrx, 'opC', 0, -1, array(array($Test__t_C)), array(array($Test__t_C)), array($Test__t_C), null);
+    IcePHP_defineOperation($Test__t_IPrx, 'opCSeq', 0, -1, array(array($Test__t_CSeq)), array(array($Test__t_CSeq)), array($Test__t_CSeq), null);
+    IcePHP_defineOperation($Test__t_IPrx, 'opCMap', 0, -1, array(array($Test__t_CMap)), array(array($Test__t_CMap)), array($Test__t_CMap), null);
+    IcePHP_defineOperation($Test__t_IPrx, 'opE1', 0, -1, array(array($Test__t_E1)), null, array($Test__t_E1), null);
+    IcePHP_defineOperation($Test__t_IPrx, 'opS1', 0, -1, array(array($Test__t_S1)), null, array($Test__t_S1), null);
+    IcePHP_defineOperation($Test__t_IPrx, 'opC1', 0, -1, array(array($Test__t_C1)), null, array($Test__t_C1), null);
+    IcePHP_defineOperation($Test__t_IPrx, 'opS1Seq', 0, -1, array(array($Test__t_S1Seq)), null, array($Test__t_S1Seq), null);
+    IcePHP_defineOperation($Test__t_IPrx, 'opS1Map', 0, -1, array(array($Test__t_S1Map)), null, array($Test__t_S1Map), null);
+    IcePHP_defineOperation($Test__t_IPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 
 namespace Test
@@ -553,13 +553,13 @@ namespace Test\Inner\Inner2
     global $Test_Inner_Inner2__t_C;
     global $Test_Inner_Inner2__t_CSeq;
     global $Test_Inner_Inner2__t_CMap;
-    IcePHP_defineOperation($Test_Inner_Inner2__t_IPrx, 'opS', 0, 0, array(array($Test_Inner_Inner2__t_S)), array(array($Test_Inner_Inner2__t_S)), array($Test_Inner_Inner2__t_S), null);
-    IcePHP_defineOperation($Test_Inner_Inner2__t_IPrx, 'opSSeq', 0, 0, array(array($Test_Inner_Inner2__t_SSeq)), array(array($Test_Inner_Inner2__t_SSeq)), array($Test_Inner_Inner2__t_SSeq), null);
-    IcePHP_defineOperation($Test_Inner_Inner2__t_IPrx, 'opSMap', 0, 0, array(array($Test_Inner_Inner2__t_SMap)), array(array($Test_Inner_Inner2__t_SMap)), array($Test_Inner_Inner2__t_SMap), null);
-    IcePHP_defineOperation($Test_Inner_Inner2__t_IPrx, 'opC', 0, 0, array(array($Test_Inner_Inner2__t_C)), array(array($Test_Inner_Inner2__t_C)), array($Test_Inner_Inner2__t_C), null);
-    IcePHP_defineOperation($Test_Inner_Inner2__t_IPrx, 'opCSeq', 0, 0, array(array($Test_Inner_Inner2__t_CSeq)), array(array($Test_Inner_Inner2__t_CSeq)), array($Test_Inner_Inner2__t_CSeq), null);
-    IcePHP_defineOperation($Test_Inner_Inner2__t_IPrx, 'opCMap', 0, 0, array(array($Test_Inner_Inner2__t_CMap)), array(array($Test_Inner_Inner2__t_CMap)), array($Test_Inner_Inner2__t_CMap), null);
-    IcePHP_defineOperation($Test_Inner_Inner2__t_IPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test_Inner_Inner2__t_IPrx, 'opS', 0, -1, array(array($Test_Inner_Inner2__t_S)), array(array($Test_Inner_Inner2__t_S)), array($Test_Inner_Inner2__t_S), null);
+    IcePHP_defineOperation($Test_Inner_Inner2__t_IPrx, 'opSSeq', 0, -1, array(array($Test_Inner_Inner2__t_SSeq)), array(array($Test_Inner_Inner2__t_SSeq)), array($Test_Inner_Inner2__t_SSeq), null);
+    IcePHP_defineOperation($Test_Inner_Inner2__t_IPrx, 'opSMap', 0, -1, array(array($Test_Inner_Inner2__t_SMap)), array(array($Test_Inner_Inner2__t_SMap)), array($Test_Inner_Inner2__t_SMap), null);
+    IcePHP_defineOperation($Test_Inner_Inner2__t_IPrx, 'opC', 0, -1, array(array($Test_Inner_Inner2__t_C)), array(array($Test_Inner_Inner2__t_C)), array($Test_Inner_Inner2__t_C), null);
+    IcePHP_defineOperation($Test_Inner_Inner2__t_IPrx, 'opCSeq', 0, -1, array(array($Test_Inner_Inner2__t_CSeq)), array(array($Test_Inner_Inner2__t_CSeq)), array($Test_Inner_Inner2__t_CSeq), null);
+    IcePHP_defineOperation($Test_Inner_Inner2__t_IPrx, 'opCMap', 0, -1, array(array($Test_Inner_Inner2__t_CMap)), array(array($Test_Inner_Inner2__t_CMap)), array($Test_Inner_Inner2__t_CMap), null);
+    IcePHP_defineOperation($Test_Inner_Inner2__t_IPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 
 namespace Test\Inner\Inner2
@@ -703,13 +703,13 @@ namespace Test\Inner
     global $Test_Inner_Inner2__t_C;
     global $Test_Inner_Inner2__t_CSeq;
     global $Test_Inner_Inner2__t_CMap;
-    IcePHP_defineOperation($Test_Inner__t_IPrx, 'opS', 0, 0, array(array($Test_Inner_Inner2__t_S)), array(array($Test_Inner_Inner2__t_S)), array($Test_Inner_Inner2__t_S), null);
-    IcePHP_defineOperation($Test_Inner__t_IPrx, 'opSSeq', 0, 0, array(array($Test_Inner_Inner2__t_SSeq)), array(array($Test_Inner_Inner2__t_SSeq)), array($Test_Inner_Inner2__t_SSeq), null);
-    IcePHP_defineOperation($Test_Inner__t_IPrx, 'opSMap', 0, 0, array(array($Test_Inner_Inner2__t_SMap)), array(array($Test_Inner_Inner2__t_SMap)), array($Test_Inner_Inner2__t_SMap), null);
-    IcePHP_defineOperation($Test_Inner__t_IPrx, 'opC', 0, 0, array(array($Test_Inner_Inner2__t_C)), array(array($Test_Inner_Inner2__t_C)), array($Test_Inner_Inner2__t_C), null);
-    IcePHP_defineOperation($Test_Inner__t_IPrx, 'opCSeq', 0, 0, array(array($Test_Inner_Inner2__t_CSeq)), array(array($Test_Inner_Inner2__t_CSeq)), array($Test_Inner_Inner2__t_CSeq), null);
-    IcePHP_defineOperation($Test_Inner__t_IPrx, 'opCMap', 0, 0, array(array($Test_Inner_Inner2__t_CMap)), array(array($Test_Inner_Inner2__t_CMap)), array($Test_Inner_Inner2__t_CMap), null);
-    IcePHP_defineOperation($Test_Inner__t_IPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test_Inner__t_IPrx, 'opS', 0, -1, array(array($Test_Inner_Inner2__t_S)), array(array($Test_Inner_Inner2__t_S)), array($Test_Inner_Inner2__t_S), null);
+    IcePHP_defineOperation($Test_Inner__t_IPrx, 'opSSeq', 0, -1, array(array($Test_Inner_Inner2__t_SSeq)), array(array($Test_Inner_Inner2__t_SSeq)), array($Test_Inner_Inner2__t_SSeq), null);
+    IcePHP_defineOperation($Test_Inner__t_IPrx, 'opSMap', 0, -1, array(array($Test_Inner_Inner2__t_SMap)), array(array($Test_Inner_Inner2__t_SMap)), array($Test_Inner_Inner2__t_SMap), null);
+    IcePHP_defineOperation($Test_Inner__t_IPrx, 'opC', 0, -1, array(array($Test_Inner_Inner2__t_C)), array(array($Test_Inner_Inner2__t_C)), array($Test_Inner_Inner2__t_C), null);
+    IcePHP_defineOperation($Test_Inner__t_IPrx, 'opCSeq', 0, -1, array(array($Test_Inner_Inner2__t_CSeq)), array(array($Test_Inner_Inner2__t_CSeq)), array($Test_Inner_Inner2__t_CSeq), null);
+    IcePHP_defineOperation($Test_Inner__t_IPrx, 'opCMap', 0, -1, array(array($Test_Inner_Inner2__t_CMap)), array(array($Test_Inner_Inner2__t_CMap)), array($Test_Inner_Inner2__t_CMap), null);
+    IcePHP_defineOperation($Test_Inner__t_IPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 
 namespace Test\Inner
@@ -772,12 +772,12 @@ namespace Inner\Test\Inner2
     global $Test__t_C;
     global $Test__t_CSeq;
     global $Test__t_CMap;
-    IcePHP_defineOperation($Inner_Test_Inner2__t_IPrx, 'opS', 0, 0, array(array($Test__t_S)), array(array($Test__t_S)), array($Test__t_S), null);
-    IcePHP_defineOperation($Inner_Test_Inner2__t_IPrx, 'opSSeq', 0, 0, array(array($Test__t_SSeq)), array(array($Test__t_SSeq)), array($Test__t_SSeq), null);
-    IcePHP_defineOperation($Inner_Test_Inner2__t_IPrx, 'opSMap', 0, 0, array(array($Test__t_SMap)), array(array($Test__t_SMap)), array($Test__t_SMap), null);
-    IcePHP_defineOperation($Inner_Test_Inner2__t_IPrx, 'opC', 0, 0, array(array($Test__t_C)), array(array($Test__t_C)), array($Test__t_C), null);
-    IcePHP_defineOperation($Inner_Test_Inner2__t_IPrx, 'opCSeq', 0, 0, array(array($Test__t_CSeq)), array(array($Test__t_CSeq)), array($Test__t_CSeq), null);
-    IcePHP_defineOperation($Inner_Test_Inner2__t_IPrx, 'opCMap', 0, 0, array(array($Test__t_CMap)), array(array($Test__t_CMap)), array($Test__t_CMap), null);
-    IcePHP_defineOperation($Inner_Test_Inner2__t_IPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Inner_Test_Inner2__t_IPrx, 'opS', 0, -1, array(array($Test__t_S)), array(array($Test__t_S)), array($Test__t_S), null);
+    IcePHP_defineOperation($Inner_Test_Inner2__t_IPrx, 'opSSeq', 0, -1, array(array($Test__t_SSeq)), array(array($Test__t_SSeq)), array($Test__t_SSeq), null);
+    IcePHP_defineOperation($Inner_Test_Inner2__t_IPrx, 'opSMap', 0, -1, array(array($Test__t_SMap)), array(array($Test__t_SMap)), array($Test__t_SMap), null);
+    IcePHP_defineOperation($Inner_Test_Inner2__t_IPrx, 'opC', 0, -1, array(array($Test__t_C)), array(array($Test__t_C)), array($Test__t_C), null);
+    IcePHP_defineOperation($Inner_Test_Inner2__t_IPrx, 'opCSeq', 0, -1, array(array($Test__t_CSeq)), array(array($Test__t_CSeq)), array($Test__t_CSeq), null);
+    IcePHP_defineOperation($Inner_Test_Inner2__t_IPrx, 'opCMap', 0, -1, array(array($Test__t_CMap)), array(array($Test__t_CMap)), array($Test__t_CMap), null);
+    IcePHP_defineOperation($Inner_Test_Inner2__t_IPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 ?>

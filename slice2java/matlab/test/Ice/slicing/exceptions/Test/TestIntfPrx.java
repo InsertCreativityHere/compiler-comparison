@@ -59,7 +59,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_baseAsBaseAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "baseAsBase", null, sync, _iceE_baseAsBase);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(true, context, null, null, null);
         return f;
     }
 
@@ -111,7 +111,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_unknownDerivedAsBaseAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "unknownDerivedAsBase", null, sync, _iceE_unknownDerivedAsBase);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(true, context, null, null, null);
         return f;
     }
 
@@ -163,7 +163,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_knownDerivedAsBaseAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "knownDerivedAsBase", null, sync, _iceE_knownDerivedAsBase);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(true, context, null, null, null);
         return f;
     }
 
@@ -215,7 +215,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_knownDerivedAsKnownDerivedAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "knownDerivedAsKnownDerived", null, sync, _iceE_knownDerivedAsKnownDerived);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(true, context, null, null, null);
         return f;
     }
 
@@ -267,7 +267,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_unknownIntermediateAsBaseAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "unknownIntermediateAsBase", null, sync, _iceE_unknownIntermediateAsBase);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(true, context, null, null, null);
         return f;
     }
 
@@ -319,7 +319,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_knownIntermediateAsBaseAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "knownIntermediateAsBase", null, sync, _iceE_knownIntermediateAsBase);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(true, context, null, null, null);
         return f;
     }
 
@@ -371,7 +371,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_knownMostDerivedAsBaseAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "knownMostDerivedAsBase", null, sync, _iceE_knownMostDerivedAsBase);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(true, context, null, null, null);
         return f;
     }
 
@@ -423,7 +423,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_knownIntermediateAsKnownIntermediateAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "knownIntermediateAsKnownIntermediate", null, sync, _iceE_knownIntermediateAsKnownIntermediate);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(true, context, null, null, null);
         return f;
     }
 
@@ -475,7 +475,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_knownMostDerivedAsKnownIntermediateAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "knownMostDerivedAsKnownIntermediate", null, sync, _iceE_knownMostDerivedAsKnownIntermediate);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(true, context, null, null, null);
         return f;
     }
 
@@ -527,7 +527,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_knownMostDerivedAsKnownMostDerivedAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "knownMostDerivedAsKnownMostDerived", null, sync, _iceE_knownMostDerivedAsKnownMostDerived);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(true, context, null, null, null);
         return f;
     }
 
@@ -579,7 +579,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_unknownMostDerived1AsBaseAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "unknownMostDerived1AsBase", null, sync, _iceE_unknownMostDerived1AsBase);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(true, context, null, null, null);
         return f;
     }
 
@@ -631,7 +631,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_unknownMostDerived1AsKnownIntermediateAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "unknownMostDerived1AsKnownIntermediate", null, sync, _iceE_unknownMostDerived1AsKnownIntermediate);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(true, context, null, null, null);
         return f;
     }
 
@@ -683,7 +683,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_unknownMostDerived2AsBaseAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "unknownMostDerived2AsBase", null, sync, _iceE_unknownMostDerived2AsBase);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(true, context, null, null, null);
         return f;
     }
 
@@ -787,7 +787,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_knownPreservedAsBaseAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "knownPreservedAsBase", null, sync, _iceE_knownPreservedAsBase);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(true, context, null, null, null);
         return f;
     }
 
@@ -839,7 +839,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_knownPreservedAsKnownPreservedAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "knownPreservedAsKnownPreserved", null, sync, _iceE_knownPreservedAsKnownPreserved);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(true, context, null, null, null);
         return f;
     }
 
@@ -892,7 +892,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_relayKnownPreservedAsBaseAsync(RelayPrx iceP_r, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "relayKnownPreservedAsBase", null, sync, _iceE_relayKnownPreservedAsBase);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeProxy(iceP_r);
                  }, null);
         return f;
@@ -947,7 +947,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_relayKnownPreservedAsKnownPreservedAsync(RelayPrx iceP_r, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "relayKnownPreservedAsKnownPreserved", null, sync, _iceE_relayKnownPreservedAsKnownPreserved);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeProxy(iceP_r);
                  }, null);
         return f;
@@ -1001,7 +1001,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_unknownPreservedAsBaseAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "unknownPreservedAsBase", null, sync, _iceE_unknownPreservedAsBase);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(true, context, null, null, null);
         return f;
     }
 
@@ -1053,7 +1053,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_unknownPreservedAsKnownPreservedAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "unknownPreservedAsKnownPreserved", null, sync, _iceE_unknownPreservedAsKnownPreserved);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(true, context, null, null, null);
         return f;
     }
 
@@ -1106,7 +1106,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_relayUnknownPreservedAsBaseAsync(RelayPrx iceP_r, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "relayUnknownPreservedAsBase", null, sync, _iceE_relayUnknownPreservedAsBase);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeProxy(iceP_r);
                  }, null);
         return f;
@@ -1161,7 +1161,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_relayUnknownPreservedAsKnownPreservedAsync(RelayPrx iceP_r, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "relayUnknownPreservedAsKnownPreserved", null, sync, _iceE_relayUnknownPreservedAsKnownPreserved);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeProxy(iceP_r);
                  }, null);
         return f;
@@ -1202,7 +1202,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
-        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(false, context, null, null, null);
         return f;
     }
 

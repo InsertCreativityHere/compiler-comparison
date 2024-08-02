@@ -289,7 +289,7 @@ extension TestIntf {
 
         let iceP_returnValue = try self.getEndpointInfoAsContext(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         Ice.ContextHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -301,7 +301,7 @@ extension TestIntf {
 
         let iceP_returnValue = try self.getConnectionInfoAsContext(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         Ice.ContextHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)

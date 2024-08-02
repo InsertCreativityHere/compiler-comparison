@@ -1118,7 +1118,7 @@ extension Locator {
         let iceP_id: Identity = try istr.read()
         let result = try await self.findObjectByIdAsync(
             id: iceP_id, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }
@@ -1131,7 +1131,7 @@ extension Locator {
         let iceP_id: Swift.String = try istr.read()
         let result = try await self.findAdapterByIdAsync(
             id: iceP_id, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }
@@ -1143,7 +1143,7 @@ extension Locator {
 
         let iceP_returnValue = try self.getRegistry(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -1212,7 +1212,7 @@ extension LocatorFinder {
 
         let iceP_returnValue = try self.getLocator(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)

@@ -70,7 +70,7 @@ public interface RemoteCommunicator extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         com.zeroc.Ice.ObjectPrx ret = obj.getAdmin(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeProxy(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -83,7 +83,7 @@ public interface RemoteCommunicator extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         java.util.Map<java.lang.String, java.lang.String> ret = obj.getChanges(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         com.zeroc.Ice.PropertyDictHelper.write(ostr, ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));

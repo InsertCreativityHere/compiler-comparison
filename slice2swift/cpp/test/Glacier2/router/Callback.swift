@@ -859,7 +859,7 @@ extension CallbackReceiver {
         let iceP_number: Swift.Int32 = try istr.read()
         let result = try await self.concurrentCallbackAsync(
             number: iceP_number, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }
@@ -928,7 +928,7 @@ extension Callback {
         let iceP_proxy: CallbackReceiverPrx? = try istr.read(CallbackReceiverPrx.self)
         let result = try await self.initiateConcurrentCallbackAsync(
             number: iceP_number, proxy: iceP_proxy, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }

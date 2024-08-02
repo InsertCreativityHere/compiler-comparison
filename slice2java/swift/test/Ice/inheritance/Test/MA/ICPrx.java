@@ -48,7 +48,7 @@ public interface ICPrx extends Test.MB.IB1Prx,
     default com.zeroc.IceInternal.OutgoingAsync<ICPrx> _iceI_icopAsync(ICPrx iceP_p, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<ICPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "icop", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeProxy(iceP_p);
                  }, istr -> {
                      ICPrx ret;

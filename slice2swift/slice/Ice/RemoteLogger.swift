@@ -1018,7 +1018,7 @@ extension LoggerAdmin {
 
         let iceP_returnValue = try self.detachRemoteLogger(prx: iceP_prx, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -1034,7 +1034,7 @@ extension LoggerAdmin {
 
         let (iceP_returnValue, iceP_prefix) = try self.getLog(messageTypes: iceP_messageTypes, traceCategories: iceP_traceCategories, messageMax: iceP_messageMax, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_prefix)
         LogMessageSeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()

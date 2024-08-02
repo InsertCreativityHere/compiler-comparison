@@ -51,7 +51,7 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_PingReplyPrx = IcePHP_defineProxy('::Test::PingReply', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($Test__t_PingReplyPrx, 'reply', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_PingReplyPrx, 'reply', 0, -1, null, null, null, null);
 }
 
 namespace Test
@@ -99,9 +99,9 @@ namespace Test
     global $Test__t_PingReplyPrx;
     global $Test__t_ByteSeq;
     global $Ice__t_Identity;
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'ping', 0, 0, array(array($Test__t_PingReplyPrx)), null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'sendByteSeq', 0, 0, array(array($Test__t_ByteSeq), array($Test__t_PingReplyPrx)), null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'pingBiDir', 0, 0, array(array($Ice__t_Identity)), null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'ping', 0, -1, array(array($Test__t_PingReplyPrx)), null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'sendByteSeq', 0, -1, array(array($Test__t_ByteSeq), array($Test__t_PingReplyPrx)), null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'pingBiDir', 0, -1, array(array($Ice__t_Identity)), null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 ?>

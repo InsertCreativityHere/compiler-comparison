@@ -934,7 +934,7 @@ extension Callback {
 
         let iceP_returnValue = try self.getCount(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -954,7 +954,7 @@ extension Callback {
 
         let iceP_returnValue = try self.getDatagramCount(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -1002,7 +1002,7 @@ extension MyClass {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.getCallbackCountAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }
@@ -1034,7 +1034,7 @@ extension MyClass {
 
         let iceP_returnValue = try self.getConnectionCount(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -1046,7 +1046,7 @@ extension MyClass {
 
         let iceP_returnValue = try self.getConnectionInfo(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -1076,7 +1076,7 @@ extension MyClass {
 
         let iceP_returnValue = try self.getDatagramCount(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -1095,7 +1095,7 @@ extension MyClass {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.getCallbackDatagramCountAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }

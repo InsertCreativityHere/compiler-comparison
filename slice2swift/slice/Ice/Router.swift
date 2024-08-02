@@ -523,7 +523,7 @@ extension Router {
 
         let (iceP_returnValue, iceP_hasRoutingTable) = try self.getClientProxy(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.write(tag: 1, value: iceP_hasRoutingTable)
         ostr.endEncapsulation()
@@ -536,7 +536,7 @@ extension Router {
 
         let iceP_returnValue = try self.getServerProxy(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -550,7 +550,7 @@ extension Router {
 
         let iceP_returnValue = try self.addProxies(proxies: iceP_proxies, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ObjectProxySeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -571,7 +571,7 @@ extension RouterFinder {
 
         let iceP_returnValue = try self.getRouter(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)

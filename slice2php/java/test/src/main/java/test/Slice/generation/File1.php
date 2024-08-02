@@ -46,7 +46,7 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_Interface1Prx = IcePHP_defineProxy('::Test::Interface1', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($Test__t_Interface1Prx, 'method', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_Interface1Prx, 'method', 0, -1, null, null, null, null);
 }
 
 namespace Test2

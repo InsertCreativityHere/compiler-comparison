@@ -48,7 +48,7 @@ public interface functionPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_continueAsync(int iceP_declare, int iceP_default, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "continue", null, sync, null);
-        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(false, context, null, ostr -> {
                      ostr.writeInt(iceP_declare);
                      ostr.writeInt(iceP_default);
                  }, null);

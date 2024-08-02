@@ -816,7 +816,7 @@ extension MyClass {
         let iceP_i: SerialSmall = try istr.read()
         let result = try await self.opSerialSmallJavaAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -830,7 +830,7 @@ extension MyClass {
         let iceP_i: SerialLarge = try istr.read()
         let result = try await self.opSerialLargeJavaAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -844,7 +844,7 @@ extension MyClass {
         let iceP_i: SerialStruct = try istr.read()
         let result = try await self.opSerialStructJavaAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)

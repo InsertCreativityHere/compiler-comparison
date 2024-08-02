@@ -92,7 +92,7 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_initAsync(LogUpdate iceP_llu, TopicContent[] iceP_content, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "init", null, sync, _iceE_init);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      LogUpdate.ice_write(ostr, iceP_llu);
                      TopicContentSeqHelper.write(ostr, iceP_content);
                  }, null);
@@ -177,7 +177,7 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_createTopicAsync(LogUpdate iceP_llu, String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "createTopic", null, sync, _iceE_createTopic);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      LogUpdate.ice_write(ostr, iceP_llu);
                      ostr.writeString(iceP_name);
                  }, null);
@@ -262,7 +262,7 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_destroyTopicAsync(LogUpdate iceP_llu, String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "destroyTopic", null, sync, _iceE_destroyTopic);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      LogUpdate.ice_write(ostr, iceP_llu);
                      ostr.writeString(iceP_name);
                  }, null);
@@ -352,7 +352,7 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_addSubscriberAsync(LogUpdate iceP_llu, String iceP_topic, IceStorm.SubscriberRecord iceP_record, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "addSubscriber", null, sync, _iceE_addSubscriber);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      LogUpdate.ice_write(ostr, iceP_llu);
                      ostr.writeString(iceP_topic);
                      IceStorm.SubscriberRecord.ice_write(ostr, iceP_record);
@@ -437,7 +437,7 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_removeSubscriberAsync(LogUpdate iceP_llu, String iceP_topic, com.zeroc.Ice.Identity[] iceP_subscribers, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "removeSubscriber", null, sync, _iceE_removeSubscriber);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      LogUpdate.ice_write(ostr, iceP_llu);
                      ostr.writeString(iceP_topic);
                      com.zeroc.Ice.IdentitySeqHelper.write(ostr, iceP_subscribers);

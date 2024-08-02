@@ -55,7 +55,7 @@ public interface TestControllerPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<TestToken> _iceI_stepAsync(com.zeroc.Glacier2.SessionPrx iceP_currentSession, TestToken iceP_currentState, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<TestToken> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "step", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeProxy(iceP_currentSession);
                      TestToken.ice_write(ostr, iceP_currentState);
                  }, istr -> {
@@ -95,7 +95,7 @@ public interface TestControllerPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
-        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(false, context, null, null, null);
         return f;
     }
 

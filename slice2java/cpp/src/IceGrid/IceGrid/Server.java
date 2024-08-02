@@ -152,7 +152,7 @@ public interface Server extends FileReader
         InternalServerDescriptor iceP_svr = icePP_svr.value;
         boolean ret = obj.checkUpdate(iceP_svr, iceP_noRestart, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeBool(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -178,7 +178,7 @@ public interface Server extends FileReader
         request.inputStream.skipEmptyEncapsulation();
         boolean ret = obj.isEnabled(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeBool(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -220,7 +220,7 @@ public interface Server extends FileReader
         request.inputStream.skipEmptyEncapsulation();
         com.zeroc.IceGrid.ServerState ret = obj.getState(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         com.zeroc.IceGrid.ServerState.ice_write(ostr, ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -233,7 +233,7 @@ public interface Server extends FileReader
         request.inputStream.skipEmptyEncapsulation();
         int ret = obj.getPid(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeInt(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));

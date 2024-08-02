@@ -66,7 +66,7 @@ public interface TestCase extends com.zeroc.Ice.Object
         Config iceP_config = icePP_config.value;
         String ret = obj.startServerSide(iceP_config, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeString(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -84,7 +84,7 @@ public interface TestCase extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         String ret = obj.stopServerSide(iceP_success, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeString(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -106,7 +106,7 @@ public interface TestCase extends com.zeroc.Ice.Object
         Config iceP_config = icePP_config.value;
         String ret = obj.runClientSide(iceP_host, iceP_config, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeString(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));

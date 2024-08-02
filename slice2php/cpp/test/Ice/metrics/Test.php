@@ -79,15 +79,15 @@ namespace Test
 
     global $Test__t_ByteSeq;
     global $Ice__t_ObjectPrx;
-    IcePHP_defineOperation($Test__t_MetricsPrx, 'op', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_MetricsPrx, 'fail', 2, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_MetricsPrx, 'opWithUserException', 0, 0, null, null, null, array($Test__t_UserEx));
-    IcePHP_defineOperation($Test__t_MetricsPrx, 'opWithRequestFailedException', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_MetricsPrx, 'opWithLocalException', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_MetricsPrx, 'opWithUnknownException', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_MetricsPrx, 'opByteS', 0, 0, array(array($Test__t_ByteSeq)), null, null, null);
-    IcePHP_defineOperation($Test__t_MetricsPrx, 'getAdmin', 0, 0, null, null, array($Ice__t_ObjectPrx), null);
-    IcePHP_defineOperation($Test__t_MetricsPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_MetricsPrx, 'op', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_MetricsPrx, 'fail', 2, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_MetricsPrx, 'opWithUserException', 0, -1, null, null, null, array($Test__t_UserEx));
+    IcePHP_defineOperation($Test__t_MetricsPrx, 'opWithRequestFailedException', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_MetricsPrx, 'opWithLocalException', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_MetricsPrx, 'opWithUnknownException', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_MetricsPrx, 'opByteS', 0, -1, array(array($Test__t_ByteSeq)), null, null, null);
+    IcePHP_defineOperation($Test__t_MetricsPrx, 'getAdmin', 0, -1, null, null, array($Ice__t_ObjectPrx), null);
+    IcePHP_defineOperation($Test__t_MetricsPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 
 namespace Test
@@ -121,7 +121,7 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_ControllerPrx = IcePHP_defineProxy('::Test::Controller', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($Test__t_ControllerPrx, 'hold', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_ControllerPrx, 'resume', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_ControllerPrx, 'hold', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_ControllerPrx, 'resume', 0, -1, null, null, null, null);
 }
 ?>

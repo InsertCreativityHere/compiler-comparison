@@ -1219,7 +1219,7 @@ public interface Initial extends com.zeroc.Ice.Object
         public OpMStruct1MarshaledResult(java.util.Optional<SmallStruct> returnValue, com.zeroc.Ice.Current current)
         {
             _ostr = current.startReplyStream();
-            _ostr.startEncapsulation(current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+            _ostr.startEncapsulation(current.encoding, null);
             SmallStruct.ice_write(_ostr, 1, returnValue);
             _ostr.endEncapsulation();
         }
@@ -1286,7 +1286,7 @@ public interface Initial extends com.zeroc.Ice.Object
         public OpMStruct2MarshaledResult(java.util.Optional<SmallStruct> returnValue, java.util.Optional<SmallStruct> p2, com.zeroc.Ice.Current current)
         {
             _ostr = current.startReplyStream();
-            _ostr.startEncapsulation(current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+            _ostr.startEncapsulation(current.encoding, null);
             SmallStruct.ice_write(_ostr, 1, returnValue);
             SmallStruct.ice_write(_ostr, 3, p2);
             _ostr.endEncapsulation();
@@ -1314,7 +1314,7 @@ public interface Initial extends com.zeroc.Ice.Object
         public OpMSeq1MarshaledResult(java.util.Optional<String[]> returnValue, com.zeroc.Ice.Current current)
         {
             _ostr = current.startReplyStream();
-            _ostr.startEncapsulation(current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+            _ostr.startEncapsulation(current.encoding, null);
             _ostr.writeStringSeq(1, returnValue);
             _ostr.endEncapsulation();
         }
@@ -1381,7 +1381,7 @@ public interface Initial extends com.zeroc.Ice.Object
         public OpMSeq2MarshaledResult(java.util.Optional<String[]> returnValue, java.util.Optional<String[]> p2, com.zeroc.Ice.Current current)
         {
             _ostr = current.startReplyStream();
-            _ostr.startEncapsulation(current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+            _ostr.startEncapsulation(current.encoding, null);
             _ostr.writeStringSeq(1, returnValue);
             _ostr.writeStringSeq(3, p2);
             _ostr.endEncapsulation();
@@ -1409,7 +1409,7 @@ public interface Initial extends com.zeroc.Ice.Object
         public OpMDict1MarshaledResult(java.util.Optional<java.util.Map<java.lang.String, java.lang.Integer>> returnValue, com.zeroc.Ice.Current current)
         {
             _ostr = current.startReplyStream();
-            _ostr.startEncapsulation(current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+            _ostr.startEncapsulation(current.encoding, null);
             StringIntDictHelper.write(_ostr, 1, returnValue);
             _ostr.endEncapsulation();
         }
@@ -1476,7 +1476,7 @@ public interface Initial extends com.zeroc.Ice.Object
         public OpMDict2MarshaledResult(java.util.Optional<java.util.Map<java.lang.String, java.lang.Integer>> returnValue, java.util.Optional<java.util.Map<java.lang.String, java.lang.Integer>> p2, com.zeroc.Ice.Current current)
         {
             _ostr = current.startReplyStream();
-            _ostr.startEncapsulation(current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+            _ostr.startEncapsulation(current.encoding, null);
             StringIntDictHelper.write(_ostr, 1, returnValue);
             StringIntDictHelper.write(_ostr, 3, p2);
             _ostr.endEncapsulation();
@@ -1641,7 +1641,7 @@ public interface Initial extends com.zeroc.Ice.Object
                 ostr.writeValue(value);
                 ostr.writePendingValues();
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -1708,7 +1708,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -1727,7 +1727,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -1746,7 +1746,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -1765,7 +1765,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -1784,7 +1784,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -1803,7 +1803,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -1822,7 +1822,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -1841,7 +1841,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -1860,7 +1860,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -1879,7 +1879,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -1898,7 +1898,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -1917,7 +1917,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -1936,7 +1936,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -1958,7 +1958,7 @@ public interface Initial extends com.zeroc.Ice.Object
                 value.write(ostr);
                 ostr.writePendingValues();
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -1977,7 +1977,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -1996,7 +1996,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -2015,7 +2015,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -2034,7 +2034,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -2053,7 +2053,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -2072,7 +2072,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -2091,7 +2091,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -2110,7 +2110,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -2129,7 +2129,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -2148,7 +2148,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -2167,7 +2167,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -2186,7 +2186,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -2205,7 +2205,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -2224,7 +2224,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -2243,7 +2243,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -2262,7 +2262,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -2299,7 +2299,7 @@ public interface Initial extends com.zeroc.Ice.Object
                 ostr.writeValue(value);
                 ostr.writePendingValues();
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -2389,7 +2389,7 @@ public interface Initial extends com.zeroc.Ice.Object
             {
                 ostr.writeBool(value);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     @Override

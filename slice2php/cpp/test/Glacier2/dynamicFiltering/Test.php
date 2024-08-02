@@ -51,8 +51,8 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_BackendPrx = IcePHP_defineProxy('::Test::Backend', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($Test__t_BackendPrx, 'check', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_BackendPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_BackendPrx, 'check', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_BackendPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 
 namespace Test
@@ -143,8 +143,8 @@ namespace Test
 
     global $Glacier2__t_SessionPrx;
     global $Test__t_TestToken;
-    IcePHP_defineOperation($Test__t_TestControllerPrx, 'step', 0, 0, array(array($Glacier2__t_SessionPrx), array($Test__t_TestToken)), array(array($Test__t_TestToken)), null, null);
-    IcePHP_defineOperation($Test__t_TestControllerPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestControllerPrx, 'step', 0, -1, array(array($Glacier2__t_SessionPrx), array($Test__t_TestToken)), array(array($Test__t_TestToken)), null, null);
+    IcePHP_defineOperation($Test__t_TestControllerPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 
 namespace Test
@@ -178,6 +178,6 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_TestSessionPrx = IcePHP_defineProxy('::Test::TestSession', $Ice__t_ObjectPrx, array($Glacier2__t_SessionPrx));
 
-    IcePHP_defineOperation($Test__t_TestSessionPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestSessionPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 ?>

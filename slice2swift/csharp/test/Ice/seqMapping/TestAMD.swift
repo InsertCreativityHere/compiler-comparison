@@ -7724,7 +7724,7 @@ extension MyClass {
         let iceP_i: AByteS = try istr.read()
         let result = try await self.opAByteSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -7738,7 +7738,7 @@ extension MyClass {
         let iceP_i: LByteS = try istr.read()
         let result = try await self.opLByteSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -7752,7 +7752,7 @@ extension MyClass {
         let iceP_i: KByteS = try istr.read()
         let result = try await self.opKByteSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -7766,7 +7766,7 @@ extension MyClass {
         let iceP_i: QByteS = try istr.read()
         let result = try await self.opQByteSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -7780,7 +7780,7 @@ extension MyClass {
         let iceP_i: SByteS = try istr.read()
         let result = try await self.opSByteSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -7794,7 +7794,7 @@ extension MyClass {
         let iceP_i: ABoolS = try istr.read()
         let result = try await self.opABoolSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -7808,7 +7808,7 @@ extension MyClass {
         let iceP_i: LBoolS = try istr.read()
         let result = try await self.opLBoolSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -7822,7 +7822,7 @@ extension MyClass {
         let iceP_i: KBoolS = try istr.read()
         let result = try await self.opKBoolSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -7836,7 +7836,7 @@ extension MyClass {
         let iceP_i: QBoolS = try istr.read()
         let result = try await self.opQBoolSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -7850,7 +7850,7 @@ extension MyClass {
         let iceP_i: SBoolS = try istr.read()
         let result = try await self.opSBoolSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -7864,7 +7864,7 @@ extension MyClass {
         let iceP_i: AShortS = try istr.read()
         let result = try await self.opAShortSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -7878,7 +7878,7 @@ extension MyClass {
         let iceP_i: LShortS = try istr.read()
         let result = try await self.opLShortSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -7892,7 +7892,7 @@ extension MyClass {
         let iceP_i: KShortS = try istr.read()
         let result = try await self.opKShortSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -7906,7 +7906,7 @@ extension MyClass {
         let iceP_i: QShortS = try istr.read()
         let result = try await self.opQShortSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -7920,7 +7920,7 @@ extension MyClass {
         let iceP_i: SShortS = try istr.read()
         let result = try await self.opSShortSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -7934,7 +7934,7 @@ extension MyClass {
         let iceP_i: AIntS = try istr.read()
         let result = try await self.opAIntSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -7948,7 +7948,7 @@ extension MyClass {
         let iceP_i: LIntS = try istr.read()
         let result = try await self.opLIntSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -7962,7 +7962,7 @@ extension MyClass {
         let iceP_i: KIntS = try istr.read()
         let result = try await self.opKIntSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -7976,7 +7976,7 @@ extension MyClass {
         let iceP_i: QIntS = try istr.read()
         let result = try await self.opQIntSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -7990,7 +7990,7 @@ extension MyClass {
         let iceP_i: SIntS = try istr.read()
         let result = try await self.opSIntSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -8004,7 +8004,7 @@ extension MyClass {
         let iceP_i: ALongS = try istr.read()
         let result = try await self.opALongSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -8018,7 +8018,7 @@ extension MyClass {
         let iceP_i: LLongS = try istr.read()
         let result = try await self.opLLongSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -8032,7 +8032,7 @@ extension MyClass {
         let iceP_i: KLongS = try istr.read()
         let result = try await self.opKLongSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -8046,7 +8046,7 @@ extension MyClass {
         let iceP_i: QLongS = try istr.read()
         let result = try await self.opQLongSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -8060,7 +8060,7 @@ extension MyClass {
         let iceP_i: SLongS = try istr.read()
         let result = try await self.opSLongSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -8074,7 +8074,7 @@ extension MyClass {
         let iceP_i: AFloatS = try istr.read()
         let result = try await self.opAFloatSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -8088,7 +8088,7 @@ extension MyClass {
         let iceP_i: LFloatS = try istr.read()
         let result = try await self.opLFloatSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -8102,7 +8102,7 @@ extension MyClass {
         let iceP_i: KFloatS = try istr.read()
         let result = try await self.opKFloatSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -8116,7 +8116,7 @@ extension MyClass {
         let iceP_i: QFloatS = try istr.read()
         let result = try await self.opQFloatSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -8130,7 +8130,7 @@ extension MyClass {
         let iceP_i: SFloatS = try istr.read()
         let result = try await self.opSFloatSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -8144,7 +8144,7 @@ extension MyClass {
         let iceP_i: ADoubleS = try istr.read()
         let result = try await self.opADoubleSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -8158,7 +8158,7 @@ extension MyClass {
         let iceP_i: LDoubleS = try istr.read()
         let result = try await self.opLDoubleSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -8172,7 +8172,7 @@ extension MyClass {
         let iceP_i: KDoubleS = try istr.read()
         let result = try await self.opKDoubleSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -8186,7 +8186,7 @@ extension MyClass {
         let iceP_i: QDoubleS = try istr.read()
         let result = try await self.opQDoubleSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -8200,7 +8200,7 @@ extension MyClass {
         let iceP_i: SDoubleS = try istr.read()
         let result = try await self.opSDoubleSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -8214,7 +8214,7 @@ extension MyClass {
         let iceP_i: AStringS = try istr.read()
         let result = try await self.opAStringSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -8228,7 +8228,7 @@ extension MyClass {
         let iceP_i: LStringS = try istr.read()
         let result = try await self.opLStringSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -8242,7 +8242,7 @@ extension MyClass {
         let iceP_i: KStringS = try istr.read()
         let result = try await self.opKStringSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -8256,7 +8256,7 @@ extension MyClass {
         let iceP_i: QStringS = try istr.read()
         let result = try await self.opQStringSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -8270,7 +8270,7 @@ extension MyClass {
         let iceP_i: SStringS = try istr.read()
         let result = try await self.opSStringSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -8285,7 +8285,7 @@ extension MyClass {
         try istr.readPendingValues()
         let result = try await self.opAObjectSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             AObjectSHelper.write(to: ostr, value: iceP_o)
             AObjectSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8301,7 +8301,7 @@ extension MyClass {
         try istr.readPendingValues()
         let result = try await self.opLObjectSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             LObjectSHelper.write(to: ostr, value: iceP_o)
             LObjectSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8316,7 +8316,7 @@ extension MyClass {
         let iceP_i: AObjectPrxS = try AObjectPrxSHelper.read(from: istr)
         let result = try await self.opAObjectPrxSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             AObjectPrxSHelper.write(to: ostr, value: iceP_o)
             AObjectPrxSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8330,7 +8330,7 @@ extension MyClass {
         let iceP_i: LObjectPrxS = try LObjectPrxSHelper.read(from: istr)
         let result = try await self.opLObjectPrxSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             LObjectPrxSHelper.write(to: ostr, value: iceP_o)
             LObjectPrxSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8344,7 +8344,7 @@ extension MyClass {
         let iceP_i: KObjectPrxS = try KObjectPrxSHelper.read(from: istr)
         let result = try await self.opKObjectPrxSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             KObjectPrxSHelper.write(to: ostr, value: iceP_o)
             KObjectPrxSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8358,7 +8358,7 @@ extension MyClass {
         let iceP_i: QObjectPrxS = try QObjectPrxSHelper.read(from: istr)
         let result = try await self.opQObjectPrxSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             QObjectPrxSHelper.write(to: ostr, value: iceP_o)
             QObjectPrxSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8372,7 +8372,7 @@ extension MyClass {
         let iceP_i: SObjectPrxS = try SObjectPrxSHelper.read(from: istr)
         let result = try await self.opSObjectPrxSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             SObjectPrxSHelper.write(to: ostr, value: iceP_o)
             SObjectPrxSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8386,7 +8386,7 @@ extension MyClass {
         let iceP_i: AStructS = try AStructSHelper.read(from: istr)
         let result = try await self.opAStructSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             AStructSHelper.write(to: ostr, value: iceP_o)
             AStructSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8400,7 +8400,7 @@ extension MyClass {
         let iceP_i: LStructS = try LStructSHelper.read(from: istr)
         let result = try await self.opLStructSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             LStructSHelper.write(to: ostr, value: iceP_o)
             LStructSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8414,7 +8414,7 @@ extension MyClass {
         let iceP_i: KStructS = try KStructSHelper.read(from: istr)
         let result = try await self.opKStructSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             KStructSHelper.write(to: ostr, value: iceP_o)
             KStructSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8428,7 +8428,7 @@ extension MyClass {
         let iceP_i: QStructS = try QStructSHelper.read(from: istr)
         let result = try await self.opQStructSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             QStructSHelper.write(to: ostr, value: iceP_o)
             QStructSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8442,7 +8442,7 @@ extension MyClass {
         let iceP_i: SStructS = try SStructSHelper.read(from: istr)
         let result = try await self.opSStructSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             SStructSHelper.write(to: ostr, value: iceP_o)
             SStructSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8456,7 +8456,7 @@ extension MyClass {
         let iceP_i: AStructSD = try AStructSDHelper.read(from: istr)
         let result = try await self.opAStructSDAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             AStructSDHelper.write(to: ostr, value: iceP_o)
             AStructSDHelper.write(to: ostr, value: iceP_returnValue)
@@ -8470,7 +8470,7 @@ extension MyClass {
         let iceP_i: LStructSD = try LStructSDHelper.read(from: istr)
         let result = try await self.opLStructSDAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             LStructSDHelper.write(to: ostr, value: iceP_o)
             LStructSDHelper.write(to: ostr, value: iceP_returnValue)
@@ -8484,7 +8484,7 @@ extension MyClass {
         let iceP_i: KStructSD = try KStructSDHelper.read(from: istr)
         let result = try await self.opKStructSDAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             KStructSDHelper.write(to: ostr, value: iceP_o)
             KStructSDHelper.write(to: ostr, value: iceP_returnValue)
@@ -8498,7 +8498,7 @@ extension MyClass {
         let iceP_i: QStructSD = try QStructSDHelper.read(from: istr)
         let result = try await self.opQStructSDAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             QStructSDHelper.write(to: ostr, value: iceP_o)
             QStructSDHelper.write(to: ostr, value: iceP_returnValue)
@@ -8512,7 +8512,7 @@ extension MyClass {
         let iceP_i: SStructSD = try SStructSDHelper.read(from: istr)
         let result = try await self.opSStructSDAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             SStructSDHelper.write(to: ostr, value: iceP_o)
             SStructSDHelper.write(to: ostr, value: iceP_returnValue)
@@ -8527,7 +8527,7 @@ extension MyClass {
         try istr.readPendingValues()
         let result = try await self.opACVSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ACVSHelper.write(to: ostr, value: iceP_o)
             ACVSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8543,7 +8543,7 @@ extension MyClass {
         try istr.readPendingValues()
         let result = try await self.opLCVSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             LCVSHelper.write(to: ostr, value: iceP_o)
             LCVSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8559,7 +8559,7 @@ extension MyClass {
         try istr.readPendingValues()
         let result = try await self.opACRSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ACRSHelper.write(to: ostr, value: iceP_o)
             ACRSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8575,7 +8575,7 @@ extension MyClass {
         try istr.readPendingValues()
         let result = try await self.opLCRSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             LCRSHelper.write(to: ostr, value: iceP_o)
             LCRSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8590,7 +8590,7 @@ extension MyClass {
         let iceP_i: AEnS = try AEnSHelper.read(from: istr)
         let result = try await self.opAEnSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             AEnSHelper.write(to: ostr, value: iceP_o)
             AEnSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8604,7 +8604,7 @@ extension MyClass {
         let iceP_i: LEnS = try LEnSHelper.read(from: istr)
         let result = try await self.opLEnSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             LEnSHelper.write(to: ostr, value: iceP_o)
             LEnSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8618,7 +8618,7 @@ extension MyClass {
         let iceP_i: KEnS = try KEnSHelper.read(from: istr)
         let result = try await self.opKEnSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             KEnSHelper.write(to: ostr, value: iceP_o)
             KEnSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8632,7 +8632,7 @@ extension MyClass {
         let iceP_i: QEnS = try QEnSHelper.read(from: istr)
         let result = try await self.opQEnSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             QEnSHelper.write(to: ostr, value: iceP_o)
             QEnSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8646,7 +8646,7 @@ extension MyClass {
         let iceP_i: SEnS = try SEnSHelper.read(from: istr)
         let result = try await self.opSEnSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             SEnSHelper.write(to: ostr, value: iceP_o)
             SEnSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8660,7 +8660,7 @@ extension MyClass {
         let iceP_i: AIPrxS = try AIPrxSHelper.read(from: istr)
         let result = try await self.opAIPrxSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             AIPrxSHelper.write(to: ostr, value: iceP_o)
             AIPrxSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8674,7 +8674,7 @@ extension MyClass {
         let iceP_i: LIPrxS = try LIPrxSHelper.read(from: istr)
         let result = try await self.opLIPrxSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             LIPrxSHelper.write(to: ostr, value: iceP_o)
             LIPrxSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8688,7 +8688,7 @@ extension MyClass {
         let iceP_i: KIPrxS = try KIPrxSHelper.read(from: istr)
         let result = try await self.opKIPrxSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             KIPrxSHelper.write(to: ostr, value: iceP_o)
             KIPrxSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8702,7 +8702,7 @@ extension MyClass {
         let iceP_i: QIPrxS = try QIPrxSHelper.read(from: istr)
         let result = try await self.opQIPrxSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             QIPrxSHelper.write(to: ostr, value: iceP_o)
             QIPrxSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8716,7 +8716,7 @@ extension MyClass {
         let iceP_i: SIPrxS = try SIPrxSHelper.read(from: istr)
         let result = try await self.opSIPrxSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             SIPrxSHelper.write(to: ostr, value: iceP_o)
             SIPrxSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8730,7 +8730,7 @@ extension MyClass {
         let iceP_i: CustomIntS = try istr.read()
         let result = try await self.opCustomIntSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             ostr.write(iceP_o)
             ostr.write(iceP_returnValue)
@@ -8745,7 +8745,7 @@ extension MyClass {
         try istr.readPendingValues()
         let result = try await self.opCustomCVSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             CustomCVSHelper.write(to: ostr, value: iceP_o)
             CustomCVSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8760,7 +8760,7 @@ extension MyClass {
         let iceP_i: CustomIntSS = try CustomIntSSHelper.read(from: istr)
         let result = try await self.opCustomIntSSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             CustomIntSSHelper.write(to: ostr, value: iceP_o)
             CustomIntSSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8775,7 +8775,7 @@ extension MyClass {
         try istr.readPendingValues()
         let result = try await self.opCustomCVSSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             CustomCVSSHelper.write(to: ostr, value: iceP_o)
             CustomCVSSHelper.write(to: ostr, value: iceP_returnValue)

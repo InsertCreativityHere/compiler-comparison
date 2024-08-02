@@ -112,7 +112,7 @@ public interface Thrower extends com.zeroc.Ice.Object
             {
                 ostr.writeBool(value);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -127,7 +127,7 @@ public interface Thrower extends com.zeroc.Ice.Object
             {
                 ostr.writeBool(value);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -333,7 +333,7 @@ public interface Thrower extends com.zeroc.Ice.Object
             {
                 ostr.writeByteSeq(value);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */

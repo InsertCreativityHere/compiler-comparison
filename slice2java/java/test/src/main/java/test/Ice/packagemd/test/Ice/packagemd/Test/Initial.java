@@ -83,7 +83,7 @@ public interface Initial extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         test.Ice.packagemd.Test1.C1 ret = obj.getTest1C2AsC1(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeValue(ret);
         ostr.writePendingValues();
         ostr.endEncapsulation();
@@ -97,7 +97,7 @@ public interface Initial extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         test.Ice.packagemd.Test1.C2 ret = obj.getTest1C2AsC2(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeValue(ret);
         ostr.writePendingValues();
         ostr.endEncapsulation();
@@ -141,7 +141,7 @@ public interface Initial extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         test.Ice.packagemd.testpkg.Test2.C1 ret = obj.getTest2C2AsC1(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeValue(ret);
         ostr.writePendingValues();
         ostr.endEncapsulation();
@@ -155,7 +155,7 @@ public interface Initial extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         test.Ice.packagemd.testpkg.Test2.C2 ret = obj.getTest2C2AsC2(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeValue(ret);
         ostr.writePendingValues();
         ostr.endEncapsulation();
@@ -189,7 +189,7 @@ public interface Initial extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         test.Ice.packagemd.modpkg.Test3.C1 ret = obj.getTest3C2AsC1(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeValue(ret);
         ostr.writePendingValues();
         ostr.endEncapsulation();
@@ -203,7 +203,7 @@ public interface Initial extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         test.Ice.packagemd.modpkg.Test3.C2 ret = obj.getTest3C2AsC2(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeValue(ret);
         ostr.writePendingValues();
         ostr.endEncapsulation();

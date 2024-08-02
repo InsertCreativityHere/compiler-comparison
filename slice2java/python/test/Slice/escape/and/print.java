@@ -68,7 +68,7 @@ public interface print extends com.zeroc.Ice.Object
         _for iceP_return = icePP_return.value;
         _assert ret = obj.raise(iceP_else, iceP_return, iceP_while, iceP_yield, iceP_or, iceP_global, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         _assert.ice_write(ostr, ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));

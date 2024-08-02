@@ -3350,7 +3350,7 @@ extension Initial {
 
         let iceP_returnValue = try self.getB1(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()
@@ -3363,7 +3363,7 @@ extension Initial {
 
         let iceP_returnValue = try self.getB2(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()
@@ -3376,7 +3376,7 @@ extension Initial {
 
         let iceP_returnValue = try self.getC(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()
@@ -3389,7 +3389,7 @@ extension Initial {
 
         let iceP_returnValue = try self.getD(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()
@@ -3402,7 +3402,7 @@ extension Initial {
 
         let iceP_returnValue = try self.getE(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()
@@ -3415,7 +3415,7 @@ extension Initial {
 
         let iceP_returnValue = try self.getF(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()
@@ -3452,7 +3452,7 @@ extension Initial {
 
         let iceP_returnValue = try self.acceptsClassCycles(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -3464,7 +3464,7 @@ extension Initial {
 
         let iceP_returnValue = try self.getMB(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()
@@ -3476,7 +3476,7 @@ extension Initial {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.getAMDMBAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
@@ -3489,7 +3489,7 @@ extension Initial {
 
         let (iceP_b1, iceP_b2, iceP_theC, iceP_theD) = try self.getAll(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_b1)
         ostr.write(iceP_b2)
         ostr.write(iceP_theC)
@@ -3505,7 +3505,7 @@ extension Initial {
 
         let iceP_returnValue = try self.getK(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()
@@ -3522,7 +3522,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_v2) = try self.opValue(v1: iceP_v1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_v2)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
@@ -3539,7 +3539,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_v2) = try self.opValueSeq(v1: iceP_v1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ValueSeqHelper.write(to: ostr, value: iceP_v2)
         ValueSeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.writePendingValues()
@@ -3556,7 +3556,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_v2) = try self.opValueMap(v1: iceP_v1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ValueMapHelper.write(to: ostr, value: iceP_v2)
         ValueMapHelper.write(to: ostr, value: iceP_returnValue)
         ostr.writePendingValues()
@@ -3574,7 +3574,7 @@ extension Initial {
 
         let iceP_returnValue = try self.getD1(d1: iceP_d1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()
@@ -3610,7 +3610,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_outSeq) = try self.opBaseSeq(inSeq: iceP_inSeq, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         BaseSeqHelper.write(to: ostr, value: iceP_outSeq)
         BaseSeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.writePendingValues()
@@ -3624,7 +3624,7 @@ extension Initial {
 
         let iceP_returnValue = try self.getCompact(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()
@@ -3637,7 +3637,7 @@ extension Initial {
 
         let iceP_returnValue = try self.getInnerA(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()
@@ -3650,7 +3650,7 @@ extension Initial {
 
         let iceP_returnValue = try self.getInnerSubA(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()
@@ -3683,7 +3683,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_v2) = try self.opM(v1: iceP_v1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_v2)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
@@ -3701,7 +3701,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_f12) = try self.opF1(f11: iceP_f11, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_f12)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
@@ -3717,7 +3717,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_f22) = try self.opF2(f21: iceP_f21, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_f22)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -3734,7 +3734,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_f32) = try self.opF3(f31: iceP_f31, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_f32)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
@@ -3748,7 +3748,7 @@ extension Initial {
 
         let iceP_returnValue = try self.hasF3(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)

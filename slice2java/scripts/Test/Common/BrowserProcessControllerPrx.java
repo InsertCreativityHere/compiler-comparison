@@ -47,7 +47,7 @@ public interface BrowserProcessControllerPrx extends ProcessControllerPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_redirectAsync(String iceP_url, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "redirect", null, sync, null);
-        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_url);
                  }, null);
         return f;

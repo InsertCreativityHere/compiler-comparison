@@ -227,7 +227,7 @@ public interface Node extends FileReader,
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -251,7 +251,7 @@ public interface Node extends FileReader,
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -314,7 +314,7 @@ public interface Node extends FileReader,
         request.inputStream.skipEmptyEncapsulation();
         String ret = obj.getName(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeString(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -327,7 +327,7 @@ public interface Node extends FileReader,
         request.inputStream.skipEmptyEncapsulation();
         String ret = obj.getHostname(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeString(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -340,7 +340,7 @@ public interface Node extends FileReader,
         request.inputStream.skipEmptyEncapsulation();
         com.zeroc.IceGrid.LoadInfo ret = obj.getLoad(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         com.zeroc.IceGrid.LoadInfo.ice_write(ostr, ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -353,7 +353,7 @@ public interface Node extends FileReader,
         request.inputStream.skipEmptyEncapsulation();
         int ret = obj.getProcessorSocketCount(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeInt(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));

@@ -59,7 +59,7 @@ public interface _case extends com.zeroc.Ice.Object
             {
                 ostr.writeInt(value);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     @Override

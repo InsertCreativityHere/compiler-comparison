@@ -112,8 +112,8 @@ namespace IceBox
     $IceBox__t_ServiceObserverPrx = IcePHP_defineProxy('::IceBox::ServiceObserver', $Ice__t_ObjectPrx, null);
 
     global $Ice__t_StringSeq;
-    IcePHP_defineOperation($IceBox__t_ServiceObserverPrx, 'servicesStarted', 0, 0, array(array($Ice__t_StringSeq)), null, null, null);
-    IcePHP_defineOperation($IceBox__t_ServiceObserverPrx, 'servicesStopped', 0, 0, array(array($Ice__t_StringSeq)), null, null, null);
+    IcePHP_defineOperation($IceBox__t_ServiceObserverPrx, 'servicesStarted', 0, -1, array(array($Ice__t_StringSeq)), null, null, null);
+    IcePHP_defineOperation($IceBox__t_ServiceObserverPrx, 'servicesStopped', 0, -1, array(array($Ice__t_StringSeq)), null, null, null);
 }
 
 namespace IceBox
@@ -149,9 +149,9 @@ namespace IceBox
 
     global $IcePHP__t_string;
     global $IceBox__t_ServiceObserverPrx;
-    IcePHP_defineOperation($IceBox__t_ServiceManagerPrx, 'startService', 0, 0, array(array($IcePHP__t_string)), null, null, array($IceBox__t_AlreadyStartedException, $IceBox__t_NoSuchServiceException));
-    IcePHP_defineOperation($IceBox__t_ServiceManagerPrx, 'stopService', 0, 0, array(array($IcePHP__t_string)), null, null, array($IceBox__t_AlreadyStoppedException, $IceBox__t_NoSuchServiceException));
-    IcePHP_defineOperation($IceBox__t_ServiceManagerPrx, 'addObserver', 0, 0, array(array($IceBox__t_ServiceObserverPrx)), null, null, null);
-    IcePHP_defineOperation($IceBox__t_ServiceManagerPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($IceBox__t_ServiceManagerPrx, 'startService', 0, -1, array(array($IcePHP__t_string)), null, null, array($IceBox__t_AlreadyStartedException, $IceBox__t_NoSuchServiceException));
+    IcePHP_defineOperation($IceBox__t_ServiceManagerPrx, 'stopService', 0, -1, array(array($IcePHP__t_string)), null, null, array($IceBox__t_AlreadyStoppedException, $IceBox__t_NoSuchServiceException));
+    IcePHP_defineOperation($IceBox__t_ServiceManagerPrx, 'addObserver', 0, -1, array(array($IceBox__t_ServiceObserverPrx)), null, null, null);
+    IcePHP_defineOperation($IceBox__t_ServiceManagerPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 ?>

@@ -1305,7 +1305,7 @@ extension TestIntf {
 
         let (iceP_returnValue, iceP_b2) = try self.opByte(b1: iceP_b1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_b2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -1320,7 +1320,7 @@ extension TestIntf {
 
         let (iceP_returnValue, iceP_s2) = try self.opShort(s1: iceP_s1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_s2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -1335,7 +1335,7 @@ extension TestIntf {
 
         let (iceP_returnValue, iceP_i2) = try self.opInt(i1: iceP_i1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_i2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -1350,7 +1350,7 @@ extension TestIntf {
 
         let (iceP_returnValue, iceP_s2) = try self.opSimple(s1: iceP_s1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_s2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -1365,7 +1365,7 @@ extension TestIntf {
 
         let (iceP_returnValue, iceP_b2) = try self.opByteSeq(b1: iceP_b1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ByteEnumSeqHelper.write(to: ostr, value: iceP_b2)
         ByteEnumSeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -1380,7 +1380,7 @@ extension TestIntf {
 
         let (iceP_returnValue, iceP_s2) = try self.opShortSeq(s1: iceP_s1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ShortEnumSeqHelper.write(to: ostr, value: iceP_s2)
         ShortEnumSeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -1395,7 +1395,7 @@ extension TestIntf {
 
         let (iceP_returnValue, iceP_i2) = try self.opIntSeq(i1: iceP_i1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         IntEnumSeqHelper.write(to: ostr, value: iceP_i2)
         IntEnumSeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -1410,7 +1410,7 @@ extension TestIntf {
 
         let (iceP_returnValue, iceP_s2) = try self.opSimpleSeq(s1: iceP_s1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         SimpleEnumSeqHelper.write(to: ostr, value: iceP_s2)
         SimpleEnumSeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()

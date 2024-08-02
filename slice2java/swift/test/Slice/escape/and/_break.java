@@ -59,7 +59,7 @@ public interface _break extends com.zeroc.Ice.Object
             {
                 ostr.writeInt(value);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     @Override

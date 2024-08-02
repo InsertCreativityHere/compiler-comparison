@@ -51,7 +51,7 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_SessionPrx = IcePHP_defineProxy('::Test::Session', $Ice__t_ObjectPrx, array($Glacier2__t_SessionPrx));
 
-    IcePHP_defineOperation($Test__t_SessionPrx, 'destroyFromClient', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_SessionPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_SessionPrx, 'destroyFromClient', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_SessionPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 ?>

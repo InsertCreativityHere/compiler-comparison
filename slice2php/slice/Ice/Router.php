@@ -54,9 +54,9 @@ namespace Ice
     global $IcePHP__t_bool;
     global $Ice__t_ObjectPrx;
     global $Ice__t_ObjectProxySeq;
-    IcePHP_defineOperation($Ice__t_RouterPrx, 'getClientProxy', 2, 0, null, array(array($IcePHP__t_bool, 1)), array($Ice__t_ObjectPrx), null);
-    IcePHP_defineOperation($Ice__t_RouterPrx, 'getServerProxy', 2, 0, null, null, array($Ice__t_ObjectPrx), null);
-    IcePHP_defineOperation($Ice__t_RouterPrx, 'addProxies', 2, 0, array(array($Ice__t_ObjectProxySeq)), null, array($Ice__t_ObjectProxySeq), null);
+    IcePHP_defineOperation($Ice__t_RouterPrx, 'getClientProxy', 2, -1, null, array(array($IcePHP__t_bool, 1)), array($Ice__t_ObjectPrx), null);
+    IcePHP_defineOperation($Ice__t_RouterPrx, 'getServerProxy', 2, -1, null, null, array($Ice__t_ObjectPrx), null);
+    IcePHP_defineOperation($Ice__t_RouterPrx, 'addProxies', 2, -1, array(array($Ice__t_ObjectProxySeq)), null, array($Ice__t_ObjectProxySeq), null);
 }
 
 namespace Ice
@@ -91,6 +91,6 @@ namespace Ice
     $Ice__t_RouterFinderPrx = IcePHP_defineProxy('::Ice::RouterFinder', $Ice__t_ObjectPrx, null);
 
     global $Ice__t_RouterPrx;
-    IcePHP_defineOperation($Ice__t_RouterFinderPrx, 'getRouter', 0, 0, null, null, array($Ice__t_RouterPrx), null);
+    IcePHP_defineOperation($Ice__t_RouterFinderPrx, 'getRouter', 0, -1, null, null, array($Ice__t_RouterPrx), null);
 }
 ?>

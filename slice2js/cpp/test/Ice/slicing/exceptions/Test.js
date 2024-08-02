@@ -193,7 +193,7 @@ Ice.defineOperations(
         [
             Test.Base
         ], , ],
-        "unknownDerivedAsBase": [, , 1, , , ,
+        "unknownDerivedAsBase": [, , 0, , , ,
         [
             Test.Base
         ], , ],

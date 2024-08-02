@@ -1254,7 +1254,7 @@ extension MyClass {
         let iceP_i: NV = try NVHelper.read(from: istr)
         let result = try await self.opNVAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             NVHelper.write(to: ostr, value: iceP_o)
             NVHelper.write(to: ostr, value: iceP_returnValue)
@@ -1268,7 +1268,7 @@ extension MyClass {
         let iceP_i: NR = try NRHelper.read(from: istr)
         let result = try await self.opNRAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             NRHelper.write(to: ostr, value: iceP_o)
             NRHelper.write(to: ostr, value: iceP_returnValue)
@@ -1282,7 +1282,7 @@ extension MyClass {
         let iceP_i: NDV = try NDVHelper.read(from: istr)
         let result = try await self.opNDVAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             NDVHelper.write(to: ostr, value: iceP_o)
             NDVHelper.write(to: ostr, value: iceP_returnValue)
@@ -1296,7 +1296,7 @@ extension MyClass {
         let iceP_i: NDR = try NDRHelper.read(from: istr)
         let result = try await self.opNDRAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             NDRHelper.write(to: ostr, value: iceP_o)
             NDRHelper.write(to: ostr, value: iceP_returnValue)
@@ -1310,7 +1310,7 @@ extension MyClass {
         let iceP_i: NDAIS = try NDAISHelper.read(from: istr)
         let result = try await self.opNDAISAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             NDAISHelper.write(to: ostr, value: iceP_o)
             NDAISHelper.write(to: ostr, value: iceP_returnValue)
@@ -1324,7 +1324,7 @@ extension MyClass {
         let iceP_i: NDGIS = try NDGISHelper.read(from: istr)
         let result = try await self.opNDGISAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             NDGISHelper.write(to: ostr, value: iceP_o)
             NDGISHelper.write(to: ostr, value: iceP_returnValue)
@@ -1338,7 +1338,7 @@ extension MyClass {
         let iceP_i: NDASS = try NDASSHelper.read(from: istr)
         let result = try await self.opNDASSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             NDASSHelper.write(to: ostr, value: iceP_o)
             NDASSHelper.write(to: ostr, value: iceP_returnValue)
@@ -1352,7 +1352,7 @@ extension MyClass {
         let iceP_i: NDGSS = try NDGSSHelper.read(from: istr)
         let result = try await self.opNDGSSAsync(
             i: iceP_i, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             NDGSSHelper.write(to: ostr, value: iceP_o)
             NDGSSHelper.write(to: ostr, value: iceP_returnValue)

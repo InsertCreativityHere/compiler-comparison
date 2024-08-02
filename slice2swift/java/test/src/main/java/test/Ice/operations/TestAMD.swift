@@ -7965,7 +7965,7 @@ extension MyClass {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.supportsCompressAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }
@@ -7987,7 +7987,7 @@ extension MyClass {
         let iceP_p2: Swift.UInt8 = try istr.read()
         let result = try await self.opByteAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(iceP_p3)
             ostr.write(iceP_returnValue)
@@ -8002,7 +8002,7 @@ extension MyClass {
         let iceP_p2: Swift.Bool = try istr.read()
         let result = try await self.opBoolAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(iceP_p3)
             ostr.write(iceP_returnValue)
@@ -8018,7 +8018,7 @@ extension MyClass {
         let iceP_p3: Swift.Int64 = try istr.read()
         let result = try await self.opShortIntLongAsync(
             p1: iceP_p1, p2: iceP_p2, p3: iceP_p3, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p4, iceP_p5, iceP_p6) = value
             ostr.write(iceP_p4)
             ostr.write(iceP_p5)
@@ -8035,7 +8035,7 @@ extension MyClass {
         let iceP_p2: Swift.Double = try istr.read()
         let result = try await self.opFloatDoubleAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3, iceP_p4) = value
             ostr.write(iceP_p3)
             ostr.write(iceP_p4)
@@ -8051,7 +8051,7 @@ extension MyClass {
         let iceP_p2: Swift.String = try istr.read()
         let result = try await self.opStringAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(iceP_p3)
             ostr.write(iceP_returnValue)
@@ -8065,7 +8065,7 @@ extension MyClass {
         let iceP_p1: MyEnum = try istr.read()
         let result = try await self.opMyEnumAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p2) = value
             ostr.write(iceP_p2)
             ostr.write(iceP_returnValue)
@@ -8079,7 +8079,7 @@ extension MyClass {
         let iceP_p1: MyClassPrx? = try istr.read(MyClassPrx.self)
         let result = try await self.opMyClassAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p2, iceP_p3) = value
             ostr.write(iceP_p2)
             ostr.write(iceP_p3)
@@ -8095,7 +8095,7 @@ extension MyClass {
         let iceP_p2: Structure = try istr.read()
         let result = try await self.opStructAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(iceP_p3)
             ostr.write(iceP_returnValue)
@@ -8110,7 +8110,7 @@ extension MyClass {
         let iceP_p2: ByteS = try istr.read()
         let result = try await self.opByteSAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(iceP_p3)
             ostr.write(iceP_returnValue)
@@ -8125,7 +8125,7 @@ extension MyClass {
         let iceP_p2: BoolS = try istr.read()
         let result = try await self.opBoolSAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(iceP_p3)
             ostr.write(iceP_returnValue)
@@ -8141,7 +8141,7 @@ extension MyClass {
         let iceP_p3: LongS = try istr.read()
         let result = try await self.opShortIntLongSAsync(
             p1: iceP_p1, p2: iceP_p2, p3: iceP_p3, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p4, iceP_p5, iceP_p6) = value
             ostr.write(iceP_p4)
             ostr.write(iceP_p5)
@@ -8158,7 +8158,7 @@ extension MyClass {
         let iceP_p2: DoubleS = try istr.read()
         let result = try await self.opFloatDoubleSAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3, iceP_p4) = value
             ostr.write(iceP_p3)
             ostr.write(iceP_p4)
@@ -8174,7 +8174,7 @@ extension MyClass {
         let iceP_p2: StringS = try istr.read()
         let result = try await self.opStringSAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(iceP_p3)
             ostr.write(iceP_returnValue)
@@ -8189,7 +8189,7 @@ extension MyClass {
         let iceP_p2: ByteSS = try ByteSSHelper.read(from: istr)
         let result = try await self.opByteSSAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ByteSSHelper.write(to: ostr, value: iceP_p3)
             ByteSSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8204,7 +8204,7 @@ extension MyClass {
         let iceP_p2: BoolSS = try BoolSSHelper.read(from: istr)
         let result = try await self.opBoolSSAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             BoolSSHelper.write(to: ostr, value: iceP_p3)
             BoolSSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8220,7 +8220,7 @@ extension MyClass {
         let iceP_p3: LongSS = try LongSSHelper.read(from: istr)
         let result = try await self.opShortIntLongSSAsync(
             p1: iceP_p1, p2: iceP_p2, p3: iceP_p3, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p4, iceP_p5, iceP_p6) = value
             ShortSSHelper.write(to: ostr, value: iceP_p4)
             IntSSHelper.write(to: ostr, value: iceP_p5)
@@ -8237,7 +8237,7 @@ extension MyClass {
         let iceP_p2: DoubleSS = try DoubleSSHelper.read(from: istr)
         let result = try await self.opFloatDoubleSSAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3, iceP_p4) = value
             FloatSSHelper.write(to: ostr, value: iceP_p3)
             DoubleSSHelper.write(to: ostr, value: iceP_p4)
@@ -8253,7 +8253,7 @@ extension MyClass {
         let iceP_p2: StringSS = try StringSSHelper.read(from: istr)
         let result = try await self.opStringSSAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             StringSSHelper.write(to: ostr, value: iceP_p3)
             StringSSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8268,7 +8268,7 @@ extension MyClass {
         let iceP_p2: StringSSS = try StringSSSHelper.read(from: istr)
         let result = try await self.opStringSSSAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             StringSSSHelper.write(to: ostr, value: iceP_p3)
             StringSSSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8283,7 +8283,7 @@ extension MyClass {
         let iceP_p2: ByteBoolD = try ByteBoolDHelper.read(from: istr)
         let result = try await self.opByteBoolDAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ByteBoolDHelper.write(to: ostr, value: iceP_p3)
             ByteBoolDHelper.write(to: ostr, value: iceP_returnValue)
@@ -8298,7 +8298,7 @@ extension MyClass {
         let iceP_p2: ShortIntD = try ShortIntDHelper.read(from: istr)
         let result = try await self.opShortIntDAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ShortIntDHelper.write(to: ostr, value: iceP_p3)
             ShortIntDHelper.write(to: ostr, value: iceP_returnValue)
@@ -8313,7 +8313,7 @@ extension MyClass {
         let iceP_p2: LongFloatD = try LongFloatDHelper.read(from: istr)
         let result = try await self.opLongFloatDAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             LongFloatDHelper.write(to: ostr, value: iceP_p3)
             LongFloatDHelper.write(to: ostr, value: iceP_returnValue)
@@ -8328,7 +8328,7 @@ extension MyClass {
         let iceP_p2: StringStringD = try StringStringDHelper.read(from: istr)
         let result = try await self.opStringStringDAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             StringStringDHelper.write(to: ostr, value: iceP_p3)
             StringStringDHelper.write(to: ostr, value: iceP_returnValue)
@@ -8343,7 +8343,7 @@ extension MyClass {
         let iceP_p2: StringMyEnumD = try StringMyEnumDHelper.read(from: istr)
         let result = try await self.opStringMyEnumDAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             StringMyEnumDHelper.write(to: ostr, value: iceP_p3)
             StringMyEnumDHelper.write(to: ostr, value: iceP_returnValue)
@@ -8358,7 +8358,7 @@ extension MyClass {
         let iceP_p2: MyEnumStringD = try MyEnumStringDHelper.read(from: istr)
         let result = try await self.opMyEnumStringDAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             MyEnumStringDHelper.write(to: ostr, value: iceP_p3)
             MyEnumStringDHelper.write(to: ostr, value: iceP_returnValue)
@@ -8373,7 +8373,7 @@ extension MyClass {
         let iceP_p2: MyStructMyEnumD = try MyStructMyEnumDHelper.read(from: istr)
         let result = try await self.opMyStructMyEnumDAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             MyStructMyEnumDHelper.write(to: ostr, value: iceP_p3)
             MyStructMyEnumDHelper.write(to: ostr, value: iceP_returnValue)
@@ -8388,7 +8388,7 @@ extension MyClass {
         let iceP_p2: ByteBoolDS = try ByteBoolDSHelper.read(from: istr)
         let result = try await self.opByteBoolDSAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ByteBoolDSHelper.write(to: ostr, value: iceP_p3)
             ByteBoolDSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8403,7 +8403,7 @@ extension MyClass {
         let iceP_p2: ShortIntDS = try ShortIntDSHelper.read(from: istr)
         let result = try await self.opShortIntDSAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ShortIntDSHelper.write(to: ostr, value: iceP_p3)
             ShortIntDSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8418,7 +8418,7 @@ extension MyClass {
         let iceP_p2: LongFloatDS = try LongFloatDSHelper.read(from: istr)
         let result = try await self.opLongFloatDSAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             LongFloatDSHelper.write(to: ostr, value: iceP_p3)
             LongFloatDSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8433,7 +8433,7 @@ extension MyClass {
         let iceP_p2: StringStringDS = try StringStringDSHelper.read(from: istr)
         let result = try await self.opStringStringDSAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             StringStringDSHelper.write(to: ostr, value: iceP_p3)
             StringStringDSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8448,7 +8448,7 @@ extension MyClass {
         let iceP_p2: StringMyEnumDS = try StringMyEnumDSHelper.read(from: istr)
         let result = try await self.opStringMyEnumDSAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             StringMyEnumDSHelper.write(to: ostr, value: iceP_p3)
             StringMyEnumDSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8463,7 +8463,7 @@ extension MyClass {
         let iceP_p2: MyEnumStringDS = try MyEnumStringDSHelper.read(from: istr)
         let result = try await self.opMyEnumStringDSAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             MyEnumStringDSHelper.write(to: ostr, value: iceP_p3)
             MyEnumStringDSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8478,7 +8478,7 @@ extension MyClass {
         let iceP_p2: MyStructMyEnumDS = try MyStructMyEnumDSHelper.read(from: istr)
         let result = try await self.opMyStructMyEnumDSAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             MyStructMyEnumDSHelper.write(to: ostr, value: iceP_p3)
             MyStructMyEnumDSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8493,7 +8493,7 @@ extension MyClass {
         let iceP_p2: ByteByteSD = try ByteByteSDHelper.read(from: istr)
         let result = try await self.opByteByteSDAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ByteByteSDHelper.write(to: ostr, value: iceP_p3)
             ByteByteSDHelper.write(to: ostr, value: iceP_returnValue)
@@ -8508,7 +8508,7 @@ extension MyClass {
         let iceP_p2: BoolBoolSD = try BoolBoolSDHelper.read(from: istr)
         let result = try await self.opBoolBoolSDAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             BoolBoolSDHelper.write(to: ostr, value: iceP_p3)
             BoolBoolSDHelper.write(to: ostr, value: iceP_returnValue)
@@ -8523,7 +8523,7 @@ extension MyClass {
         let iceP_p2: ShortShortSD = try ShortShortSDHelper.read(from: istr)
         let result = try await self.opShortShortSDAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ShortShortSDHelper.write(to: ostr, value: iceP_p3)
             ShortShortSDHelper.write(to: ostr, value: iceP_returnValue)
@@ -8538,7 +8538,7 @@ extension MyClass {
         let iceP_p2: IntIntSD = try IntIntSDHelper.read(from: istr)
         let result = try await self.opIntIntSDAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             IntIntSDHelper.write(to: ostr, value: iceP_p3)
             IntIntSDHelper.write(to: ostr, value: iceP_returnValue)
@@ -8553,7 +8553,7 @@ extension MyClass {
         let iceP_p2: LongLongSD = try LongLongSDHelper.read(from: istr)
         let result = try await self.opLongLongSDAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             LongLongSDHelper.write(to: ostr, value: iceP_p3)
             LongLongSDHelper.write(to: ostr, value: iceP_returnValue)
@@ -8568,7 +8568,7 @@ extension MyClass {
         let iceP_p2: StringFloatSD = try StringFloatSDHelper.read(from: istr)
         let result = try await self.opStringFloatSDAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             StringFloatSDHelper.write(to: ostr, value: iceP_p3)
             StringFloatSDHelper.write(to: ostr, value: iceP_returnValue)
@@ -8583,7 +8583,7 @@ extension MyClass {
         let iceP_p2: StringDoubleSD = try StringDoubleSDHelper.read(from: istr)
         let result = try await self.opStringDoubleSDAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             StringDoubleSDHelper.write(to: ostr, value: iceP_p3)
             StringDoubleSDHelper.write(to: ostr, value: iceP_returnValue)
@@ -8598,7 +8598,7 @@ extension MyClass {
         let iceP_p2: StringStringSD = try StringStringSDHelper.read(from: istr)
         let result = try await self.opStringStringSDAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             StringStringSDHelper.write(to: ostr, value: iceP_p3)
             StringStringSDHelper.write(to: ostr, value: iceP_returnValue)
@@ -8613,7 +8613,7 @@ extension MyClass {
         let iceP_p2: MyEnumMyEnumSD = try MyEnumMyEnumSDHelper.read(from: istr)
         let result = try await self.opMyEnumMyEnumSDAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             MyEnumMyEnumSDHelper.write(to: ostr, value: iceP_p3)
             MyEnumMyEnumSDHelper.write(to: ostr, value: iceP_returnValue)
@@ -8627,7 +8627,7 @@ extension MyClass {
         let iceP_s: IntS = try istr.read()
         let result = try await self.opIntSAsync(
             s: iceP_s, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }
@@ -8648,7 +8648,7 @@ extension MyClass {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.opByteSOnewayCallCountAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }
@@ -8659,7 +8659,7 @@ extension MyClass {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.opContextAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             Ice.ContextHelper.write(to: ostr, value: iceP_returnValue)
         }
@@ -8691,7 +8691,7 @@ extension MyClass {
         let iceP_opByte1: Swift.UInt8 = try istr.read()
         let result = try await self.opByte1Async(
             opByte1: iceP_opByte1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }
@@ -8704,7 +8704,7 @@ extension MyClass {
         let iceP_opShort1: Swift.Int16 = try istr.read()
         let result = try await self.opShort1Async(
             opShort1: iceP_opShort1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }
@@ -8717,7 +8717,7 @@ extension MyClass {
         let iceP_opInt1: Swift.Int32 = try istr.read()
         let result = try await self.opInt1Async(
             opInt1: iceP_opInt1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }
@@ -8730,7 +8730,7 @@ extension MyClass {
         let iceP_opLong1: Swift.Int64 = try istr.read()
         let result = try await self.opLong1Async(
             opLong1: iceP_opLong1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }
@@ -8743,7 +8743,7 @@ extension MyClass {
         let iceP_opFloat1: Swift.Float = try istr.read()
         let result = try await self.opFloat1Async(
             opFloat1: iceP_opFloat1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }
@@ -8756,7 +8756,7 @@ extension MyClass {
         let iceP_opDouble1: Swift.Double = try istr.read()
         let result = try await self.opDouble1Async(
             opDouble1: iceP_opDouble1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }
@@ -8769,7 +8769,7 @@ extension MyClass {
         let iceP_opString1: Swift.String = try istr.read()
         let result = try await self.opString1Async(
             opString1: iceP_opString1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }
@@ -8782,7 +8782,7 @@ extension MyClass {
         let iceP_opStringS1: StringS = try istr.read()
         let result = try await self.opStringS1Async(
             opStringS1: iceP_opStringS1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }
@@ -8795,7 +8795,7 @@ extension MyClass {
         let iceP_opByteBoolD1: ByteBoolD = try ByteBoolDHelper.read(from: istr)
         let result = try await self.opByteBoolD1Async(
             opByteBoolD1: iceP_opByteBoolD1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ByteBoolDHelper.write(to: ostr, value: iceP_returnValue)
         }
@@ -8808,7 +8808,7 @@ extension MyClass {
         let iceP_stringS: StringS = try istr.read()
         let result = try await self.opStringS2Async(
             stringS: iceP_stringS, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }
@@ -8821,7 +8821,7 @@ extension MyClass {
         let iceP_byteBoolD: ByteBoolD = try ByteBoolDHelper.read(from: istr)
         let result = try await self.opByteBoolD2Async(
             byteBoolD: iceP_byteBoolD, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ByteBoolDHelper.write(to: ostr, value: iceP_returnValue)
         }
@@ -8832,7 +8832,7 @@ extension MyClass {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.opStringLiteralsAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }
@@ -8843,7 +8843,7 @@ extension MyClass {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.opWStringLiteralsAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }
@@ -8854,7 +8854,7 @@ extension MyClass {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.opMStruct1Async(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }
@@ -8867,7 +8867,7 @@ extension MyClass {
         let iceP_p1: Structure = try istr.read()
         let result = try await self.opMStruct2Async(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p2) = value
             ostr.write(iceP_p2)
             ostr.write(iceP_returnValue)
@@ -8879,7 +8879,7 @@ extension MyClass {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.opMSeq1Async(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }
@@ -8892,7 +8892,7 @@ extension MyClass {
         let iceP_p1: StringS = try istr.read()
         let result = try await self.opMSeq2Async(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p2) = value
             ostr.write(iceP_p2)
             ostr.write(iceP_returnValue)
@@ -8904,7 +8904,7 @@ extension MyClass {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.opMDict1Async(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             StringStringDHelper.write(to: ostr, value: iceP_returnValue)
         }
@@ -8917,7 +8917,7 @@ extension MyClass {
         let iceP_p1: StringStringD = try StringStringDHelper.read(from: istr)
         let result = try await self.opMDict2Async(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p2) = value
             StringStringDHelper.write(to: ostr, value: iceP_p2)
             StringStringDHelper.write(to: ostr, value: iceP_returnValue)
@@ -8952,7 +8952,7 @@ extension MyDerivedClass {
         try istr.readPendingValues()
         let result = try await self.opMyClass1Async(
             opMyClass1: iceP_opMyClass1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
@@ -8966,7 +8966,7 @@ extension MyDerivedClass {
         let iceP_opMyStruct1: MyStruct1 = try istr.read()
         let result = try await self.opMyStruct1Async(
             opMyStruct1: iceP_opMyStruct1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }

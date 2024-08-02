@@ -200,7 +200,7 @@ extension MyObject {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.getNameAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }

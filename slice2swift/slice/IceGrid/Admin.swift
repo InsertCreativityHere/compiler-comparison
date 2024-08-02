@@ -2057,11 +2057,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
+                              } catch let error as ApplicationNotExistException {
+                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as AccessDeniedException {
-                                  throw error
-                              } catch let error as ApplicationNotExistException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -2086,11 +2086,11 @@ public extension AdminPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
+                                                } catch let error as ApplicationNotExistException {
+                                                    throw error
                                                 } catch let error as DeploymentException {
                                                     throw error
                                                 } catch let error as AccessDeniedException {
-                                                    throw error
-                                                } catch let error as ApplicationNotExistException {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
@@ -2121,11 +2121,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
+                              } catch let error as ApplicationNotExistException {
+                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as AccessDeniedException {
-                                  throw error
-                              } catch let error as ApplicationNotExistException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -2149,11 +2149,11 @@ public extension AdminPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
+                                                } catch let error as ApplicationNotExistException {
+                                                    throw error
                                                 } catch let error as DeploymentException {
                                                     throw error
                                                 } catch let error as AccessDeniedException {
-                                                    throw error
-                                                } catch let error as ApplicationNotExistException {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
@@ -2187,11 +2187,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
+                              } catch let error as ApplicationNotExistException {
+                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as AccessDeniedException {
-                                  throw error
-                              } catch let error as ApplicationNotExistException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -2218,11 +2218,11 @@ public extension AdminPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
+                                                } catch let error as ApplicationNotExistException {
+                                                    throw error
                                                 } catch let error as DeploymentException {
                                                     throw error
                                                 } catch let error as AccessDeniedException {
-                                                    throw error
-                                                } catch let error as ApplicationNotExistException {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
@@ -2255,11 +2255,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
+                              } catch let error as ApplicationNotExistException {
+                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as AccessDeniedException {
-                                  throw error
-                              } catch let error as ApplicationNotExistException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -2285,11 +2285,11 @@ public extension AdminPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
+                                                } catch let error as ApplicationNotExistException {
+                                                    throw error
                                                 } catch let error as DeploymentException {
                                                     throw error
                                                 } catch let error as AccessDeniedException {
-                                                    throw error
-                                                } catch let error as ApplicationNotExistException {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
@@ -2319,11 +2319,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
+                              } catch let error as ApplicationNotExistException {
+                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as AccessDeniedException {
-                                  throw error
-                              } catch let error as ApplicationNotExistException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -2346,11 +2346,11 @@ public extension AdminPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
+                                                } catch let error as ApplicationNotExistException {
+                                                    throw error
                                                 } catch let error as DeploymentException {
                                                     throw error
                                                 } catch let error as AccessDeniedException {
-                                                    throw error
-                                                } catch let error as ApplicationNotExistException {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
@@ -2386,11 +2386,11 @@ public extension AdminPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
+                              } catch let error as ApplicationNotExistException {
+                                  throw error
                               } catch let error as DeploymentException {
                                   throw error
                               } catch let error as AccessDeniedException {
-                                  throw error
-                              } catch let error as ApplicationNotExistException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -2419,11 +2419,11 @@ public extension AdminPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
+                                                } catch let error as ApplicationNotExistException {
+                                                    throw error
                                                 } catch let error as DeploymentException {
                                                     throw error
                                                 } catch let error as AccessDeniedException {
-                                                    throw error
-                                                } catch let error as ApplicationNotExistException {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
@@ -8784,7 +8784,7 @@ extension Admin {
 
         let iceP_returnValue = try self.getApplicationInfo(name: iceP_name, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()
@@ -8797,7 +8797,7 @@ extension Admin {
 
         let iceP_returnValue = try self.getDefaultApplicationDescriptor(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()
@@ -8810,7 +8810,7 @@ extension Admin {
 
         let iceP_returnValue = try self.getAllApplicationNames(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -8824,7 +8824,7 @@ extension Admin {
 
         let iceP_returnValue = try self.getServerInfo(id: iceP_id, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()
@@ -8839,7 +8839,7 @@ extension Admin {
 
         let iceP_returnValue = try self.getServerState(id: iceP_id, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -8853,7 +8853,7 @@ extension Admin {
 
         let iceP_returnValue = try self.getServerPid(id: iceP_id, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -8865,7 +8865,7 @@ extension Admin {
 
         let iceP_returnValue = try self.getServerAdminCategory(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -8879,7 +8879,7 @@ extension Admin {
 
         let iceP_returnValue = try self.getServerAdmin(id: iceP_id, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -8904,7 +8904,7 @@ extension Admin {
 
         let iceP_returnValue = try self.isServerEnabled(id: iceP_id, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -8947,7 +8947,7 @@ extension Admin {
 
         let iceP_returnValue = try self.getAllServerIds(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -8961,7 +8961,7 @@ extension Admin {
 
         let iceP_returnValue = try self.getAdapterInfo(id: iceP_id, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         AdapterInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -8983,7 +8983,7 @@ extension Admin {
 
         let iceP_returnValue = try self.getAllAdapterIds(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9038,7 +9038,7 @@ extension Admin {
 
         let iceP_returnValue = try self.getObjectInfo(id: iceP_id, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9052,7 +9052,7 @@ extension Admin {
 
         let iceP_returnValue = try self.getObjectInfosByType(type: iceP_type, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ObjectInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9066,7 +9066,7 @@ extension Admin {
 
         let iceP_returnValue = try self.getAllObjectInfos(expr: iceP_expr, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ObjectInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9080,7 +9080,7 @@ extension Admin {
 
         let iceP_returnValue = try self.pingNode(name: iceP_name, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9094,7 +9094,7 @@ extension Admin {
 
         let iceP_returnValue = try self.getNodeLoad(name: iceP_name, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9108,7 +9108,7 @@ extension Admin {
 
         let iceP_returnValue = try self.getNodeInfo(name: iceP_name, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9122,7 +9122,7 @@ extension Admin {
 
         let iceP_returnValue = try self.getNodeAdmin(name: iceP_name, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9136,7 +9136,7 @@ extension Admin {
 
         let iceP_returnValue = try self.getNodeProcessorSocketCount(name: iceP_name, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9160,7 +9160,7 @@ extension Admin {
 
         let iceP_returnValue = try self.getNodeHostname(name: iceP_name, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9172,7 +9172,7 @@ extension Admin {
 
         let iceP_returnValue = try self.getAllNodeNames(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9186,7 +9186,7 @@ extension Admin {
 
         let iceP_returnValue = try self.pingRegistry(name: iceP_name, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9200,7 +9200,7 @@ extension Admin {
 
         let iceP_returnValue = try self.getRegistryInfo(name: iceP_name, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9214,7 +9214,7 @@ extension Admin {
 
         let iceP_returnValue = try self.getRegistryAdmin(name: iceP_name, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9236,7 +9236,7 @@ extension Admin {
 
         let iceP_returnValue = try self.getAllRegistryNames(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9267,7 +9267,7 @@ extension FileIterator {
 
         let (iceP_returnValue, iceP_lines) = try self.read(size: iceP_size, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_lines)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -9609,7 +9609,7 @@ extension AdminSession {
 
         let iceP_returnValue = try self.getAdmin(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9621,7 +9621,7 @@ extension AdminSession {
 
         let iceP_returnValue = try self.getAdminCallbackTemplate(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9661,7 +9661,7 @@ extension AdminSession {
 
         let iceP_returnValue = try self.startUpdate(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9681,7 +9681,7 @@ extension AdminSession {
 
         let iceP_returnValue = try self.getReplicaName(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9697,7 +9697,7 @@ extension AdminSession {
 
         let iceP_returnValue = try self.openServerLog(id: iceP_id, path: iceP_path, count: iceP_count, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9712,7 +9712,7 @@ extension AdminSession {
 
         let iceP_returnValue = try self.openServerStdErr(id: iceP_id, count: iceP_count, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9727,7 +9727,7 @@ extension AdminSession {
 
         let iceP_returnValue = try self.openServerStdOut(id: iceP_id, count: iceP_count, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9742,7 +9742,7 @@ extension AdminSession {
 
         let iceP_returnValue = try self.openNodeStdErr(name: iceP_name, count: iceP_count, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9757,7 +9757,7 @@ extension AdminSession {
 
         let iceP_returnValue = try self.openNodeStdOut(name: iceP_name, count: iceP_count, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9772,7 +9772,7 @@ extension AdminSession {
 
         let iceP_returnValue = try self.openRegistryStdErr(name: iceP_name, count: iceP_count, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9787,7 +9787,7 @@ extension AdminSession {
 
         let iceP_returnValue = try self.openRegistryStdOut(name: iceP_name, count: iceP_count, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)

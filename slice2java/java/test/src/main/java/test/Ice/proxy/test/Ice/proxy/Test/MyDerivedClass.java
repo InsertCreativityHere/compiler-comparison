@@ -55,7 +55,7 @@ public interface MyDerivedClass extends MyClass
         istr.endEncapsulation();
         com.zeroc.Ice.ObjectPrx ret = obj.echo(iceP_obj, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeProxy(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));

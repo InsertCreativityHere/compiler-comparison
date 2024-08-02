@@ -46,8 +46,8 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_EchoPrx = IcePHP_defineProxy('::Test::Echo', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($Test__t_EchoPrx, 'startBatch', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_EchoPrx, 'flushBatch', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_EchoPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_EchoPrx, 'startBatch', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_EchoPrx, 'flushBatch', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_EchoPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 ?>

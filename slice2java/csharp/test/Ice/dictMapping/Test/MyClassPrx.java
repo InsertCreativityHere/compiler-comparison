@@ -46,7 +46,7 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
-        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(false, context, null, null, null);
         return f;
     }
 
@@ -80,7 +80,7 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<MyClass.OpNVResult> _iceI_opNVAsync(java.util.Map<java.lang.Integer, java.lang.Integer> iceP_i, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<MyClass.OpNVResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opNV", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      NVHelper.write(ostr, iceP_i);
                  }, istr -> {
                      MyClass.OpNVResult ret = new MyClass.OpNVResult();
@@ -120,7 +120,7 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<MyClass.OpNRResult> _iceI_opNRAsync(java.util.Map<java.lang.String, java.lang.String> iceP_i, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<MyClass.OpNRResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opNR", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      NRHelper.write(ostr, iceP_i);
                  }, istr -> {
                      MyClass.OpNRResult ret = new MyClass.OpNRResult();
@@ -160,7 +160,7 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<MyClass.OpNDVResult> _iceI_opNDVAsync(java.util.Map<java.lang.String, java.util.Map<java.lang.Integer, java.lang.Integer>> iceP_i, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<MyClass.OpNDVResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opNDV", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      NDVHelper.write(ostr, iceP_i);
                  }, istr -> {
                      MyClass.OpNDVResult ret = new MyClass.OpNDVResult();
@@ -200,7 +200,7 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<MyClass.OpNDRResult> _iceI_opNDRAsync(java.util.Map<java.lang.String, java.util.Map<java.lang.String, java.lang.String>> iceP_i, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<MyClass.OpNDRResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opNDR", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      NDRHelper.write(ostr, iceP_i);
                  }, istr -> {
                      MyClass.OpNDRResult ret = new MyClass.OpNDRResult();
@@ -240,7 +240,7 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<MyClass.OpNDAISResult> _iceI_opNDAISAsync(java.util.Map<java.lang.String, int[]> iceP_i, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<MyClass.OpNDAISResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opNDAIS", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      NDAISHelper.write(ostr, iceP_i);
                  }, istr -> {
                      MyClass.OpNDAISResult ret = new MyClass.OpNDAISResult();
@@ -280,7 +280,7 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<MyClass.OpNDGISResult> _iceI_opNDGISAsync(java.util.Map<java.lang.String, int[]> iceP_i, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<MyClass.OpNDGISResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opNDGIS", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      NDGISHelper.write(ostr, iceP_i);
                  }, istr -> {
                      MyClass.OpNDGISResult ret = new MyClass.OpNDGISResult();
@@ -320,7 +320,7 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<MyClass.OpNDASSResult> _iceI_opNDASSAsync(java.util.Map<java.lang.String, String[]> iceP_i, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<MyClass.OpNDASSResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opNDASS", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      NDASSHelper.write(ostr, iceP_i);
                  }, istr -> {
                      MyClass.OpNDASSResult ret = new MyClass.OpNDASSResult();
@@ -360,7 +360,7 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<MyClass.OpNDGSSResult> _iceI_opNDGSSAsync(java.util.Map<java.lang.String, String[]> iceP_i, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<MyClass.OpNDGSSResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opNDGSS", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      NDGSSHelper.write(ostr, iceP_i);
                  }, istr -> {
                      MyClass.OpNDGSSResult ret = new MyClass.OpNDGSSResult();

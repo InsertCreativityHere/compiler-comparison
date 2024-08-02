@@ -1440,7 +1440,7 @@ extension MXMetricsAdmin {
 
         let (iceP_returnValue, iceP_disabledViews) = try self.getMetricsViewNames(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_disabledViews)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -1492,7 +1492,7 @@ extension MXMetricsAdmin {
 
         let iceP_returnValue = try self.getMapMetricsFailures(view: iceP_view, map: iceP_map, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         MXMetricsFailuresSeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -1508,7 +1508,7 @@ extension MXMetricsAdmin {
 
         let iceP_returnValue = try self.getMetricsFailures(view: iceP_view, map: iceP_map, id: iceP_id, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)

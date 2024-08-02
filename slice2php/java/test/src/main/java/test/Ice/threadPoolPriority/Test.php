@@ -47,7 +47,7 @@ namespace Test
     $Test__t_PriorityPrx = IcePHP_defineProxy('::Test::Priority', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_int;
-    IcePHP_defineOperation($Test__t_PriorityPrx, 'shutdown', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_PriorityPrx, 'getPriority', 0, 0, null, null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($Test__t_PriorityPrx, 'shutdown', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_PriorityPrx, 'getPriority', 0, -1, null, null, array($IcePHP__t_int), null);
 }
 ?>

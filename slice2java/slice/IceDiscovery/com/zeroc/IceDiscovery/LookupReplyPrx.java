@@ -75,7 +75,7 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_foundObjectByIdAsync(com.zeroc.Ice.Identity iceP_id, com.zeroc.Ice.ObjectPrx iceP_prx, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "foundObjectById", null, sync, null);
-        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(false, context, null, ostr -> {
                      com.zeroc.Ice.Identity.ice_write(ostr, iceP_id);
                      ostr.writeProxy(iceP_prx);
                  }, null);
@@ -146,7 +146,7 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_foundAdapterByIdAsync(String iceP_id, com.zeroc.Ice.ObjectPrx iceP_prx, boolean iceP_isReplicaGroup, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "foundAdapterById", null, sync, null);
-        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_id);
                      ostr.writeProxy(iceP_prx);
                      ostr.writeBool(iceP_isReplicaGroup);

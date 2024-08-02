@@ -79,7 +79,7 @@ namespace Test
     $Test__t_APrx = IcePHP_defineProxy('::Test::A', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_string;
-    IcePHP_defineOperation($Test__t_APrx, 'callA', 0, 0, null, null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test__t_APrx, 'callA', 0, -1, null, null, array($IcePHP__t_string), null);
 }
 
 namespace Test
@@ -114,7 +114,7 @@ namespace Test
     $Test__t_BPrx = IcePHP_defineProxy('::Test::B', $Ice__t_ObjectPrx, array($Test__t_APrx));
 
     global $IcePHP__t_string;
-    IcePHP_defineOperation($Test__t_BPrx, 'callB', 0, 0, null, null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test__t_BPrx, 'callB', 0, -1, null, null, array($IcePHP__t_string), null);
 }
 
 namespace Test
@@ -149,7 +149,7 @@ namespace Test
     $Test__t_CPrx = IcePHP_defineProxy('::Test::C', $Ice__t_ObjectPrx, array($Test__t_APrx));
 
     global $IcePHP__t_string;
-    IcePHP_defineOperation($Test__t_CPrx, 'callC', 0, 0, null, null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test__t_CPrx, 'callC', 0, -1, null, null, array($IcePHP__t_string), null);
 }
 
 namespace Test
@@ -184,7 +184,7 @@ namespace Test
     $Test__t_DPrx = IcePHP_defineProxy('::Test::D', $Ice__t_ObjectPrx, array($Test__t_BPrx, $Test__t_CPrx));
 
     global $IcePHP__t_string;
-    IcePHP_defineOperation($Test__t_DPrx, 'callD', 0, 0, null, null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test__t_DPrx, 'callD', 0, -1, null, null, array($IcePHP__t_string), null);
 }
 
 namespace Test
@@ -219,7 +219,7 @@ namespace Test
     $Test__t_EPrx = IcePHP_defineProxy('::Test::E', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_string;
-    IcePHP_defineOperation($Test__t_EPrx, 'callE', 0, 0, null, null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test__t_EPrx, 'callE', 0, -1, null, null, array($IcePHP__t_string), null);
 }
 
 namespace Test
@@ -254,7 +254,7 @@ namespace Test
     $Test__t_FPrx = IcePHP_defineProxy('::Test::F', $Ice__t_ObjectPrx, array($Test__t_EPrx));
 
     global $IcePHP__t_string;
-    IcePHP_defineOperation($Test__t_FPrx, 'callF', 0, 0, null, null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test__t_FPrx, 'callF', 0, -1, null, null, array($IcePHP__t_string), null);
 }
 
 namespace Test
@@ -289,8 +289,8 @@ namespace Test
     $Test__t_GPrx = IcePHP_defineProxy('::Test::G', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_string;
-    IcePHP_defineOperation($Test__t_GPrx, 'shutdown', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_GPrx, 'callG', 0, 0, null, null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test__t_GPrx, 'shutdown', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_GPrx, 'callG', 0, -1, null, null, array($IcePHP__t_string), null);
 }
 
 namespace Test
@@ -325,7 +325,7 @@ namespace Test
     $Test__t_HPrx = IcePHP_defineProxy('::Test::H', $Ice__t_ObjectPrx, array($Test__t_GPrx));
 
     global $IcePHP__t_string;
-    IcePHP_defineOperation($Test__t_HPrx, 'callH', 0, 0, null, null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test__t_HPrx, 'callH', 0, -1, null, null, array($IcePHP__t_string), null);
 }
 
 namespace Test
@@ -359,9 +359,9 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_EchoPrx = IcePHP_defineProxy('::Test::Echo', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($Test__t_EchoPrx, 'setConnection', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_EchoPrx, 'startBatch', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_EchoPrx, 'flushBatch', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_EchoPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_EchoPrx, 'setConnection', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_EchoPrx, 'startBatch', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_EchoPrx, 'flushBatch', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_EchoPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 ?>

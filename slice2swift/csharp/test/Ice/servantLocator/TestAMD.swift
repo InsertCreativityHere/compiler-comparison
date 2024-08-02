@@ -1033,7 +1033,7 @@ extension TestIntf {
         let iceP_throw: Swift.Bool = try istr.read()
         let result = try await self.impossibleExceptionAsync(
             throw: iceP_throw, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }
@@ -1046,7 +1046,7 @@ extension TestIntf {
         let iceP_throw: Swift.Bool = try istr.read()
         let result = try await self.intfUserExceptionAsync(
             throw: iceP_throw, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }

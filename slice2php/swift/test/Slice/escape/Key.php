@@ -107,7 +107,7 @@ namespace _and
     $and__t_breakPrx = IcePHP_defineProxy('::and::break', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_int;
-    IcePHP_defineOperation($and__t_breakPrx, 'case', 0, 0, array(array($IcePHP__t_int)), array(array($IcePHP__t_int)), null, null);
+    IcePHP_defineOperation($and__t_breakPrx, 'case', 0, -1, array(array($IcePHP__t_int)), array(array($IcePHP__t_int)), null, null);
 }
 
 namespace _and
@@ -141,7 +141,7 @@ namespace _and
     global $Ice__t_ObjectPrx;
     $and__t_funcPrx = IcePHP_defineProxy('::and::func', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($and__t_funcPrx, 'public', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($and__t_funcPrx, 'public', 0, -1, null, null, null, null);
 }
 
 namespace _and

@@ -152,7 +152,7 @@ public interface TestIntf extends com.zeroc.Ice.Object
             {
                 ostr.writeString(value);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -172,7 +172,7 @@ public interface TestIntf extends com.zeroc.Ice.Object
             {
                 ostr.writeString(value);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */

@@ -82,7 +82,7 @@ public interface PropertiesAdmin extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         String ret = obj.getProperty(iceP_key, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeString(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -99,7 +99,7 @@ public interface PropertiesAdmin extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         java.util.Map<java.lang.String, java.lang.String> ret = obj.getPropertiesForPrefix(iceP_prefix, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         PropertyDictHelper.write(ostr, ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));

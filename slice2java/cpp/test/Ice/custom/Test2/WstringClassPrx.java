@@ -47,7 +47,7 @@ public interface WstringClassPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<WstringClass.OpStringResult> _iceI_opStringAsync(String iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<WstringClass.OpStringResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opString", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_s1);
                  }, istr -> {
                      WstringClass.OpStringResult ret = new WstringClass.OpStringResult();
@@ -87,7 +87,7 @@ public interface WstringClassPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<WstringClass.OpStructResult> _iceI_opStructAsync(WstringStruct iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<WstringClass.OpStructResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opStruct", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      WstringStruct.ice_write(ostr, iceP_s1);
                  }, istr -> {
                      WstringClass.OpStructResult ret = new WstringClass.OpStructResult();
@@ -140,7 +140,7 @@ public interface WstringClassPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_throwExceptAsync(String iceP_reason, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwExcept", null, sync, _iceE_throwExcept);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_reason);
                  }, null);
         return f;

@@ -527,7 +527,7 @@ extension PermissionsVerifier {
 
         let (iceP_returnValue, iceP_reason) = try self.checkPermissions(userId: iceP_userId, password: iceP_password, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_reason)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -549,7 +549,7 @@ extension SSLPermissionsVerifier {
 
         let (iceP_returnValue, iceP_reason) = try self.authorize(info: iceP_info, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_reason)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()

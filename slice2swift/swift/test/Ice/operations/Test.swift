@@ -8538,7 +8538,7 @@ extension MyClass {
 
         let iceP_returnValue = try self.supportsCompress(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -8561,7 +8561,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opByte(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_p3)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -8577,7 +8577,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opBool(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_p3)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -8594,7 +8594,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p4, iceP_p5, iceP_p6) = try self.opShortIntLong(p1: iceP_p1, p2: iceP_p2, p3: iceP_p3, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_p4)
         ostr.write(iceP_p5)
         ostr.write(iceP_p6)
@@ -8612,7 +8612,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3, iceP_p4) = try self.opFloatDouble(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_p3)
         ostr.write(iceP_p4)
         ostr.write(iceP_returnValue)
@@ -8629,7 +8629,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opString(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_p3)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -8644,7 +8644,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p2) = try self.opMyEnum(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_p2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -8659,7 +8659,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p2, iceP_p3) = try self.opMyClass(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_p2)
         ostr.write(iceP_p3)
         ostr.write(iceP_returnValue)
@@ -8676,7 +8676,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opStruct(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_p3)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -8692,7 +8692,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opByteS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_p3)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -8708,7 +8708,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opBoolS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_p3)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -8725,7 +8725,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p4, iceP_p5, iceP_p6) = try self.opShortIntLongS(p1: iceP_p1, p2: iceP_p2, p3: iceP_p3, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_p4)
         ostr.write(iceP_p5)
         ostr.write(iceP_p6)
@@ -8743,7 +8743,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3, iceP_p4) = try self.opFloatDoubleS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_p3)
         ostr.write(iceP_p4)
         ostr.write(iceP_returnValue)
@@ -8760,7 +8760,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opStringS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_p3)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -8776,7 +8776,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opByteSS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ByteSSHelper.write(to: ostr, value: iceP_p3)
         ByteSSHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -8792,7 +8792,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opBoolSS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         BoolSSHelper.write(to: ostr, value: iceP_p3)
         BoolSSHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -8809,7 +8809,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p4, iceP_p5, iceP_p6) = try self.opShortIntLongSS(p1: iceP_p1, p2: iceP_p2, p3: iceP_p3, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ShortSSHelper.write(to: ostr, value: iceP_p4)
         IntSSHelper.write(to: ostr, value: iceP_p5)
         LongSSHelper.write(to: ostr, value: iceP_p6)
@@ -8827,7 +8827,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3, iceP_p4) = try self.opFloatDoubleSS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         FloatSSHelper.write(to: ostr, value: iceP_p3)
         DoubleSSHelper.write(to: ostr, value: iceP_p4)
         DoubleSSHelper.write(to: ostr, value: iceP_returnValue)
@@ -8844,7 +8844,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opStringSS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         StringSSHelper.write(to: ostr, value: iceP_p3)
         StringSSHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -8860,7 +8860,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opStringSSS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         StringSSSHelper.write(to: ostr, value: iceP_p3)
         StringSSSHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -8876,7 +8876,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opByteBoolD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ByteBoolDHelper.write(to: ostr, value: iceP_p3)
         ByteBoolDHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -8892,7 +8892,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opShortIntD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ShortIntDHelper.write(to: ostr, value: iceP_p3)
         ShortIntDHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -8908,7 +8908,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opLongFloatD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         LongFloatDHelper.write(to: ostr, value: iceP_p3)
         LongFloatDHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -8924,7 +8924,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opStringStringD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         StringStringDHelper.write(to: ostr, value: iceP_p3)
         StringStringDHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -8940,7 +8940,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opStringMyEnumD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         StringMyEnumDHelper.write(to: ostr, value: iceP_p3)
         StringMyEnumDHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -8956,7 +8956,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opMyEnumStringD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         MyEnumStringDHelper.write(to: ostr, value: iceP_p3)
         MyEnumStringDHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -8972,7 +8972,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opMyStructMyEnumD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         MyStructMyEnumDHelper.write(to: ostr, value: iceP_p3)
         MyStructMyEnumDHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -8988,7 +8988,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opByteBoolDS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ByteBoolDSHelper.write(to: ostr, value: iceP_p3)
         ByteBoolDSHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -9004,7 +9004,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opShortIntDS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ShortIntDSHelper.write(to: ostr, value: iceP_p3)
         ShortIntDSHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -9020,7 +9020,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opLongFloatDS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         LongFloatDSHelper.write(to: ostr, value: iceP_p3)
         LongFloatDSHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -9036,7 +9036,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opStringStringDS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         StringStringDSHelper.write(to: ostr, value: iceP_p3)
         StringStringDSHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -9052,7 +9052,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opStringMyEnumDS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         StringMyEnumDSHelper.write(to: ostr, value: iceP_p3)
         StringMyEnumDSHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -9068,7 +9068,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opMyEnumStringDS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         MyEnumStringDSHelper.write(to: ostr, value: iceP_p3)
         MyEnumStringDSHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -9084,7 +9084,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opMyStructMyEnumDS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         MyStructMyEnumDSHelper.write(to: ostr, value: iceP_p3)
         MyStructMyEnumDSHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -9100,7 +9100,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opByteByteSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ByteByteSDHelper.write(to: ostr, value: iceP_p3)
         ByteByteSDHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -9116,7 +9116,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opBoolBoolSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         BoolBoolSDHelper.write(to: ostr, value: iceP_p3)
         BoolBoolSDHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -9132,7 +9132,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opShortShortSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ShortShortSDHelper.write(to: ostr, value: iceP_p3)
         ShortShortSDHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -9148,7 +9148,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opIntIntSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         IntIntSDHelper.write(to: ostr, value: iceP_p3)
         IntIntSDHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -9164,7 +9164,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opLongLongSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         LongLongSDHelper.write(to: ostr, value: iceP_p3)
         LongLongSDHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -9180,7 +9180,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opStringFloatSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         StringFloatSDHelper.write(to: ostr, value: iceP_p3)
         StringFloatSDHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -9196,7 +9196,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opStringDoubleSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         StringDoubleSDHelper.write(to: ostr, value: iceP_p3)
         StringDoubleSDHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -9212,7 +9212,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opStringStringSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         StringStringSDHelper.write(to: ostr, value: iceP_p3)
         StringStringSDHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -9228,7 +9228,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p3) = try self.opMyEnumMyEnumSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         MyEnumMyEnumSDHelper.write(to: ostr, value: iceP_p3)
         MyEnumMyEnumSDHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -9243,7 +9243,7 @@ extension MyClass {
 
         let iceP_returnValue = try self.opIntS(s: iceP_s, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9265,7 +9265,7 @@ extension MyClass {
 
         let iceP_returnValue = try self.opByteSOnewayCallCount(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9277,7 +9277,7 @@ extension MyClass {
 
         let iceP_returnValue = try self.opContext(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         Ice.ContextHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9310,7 +9310,7 @@ extension MyClass {
 
         let iceP_returnValue = try self.opByte1(opByte1: iceP_opByte1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9324,7 +9324,7 @@ extension MyClass {
 
         let iceP_returnValue = try self.opShort1(opShort1: iceP_opShort1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9338,7 +9338,7 @@ extension MyClass {
 
         let iceP_returnValue = try self.opInt1(opInt1: iceP_opInt1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9352,7 +9352,7 @@ extension MyClass {
 
         let iceP_returnValue = try self.opLong1(opLong1: iceP_opLong1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9366,7 +9366,7 @@ extension MyClass {
 
         let iceP_returnValue = try self.opFloat1(opFloat1: iceP_opFloat1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9380,7 +9380,7 @@ extension MyClass {
 
         let iceP_returnValue = try self.opDouble1(opDouble1: iceP_opDouble1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9394,7 +9394,7 @@ extension MyClass {
 
         let iceP_returnValue = try self.opString1(opString1: iceP_opString1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9408,7 +9408,7 @@ extension MyClass {
 
         let iceP_returnValue = try self.opStringS1(opStringS1: iceP_opStringS1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9422,7 +9422,7 @@ extension MyClass {
 
         let iceP_returnValue = try self.opByteBoolD1(opByteBoolD1: iceP_opByteBoolD1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ByteBoolDHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9436,7 +9436,7 @@ extension MyClass {
 
         let iceP_returnValue = try self.opStringS2(stringS: iceP_stringS, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9450,7 +9450,7 @@ extension MyClass {
 
         let iceP_returnValue = try self.opByteBoolD2(byteBoolD: iceP_byteBoolD, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ByteBoolDHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9462,7 +9462,7 @@ extension MyClass {
 
         let iceP_returnValue = try self.opStringLiterals(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9474,7 +9474,7 @@ extension MyClass {
 
         let iceP_returnValue = try self.opWStringLiterals(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9486,7 +9486,7 @@ extension MyClass {
 
         let iceP_returnValue = try self.opMStruct1(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9500,7 +9500,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p2) = try self.opMStruct2(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_p2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -9513,7 +9513,7 @@ extension MyClass {
 
         let iceP_returnValue = try self.opMSeq1(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9527,7 +9527,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p2) = try self.opMSeq2(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_p2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -9540,7 +9540,7 @@ extension MyClass {
 
         let iceP_returnValue = try self.opMDict1(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         StringStringDHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -9554,7 +9554,7 @@ extension MyClass {
 
         let (iceP_returnValue, iceP_p2) = try self.opMDict2(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         StringStringDHelper.write(to: ostr, value: iceP_p2)
         StringStringDHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -9590,7 +9590,7 @@ extension MyDerivedClass {
 
         let iceP_returnValue = try self.opMyClass1(opMyClass1: iceP_opMyClass1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()
@@ -9605,7 +9605,7 @@ extension MyDerivedClass {
 
         let iceP_returnValue = try self.opMyStruct1(opMyStruct1: iceP_opMyStruct1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)

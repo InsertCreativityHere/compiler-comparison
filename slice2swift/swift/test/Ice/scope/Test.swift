@@ -4577,7 +4577,7 @@ extension I {
 
         let (iceP_returnValue, iceP_s2) = try self.opS(s1: iceP_s1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_s2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -4592,7 +4592,7 @@ extension I {
 
         let (iceP_returnValue, iceP_s2) = try self.opSSeq(s1: iceP_s1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         SSeqHelper.write(to: ostr, value: iceP_s2)
         SSeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -4607,7 +4607,7 @@ extension I {
 
         let (iceP_returnValue, iceP_s2) = try self.opSMap(s1: iceP_s1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         SMapHelper.write(to: ostr, value: iceP_s2)
         SMapHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -4624,7 +4624,7 @@ extension I {
 
         let (iceP_returnValue, iceP_c2) = try self.opC(c1: iceP_c1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_c2)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
@@ -4641,7 +4641,7 @@ extension I {
 
         let (iceP_returnValue, iceP_s2) = try self.opCSeq(s1: iceP_s1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         CSeqHelper.write(to: ostr, value: iceP_s2)
         CSeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.writePendingValues()
@@ -4658,7 +4658,7 @@ extension I {
 
         let (iceP_returnValue, iceP_c2) = try self.opCMap(c1: iceP_c1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         CMapHelper.write(to: ostr, value: iceP_c2)
         CMapHelper.write(to: ostr, value: iceP_returnValue)
         ostr.writePendingValues()
@@ -4674,7 +4674,7 @@ extension I {
 
         let iceP_returnValue = try self.opE1(E1: iceP_E1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -4688,7 +4688,7 @@ extension I {
 
         let iceP_returnValue = try self.opS1(S1: iceP_S1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -4704,7 +4704,7 @@ extension I {
 
         let iceP_returnValue = try self.opC1(C1: iceP_C1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()
@@ -4719,7 +4719,7 @@ extension I {
 
         let iceP_returnValue = try self.opS1Seq(S1Seq: iceP_S1Seq, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         S1SeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -4733,7 +4733,7 @@ extension I {
 
         let iceP_returnValue = try self.opS1Map(S1Map: iceP_S1Map, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         S1MapHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -4774,7 +4774,7 @@ extension InnerInner2I {
 
         let (iceP_returnValue, iceP_s2) = try self.opS(s1: iceP_s1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_s2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -4789,7 +4789,7 @@ extension InnerInner2I {
 
         let (iceP_returnValue, iceP_s2) = try self.opSSeq(s1: iceP_s1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         InnerInner2SSeqHelper.write(to: ostr, value: iceP_s2)
         InnerInner2SSeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -4804,7 +4804,7 @@ extension InnerInner2I {
 
         let (iceP_returnValue, iceP_s2) = try self.opSMap(s1: iceP_s1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         InnerInner2SMapHelper.write(to: ostr, value: iceP_s2)
         InnerInner2SMapHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -4821,7 +4821,7 @@ extension InnerInner2I {
 
         let (iceP_returnValue, iceP_c2) = try self.opC(c1: iceP_c1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_c2)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
@@ -4838,7 +4838,7 @@ extension InnerInner2I {
 
         let (iceP_returnValue, iceP_c2) = try self.opCSeq(c1: iceP_c1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         InnerInner2CSeqHelper.write(to: ostr, value: iceP_c2)
         InnerInner2CSeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.writePendingValues()
@@ -4855,7 +4855,7 @@ extension InnerInner2I {
 
         let (iceP_returnValue, iceP_c2) = try self.opCMap(c1: iceP_c1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         InnerInner2CMapHelper.write(to: ostr, value: iceP_c2)
         InnerInner2CMapHelper.write(to: ostr, value: iceP_returnValue)
         ostr.writePendingValues()
@@ -4898,7 +4898,7 @@ extension InnerI {
 
         let (iceP_returnValue, iceP_s2) = try self.opS(s1: iceP_s1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_s2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -4913,7 +4913,7 @@ extension InnerI {
 
         let (iceP_returnValue, iceP_s2) = try self.opSSeq(s1: iceP_s1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         InnerInner2SSeqHelper.write(to: ostr, value: iceP_s2)
         InnerInner2SSeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -4928,7 +4928,7 @@ extension InnerI {
 
         let (iceP_returnValue, iceP_s2) = try self.opSMap(s1: iceP_s1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         InnerInner2SMapHelper.write(to: ostr, value: iceP_s2)
         InnerInner2SMapHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -4945,7 +4945,7 @@ extension InnerI {
 
         let (iceP_returnValue, iceP_c2) = try self.opC(c1: iceP_c1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_c2)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
@@ -4962,7 +4962,7 @@ extension InnerI {
 
         let (iceP_returnValue, iceP_c2) = try self.opCSeq(c1: iceP_c1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         InnerInner2CSeqHelper.write(to: ostr, value: iceP_c2)
         InnerInner2CSeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.writePendingValues()
@@ -4979,7 +4979,7 @@ extension InnerI {
 
         let (iceP_returnValue, iceP_c2) = try self.opCMap(c1: iceP_c1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         InnerInner2CMapHelper.write(to: ostr, value: iceP_c2)
         InnerInner2CMapHelper.write(to: ostr, value: iceP_returnValue)
         ostr.writePendingValues()
@@ -5022,7 +5022,7 @@ extension InnerTestInner2I {
 
         let (iceP_returnValue, iceP_s2) = try self.opS(s1: iceP_s1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_s2)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -5037,7 +5037,7 @@ extension InnerTestInner2I {
 
         let (iceP_returnValue, iceP_s2) = try self.opSSeq(s1: iceP_s1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         SSeqHelper.write(to: ostr, value: iceP_s2)
         SSeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -5052,7 +5052,7 @@ extension InnerTestInner2I {
 
         let (iceP_returnValue, iceP_s2) = try self.opSMap(s1: iceP_s1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         SMapHelper.write(to: ostr, value: iceP_s2)
         SMapHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -5069,7 +5069,7 @@ extension InnerTestInner2I {
 
         let (iceP_returnValue, iceP_c2) = try self.opC(c1: iceP_c1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_c2)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
@@ -5086,7 +5086,7 @@ extension InnerTestInner2I {
 
         let (iceP_returnValue, iceP_c2) = try self.opCSeq(c1: iceP_c1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         CSeqHelper.write(to: ostr, value: iceP_c2)
         CSeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.writePendingValues()
@@ -5103,7 +5103,7 @@ extension InnerTestInner2I {
 
         let (iceP_returnValue, iceP_c2) = try self.opCMap(c1: iceP_c1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         CMapHelper.write(to: ostr, value: iceP_c2)
         CMapHelper.write(to: ostr, value: iceP_returnValue)
         ostr.writePendingValues()

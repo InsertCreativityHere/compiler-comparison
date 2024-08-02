@@ -1174,7 +1174,7 @@ extension `catch` {
         let iceP_clone: Swift.Int32 = try istr.read()
         let result = try await self.checkedCastAsync(
             clone: iceP_clone, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_continue = value
             ostr.write(iceP_continue)
         }
@@ -1222,7 +1222,7 @@ extension new {
 
         let iceP_returnValue = try self.notify(notifyAll: iceP_notifyAll, null: iceP_null, package: iceP_package, public: iceP_public, return: iceP_return, static: iceP_static, strictfp: iceP_strictfp, super: iceP_super, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)

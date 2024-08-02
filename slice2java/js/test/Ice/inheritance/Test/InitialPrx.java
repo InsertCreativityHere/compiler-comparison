@@ -46,7 +46,7 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
-        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(false, context, null, null, null);
         return f;
     }
 
@@ -79,7 +79,7 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Test.MA.IAPrx> _iceI_iaopAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Test.MA.IAPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "iaop", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
+        f.invoke(true, context, null, null, istr -> {
                      Test.MA.IAPrx ret;
                      ret = Test.MA.IAPrx.uncheckedCast(istr.readProxy());
                      return ret;
@@ -116,7 +116,7 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Test.MB.IB1Prx> _iceI_ib1opAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Test.MB.IB1Prx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "ib1op", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
+        f.invoke(true, context, null, null, istr -> {
                      Test.MB.IB1Prx ret;
                      ret = Test.MB.IB1Prx.uncheckedCast(istr.readProxy());
                      return ret;
@@ -153,7 +153,7 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Test.MB.IB2Prx> _iceI_ib2opAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Test.MB.IB2Prx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "ib2op", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
+        f.invoke(true, context, null, null, istr -> {
                      Test.MB.IB2Prx ret;
                      ret = Test.MB.IB2Prx.uncheckedCast(istr.readProxy());
                      return ret;
@@ -190,7 +190,7 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Test.MA.ICPrx> _iceI_icopAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Test.MA.ICPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "icop", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
+        f.invoke(true, context, null, null, istr -> {
                      Test.MA.ICPrx ret;
                      ret = Test.MA.ICPrx.uncheckedCast(istr.readProxy());
                      return ret;

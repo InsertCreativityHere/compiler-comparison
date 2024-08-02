@@ -5079,7 +5079,7 @@ extension Initial {
 
         let iceP_returnValue = try self.pingPong(o: iceP_o, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()
@@ -5127,7 +5127,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opByte(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 1, value: iceP_returnValue)
         ostr.write(tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5142,7 +5142,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opBool(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 1, value: iceP_returnValue)
         ostr.write(tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5157,7 +5157,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opShort(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 1, value: iceP_returnValue)
         ostr.write(tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5172,7 +5172,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opInt(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 1, value: iceP_returnValue)
         ostr.write(tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5187,7 +5187,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opLong(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 2, value: iceP_p3)
         ostr.write(tag: 3, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -5202,7 +5202,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opFloat(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 1, value: iceP_returnValue)
         ostr.write(tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5217,7 +5217,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opDouble(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 1, value: iceP_returnValue)
         ostr.write(tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5232,7 +5232,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opString(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 1, value: iceP_returnValue)
         ostr.write(tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5247,7 +5247,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opMyEnum(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 1, value: iceP_returnValue)
         ostr.write(tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5262,7 +5262,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opSmallStruct(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 1, value: iceP_returnValue)
         ostr.write(tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5277,7 +5277,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opFixedStruct(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 1, value: iceP_returnValue)
         ostr.write(tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5292,7 +5292,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opVarStruct(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 1, value: iceP_returnValue)
         ostr.write(tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5307,7 +5307,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opMyInterfaceProxy(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 1, value: iceP_returnValue)
         ostr.write(tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5324,7 +5324,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opOneOptional(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_p3)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
@@ -5340,7 +5340,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opByteSeq(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 1, value: iceP_returnValue)
         ostr.write(tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5355,7 +5355,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opBoolSeq(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 1, value: iceP_returnValue)
         ostr.write(tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5370,7 +5370,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opShortSeq(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 1, value: iceP_returnValue)
         ostr.write(tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5385,7 +5385,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opIntSeq(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 1, value: iceP_returnValue)
         ostr.write(tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5400,7 +5400,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opLongSeq(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 1, value: iceP_returnValue)
         ostr.write(tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5415,7 +5415,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opFloatSeq(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 1, value: iceP_returnValue)
         ostr.write(tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5430,7 +5430,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opDoubleSeq(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 1, value: iceP_returnValue)
         ostr.write(tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5445,7 +5445,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opStringSeq(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 1, value: iceP_returnValue)
         ostr.write(tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5460,7 +5460,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opSmallStructSeq(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         SmallStructSeqHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
         SmallStructSeqHelper.write(to: ostr, tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5475,7 +5475,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opSmallStructList(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         SmallStructListHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
         SmallStructListHelper.write(to: ostr, tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5490,7 +5490,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opFixedStructSeq(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         FixedStructSeqHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
         FixedStructSeqHelper.write(to: ostr, tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5505,7 +5505,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opFixedStructList(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         FixedStructListHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
         FixedStructListHelper.write(to: ostr, tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5520,7 +5520,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opVarStructSeq(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         VarStructSeqHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
         VarStructSeqHelper.write(to: ostr, tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5535,7 +5535,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opIntIntDict(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         IntIntDictHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
         IntIntDictHelper.write(to: ostr, tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5550,7 +5550,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p3) = try self.opStringIntDict(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         StringIntDictHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
         StringIntDictHelper.write(to: ostr, tag: 3, value: iceP_p3)
         ostr.endEncapsulation()
@@ -5579,7 +5579,7 @@ extension Initial {
 
         let iceP_returnValue = try self.opG(g: iceP_g, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.writePendingValues()
         ostr.endEncapsulation()
@@ -5600,7 +5600,7 @@ extension Initial {
 
         let iceP_returnValue = try self.opMStruct1(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 1, value: iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -5614,7 +5614,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p2) = try self.opMStruct2(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 1, value: iceP_returnValue)
         ostr.write(tag: 3, value: iceP_p2)
         ostr.endEncapsulation()
@@ -5627,7 +5627,7 @@ extension Initial {
 
         let iceP_returnValue = try self.opMSeq1(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 1, value: iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -5641,7 +5641,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p2) = try self.opMSeq2(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 1, value: iceP_returnValue)
         ostr.write(tag: 3, value: iceP_p2)
         ostr.endEncapsulation()
@@ -5654,7 +5654,7 @@ extension Initial {
 
         let iceP_returnValue = try self.opMDict1(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         StringIntDictHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -5668,7 +5668,7 @@ extension Initial {
 
         let (iceP_returnValue, iceP_p2) = try self.opMDict2(p1: iceP_p1, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         StringIntDictHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
         StringIntDictHelper.write(to: ostr, tag: 3, value: iceP_p2)
         ostr.endEncapsulation()
@@ -5681,7 +5681,7 @@ extension Initial {
 
         let iceP_returnValue = try self.supportsJavaSerializable(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)

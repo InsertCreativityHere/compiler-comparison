@@ -47,7 +47,7 @@ public interface IPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<I.OpSResult> _iceI_opSAsync(test.Ice.scope.Test.Inner.Inner2.S iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<I.OpSResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opS", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      test.Ice.scope.Test.Inner.Inner2.S.ice_write(ostr, iceP_s1);
                  }, istr -> {
                      I.OpSResult ret = new I.OpSResult();
@@ -87,7 +87,7 @@ public interface IPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<I.OpSSeqResult> _iceI_opSSeqAsync(test.Ice.scope.Test.Inner.Inner2.S[] iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<I.OpSSeqResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opSSeq", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      test.Ice.scope.Test.Inner.Inner2.SSeqHelper.write(ostr, iceP_s1);
                  }, istr -> {
                      I.OpSSeqResult ret = new I.OpSSeqResult();
@@ -127,7 +127,7 @@ public interface IPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<I.OpSMapResult> _iceI_opSMapAsync(java.util.Map<java.lang.String, test.Ice.scope.Test.Inner.Inner2.S> iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<I.OpSMapResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opSMap", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      test.Ice.scope.Test.Inner.Inner2.SMapHelper.write(ostr, iceP_s1);
                  }, istr -> {
                      I.OpSMapResult ret = new I.OpSMapResult();
@@ -167,7 +167,7 @@ public interface IPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<I.OpCResult> _iceI_opCAsync(test.Ice.scope.Test.Inner.Inner2.C iceP_c1, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<I.OpCResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opC", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeValue(iceP_c1);
                      ostr.writePendingValues();
                  }, istr -> {
@@ -209,7 +209,7 @@ public interface IPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<I.OpCSeqResult> _iceI_opCSeqAsync(test.Ice.scope.Test.Inner.Inner2.C[] iceP_c1, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<I.OpCSeqResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opCSeq", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      test.Ice.scope.Test.Inner.Inner2.CSeqHelper.write(ostr, iceP_c1);
                      ostr.writePendingValues();
                  }, istr -> {
@@ -251,7 +251,7 @@ public interface IPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<I.OpCMapResult> _iceI_opCMapAsync(java.util.Map<java.lang.String, test.Ice.scope.Test.Inner.Inner2.C> iceP_c1, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<I.OpCMapResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opCMap", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      test.Ice.scope.Test.Inner.Inner2.CMapHelper.write(ostr, iceP_c1);
                      ostr.writePendingValues();
                  }, istr -> {
@@ -292,7 +292,7 @@ public interface IPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
-        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, null, null);
+        f.invoke(false, context, null, null, null);
         return f;
     }
 

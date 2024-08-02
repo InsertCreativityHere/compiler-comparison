@@ -56,15 +56,15 @@ namespace Test
     global $Ice__t_Identity;
     global $Ice__t_Context;
     global $IcePHP__t_int;
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getAdapterName', 0, 0, null, null, array($IcePHP__t_string), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getConnection', 0, 0, null, null, array($IcePHP__t_string), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getIdentity', 0, 0, null, null, array($Ice__t_Identity), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getFacet', 0, 0, null, null, array($IcePHP__t_string), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getOperation', 0, 0, null, null, array($IcePHP__t_string), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getMode', 0, 0, null, null, array($IcePHP__t_string), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getContext', 0, 0, null, null, array($Ice__t_Context), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getRequestId', 0, 0, null, null, array($IcePHP__t_int), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getEncoding', 0, 0, null, null, array($IcePHP__t_string), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getAdapterName', 0, -1, null, null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getConnection', 0, -1, null, null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getIdentity', 0, -1, null, null, array($Ice__t_Identity), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getFacet', 0, -1, null, null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getOperation', 0, -1, null, null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getMode', 0, -1, null, null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getContext', 0, -1, null, null, array($Ice__t_Context), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getRequestId', 0, -1, null, null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getEncoding', 0, -1, null, null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 ?>

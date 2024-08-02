@@ -82,12 +82,12 @@ namespace Test
     global $Test__t_ByteSeq;
     global $Test__t_ShortSeq;
     global $Test__t_StringSeq;
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opByteSpan', 0, 0, array(array($Test__t_ByteSeq)), array(array($Test__t_ByteSeq)), array($Test__t_ByteSeq), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opShortSpan', 0, 0, array(array($Test__t_ShortSeq)), array(array($Test__t_ShortSeq)), array($Test__t_ShortSeq), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opStringSpan', 0, 0, array(array($Test__t_StringSeq)), array(array($Test__t_StringSeq)), array($Test__t_StringSeq), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opOptionalByteSpan', 0, 0, array(array($Test__t_ByteSeq, 1)), array(array($Test__t_ByteSeq, 11)), array($Test__t_ByteSeq, 10), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opOptionalShortSpan', 0, 0, array(array($Test__t_ShortSeq, 1)), array(array($Test__t_ShortSeq, 11)), array($Test__t_ShortSeq, 10), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opOptionalStringSpan', 0, 0, array(array($Test__t_StringSeq, 1)), array(array($Test__t_StringSeq, 11)), array($Test__t_StringSeq, 10), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opByteSpan', 0, -1, array(array($Test__t_ByteSeq)), array(array($Test__t_ByteSeq)), array($Test__t_ByteSeq), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opShortSpan', 0, -1, array(array($Test__t_ShortSeq)), array(array($Test__t_ShortSeq)), array($Test__t_ShortSeq), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opStringSpan', 0, -1, array(array($Test__t_StringSeq)), array(array($Test__t_StringSeq)), array($Test__t_StringSeq), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opOptionalByteSpan', 0, -1, array(array($Test__t_ByteSeq, 1)), array(array($Test__t_ByteSeq, 11)), array($Test__t_ByteSeq, 10), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opOptionalShortSpan', 0, -1, array(array($Test__t_ShortSeq, 1)), array(array($Test__t_ShortSeq, 11)), array($Test__t_ShortSeq, 10), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opOptionalStringSpan', 0, -1, array(array($Test__t_StringSeq, 1)), array(array($Test__t_StringSeq, 11)), array($Test__t_StringSeq, 10), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 ?>

@@ -970,7 +970,7 @@ extension `break` {
         let iceP_catch: Swift.Int32 = try istr.read()
         let result = try await self.caseAsync(
             catch: iceP_catch, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_try = value
             ostr.write(iceP_try)
         }

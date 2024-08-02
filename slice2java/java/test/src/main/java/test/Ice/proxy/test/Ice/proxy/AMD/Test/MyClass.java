@@ -66,7 +66,7 @@ public interface MyClass extends com.zeroc.Ice.Object
             {
                 com.zeroc.Ice.ContextHelper.write(ostr, value);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     @Override

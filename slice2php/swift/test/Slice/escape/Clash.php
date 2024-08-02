@@ -47,18 +47,18 @@ namespace Clash
     $Clash__t_IntfPrx = IcePHP_defineProxy('::Clash::Intf', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_string;
-    IcePHP_defineOperation($Clash__t_IntfPrx, 'context', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Clash__t_IntfPrx, 'current', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Clash__t_IntfPrx, 'response', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Clash__t_IntfPrx, 'upCast', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Clash__t_IntfPrx, 'typeId', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Clash__t_IntfPrx, 'del', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Clash__t_IntfPrx, 'cookie', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Clash__t_IntfPrx, 'sync', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Clash__t_IntfPrx, 'inS', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Clash__t_IntfPrx, 'istr', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Clash__t_IntfPrx, 'op', 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string, 1)), null, null, null);
-    IcePHP_defineOperation($Clash__t_IntfPrx, 'opOut', 0, 0, null, array(array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string, 1)), null, null);
+    IcePHP_defineOperation($Clash__t_IntfPrx, 'context', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Clash__t_IntfPrx, 'current', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Clash__t_IntfPrx, 'response', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Clash__t_IntfPrx, 'upCast', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Clash__t_IntfPrx, 'typeId', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Clash__t_IntfPrx, 'del', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Clash__t_IntfPrx, 'cookie', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Clash__t_IntfPrx, 'sync', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Clash__t_IntfPrx, 'inS', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Clash__t_IntfPrx, 'istr', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Clash__t_IntfPrx, 'op', 0, -1, array(array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string, 1)), null, null, null);
+    IcePHP_defineOperation($Clash__t_IntfPrx, 'opOut', 0, -1, null, array(array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string, 1)), null, null);
 }
 
 namespace Clash

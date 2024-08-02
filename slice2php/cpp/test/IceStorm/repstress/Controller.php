@@ -46,6 +46,6 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_ControllerPrx = IcePHP_defineProxy('::Test::Controller', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($Test__t_ControllerPrx, 'stop', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_ControllerPrx, 'stop', 0, -1, null, null, null, null);
 }
 ?>

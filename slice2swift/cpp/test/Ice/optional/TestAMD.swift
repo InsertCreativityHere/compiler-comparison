@@ -5099,7 +5099,7 @@ extension Initial {
         try istr.readPendingValues()
         let result = try await self.pingPongAsync(
             o: iceP_o, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
@@ -5146,7 +5146,7 @@ extension Initial {
         let iceP_p1: Swift.UInt8? = try istr.read(tag: 2)
         let result = try await self.opByteAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p3)
@@ -5160,7 +5160,7 @@ extension Initial {
         let iceP_p1: Swift.Bool? = try istr.read(tag: 2)
         let result = try await self.opBoolAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p3)
@@ -5174,7 +5174,7 @@ extension Initial {
         let iceP_p1: Swift.Int16? = try istr.read(tag: 2)
         let result = try await self.opShortAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p3)
@@ -5188,7 +5188,7 @@ extension Initial {
         let iceP_p1: Swift.Int32? = try istr.read(tag: 2)
         let result = try await self.opIntAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p3)
@@ -5202,7 +5202,7 @@ extension Initial {
         let iceP_p1: Swift.Int64? = try istr.read(tag: 1)
         let result = try await self.opLongAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(tag: 2, value: iceP_p3)
             ostr.write(tag: 3, value: iceP_returnValue)
@@ -5216,7 +5216,7 @@ extension Initial {
         let iceP_p1: Swift.Float? = try istr.read(tag: 2)
         let result = try await self.opFloatAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p3)
@@ -5230,7 +5230,7 @@ extension Initial {
         let iceP_p1: Swift.Double? = try istr.read(tag: 2)
         let result = try await self.opDoubleAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p3)
@@ -5244,7 +5244,7 @@ extension Initial {
         let iceP_p1: Swift.String? = try istr.read(tag: 2)
         let result = try await self.opStringAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p3)
@@ -5258,7 +5258,7 @@ extension Initial {
         let iceP_p1: MyEnum? = try istr.read(tag: 2)
         let result = try await self.opMyEnumAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p3)
@@ -5272,7 +5272,7 @@ extension Initial {
         let iceP_p1: SmallStruct? = try istr.read(tag: 2)
         let result = try await self.opSmallStructAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p3)
@@ -5286,7 +5286,7 @@ extension Initial {
         let iceP_p1: FixedStruct? = try istr.read(tag: 2)
         let result = try await self.opFixedStructAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p3)
@@ -5300,7 +5300,7 @@ extension Initial {
         let iceP_p1: VarStruct? = try istr.read(tag: 2)
         let result = try await self.opVarStructAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p3)
@@ -5314,7 +5314,7 @@ extension Initial {
         let iceP_p1: MyInterfacePrx? = try istr.read(tag: 2, type: MyInterfacePrx.self)
         let result = try await self.opMyInterfaceProxyAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p3)
@@ -5330,7 +5330,7 @@ extension Initial {
         try istr.readPendingValues()
         let result = try await self.opOneOptionalAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(iceP_p3)
             ostr.write(iceP_returnValue)
@@ -5345,7 +5345,7 @@ extension Initial {
         let iceP_p1: ByteSeq? = try istr.read(tag: 2)
         let result = try await self.opByteSeqAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p3)
@@ -5359,7 +5359,7 @@ extension Initial {
         let iceP_p1: BoolSeq? = try istr.read(tag: 2)
         let result = try await self.opBoolSeqAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p3)
@@ -5373,7 +5373,7 @@ extension Initial {
         let iceP_p1: ShortSeq? = try istr.read(tag: 2)
         let result = try await self.opShortSeqAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p3)
@@ -5387,7 +5387,7 @@ extension Initial {
         let iceP_p1: IntSeq? = try istr.read(tag: 2)
         let result = try await self.opIntSeqAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p3)
@@ -5401,7 +5401,7 @@ extension Initial {
         let iceP_p1: LongSeq? = try istr.read(tag: 2)
         let result = try await self.opLongSeqAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p3)
@@ -5415,7 +5415,7 @@ extension Initial {
         let iceP_p1: FloatSeq? = try istr.read(tag: 2)
         let result = try await self.opFloatSeqAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p3)
@@ -5429,7 +5429,7 @@ extension Initial {
         let iceP_p1: DoubleSeq? = try istr.read(tag: 2)
         let result = try await self.opDoubleSeqAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p3)
@@ -5443,7 +5443,7 @@ extension Initial {
         let iceP_p1: StringSeq? = try istr.read(tag: 2)
         let result = try await self.opStringSeqAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p3)
@@ -5457,7 +5457,7 @@ extension Initial {
         let iceP_p1: SmallStructSeq? = try SmallStructSeqHelper.read(from: istr, tag: 2)
         let result = try await self.opSmallStructSeqAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             SmallStructSeqHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
             SmallStructSeqHelper.write(to: ostr, tag: 3, value: iceP_p3)
@@ -5471,7 +5471,7 @@ extension Initial {
         let iceP_p1: SmallStructList? = try SmallStructListHelper.read(from: istr, tag: 2)
         let result = try await self.opSmallStructListAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             SmallStructListHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
             SmallStructListHelper.write(to: ostr, tag: 3, value: iceP_p3)
@@ -5485,7 +5485,7 @@ extension Initial {
         let iceP_p1: FixedStructSeq? = try FixedStructSeqHelper.read(from: istr, tag: 2)
         let result = try await self.opFixedStructSeqAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             FixedStructSeqHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
             FixedStructSeqHelper.write(to: ostr, tag: 3, value: iceP_p3)
@@ -5499,7 +5499,7 @@ extension Initial {
         let iceP_p1: FixedStructList? = try FixedStructListHelper.read(from: istr, tag: 2)
         let result = try await self.opFixedStructListAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             FixedStructListHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
             FixedStructListHelper.write(to: ostr, tag: 3, value: iceP_p3)
@@ -5513,7 +5513,7 @@ extension Initial {
         let iceP_p1: VarStructSeq? = try VarStructSeqHelper.read(from: istr, tag: 2)
         let result = try await self.opVarStructSeqAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             VarStructSeqHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
             VarStructSeqHelper.write(to: ostr, tag: 3, value: iceP_p3)
@@ -5527,7 +5527,7 @@ extension Initial {
         let iceP_p1: Serializable? = try istr.read(tag: 2)
         let result = try await self.opSerializableAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p3)
@@ -5541,7 +5541,7 @@ extension Initial {
         let iceP_p1: IntIntDict? = try IntIntDictHelper.read(from: istr, tag: 2)
         let result = try await self.opIntIntDictAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             IntIntDictHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
             IntIntDictHelper.write(to: ostr, tag: 3, value: iceP_p3)
@@ -5555,7 +5555,7 @@ extension Initial {
         let iceP_p1: StringIntDict? = try StringIntDictHelper.read(from: istr, tag: 2)
         let result = try await self.opStringIntDictAsync(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             StringIntDictHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
             StringIntDictHelper.write(to: ostr, tag: 3, value: iceP_p3)
@@ -5583,7 +5583,7 @@ extension Initial {
         try istr.readPendingValues()
         let result = try await self.opGAsync(
             g: iceP_g, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
@@ -5603,7 +5603,7 @@ extension Initial {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.opMStruct1Async(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(tag: 1, value: iceP_returnValue)
         }
@@ -5616,7 +5616,7 @@ extension Initial {
         let iceP_p1: SmallStruct? = try istr.read(tag: 2)
         let result = try await self.opMStruct2Async(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p2) = value
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p2)
@@ -5628,7 +5628,7 @@ extension Initial {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.opMSeq1Async(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(tag: 1, value: iceP_returnValue)
         }
@@ -5641,7 +5641,7 @@ extension Initial {
         let iceP_p1: StringSeq? = try istr.read(tag: 2)
         let result = try await self.opMSeq2Async(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p2) = value
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p2)
@@ -5653,7 +5653,7 @@ extension Initial {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.opMDict1Async(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             StringIntDictHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
         }
@@ -5666,7 +5666,7 @@ extension Initial {
         let iceP_p1: StringIntDict? = try StringIntDictHelper.read(from: istr, tag: 2)
         let result = try await self.opMDict2Async(
             p1: iceP_p1, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p2) = value
             StringIntDictHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
             StringIntDictHelper.write(to: ostr, tag: 3, value: iceP_p2)
@@ -5678,7 +5678,7 @@ extension Initial {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.supportsJavaSerializableAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }

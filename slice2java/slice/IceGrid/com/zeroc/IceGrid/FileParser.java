@@ -70,7 +70,7 @@ public interface FileParser extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         ApplicationDescriptor ret = obj.parse(iceP_xmlFile, iceP_adminProxy, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ApplicationDescriptor.ice_write(ostr, ret);
         ostr.writePendingValues();
         ostr.endEncapsulation();

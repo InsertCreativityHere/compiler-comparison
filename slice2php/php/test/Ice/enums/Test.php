@@ -191,10 +191,10 @@ namespace Test
     global $Test__t_ShortEnum;
     global $Test__t_IntEnum;
     global $Test__t_SimpleEnum;
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opByte', 0, 0, array(array($Test__t_ByteEnum)), array(array($Test__t_ByteEnum)), array($Test__t_ByteEnum), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opShort', 0, 0, array(array($Test__t_ShortEnum)), array(array($Test__t_ShortEnum)), array($Test__t_ShortEnum), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opInt', 0, 0, array(array($Test__t_IntEnum)), array(array($Test__t_IntEnum)), array($Test__t_IntEnum), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opSimple', 0, 0, array(array($Test__t_SimpleEnum)), array(array($Test__t_SimpleEnum)), array($Test__t_SimpleEnum), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opByte', 0, -1, array(array($Test__t_ByteEnum)), array(array($Test__t_ByteEnum)), array($Test__t_ByteEnum), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opShort', 0, -1, array(array($Test__t_ShortEnum)), array(array($Test__t_ShortEnum)), array($Test__t_ShortEnum), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opInt', 0, -1, array(array($Test__t_IntEnum)), array(array($Test__t_IntEnum)), array($Test__t_IntEnum), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opSimple', 0, -1, array(array($Test__t_SimpleEnum)), array(array($Test__t_SimpleEnum)), array($Test__t_SimpleEnum), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 ?>

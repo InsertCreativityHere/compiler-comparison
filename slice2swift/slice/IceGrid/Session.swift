@@ -524,7 +524,7 @@ extension Session {
         let iceP_id: Ice.Identity = try istr.read()
         let result = try await self.allocateObjectByIdAsync(
             id: iceP_id, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }
@@ -537,7 +537,7 @@ extension Session {
         let iceP_type: Swift.String = try istr.read()
         let result = try await self.allocateObjectByTypeAsync(
             type: iceP_type, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }

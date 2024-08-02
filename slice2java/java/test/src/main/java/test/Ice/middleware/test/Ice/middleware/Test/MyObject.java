@@ -55,7 +55,7 @@ public interface MyObject extends com.zeroc.Ice.Object
             {
                 ostr.writeString(value);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     @Override

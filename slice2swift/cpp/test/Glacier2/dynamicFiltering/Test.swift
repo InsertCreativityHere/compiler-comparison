@@ -797,7 +797,7 @@ extension TestController {
 
         let iceP_newState = try self.step(currentSession: iceP_currentSession, currentState: iceP_currentState, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_newState)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)

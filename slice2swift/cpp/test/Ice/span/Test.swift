@@ -605,7 +605,7 @@ extension TestIntf {
 
         let (iceP_returnValue, iceP_dataOut) = try self.opByteSpan(dataIn: iceP_dataIn, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_dataOut)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -620,7 +620,7 @@ extension TestIntf {
 
         let (iceP_returnValue, iceP_dataOut) = try self.opShortSpan(dataIn: iceP_dataIn, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_dataOut)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -635,7 +635,7 @@ extension TestIntf {
 
         let (iceP_returnValue, iceP_dataOut) = try self.opStringSpan(dataIn: iceP_dataIn, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_dataOut)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
@@ -650,7 +650,7 @@ extension TestIntf {
 
         let (iceP_returnValue, iceP_dataOut) = try self.opOptionalByteSpan(dataIn: iceP_dataIn, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 10, value: iceP_returnValue)
         ostr.write(tag: 11, value: iceP_dataOut)
         ostr.endEncapsulation()
@@ -665,7 +665,7 @@ extension TestIntf {
 
         let (iceP_returnValue, iceP_dataOut) = try self.opOptionalShortSpan(dataIn: iceP_dataIn, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 10, value: iceP_returnValue)
         ostr.write(tag: 11, value: iceP_dataOut)
         ostr.endEncapsulation()
@@ -680,7 +680,7 @@ extension TestIntf {
 
         let (iceP_returnValue, iceP_dataOut) = try self.opOptionalStringSpan(dataIn: iceP_dataIn, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(tag: 10, value: iceP_returnValue)
         ostr.write(tag: 11, value: iceP_dataOut)
         ostr.endEncapsulation()

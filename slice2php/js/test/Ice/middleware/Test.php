@@ -47,11 +47,11 @@ namespace Test
     $Test__t_EchoPrx = IcePHP_defineProxy('::Test::Echo', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_bool;
-    IcePHP_defineOperation($Test__t_EchoPrx, 'setConnection', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_EchoPrx, 'startBatch', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_EchoPrx, 'flushBatch', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_EchoPrx, 'shutdown', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_EchoPrx, 'supportsCompress', 0, 0, null, null, array($IcePHP__t_bool), null);
+    IcePHP_defineOperation($Test__t_EchoPrx, 'setConnection', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_EchoPrx, 'startBatch', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_EchoPrx, 'flushBatch', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_EchoPrx, 'shutdown', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_EchoPrx, 'supportsCompress', 0, -1, null, null, array($IcePHP__t_bool), null);
 }
 
 namespace Test
@@ -86,7 +86,7 @@ namespace Test
     $Test__t_MyObjectPrx = IcePHP_defineProxy('::Test::MyObject', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_string;
-    IcePHP_defineOperation($Test__t_MyObjectPrx, 'getName', 0, 0, null, null, array($IcePHP__t_string), null);
-    IcePHP_defineOperation($Test__t_MyObjectPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_MyObjectPrx, 'getName', 0, -1, null, null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test__t_MyObjectPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 ?>

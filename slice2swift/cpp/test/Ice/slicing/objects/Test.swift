@@ -3465,7 +3465,7 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.PBSUnknownAsPreservedWithGraphAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
@@ -3489,7 +3489,7 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.PBSUnknown2AsPreservedWithGraphAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()

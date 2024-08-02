@@ -351,7 +351,7 @@ public interface MyClass extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         MyClass.OpNVResult ret = obj.opNV(iceP_i, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ret.write(ostr);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -368,7 +368,7 @@ public interface MyClass extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         MyClass.OpNRResult ret = obj.opNR(iceP_i, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ret.write(ostr);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -385,7 +385,7 @@ public interface MyClass extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         MyClass.OpNDVResult ret = obj.opNDV(iceP_i, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ret.write(ostr);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -402,7 +402,7 @@ public interface MyClass extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         MyClass.OpNDRResult ret = obj.opNDR(iceP_i, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ret.write(ostr);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -419,7 +419,7 @@ public interface MyClass extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         MyClass.OpNDAISResult ret = obj.opNDAIS(iceP_i, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ret.write(ostr);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -436,7 +436,7 @@ public interface MyClass extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         MyClass.OpNDGISResult ret = obj.opNDGIS(iceP_i, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ret.write(ostr);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -453,7 +453,7 @@ public interface MyClass extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         MyClass.OpNDASSResult ret = obj.opNDASS(iceP_i, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ret.write(ostr);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -470,7 +470,7 @@ public interface MyClass extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         MyClass.OpNDGSSResult ret = obj.opNDGSS(iceP_i, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ret.write(ostr);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));

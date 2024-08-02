@@ -109,7 +109,7 @@ public interface Thrower extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         boolean ret = obj.supportsUndeclaredExceptions(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeBool(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -122,7 +122,7 @@ public interface Thrower extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         boolean ret = obj.supportsAssertException(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeBool(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -341,7 +341,7 @@ public interface Thrower extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         byte[] ret = obj.throwMemoryLimitException(iceP_seq, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeByteSeq(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));

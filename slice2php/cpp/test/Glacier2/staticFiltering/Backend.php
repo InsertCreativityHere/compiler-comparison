@@ -46,6 +46,6 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_BackendPrx = IcePHP_defineProxy('::Test::Backend', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($Test__t_BackendPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_BackendPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 ?>

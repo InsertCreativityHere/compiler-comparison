@@ -122,11 +122,11 @@ namespace IceStormElection
     global $IcePHP__t_string;
     global $IceStorm__t_SubscriberRecord;
     global $Ice__t_IdentitySeq;
-    IcePHP_defineOperation($IceStormElection__t_ReplicaObserverPrx, 'init', 0, 0, array(array($IceStormElection__t_LogUpdate), array($IceStormElection__t_TopicContentSeq)), null, null, array($IceStormElection__t_ObserverInconsistencyException));
-    IcePHP_defineOperation($IceStormElection__t_ReplicaObserverPrx, 'createTopic', 0, 0, array(array($IceStormElection__t_LogUpdate), array($IcePHP__t_string)), null, null, array($IceStormElection__t_ObserverInconsistencyException));
-    IcePHP_defineOperation($IceStormElection__t_ReplicaObserverPrx, 'destroyTopic', 0, 0, array(array($IceStormElection__t_LogUpdate), array($IcePHP__t_string)), null, null, array($IceStormElection__t_ObserverInconsistencyException));
-    IcePHP_defineOperation($IceStormElection__t_ReplicaObserverPrx, 'addSubscriber', 0, 0, array(array($IceStormElection__t_LogUpdate), array($IcePHP__t_string), array($IceStorm__t_SubscriberRecord)), null, null, array($IceStormElection__t_ObserverInconsistencyException));
-    IcePHP_defineOperation($IceStormElection__t_ReplicaObserverPrx, 'removeSubscriber', 0, 0, array(array($IceStormElection__t_LogUpdate), array($IcePHP__t_string), array($Ice__t_IdentitySeq)), null, null, array($IceStormElection__t_ObserverInconsistencyException));
+    IcePHP_defineOperation($IceStormElection__t_ReplicaObserverPrx, 'init', 0, -1, array(array($IceStormElection__t_LogUpdate), array($IceStormElection__t_TopicContentSeq)), null, null, array($IceStormElection__t_ObserverInconsistencyException));
+    IcePHP_defineOperation($IceStormElection__t_ReplicaObserverPrx, 'createTopic', 0, -1, array(array($IceStormElection__t_LogUpdate), array($IcePHP__t_string)), null, null, array($IceStormElection__t_ObserverInconsistencyException));
+    IcePHP_defineOperation($IceStormElection__t_ReplicaObserverPrx, 'destroyTopic', 0, -1, array(array($IceStormElection__t_LogUpdate), array($IcePHP__t_string)), null, null, array($IceStormElection__t_ObserverInconsistencyException));
+    IcePHP_defineOperation($IceStormElection__t_ReplicaObserverPrx, 'addSubscriber', 0, -1, array(array($IceStormElection__t_LogUpdate), array($IcePHP__t_string), array($IceStorm__t_SubscriberRecord)), null, null, array($IceStormElection__t_ObserverInconsistencyException));
+    IcePHP_defineOperation($IceStormElection__t_ReplicaObserverPrx, 'removeSubscriber', 0, -1, array(array($IceStormElection__t_LogUpdate), array($IcePHP__t_string), array($Ice__t_IdentitySeq)), null, null, array($IceStormElection__t_ObserverInconsistencyException));
 }
 
 namespace IceStormElection
@@ -162,7 +162,7 @@ namespace IceStormElection
 
     global $IceStormElection__t_LogUpdate;
     global $IceStormElection__t_TopicContentSeq;
-    IcePHP_defineOperation($IceStormElection__t_TopicManagerSyncPrx, 'getContent', 0, 0, null, array(array($IceStormElection__t_LogUpdate), array($IceStormElection__t_TopicContentSeq)), null, null);
+    IcePHP_defineOperation($IceStormElection__t_TopicManagerSyncPrx, 'getContent', 0, -1, null, array(array($IceStormElection__t_LogUpdate), array($IceStormElection__t_TopicContentSeq)), null, null);
 }
 
 namespace IceStormElection
@@ -354,13 +354,13 @@ namespace IceStormElection
     global $IcePHP__t_bool;
     global $IceStormElection__t_NodeInfoSeq;
     global $IceStormElection__t_QueryInfo;
-    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'invitation', 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_string)), null, null, null);
-    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'ready', 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_string), array($Ice__t_ObjectPrx), array($IcePHP__t_int), array($IcePHP__t_long)), null, null, null);
-    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'accept', 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_string), array($Ice__t_IntSeq), array($Ice__t_ObjectPrx), array($IceStormElection__t_LogUpdate), array($IcePHP__t_int)), null, null, null);
-    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'areYouCoordinator', 2, 0, null, null, array($IcePHP__t_bool), null);
-    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'areYouThere', 2, 0, array(array($IcePHP__t_string), array($IcePHP__t_int)), null, array($IcePHP__t_bool), null);
-    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'sync', 2, 0, null, null, array($Ice__t_ObjectPrx), null);
-    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'nodes', 2, 0, null, null, array($IceStormElection__t_NodeInfoSeq), null);
-    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'query', 2, 0, null, null, array($IceStormElection__t_QueryInfo), null);
+    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'invitation', 0, -1, array(array($IcePHP__t_int), array($IcePHP__t_string)), null, null, null);
+    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'ready', 0, -1, array(array($IcePHP__t_int), array($IcePHP__t_string), array($Ice__t_ObjectPrx), array($IcePHP__t_int), array($IcePHP__t_long)), null, null, null);
+    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'accept', 0, -1, array(array($IcePHP__t_int), array($IcePHP__t_string), array($Ice__t_IntSeq), array($Ice__t_ObjectPrx), array($IceStormElection__t_LogUpdate), array($IcePHP__t_int)), null, null, null);
+    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'areYouCoordinator', 2, -1, null, null, array($IcePHP__t_bool), null);
+    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'areYouThere', 2, -1, array(array($IcePHP__t_string), array($IcePHP__t_int)), null, array($IcePHP__t_bool), null);
+    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'sync', 2, -1, null, null, array($Ice__t_ObjectPrx), null);
+    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'nodes', 2, -1, null, null, array($IceStormElection__t_NodeInfoSeq), null);
+    IcePHP_defineOperation($IceStormElection__t_NodePrx, 'query', 2, -1, null, null, array($IceStormElection__t_QueryInfo), null);
 }
 ?>

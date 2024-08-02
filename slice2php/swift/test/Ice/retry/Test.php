@@ -48,10 +48,10 @@ namespace Test
 
     global $IcePHP__t_bool;
     global $IcePHP__t_int;
-    IcePHP_defineOperation($Test__t_RetryPrx, 'op', 0, 0, array(array($IcePHP__t_bool)), null, null, null);
-    IcePHP_defineOperation($Test__t_RetryPrx, 'opIdempotent', 2, 0, array(array($IcePHP__t_int)), null, array($IcePHP__t_int), null);
-    IcePHP_defineOperation($Test__t_RetryPrx, 'opNotIdempotent', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_RetryPrx, 'sleep', 2, 0, array(array($IcePHP__t_int)), null, null, null);
-    IcePHP_defineOperation($Test__t_RetryPrx, 'shutdown', 2, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_RetryPrx, 'op', 0, -1, array(array($IcePHP__t_bool)), null, null, null);
+    IcePHP_defineOperation($Test__t_RetryPrx, 'opIdempotent', 2, -1, array(array($IcePHP__t_int)), null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($Test__t_RetryPrx, 'opNotIdempotent', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_RetryPrx, 'sleep', 2, -1, array(array($IcePHP__t_int)), null, null, null);
+    IcePHP_defineOperation($Test__t_RetryPrx, 'shutdown', 2, -1, null, null, null, null);
 }
 ?>

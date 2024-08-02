@@ -85,7 +85,7 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_PingReplyPrx = IcePHP_defineProxy('::Test::PingReply', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($Test__t_PingReplyPrx, 'reply', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_PingReplyPrx, 'reply', 0, -1, null, null, null, null);
 }
 
 namespace Test
@@ -124,21 +124,21 @@ namespace Test
     global $IcePHP__t_bool;
     global $Test__t_CloseMode;
     global $Ice__t_Identity;
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'op', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opWithPayload', 0, 0, array(array($Ice__t_ByteSeq)), null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opWithResult', 0, 0, null, null, array($IcePHP__t_int), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opWithUE', 0, 0, null, null, null, array($Test__t_TestIntfException));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opBatch', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opBatchCount', 0, 0, null, null, array($IcePHP__t_int), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'waitForBatch', 0, 0, array(array($IcePHP__t_int)), null, array($IcePHP__t_bool), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'close', 0, 0, array(array($Test__t_CloseMode)), null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'sleep', 0, 0, array(array($IcePHP__t_int)), null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'startDispatch', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'finishDispatch', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'supportsAMD', 0, 0, null, null, array($IcePHP__t_bool), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'supportsFunctionalTests', 0, 0, null, null, array($IcePHP__t_bool), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'pingBidDir', 0, 0, array(array($Ice__t_Identity)), null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'op', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opWithPayload', 0, -1, array(array($Ice__t_ByteSeq)), null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opWithResult', 0, -1, null, null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opWithUE', 0, -1, null, null, null, array($Test__t_TestIntfException));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opBatch', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opBatchCount', 0, -1, null, null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'waitForBatch', 0, -1, array(array($IcePHP__t_int)), null, array($IcePHP__t_bool), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'close', 0, -1, array(array($Test__t_CloseMode)), null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'sleep', 0, -1, array(array($IcePHP__t_int)), null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'startDispatch', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'finishDispatch', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'supportsAMD', 0, -1, null, null, array($IcePHP__t_bool), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'supportsFunctionalTests', 0, -1, null, null, array($IcePHP__t_bool), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'pingBidDir', 0, -1, array(array($Ice__t_Identity)), null, null, null);
 }
 
 namespace Test
@@ -172,7 +172,7 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_TestIntfControllerPrx = IcePHP_defineProxy('::Test::TestIntfController', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($Test__t_TestIntfControllerPrx, 'holdAdapter', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfControllerPrx, 'resumeAdapter', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfControllerPrx, 'holdAdapter', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfControllerPrx, 'resumeAdapter', 0, -1, null, null, null, null);
 }
 ?>

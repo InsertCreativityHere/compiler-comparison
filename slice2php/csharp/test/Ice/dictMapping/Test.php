@@ -233,14 +233,14 @@ namespace Test
     global $Test__t_NDGIS;
     global $Test__t_NDASS;
     global $Test__t_NDGSS;
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'shutdown', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'opNV', 0, 0, array(array($Test__t_NV)), array(array($Test__t_NV)), array($Test__t_NV), null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'opNR', 0, 0, array(array($Test__t_NR)), array(array($Test__t_NR)), array($Test__t_NR), null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'opNDV', 0, 0, array(array($Test__t_NDV)), array(array($Test__t_NDV)), array($Test__t_NDV), null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'opNDR', 0, 0, array(array($Test__t_NDR)), array(array($Test__t_NDR)), array($Test__t_NDR), null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'opNDAIS', 0, 0, array(array($Test__t_NDAIS)), array(array($Test__t_NDAIS)), array($Test__t_NDAIS), null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'opNDGIS', 0, 0, array(array($Test__t_NDGIS)), array(array($Test__t_NDGIS)), array($Test__t_NDGIS), null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'opNDASS', 0, 0, array(array($Test__t_NDASS)), array(array($Test__t_NDASS)), array($Test__t_NDASS), null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'opNDGSS', 0, 0, array(array($Test__t_NDGSS)), array(array($Test__t_NDGSS)), array($Test__t_NDGSS), null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'shutdown', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'opNV', 0, -1, array(array($Test__t_NV)), array(array($Test__t_NV)), array($Test__t_NV), null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'opNR', 0, -1, array(array($Test__t_NR)), array(array($Test__t_NR)), array($Test__t_NR), null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'opNDV', 0, -1, array(array($Test__t_NDV)), array(array($Test__t_NDV)), array($Test__t_NDV), null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'opNDR', 0, -1, array(array($Test__t_NDR)), array(array($Test__t_NDR)), array($Test__t_NDR), null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'opNDAIS', 0, -1, array(array($Test__t_NDAIS)), array(array($Test__t_NDAIS)), array($Test__t_NDAIS), null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'opNDGIS', 0, -1, array(array($Test__t_NDGIS)), array(array($Test__t_NDGIS)), array($Test__t_NDGIS), null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'opNDASS', 0, -1, array(array($Test__t_NDASS)), array(array($Test__t_NDASS)), array($Test__t_NDASS), null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'opNDGSS', 0, -1, array(array($Test__t_NDGSS)), array(array($Test__t_NDGSS)), array($Test__t_NDGSS), null);
 }
 ?>

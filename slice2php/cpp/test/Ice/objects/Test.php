@@ -1213,37 +1213,37 @@ namespace Test
     global $Test__t_F1;
     global $Test__t_F2Prx;
     global $Test__t_F3;
-    IcePHP_defineOperation($Test__t_InitialPrx, 'shutdown', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getB1', 0, 0, null, null, array($Test__t_B), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getB2', 0, 0, null, null, array($Test__t_B), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getC', 0, 0, null, null, array($Test__t_C), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getD', 0, 0, null, null, array($Test__t_D), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getE', 0, 0, null, null, array($Test__t_E), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getF', 0, 0, null, null, array($Test__t_F), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'setRecursive', 0, 0, array(array($Test__t_Recursive)), null, null, null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'setCycle', 0, 0, array(array($Test__t_Recursive)), null, null, null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'acceptsClassCycles', 0, 0, null, null, array($IcePHP__t_bool), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getMB', 0, 0, null, null, array($Test__t_B), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getAMDMB', 0, 0, null, null, array($Test__t_B), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getAll', 0, 0, null, array(array($Test__t_B), array($Test__t_B), array($Test__t_C), array($Test__t_D)), null, null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getK', 0, 0, null, null, array($Test__t_K), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opValue', 0, 0, array(array($Ice__t_Value)), array(array($Ice__t_Value)), array($Ice__t_Value), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opValueSeq', 0, 0, array(array($Test__t_ValueSeq)), array(array($Test__t_ValueSeq)), array($Test__t_ValueSeq), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opValueMap', 0, 0, array(array($Test__t_ValueMap)), array(array($Test__t_ValueMap)), array($Test__t_ValueMap), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getD1', 0, 0, array(array($Test__t_D1)), null, array($Test__t_D1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'throwEDerived', 0, 0, null, null, null, array($Test__t_EDerived));
-    IcePHP_defineOperation($Test__t_InitialPrx, 'setG', 0, 0, array(array($Test__t_G)), null, null, null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opBaseSeq', 0, 0, array(array($Test__t_BaseSeq)), array(array($Test__t_BaseSeq)), array($Test__t_BaseSeq), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getCompact', 0, 0, null, null, array($Test__t_Compact), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getInnerA', 0, 0, null, null, array($Test_Inner__t_A), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getInnerSubA', 0, 0, null, null, array($Test_Inner_Sub__t_A), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'throwInnerEx', 0, 0, null, null, null, array($Test_Inner__t_Ex));
-    IcePHP_defineOperation($Test__t_InitialPrx, 'throwInnerSubEx', 0, 0, null, null, null, array($Test_Inner_Sub__t_Ex));
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opM', 0, 0, array(array($Test__t_M)), array(array($Test__t_M)), array($Test__t_M), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opF1', 0, 0, array(array($Test__t_F1)), array(array($Test__t_F1)), array($Test__t_F1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opF2', 0, 0, array(array($Test__t_F2Prx)), array(array($Test__t_F2Prx)), array($Test__t_F2Prx), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'hasF3', 0, 0, null, null, array($IcePHP__t_bool), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opF3', 0, 0, array(array($Test__t_F3)), array(array($Test__t_F3)), array($Test__t_F3), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'shutdown', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getB1', 0, -1, null, null, array($Test__t_B), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getB2', 0, -1, null, null, array($Test__t_B), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getC', 0, -1, null, null, array($Test__t_C), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getD', 0, -1, null, null, array($Test__t_D), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getE', 0, -1, null, null, array($Test__t_E), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getF', 0, -1, null, null, array($Test__t_F), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'setRecursive', 0, -1, array(array($Test__t_Recursive)), null, null, null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'setCycle', 0, -1, array(array($Test__t_Recursive)), null, null, null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'acceptsClassCycles', 0, -1, null, null, array($IcePHP__t_bool), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getMB', 0, -1, null, null, array($Test__t_B), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getAMDMB', 0, -1, null, null, array($Test__t_B), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getAll', 0, -1, null, array(array($Test__t_B), array($Test__t_B), array($Test__t_C), array($Test__t_D)), null, null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getK', 0, -1, null, null, array($Test__t_K), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opValue', 0, -1, array(array($Ice__t_Value)), array(array($Ice__t_Value)), array($Ice__t_Value), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opValueSeq', 0, -1, array(array($Test__t_ValueSeq)), array(array($Test__t_ValueSeq)), array($Test__t_ValueSeq), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opValueMap', 0, -1, array(array($Test__t_ValueMap)), array(array($Test__t_ValueMap)), array($Test__t_ValueMap), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getD1', 0, -1, array(array($Test__t_D1)), null, array($Test__t_D1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'throwEDerived', 0, -1, null, null, null, array($Test__t_EDerived));
+    IcePHP_defineOperation($Test__t_InitialPrx, 'setG', 0, -1, array(array($Test__t_G)), null, null, null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opBaseSeq', 0, -1, array(array($Test__t_BaseSeq)), array(array($Test__t_BaseSeq)), array($Test__t_BaseSeq), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getCompact', 0, -1, null, null, array($Test__t_Compact), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getInnerA', 0, -1, null, null, array($Test_Inner__t_A), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'getInnerSubA', 0, -1, null, null, array($Test_Inner_Sub__t_A), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'throwInnerEx', 0, -1, null, null, null, array($Test_Inner__t_Ex));
+    IcePHP_defineOperation($Test__t_InitialPrx, 'throwInnerSubEx', 0, -1, null, null, null, array($Test_Inner_Sub__t_Ex));
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opM', 0, -1, array(array($Test__t_M)), array(array($Test__t_M)), array($Test__t_M), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opF1', 0, -1, array(array($Test__t_F1)), array(array($Test__t_F1)), array($Test__t_F1), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opF2', 0, -1, array(array($Test__t_F2Prx)), array(array($Test__t_F2Prx)), array($Test__t_F2Prx), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'hasF3', 0, -1, null, null, array($IcePHP__t_bool), null);
+    IcePHP_defineOperation($Test__t_InitialPrx, 'opF3', 0, -1, array(array($Test__t_F3)), array(array($Test__t_F3)), array($Test__t_F3), null);
 }
 
 namespace Test
@@ -1278,8 +1278,8 @@ namespace Test
     $Test__t_TestIntfPrx = IcePHP_defineProxy('::Test::TestIntf', $Ice__t_ObjectPrx, null);
 
     global $Test__t_Base;
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opDerived', 0, 0, null, null, array($Test__t_Base), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'throwDerived', 0, 0, null, null, null, array($Test__t_BaseEx));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opDerived', 0, -1, null, null, array($Test__t_Base), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'throwDerived', 0, -1, null, null, null, array($Test__t_BaseEx));
 }
 
 namespace Test
@@ -1374,7 +1374,7 @@ namespace Test
     $Test__t_UnexpectedObjectExceptionTestPrx = IcePHP_defineProxy('::Test::UnexpectedObjectExceptionTest', $Ice__t_ObjectPrx, null);
 
     global $Test__t_Empty;
-    IcePHP_defineOperation($Test__t_UnexpectedObjectExceptionTestPrx, 'op', 0, 0, null, null, array($Test__t_Empty), null);
+    IcePHP_defineOperation($Test__t_UnexpectedObjectExceptionTestPrx, 'op', 0, -1, null, null, array($Test__t_Empty), null);
 }
 
 namespace Test

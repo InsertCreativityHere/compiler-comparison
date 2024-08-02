@@ -62,7 +62,7 @@ public interface ProcessController extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         ProcessPrx ret = obj.start(iceP_testsuite, iceP_exe, iceP_args, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeProxy(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -81,7 +81,7 @@ public interface ProcessController extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         String ret = obj.getHost(iceP_protocol, iceP_ipv6, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeString(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));

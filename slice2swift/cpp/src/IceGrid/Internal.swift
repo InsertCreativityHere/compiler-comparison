@@ -5363,7 +5363,7 @@ extension Adapter {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.activateAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }
@@ -5375,7 +5375,7 @@ extension Adapter {
 
         let iceP_returnValue = try self.getDirectProxy(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -5409,7 +5409,7 @@ extension FileReader {
 
         let iceP_returnValue = try self.getOffsetFromEnd(filename: iceP_filename, lines: iceP_lines, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -5425,7 +5425,7 @@ extension FileReader {
 
         let (iceP_returnValue, iceP_newPos, iceP_lines) = try self.read(filename: iceP_filename, pos: iceP_pos, size: iceP_size, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_newPos)
         ostr.write(iceP_lines)
         ostr.write(iceP_returnValue)
@@ -5485,7 +5485,7 @@ extension Server {
 
         let iceP_returnValue = try self.checkUpdate(svr: iceP_svr, noRestart: iceP_noRestart, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -5507,7 +5507,7 @@ extension Server {
 
         let iceP_returnValue = try self.isEnabled(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -5540,7 +5540,7 @@ extension Server {
 
         let iceP_returnValue = try self.getState(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -5552,7 +5552,7 @@ extension Server {
 
         let iceP_returnValue = try self.getPid(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -5644,7 +5644,7 @@ extension Node {
         try istr.readPendingValues()
         let result = try await self.loadServerAsync(
             svr: iceP_svr, replicaName: iceP_replicaName, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_adapters, iceP_activateTimeout, iceP_deactivateTimeout) = value
             AdapterPrxDictHelper.write(to: ostr, value: iceP_adapters)
             ostr.write(iceP_activateTimeout)
@@ -5663,7 +5663,7 @@ extension Node {
         try istr.readPendingValues()
         let result = try await self.loadServerWithoutRestartAsync(
             svr: iceP_svr, replicaName: iceP_replicaName, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_adapters, iceP_activateTimeout, iceP_deactivateTimeout) = value
             AdapterPrxDictHelper.write(to: ostr, value: iceP_adapters)
             ostr.write(iceP_activateTimeout)
@@ -5714,7 +5714,7 @@ extension Node {
 
         let iceP_returnValue = try self.getName(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -5726,7 +5726,7 @@ extension Node {
 
         let iceP_returnValue = try self.getHostname(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -5738,7 +5738,7 @@ extension Node {
 
         let iceP_returnValue = try self.getLoad(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -5750,7 +5750,7 @@ extension Node {
 
         let iceP_returnValue = try self.getProcessorSocketCount(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -5811,7 +5811,7 @@ extension NodeSession {
 
         let iceP_returnValue = try self.getTimeout(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -5823,7 +5823,7 @@ extension NodeSession {
 
         let iceP_returnValue = try self.getObserver(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -5843,7 +5843,7 @@ extension NodeSession {
 
         let iceP_returnValue = try self.getServers(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -5906,7 +5906,7 @@ extension ReplicaSession {
 
         let iceP_returnValue = try self.getTimeout(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -6010,7 +6010,7 @@ extension InternalRegistry {
 
         let iceP_returnValue = try self.registerNode(info: iceP_info, prx: iceP_prx, loadInf: iceP_loadInf, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -6027,7 +6027,7 @@ extension InternalRegistry {
 
         let iceP_returnValue = try self.registerReplica(info: iceP_info, prx: iceP_prx, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -6049,7 +6049,7 @@ extension InternalRegistry {
 
         let iceP_returnValue = try self.getNodes(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         NodePrxSeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -6061,7 +6061,7 @@ extension InternalRegistry {
 
         let iceP_returnValue = try self.getReplicas(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         InternalRegistryPrxSeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)
@@ -6073,7 +6073,7 @@ extension InternalRegistry {
 
         let (iceP_returnValue, iceP_serial) = try self.getApplications(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_serial)
         ApplicationInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.writePendingValues()
@@ -6087,7 +6087,7 @@ extension InternalRegistry {
 
         let (iceP_returnValue, iceP_serial) = try self.getAdapters(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_serial)
         AdapterInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()
@@ -6100,7 +6100,7 @@ extension InternalRegistry {
 
         let (iceP_returnValue, iceP_serial) = try self.getObjects(current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_serial)
         ObjectInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
         ostr.endEncapsulation()

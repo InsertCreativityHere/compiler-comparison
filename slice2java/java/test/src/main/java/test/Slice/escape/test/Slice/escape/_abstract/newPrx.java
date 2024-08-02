@@ -73,7 +73,7 @@ public interface newPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<_assert> _iceI_notifyAsync(_break iceP_notifyAll, _else iceP_null, finalizePrx iceP_package, catchPrx iceP_public, defaultPrx iceP_return, int iceP_static, int iceP_strictfp, int iceP_super, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<_assert> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "notify", null, sync, _iceE_notify);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      _break.ice_write(ostr, iceP_notifyAll);
                      ostr.writeValue(iceP_null);
                      ostr.writeProxy(iceP_package);

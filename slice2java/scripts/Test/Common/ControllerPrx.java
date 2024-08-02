@@ -63,7 +63,7 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<TestCasePrx> _iceI_runTestCaseAsync(String iceP_mapping, String iceP_testsuite, String iceP_testcase, String iceP_cross, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<TestCasePrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "runTestCase", null, sync, _iceE_runTestCase);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_mapping);
                      ostr.writeString(iceP_testsuite);
                      ostr.writeString(iceP_testcase);
@@ -111,7 +111,7 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<OptionOverrides> _iceI_getOptionOverridesAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<OptionOverrides> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getOptionOverrides", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
+        f.invoke(true, context, null, null, istr -> {
                      final com.zeroc.IceInternal.Holder<OptionOverrides> ret = new com.zeroc.IceInternal.Holder<>();
                      istr.readValue(v -> ret.value = v, OptionOverrides.class);
                      istr.readPendingValues();
@@ -150,7 +150,7 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<String[]> _iceI_getTestSuitesAsync(String iceP_mapping, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<String[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getTestSuites", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_mapping);
                  }, istr -> {
                      String[] ret;
@@ -191,7 +191,7 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.String> _iceI_getHostAsync(String iceP_protocol, boolean iceP_ipv6, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getHost", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_protocol);
                      ostr.writeBool(iceP_ipv6);
                  }, istr -> {

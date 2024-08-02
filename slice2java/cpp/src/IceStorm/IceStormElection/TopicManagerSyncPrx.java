@@ -67,7 +67,7 @@ public interface TopicManagerSyncPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<TopicManagerSync.GetContentResult> _iceI_getContentAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<TopicManagerSync.GetContentResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getContent", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
+        f.invoke(true, context, null, null, istr -> {
                      TopicManagerSync.GetContentResult ret = new TopicManagerSync.GetContentResult();
                      ret.read(istr);
                      return ret;

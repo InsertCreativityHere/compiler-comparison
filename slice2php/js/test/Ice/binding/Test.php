@@ -47,7 +47,7 @@ namespace Test
     $Test__t_TestIntfPrx = IcePHP_defineProxy('::Test::TestIntf', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_string;
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getAdapterName', 0, 0, null, null, array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'getAdapterName', 0, -1, null, null, array($IcePHP__t_string), null);
 }
 
 namespace Test
@@ -82,8 +82,8 @@ namespace Test
     $Test__t_RemoteObjectAdapterPrx = IcePHP_defineProxy('::Test::RemoteObjectAdapter', $Ice__t_ObjectPrx, null);
 
     global $Test__t_TestIntfPrx;
-    IcePHP_defineOperation($Test__t_RemoteObjectAdapterPrx, 'getTestIntf', 0, 0, null, null, array($Test__t_TestIntfPrx), null);
-    IcePHP_defineOperation($Test__t_RemoteObjectAdapterPrx, 'deactivate', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_RemoteObjectAdapterPrx, 'getTestIntf', 0, -1, null, null, array($Test__t_TestIntfPrx), null);
+    IcePHP_defineOperation($Test__t_RemoteObjectAdapterPrx, 'deactivate', 0, -1, null, null, null, null);
 }
 
 namespace Test
@@ -119,8 +119,8 @@ namespace Test
 
     global $IcePHP__t_string;
     global $Test__t_RemoteObjectAdapterPrx;
-    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'createObjectAdapter', 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_string)), null, array($Test__t_RemoteObjectAdapterPrx), null);
-    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'deactivateObjectAdapter', 0, 0, array(array($Test__t_RemoteObjectAdapterPrx)), null, null, null);
-    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'createObjectAdapter', 0, -1, array(array($IcePHP__t_string), array($IcePHP__t_string)), null, array($Test__t_RemoteObjectAdapterPrx), null);
+    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'deactivateObjectAdapter', 0, -1, array(array($Test__t_RemoteObjectAdapterPrx)), null, null, null);
+    IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 ?>

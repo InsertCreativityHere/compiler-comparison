@@ -82,7 +82,7 @@ namespace _and
     $and__t_delPrx = IcePHP_defineProxy('::and::del', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_int;
-    IcePHP_defineOperation($and__t_delPrx, 'elif', 0, 0, array(array($IcePHP__t_int)), array(array($IcePHP__t_int)), null, null);
+    IcePHP_defineOperation($and__t_delPrx, 'elif', 0, -1, array(array($IcePHP__t_int)), array(array($IcePHP__t_int)), null, null);
 }
 
 namespace _and
@@ -116,7 +116,7 @@ namespace _and
     global $Ice__t_ObjectPrx;
     $and__t_execPrx = IcePHP_defineProxy('::and::exec', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($and__t_execPrx, 'finally', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($and__t_execPrx, 'finally', 0, -1, null, null, null, null);
 }
 
 namespace _and
@@ -304,7 +304,7 @@ namespace _and
     global $and__t_ifPrx;
     global $IcePHP__t_int;
     global $and__t_assert;
-    IcePHP_defineOperation($and__t_printPrx, 'raise', 0, 0, array(array($and__t_continue), array($and__t_for), array($and__t_delPrx), array($and__t_execPrx), array($and__t_ifPrx), array($IcePHP__t_int)), null, array($and__t_assert), array($and__t_is));
+    IcePHP_defineOperation($and__t_printPrx, 'raise', 0, -1, array(array($and__t_continue), array($and__t_for), array($and__t_delPrx), array($and__t_execPrx), array($and__t_ifPrx), array($IcePHP__t_int)), null, array($and__t_assert), array($and__t_is));
 }
 
 namespace _and

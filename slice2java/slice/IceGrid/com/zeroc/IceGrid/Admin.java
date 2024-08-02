@@ -693,7 +693,7 @@ public interface Admin extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         ApplicationInfo ret = obj.getApplicationInfo(iceP_name, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ApplicationInfo.ice_write(ostr, ret);
         ostr.writePendingValues();
         ostr.endEncapsulation();
@@ -708,7 +708,7 @@ public interface Admin extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         ApplicationDescriptor ret = obj.getDefaultApplicationDescriptor(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ApplicationDescriptor.ice_write(ostr, ret);
         ostr.writePendingValues();
         ostr.endEncapsulation();
@@ -722,7 +722,7 @@ public interface Admin extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         String[] ret = obj.getAllApplicationNames(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeStringSeq(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -740,7 +740,7 @@ public interface Admin extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         ServerInfo ret = obj.getServerInfo(iceP_id, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ServerInfo.ice_write(ostr, ret);
         ostr.writePendingValues();
         ostr.endEncapsulation();
@@ -759,7 +759,7 @@ public interface Admin extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         ServerState ret = obj.getServerState(iceP_id, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ServerState.ice_write(ostr, ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -777,7 +777,7 @@ public interface Admin extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         int ret = obj.getServerPid(iceP_id, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeInt(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -790,7 +790,7 @@ public interface Admin extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         String ret = obj.getServerAdminCategory(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeString(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -808,7 +808,7 @@ public interface Admin extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         com.zeroc.Ice.ObjectPrx ret = obj.getServerAdmin(iceP_id, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeProxy(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -842,7 +842,7 @@ public interface Admin extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         boolean ret = obj.isServerEnabled(iceP_id, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeBool(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -899,7 +899,7 @@ public interface Admin extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         String[] ret = obj.getAllServerIds(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeStringSeq(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -917,7 +917,7 @@ public interface Admin extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         AdapterInfo[] ret = obj.getAdapterInfo(iceP_id, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         AdapterInfoSeqHelper.write(ostr, ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -944,7 +944,7 @@ public interface Admin extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         String[] ret = obj.getAllAdapterIds(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeStringSeq(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -1020,7 +1020,7 @@ public interface Admin extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         ObjectInfo ret = obj.getObjectInfo(iceP_id, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ObjectInfo.ice_write(ostr, ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -1037,7 +1037,7 @@ public interface Admin extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         ObjectInfo[] ret = obj.getObjectInfosByType(iceP_type, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ObjectInfoSeqHelper.write(ostr, ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -1054,7 +1054,7 @@ public interface Admin extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         ObjectInfo[] ret = obj.getAllObjectInfos(iceP_expr, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ObjectInfoSeqHelper.write(ostr, ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -1072,7 +1072,7 @@ public interface Admin extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         boolean ret = obj.pingNode(iceP_name, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeBool(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -1090,7 +1090,7 @@ public interface Admin extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         LoadInfo ret = obj.getNodeLoad(iceP_name, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         LoadInfo.ice_write(ostr, ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -1108,7 +1108,7 @@ public interface Admin extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         NodeInfo ret = obj.getNodeInfo(iceP_name, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         NodeInfo.ice_write(ostr, ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -1126,7 +1126,7 @@ public interface Admin extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         com.zeroc.Ice.ObjectPrx ret = obj.getNodeAdmin(iceP_name, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeProxy(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -1144,7 +1144,7 @@ public interface Admin extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         int ret = obj.getNodeProcessorSocketCount(iceP_name, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeInt(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -1176,7 +1176,7 @@ public interface Admin extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         String ret = obj.getNodeHostname(iceP_name, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeString(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -1189,7 +1189,7 @@ public interface Admin extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         String[] ret = obj.getAllNodeNames(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeStringSeq(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -1207,7 +1207,7 @@ public interface Admin extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         boolean ret = obj.pingRegistry(iceP_name, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeBool(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -1225,7 +1225,7 @@ public interface Admin extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         RegistryInfo ret = obj.getRegistryInfo(iceP_name, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         RegistryInfo.ice_write(ostr, ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -1243,7 +1243,7 @@ public interface Admin extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         com.zeroc.Ice.ObjectPrx ret = obj.getRegistryAdmin(iceP_name, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeProxy(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -1270,7 +1270,7 @@ public interface Admin extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         String[] ret = obj.getAllRegistryNames(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeStringSeq(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));

@@ -375,7 +375,7 @@ Ice.defineOperations(
         [
             Test.Base
         ], , ],
-        "unknownMostDerived2AsBaseCompact": [, , 1, , , ,
+        "unknownMostDerived2AsBaseCompact": [, , 0, , , ,
         [
             Test.Base
         ], , ],

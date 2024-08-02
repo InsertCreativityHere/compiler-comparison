@@ -46,7 +46,7 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_TestIntfPrx = IcePHP_defineProxy('::Test::TestIntf', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'transient', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'deactivate', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'transient', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'deactivate', 0, -1, null, null, null, null);
 }
 ?>

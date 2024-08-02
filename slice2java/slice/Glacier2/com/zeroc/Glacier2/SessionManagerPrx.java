@@ -106,7 +106,7 @@ public interface SessionManagerPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<SessionPrx> _iceI_createAsync(String iceP_userId, SessionControlPrx iceP_control, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<SessionPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "create", null, sync, _iceE_create);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_userId);
                      ostr.writeProxy(iceP_control);
                  }, istr -> {

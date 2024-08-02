@@ -3046,7 +3046,7 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.SBaseAsObjectAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
@@ -3058,7 +3058,7 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.SBaseAsSBaseAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
@@ -3070,7 +3070,7 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.SBSKnownDerivedAsSBaseAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
@@ -3082,7 +3082,7 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.SBSKnownDerivedAsSBSKnownDerivedAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
@@ -3094,7 +3094,7 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.SBSUnknownDerivedAsSBaseAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
@@ -3106,7 +3106,7 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.SBSUnknownDerivedAsSBaseCompactAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.CompactFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .CompactFormat) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
@@ -3118,7 +3118,7 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.SUnknownAsObjectAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
@@ -3142,7 +3142,7 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.oneElementCycleAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
@@ -3154,7 +3154,7 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.twoElementCycleAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
@@ -3166,7 +3166,7 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.D1AsBAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
@@ -3178,7 +3178,7 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.D1AsD1Async(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
@@ -3190,7 +3190,7 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.D2AsBAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
@@ -3202,7 +3202,7 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.paramTest1Async(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let (iceP_p1, iceP_p2) = value
             ostr.write(iceP_p1)
             ostr.write(iceP_p2)
@@ -3215,7 +3215,7 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.paramTest2Async(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let (iceP_p2, iceP_p1) = value
             ostr.write(iceP_p2)
             ostr.write(iceP_p1)
@@ -3228,7 +3228,7 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.paramTest3Async(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let (iceP_returnValue, iceP_p1, iceP_p2) = value
             ostr.write(iceP_p1)
             ostr.write(iceP_p2)
@@ -3242,7 +3242,7 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.paramTest4Async(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let (iceP_returnValue, iceP_p) = value
             ostr.write(iceP_p)
             ostr.write(iceP_returnValue)
@@ -3255,7 +3255,7 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.returnTest1Async(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let (iceP_returnValue, iceP_p1, iceP_p2) = value
             ostr.write(iceP_p1)
             ostr.write(iceP_p2)
@@ -3269,7 +3269,7 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.returnTest2Async(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let (iceP_returnValue, iceP_p2, iceP_p1) = value
             ostr.write(iceP_p2)
             ostr.write(iceP_p1)
@@ -3289,7 +3289,7 @@ extension TestIntf {
         try istr.readPendingValues()
         let result = try await self.returnTest3Async(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
@@ -3307,7 +3307,7 @@ extension TestIntf {
         try istr.readPendingValues()
         let result = try await self.sequenceTestAsync(
             p1: iceP_p1, p2: iceP_p2, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
@@ -3322,7 +3322,7 @@ extension TestIntf {
         try istr.readPendingValues()
         let result = try await self.dictionaryTestAsync(
             bin: iceP_bin, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let (iceP_returnValue, iceP_bout) = value
             BDictHelper.write(to: ostr, value: iceP_bout)
             BDictHelper.write(to: ostr, value: iceP_returnValue)
@@ -3339,7 +3339,7 @@ extension TestIntf {
         try istr.readPendingValues()
         let result = try await self.exchangePBaseAsync(
             pb: iceP_pb, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
@@ -3351,7 +3351,7 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.PBSUnknownAsPreservedAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
@@ -3375,7 +3375,7 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.PBSUnknownAsPreservedWithGraphAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
@@ -3399,7 +3399,7 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.PBSUnknown2AsPreservedWithGraphAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
@@ -3427,7 +3427,7 @@ extension TestIntf {
         try istr.readPendingValues()
         let result = try await self.exchangePNodeAsync(
             pn: iceP_pn, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
             ostr.writePendingValues()
@@ -3471,7 +3471,7 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.useForwardAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.SlicedFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
             let iceP_f = value
             ostr.write(iceP_f)
             ostr.writePendingValues()

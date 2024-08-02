@@ -77,7 +77,7 @@ namespace Glacier2
 
     global $IcePHP__t_string;
     global $IcePHP__t_bool;
-    IcePHP_defineOperation($Glacier2__t_PermissionsVerifierPrx, 'checkPermissions', 2, 0, array(array($IcePHP__t_string), array($IcePHP__t_string)), array(array($IcePHP__t_string)), array($IcePHP__t_bool), array($Glacier2__t_PermissionDeniedException));
+    IcePHP_defineOperation($Glacier2__t_PermissionsVerifierPrx, 'checkPermissions', 2, -1, array(array($IcePHP__t_string), array($IcePHP__t_string)), array(array($IcePHP__t_string)), array($IcePHP__t_bool), array($Glacier2__t_PermissionDeniedException));
 }
 
 namespace Glacier2
@@ -114,6 +114,6 @@ namespace Glacier2
     global $Glacier2__t_SSLInfo;
     global $IcePHP__t_string;
     global $IcePHP__t_bool;
-    IcePHP_defineOperation($Glacier2__t_SSLPermissionsVerifierPrx, 'authorize', 2, 0, array(array($Glacier2__t_SSLInfo)), array(array($IcePHP__t_string)), array($IcePHP__t_bool), array($Glacier2__t_PermissionDeniedException));
+    IcePHP_defineOperation($Glacier2__t_SSLPermissionsVerifierPrx, 'authorize', 2, -1, array(array($Glacier2__t_SSLInfo)), array(array($IcePHP__t_string)), array($IcePHP__t_bool), array($Glacier2__t_PermissionDeniedException));
 }
 ?>

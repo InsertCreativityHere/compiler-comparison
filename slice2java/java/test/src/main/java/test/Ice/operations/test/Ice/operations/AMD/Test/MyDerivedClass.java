@@ -76,7 +76,7 @@ public interface MyDerivedClass extends MyClass
                 ostr.writeValue(value);
                 ostr.writePendingValues();
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -95,7 +95,7 @@ public interface MyDerivedClass extends MyClass
             {
                 MyStruct1.ice_write(ostr, value);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     @Override

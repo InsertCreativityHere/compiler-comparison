@@ -80,11 +80,11 @@ namespace Test
 
     global $IcePHP__t_int;
     global $Ice__t_ByteSeq;
-    IcePHP_defineOperation($Test__t_CallbackReceiverPrx, 'callback', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_CallbackReceiverPrx, 'callbackEx', 0, 0, null, null, null, array($Test__t_CallbackException));
-    IcePHP_defineOperation($Test__t_CallbackReceiverPrx, 'concurrentCallback', 0, 0, array(array($IcePHP__t_int)), null, array($IcePHP__t_int), null);
-    IcePHP_defineOperation($Test__t_CallbackReceiverPrx, 'waitCallback', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_CallbackReceiverPrx, 'callbackWithPayload', 0, 0, array(array($Ice__t_ByteSeq)), null, null, null);
+    IcePHP_defineOperation($Test__t_CallbackReceiverPrx, 'callback', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_CallbackReceiverPrx, 'callbackEx', 0, -1, null, null, null, array($Test__t_CallbackException));
+    IcePHP_defineOperation($Test__t_CallbackReceiverPrx, 'concurrentCallback', 0, -1, array(array($IcePHP__t_int)), null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($Test__t_CallbackReceiverPrx, 'waitCallback', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_CallbackReceiverPrx, 'callbackWithPayload', 0, -1, array(array($Ice__t_ByteSeq)), null, null, null);
 }
 
 namespace Test
@@ -120,11 +120,11 @@ namespace Test
 
     global $Test__t_CallbackReceiverPrx;
     global $IcePHP__t_int;
-    IcePHP_defineOperation($Test__t_CallbackPrx, 'initiateCallback', 0, 0, array(array($Test__t_CallbackReceiverPrx)), null, null, null);
-    IcePHP_defineOperation($Test__t_CallbackPrx, 'initiateCallbackEx', 0, 0, array(array($Test__t_CallbackReceiverPrx)), null, null, array($Test__t_CallbackException));
-    IcePHP_defineOperation($Test__t_CallbackPrx, 'initiateConcurrentCallback', 0, 0, array(array($IcePHP__t_int), array($Test__t_CallbackReceiverPrx)), null, array($IcePHP__t_int), null);
-    IcePHP_defineOperation($Test__t_CallbackPrx, 'initiateWaitCallback', 0, 0, array(array($Test__t_CallbackReceiverPrx)), null, null, null);
-    IcePHP_defineOperation($Test__t_CallbackPrx, 'initiateCallbackWithPayload', 0, 0, array(array($Test__t_CallbackReceiverPrx)), null, null, null);
-    IcePHP_defineOperation($Test__t_CallbackPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_CallbackPrx, 'initiateCallback', 0, -1, array(array($Test__t_CallbackReceiverPrx)), null, null, null);
+    IcePHP_defineOperation($Test__t_CallbackPrx, 'initiateCallbackEx', 0, -1, array(array($Test__t_CallbackReceiverPrx)), null, null, array($Test__t_CallbackException));
+    IcePHP_defineOperation($Test__t_CallbackPrx, 'initiateConcurrentCallback', 0, -1, array(array($IcePHP__t_int), array($Test__t_CallbackReceiverPrx)), null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($Test__t_CallbackPrx, 'initiateWaitCallback', 0, -1, array(array($Test__t_CallbackReceiverPrx)), null, null, null);
+    IcePHP_defineOperation($Test__t_CallbackPrx, 'initiateCallbackWithPayload', 0, -1, array(array($Test__t_CallbackReceiverPrx)), null, null, null);
+    IcePHP_defineOperation($Test__t_CallbackPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 ?>

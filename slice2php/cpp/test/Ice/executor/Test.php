@@ -53,10 +53,10 @@ namespace Test
 
     global $IcePHP__t_int;
     global $Ice__t_ByteSeq;
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'op', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'sleep', 0, 0, array(array($IcePHP__t_int)), null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opWithPayload', 0, 0, array(array($Ice__t_ByteSeq)), null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'op', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'sleep', 0, -1, array(array($IcePHP__t_int)), null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opWithPayload', 0, -1, array(array($Ice__t_ByteSeq)), null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 
 namespace Test
@@ -90,7 +90,7 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_TestIntfControllerPrx = IcePHP_defineProxy('::Test::TestIntfController', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($Test__t_TestIntfControllerPrx, 'holdAdapter', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfControllerPrx, 'resumeAdapter', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfControllerPrx, 'holdAdapter', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfControllerPrx, 'resumeAdapter', 0, -1, null, null, null, null);
 }
 ?>

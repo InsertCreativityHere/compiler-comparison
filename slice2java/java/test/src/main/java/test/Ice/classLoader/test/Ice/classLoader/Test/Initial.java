@@ -55,7 +55,7 @@ public interface Initial extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         ConcreteClass ret = obj.getConcreteClass(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeValue(ret);
         ostr.writePendingValues();
         ostr.endEncapsulation();

@@ -68,13 +68,13 @@ namespace Test
 
     global $IcePHP__t_int;
     global $Test__t_TestIntfPrx;
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'op', 0, 0, null, null, array($IcePHP__t_int), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'callOpOn', 0, 0, array(array($Test__t_TestIntfPrx)), null, array($IcePHP__t_int), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'throwUserException1', 0, 0, null, null, null, array($Test__t_TestException));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'throwUserException2', 0, 0, null, null, null, array($Test__t_TestException));
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'throwUnhandledException1', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'throwUnhandledException2', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'sleep', 0, 0, array(array($IcePHP__t_int)), null, null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'op', 0, -1, null, null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'callOpOn', 0, -1, array(array($Test__t_TestIntfPrx)), null, array($IcePHP__t_int), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'throwUserException1', 0, -1, null, null, null, array($Test__t_TestException));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'throwUserException2', 0, -1, null, null, null, array($Test__t_TestException));
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'throwUnhandledException1', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'throwUnhandledException2', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'sleep', 0, -1, array(array($IcePHP__t_int)), null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 ?>

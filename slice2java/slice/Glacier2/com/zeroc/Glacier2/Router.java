@@ -137,7 +137,7 @@ public interface Router extends com.zeroc.Ice.Router
         request.inputStream.skipEmptyEncapsulation();
         String ret = obj.getCategoryForClient(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeString(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -162,7 +162,7 @@ public interface Router extends com.zeroc.Ice.Router
             {
                 ostr.writeProxy(value);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -178,7 +178,7 @@ public interface Router extends com.zeroc.Ice.Router
             {
                 ostr.writeProxy(value);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -208,7 +208,7 @@ public interface Router extends com.zeroc.Ice.Router
         request.inputStream.skipEmptyEncapsulation();
         long ret = obj.getSessionTimeout(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeLong(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -221,7 +221,7 @@ public interface Router extends com.zeroc.Ice.Router
         request.inputStream.skipEmptyEncapsulation();
         int ret = obj.getACMTimeout(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeInt(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));

@@ -52,8 +52,8 @@ namespace Test
     $Test__t_MyClassPrx = IcePHP_defineProxy('::Test::MyClass', $Ice__t_ObjectPrx, null);
 
     global $Ice__t_Context;
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'shutdown', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'getContext', 0, 0, null, null, array($Ice__t_Context), null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'shutdown', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'getContext', 0, -1, null, null, array($Ice__t_Context), null);
 }
 
 namespace Test
@@ -88,7 +88,7 @@ namespace Test
     $Test__t_MyDerivedClassPrx = IcePHP_defineProxy('::Test::MyDerivedClass', $Ice__t_ObjectPrx, array($Test__t_MyClassPrx));
 
     global $Ice__t_ObjectPrx;
-    IcePHP_defineOperation($Test__t_MyDerivedClassPrx, 'echo', 0, 0, array(array($Ice__t_ObjectPrx)), null, array($Ice__t_ObjectPrx), null);
+    IcePHP_defineOperation($Test__t_MyDerivedClassPrx, 'echo', 0, -1, array(array($Ice__t_ObjectPrx)), null, array($Ice__t_ObjectPrx), null);
 }
 
 namespace Test

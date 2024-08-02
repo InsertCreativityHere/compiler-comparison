@@ -2004,7 +2004,7 @@ extension Thrower {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.supportsUndeclaredExceptionsAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }
@@ -2015,7 +2015,7 @@ extension Thrower {
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.supportsAssertExceptionAsync(
             current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }
@@ -2174,7 +2174,7 @@ extension Thrower {
         let iceP_seq: Ice.ByteSeq = try istr.read()
         let result = try await self.throwMemoryLimitExceptionAsync(
             seq: iceP_seq, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }

@@ -1188,7 +1188,7 @@ extension del {
         let iceP_else: Swift.Int32 = try istr.read()
         let result = try await self.elifAsync(
             else: iceP_else, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_except = value
             ostr.write(iceP_except)
         }
@@ -1234,7 +1234,7 @@ extension print {
 
         let iceP_returnValue = try self.raise(else: iceP_else, return: iceP_return, while: iceP_while, yield: iceP_yield, or: iceP_or, global: iceP_global, current: request.current)
         let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .DefaultFormat)
+        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
         ostr.write(iceP_returnValue)
         ostr.endEncapsulation()
         return Ice.OutgoingResponse(ostr)

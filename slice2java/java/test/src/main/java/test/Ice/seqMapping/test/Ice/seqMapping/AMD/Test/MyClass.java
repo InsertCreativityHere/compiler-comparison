@@ -176,7 +176,7 @@ public interface MyClass extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -195,7 +195,7 @@ public interface MyClass extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -214,7 +214,7 @@ public interface MyClass extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     @Override

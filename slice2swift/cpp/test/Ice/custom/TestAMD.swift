@@ -5451,7 +5451,7 @@ extension TestIntf {
         let iceP_inSeq: ShortSeq = try istr.read()
         let result = try await self.opShortArrayAsync(
             inSeq: iceP_inSeq, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outSeq) = value
             ostr.write(iceP_outSeq)
             ostr.write(iceP_returnValue)
@@ -5466,7 +5466,7 @@ extension TestIntf {
         let iceP_inSeq: DoubleSeq = try istr.read()
         let result = try await self.opDoubleArrayAsync(
             padding: iceP_padding, inSeq: iceP_inSeq, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outSeq) = value
             ostr.write(iceP_outSeq)
             ostr.write(iceP_returnValue)
@@ -5480,7 +5480,7 @@ extension TestIntf {
         let iceP_inSeq: BoolSeq = try istr.read()
         let result = try await self.opBoolArrayAsync(
             inSeq: iceP_inSeq, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outSeq) = value
             ostr.write(iceP_outSeq)
             ostr.write(iceP_returnValue)
@@ -5494,7 +5494,7 @@ extension TestIntf {
         let iceP_inSeq: ByteList = try istr.read()
         let result = try await self.opByteArrayAsync(
             inSeq: iceP_inSeq, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outSeq) = value
             ostr.write(iceP_outSeq)
             ostr.write(iceP_returnValue)
@@ -5508,7 +5508,7 @@ extension TestIntf {
         let iceP_inSeq: VariableList = try VariableListHelper.read(from: istr)
         let result = try await self.opVariableArrayAsync(
             inSeq: iceP_inSeq, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outSeq) = value
             VariableListHelper.write(to: ostr, value: iceP_outSeq)
             VariableListHelper.write(to: ostr, value: iceP_returnValue)
@@ -5522,7 +5522,7 @@ extension TestIntf {
         let iceP_inSeq: BoolSeq = try istr.read()
         let result = try await self.opBoolSeqAsync(
             inSeq: iceP_inSeq, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outSeq) = value
             ostr.write(iceP_outSeq)
             ostr.write(iceP_returnValue)
@@ -5536,7 +5536,7 @@ extension TestIntf {
         let iceP_inSeq: BoolList = try istr.read()
         let result = try await self.opBoolListAsync(
             inSeq: iceP_inSeq, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outSeq) = value
             ostr.write(iceP_outSeq)
             ostr.write(iceP_returnValue)
@@ -5550,7 +5550,7 @@ extension TestIntf {
         let iceP_inSeq: ByteSeq = try istr.read()
         let result = try await self.opByteSeqAsync(
             inSeq: iceP_inSeq, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outSeq) = value
             ostr.write(iceP_outSeq)
             ostr.write(iceP_returnValue)
@@ -5564,7 +5564,7 @@ extension TestIntf {
         let iceP_inSeq: ByteList = try istr.read()
         let result = try await self.opByteListAsync(
             inSeq: iceP_inSeq, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outSeq) = value
             ostr.write(iceP_outSeq)
             ostr.write(iceP_returnValue)
@@ -5578,7 +5578,7 @@ extension TestIntf {
         let iceP_inSeq: ByteSeq = try istr.read()
         let result = try await self.opMyByteSeqAsync(
             inSeq: iceP_inSeq, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outSeq) = value
             ostr.write(iceP_outSeq)
             ostr.write(iceP_returnValue)
@@ -5592,7 +5592,7 @@ extension TestIntf {
         let iceP_inSeq: StringSeq = try istr.read()
         let result = try await self.opStringSeqAsync(
             inSeq: iceP_inSeq, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outSeq) = value
             ostr.write(iceP_outSeq)
             ostr.write(iceP_returnValue)
@@ -5606,7 +5606,7 @@ extension TestIntf {
         let iceP_inSeq: StringList = try istr.read()
         let result = try await self.opStringListAsync(
             inSeq: iceP_inSeq, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outSeq) = value
             ostr.write(iceP_outSeq)
             ostr.write(iceP_returnValue)
@@ -5620,7 +5620,7 @@ extension TestIntf {
         let iceP_inSeq: FixedSeq = try FixedSeqHelper.read(from: istr)
         let result = try await self.opFixedSeqAsync(
             inSeq: iceP_inSeq, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outSeq) = value
             FixedSeqHelper.write(to: ostr, value: iceP_outSeq)
             FixedSeqHelper.write(to: ostr, value: iceP_returnValue)
@@ -5634,7 +5634,7 @@ extension TestIntf {
         let iceP_inSeq: FixedList = try FixedListHelper.read(from: istr)
         let result = try await self.opFixedListAsync(
             inSeq: iceP_inSeq, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outSeq) = value
             FixedListHelper.write(to: ostr, value: iceP_outSeq)
             FixedListHelper.write(to: ostr, value: iceP_returnValue)
@@ -5648,7 +5648,7 @@ extension TestIntf {
         let iceP_inSeq: VariableSeq = try VariableSeqHelper.read(from: istr)
         let result = try await self.opVariableSeqAsync(
             inSeq: iceP_inSeq, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outSeq) = value
             VariableSeqHelper.write(to: ostr, value: iceP_outSeq)
             VariableSeqHelper.write(to: ostr, value: iceP_returnValue)
@@ -5662,7 +5662,7 @@ extension TestIntf {
         let iceP_inSeq: VariableList = try VariableListHelper.read(from: istr)
         let result = try await self.opVariableListAsync(
             inSeq: iceP_inSeq, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outSeq) = value
             VariableListHelper.write(to: ostr, value: iceP_outSeq)
             VariableListHelper.write(to: ostr, value: iceP_returnValue)
@@ -5676,7 +5676,7 @@ extension TestIntf {
         let iceP_inSeq: StringStringDictSeq = try StringStringDictSeqHelper.read(from: istr)
         let result = try await self.opStringStringDictSeqAsync(
             inSeq: iceP_inSeq, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outSeq) = value
             StringStringDictSeqHelper.write(to: ostr, value: iceP_outSeq)
             StringStringDictSeqHelper.write(to: ostr, value: iceP_returnValue)
@@ -5690,7 +5690,7 @@ extension TestIntf {
         let iceP_inSeq: StringStringDictList = try StringStringDictListHelper.read(from: istr)
         let result = try await self.opStringStringDictListAsync(
             inSeq: iceP_inSeq, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outSeq) = value
             StringStringDictListHelper.write(to: ostr, value: iceP_outSeq)
             StringStringDictListHelper.write(to: ostr, value: iceP_returnValue)
@@ -5704,7 +5704,7 @@ extension TestIntf {
         let iceP_inSeq: ESeq = try ESeqHelper.read(from: istr)
         let result = try await self.opESeqAsync(
             inSeq: iceP_inSeq, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outSeq) = value
             ESeqHelper.write(to: ostr, value: iceP_outSeq)
             ESeqHelper.write(to: ostr, value: iceP_returnValue)
@@ -5718,7 +5718,7 @@ extension TestIntf {
         let iceP_inSeq: EList = try EListHelper.read(from: istr)
         let result = try await self.opEListAsync(
             inSeq: iceP_inSeq, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outSeq) = value
             EListHelper.write(to: ostr, value: iceP_outSeq)
             EListHelper.write(to: ostr, value: iceP_returnValue)
@@ -5732,7 +5732,7 @@ extension TestIntf {
         let iceP_inSeq: DPrxSeq = try DPrxSeqHelper.read(from: istr)
         let result = try await self.opDPrxSeqAsync(
             inSeq: iceP_inSeq, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outSeq) = value
             DPrxSeqHelper.write(to: ostr, value: iceP_outSeq)
             DPrxSeqHelper.write(to: ostr, value: iceP_returnValue)
@@ -5746,7 +5746,7 @@ extension TestIntf {
         let iceP_inSeq: DPrxList = try DPrxListHelper.read(from: istr)
         let result = try await self.opDPrxListAsync(
             inSeq: iceP_inSeq, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outSeq) = value
             DPrxListHelper.write(to: ostr, value: iceP_outSeq)
             DPrxListHelper.write(to: ostr, value: iceP_returnValue)
@@ -5761,7 +5761,7 @@ extension TestIntf {
         try istr.readPendingValues()
         let result = try await self.opCSeqAsync(
             inSeq: iceP_inSeq, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outSeq) = value
             CSeqHelper.write(to: ostr, value: iceP_outSeq)
             CSeqHelper.write(to: ostr, value: iceP_returnValue)
@@ -5777,7 +5777,7 @@ extension TestIntf {
         try istr.readPendingValues()
         let result = try await self.opCListAsync(
             inSeq: iceP_inSeq, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outSeq) = value
             CListHelper.write(to: ostr, value: iceP_outSeq)
             CListHelper.write(to: ostr, value: iceP_returnValue)
@@ -5792,7 +5792,7 @@ extension TestIntf {
         let iceP_org: ByteSeq = try istr.read()
         let result = try await self.opOutArrayByteSeqAsync(
             org: iceP_org, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_copy = value
             ostr.write(iceP_copy)
         }
@@ -5805,7 +5805,7 @@ extension TestIntf {
         let iceP_idict: IntStringDict = try IntStringDictHelper.read(from: istr)
         let result = try await self.opIntStringDictAsync(
             idict: iceP_idict, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_odict) = value
             IntStringDictHelper.write(to: ostr, value: iceP_odict)
             IntStringDictHelper.write(to: ostr, value: iceP_returnValue)
@@ -5819,7 +5819,7 @@ extension TestIntf {
         let iceP_idict: StringIntDict = try StringIntDictHelper.read(from: istr)
         let result = try await self.opVarDictAsync(
             idict: iceP_idict, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_odict) = value
             StringIntDictHelper.write(to: ostr, value: iceP_odict)
             LongLongDictHelper.write(to: ostr, value: iceP_returnValue)
@@ -5833,7 +5833,7 @@ extension TestIntf {
         let iceP_inS: ShortBuffer = try istr.read()
         let result = try await self.opShortBufferAsync(
             inS: iceP_inS, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outS) = value
             ostr.write(iceP_outS)
             ostr.write(iceP_returnValue)
@@ -5847,7 +5847,7 @@ extension TestIntf {
         let iceP_inS: BoolSeq = try istr.read()
         let result = try await self.opBoolBufferAsync(
             inS: iceP_inS, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_outS) = value
             ostr.write(iceP_outS)
             ostr.write(iceP_returnValue)
@@ -5861,7 +5861,7 @@ extension TestIntf {
         let iceP_s: BufferStruct = try istr.read()
         let result = try await self.opBufferStructAsync(
             s: iceP_s, current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType:.DefaultFormat) { ostr, value in 
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
         }

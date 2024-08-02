@@ -73,7 +73,7 @@ public interface LocatorFinderPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<LocatorPrx> _iceI_getLocatorAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<LocatorPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getLocator", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
+        f.invoke(true, context, null, null, istr -> {
                      LocatorPrx ret;
                      ret = LocatorPrx.uncheckedCast(istr.readProxy());
                      return ret;

@@ -67,9 +67,9 @@ namespace Test
     $Test__t_MyClassPrx = IcePHP_defineProxy('::Test::MyClass', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_string;
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'opOneway', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'opString', 0, 0, array(array($IcePHP__t_string)), array(array($IcePHP__t_string)), array($IcePHP__t_string), null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'opException', 0, 0, null, null, null, array($Test__t_MyException));
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'opOneway', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'opString', 0, -1, array(array($IcePHP__t_string)), array(array($IcePHP__t_string)), array($IcePHP__t_string), null);
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'opException', 0, -1, null, null, null, array($Test__t_MyException));
+    IcePHP_defineOperation($Test__t_MyClassPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 ?>

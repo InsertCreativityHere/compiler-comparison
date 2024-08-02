@@ -46,7 +46,7 @@ public interface CPrx extends APrx
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.String> _iceI_callCAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "callC", null, sync, null);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.DefaultFormat, null, istr -> {
+        f.invoke(true, context, null, null, istr -> {
                      String ret;
                      ret = istr.readString();
                      return ret;

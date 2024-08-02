@@ -188,7 +188,7 @@ public interface optionalParams extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         java.util.Optional<_break> ret = obj._for(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         _break.ice_write(ostr, 1, ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -218,7 +218,7 @@ public interface optionalParams extends com.zeroc.Ice.Object
             {
                 _break.ice_write(ostr, 1, value);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     /** @hidden */
@@ -228,7 +228,7 @@ public interface optionalParams extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         optionalParams.InResult ret = obj.in(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ret.write(ostr);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -246,7 +246,7 @@ public interface optionalParams extends com.zeroc.Ice.Object
             {
                 value.write(ostr);
             },
-            com.zeroc.Ice.FormatType.DefaultFormat));
+            null));
     }
 
     @Override

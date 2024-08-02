@@ -47,7 +47,7 @@ namespace Test
     $Test__t_DelayedTestIntfPrx = IcePHP_defineProxy('::Test::DelayedTestIntf', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_int;
-    IcePHP_defineOperation($Test__t_DelayedTestIntfPrx, 'sleep', 0, 0, array(array($IcePHP__t_int)), null, null, null);
+    IcePHP_defineOperation($Test__t_DelayedTestIntfPrx, 'sleep', 0, -1, array(array($IcePHP__t_int)), null, null, null);
 }
 
 namespace Test
@@ -81,7 +81,7 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_TestIntfPrx = IcePHP_defineProxy('::Test::TestIntf', $Ice__t_ObjectPrx, array($Test__t_DelayedTestIntfPrx));
 
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, -1, null, null, null, null);
 }
 
 namespace Test
@@ -118,6 +118,6 @@ namespace Test
     global $IcePHP__t_bool;
     global $IcePHP__t_int;
     global $Test__t_DelayedTestIntfPrx;
-    IcePHP_defineOperation($Test__t_TestIntfBidirPrx, 'makeSleep', 0, 0, array(array($IcePHP__t_bool), array($IcePHP__t_int), array($Test__t_DelayedTestIntfPrx)), null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfBidirPrx, 'makeSleep', 0, -1, array(array($IcePHP__t_bool), array($IcePHP__t_int), array($Test__t_DelayedTestIntfPrx)), null, null, null);
 }
 ?>

@@ -260,7 +260,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
         request.inputStream.skipEmptyEncapsulation();
         AdminPrx ret = obj.getAdmin(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeProxy(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -273,7 +273,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
         request.inputStream.skipEmptyEncapsulation();
         com.zeroc.Ice.ObjectPrx ret = obj.getAdminCallbackTemplate(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeProxy(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -331,7 +331,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
         request.inputStream.skipEmptyEncapsulation();
         int ret = obj.startUpdate(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeInt(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -354,7 +354,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
         request.inputStream.skipEmptyEncapsulation();
         String ret = obj.getReplicaName(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeString(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -376,7 +376,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
         istr.endEncapsulation();
         FileIteratorPrx ret = obj.openServerLog(iceP_id, iceP_path, iceP_count, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeProxy(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -396,7 +396,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
         istr.endEncapsulation();
         FileIteratorPrx ret = obj.openServerStdErr(iceP_id, iceP_count, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeProxy(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -416,7 +416,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
         istr.endEncapsulation();
         FileIteratorPrx ret = obj.openServerStdOut(iceP_id, iceP_count, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeProxy(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -436,7 +436,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
         istr.endEncapsulation();
         FileIteratorPrx ret = obj.openNodeStdErr(iceP_name, iceP_count, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeProxy(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -456,7 +456,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
         istr.endEncapsulation();
         FileIteratorPrx ret = obj.openNodeStdOut(iceP_name, iceP_count, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeProxy(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -476,7 +476,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
         istr.endEncapsulation();
         FileIteratorPrx ret = obj.openRegistryStdErr(iceP_name, iceP_count, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeProxy(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
@@ -496,7 +496,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
         istr.endEncapsulation();
         FileIteratorPrx ret = obj.openRegistryStdOut(iceP_name, iceP_count, request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeProxy(ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));

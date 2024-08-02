@@ -265,29 +265,29 @@ namespace Test
     global $IcePHP__t_bool;
     global $IcePHP__t_int;
     global $Ice__t_ByteSeq;
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'shutdown', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'supportsUndeclaredExceptions', 0, 0, null, null, array($IcePHP__t_bool), null);
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'supportsAssertException', 0, 0, null, null, array($IcePHP__t_bool), null);
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwAasA', 0, 0, array(array($IcePHP__t_int)), null, null, array($Test__t_A));
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwAorDasAorD', 0, 0, array(array($IcePHP__t_int)), null, null, array($Test__t_A, $Test__t_D));
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwBasA', 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int)), null, null, array($Test__t_A));
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwCasA', 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int)), null, null, array($Test__t_A));
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwBasB', 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int)), null, null, array($Test__t_B));
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwCasB', 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int)), null, null, array($Test__t_B));
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwCasC', 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int)), null, null, array($Test__t_C));
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwModA', 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int)), null, null, array($Test_Mod__t_A));
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwUndeclaredA', 0, 0, array(array($IcePHP__t_int)), null, null, null);
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwUndeclaredB', 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int)), null, null, null);
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwUndeclaredC', 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int)), null, null, null);
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwLocalException', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwNonIceException', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwAssertException', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwMemoryLimitException', 0, 0, array(array($Ice__t_ByteSeq)), null, array($Ice__t_ByteSeq), null);
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwLocalExceptionIdempotent', 2, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwAfterResponse', 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwAfterException', 0, 0, null, null, null, array($Test__t_A));
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwE', 0, 0, null, null, null, array($Test__t_E));
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwF', 0, 0, null, null, null, array($Test__t_F));
+    IcePHP_defineOperation($Test__t_ThrowerPrx, 'shutdown', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_ThrowerPrx, 'supportsUndeclaredExceptions', 0, -1, null, null, array($IcePHP__t_bool), null);
+    IcePHP_defineOperation($Test__t_ThrowerPrx, 'supportsAssertException', 0, -1, null, null, array($IcePHP__t_bool), null);
+    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwAasA', 0, -1, array(array($IcePHP__t_int)), null, null, array($Test__t_A));
+    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwAorDasAorD', 0, -1, array(array($IcePHP__t_int)), null, null, array($Test__t_A, $Test__t_D));
+    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwBasA', 0, -1, array(array($IcePHP__t_int), array($IcePHP__t_int)), null, null, array($Test__t_A));
+    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwCasA', 0, -1, array(array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int)), null, null, array($Test__t_A));
+    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwBasB', 0, -1, array(array($IcePHP__t_int), array($IcePHP__t_int)), null, null, array($Test__t_B));
+    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwCasB', 0, -1, array(array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int)), null, null, array($Test__t_B));
+    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwCasC', 0, -1, array(array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int)), null, null, array($Test__t_C));
+    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwModA', 0, -1, array(array($IcePHP__t_int), array($IcePHP__t_int)), null, null, array($Test_Mod__t_A));
+    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwUndeclaredA', 0, -1, array(array($IcePHP__t_int)), null, null, null);
+    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwUndeclaredB', 0, -1, array(array($IcePHP__t_int), array($IcePHP__t_int)), null, null, null);
+    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwUndeclaredC', 0, -1, array(array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int)), null, null, null);
+    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwLocalException', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwNonIceException', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwAssertException', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwMemoryLimitException', 0, -1, array(array($Ice__t_ByteSeq)), null, array($Ice__t_ByteSeq), null);
+    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwLocalExceptionIdempotent', 2, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwAfterResponse', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwAfterException', 0, -1, null, null, null, array($Test__t_A));
+    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwE', 0, -1, null, null, null, array($Test__t_E));
+    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwF', 0, -1, null, null, null, array($Test__t_F));
 }
 
 namespace Test
@@ -321,6 +321,6 @@ namespace Test
     global $Ice__t_ObjectPrx;
     $Test__t_WrongOperationPrx = IcePHP_defineProxy('::Test::WrongOperation', $Ice__t_ObjectPrx, null);
 
-    IcePHP_defineOperation($Test__t_WrongOperationPrx, 'noSuchOperation', 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Test__t_WrongOperationPrx, 'noSuchOperation', 0, -1, null, null, null, null);
 }
 ?>

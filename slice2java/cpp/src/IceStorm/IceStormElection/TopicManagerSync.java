@@ -103,7 +103,7 @@ public interface TopicManagerSync extends com.zeroc.Ice.Object
         request.inputStream.skipEmptyEncapsulation();
         TopicManagerSync.GetContentResult ret = obj.getContent(request.current);
         var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, com.zeroc.Ice.FormatType.DefaultFormat);
+        ostr.startEncapsulation(request.current.encoding, null);
         ret.write(ostr);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));

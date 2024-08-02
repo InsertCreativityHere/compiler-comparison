@@ -58,7 +58,7 @@ public interface Initial2Prx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opClassAndUnknownOptionalAsync(A iceP_p, VarStruct iceP_ovs, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opClassAndUnknownOptional", null, sync, null);
-        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(false, context, null, ostr -> {
                      ostr.writeValue(iceP_p);
                      VarStruct.ice_write(ostr, 1, iceP_ovs);
                      ostr.writePendingValues();
@@ -87,7 +87,7 @@ public interface Initial2Prx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opClassAndUnknownOptionalAsync(A iceP_p, java.util.Optional<VarStruct> iceP_ovs, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opClassAndUnknownOptional", null, sync, null);
-        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(false, context, null, ostr -> {
                      ostr.writeValue(iceP_p);
                      VarStruct.ice_write(ostr, 1, iceP_ovs);
                      ostr.writePendingValues();
@@ -136,7 +136,7 @@ public interface Initial2Prx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opVoidAsync(int iceP_a, String iceP_v, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opVoid", null, sync, null);
-        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(false, context, null, ostr -> {
                      ostr.writeInt(1, iceP_a);
                      ostr.writeString(2, iceP_v);
                  }, null);
@@ -164,7 +164,7 @@ public interface Initial2Prx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opVoidAsync(java.util.OptionalInt iceP_a, java.util.Optional<java.lang.String> iceP_v, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opVoid", null, sync, null);
-        f.invoke(false, context, com.zeroc.Ice.FormatType.DefaultFormat, ostr -> {
+        f.invoke(false, context, null, ostr -> {
                      ostr.writeInt(1, iceP_a);
                      ostr.writeString(2, iceP_v);
                  }, null);
