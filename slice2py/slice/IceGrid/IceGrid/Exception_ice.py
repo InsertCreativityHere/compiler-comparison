@@ -31,9 +31,12 @@ if 'ApplicationNotExistException' not in _M_IceGrid.__dict__:
     _M_IceGrid.ApplicationNotExistException = None
     class ApplicationNotExistException(Ice.UserException):
         """
-         This exception is raised if an application does not exist.
-        Members:
-        name --  The name of the application.
+        This exception is raised if an application does not exist.
+        
+        Attributes
+        ----------
+        name : str
+            The name of the application.
         """
         def __init__(self, name=''):
             self.name = name
@@ -55,9 +58,12 @@ if 'ServerNotExistException' not in _M_IceGrid.__dict__:
     _M_IceGrid.ServerNotExistException = None
     class ServerNotExistException(Ice.UserException):
         """
-         This exception is raised if a server does not exist.
-        Members:
-        id --  The identifier of the server.
+        This exception is raised if a server does not exist.
+        
+        Attributes
+        ----------
+        id : str
+            The identifier of the server.
         """
         def __init__(self, id=''):
             self.id = id
@@ -79,10 +85,14 @@ if 'ServerStartException' not in _M_IceGrid.__dict__:
     _M_IceGrid.ServerStartException = None
     class ServerStartException(Ice.UserException):
         """
-         This exception is raised if a server failed to start.
-        Members:
-        id --  The identifier of the server.
-        reason --  The reason for the failure.
+        This exception is raised if a server failed to start.
+        
+        Attributes
+        ----------
+        id : str
+            The identifier of the server.
+        reason : str
+            The reason for the failure.
         """
         def __init__(self, id='', reason=''):
             self.id = id
@@ -108,10 +118,14 @@ if 'ServerStopException' not in _M_IceGrid.__dict__:
     _M_IceGrid.ServerStopException = None
     class ServerStopException(Ice.UserException):
         """
-         This exception is raised if a server failed to stop.
-        Members:
-        id --  The identifier of the server.
-        reason --  The reason for the failure.
+        This exception is raised if a server failed to stop.
+        
+        Attributes
+        ----------
+        id : str
+            The identifier of the server.
+        reason : str
+            The reason for the failure.
         """
         def __init__(self, id='', reason=''):
             self.id = id
@@ -137,9 +151,12 @@ if 'AdapterNotExistException' not in _M_IceGrid.__dict__:
     _M_IceGrid.AdapterNotExistException = None
     class AdapterNotExistException(Ice.UserException):
         """
-         This exception is raised if an adapter does not exist.
-        Members:
-        id --  The id of the object adapter.
+        This exception is raised if an adapter does not exist.
+        
+        Attributes
+        ----------
+        id : str
+            The id of the object adapter.
         """
         def __init__(self, id=''):
             self.id = id
@@ -161,9 +178,12 @@ if 'ObjectExistsException' not in _M_IceGrid.__dict__:
     _M_IceGrid.ObjectExistsException = None
     class ObjectExistsException(Ice.UserException):
         """
-         This exception is raised if an object already exists.
-        Members:
-        id --  The identity of the object.
+        This exception is raised if an object already exists.
+        
+        Attributes
+        ----------
+        id : Ice.Identity
+            The identity of the object.
         """
         def __init__(self, id=None):
             self.id = id if id is not None else _M_Ice.Identity()
@@ -185,9 +205,12 @@ if 'ObjectNotRegisteredException' not in _M_IceGrid.__dict__:
     _M_IceGrid.ObjectNotRegisteredException = None
     class ObjectNotRegisteredException(Ice.UserException):
         """
-         This exception is raised if an object is not registered.
-        Members:
-        id --  The identity of the object.
+        This exception is raised if an object is not registered.
+        
+        Attributes
+        ----------
+        id : Ice.Identity
+            The identity of the object.
         """
         def __init__(self, id=None):
             self.id = id if id is not None else _M_Ice.Identity()
@@ -209,9 +232,12 @@ if 'NodeNotExistException' not in _M_IceGrid.__dict__:
     _M_IceGrid.NodeNotExistException = None
     class NodeNotExistException(Ice.UserException):
         """
-         This exception is raised if a node does not exist.
-        Members:
-        name --  The node name.
+        This exception is raised if a node does not exist.
+        
+        Attributes
+        ----------
+        name : str
+            The node name.
         """
         def __init__(self, name=''):
             self.name = name
@@ -233,9 +259,12 @@ if 'RegistryNotExistException' not in _M_IceGrid.__dict__:
     _M_IceGrid.RegistryNotExistException = None
     class RegistryNotExistException(Ice.UserException):
         """
-         This exception is raised if a registry does not exist.
-        Members:
-        name --  The registry name.
+        This exception is raised if a registry does not exist.
+        
+        Attributes
+        ----------
+        name : str
+            The registry name.
         """
         def __init__(self, name=''):
             self.name = name
@@ -257,9 +286,12 @@ if 'DeploymentException' not in _M_IceGrid.__dict__:
     _M_IceGrid.DeploymentException = None
     class DeploymentException(Ice.UserException):
         """
-         An exception for deployment errors.
-        Members:
-        reason --  The reason for the failure.
+        An exception for deployment errors.
+        
+        Attributes
+        ----------
+        reason : str
+            The reason for the failure.
         """
         def __init__(self, reason=''):
             self.reason = reason
@@ -281,10 +313,14 @@ if 'NodeUnreachableException' not in _M_IceGrid.__dict__:
     _M_IceGrid.NodeUnreachableException = None
     class NodeUnreachableException(Ice.UserException):
         """
-         This exception is raised if a node could not be reached.
-        Members:
-        name --  The name of the node that is not reachable.
-        reason --  The reason why the node couldn't be reached.
+        This exception is raised if a node could not be reached.
+        
+        Attributes
+        ----------
+        name : str
+            The name of the node that is not reachable.
+        reason : str
+            The reason why the node couldn't be reached.
         """
         def __init__(self, name='', reason=''):
             self.name = name
@@ -310,10 +346,14 @@ if 'ServerUnreachableException' not in _M_IceGrid.__dict__:
     _M_IceGrid.ServerUnreachableException = None
     class ServerUnreachableException(Ice.UserException):
         """
-         This exception is raised if a server could not be reached.
-        Members:
-        name --  The id of the server that is not reachable.
-        reason --  The reason why the server couldn't be reached.
+        This exception is raised if a server could not be reached.
+        
+        Attributes
+        ----------
+        name : str
+            The id of the server that is not reachable.
+        reason : str
+            The reason why the server couldn't be reached.
         """
         def __init__(self, name='', reason=''):
             self.name = name
@@ -339,10 +379,14 @@ if 'RegistryUnreachableException' not in _M_IceGrid.__dict__:
     _M_IceGrid.RegistryUnreachableException = None
     class RegistryUnreachableException(Ice.UserException):
         """
-         This exception is raised if a registry could not be reached.
-        Members:
-        name --  The name of the registry that is not reachable.
-        reason --  The reason why the registry couldn't be reached.
+        This exception is raised if a registry could not be reached.
+        
+        Attributes
+        ----------
+        name : str
+            The name of the registry that is not reachable.
+        reason : str
+            The reason why the registry couldn't be reached.
         """
         def __init__(self, name='', reason=''):
             self.name = name
@@ -368,9 +412,12 @@ if 'BadSignalException' not in _M_IceGrid.__dict__:
     _M_IceGrid.BadSignalException = None
     class BadSignalException(Ice.UserException):
         """
-         This exception is raised if an unknown signal was sent to to a server.
-        Members:
-        reason --  The details of the unknown signal.
+        This exception is raised if an unknown signal was sent to to a server.
+        
+        Attributes
+        ----------
+        reason : str
+            The details of the unknown signal.
         """
         def __init__(self, reason=''):
             self.reason = reason
@@ -392,9 +439,12 @@ if 'AccessDeniedException' not in _M_IceGrid.__dict__:
     _M_IceGrid.AccessDeniedException = None
     class AccessDeniedException(Ice.UserException):
         """
-         his exception is raised if a registry lock wasn't acquired or is already held by a session.
-        Members:
-        lockUserId --  The id of the user holding the lock (if any).
+        his exception is raised if a registry lock wasn't acquired or is already held by a session.
+        
+        Attributes
+        ----------
+        lockUserId : str
+            The id of the user holding the lock (if any).
         """
         def __init__(self, lockUserId=''):
             self.lockUserId = lockUserId
@@ -416,9 +466,12 @@ if 'AllocationException' not in _M_IceGrid.__dict__:
     _M_IceGrid.AllocationException = None
     class AllocationException(Ice.UserException):
         """
-         This exception is raised if the allocation of an object failed.
-        Members:
-        reason --  The reason why the object couldn't be allocated.
+        This exception is raised if the allocation of an object failed.
+        
+        Attributes
+        ----------
+        reason : str
+            The reason why the object couldn't be allocated.
         """
         def __init__(self, reason=''):
             self.reason = reason
@@ -440,7 +493,7 @@ if 'AllocationTimeoutException' not in _M_IceGrid.__dict__:
     _M_IceGrid.AllocationTimeoutException = None
     class AllocationTimeoutException(_M_IceGrid.AllocationException):
         """
-         This exception is raised if the request to allocate an object times out.
+        This exception is raised if the request to allocate an object times out.
         """
         def __init__(self, reason=''):
             _M_IceGrid.AllocationException.__init__(self, reason)
@@ -462,9 +515,12 @@ if 'PermissionDeniedException' not in _M_IceGrid.__dict__:
     _M_IceGrid.PermissionDeniedException = None
     class PermissionDeniedException(Ice.UserException):
         """
-         This exception is raised if a client is denied the ability to create a session with IceGrid.
-        Members:
-        reason --  The reason why permission was denied.
+        This exception is raised if a client is denied the ability to create a session with IceGrid.
+        
+        Attributes
+        ----------
+        reason : str
+            The reason why permission was denied.
         """
         def __init__(self, reason=''):
             self.reason = reason
@@ -486,9 +542,12 @@ if 'ObserverAlreadyRegisteredException' not in _M_IceGrid.__dict__:
     _M_IceGrid.ObserverAlreadyRegisteredException = None
     class ObserverAlreadyRegisteredException(Ice.UserException):
         """
-         This exception is raised if an observer is already registered with the registry.
-        Members:
-        id --  The identity of the observer.
+        This exception is raised if an observer is already registered with the registry.
+        
+        Attributes
+        ----------
+        id : Ice.Identity
+            The identity of the observer.
         """
         def __init__(self, id=None):
             self.id = id if id is not None else _M_Ice.Identity()
@@ -510,9 +569,12 @@ if 'FileNotAvailableException' not in _M_IceGrid.__dict__:
     _M_IceGrid.FileNotAvailableException = None
     class FileNotAvailableException(Ice.UserException):
         """
-         This exception is raised if a file is not available.
-        Members:
-        reason --  The reason for the failure.
+        This exception is raised if a file is not available.
+        
+        Attributes
+        ----------
+        reason : str
+            The reason for the failure.
         """
         def __init__(self, reason=''):
             self.reason = reason

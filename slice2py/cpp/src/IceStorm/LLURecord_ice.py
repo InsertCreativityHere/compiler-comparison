@@ -26,10 +26,14 @@ if 'LogUpdate' not in _M_IceStormElection.__dict__:
     _M_IceStormElection.LogUpdate = None
     class LogUpdate(object):
         """
-         A struct used for marking the last log update.
-        Members:
-        generation --  The generation.
-        iteration --  The iteration within this generation.
+        A struct used for marking the last log update.
+        
+        Attributes
+        ----------
+        generation : int
+            The generation.
+        iteration : int
+            The iteration within this generation.
         """
         def __init__(self, generation=0, iteration=0):
             self.generation = generation

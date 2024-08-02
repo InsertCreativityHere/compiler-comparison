@@ -26,7 +26,7 @@ if 'UserAccountNotFoundException' not in _M_IceGrid.__dict__:
     _M_IceGrid.UserAccountNotFoundException = None
     class UserAccountNotFoundException(Ice.UserException):
         """
-         This exception is raised if a user account for a given session identifier can't be found.
+        This exception is raised if a user account for a given session identifier can't be found.
         """
         def __init__(self):
             pass
@@ -74,7 +74,9 @@ if 'UserAccountMapperPrx' not in _M_IceGrid.__dict__:
             Parameters
             ----------
             user : str
-                The value of the server descriptor's user attribute. If this attribute is not defined, and the server's activation mode is session, the default value of user is the session identifier.
+                The value of the server descriptor's user attribute. If this attribute is not
+                defined, and the server's activation mode is session, the default value of user
+                is the session identifier.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -98,7 +100,9 @@ if 'UserAccountMapperPrx' not in _M_IceGrid.__dict__:
             Parameters
             ----------
             user : str
-                The value of the server descriptor's user attribute. If this attribute is not defined, and the server's activation mode is session, the default value of user is the session identifier.
+                The value of the server descriptor's user attribute. If this attribute is not
+                defined, and the server's activation mode is session, the default value of user
+                is the session identifier.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -146,7 +150,9 @@ if 'UserAccountMapperPrx' not in _M_IceGrid.__dict__:
             Parameters
             ----------
             user : str
-                The value of the server descriptor's user attribute. If this attribute is not defined, and the server's activation mode is session, the default value of user is the session identifier.
+                The value of the server descriptor's user attribute. If this attribute is not
+                defined, and the server's activation mode is session, the default value of user
+                is the session identifier.
             current : Ice.Current
                 The Current object for the dispatch.
             

@@ -34,9 +34,12 @@ if 'CannotCreateSessionException' not in _M_Glacier2.__dict__:
     _M_Glacier2.CannotCreateSessionException = None
     class CannotCreateSessionException(Ice.UserException):
         """
-         This exception is raised if an attempt to create a new session failed.
-        Members:
-        reason --  The reason why session creation has failed.
+        This exception is raised if an attempt to create a new session failed.
+        
+        Attributes
+        ----------
+        reason : str
+            The reason why session creation has failed.
         """
         def __init__(self, reason=''):
             self.reason = reason
@@ -627,7 +630,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
             
             Returns
             -------
-            Glacier2.StringSetPrx or None
+            (Glacier2.StringSetPrx or None)
                 A StringSet object. The returned proxy is never null.
             """
             return _M_Glacier2.SessionControl._op_categories.invoke(self, ((), context))
@@ -659,7 +662,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
             
             Returns
             -------
-            Glacier2.StringSetPrx or None
+            (Glacier2.StringSetPrx or None)
                 A StringSet object. The returned proxy is never null.
             """
             return _M_Glacier2.SessionControl._op_adapterIds.invoke(self, ((), context))
@@ -691,7 +694,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
             
             Returns
             -------
-            Glacier2.IdentitySetPrx or None
+            (Glacier2.IdentitySetPrx or None)
                 An IdentitySet object. The returned proxy is never null.
             """
             return _M_Glacier2.SessionControl._op_identities.invoke(self, ((), context))
@@ -928,14 +931,15 @@ if 'SessionManagerPrx' not in _M_Glacier2.__dict__:
             ----------
             userId : str
                 The user id for the session.
-            control : Glacier2.SessionControlPrx or None
-                A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints are not configured.
+            control : (Glacier2.SessionControlPrx or None)
+                A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
+                are not configured.
             context : Ice.Context
                 The request context for the invocation.
             
             Returns
             -------
-            Glacier2.SessionPrx or None
+            (Glacier2.SessionPrx or None)
                 A proxy to the newly created session.
             
             Raises
@@ -954,8 +958,9 @@ if 'SessionManagerPrx' not in _M_Glacier2.__dict__:
             ----------
             userId : str
                 The user id for the session.
-            control : Glacier2.SessionControlPrx or None
-                A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints are not configured.
+            control : (Glacier2.SessionControlPrx or None)
+                A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
+                are not configured.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -1004,8 +1009,9 @@ if 'SessionManagerPrx' not in _M_Glacier2.__dict__:
             ----------
             userId : str
                 The user id for the session.
-            control : Glacier2.SessionControlPrx or None
-                A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints are not configured.
+            control : (Glacier2.SessionControlPrx or None)
+                A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
+                are not configured.
             current : Ice.Current
                 The Current object for the dispatch.
             
@@ -1064,14 +1070,14 @@ if 'SSLSessionManagerPrx' not in _M_Glacier2.__dict__:
             ----------
             info : Glacier2.SSLInfo
                 The SSL info.
-            control : Glacier2.SessionControlPrx or None
+            control : (Glacier2.SessionControlPrx or None)
                 A proxy to the session control object.
             context : Ice.Context
                 The request context for the invocation.
             
             Returns
             -------
-            Glacier2.SessionPrx or None
+            (Glacier2.SessionPrx or None)
                 A proxy to the newly created session.
             
             Raises
@@ -1089,7 +1095,7 @@ if 'SSLSessionManagerPrx' not in _M_Glacier2.__dict__:
             ----------
             info : Glacier2.SSLInfo
                 The SSL info.
-            control : Glacier2.SessionControlPrx or None
+            control : (Glacier2.SessionControlPrx or None)
                 A proxy to the session control object.
             context : Ice.Context
                 The request context for the invocation.
@@ -1138,7 +1144,7 @@ if 'SSLSessionManagerPrx' not in _M_Glacier2.__dict__:
             ----------
             info : Glacier2.SSLInfo
                 The SSL info.
-            control : Glacier2.SessionControlPrx or None
+            control : (Glacier2.SessionControlPrx or None)
                 A proxy to the session control object.
             current : Ice.Current
                 The Current object for the dispatch.

@@ -30,14 +30,22 @@ if 'SSLInfo' not in _M_Glacier2.__dict__:
     _M_Glacier2.SSLInfo = None
     class SSLInfo(object):
         """
-         Information taken from an SSL connection used for permissions verification.
-        Members:
-        remoteHost --  The remote host.
-        remotePort --  The remote port.
-        localHost --  The router's host.
-        localPort --  The router's port.
-        cipher --  The negotiated cipher suite.
-        certs --  The certificate chain.
+        Information taken from an SSL connection used for permissions verification.
+        
+        Attributes
+        ----------
+        remoteHost : str
+            The remote host.
+        remotePort : int
+            The remote port.
+        localHost : str
+            The router's host.
+        localPort : int
+            The router's port.
+        cipher : str
+            The negotiated cipher suite.
+        certs : str[]
+            The certificate chain.
         """
         def __init__(self, remoteHost='', remotePort=0, localHost='', localPort=0, cipher='', certs=None):
             self.remoteHost = remoteHost

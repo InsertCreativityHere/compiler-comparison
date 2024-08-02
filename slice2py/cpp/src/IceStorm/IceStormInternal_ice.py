@@ -41,12 +41,18 @@ if 'EventData' not in _M_IceStorm.__dict__:
     _M_IceStorm.EventData = None
     class EventData(object):
         """
-         The event data.
-        Members:
-        op --  The operation name.
-        mode --  The operation mode.
-        data --  The encoded data for the operation's input parameters.
-        context --  The Ice::Current::Context data from the originating request.
+        The event data.
+        
+        Attributes
+        ----------
+        op : str
+            The operation name.
+        mode : Ice.OperationMode
+            The operation mode.
+        data : int[]
+            The encoded data for the operation's input parameters.
+        context : dict where keys are str and values are str
+            The Ice::Current::Context data from the originating request.
         """
         def __init__(self, op='', mode=_M_Ice.OperationMode.Normal, data=None, context=None):
             self.op = op
@@ -208,7 +214,7 @@ if 'ReapWouldBlock' not in _M_IceStorm.__dict__:
     _M_IceStorm.ReapWouldBlock = None
     class ReapWouldBlock(Ice.UserException):
         """
-         Thrown if the reap call would block.
+        Thrown if the reap call would block.
         """
         def __init__(self):
             pass
@@ -259,7 +265,7 @@ if 'TopicInternalPrx' not in _M_IceStorm.__dict__:
             
             Returns
             -------
-            IceStorm.TopicLinkPrx or None
+            (IceStorm.TopicLinkPrx or None)
                 The TopicLink for the Topic.
             """
             return _M_IceStorm.TopicInternal._op_getLinkProxy.invoke(self, ((), context))
@@ -431,7 +437,7 @@ if 'TopicManagerInternalPrx' not in _M_IceStorm.__dict__:
             
             Returns
             -------
-            IceStormElection.NodePrx or None
+            (IceStormElection.NodePrx or None)
                 The replica proxy, or null if this instance is not replicated.
             """
             return _M_IceStorm.TopicManagerInternal._op_getReplicaNode.invoke(self, ((), context))

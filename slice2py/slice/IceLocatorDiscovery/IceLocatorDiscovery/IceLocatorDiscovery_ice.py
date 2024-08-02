@@ -26,7 +26,7 @@ _M_Ice = Ice.openModule('Ice')
 _M_IceLocatorDiscovery = Ice.openModule('IceLocatorDiscovery')
 __name__ = 'IceLocatorDiscovery'
 _M_IceLocatorDiscovery.__doc__ = """
- IceLocatorDiscovery is an Ice plug-in that enables the discovery of IceGrid and custom locators via UDP multicast.
+IceLocatorDiscovery is an Ice plug-in that enables the discovery of IceGrid and custom locators via UDP multicast.
 """
 
 if 'LookupReplyPrx' not in _M_IceLocatorDiscovery.__dict__:
@@ -57,7 +57,7 @@ if 'LookupReplyPrx' not in _M_IceLocatorDiscovery.__dict__:
             
             Parameters
             ----------
-            prx : Ice.LocatorPrx or None
+            prx : (Ice.LocatorPrx or None)
                 The proxy of the locator.
             context : Ice.Context
                 The request context for the invocation.
@@ -70,7 +70,7 @@ if 'LookupReplyPrx' not in _M_IceLocatorDiscovery.__dict__:
             
             Parameters
             ----------
-            prx : Ice.LocatorPrx or None
+            prx : (Ice.LocatorPrx or None)
                 The proxy of the locator.
             context : Ice.Context
                 The request context for the invocation.
@@ -117,7 +117,7 @@ if 'LookupReplyPrx' not in _M_IceLocatorDiscovery.__dict__:
             
             Parameters
             ----------
-            prx : Ice.LocatorPrx or None
+            prx : (Ice.LocatorPrx or None)
                 The proxy of the locator.
             current : Ice.Current
                 The Current object for the dispatch.
@@ -171,8 +171,9 @@ if 'LookupPrx' not in _M_IceLocatorDiscovery.__dict__:
             Parameters
             ----------
             instanceName : str
-                Restrict the search to Ice registries configured with the given instance name. If empty, all the available registries will reply.
-            reply : IceLocatorDiscovery.LookupReplyPrx or None
+                Restrict the search to Ice registries configured with the given instance name. If
+                empty, all the available registries will reply.
+            reply : (IceLocatorDiscovery.LookupReplyPrx or None)
                 The reply object to use to send the reply.
             context : Ice.Context
                 The request context for the invocation.
@@ -186,8 +187,9 @@ if 'LookupPrx' not in _M_IceLocatorDiscovery.__dict__:
             Parameters
             ----------
             instanceName : str
-                Restrict the search to Ice registries configured with the given instance name. If empty, all the available registries will reply.
-            reply : IceLocatorDiscovery.LookupReplyPrx or None
+                Restrict the search to Ice registries configured with the given instance name. If
+                empty, all the available registries will reply.
+            reply : (IceLocatorDiscovery.LookupReplyPrx or None)
                 The reply object to use to send the reply.
             context : Ice.Context
                 The request context for the invocation.
@@ -235,8 +237,9 @@ if 'LookupPrx' not in _M_IceLocatorDiscovery.__dict__:
             Parameters
             ----------
             instanceName : str
-                Restrict the search to Ice registries configured with the given instance name. If empty, all the available registries will reply.
-            reply : IceLocatorDiscovery.LookupReplyPrx or None
+                Restrict the search to Ice registries configured with the given instance name. If
+                empty, all the available registries will reply.
+            reply : (IceLocatorDiscovery.LookupReplyPrx or None)
                 The reply object to use to send the reply.
             current : Ice.Current
                 The Current object for the dispatch.

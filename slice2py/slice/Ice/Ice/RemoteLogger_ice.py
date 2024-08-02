@@ -29,12 +29,12 @@ if 'LogMessageType' not in _M_Ice.__dict__:
     _M_Ice.LogMessageType = None
     class LogMessageType(Ice.EnumBase):
         """
-         An enumeration representing the different types of log messages.
+        An enumeration representing the different types of log messages.
         Enumerators:
-        PrintMessage --  The RemoteLogger received a print message.
-        TraceMessage --  The RemoteLogger received a trace message.
-        WarningMessage --  The RemoteLogger received a warning message.
-        ErrorMessage --  The RemoteLogger received an error message.
+        PrintMessage -- The RemoteLogger received a print message.
+        TraceMessage -- The RemoteLogger received a trace message.
+        WarningMessage -- The RemoteLogger received a warning message.
+        ErrorMessage -- The RemoteLogger received an error message.
         """
 
         def __init__(self, _n, _v):
@@ -64,13 +64,19 @@ if 'LogMessage' not in _M_Ice.__dict__:
     _M_Ice.LogMessage = None
     class LogMessage(object):
         """
-         A complete log message.
-        Members:
-        type --  The type of message sent to the RemoteLogger.
-        timestamp --  The date and time when the RemoteLogger received this message, expressed as the number of microseconds
-         since the Unix Epoch (00:00:00 UTC on 1 January 1970)
-        traceCategory --  For a message of type trace, the trace category of this log message; otherwise, the empty string.
-        message --  The log message itself.
+        A complete log message.
+        
+        Attributes
+        ----------
+        type : Ice.LogMessageType
+            The type of message sent to the RemoteLogger.
+        timestamp : int
+            The date and time when the RemoteLogger received this message, expressed as the number of microseconds
+            since the Unix Epoch (00:00:00 UTC on 1 January 1970)
+        traceCategory : str
+            For a message of type trace, the trace category of this log message; otherwise, the empty string.
+        message : str
+            The log message itself.
         """
         def __init__(self, type=_M_Ice.LogMessageType.PrintMessage, timestamp=0, traceCategory='', message=''):
             self.type = type
@@ -359,7 +365,7 @@ if 'RemoteLoggerAlreadyAttachedException' not in _M_Ice.__dict__:
     _M_Ice.RemoteLoggerAlreadyAttachedException = None
     class RemoteLoggerAlreadyAttachedException(Ice.UserException):
         """
-         Thrown when the provided RemoteLogger was previously attached to a LoggerAdmin.
+        Thrown when the provided RemoteLogger was previously attached to a LoggerAdmin.
         """
         def __init__(self):
             pass
@@ -406,21 +412,26 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
             
             Parameters
             ----------
-            prx : Ice.RemoteLoggerPrx or None
+            prx : (Ice.RemoteLoggerPrx or None)
                 A proxy to the remote logger.
             messageTypes : Ice.LogMessageType[]
-                The list of message types that the remote logger wishes to receive. An empty list means no filtering (send all message types).
+                The list of message types that the remote logger wishes to receive. An empty list means
+                no filtering (send all message types).
             traceCategories : str[]
-                The categories of traces that the remote logger wishes to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
+                The categories of traces that the remote logger wishes to receive. This parameter is
+                ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+                trace categories).
             messageMax : int
-                The maximum number of log messages (of all types) to be provided to init. A negative value requests all messages available.
+                The maximum number of log messages (of all types) to be provided to init. A negative
+                value requests all messages available.
             context : Ice.Context
                 The request context for the invocation.
             
             Raises
             ------
             RemoteLoggerAlreadyAttachedException
-                Raised if this remote logger is already attached to this admin object.
+                Raised if this remote logger is already attached to this admin
+                object.
             """
             return _M_Ice.LoggerAdmin._op_attachRemoteLogger.invoke(self, ((prx, messageTypes, traceCategories, messageMax), context))
 
@@ -431,14 +442,18 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
             
             Parameters
             ----------
-            prx : Ice.RemoteLoggerPrx or None
+            prx : (Ice.RemoteLoggerPrx or None)
                 A proxy to the remote logger.
             messageTypes : Ice.LogMessageType[]
-                The list of message types that the remote logger wishes to receive. An empty list means no filtering (send all message types).
+                The list of message types that the remote logger wishes to receive. An empty list means
+                no filtering (send all message types).
             traceCategories : str[]
-                The categories of traces that the remote logger wishes to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
+                The categories of traces that the remote logger wishes to receive. This parameter is
+                ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+                trace categories).
             messageMax : int
-                The maximum number of log messages (of all types) to be provided to init. A negative value requests all messages available.
+                The maximum number of log messages (of all types) to be provided to init. A negative
+                value requests all messages available.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -455,7 +470,7 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
             
             Parameters
             ----------
-            prx : Ice.RemoteLoggerPrx or None
+            prx : (Ice.RemoteLoggerPrx or None)
                 A proxy to the remote logger.
             context : Ice.Context
                 The request context for the invocation.
@@ -473,7 +488,7 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
             
             Parameters
             ----------
-            prx : Ice.RemoteLoggerPrx or None
+            prx : (Ice.RemoteLoggerPrx or None)
                 A proxy to the remote logger.
             context : Ice.Context
                 The request context for the invocation.
@@ -492,11 +507,15 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
             Parameters
             ----------
             messageTypes : Ice.LogMessageType[]
-                The list of message types that the caller wishes to receive. An empty list means no filtering (send all message types).
+                The list of message types that the caller wishes to receive. An empty list means no
+                filtering (send all message types).
             traceCategories : str[]
-                The categories of traces that caller wish to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
+                The categories of traces that caller wish to receive. This parameter is ignored if
+                messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+                categories).
             messageMax : int
-                The maximum number of log messages (of all types) to be returned. A negative value requests all messages available.
+                The maximum number of log messages (of all types) to be returned. A negative value
+                requests all messages available.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -518,11 +537,15 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
             Parameters
             ----------
             messageTypes : Ice.LogMessageType[]
-                The list of message types that the caller wishes to receive. An empty list means no filtering (send all message types).
+                The list of message types that the caller wishes to receive. An empty list means no
+                filtering (send all message types).
             traceCategories : str[]
-                The categories of traces that caller wish to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
+                The categories of traces that caller wish to receive. This parameter is ignored if
+                messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+                categories).
             messageMax : int
-                The maximum number of log messages (of all types) to be returned. A negative value requests all messages available.
+                The maximum number of log messages (of all types) to be returned. A negative value
+                requests all messages available.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -569,14 +592,18 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
             
             Parameters
             ----------
-            prx : Ice.RemoteLoggerPrx or None
+            prx : (Ice.RemoteLoggerPrx or None)
                 A proxy to the remote logger.
             messageTypes : Ice.LogMessageType[]
-                The list of message types that the remote logger wishes to receive. An empty list means no filtering (send all message types).
+                The list of message types that the remote logger wishes to receive. An empty list means
+                no filtering (send all message types).
             traceCategories : str[]
-                The categories of traces that the remote logger wishes to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
+                The categories of traces that the remote logger wishes to receive. This parameter is
+                ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+                trace categories).
             messageMax : int
-                The maximum number of log messages (of all types) to be provided to init. A negative value requests all messages available.
+                The maximum number of log messages (of all types) to be provided to init. A negative
+                value requests all messages available.
             current : Ice.Current
                 The Current object for the dispatch.
             
@@ -588,7 +615,8 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
             Raises
             ------
             RemoteLoggerAlreadyAttachedException
-                Raised if this remote logger is already attached to this admin object.
+                Raised if this remote logger is already attached to this admin
+                object.
             """
             raise NotImplementedError("servant method 'attachRemoteLogger' not implemented")
 
@@ -598,7 +626,7 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
             
             Parameters
             ----------
-            prx : Ice.RemoteLoggerPrx or None
+            prx : (Ice.RemoteLoggerPrx or None)
                 A proxy to the remote logger.
             current : Ice.Current
                 The Current object for the dispatch.
@@ -617,11 +645,15 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
             Parameters
             ----------
             messageTypes : Ice.LogMessageType[]
-                The list of message types that the caller wishes to receive. An empty list means no filtering (send all message types).
+                The list of message types that the caller wishes to receive. An empty list means no
+                filtering (send all message types).
             traceCategories : str[]
-                The categories of traces that caller wish to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
+                The categories of traces that caller wish to receive. This parameter is ignored if
+                messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+                categories).
             messageMax : int
-                The maximum number of log messages (of all types) to be returned. A negative value requests all messages available.
+                The maximum number of log messages (of all types) to be returned. A negative value
+                requests all messages available.
             current : Ice.Current
                 The Current object for the dispatch.
             

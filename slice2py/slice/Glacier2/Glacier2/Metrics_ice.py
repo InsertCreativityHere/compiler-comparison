@@ -32,15 +32,24 @@ if 'SessionMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.SessionMetrics = None
     class SessionMetrics(_M_IceMX.Metrics):
         """
-         Provides information on Glacier2 sessions.
-        Members:
-        forwardedClient --  Number of client requests forwarded.
-        forwardedServer --  Number of server requests forwarded.
-        routingTableSize --  The size of the routing table.
-        queuedClient --  Number of client requests queued.
-        queuedServer --  Number of server requests queued.
-        overriddenClient --  Number of client requests overridden.
-        overriddenServer --  Number of server requests overridden.
+        Provides information on Glacier2 sessions.
+        
+        Attributes
+        ----------
+        forwardedClient : int
+            Number of client requests forwarded.
+        forwardedServer : int
+            Number of server requests forwarded.
+        routingTableSize : int
+            The size of the routing table.
+        queuedClient : int
+            Number of client requests queued.
+        queuedServer : int
+            Number of server requests queued.
+        overriddenClient : int
+            Number of client requests overridden.
+        overriddenServer : int
+            Number of server requests overridden.
         """
         def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, forwardedClient=0, forwardedServer=0, routingTableSize=0, queuedClient=0, queuedServer=0, overriddenClient=0, overriddenServer=0):
             _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)

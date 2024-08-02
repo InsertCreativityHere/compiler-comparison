@@ -32,9 +32,12 @@ if 'PermissionDeniedException' not in _M_Glacier2.__dict__:
     _M_Glacier2.PermissionDeniedException = None
     class PermissionDeniedException(Ice.UserException):
         """
-         This exception is raised if a client is denied the ability to create a session with the router.
-        Members:
-        reason --  The reason why permission was denied.
+        This exception is raised if a client is denied the ability to create a session with the router.
+        
+        Attributes
+        ----------
+        reason : str
+            The reason why permission was denied.
         """
         def __init__(self, reason=''):
             self.reason = reason
@@ -99,7 +102,8 @@ if 'PermissionsVerifierPrx' not in _M_Glacier2.__dict__:
             Raises
             ------
             PermissionDeniedException
-                Raised if the user access is denied. This can be raised in place of returning false with a reason set in the reason out parameter.
+                Raised if the user access is denied. This can be raised in place of
+                returning false with a reason set in the reason out parameter.
             """
             return _M_Glacier2.PermissionsVerifier._op_checkPermissions.invoke(self, ((userId, password), context))
 
@@ -173,7 +177,8 @@ if 'PermissionsVerifierPrx' not in _M_Glacier2.__dict__:
             Raises
             ------
             PermissionDeniedException
-                Raised if the user access is denied. This can be raised in place of returning false with a reason set in the reason out parameter.
+                Raised if the user access is denied. This can be raised in place of
+                returning false with a reason set in the reason out parameter.
             """
             raise NotImplementedError("servant method 'checkPermissions' not implemented")
 
@@ -235,7 +240,8 @@ if 'SSLPermissionsVerifierPrx' not in _M_Glacier2.__dict__:
             Raises
             ------
             PermissionDeniedException
-                Raised if the user access is denied. This can be raised in place of returning false with a reason set in the reason out parameter.
+                Raised if the user access is denied. This can be raised in place of
+                returning false with a reason set in the reason out parameter.
             """
             return _M_Glacier2.SSLPermissionsVerifier._op_authorize.invoke(self, ((info, ), context))
 
@@ -305,7 +311,8 @@ if 'SSLPermissionsVerifierPrx' not in _M_Glacier2.__dict__:
             Raises
             ------
             PermissionDeniedException
-                Raised if the user access is denied. This can be raised in place of returning false with a reason set in the reason out parameter.
+                Raised if the user access is denied. This can be raised in place of
+                returning false with a reason set in the reason out parameter.
             """
             raise NotImplementedError("servant method 'authorize' not implemented")
 

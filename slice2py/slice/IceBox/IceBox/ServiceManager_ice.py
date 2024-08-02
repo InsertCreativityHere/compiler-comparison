@@ -26,15 +26,15 @@ _M_Ice = Ice.openModule('Ice')
 _M_IceBox = Ice.openModule('IceBox')
 __name__ = 'IceBox'
 _M_IceBox.__doc__ = """
- IceBox is an application server specifically for Ice applications. IceBox can easily run and administer Ice
- services that are dynamically loaded as a DLL, shared library, or Java class.
+IceBox is an application server specifically for Ice applications. IceBox can easily run and administer Ice
+services that are dynamically loaded as a DLL, shared library, or Java class.
 """
 
 if 'AlreadyStartedException' not in _M_IceBox.__dict__:
     _M_IceBox.AlreadyStartedException = None
     class AlreadyStartedException(Ice.UserException):
         """
-         This exception is thrown if an attempt is made to start an already-started service.
+        This exception is thrown if an attempt is made to start an already-started service.
         """
         def __init__(self):
             pass
@@ -56,7 +56,7 @@ if 'AlreadyStoppedException' not in _M_IceBox.__dict__:
     _M_IceBox.AlreadyStoppedException = None
     class AlreadyStoppedException(Ice.UserException):
         """
-         This exception is thrown if an attempt is made to stop an already-stopped service.
+        This exception is thrown if an attempt is made to stop an already-stopped service.
         """
         def __init__(self):
             pass
@@ -78,7 +78,7 @@ if 'NoSuchServiceException' not in _M_IceBox.__dict__:
     _M_IceBox.NoSuchServiceException = None
     class NoSuchServiceException(Ice.UserException):
         """
-         This exception is thrown if a service name does not refer to an existing service.
+        This exception is thrown if a service name does not refer to an existing service.
         """
         def __init__(self):
             pass
@@ -363,7 +363,7 @@ if 'ServiceManagerPrx' not in _M_IceBox.__dict__:
             
             Parameters
             ----------
-            observer : IceBox.ServiceObserverPrx or None
+            observer : (IceBox.ServiceObserverPrx or None)
                 The new observer
             context : Ice.Context
                 The request context for the invocation.
@@ -376,7 +376,7 @@ if 'ServiceManagerPrx' not in _M_IceBox.__dict__:
             
             Parameters
             ----------
-            observer : IceBox.ServiceObserverPrx or None
+            observer : (IceBox.ServiceObserverPrx or None)
                 The new observer
             context : Ice.Context
                 The request context for the invocation.
@@ -500,7 +500,7 @@ if 'ServiceManagerPrx' not in _M_IceBox.__dict__:
             
             Parameters
             ----------
-            observer : IceBox.ServiceObserverPrx or None
+            observer : (IceBox.ServiceObserverPrx or None)
                 The new observer
             current : Ice.Current
                 The Current object for the dispatch.

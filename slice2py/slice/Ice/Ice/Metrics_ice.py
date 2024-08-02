@@ -26,8 +26,8 @@ _M_Ice = Ice.openModule('Ice')
 _M_IceMX = Ice.openModule('IceMX')
 __name__ = 'IceMX'
 _M_IceMX.__doc__ = """
- The Ice Management eXtension facility. It provides the IceMX#MetricsAdmin interface for management clients
- to retrieve metrics from Ice applications.
+The Ice Management eXtension facility. It provides the IceMX#MetricsAdmin interface for management clients
+to retrieve metrics from Ice applications.
 """
 
 if '_t_StringIntDict' not in _M_IceMX.__dict__:
@@ -37,16 +37,23 @@ if 'Metrics' not in _M_IceMX.__dict__:
     _M_IceMX.Metrics = None
     class Metrics(Ice.Value):
         """
-         The base class for metrics. A metrics object represents a collection of measurements associated to a given a
-         system.
-        Members:
-        id --  The metrics identifier.
-        total --  The total number of objects observed by this metrics. This includes the number of currently observed objects
-         and the number of objects observed in the past.
-        current --  The number of objects currently observed by this metrics.
-        totalLifetime --  The sum of the lifetime of each observed objects. This does not include the lifetime of objects which are
-         currently observed, only the objects observed in the past.
-        failures --  The number of failures observed.
+        The base class for metrics. A metrics object represents a collection of measurements associated to a given a
+        system.
+        
+        Attributes
+        ----------
+        id : str
+            The metrics identifier.
+        total : int
+            The total number of objects observed by this metrics. This includes the number of currently observed objects
+            and the number of objects observed in the past.
+        current : int
+            The number of objects currently observed by this metrics.
+        totalLifetime : int
+            The sum of the lifetime of each observed objects. This does not include the lifetime of objects which are
+            currently observed, only the objects observed in the past.
+        failures : int
+            The number of failures observed.
         """
         def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0):
             self.id = id
@@ -83,10 +90,14 @@ if 'MetricsFailures' not in _M_IceMX.__dict__:
     _M_IceMX.MetricsFailures = None
     class MetricsFailures(object):
         """
-         A structure to keep track of failures associated with a given metrics.
-        Members:
-        id --  The identifier of the metrics object associated to the failures.
-        failures --  The failures observed for this metrics.
+        A structure to keep track of failures associated with a given metrics.
+        
+        Attributes
+        ----------
+        id : str
+            The identifier of the metrics object associated to the failures.
+        failures : dict where keys are str and values are int
+            The failures observed for this metrics.
         """
         def __init__(self, id='', failures=None):
             self.id = id
@@ -133,7 +144,7 @@ if 'UnknownMetricsView' not in _M_IceMX.__dict__:
     _M_IceMX.UnknownMetricsView = None
     class UnknownMetricsView(Ice.UserException):
         """
-         Raised if a metrics view cannot be found.
+        Raised if a metrics view cannot be found.
         """
         def __init__(self):
             pass
@@ -614,12 +625,17 @@ if 'ThreadMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.ThreadMetrics = None
     class ThreadMetrics(_M_IceMX.Metrics):
         """
-         Provides information on the number of threads currently in use and their activity.
-        Members:
-        inUseForIO --  The number of threads which are currently performing socket read or writes.
-        inUseForUser --  The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
-        inUseForOther --  The number of threads which are currently performing other activities. These are all other that are not
-         counted with inUseForUser or inUseForIO, such as DNS lookups, garbage collection).
+        Provides information on the number of threads currently in use and their activity.
+        
+        Attributes
+        ----------
+        inUseForIO : int
+            The number of threads which are currently performing socket read or writes.
+        inUseForUser : int
+            The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
+        inUseForOther : int
+            The number of threads which are currently performing other activities. These are all other that are not
+            counted with inUseForUser or inUseForIO, such as DNS lookups, garbage collection).
         """
         def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, inUseForIO=0, inUseForUser=0, inUseForOther=0):
             _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)
@@ -653,11 +669,16 @@ if 'DispatchMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.DispatchMetrics = None
     class DispatchMetrics(_M_IceMX.Metrics):
         """
-         Provides information on servant dispatch.
-        Members:
-        userException --  The number of dispatch that failed with a user exception.
-        size --  The size of the dispatch. This corresponds to the size of the marshaled input parameters.
-        replySize --  The size of the dispatch reply. This corresponds to the size of the marshaled output and return parameters.
+        Provides information on servant dispatch.
+        
+        Attributes
+        ----------
+        userException : int
+            The number of dispatch that failed with a user exception.
+        size : int
+            The size of the dispatch. This corresponds to the size of the marshaled input parameters.
+        replySize : int
+            The size of the dispatch reply. This corresponds to the size of the marshaled output and return parameters.
         """
         def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, userException=0, size=0, replySize=0):
             _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)
@@ -691,13 +712,17 @@ if 'ChildInvocationMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.ChildInvocationMetrics = None
     class ChildInvocationMetrics(_M_IceMX.Metrics):
         """
-         Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
-         collocated. An invocation can have multiple child invocation if it is retried. Child invocation metrics are
-         embedded within InvocationMetrics.
-        Members:
-        size --  The size of the invocation. This corresponds to the size of the marshaled input parameters.
-        replySize --  The size of the invocation reply. This corresponds to the size of the marshaled output and return
-         parameters.
+        Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
+        collocated. An invocation can have multiple child invocation if it is retried. Child invocation metrics are
+        embedded within InvocationMetrics.
+        
+        Attributes
+        ----------
+        size : int
+            The size of the invocation. This corresponds to the size of the marshaled input parameters.
+        replySize : int
+            The size of the invocation reply. This corresponds to the size of the marshaled output and return
+            parameters.
         """
         def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, size=0, replySize=0):
             _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)
@@ -729,8 +754,8 @@ if 'CollocatedMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.CollocatedMetrics = None
     class CollocatedMetrics(_M_IceMX.ChildInvocationMetrics):
         """
-         Provides information on invocations that are collocated. Collocated metrics are embedded within
-         InvocationMetrics.
+        Provides information on invocations that are collocated. Collocated metrics are embedded within
+        InvocationMetrics.
         """
         def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, size=0, replySize=0):
             _M_IceMX.ChildInvocationMetrics.__init__(self, id, total, current, totalLifetime, failures, size, replySize)
@@ -757,8 +782,8 @@ if 'RemoteMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.RemoteMetrics = None
     class RemoteMetrics(_M_IceMX.ChildInvocationMetrics):
         """
-         Provides information on invocations that are specifically sent over Ice connections. Remote metrics are embedded
-         within InvocationMetrics.
+        Provides information on invocations that are specifically sent over Ice connections. Remote metrics are embedded
+        within InvocationMetrics.
         """
         def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, size=0, replySize=0):
             _M_IceMX.ChildInvocationMetrics.__init__(self, id, total, current, totalLifetime, failures, size, replySize)
@@ -785,12 +810,18 @@ if 'InvocationMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.InvocationMetrics = None
     class InvocationMetrics(_M_IceMX.Metrics):
         """
-         Provide measurements for proxy invocations. Proxy invocations can either be sent over the wire or be collocated.
-        Members:
-        retry --  The number of retries for the invocation(s).
-        userException --  The number of invocations that failed with a user exception.
-        remotes --  The remote invocation metrics map.
-        collocated --  The collocated invocation metrics map.
+        Provide measurements for proxy invocations. Proxy invocations can either be sent over the wire or be collocated.
+        
+        Attributes
+        ----------
+        retry : int
+            The number of retries for the invocation(s).
+        userException : int
+            The number of invocations that failed with a user exception.
+        remotes : IceMX.Metrics[]
+            The remote invocation metrics map.
+        collocated : IceMX.Metrics[]
+            The collocated invocation metrics map.
         """
         def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, retry=0, userException=0, remotes=None, collocated=None):
             _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)
@@ -828,10 +859,14 @@ if 'ConnectionMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.ConnectionMetrics = None
     class ConnectionMetrics(_M_IceMX.Metrics):
         """
-         Provides information on the data sent and received over Ice connections.
-        Members:
-        receivedBytes --  The number of bytes received by the connection.
-        sentBytes --  The number of bytes sent by the connection.
+        Provides information on the data sent and received over Ice connections.
+        
+        Attributes
+        ----------
+        receivedBytes : int
+            The number of bytes received by the connection.
+        sentBytes : int
+            The number of bytes sent by the connection.
         """
         def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, receivedBytes=0, sentBytes=0):
             _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)

@@ -38,11 +38,11 @@ if 'LoadSample' not in _M_IceGrid.__dict__:
     _M_IceGrid.LoadSample = None
     class LoadSample(Ice.EnumBase):
         """
-         Determines which load sampling interval to use.
+        Determines which load sampling interval to use.
         Enumerators:
-        LoadSample1 --  Sample every minute.
-        LoadSample5 --  Sample every five minutes.
-        LoadSample15 --  Sample every fifteen minutes.
+        LoadSample1 -- Sample every minute.
+        LoadSample5 -- Sample every five minutes.
+        LoadSample15 -- Sample every fifteen minutes.
         """
 
         def __init__(self, _n, _v):
@@ -99,7 +99,7 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             
             Returns
             -------
-            Ice.ObjectPrx or None
+            (Ice.ObjectPrx or None)
                 The proxy or null if no such object has been found.
             """
             return _M_IceGrid.Query._op_findObjectById.invoke(self, ((id, ), context))
@@ -136,7 +136,7 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             
             Returns
             -------
-            Ice.ObjectPrx or None
+            (Ice.ObjectPrx or None)
                 The proxy or null, if no such object has been found.
             """
             return _M_IceGrid.Query._op_findObjectByType.invoke(self, ((type, ), context))
@@ -177,7 +177,7 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             
             Returns
             -------
-            Ice.ObjectPrx or None
+            (Ice.ObjectPrx or None)
                 The proxy or null, if no such object has been found.
             """
             return _M_IceGrid.Query._op_findObjectByTypeOnLeastLoadedNode.invoke(self, ((type, sample), context))
@@ -217,7 +217,7 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             
             Returns
             -------
-            Ice.ObjectPrx or None[]
+            (Ice.ObjectPrx or None)[]
                 The proxies or an empty sequence, if no such objects have been found.
             """
             return _M_IceGrid.Query._op_findAllObjectsByType.invoke(self, ((type, ), context))
@@ -247,15 +247,15 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             
             Parameters
             ----------
-            proxy : Ice.ObjectPrx or None
+            proxy : (Ice.ObjectPrx or None)
                 The object proxy.
             context : Ice.Context
                 The request context for the invocation.
             
             Returns
             -------
-            Ice.ObjectPrx or None[]
-                The proxies of each object replica or an empty sequence, if the given proxy is not from a replica group.
+            (Ice.ObjectPrx or None)[]
+                The proxies of each object replica or an empty sequence, if the given proxy is not from a replicagroup.
             """
             return _M_IceGrid.Query._op_findAllReplicas.invoke(self, ((proxy, ), context))
 
@@ -266,7 +266,7 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             
             Parameters
             ----------
-            proxy : Ice.ObjectPrx or None
+            proxy : (Ice.ObjectPrx or None)
                 The object proxy.
             context : Ice.Context
                 The request context for the invocation.
@@ -391,7 +391,7 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             
             Parameters
             ----------
-            proxy : Ice.ObjectPrx or None
+            proxy : (Ice.ObjectPrx or None)
                 The object proxy.
             current : Ice.Current
                 The Current object for the dispatch.
@@ -457,13 +457,14 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             
             Returns
             -------
-            IceGrid.SessionPrx or None
+            (IceGrid.SessionPrx or None)
                 A proxy for the newly created session. The returned proxy is never null.
             
             Raises
             ------
             PermissionDeniedException
-                Raised if the password for the given user id is not correct, or if the user is not allowed access.
+                Raised if the password for the given user id is not correct, or if the
+                user is not allowed access.
             """
             return _M_IceGrid.Registry._op_createSession.invoke(self, ((userId, password), context))
 
@@ -502,13 +503,14 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             
             Returns
             -------
-            IceGrid.AdminSessionPrx or None
+            (IceGrid.AdminSessionPrx or None)
                 A proxy for the newly created session. The returned proxy is never null.
             
             Raises
             ------
             PermissionDeniedException
-                Raised if the password for the given user id is not correct, or if the user is not allowed access.
+                Raised if the password for the given user id is not correct, or if the
+                user is not allowed access.
             """
             return _M_IceGrid.Registry._op_createAdminSession.invoke(self, ((userId, password), context))
 
@@ -543,13 +545,14 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             
             Returns
             -------
-            IceGrid.SessionPrx or None
+            (IceGrid.SessionPrx or None)
                 A proxy for the newly created session. The returned proxy is never null.
             
             Raises
             ------
             PermissionDeniedException
-                Raised if the password for the given user id is not correct, or if the user is not allowed access.
+                Raised if the password for the given user id is not correct, or if the
+                user is not allowed access.
             """
             return _M_IceGrid.Registry._op_createSessionFromSecureConnection.invoke(self, ((), context))
 
@@ -580,13 +583,14 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             
             Returns
             -------
-            IceGrid.AdminSessionPrx or None
+            (IceGrid.AdminSessionPrx or None)
                 A proxy for the newly created session. The returned proxy is never null.
             
             Raises
             ------
             PermissionDeniedException
-                Raised if the password for the given user id is not correct, or if the user is not allowed access.
+                Raised if the password for the given user id is not correct, or if the
+                user is not allowed access.
             """
             return _M_IceGrid.Registry._op_createAdminSessionFromSecureConnection.invoke(self, ((), context))
 
@@ -720,7 +724,8 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             PermissionDeniedException
-                Raised if the password for the given user id is not correct, or if the user is not allowed access.
+                Raised if the password for the given user id is not correct, or if the
+                user is not allowed access.
             """
             raise NotImplementedError("servant method 'createSession' not implemented")
 
@@ -745,7 +750,8 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             PermissionDeniedException
-                Raised if the password for the given user id is not correct, or if the user is not allowed access.
+                Raised if the password for the given user id is not correct, or if the
+                user is not allowed access.
             """
             raise NotImplementedError("servant method 'createAdminSession' not implemented")
 
@@ -766,7 +772,8 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             PermissionDeniedException
-                Raised if the password for the given user id is not correct, or if the user is not allowed access.
+                Raised if the password for the given user id is not correct, or if the
+                user is not allowed access.
             """
             raise NotImplementedError("servant method 'createSessionFromSecureConnection' not implemented")
 
@@ -787,7 +794,8 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             PermissionDeniedException
-                Raised if the password for the given user id is not correct, or if the user is not allowed access.
+                Raised if the password for the given user id is not correct, or if the
+                user is not allowed access.
             """
             raise NotImplementedError("servant method 'createAdminSessionFromSecureConnection' not implemented")
 
@@ -874,7 +882,7 @@ if 'LocatorPrx' not in _M_IceGrid.__dict__:
             
             Returns
             -------
-            IceGrid.RegistryPrx or None
+            (IceGrid.RegistryPrx or None)
                 The proxy of the registry object. The returned proxy is never null.
             """
             return _M_IceGrid.Locator._op_getLocalRegistry.invoke(self, ((), context))
@@ -906,7 +914,7 @@ if 'LocatorPrx' not in _M_IceGrid.__dict__:
             
             Returns
             -------
-            IceGrid.QueryPrx or None
+            (IceGrid.QueryPrx or None)
                 The proxy of the query object. The returned proxy is never null.
             """
             return _M_IceGrid.Locator._op_getLocalQuery.invoke(self, ((), context))

@@ -56,7 +56,7 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
             ----------
             id : Ice.Identity
                 The identity of the object.
-            prx : Ice.ObjectPrx or None
+            prx : (Ice.ObjectPrx or None)
                 The proxy of the object. This proxy is never null.
             context : Ice.Context
                 The request context for the invocation.
@@ -71,7 +71,7 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
             ----------
             id : Ice.Identity
                 The identity of the object.
-            prx : Ice.ObjectPrx or None
+            prx : (Ice.ObjectPrx or None)
                 The proxy of the object. This proxy is never null.
             context : Ice.Context
                 The request context for the invocation.
@@ -91,8 +91,9 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
             ----------
             id : str
                 The adapter ID.
-            prx : Ice.ObjectPrx or None
-                The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter endpoints. This proxy is never null.
+            prx : (Ice.ObjectPrx or None)
+                The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+                endpoints. This proxy is never null.
             isReplicaGroup : bool
                 True if the adapter is also a member of a replica group.
             context : Ice.Context
@@ -108,8 +109,9 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
             ----------
             id : str
                 The adapter ID.
-            prx : Ice.ObjectPrx or None
-                The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter endpoints. This proxy is never null.
+            prx : (Ice.ObjectPrx or None)
+                The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+                endpoints. This proxy is never null.
             isReplicaGroup : bool
                 True if the adapter is also a member of a replica group.
             context : Ice.Context
@@ -159,7 +161,7 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
             ----------
             id : Ice.Identity
                 The identity of the object.
-            prx : Ice.ObjectPrx or None
+            prx : (Ice.ObjectPrx or None)
                 The proxy of the object. This proxy is never null.
             current : Ice.Current
                 The Current object for the dispatch.
@@ -179,8 +181,9 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
             ----------
             id : str
                 The adapter ID.
-            prx : Ice.ObjectPrx or None
-                The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter endpoints. This proxy is never null.
+            prx : (Ice.ObjectPrx or None)
+                The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+                endpoints. This proxy is never null.
             isReplicaGroup : bool
                 True if the adapter is also a member of a replica group.
             current : Ice.Current
@@ -236,11 +239,13 @@ if 'LookupPrx' not in _M_IceDiscovery.__dict__:
             Parameters
             ----------
             domainId : str
-                The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
+                The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+                matching domain identifier.
             id : Ice.Identity
                 The object identity.
-            reply : IceDiscovery.LookupReplyPrx or None
-                The proxy of the LookupReply interface that should be used to send the reply if a matching object is found. The reply proxy is never null.
+            reply : (IceDiscovery.LookupReplyPrx or None)
+                The proxy of the LookupReply interface that should be used to send the reply if a matching
+                object is found. The reply proxy is never null.
             context : Ice.Context
                 The request context for the invocation.
             """
@@ -253,11 +258,13 @@ if 'LookupPrx' not in _M_IceDiscovery.__dict__:
             Parameters
             ----------
             domainId : str
-                The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
+                The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+                matching domain identifier.
             id : Ice.Identity
                 The object identity.
-            reply : IceDiscovery.LookupReplyPrx or None
-                The proxy of the LookupReply interface that should be used to send the reply if a matching object is found. The reply proxy is never null.
+            reply : (IceDiscovery.LookupReplyPrx or None)
+                The proxy of the LookupReply interface that should be used to send the reply if a matching
+                object is found. The reply proxy is never null.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -275,11 +282,13 @@ if 'LookupPrx' not in _M_IceDiscovery.__dict__:
             Parameters
             ----------
             domainId : str
-                The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
+                The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+                matching domain identifier.
             id : str
                 The adapter ID.
-            reply : IceDiscovery.LookupReplyPrx or None
-                The proxy of the LookupReply interface that should be used to send the reply if a matching adapter is found. The reply proxy is never null.
+            reply : (IceDiscovery.LookupReplyPrx or None)
+                The proxy of the LookupReply interface that should be used to send the reply if a matching
+                adapter is found. The reply proxy is never null.
             context : Ice.Context
                 The request context for the invocation.
             """
@@ -292,11 +301,13 @@ if 'LookupPrx' not in _M_IceDiscovery.__dict__:
             Parameters
             ----------
             domainId : str
-                The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
+                The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+                matching domain identifier.
             id : str
                 The adapter ID.
-            reply : IceDiscovery.LookupReplyPrx or None
-                The proxy of the LookupReply interface that should be used to send the reply if a matching adapter is found. The reply proxy is never null.
+            reply : (IceDiscovery.LookupReplyPrx or None)
+                The proxy of the LookupReply interface that should be used to send the reply if a matching
+                adapter is found. The reply proxy is never null.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -343,11 +354,13 @@ if 'LookupPrx' not in _M_IceDiscovery.__dict__:
             Parameters
             ----------
             domainId : str
-                The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
+                The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+                matching domain identifier.
             id : Ice.Identity
                 The object identity.
-            reply : IceDiscovery.LookupReplyPrx or None
-                The proxy of the LookupReply interface that should be used to send the reply if a matching object is found. The reply proxy is never null.
+            reply : (IceDiscovery.LookupReplyPrx or None)
+                The proxy of the LookupReply interface that should be used to send the reply if a matching
+                object is found. The reply proxy is never null.
             current : Ice.Current
                 The Current object for the dispatch.
             
@@ -365,11 +378,13 @@ if 'LookupPrx' not in _M_IceDiscovery.__dict__:
             Parameters
             ----------
             domainId : str
-                The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
+                The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+                matching domain identifier.
             id : str
                 The adapter ID.
-            reply : IceDiscovery.LookupReplyPrx or None
-                The proxy of the LookupReply interface that should be used to send the reply if a matching adapter is found. The reply proxy is never null.
+            reply : (IceDiscovery.LookupReplyPrx or None)
+                The proxy of the LookupReply interface that should be used to send the reply if a matching
+                adapter is found. The reply proxy is never null.
             current : Ice.Current
                 The Current object for the dispatch.
             

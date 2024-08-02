@@ -39,16 +39,16 @@ if 'ServerState' not in _M_IceGrid.__dict__:
     _M_IceGrid.ServerState = None
     class ServerState(Ice.EnumBase):
         """
-         An enumeration representing the state of the server.
+        An enumeration representing the state of the server.
         Enumerators:
-        Inactive --  The server is not running.
-        Activating --  The server is being activated and will change to the active state when the registered server object adapters
-         are activated or to the activation timed out state if the activation timeout expires.
-        ActivationTimedOut --  The activation timed out state indicates that the server activation timed out.
-        Active --  The server is running.
-        Deactivating --  The server is being deactivated.
-        Destroying --  The server is being destroyed.
-        Destroyed --  The server is destroyed.
+        Inactive -- The server is not running.
+        Activating -- The server is being activated and will change to the active state when the registered server object adapters
+        are activated or to the activation timed out state if the activation timeout expires.
+        ActivationTimedOut -- The activation timed out state indicates that the server activation timed out.
+        Active -- The server is running.
+        Deactivating -- The server is being deactivated.
+        Destroying -- The server is being destroyed.
+        Destroyed -- The server is destroyed.
         """
 
         def __init__(self, _n, _v):
@@ -81,10 +81,14 @@ if 'ObjectInfo' not in _M_IceGrid.__dict__:
     _M_IceGrid.ObjectInfo = None
     class ObjectInfo(object):
         """
-         Information about an Ice object.
-        Members:
-        proxy --  The proxy of the object.
-        type --  The type of the object.
+        Information about an Ice object.
+        
+        Attributes
+        ----------
+        proxy : (Ice.ObjectPrx or None)
+            The proxy of the object.
+        type : str
+            The type of the object.
         """
         def __init__(self, proxy=None, type=''):
             self.proxy = proxy
@@ -125,11 +129,16 @@ if 'AdapterInfo' not in _M_IceGrid.__dict__:
     _M_IceGrid.AdapterInfo = None
     class AdapterInfo(object):
         """
-         Information about an adapter registered with the IceGrid registry.
-        Members:
-        id --  The id of the adapter.
-        proxy --  A dummy direct proxy that contains the adapter endpoints.
-        replicaGroupId --  The replica group id of the object adapter, or empty if the adapter doesn't belong to a replica group.
+        Information about an adapter registered with the IceGrid registry.
+        
+        Attributes
+        ----------
+        id : str
+            The id of the adapter.
+        proxy : (Ice.ObjectPrx or None)
+            A dummy direct proxy that contains the adapter endpoints.
+        replicaGroupId : str
+            The replica group id of the object adapter, or empty if the adapter doesn't belong to a replica group.
         """
         def __init__(self, id='', proxy=None, replicaGroupId=''):
             self.id = id
@@ -174,14 +183,22 @@ if 'ServerInfo' not in _M_IceGrid.__dict__:
     _M_IceGrid.ServerInfo = None
     class ServerInfo(object):
         """
-         Information about a server managed by an IceGrid node.
-        Members:
-        application --  The server application.
-        uuid --  The application uuid.
-        revision --  The application revision.
-        node --  The server node.
-        descriptor --  The server descriptor.
-        sessionId --  The id of the session which allocated the server.
+        Information about a server managed by an IceGrid node.
+        
+        Attributes
+        ----------
+        application : str
+            The server application.
+        uuid : str
+            The application uuid.
+        revision : int
+            The application revision.
+        node : str
+            The server node.
+        descriptor : IceGrid.ServerDescriptor
+            The server descriptor.
+        sessionId : str
+            The id of the session which allocated the server.
         """
         def __init__(self, application='', uuid='', revision=0, node='', descriptor=None, sessionId=''):
             self.application = application
@@ -235,17 +252,27 @@ if 'NodeInfo' not in _M_IceGrid.__dict__:
     _M_IceGrid.NodeInfo = None
     class NodeInfo(object):
         """
-         Information about an IceGrid node.
-        Members:
-        name --  The name of the node.
-        os --  The operating system name.
-        hostname --  The network name of the host running this node (as defined in uname()).
-        release --  The operation system release level (as defined in uname()).
-        version --  The operation system version (as defined in uname()).
-        machine --  The machine hardware type (as defined in uname()).
-        nProcessors --  The number of processor threads on the node. For example, nProcessors is 8 on a computer with a single
-         quad-core processor and two HT threads per core.
-        dataDir --  The path to the node data directory.
+        Information about an IceGrid node.
+        
+        Attributes
+        ----------
+        name : str
+            The name of the node.
+        os : str
+            The operating system name.
+        hostname : str
+            The network name of the host running this node (as defined in uname()).
+        release : str
+            The operation system release level (as defined in uname()).
+        version : str
+            The operation system version (as defined in uname()).
+        machine : str
+            The machine hardware type (as defined in uname()).
+        nProcessors : int
+            The number of processor threads on the node. For example, nProcessors is 8 on a computer with a single
+            quad-core processor and two HT threads per core.
+        dataDir : str
+            The path to the node data directory.
         """
         def __init__(self, name='', os='', hostname='', release='', version='', machine='', nProcessors=0, dataDir=''):
             self.name = name
@@ -406,10 +433,14 @@ if 'RegistryInfo' not in _M_IceGrid.__dict__:
     _M_IceGrid.RegistryInfo = None
     class RegistryInfo(object):
         """
-         Information about an IceGrid registry replica.
-        Members:
-        name --  The name of the registry.
-        hostname --  The network name of the host running this registry (as defined in uname()).
+        Information about an IceGrid registry replica.
+        
+        Attributes
+        ----------
+        name : str
+            The name of the registry.
+        hostname : str
+            The network name of the host running this registry (as defined in uname()).
         """
         def __init__(self, name='', hostname=''):
             self.name = name
@@ -507,11 +538,16 @@ if 'LoadInfo' not in _M_IceGrid.__dict__:
     _M_IceGrid.LoadInfo = None
     class LoadInfo(object):
         """
-         Information about the load of a node.
-        Members:
-        avg1 --  The load average over the past minute.
-        avg5 --  The load average over the past 5 minutes.
-        avg15 --  The load average over the past 15 minutes.
+        Information about the load of a node.
+        
+        Attributes
+        ----------
+        avg1 : float
+            The load average over the past minute.
+        avg5 : float
+            The load average over the past 5 minutes.
+        avg15 : float
+            The load average over the past 15 minutes.
         """
         def __init__(self, avg1=0.0, avg5=0.0, avg15=0.0):
             self.avg1 = avg1
@@ -553,15 +589,24 @@ if 'ApplicationInfo' not in _M_IceGrid.__dict__:
     _M_IceGrid.ApplicationInfo = None
     class ApplicationInfo(object):
         """
-         Information about an IceGrid application.
-        Members:
-        uuid --  Unique application identifier.
-        createTime --  The creation time.
-        createUser --  The user who created the application.
-        updateTime --  The update time.
-        updateUser --  The user who updated the application.
-        revision --  The application revision number.
-        descriptor --  The application descriptor
+        Information about an IceGrid application.
+        
+        Attributes
+        ----------
+        uuid : str
+            Unique application identifier.
+        createTime : int
+            The creation time.
+        createUser : str
+            The user who created the application.
+        updateTime : int
+            The update time.
+        updateUser : str
+            The user who updated the application.
+        revision : int
+            The application revision number.
+        descriptor : IceGrid.ApplicationDescriptor
+            The application descriptor
         """
         def __init__(self, uuid='', createTime=0, createUser='', updateTime=0, updateUser='', revision=0, descriptor=None):
             self.uuid = uuid
@@ -622,12 +667,18 @@ if 'ApplicationUpdateInfo' not in _M_IceGrid.__dict__:
     _M_IceGrid.ApplicationUpdateInfo = None
     class ApplicationUpdateInfo(object):
         """
-         Information about updates to an IceGrid application.
-        Members:
-        updateTime --  The update time.
-        updateUser --  The user who updated the application.
-        revision --  The application revision number.
-        descriptor --  The update descriptor.
+        Information about updates to an IceGrid application.
+        
+        Attributes
+        ----------
+        updateTime : int
+            The update time.
+        updateUser : str
+            The user who updated the application.
+        revision : int
+            The application revision number.
+        descriptor : IceGrid.ApplicationUpdateDescriptor
+            The update descriptor.
         """
         def __init__(self, updateTime=0, updateUser='', revision=0, descriptor=None):
             self.updateTime = updateTime
@@ -705,7 +756,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             AccessDeniedException
-                Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
+                Raised if the session doesn't hold the exclusive lock or if another session is
+                holding the lock.
             DeploymentException
                 Raised if application deployment failed.
             """
@@ -744,7 +796,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             AccessDeniedException
-                Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
+                Raised if the session doesn't hold the exclusive lock or if another session is
+                holding the lock.
             ApplicationNotExistException
                 Raised if the application doesn't exist.
             DeploymentException
@@ -785,7 +838,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             AccessDeniedException
-                Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
+                Raised if the session doesn't hold the exclusive lock or if another session is
+                holding the lock.
             ApplicationNotExistException
                 Raised if the application doesn't exist.
             DeploymentException
@@ -828,7 +882,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             AccessDeniedException
-                Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
+                Raised if the session doesn't hold the exclusive lock or if another session is
+                holding the lock.
             ApplicationNotExistException
                 Raised if the application doesn't exist.
             DeploymentException
@@ -873,7 +928,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             AccessDeniedException
-                Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
+                Raised if the session doesn't hold the exclusive lock or if another session is
+                holding the lock.
             ApplicationNotExistException
                 Raised if the application doesn't exist.
             DeploymentException
@@ -915,7 +971,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             AccessDeniedException
-                Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
+                Raised if the session doesn't hold the exclusive lock or if another session is
+                holding the lock.
             ApplicationNotExistException
                 Raised if the application doesn't exist.
             DeploymentException
@@ -959,7 +1016,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             AccessDeniedException
-                Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
+                Raised if the session doesn't hold the exclusive lock or if another session is
+                holding the lock.
             ApplicationNotExistException
                 Raised if the application doesn't exist.
             DeploymentException
@@ -1277,7 +1335,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             
             Returns
             -------
-            Ice.ObjectPrx or None
+            (Ice.ObjectPrx or None)
                 A proxy to the server's admin object. The returned proxy is never null.
             
             Raises
@@ -1578,7 +1636,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Returns
             -------
             IceGrid.AdapterInfo[]
-                A sequence of adapter information structures. If the given id refers to an adapter, this sequence will contain only one element. If the given id refers to a replica group, the sequence will contain the adapter information of each member of the replica group.
+                A sequence of adapter information structures. If the given id refers to an adapter, this sequencewill contain only one element. If the given id refers to a replica group, the sequence will contain theadapter information of each member of the replica group.
             
             Raises
             ------
@@ -1682,7 +1740,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             
             Parameters
             ----------
-            obj : Ice.ObjectPrx or None
+            obj : (Ice.ObjectPrx or None)
                 The object to be added to the registry.
             context : Ice.Context
                 The request context for the invocation.
@@ -1690,7 +1748,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             DeploymentException
-                Raised if the object can't be added. This might be raised if the invocation on the proxy to get the object type failed.
+                Raised if the object can't be added. This might be raised if the invocation on
+                the proxy to get the object type failed.
             ObjectExistsException
                 Raised if the object is already registered.
             """
@@ -1703,7 +1762,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             
             Parameters
             ----------
-            obj : Ice.ObjectPrx or None
+            obj : (Ice.ObjectPrx or None)
                 The object to be added to the registry.
             context : Ice.Context
                 The request context for the invocation.
@@ -1722,7 +1781,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             
             Parameters
             ----------
-            obj : Ice.ObjectPrx or None
+            obj : (Ice.ObjectPrx or None)
                 The object to be updated to the registry.
             context : Ice.Context
                 The request context for the invocation.
@@ -1730,7 +1789,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             DeploymentException
-                Raised if the object can't be updated. This might happen if the object was added with a deployment descriptor.
+                Raised if the object can't be updated. This might happen if the object was added
+                with a deployment descriptor.
             ObjectNotRegisteredException
                 Raised if the object isn't registered with the registry.
             """
@@ -1743,7 +1803,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             
             Parameters
             ----------
-            obj : Ice.ObjectPrx or None
+            obj : (Ice.ObjectPrx or None)
                 The object to be updated to the registry.
             context : Ice.Context
                 The request context for the invocation.
@@ -1761,7 +1821,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             
             Parameters
             ----------
-            obj : Ice.ObjectPrx or None
+            obj : (Ice.ObjectPrx or None)
                 The object to be added to the registry. The proxy is never null.
             type : str
                 The object type.
@@ -1783,7 +1843,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             
             Parameters
             ----------
-            obj : Ice.ObjectPrx or None
+            obj : (Ice.ObjectPrx or None)
                 The object to be added to the registry. The proxy is never null.
             type : str
                 The object type.
@@ -1812,7 +1872,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             DeploymentException
-                Raised if the object can't be removed. This might happen if the object was added with a deployment descriptor.
+                Raised if the object can't be removed. This might happen if the object was added
+                with a deployment descriptor.
             ObjectNotRegisteredException
                 Raised if the object isn't registered with the registry.
             """
@@ -1921,7 +1982,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Parameters
             ----------
             expr : str
-                The expression to match against the stringified identities of registered objects. The expression may contain a trailing wildcard (*) character.
+                The expression to match against the stringified identities of registered objects. The expression
+                may contain a trailing wildcard (*) character.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -1939,7 +2001,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Parameters
             ----------
             expr : str
-                The expression to match against the stringified identities of registered objects. The expression may contain a trailing wildcard (*) character.
+                The expression to match against the stringified identities of registered objects. The expression
+                may contain a trailing wildcard (*) character.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -2090,7 +2153,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             
             Returns
             -------
-            Ice.ObjectPrx or None
+            (Ice.ObjectPrx or None)
                 A proxy to the IceGrid node's admin object. The returned proxy is never null.
             
             Raises
@@ -2377,7 +2440,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             
             Returns
             -------
-            Ice.ObjectPrx or None
+            (Ice.ObjectPrx or None)
                 A proxy to the IceGrid registry's admin object. The returned proxy is never null.
             
             Raises
@@ -2550,7 +2613,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             AccessDeniedException
-                Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
+                Raised if the session doesn't hold the exclusive lock or if another session is
+                holding the lock.
             DeploymentException
                 Raised if application deployment failed.
             """
@@ -2576,7 +2640,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             AccessDeniedException
-                Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
+                Raised if the session doesn't hold the exclusive lock or if another session is
+                holding the lock.
             ApplicationNotExistException
                 Raised if the application doesn't exist.
             DeploymentException
@@ -2603,7 +2668,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             AccessDeniedException
-                Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
+                Raised if the session doesn't hold the exclusive lock or if another session is
+                holding the lock.
             ApplicationNotExistException
                 Raised if the application doesn't exist.
             DeploymentException
@@ -2633,7 +2699,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             AccessDeniedException
-                Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
+                Raised if the session doesn't hold the exclusive lock or if another session is
+                holding the lock.
             ApplicationNotExistException
                 Raised if the application doesn't exist.
             DeploymentException
@@ -2662,7 +2729,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             AccessDeniedException
-                Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
+                Raised if the session doesn't hold the exclusive lock or if another session is
+                holding the lock.
             ApplicationNotExistException
                 Raised if the application doesn't exist.
             DeploymentException
@@ -2689,7 +2757,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             AccessDeniedException
-                Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
+                Raised if the session doesn't hold the exclusive lock or if another session is
+                holding the lock.
             ApplicationNotExistException
                 Raised if the application doesn't exist.
             DeploymentException
@@ -2720,7 +2789,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             AccessDeniedException
-                Raised if the session doesn't hold the exclusive lock or if another session is holding the lock.
+                Raised if the session doesn't hold the exclusive lock or if another session is
+                holding the lock.
             ApplicationNotExistException
                 Raised if the application doesn't exist.
             DeploymentException
@@ -3143,7 +3213,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             
             Parameters
             ----------
-            obj : Ice.ObjectPrx or None
+            obj : (Ice.ObjectPrx or None)
                 The object to be added to the registry.
             current : Ice.Current
                 The Current object for the dispatch.
@@ -3156,7 +3226,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             DeploymentException
-                Raised if the object can't be added. This might be raised if the invocation on the proxy to get the object type failed.
+                Raised if the object can't be added. This might be raised if the invocation on
+                the proxy to get the object type failed.
             ObjectExistsException
                 Raised if the object is already registered.
             """
@@ -3169,7 +3240,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             
             Parameters
             ----------
-            obj : Ice.ObjectPrx or None
+            obj : (Ice.ObjectPrx or None)
                 The object to be updated to the registry.
             current : Ice.Current
                 The Current object for the dispatch.
@@ -3182,7 +3253,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             DeploymentException
-                Raised if the object can't be updated. This might happen if the object was added with a deployment descriptor.
+                Raised if the object can't be updated. This might happen if the object was added
+                with a deployment descriptor.
             ObjectNotRegisteredException
                 Raised if the object isn't registered with the registry.
             """
@@ -3194,7 +3266,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             
             Parameters
             ----------
-            obj : Ice.ObjectPrx or None
+            obj : (Ice.ObjectPrx or None)
                 The object to be added to the registry. The proxy is never null.
             type : str
                 The object type.
@@ -3235,7 +3307,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             DeploymentException
-                Raised if the object can't be removed. This might happen if the object was added with a deployment descriptor.
+                Raised if the object can't be removed. This might happen if the object was added
+                with a deployment descriptor.
             ObjectNotRegisteredException
                 Raised if the object isn't registered with the registry.
             """
@@ -3289,7 +3362,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Parameters
             ----------
             expr : str
-                The expression to match against the stringified identities of registered objects. The expression may contain a trailing wildcard (*) character.
+                The expression to match against the stringified identities of registered objects. The expression
+                may contain a trailing wildcard (*) character.
             current : Ice.Current
                 The Current object for the dispatch.
             
@@ -3705,7 +3779,8 @@ if 'FileIteratorPrx' not in _M_IceGrid.__dict__:
             Parameters
             ----------
             size : int
-                Specifies the maximum number of bytes to be received. The server will ensure that the returned message doesn't exceed the given size.
+                Specifies the maximum number of bytes to be received. The server will ensure that the returned
+                message doesn't exceed the given size.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -3716,7 +3791,9 @@ if 'FileIteratorPrx' not in _M_IceGrid.__dict__:
                 - bool
                     True if EOF is encountered.
                 - str[]
-                    The lines read from the file. If there was nothing to read from the file since the last call to read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n' should be added when writing the last line to the to the output device).
+                    The lines read from the file. If there was nothing to read from the file since the last call to
+                    read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
+                    '\n' should be added when writing the last line to the to the output device).
             
             Raises
             ------
@@ -3732,7 +3809,8 @@ if 'FileIteratorPrx' not in _M_IceGrid.__dict__:
             Parameters
             ----------
             size : int
-                Specifies the maximum number of bytes to be received. The server will ensure that the returned message doesn't exceed the given size.
+                Specifies the maximum number of bytes to be received. The server will ensure that the returned
+                message doesn't exceed the given size.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -3806,7 +3884,8 @@ if 'FileIteratorPrx' not in _M_IceGrid.__dict__:
             Parameters
             ----------
             size : int
-                Specifies the maximum number of bytes to be received. The server will ensure that the returned message doesn't exceed the given size.
+                Specifies the maximum number of bytes to be received. The server will ensure that the returned
+                message doesn't exceed the given size.
             current : Ice.Current
                 The Current object for the dispatch.
             
@@ -3856,12 +3935,18 @@ if 'ServerDynamicInfo' not in _M_IceGrid.__dict__:
     _M_IceGrid.ServerDynamicInfo = None
     class ServerDynamicInfo(object):
         """
-         Dynamic information about the state of a server.
-        Members:
-        id --  The id of the server.
-        state --  The state of the server.
-        pid --  The process id of the server.
-        enabled --  Indicates whether the server is enabled.
+        Dynamic information about the state of a server.
+        
+        Attributes
+        ----------
+        id : str
+            The id of the server.
+        state : IceGrid.ServerState
+            The state of the server.
+        pid : int
+            The process id of the server.
+        enabled : bool
+            Indicates whether the server is enabled.
         """
         def __init__(self, id='', state=_M_IceGrid.ServerState.Inactive, pid=0, enabled=False):
             self.id = id
@@ -3981,10 +4066,14 @@ if 'AdapterDynamicInfo' not in _M_IceGrid.__dict__:
     _M_IceGrid.AdapterDynamicInfo = None
     class AdapterDynamicInfo(object):
         """
-         Dynamic information about the state of an adapter.
-        Members:
-        id --  The id of the adapter.
-        proxy --  The direct proxy containing the adapter endpoints. This proxy is never null.
+        Dynamic information about the state of an adapter.
+        
+        Attributes
+        ----------
+        id : str
+            The id of the adapter.
+        proxy : (Ice.ObjectPrx or None)
+            The direct proxy containing the adapter endpoints. This proxy is never null.
         """
         def __init__(self, id='', proxy=None):
             self.id = id
@@ -4025,11 +4114,16 @@ if 'NodeDynamicInfo' not in _M_IceGrid.__dict__:
     _M_IceGrid.NodeDynamicInfo = None
     class NodeDynamicInfo(object):
         """
-         Dynamic information about the state of a node.
-        Members:
-        info --  Some static information about the node.
-        servers --  The dynamic information of the servers deployed on this node.
-        adapters --  The dynamic information of the adapters deployed on this node.
+        Dynamic information about the state of a node.
+        
+        Attributes
+        ----------
+        info : IceGrid.NodeInfo
+            Some static information about the node.
+        servers : IceGrid.ServerDynamicInfo[]
+            The dynamic information of the servers deployed on this node.
+        adapters : IceGrid.AdapterDynamicInfo[]
+            The dynamic information of the adapters deployed on this node.
         """
         def __init__(self, info=None, servers=None, adapters=None):
             self.info = info if info is not None else _M_IceGrid.NodeInfo()
@@ -4647,7 +4741,8 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
             Parameters
             ----------
             serial : int
-                The current serial number of the registry database. This serial number allows observers to make sure that their internal state is synchronized with the registry.
+                The current serial number of the registry database. This serial number allows observers to
+                make sure that their internal state is synchronized with the registry.
             applications : IceGrid.ApplicationInfo[]
                 The applications currently registered with the registry.
             context : Ice.Context
@@ -4663,7 +4758,8 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
             Parameters
             ----------
             serial : int
-                The current serial number of the registry database. This serial number allows observers to make sure that their internal state is synchronized with the registry.
+                The current serial number of the registry database. This serial number allows observers to
+                make sure that their internal state is synchronized with the registry.
             applications : IceGrid.ApplicationInfo[]
                 The applications currently registered with the registry.
             context : Ice.Context
@@ -4822,7 +4918,8 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
             Parameters
             ----------
             serial : int
-                The current serial number of the registry database. This serial number allows observers to make sure that their internal state is synchronized with the registry.
+                The current serial number of the registry database. This serial number allows observers to
+                make sure that their internal state is synchronized with the registry.
             applications : IceGrid.ApplicationInfo[]
                 The applications currently registered with the registry.
             current : Ice.Current
@@ -4942,7 +5039,8 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             Parameters
             ----------
             adpts : IceGrid.AdapterInfo[]
-                The adapters that were dynamically registered with the registry (not through the deployment mechanism).
+                The adapters that were dynamically registered with the registry (not through the deployment
+                mechanism).
             context : Ice.Context
                 The request context for the invocation.
             """
@@ -4955,7 +5053,8 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             Parameters
             ----------
             adpts : IceGrid.AdapterInfo[]
-                The adapters that were dynamically registered with the registry (not through the deployment mechanism).
+                The adapters that were dynamically registered with the registry (not through the deployment
+                mechanism).
             context : Ice.Context
                 The request context for the invocation.
             
@@ -5101,7 +5200,8 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             Parameters
             ----------
             adpts : IceGrid.AdapterInfo[]
-                The adapters that were dynamically registered with the registry (not through the deployment mechanism).
+                The adapters that were dynamically registered with the registry (not through the deployment
+                mechanism).
             current : Ice.Current
                 The Current object for the dispatch.
             
@@ -5215,7 +5315,8 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
             Parameters
             ----------
             objects : IceGrid.ObjectInfo[]
-                The objects registered with the Admin interface (not through the deployment mechanism).
+                The objects registered with the Admin interface (not through the deployment
+                mechanism).
             context : Ice.Context
                 The request context for the invocation.
             """
@@ -5229,7 +5330,8 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
             Parameters
             ----------
             objects : IceGrid.ObjectInfo[]
-                The objects registered with the Admin interface (not through the deployment mechanism).
+                The objects registered with the Admin interface (not through the deployment
+                mechanism).
             context : Ice.Context
                 The request context for the invocation.
             
@@ -5376,7 +5478,8 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
             Parameters
             ----------
             objects : IceGrid.ObjectInfo[]
-                The objects registered with the Admin interface (not through the deployment mechanism).
+                The objects registered with the Admin interface (not through the deployment
+                mechanism).
             current : Ice.Current
                 The Current object for the dispatch.
             
@@ -5522,7 +5625,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             
             Returns
             -------
-            IceGrid.AdminPrx or None
+            (IceGrid.AdminPrx or None)
                 The admin interface proxy. The returned proxy is never null.
             """
             return _M_IceGrid.AdminSession._op_getAdmin.invoke(self, ((), context))
@@ -5555,7 +5658,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             
             Returns
             -------
-            Ice.ObjectPrx or None
+            (Ice.ObjectPrx or None)
                 A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
             """
             return _M_IceGrid.AdminSession._op_getAdminCallbackTemplate.invoke(self, ((), context))
@@ -5583,15 +5686,15 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             
             Parameters
             ----------
-            registryObs : IceGrid.RegistryObserverPrx or None
+            registryObs : (IceGrid.RegistryObserverPrx or None)
                 The registry observer.
-            nodeObs : IceGrid.NodeObserverPrx or None
+            nodeObs : (IceGrid.NodeObserverPrx or None)
                 The node observer.
-            appObs : IceGrid.ApplicationObserverPrx or None
+            appObs : (IceGrid.ApplicationObserverPrx or None)
                 The application observer.
-            adptObs : IceGrid.AdapterObserverPrx or None
+            adptObs : (IceGrid.AdapterObserverPrx or None)
                 The adapter observer.
-            objObs : IceGrid.ObjectObserverPrx or None
+            objObs : (IceGrid.ObjectObserverPrx or None)
                 The object observer.
             context : Ice.Context
                 The request context for the invocation.
@@ -5609,15 +5712,15 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             
             Parameters
             ----------
-            registryObs : IceGrid.RegistryObserverPrx or None
+            registryObs : (IceGrid.RegistryObserverPrx or None)
                 The registry observer.
-            nodeObs : IceGrid.NodeObserverPrx or None
+            nodeObs : (IceGrid.NodeObserverPrx or None)
                 The node observer.
-            appObs : IceGrid.ApplicationObserverPrx or None
+            appObs : (IceGrid.ApplicationObserverPrx or None)
                 The application observer.
-            adptObs : IceGrid.AdapterObserverPrx or None
+            adptObs : (IceGrid.AdapterObserverPrx or None)
                 The adapter observer.
-            objObs : IceGrid.ObjectObserverPrx or None
+            objObs : (IceGrid.ObjectObserverPrx or None)
                 The object observer.
             context : Ice.Context
                 The request context for the invocation.
@@ -5702,7 +5805,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             AccessDeniedException
-                Raised if the exclusive lock can't be acquired. This might happen if the lock is currently acquired by another session.
+                Raised if the exclusive lock can't be acquired. This might happen if the lock
+                is currently acquired by another session.
             """
             return _M_IceGrid.AdminSession._op_startUpdate.invoke(self, ((), context))
 
@@ -5795,15 +5899,17 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             id : str
                 The server id.
             path : str
-                The path of the log file. A log file can be opened only if it's declared in the server or service deployment descriptor.
+                The path of the log file. A log file can be opened only if it's declared in the server or
+                service deployment descriptor.
             count : int
-                Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+                Specifies where to start reading the file. If negative, the file is read from the begining. If
+                0 or positive, the file is read from the last count lines.
             context : Ice.Context
                 The request context for the invocation.
             
             Returns
             -------
-            IceGrid.FileIteratorPrx or None
+            (IceGrid.FileIteratorPrx or None)
                 An iterator to read the file. The returned proxy is never null.
             
             Raises
@@ -5828,9 +5934,11 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             id : str
                 The server id.
             path : str
-                The path of the log file. A log file can be opened only if it's declared in the server or service deployment descriptor.
+                The path of the log file. A log file can be opened only if it's declared in the server or
+                service deployment descriptor.
             count : int
-                Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+                Specifies where to start reading the file. If negative, the file is read from the begining. If
+                0 or positive, the file is read from the last count lines.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -5850,13 +5958,14 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             id : str
                 The server id.
             count : int
-                Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+                Specifies where to start reading the file. If negative, the file is read from the begining. If
+                0 or positive, the file is read from the last count lines.
             context : Ice.Context
                 The request context for the invocation.
             
             Returns
             -------
-            IceGrid.FileIteratorPrx or None
+            (IceGrid.FileIteratorPrx or None)
                 An iterator to read the file. The returned proxy is never null.
             
             Raises
@@ -5881,7 +5990,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             id : str
                 The server id.
             count : int
-                Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+                Specifies where to start reading the file. If negative, the file is read from the begining. If
+                0 or positive, the file is read from the last count lines.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -5901,13 +6011,14 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             id : str
                 The server id.
             count : int
-                Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+                Specifies where to start reading the file. If negative, the file is read from the begining.
+                If 0 or positive, the file is read from the last count lines.
             context : Ice.Context
                 The request context for the invocation.
             
             Returns
             -------
-            IceGrid.FileIteratorPrx or None
+            (IceGrid.FileIteratorPrx or None)
                 An iterator to read the file. The returned proxy is never null.
             
             Raises
@@ -5932,7 +6043,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             id : str
                 The server id.
             count : int
-                Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+                Specifies where to start reading the file. If negative, the file is read from the begining.
+                If 0 or positive, the file is read from the last count lines.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -5952,13 +6064,14 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             name : str
                 The node name.
             count : int
-                Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+                Specifies where to start reading the file. If negative, the file is read from the begining. If
+                0 or positive, the file is read from the last count lines.
             context : Ice.Context
                 The request context for the invocation.
             
             Returns
             -------
-            IceGrid.FileIteratorPrx or None
+            (IceGrid.FileIteratorPrx or None)
                 An iterator to read the file. The returned proxy is never null.
             
             Raises
@@ -5981,7 +6094,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             name : str
                 The node name.
             count : int
-                Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+                Specifies where to start reading the file. If negative, the file is read from the begining. If
+                0 or positive, the file is read from the last count lines.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -6001,13 +6115,14 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             name : str
                 The node name.
             count : int
-                Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+                Specifies where to start reading the file. If negative, the file is read from the begining. If
+                0 or positive, the file is read from the last count lines.
             context : Ice.Context
                 The request context for the invocation.
             
             Returns
             -------
-            IceGrid.FileIteratorPrx or None
+            (IceGrid.FileIteratorPrx or None)
                 An iterator to read the file. The returned proxy is never null.
             
             Raises
@@ -6030,7 +6145,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             name : str
                 The node name.
             count : int
-                Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+                Specifies where to start reading the file. If negative, the file is read from the begining. If
+                0 or positive, the file is read from the last count lines.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -6050,13 +6166,14 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             name : str
                 The registry name.
             count : int
-                Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+                Specifies where to start reading the file. If negative, the file is read from the begining. If
+                0 or positive, the file is read from the last count lines.
             context : Ice.Context
                 The request context for the invocation.
             
             Returns
             -------
-            IceGrid.FileIteratorPrx or None
+            (IceGrid.FileIteratorPrx or None)
                 An iterator to read the file. The returned proxy is never null.
             
             Raises
@@ -6079,7 +6196,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             name : str
                 The registry name.
             count : int
-                Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+                Specifies where to start reading the file. If negative, the file is read from the begining. If
+                0 or positive, the file is read from the last count lines.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -6099,13 +6217,14 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             name : str
                 The registry name.
             count : int
-                Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+                Specifies where to start reading the file. If negative, the file is read from the begining. If
+                0 or positive, the file is read from the last count lines.
             context : Ice.Context
                 The request context for the invocation.
             
             Returns
             -------
-            IceGrid.FileIteratorPrx or None
+            (IceGrid.FileIteratorPrx or None)
                 An iterator to read the file. The returned proxy is never null.
             
             Raises
@@ -6128,7 +6247,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             name : str
                 The registry name.
             count : int
-                Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+                Specifies where to start reading the file. If negative, the file is read from the begining. If
+                0 or positive, the file is read from the last count lines.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -6224,15 +6344,15 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             
             Parameters
             ----------
-            registryObs : IceGrid.RegistryObserverPrx or None
+            registryObs : (IceGrid.RegistryObserverPrx or None)
                 The registry observer.
-            nodeObs : IceGrid.NodeObserverPrx or None
+            nodeObs : (IceGrid.NodeObserverPrx or None)
                 The node observer.
-            appObs : IceGrid.ApplicationObserverPrx or None
+            appObs : (IceGrid.ApplicationObserverPrx or None)
                 The application observer.
-            adptObs : IceGrid.AdapterObserverPrx or None
+            adptObs : (IceGrid.AdapterObserverPrx or None)
                 The adapter observer.
-            objObs : IceGrid.ObjectObserverPrx or None
+            objObs : (IceGrid.ObjectObserverPrx or None)
                 The object observer.
             current : Ice.Current
                 The Current object for the dispatch.
@@ -6299,7 +6419,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             AccessDeniedException
-                Raised if the exclusive lock can't be acquired. This might happen if the lock is currently acquired by another session.
+                Raised if the exclusive lock can't be acquired. This might happen if the lock
+                is currently acquired by another session.
             """
             raise NotImplementedError("servant method 'startUpdate' not implemented")
 
@@ -6349,9 +6470,11 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             id : str
                 The server id.
             path : str
-                The path of the log file. A log file can be opened only if it's declared in the server or service deployment descriptor.
+                The path of the log file. A log file can be opened only if it's declared in the server or
+                service deployment descriptor.
             count : int
-                Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+                Specifies where to start reading the file. If negative, the file is read from the begining. If
+                0 or positive, the file is read from the last count lines.
             current : Ice.Current
                 The Current object for the dispatch.
             
@@ -6382,7 +6505,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             id : str
                 The server id.
             count : int
-                Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+                Specifies where to start reading the file. If negative, the file is read from the begining. If
+                0 or positive, the file is read from the last count lines.
             current : Ice.Current
                 The Current object for the dispatch.
             
@@ -6413,7 +6537,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             id : str
                 The server id.
             count : int
-                Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+                Specifies where to start reading the file. If negative, the file is read from the begining.
+                If 0 or positive, the file is read from the last count lines.
             current : Ice.Current
                 The Current object for the dispatch.
             
@@ -6444,7 +6569,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             name : str
                 The node name.
             count : int
-                Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+                Specifies where to start reading the file. If negative, the file is read from the begining. If
+                0 or positive, the file is read from the last count lines.
             current : Ice.Current
                 The Current object for the dispatch.
             
@@ -6473,7 +6599,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             name : str
                 The node name.
             count : int
-                Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+                Specifies where to start reading the file. If negative, the file is read from the begining. If
+                0 or positive, the file is read from the last count lines.
             current : Ice.Current
                 The Current object for the dispatch.
             
@@ -6502,7 +6629,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             name : str
                 The registry name.
             count : int
-                Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+                Specifies where to start reading the file. If negative, the file is read from the begining. If
+                0 or positive, the file is read from the last count lines.
             current : Ice.Current
                 The Current object for the dispatch.
             
@@ -6531,7 +6659,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             name : str
                 The registry name.
             count : int
-                Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
+                Specifies where to start reading the file. If negative, the file is read from the begining. If
+                0 or positive, the file is read from the last count lines.
             current : Ice.Current
                 The Current object for the dispatch.
             

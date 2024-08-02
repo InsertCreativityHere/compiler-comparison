@@ -97,7 +97,7 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
             
             Returns
             -------
-            Ice.ObjectPrx or None
+            (Ice.ObjectPrx or None)
                 The proxy of the allocated object. The returned proxy is never null.
             
             Raises
@@ -105,7 +105,8 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
             AllocationException
                 Raised if the object can't be allocated.
             ObjectNotRegisteredException
-                Raised if the object with the given identity is not registered with the registry.
+                Raised if the object with the given identity is not registered with
+                the registry.
             """
             return _M_IceGrid.Session._op_allocateObjectById.invoke(self, ((id, ), context))
 
@@ -142,7 +143,7 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
             
             Returns
             -------
-            Ice.ObjectPrx or None
+            (Ice.ObjectPrx or None)
                 The proxy of the allocated object. The returned proxy is never null.
             
             Raises
@@ -186,9 +187,11 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             AllocationException
-                Raised if the given object can't be released. This might happen if the object isn't allocatable or isn't allocated by the session.
+                Raised if the given object can't be released. This might happen if the object
+                isn't allocatable or isn't allocated by the session.
             ObjectNotRegisteredException
-                Raised if the object with the given identity is not registered with the registry.
+                Raised if the object with the given identity is not registered with
+                the registry.
             """
             return _M_IceGrid.Session._op_releaseObject.invoke(self, ((id, ), context))
 
@@ -314,7 +317,8 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
             AllocationException
                 Raised if the object can't be allocated.
             ObjectNotRegisteredException
-                Raised if the object with the given identity is not registered with the registry.
+                Raised if the object with the given identity is not registered with
+                the registry.
             """
             raise NotImplementedError("servant method 'allocateObjectById' not implemented")
 
@@ -362,9 +366,11 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
             Raises
             ------
             AllocationException
-                Raised if the given object can't be released. This might happen if the object isn't allocatable or isn't allocated by the session.
+                Raised if the given object can't be released. This might happen if the object
+                isn't allocatable or isn't allocated by the session.
             ObjectNotRegisteredException
-                Raised if the object with the given identity is not registered with the registry.
+                Raised if the object with the given identity is not registered with
+                the registry.
             """
             raise NotImplementedError("servant method 'releaseObject' not implemented")
 

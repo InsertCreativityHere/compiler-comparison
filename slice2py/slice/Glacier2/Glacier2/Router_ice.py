@@ -30,17 +30,17 @@ _M_Glacier2 = Ice.openModule('Glacier2')
 # Start of module Glacier2
 __name__ = 'Glacier2'
 _M_Glacier2.__doc__ = """
- Glacier2 is a firewall solution for Ice. Glacier2 authenticates and filters client requests and allows callbacks to
- the client in a secure fashion. In combination with IceSSL, Glacier2 provides a security solution that is both
- non-intrusive and easy to configure.
+Glacier2 is a firewall solution for Ice. Glacier2 authenticates and filters client requests and allows callbacks to
+the client in a secure fashion. In combination with IceSSL, Glacier2 provides a security solution that is both
+non-intrusive and easy to configure.
 """
 
 if 'SessionNotExistException' not in _M_Glacier2.__dict__:
     _M_Glacier2.SessionNotExistException = None
     class SessionNotExistException(Ice.UserException):
         """
-         This exception is raised if a client tries to destroy a session with a router, but no session exists for the
-         client.
+        This exception is raised if a client tries to destroy a session with a router, but no session exists for the
+        client.
         """
         def __init__(self):
             pass
@@ -136,7 +136,7 @@ if 'RouterPrx' not in _M_Glacier2.__dict__:
             
             Returns
             -------
-            Glacier2.SessionPrx or None
+            (Glacier2.SessionPrx or None)
                 A proxy for the newly created session, or null if no SessionManager has been installed.
             
             Raises
@@ -144,7 +144,8 @@ if 'RouterPrx' not in _M_Glacier2.__dict__:
             CannotCreateSessionException
                 Raised if the session cannot be created.
             PermissionDeniedException
-                Raised if the password for the given user id is not correct, or if the user is not allowed access.
+                Raised if the password for the given user id is not correct, or if the
+                user is not allowed access.
             """
             return _M_Glacier2.Router._op_createSession.invoke(self, ((userId, password), context))
 
@@ -190,7 +191,7 @@ if 'RouterPrx' not in _M_Glacier2.__dict__:
             
             Returns
             -------
-            Glacier2.SessionPrx or None
+            (Glacier2.SessionPrx or None)
                 A proxy for the newly created session, or null if no SessionManager has been installed.
             
             Raises
@@ -198,7 +199,8 @@ if 'RouterPrx' not in _M_Glacier2.__dict__:
             CannotCreateSessionException
                 Raised if the session cannot be created.
             PermissionDeniedException
-                Raised if the user cannot be authenticated or if the user is not allowed access.
+                Raised if the user cannot be authenticated or if the user is not allowed
+                access.
             """
             return _M_Glacier2.Router._op_createSessionFromSecureConnection.invoke(self, ((), context))
 
@@ -429,7 +431,8 @@ if 'RouterPrx' not in _M_Glacier2.__dict__:
             CannotCreateSessionException
                 Raised if the session cannot be created.
             PermissionDeniedException
-                Raised if the password for the given user id is not correct, or if the user is not allowed access.
+                Raised if the password for the given user id is not correct, or if the
+                user is not allowed access.
             """
             raise NotImplementedError("servant method 'createSession' not implemented")
 
@@ -458,7 +461,8 @@ if 'RouterPrx' not in _M_Glacier2.__dict__:
             CannotCreateSessionException
                 Raised if the session cannot be created.
             PermissionDeniedException
-                Raised if the user cannot be authenticated or if the user is not allowed access.
+                Raised if the user cannot be authenticated or if the user is not allowed
+                access.
             """
             raise NotImplementedError("servant method 'createSessionFromSecureConnection' not implemented")
 

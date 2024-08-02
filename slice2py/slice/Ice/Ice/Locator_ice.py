@@ -33,7 +33,7 @@ if 'AdapterNotFoundException' not in _M_Ice.__dict__:
     _M_Ice.AdapterNotFoundException = None
     class AdapterNotFoundException(Ice.UserException):
         """
-          This exception is raised if an adapter cannot be found.
+        This exception is raised if an adapter cannot be found.
         """
         def __init__(self):
             pass
@@ -55,7 +55,7 @@ if 'InvalidReplicaGroupIdException' not in _M_Ice.__dict__:
     _M_Ice.InvalidReplicaGroupIdException = None
     class InvalidReplicaGroupIdException(Ice.UserException):
         """
-         This exception is raised if the replica group provided by the server is invalid.
+        This exception is raised if the replica group provided by the server is invalid.
         """
         def __init__(self):
             pass
@@ -77,7 +77,7 @@ if 'AdapterAlreadyActiveException' not in _M_Ice.__dict__:
     _M_Ice.AdapterAlreadyActiveException = None
     class AdapterAlreadyActiveException(Ice.UserException):
         """
-         This exception is raised if a server tries to set endpoints for an adapter that is already active.
+        This exception is raised if a server tries to set endpoints for an adapter that is already active.
         """
         def __init__(self):
             pass
@@ -99,7 +99,7 @@ if 'ObjectNotFoundException' not in _M_Ice.__dict__:
     _M_Ice.ObjectNotFoundException = None
     class ObjectNotFoundException(Ice.UserException):
         """
-         This exception is raised if an object cannot be found.
+        This exception is raised if an object cannot be found.
         """
         def __init__(self):
             pass
@@ -121,7 +121,7 @@ if 'ServerNotFoundException' not in _M_Ice.__dict__:
     _M_Ice.ServerNotFoundException = None
     class ServerNotFoundException(Ice.UserException):
         """
-         This exception is raised if a server cannot be found.
+        This exception is raised if a server cannot be found.
         """
         def __init__(self):
             pass
@@ -179,7 +179,7 @@ if 'LocatorPrx' not in _M_Ice.__dict__:
             
             Returns
             -------
-            Ice.ObjectPrx or None
+            (Ice.ObjectPrx or None)
                 The proxy, or null if the object is not active.
             
             Raises
@@ -221,7 +221,7 @@ if 'LocatorPrx' not in _M_Ice.__dict__:
             
             Returns
             -------
-            Ice.ObjectPrx or None
+            (Ice.ObjectPrx or None)
                 The adapter proxy, or null if the adapter is not active.
             
             Raises
@@ -260,7 +260,7 @@ if 'LocatorPrx' not in _M_Ice.__dict__:
             
             Returns
             -------
-            Ice.LocatorRegistryPrx or None
+            (Ice.LocatorRegistryPrx or None)
                 The locator registry.
             """
             return _M_Ice.Locator._op_getRegistry.invoke(self, ((), context))
@@ -418,8 +418,9 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
             ----------
             id : str
                 The adapter id.
-            proxy : Ice.ObjectPrx or None
-                The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. The proxy can be null, typically during adapter deactivation.
+            proxy : (Ice.ObjectPrx or None)
+                The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+                adapter endpoints. The proxy can be null, typically during adapter deactivation.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -428,7 +429,8 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
             AdapterAlreadyActiveException
                 Raised if an adapter with the same id is already active.
             AdapterNotFoundException
-                Raised if the adapter cannot be found, or if the locator only allows registered adapters to set their active proxy and the adapter is not registered with the locator.
+                Raised if the adapter cannot be found, or if the locator only allows
+                registered adapters to set their active proxy and the adapter is not registered with the locator.
             """
             return _M_Ice.LocatorRegistry._op_setAdapterDirectProxy.invoke(self, ((id, proxy), context))
 
@@ -440,8 +442,9 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
             ----------
             id : str
                 The adapter id.
-            proxy : Ice.ObjectPrx or None
-                The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. The proxy can be null, typically during adapter deactivation.
+            proxy : (Ice.ObjectPrx or None)
+                The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+                adapter endpoints. The proxy can be null, typically during adapter deactivation.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -462,8 +465,9 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
                 The adapter id.
             replicaGroupId : str
                 The replica group id.
-            proxy : Ice.ObjectPrx or None
-                The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. The proxy can be null, typically during adapter deactivation.
+            proxy : (Ice.ObjectPrx or None)
+                The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+                adapter endpoints. The proxy can be null, typically during adapter deactivation.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -472,9 +476,11 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
             AdapterAlreadyActiveException
                 Raised if an adapter with the same id is already active.
             AdapterNotFoundException
-                Raised if the adapter cannot be found, or if the locator only allows registered adapters to set their active proxy and the adapter is not registered with the locator.
+                Raised if the adapter cannot be found, or if the locator only allows
+                registered adapters to set their active proxy and the adapter is not registered with the locator.
             InvalidReplicaGroupIdException
-                Raised if the given replica group doesn't match the one registered with the locator registry for this object adapter.
+                Raised if the given replica group doesn't match the one registered
+                with the locator registry for this object adapter.
             """
             return _M_Ice.LocatorRegistry._op_setReplicatedAdapterDirectProxy.invoke(self, ((adapterId, replicaGroupId, proxy), context))
 
@@ -488,8 +494,9 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
                 The adapter id.
             replicaGroupId : str
                 The replica group id.
-            proxy : Ice.ObjectPrx or None
-                The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. The proxy can be null, typically during adapter deactivation.
+            proxy : (Ice.ObjectPrx or None)
+                The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+                adapter endpoints. The proxy can be null, typically during adapter deactivation.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -508,7 +515,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
             ----------
             id : str
                 The server id.
-            proxy : Ice.ProcessPrx or None
+            proxy : (Ice.ProcessPrx or None)
                 The process proxy. The proxy is never null.
             context : Ice.Context
                 The request context for the invocation.
@@ -528,7 +535,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
             ----------
             id : str
                 The server id.
-            proxy : Ice.ProcessPrx or None
+            proxy : (Ice.ProcessPrx or None)
                 The process proxy. The proxy is never null.
             context : Ice.Context
                 The request context for the invocation.
@@ -577,8 +584,9 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
             ----------
             id : str
                 The adapter id.
-            proxy : Ice.ObjectPrx or None
-                The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. The proxy can be null, typically during adapter deactivation.
+            proxy : (Ice.ObjectPrx or None)
+                The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+                adapter endpoints. The proxy can be null, typically during adapter deactivation.
             current : Ice.Current
                 The Current object for the dispatch.
             
@@ -592,7 +600,8 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
             AdapterAlreadyActiveException
                 Raised if an adapter with the same id is already active.
             AdapterNotFoundException
-                Raised if the adapter cannot be found, or if the locator only allows registered adapters to set their active proxy and the adapter is not registered with the locator.
+                Raised if the adapter cannot be found, or if the locator only allows
+                registered adapters to set their active proxy and the adapter is not registered with the locator.
             """
             raise NotImplementedError("servant method 'setAdapterDirectProxy' not implemented")
 
@@ -606,8 +615,9 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
                 The adapter id.
             replicaGroupId : str
                 The replica group id.
-            proxy : Ice.ObjectPrx or None
-                The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. The proxy can be null, typically during adapter deactivation.
+            proxy : (Ice.ObjectPrx or None)
+                The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+                adapter endpoints. The proxy can be null, typically during adapter deactivation.
             current : Ice.Current
                 The Current object for the dispatch.
             
@@ -621,9 +631,11 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
             AdapterAlreadyActiveException
                 Raised if an adapter with the same id is already active.
             AdapterNotFoundException
-                Raised if the adapter cannot be found, or if the locator only allows registered adapters to set their active proxy and the adapter is not registered with the locator.
+                Raised if the adapter cannot be found, or if the locator only allows
+                registered adapters to set their active proxy and the adapter is not registered with the locator.
             InvalidReplicaGroupIdException
-                Raised if the given replica group doesn't match the one registered with the locator registry for this object adapter.
+                Raised if the given replica group doesn't match the one registered
+                with the locator registry for this object adapter.
             """
             raise NotImplementedError("servant method 'setReplicatedAdapterDirectProxy' not implemented")
 
@@ -635,7 +647,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
             ----------
             id : str
                 The server id.
-            proxy : Ice.ProcessPrx or None
+            proxy : (Ice.ProcessPrx or None)
                 The process proxy. The proxy is never null.
             current : Ice.Current
                 The Current object for the dispatch.
@@ -701,7 +713,7 @@ if 'LocatorFinderPrx' not in _M_Ice.__dict__:
             
             Returns
             -------
-            Ice.LocatorPrx or None
+            (Ice.LocatorPrx or None)
                 The locator proxy.
             """
             return _M_Ice.LocatorFinder._op_getLocator.invoke(self, ((), context))

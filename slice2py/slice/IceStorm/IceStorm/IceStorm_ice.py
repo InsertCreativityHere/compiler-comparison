@@ -30,9 +30,9 @@ _M_IceMX = Ice.openModule('IceMX')
 _M_IceStorm = Ice.openModule('IceStorm')
 __name__ = 'IceStorm'
 _M_IceStorm.__doc__ = """
- A messaging service with support for federation. In contrast to most other messaging or event services, IceStorm
- supports typed events, meaning that broadcasting a message over a federation is as easy as invoking a method on an
- interface.
+A messaging service with support for federation. In contrast to most other messaging or event services, IceStorm
+supports typed events, meaning that broadcasting a message over a federation is as easy as invoking a method on an
+interface.
 """
 
 if 'Topic' not in _M_IceStorm.__dict__:
@@ -43,11 +43,16 @@ if 'LinkInfo' not in _M_IceStorm.__dict__:
     _M_IceStorm.LinkInfo = None
     class LinkInfo(object):
         """
-          Information on the topic links.
-        Members:
-        theTopic --  The linked topic. It is never null.
-        name --  The name of the linked topic.
-        cost --  The cost of traversing this link.
+        Information on the topic links.
+        
+        Attributes
+        ----------
+        theTopic : (IceStorm.TopicPrx or None)
+            The linked topic. It is never null.
+        name : str
+            The name of the linked topic.
+        cost : int
+            The cost of traversing this link.
         """
         def __init__(self, theTopic=None, name='', cost=0):
             self.theTopic = theTopic
@@ -95,9 +100,12 @@ if 'LinkExists' not in _M_IceStorm.__dict__:
     _M_IceStorm.LinkExists = None
     class LinkExists(Ice.UserException):
         """
-         This exception indicates that an attempt was made to create a link that already exists.
-        Members:
-        name --  The name of the linked topic.
+        This exception indicates that an attempt was made to create a link that already exists.
+        
+        Attributes
+        ----------
+        name : str
+            The name of the linked topic.
         """
         def __init__(self, name=''):
             self.name = name
@@ -119,9 +127,12 @@ if 'NoSuchLink' not in _M_IceStorm.__dict__:
     _M_IceStorm.NoSuchLink = None
     class NoSuchLink(Ice.UserException):
         """
-         This exception indicates that an attempt was made to remove a link that does not exist.
-        Members:
-        name --  The name of the link that does not exist.
+        This exception indicates that an attempt was made to remove a link that does not exist.
+        
+        Attributes
+        ----------
+        name : str
+            The name of the link that does not exist.
         """
         def __init__(self, name=''):
             self.name = name
@@ -143,7 +154,7 @@ if 'AlreadySubscribed' not in _M_IceStorm.__dict__:
     _M_IceStorm.AlreadySubscribed = None
     class AlreadySubscribed(Ice.UserException):
         """
-          This exception indicates that an attempt was made to subscribe a proxy for which a subscription already exists.
+        This exception indicates that an attempt was made to subscribe a proxy for which a subscription already exists.
         """
         def __init__(self):
             pass
@@ -165,9 +176,12 @@ if 'InvalidSubscriber' not in _M_IceStorm.__dict__:
     _M_IceStorm.InvalidSubscriber = None
     class InvalidSubscriber(Ice.UserException):
         """
-         This exception indicates that an attempt was made to subscribe a proxy that is null.
-        Members:
-        reason --  The reason for the failure.
+        This exception indicates that an attempt was made to subscribe a proxy that is null.
+        
+        Attributes
+        ----------
+        reason : str
+            The reason for the failure.
         """
         def __init__(self, reason=''):
             self.reason = reason
@@ -189,9 +203,12 @@ if 'BadQoS' not in _M_IceStorm.__dict__:
     _M_IceStorm.BadQoS = None
     class BadQoS(Ice.UserException):
         """
-         This exception indicates that a subscription failed due to an invalid QoS.
-        Members:
-        reason --  The reason for the failure.
+        This exception indicates that a subscription failed due to an invalid QoS.
+        
+        Attributes
+        ----------
+        reason : str
+            The reason for the failure.
         """
         def __init__(self, reason=''):
             self.reason = reason
@@ -276,7 +293,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
             
             Returns
             -------
-            Ice.ObjectPrx or None
+            (Ice.ObjectPrx or None)
                 A proxy to publish data on this topic.
             """
             return _M_IceStorm.Topic._op_getPublisher.invoke(self, ((), context))
@@ -312,7 +329,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
             
             Returns
             -------
-            Ice.ObjectPrx or None
+            (Ice.ObjectPrx or None)
                 A proxy to publish data on this topic.
             """
             return _M_IceStorm.Topic._op_getNonReplicatedPublisher.invoke(self, ((), context))
@@ -343,14 +360,14 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
             ----------
             theQoS : dict where keys are str and values are str
                 The quality of service parameters for this subscription.
-            subscriber : Ice.ObjectPrx or None
+            subscriber : (Ice.ObjectPrx or None)
                 The subscriber's proxy. This proxy is never null.
             context : Ice.Context
                 The request context for the invocation.
             
             Returns
             -------
-            Ice.ObjectPrx or None
+            (Ice.ObjectPrx or None)
                 The per-subscriber publisher object. The returned object is never null.
             
             Raises
@@ -372,7 +389,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
             ----------
             theQoS : dict where keys are str and values are str
                 The quality of service parameters for this subscription.
-            subscriber : Ice.ObjectPrx or None
+            subscriber : (Ice.ObjectPrx or None)
                 The subscriber's proxy. This proxy is never null.
             context : Ice.Context
                 The request context for the invocation.
@@ -390,7 +407,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
             
             Parameters
             ----------
-            subscriber : Ice.ObjectPrx or None
+            subscriber : (Ice.ObjectPrx or None)
                 The proxy of an existing subscriber. This proxy is never null.
             context : Ice.Context
                 The request context for the invocation.
@@ -403,7 +420,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
             
             Parameters
             ----------
-            subscriber : Ice.ObjectPrx or None
+            subscriber : (Ice.ObjectPrx or None)
                 The proxy of an existing subscriber. This proxy is never null.
             context : Ice.Context
                 The request context for the invocation.
@@ -422,7 +439,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
             
             Parameters
             ----------
-            linkTo : IceStorm.TopicPrx or None
+            linkTo : (IceStorm.TopicPrx or None)
                 The topic to link to. This proxy is never null.
             cost : int
                 The cost to the linked topic.
@@ -443,7 +460,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
             
             Parameters
             ----------
-            linkTo : IceStorm.TopicPrx or None
+            linkTo : (IceStorm.TopicPrx or None)
                 The topic to link to. This proxy is never null.
             cost : int
                 The cost to the linked topic.
@@ -463,7 +480,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
             
             Parameters
             ----------
-            linkTo : IceStorm.TopicPrx or None
+            linkTo : (IceStorm.TopicPrx or None)
                 The topic to destroy the link to. This proxy is never null.
             context : Ice.Context
                 The request context for the invocation.
@@ -481,7 +498,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
             
             Parameters
             ----------
-            linkTo : IceStorm.TopicPrx or None
+            linkTo : (IceStorm.TopicPrx or None)
                 The topic to destroy the link to. This proxy is never null.
             context : Ice.Context
                 The request context for the invocation.
@@ -673,7 +690,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
             ----------
             theQoS : dict where keys are str and values are str
                 The quality of service parameters for this subscription.
-            subscriber : Ice.ObjectPrx or None
+            subscriber : (Ice.ObjectPrx or None)
                 The subscriber's proxy. This proxy is never null.
             current : Ice.Current
                 The Current object for the dispatch.
@@ -700,7 +717,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
             
             Parameters
             ----------
-            subscriber : Ice.ObjectPrx or None
+            subscriber : (Ice.ObjectPrx or None)
                 The proxy of an existing subscriber. This proxy is never null.
             current : Ice.Current
                 The Current object for the dispatch.
@@ -719,7 +736,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
             
             Parameters
             ----------
-            linkTo : IceStorm.TopicPrx or None
+            linkTo : (IceStorm.TopicPrx or None)
                 The topic to link to. This proxy is never null.
             cost : int
                 The cost to the linked topic.
@@ -744,7 +761,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
             
             Parameters
             ----------
-            linkTo : IceStorm.TopicPrx or None
+            linkTo : (IceStorm.TopicPrx or None)
                 The topic to destroy the link to. This proxy is never null.
             current : Ice.Current
                 The Current object for the dispatch.
@@ -838,9 +855,12 @@ if 'TopicExists' not in _M_IceStorm.__dict__:
     _M_IceStorm.TopicExists = None
     class TopicExists(Ice.UserException):
         """
-         This exception indicates that an attempt was made to create a topic that already exists.
-        Members:
-        name --  The name of the topic that already exists.
+        This exception indicates that an attempt was made to create a topic that already exists.
+        
+        Attributes
+        ----------
+        name : str
+            The name of the topic that already exists.
         """
         def __init__(self, name=''):
             self.name = name
@@ -862,9 +882,12 @@ if 'NoSuchTopic' not in _M_IceStorm.__dict__:
     _M_IceStorm.NoSuchTopic = None
     class NoSuchTopic(Ice.UserException):
         """
-         This exception indicates that an attempt was made to retrieve a topic that does not exist.
-        Members:
-        name --  The name of the topic that does not exist.
+        This exception indicates that an attempt was made to retrieve a topic that does not exist.
+        
+        Attributes
+        ----------
+        name : str
+            The name of the topic that does not exist.
         """
         def __init__(self, name=''):
             self.name = name
@@ -917,7 +940,7 @@ if 'TopicManagerPrx' not in _M_IceStorm.__dict__:
             
             Returns
             -------
-            IceStorm.TopicPrx or None
+            (IceStorm.TopicPrx or None)
                 A proxy to the topic instance. The returned proxy is never null.
             
             Raises
@@ -958,7 +981,7 @@ if 'TopicManagerPrx' not in _M_IceStorm.__dict__:
             
             Returns
             -------
-            IceStorm.TopicPrx or None
+            (IceStorm.TopicPrx or None)
                 A proxy to the topic instance. The returned proxy is never null.
             
             Raises
@@ -997,7 +1020,7 @@ if 'TopicManagerPrx' not in _M_IceStorm.__dict__:
             
             Returns
             -------
-            dict where keys are str and values are IceStorm.TopicPrx or None
+            dict where keys are str and values are (IceStorm.TopicPrx or None)
                 A dictionary of string, topic proxy pairs.
             """
             return _M_IceStorm.TopicManager._op_retrieveAll.invoke(self, ((), context))
@@ -1157,7 +1180,7 @@ if 'FinderPrx' not in _M_IceStorm.__dict__:
             
             Returns
             -------
-            IceStorm.TopicManagerPrx or None
+            (IceStorm.TopicManagerPrx or None)
                 The topic manager proxy. The returned proxy is never null.
             """
             return _M_IceStorm.Finder._op_getTopicManager.invoke(self, ((), context))

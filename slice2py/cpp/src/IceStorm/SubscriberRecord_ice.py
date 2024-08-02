@@ -36,12 +36,16 @@ if 'SubscriberRecordKey' not in _M_IceStorm.__dict__:
     _M_IceStorm.SubscriberRecordKey = None
     class SubscriberRecordKey(object):
         """
-         The key for persistent subscribers, or topics.
-         If the subscriber identity is empty then the record is used as a place holder for the creation of a topic,
-         otherwise the record holds a subscription record.
-        Members:
-        topic --  The topic identity.
-        id --  The identity of the subscriber. If this is empty then the key is a placeholder for a topic.
+        The key for persistent subscribers, or topics.
+        If the subscriber identity is empty then the record is used as a place holder for the creation of a topic,
+        otherwise the record holds a subscription record.
+        
+        Attributes
+        ----------
+        topic : Ice.Identity
+            The topic identity.
+        id : Ice.Identity
+            The identity of the subscriber. If this is empty then the key is a placeholder for a topic.
         """
         def __init__(self, topic=None, id=None):
             self.topic = topic if topic is not None else _M_Ice.Identity()
@@ -136,15 +140,24 @@ if 'SubscriberRecord' not in _M_IceStorm.__dict__:
     _M_IceStorm.SubscriberRecord = None
     class SubscriberRecord(object):
         """
-         Used to store persistent information for persistent subscribers.
-        Members:
-        topicName --  The name of the topic.
-        id --  The subscriber identity.
-        link --  Is this a link record, or a subscriber record?
-        obj --  The subscriber object.
-        theQoS --  The QoS.
-        cost --  The cost.
-        theTopic --  The linked topic.
+        Used to store persistent information for persistent subscribers.
+        
+        Attributes
+        ----------
+        topicName : str
+            The name of the topic.
+        id : Ice.Identity
+            The subscriber identity.
+        link : bool
+            Is this a link record, or a subscriber record?
+        obj : (Ice.ObjectPrx or None)
+            The subscriber object.
+        theQoS : dict where keys are str and values are str
+            The QoS.
+        cost : int
+            The cost.
+        theTopic : (IceStorm.TopicPrx or None)
+            The linked topic.
         """
         def __init__(self, topicName='', id=None, link=False, obj=None, theQoS=None, cost=0, theTopic=None):
             self.topicName = topicName

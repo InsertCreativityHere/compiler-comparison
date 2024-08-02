@@ -35,9 +35,12 @@ if 'ParseException' not in _M_IceGrid.__dict__:
     _M_IceGrid.ParseException = None
     class ParseException(Ice.UserException):
         """
-         This exception is raised if an error occurs during parsing.
-        Members:
-        reason --  The reason for the failure.
+        This exception is raised if an error occurs during parsing.
+        
+        Attributes
+        ----------
+        reason : str
+            The reason for the failure.
         """
         def __init__(self, reason=''):
             self.reason = reason
@@ -85,7 +88,7 @@ if 'FileParserPrx' not in _M_IceGrid.__dict__:
             ----------
             xmlFile : str
                 Full pathname to the file.
-            adminProxy : IceGrid.AdminPrx or None
+            adminProxy : (IceGrid.AdminPrx or None)
                 An Admin proxy, used only to retrieve default templates when needed. May be null.
             context : Ice.Context
                 The request context for the invocation.
@@ -110,7 +113,7 @@ if 'FileParserPrx' not in _M_IceGrid.__dict__:
             ----------
             xmlFile : str
                 Full pathname to the file.
-            adminProxy : IceGrid.AdminPrx or None
+            adminProxy : (IceGrid.AdminPrx or None)
                 An Admin proxy, used only to retrieve default templates when needed. May be null.
             context : Ice.Context
                 The request context for the invocation.
@@ -159,7 +162,7 @@ if 'FileParserPrx' not in _M_IceGrid.__dict__:
             ----------
             xmlFile : str
                 Full pathname to the file.
-            adminProxy : IceGrid.AdminPrx or None
+            adminProxy : (IceGrid.AdminPrx or None)
                 An Admin proxy, used only to retrieve default templates when needed. May be null.
             current : Ice.Current
                 The Current object for the dispatch.

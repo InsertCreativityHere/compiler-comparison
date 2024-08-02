@@ -59,12 +59,15 @@ if 'RouterPrx' not in _M_Ice.__dict__:
             
             Returns
             -------
-            Returns a tuple of (Ice.ObjectPrx or None, bool or None)
+            Returns a tuple of ((Ice.ObjectPrx or None), (bool or None))
                 A tuple containing:
-                - Ice.ObjectPrx or None
+                - (Ice.ObjectPrx or None)
                     The router's client proxy.
-                - bool or None
-                    Indicates whether or not the router supports a routing table. If it is supported, the Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting with Ice 3.7. The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
+                - (bool or None)
+                    Indicates whether or not the router supports a routing table. If it is supported, the
+                    Ice runtime will call addProxies to populate the routing table. This out parameter is only supported
+                    starting with Ice 3.7.
+                    The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
             """
             return _M_Ice.Router._op_getClientProxy.invoke(self, ((), context))
 
@@ -96,7 +99,7 @@ if 'RouterPrx' not in _M_Ice.__dict__:
             
             Returns
             -------
-            Ice.ObjectPrx or None
+            (Ice.ObjectPrx or None)
                 The router's server proxy.
             """
             return _M_Ice.Router._op_getServerProxy.invoke(self, ((), context))
@@ -123,14 +126,14 @@ if 'RouterPrx' not in _M_Ice.__dict__:
             
             Parameters
             ----------
-            proxies : Ice.ObjectPrx or None[]
+            proxies : (Ice.ObjectPrx or None)[]
                 The proxies to add. Adding a null proxy is an error.
             context : Ice.Context
                 The request context for the invocation.
             
             Returns
             -------
-            Ice.ObjectPrx or None[]
+            (Ice.ObjectPrx or None)[]
                 Proxies discarded by the router. These proxies are all non-null.
             """
             return _M_Ice.Router._op_addProxies.invoke(self, ((proxies, ), context))
@@ -141,7 +144,7 @@ if 'RouterPrx' not in _M_Ice.__dict__:
             
             Parameters
             ----------
-            proxies : Ice.ObjectPrx or None[]
+            proxies : (Ice.ObjectPrx or None)[]
                 The proxies to add. Adding a null proxy is an error.
             context : Ice.Context
                 The request context for the invocation.
@@ -221,7 +224,7 @@ if 'RouterPrx' not in _M_Ice.__dict__:
             
             Parameters
             ----------
-            proxies : Ice.ObjectPrx or None[]
+            proxies : (Ice.ObjectPrx or None)[]
                 The proxies to add. Adding a null proxy is an error.
             current : Ice.Current
                 The Current object for the dispatch.
@@ -282,7 +285,7 @@ if 'RouterFinderPrx' not in _M_Ice.__dict__:
             
             Returns
             -------
-            Ice.RouterPrx or None
+            (Ice.RouterPrx or None)
                 The router proxy.
             """
             return _M_Ice.RouterFinder._op_getRouter.invoke(self, ((), context))
