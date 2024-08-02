@@ -1383,6 +1383,12 @@ namespace IceStorm
 
         public abstract void reap(global::Ice.Identity[] id, Ice.Current current);
 
+        public abstract string getName(Ice.Current current);
+
+        public abstract global::Ice.ObjectPrx? getPublisher(Ice.Current current);
+
+        public abstract global::Ice.ObjectPrx? getNonReplicatedPublisher(Ice.Current current);
+
         public abstract global::Ice.ObjectPrx? subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx? subscriber, Ice.Current current);
 
         public abstract void unsubscribe(global::Ice.ObjectPrx? subscriber, Ice.Current current);
@@ -1396,12 +1402,6 @@ namespace IceStorm
         public abstract global::Ice.Identity[] getSubscribers(Ice.Current current);
 
         public abstract void destroy(Ice.Current current);
-
-        public abstract string getName(Ice.Current current);
-
-        public abstract global::Ice.ObjectPrx? getPublisher(Ice.Current current);
-
-        public abstract global::Ice.ObjectPrx? getNonReplicatedPublisher(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
