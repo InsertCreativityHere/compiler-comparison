@@ -71,5 +71,5 @@ public class InvalidSubscriber extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -1090058584173282188L;
+    private static final long serialVersionUID = -1090054916247373435L;
 }
