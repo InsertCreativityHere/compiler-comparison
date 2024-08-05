@@ -811,9 +811,9 @@ public extension ThrowerPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as D {
-                                  throw error
                               } catch let error as A {
+                                  throw error
+                              } catch let error as D {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -835,9 +835,9 @@ public extension ThrowerPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
-                                                } catch let error as D {
-                                                    throw error
                                                 } catch let error as A {
+                                                    throw error
+                                                } catch let error as D {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
