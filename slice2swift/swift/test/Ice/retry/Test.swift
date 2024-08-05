@@ -38,10 +38,6 @@ public struct RetryTraits: Ice.SliceTraits {
 ///
 ///  - opNotIdempotentAsync: 
 ///
-///  - sleep: 
-///
-///  - sleepAsync: 
-///
 ///  - shutdown: 
 ///
 ///  - shutdownAsync: 
@@ -148,10 +144,6 @@ public extension Ice.InputStream {
 ///
 ///  - opNotIdempotentAsync: 
 ///
-///  - sleep: 
-///
-///  - sleepAsync: 
-///
 ///  - shutdown: 
 ///
 ///  - shutdownAsync: 
@@ -241,34 +233,6 @@ public extension RetryPrx {
     }
 
     ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func sleep(_ iceP_delay: Swift.Int32, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "sleep",
-                          mode: .Idempotent,
-                          write: { ostr in
-                              ostr.write(iceP_delay)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func sleepAsync(_ iceP_delay: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "sleep",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_delay)
-                                            },
-                                            context: context)
-    }
-
-    ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "shutdown",
@@ -300,13 +264,13 @@ public struct RetryDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? RetryDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? RetryDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? RetryDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? RetryDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? RetryDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? RetryDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? RetryDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? RetryDisp.defaultObject)._iceD_ice_ping(request)
         case "op":
             try await servant._iceD_op(request)
         case "opIdempotent":
@@ -315,8 +279,6 @@ public struct RetryDisp: Ice.Dispatcher {
             try await servant._iceD_opNotIdempotent(request)
         case "shutdown":
             try await servant._iceD_shutdown(request)
-        case "sleep":
-            try await servant._iceD_sleep(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -328,29 +290,29 @@ public protocol Retry {
     /// - parameter kill: `Swift.Bool`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func op(kill: Swift.Bool, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func op(kill: Swift.Bool, current: Ice.Current) async throws
 
     ///
     /// - parameter c: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32`
-    func opIdempotent(c: Swift.Int32, current: Ice.Current) throws -> Swift.Int32
+    /// - returns: `Swift.Int32` - The result of the operation
+    func opIdempotent(c: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func opNotIdempotent(current: Ice.Current) throws
-
     ///
-    /// - parameter delay: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func sleep(delay: Swift.Int32, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func opNotIdempotent(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// Retry overview.
@@ -363,8 +325,6 @@ public protocol Retry {
 ///
 ///  - opNotIdempotent: 
 ///
-///  - sleep: 
-///
 ///  - shutdown: 
 extension Retry {
     public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -372,8 +332,7 @@ extension Retry {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_kill: Swift.Bool = try istr.read()
-
-        try self.op(kill: iceP_kill, current: request.current)
+        try await self.op(kill: iceP_kill, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -382,38 +341,24 @@ extension Retry {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_c: Swift.Int32 = try istr.read()
-
-        let iceP_returnValue = try self.opIdempotent(c: iceP_c, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opIdempotent(c: iceP_c, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opNotIdempotent(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.opNotIdempotent(current: request.current)
-        return request.current.makeEmptyOutgoingResponse()
-    }
-
-    public func _iceD_sleep(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
-        
-        let istr = request.inputStream
-        _ = try istr.startEncapsulation()
-        let iceP_delay: Swift.Int32 = try istr.read()
-
-        try self.sleep(delay: iceP_delay, current: request.current)
+        try await self.opNotIdempotent(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

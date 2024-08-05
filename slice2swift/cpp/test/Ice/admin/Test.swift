@@ -792,13 +792,13 @@ public struct RemoteCommunicatorDisp: Ice.Dispatcher {
         case "getChanges":
             try await servant._iceD_getChanges(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? RemoteCommunicatorDisp.defaultObject)._iceD_ice_ping(request)
         case "print":
             try await servant._iceD_print(request)
         case "removeUpdateCallback":
@@ -821,28 +821,34 @@ public protocol RemoteCommunicator {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?`
-    func getAdmin(current: Ice.Current) throws -> Ice.ObjectPrx?
+    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    func getAdmin(current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.PropertyDict`
-    func getChanges(current: Ice.Current) throws -> Ice.PropertyDict
+    /// - returns: `Ice.PropertyDict` - The result of the operation
+    func getChanges(current: Ice.Current) async throws -> Ice.PropertyDict
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func addUpdateCallback(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func addUpdateCallback(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func removeUpdateCallback(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func removeUpdateCallback(current: Ice.Current) async throws
 
     ///
     /// - parameter message: `Swift.String`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func print(message: Swift.String, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func print(message: Swift.String, current: Ice.Current) async throws
 
     ///
     /// - parameter category: `Swift.String`
@@ -850,31 +856,43 @@ public protocol RemoteCommunicator {
     /// - parameter message: `Swift.String`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func trace(category: Swift.String, message: Swift.String, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func trace(category: Swift.String, message: Swift.String, current: Ice.Current) async throws
 
     ///
     /// - parameter message: `Swift.String`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func warning(message: Swift.String, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func warning(message: Swift.String, current: Ice.Current) async throws
 
     ///
     /// - parameter message: `Swift.String`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func error(message: Swift.String, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func error(message: Swift.String, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func waitForShutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func waitForShutdown(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func destroy(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func destroy(current: Ice.Current) async throws
 }
 
 
@@ -892,13 +910,13 @@ public struct RemoteCommunicatorFactoryDisp: Ice.Dispatcher {
         case "createCommunicator":
             try await servant._iceD_createCommunicator(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? RemoteCommunicatorFactoryDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? RemoteCommunicatorFactoryDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? RemoteCommunicatorFactoryDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? RemoteCommunicatorFactoryDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? RemoteCommunicatorFactoryDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? RemoteCommunicatorFactoryDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? RemoteCommunicatorFactoryDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? RemoteCommunicatorFactoryDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
             try await servant._iceD_shutdown(request)
         default:
@@ -913,12 +931,14 @@ public protocol RemoteCommunicatorFactory {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `RemoteCommunicatorPrx?`
-    func createCommunicator(props: Ice.PropertyDict, current: Ice.Current) throws -> RemoteCommunicatorPrx?
+    /// - returns: `RemoteCommunicatorPrx?` - The result of the operation
+    func createCommunicator(props: Ice.PropertyDict, current: Ice.Current) async throws -> RemoteCommunicatorPrx?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 
@@ -934,13 +954,13 @@ public struct TestFacetDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_ping(request)
         case "op":
             try await servant._iceD_op(request)
         default:
@@ -952,7 +972,9 @@ public struct TestFacetDisp: Ice.Dispatcher {
 public protocol TestFacet {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func op(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func op(current: Ice.Current) async throws
 }
 
 /// RemoteCommunicator overview.
@@ -984,40 +1006,34 @@ extension RemoteCommunicator {
     public func _iceD_getAdmin(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getAdmin(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getAdmin(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getChanges(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getChanges(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        Ice.PropertyDictHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getChanges(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            Ice.PropertyDictHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_addUpdateCallback(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.addUpdateCallback(current: request.current)
+        try await self.addUpdateCallback(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_removeUpdateCallback(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.removeUpdateCallback(current: request.current)
+        try await self.removeUpdateCallback(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1026,8 +1042,7 @@ extension RemoteCommunicator {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_message: Swift.String = try istr.read()
-
-        try self.print(message: iceP_message, current: request.current)
+        try await self.print(message: iceP_message, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1037,8 +1052,7 @@ extension RemoteCommunicator {
         _ = try istr.startEncapsulation()
         let iceP_category: Swift.String = try istr.read()
         let iceP_message: Swift.String = try istr.read()
-
-        try self.trace(category: iceP_category, message: iceP_message, current: request.current)
+        try await self.trace(category: iceP_category, message: iceP_message, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1047,8 +1061,7 @@ extension RemoteCommunicator {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_message: Swift.String = try istr.read()
-
-        try self.warning(message: iceP_message, current: request.current)
+        try await self.warning(message: iceP_message, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1057,32 +1070,28 @@ extension RemoteCommunicator {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_message: Swift.String = try istr.read()
-
-        try self.error(message: iceP_message, current: request.current)
+        try await self.error(message: iceP_message, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_waitForShutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.waitForShutdown(current: request.current)
+        try await self.waitForShutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_destroy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.destroy(current: request.current)
+        try await self.destroy(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -1100,20 +1109,17 @@ extension RemoteCommunicatorFactory {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_props: Ice.PropertyDict = try Ice.PropertyDictHelper.read(from: istr)
-
-        let iceP_returnValue = try self.createCommunicator(props: iceP_props, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.createCommunicator(props: iceP_props, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -1127,8 +1133,7 @@ extension TestFacet {
     public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.op(current: request.current)
+        try await self.op(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

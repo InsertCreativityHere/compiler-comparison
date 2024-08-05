@@ -637,13 +637,13 @@ public struct TestLocatorRegistryDisp: Ice.Dispatcher {
         case "addObject":
             try await servant._iceD_addObject(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? TestLocatorRegistryDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TestLocatorRegistryDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TestLocatorRegistryDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TestLocatorRegistryDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TestLocatorRegistryDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TestLocatorRegistryDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TestLocatorRegistryDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TestLocatorRegistryDisp.defaultObject)._iceD_ice_ping(request)
         case "setAdapterDirectProxy":
             try await servant._iceD_setAdapterDirectProxy(request)
         case "setReplicatedAdapterDirectProxy":
@@ -661,7 +661,9 @@ public protocol TestLocatorRegistry: Ice.LocatorRegistry {
     /// - parameter obj: `Ice.ObjectPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func addObject(obj: Ice.ObjectPrx?, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func addObject(obj: Ice.ObjectPrx?, current: Ice.Current) async throws
 }
 
 
@@ -677,13 +679,13 @@ public struct ServerManagerDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? ServerManagerDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? ServerManagerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? ServerManagerDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? ServerManagerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? ServerManagerDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? ServerManagerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? ServerManagerDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? ServerManagerDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
             try await servant._iceD_shutdown(request)
         case "startServer":
@@ -697,11 +699,15 @@ public struct ServerManagerDisp: Ice.Dispatcher {
 public protocol ServerManager {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func startServer(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func startServer(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 
@@ -717,13 +723,13 @@ public struct HelloDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? HelloDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? HelloDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? HelloDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? HelloDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? HelloDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? HelloDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? HelloDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? HelloDisp.defaultObject)._iceD_ice_ping(request)
         case "sayHello":
             try await servant._iceD_sayHello(request)
         default:
@@ -735,7 +741,9 @@ public struct HelloDisp: Ice.Dispatcher {
 public protocol Hello {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func sayHello(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func sayHello(current: Ice.Current) async throws
 }
 
 
@@ -753,13 +761,13 @@ public struct TestIntfDisp: Ice.Dispatcher {
         case "getHello":
             try await servant._iceD_getHello(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
         case "migrateHello":
             try await servant._iceD_migrateHello(request)
         case "shutdown":
@@ -773,17 +781,21 @@ public struct TestIntfDisp: Ice.Dispatcher {
 public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `HelloPrx?`
-    func getHello(current: Ice.Current) throws -> HelloPrx?
+    /// - returns: `HelloPrx?` - The result of the operation
+    func getHello(current: Ice.Current) async throws -> HelloPrx?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func migrateHello(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func migrateHello(current: Ice.Current) async throws
 }
 
 /// TestLocatorRegistry overview.
@@ -797,8 +809,7 @@ extension TestLocatorRegistry {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_obj: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-
-        try self.addObject(obj: iceP_obj, current: request.current)
+        try await self.addObject(obj: iceP_obj, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -814,16 +825,14 @@ extension ServerManager {
     public func _iceD_startServer(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.startServer(current: request.current)
+        try await self.startServer(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -837,8 +846,7 @@ extension Hello {
     public func _iceD_sayHello(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.sayHello(current: request.current)
+        try await self.sayHello(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -856,28 +864,24 @@ extension TestIntf {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_getHello(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getHello(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getHello(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_migrateHello(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.migrateHello(current: request.current)
+        try await self.migrateHello(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

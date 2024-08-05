@@ -1000,13 +1000,13 @@ public struct NumPyCustomDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? NumPyCustomDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? NumPyCustomDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? NumPyCustomDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? NumPyCustomDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? NumPyCustomDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? NumPyCustomDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? NumPyCustomDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? NumPyCustomDisp.defaultObject)._iceD_ice_ping(request)
         case "opBogusNumpyArrayType":
             try await servant._iceD_opBogusNumpyArrayType(request)
         case "opBoolMatrix":
@@ -1055,152 +1055,126 @@ public protocol NumPyCustom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: NumPyBoolSeq1, v2: NumPyBoolSeq2)`:
-    ///
-    ///   - returnValue: `NumPyBoolSeq1`
-    ///
-    ///   - v2: `NumPyBoolSeq2`
-    func opBoolSeq(v1: NumPyBoolSeq1, current: Ice.Current) throws -> (returnValue: NumPyBoolSeq1, v2: NumPyBoolSeq2)
+    /// - returns: `(returnValue: NumPyBoolSeq1, v2: NumPyBoolSeq2)` - The result of the operation
+    func opBoolSeq(v1: NumPyBoolSeq1, current: Ice.Current) async throws -> (returnValue: NumPyBoolSeq1, v2: NumPyBoolSeq2)
 
     ///
     /// - parameter v1: `NumPyByteSeq1`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: NumPyByteSeq1, v2: NumPyByteSeq2)`:
-    ///
-    ///   - returnValue: `NumPyByteSeq1`
-    ///
-    ///   - v2: `NumPyByteSeq2`
-    func opByteSeq(v1: NumPyByteSeq1, current: Ice.Current) throws -> (returnValue: NumPyByteSeq1, v2: NumPyByteSeq2)
+    /// - returns: `(returnValue: NumPyByteSeq1, v2: NumPyByteSeq2)` - The result of the operation
+    func opByteSeq(v1: NumPyByteSeq1, current: Ice.Current) async throws -> (returnValue: NumPyByteSeq1, v2: NumPyByteSeq2)
 
     ///
     /// - parameter v1: `NumPyShortSeq1`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: NumPyShortSeq1, v2: NumPyShortSeq2)`:
-    ///
-    ///   - returnValue: `NumPyShortSeq1`
-    ///
-    ///   - v2: `NumPyShortSeq2`
-    func opShortSeq(v1: NumPyShortSeq1, current: Ice.Current) throws -> (returnValue: NumPyShortSeq1, v2: NumPyShortSeq2)
+    /// - returns: `(returnValue: NumPyShortSeq1, v2: NumPyShortSeq2)` - The result of the operation
+    func opShortSeq(v1: NumPyShortSeq1, current: Ice.Current) async throws -> (returnValue: NumPyShortSeq1, v2: NumPyShortSeq2)
 
     ///
     /// - parameter v1: `NumPyIntSeq1`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: NumPyIntSeq1, v2: NumPyIntSeq2)`:
-    ///
-    ///   - returnValue: `NumPyIntSeq1`
-    ///
-    ///   - v2: `NumPyIntSeq2`
-    func opIntSeq(v1: NumPyIntSeq1, current: Ice.Current) throws -> (returnValue: NumPyIntSeq1, v2: NumPyIntSeq2)
+    /// - returns: `(returnValue: NumPyIntSeq1, v2: NumPyIntSeq2)` - The result of the operation
+    func opIntSeq(v1: NumPyIntSeq1, current: Ice.Current) async throws -> (returnValue: NumPyIntSeq1, v2: NumPyIntSeq2)
 
     ///
     /// - parameter v1: `NumPyLongSeq1`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: NumPyLongSeq1, v2: NumPyLongSeq2)`:
-    ///
-    ///   - returnValue: `NumPyLongSeq1`
-    ///
-    ///   - v2: `NumPyLongSeq2`
-    func opLongSeq(v1: NumPyLongSeq1, current: Ice.Current) throws -> (returnValue: NumPyLongSeq1, v2: NumPyLongSeq2)
+    /// - returns: `(returnValue: NumPyLongSeq1, v2: NumPyLongSeq2)` - The result of the operation
+    func opLongSeq(v1: NumPyLongSeq1, current: Ice.Current) async throws -> (returnValue: NumPyLongSeq1, v2: NumPyLongSeq2)
 
     ///
     /// - parameter v1: `NumPyFloatSeq1`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: NumPyFloatSeq1, v2: NumPyFloatSeq2)`:
-    ///
-    ///   - returnValue: `NumPyFloatSeq1`
-    ///
-    ///   - v2: `NumPyFloatSeq2`
-    func opFloatSeq(v1: NumPyFloatSeq1, current: Ice.Current) throws -> (returnValue: NumPyFloatSeq1, v2: NumPyFloatSeq2)
+    /// - returns: `(returnValue: NumPyFloatSeq1, v2: NumPyFloatSeq2)` - The result of the operation
+    func opFloatSeq(v1: NumPyFloatSeq1, current: Ice.Current) async throws -> (returnValue: NumPyFloatSeq1, v2: NumPyFloatSeq2)
 
     ///
     /// - parameter v1: `NumPyDoubleSeq1`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: NumPyDoubleSeq1, v2: NumPyDoubleSeq2)`:
-    ///
-    ///   - returnValue: `NumPyDoubleSeq1`
-    ///
-    ///   - v2: `NumPyDoubleSeq2`
-    func opDoubleSeq(v1: NumPyDoubleSeq1, current: Ice.Current) throws -> (returnValue: NumPyDoubleSeq1, v2: NumPyDoubleSeq2)
+    /// - returns: `(returnValue: NumPyDoubleSeq1, v2: NumPyDoubleSeq2)` - The result of the operation
+    func opDoubleSeq(v1: NumPyDoubleSeq1, current: Ice.Current) async throws -> (returnValue: NumPyDoubleSeq1, v2: NumPyDoubleSeq2)
 
     ///
     /// - parameter v1: `NumPyComplex128Seq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NumPyComplex128Seq`
-    func opComplex128Seq(v1: NumPyComplex128Seq, current: Ice.Current) throws -> NumPyComplex128Seq
+    /// - returns: `NumPyComplex128Seq` - The result of the operation
+    func opComplex128Seq(v1: NumPyComplex128Seq, current: Ice.Current) async throws -> NumPyComplex128Seq
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NumPyBoolSeq1`
-    func opBoolMatrix(current: Ice.Current) throws -> NumPyBoolSeq1
+    /// - returns: `NumPyBoolSeq1` - The result of the operation
+    func opBoolMatrix(current: Ice.Current) async throws -> NumPyBoolSeq1
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NumPyByteSeq1`
-    func opByteMatrix(current: Ice.Current) throws -> NumPyByteSeq1
+    /// - returns: `NumPyByteSeq1` - The result of the operation
+    func opByteMatrix(current: Ice.Current) async throws -> NumPyByteSeq1
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NumPyShortSeq1`
-    func opShortMatrix(current: Ice.Current) throws -> NumPyShortSeq1
+    /// - returns: `NumPyShortSeq1` - The result of the operation
+    func opShortMatrix(current: Ice.Current) async throws -> NumPyShortSeq1
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NumPyIntSeq1`
-    func opIntMatrix(current: Ice.Current) throws -> NumPyIntSeq1
+    /// - returns: `NumPyIntSeq1` - The result of the operation
+    func opIntMatrix(current: Ice.Current) async throws -> NumPyIntSeq1
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NumPyLongSeq1`
-    func opLongMatrix(current: Ice.Current) throws -> NumPyLongSeq1
+    /// - returns: `NumPyLongSeq1` - The result of the operation
+    func opLongMatrix(current: Ice.Current) async throws -> NumPyLongSeq1
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NumPyFloatSeq1`
-    func opFloatMatrix(current: Ice.Current) throws -> NumPyFloatSeq1
+    /// - returns: `NumPyFloatSeq1` - The result of the operation
+    func opFloatMatrix(current: Ice.Current) async throws -> NumPyFloatSeq1
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NumPyDoubleSeq1`
-    func opDoubleMatrix(current: Ice.Current) throws -> NumPyDoubleSeq1
+    /// - returns: `NumPyDoubleSeq1` - The result of the operation
+    func opDoubleMatrix(current: Ice.Current) async throws -> NumPyDoubleSeq1
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NumPyBoolSeq1`
-    func opBogusNumpyArrayType(current: Ice.Current) throws -> NumPyBoolSeq1
+    /// - returns: `NumPyBoolSeq1` - The result of the operation
+    func opBogusNumpyArrayType(current: Ice.Current) async throws -> NumPyBoolSeq1
 
     ///
     /// - parameter d: `NumPyD?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NumPyD?`
-    func opD(d: NumPyD?, current: Ice.Current) throws -> NumPyD?
+    /// - returns: `NumPyD?` - The result of the operation
+    func opD(d: NumPyD?, current: Ice.Current) async throws -> NumPyD?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// NumPyCustom overview.
@@ -1248,14 +1222,12 @@ extension NumPyCustom {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_v1: NumPyBoolSeq1 = try istr.read()
-
-        let (iceP_returnValue, iceP_v2) = try self.opBoolSeq(v1: iceP_v1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_v2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opBoolSeq(v1: iceP_v1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_v2) = value
+            ostr.write(iceP_v2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opByteSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1263,14 +1235,12 @@ extension NumPyCustom {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_v1: NumPyByteSeq1 = try istr.read()
-
-        let (iceP_returnValue, iceP_v2) = try self.opByteSeq(v1: iceP_v1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_v2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opByteSeq(v1: iceP_v1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_v2) = value
+            ostr.write(iceP_v2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opShortSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1278,14 +1248,12 @@ extension NumPyCustom {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_v1: NumPyShortSeq1 = try istr.read()
-
-        let (iceP_returnValue, iceP_v2) = try self.opShortSeq(v1: iceP_v1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_v2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opShortSeq(v1: iceP_v1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_v2) = value
+            ostr.write(iceP_v2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opIntSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1293,14 +1261,12 @@ extension NumPyCustom {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_v1: NumPyIntSeq1 = try istr.read()
-
-        let (iceP_returnValue, iceP_v2) = try self.opIntSeq(v1: iceP_v1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_v2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opIntSeq(v1: iceP_v1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_v2) = value
+            ostr.write(iceP_v2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opLongSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1308,14 +1274,12 @@ extension NumPyCustom {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_v1: NumPyLongSeq1 = try istr.read()
-
-        let (iceP_returnValue, iceP_v2) = try self.opLongSeq(v1: iceP_v1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_v2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opLongSeq(v1: iceP_v1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_v2) = value
+            ostr.write(iceP_v2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opFloatSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1323,14 +1287,12 @@ extension NumPyCustom {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_v1: NumPyFloatSeq1 = try istr.read()
-
-        let (iceP_returnValue, iceP_v2) = try self.opFloatSeq(v1: iceP_v1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_v2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opFloatSeq(v1: iceP_v1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_v2) = value
+            ostr.write(iceP_v2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opDoubleSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1338,14 +1300,12 @@ extension NumPyCustom {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_v1: NumPyDoubleSeq1 = try istr.read()
-
-        let (iceP_returnValue, iceP_v2) = try self.opDoubleSeq(v1: iceP_v1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_v2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opDoubleSeq(v1: iceP_v1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_v2) = value
+            ostr.write(iceP_v2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opComplex128Seq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1353,109 +1313,91 @@ extension NumPyCustom {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_v1: NumPyComplex128Seq = try istr.read()
-
-        let iceP_returnValue = try self.opComplex128Seq(v1: iceP_v1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opComplex128Seq(v1: iceP_v1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opBoolMatrix(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.opBoolMatrix(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opBoolMatrix(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opByteMatrix(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.opByteMatrix(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opByteMatrix(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opShortMatrix(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.opShortMatrix(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opShortMatrix(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opIntMatrix(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.opIntMatrix(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opIntMatrix(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opLongMatrix(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.opLongMatrix(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opLongMatrix(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opFloatMatrix(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.opFloatMatrix(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opFloatMatrix(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opDoubleMatrix(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.opDoubleMatrix(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opDoubleMatrix(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opBogusNumpyArrayType(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.opBogusNumpyArrayType(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opBogusNumpyArrayType(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opD(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1465,21 +1407,18 @@ extension NumPyCustom {
         var iceP_d: NumPyD?
         try istr.read(NumPyD.self) { iceP_d = $0 }
         try istr.readPendingValues()
-
-        let iceP_returnValue = try self.opD(d: iceP_d, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opD(d: iceP_d, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

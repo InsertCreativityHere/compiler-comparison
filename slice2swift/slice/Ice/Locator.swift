@@ -937,13 +937,13 @@ public struct LocatorDisp: Ice.Dispatcher {
         case "getRegistry":
             try await servant._iceD_getRegistry(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? LocatorDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? LocatorDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? LocatorDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? LocatorDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? LocatorDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? LocatorDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? LocatorDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? LocatorDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -963,7 +963,7 @@ public protocol Locator {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `ObjectPrx?` - The result of the operation
-    func findObjectByIdAsync(id: Identity, current: Current) async throws -> ObjectPrx?
+    func findObjectById(id: Identity, current: Current) async throws -> ObjectPrx?
 
     /// Find an adapter by id and return a proxy that contains its endpoints.
     ///
@@ -972,14 +972,14 @@ public protocol Locator {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `ObjectPrx?` - The result of the operation
-    func findAdapterByIdAsync(id: Swift.String, current: Current) async throws -> ObjectPrx?
+    func findAdapterById(id: Swift.String, current: Current) async throws -> ObjectPrx?
 
     /// Get the locator registry.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `LocatorRegistryPrx?` - The locator registry.
-    func getRegistry(current: Current) throws -> LocatorRegistryPrx?
+    /// - returns: `LocatorRegistryPrx?` - The result of the operation
+    func getRegistry(current: Current) async throws -> LocatorRegistryPrx?
 }
 
 
@@ -995,13 +995,13 @@ public struct LocatorRegistryDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? LocatorRegistryDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? LocatorRegistryDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? LocatorRegistryDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? LocatorRegistryDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? LocatorRegistryDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? LocatorRegistryDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? LocatorRegistryDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? LocatorRegistryDisp.defaultObject)._iceD_ice_ping(request)
         case "setAdapterDirectProxy":
             try await servant._iceD_setAdapterDirectProxy(request)
         case "setReplicatedAdapterDirectProxy":
@@ -1029,7 +1029,7 @@ public protocol LocatorRegistry {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func setAdapterDirectProxyAsync(id: Swift.String, proxy: ObjectPrx?, current: Current) async throws -> Swift.Void
+    func setAdapterDirectProxy(id: Swift.String, proxy: ObjectPrx?, current: Current) async throws
 
     /// Set the adapter endpoints with the locator registry.
     ///
@@ -1043,7 +1043,7 @@ public protocol LocatorRegistry {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func setReplicatedAdapterDirectProxyAsync(adapterId: Swift.String, replicaGroupId: Swift.String, proxy: ObjectPrx?, current: Current) async throws -> Swift.Void
+    func setReplicatedAdapterDirectProxy(adapterId: Swift.String, replicaGroupId: Swift.String, proxy: ObjectPrx?, current: Current) async throws
 
     /// Set the process proxy for a server.
     ///
@@ -1054,7 +1054,7 @@ public protocol LocatorRegistry {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func setServerProcessProxyAsync(id: Swift.String, proxy: ProcessPrx?, current: Current) async throws -> Swift.Void
+    func setServerProcessProxy(id: Swift.String, proxy: ProcessPrx?, current: Current) async throws
 }
 
 
@@ -1072,13 +1072,13 @@ public struct LocatorFinderDisp: Ice.Dispatcher {
         case "getLocator":
             try await servant._iceD_getLocator(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? LocatorFinderDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? LocatorFinderDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? LocatorFinderDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? LocatorFinderDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? LocatorFinderDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? LocatorFinderDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? LocatorFinderDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? LocatorFinderDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -1094,8 +1094,8 @@ public protocol LocatorFinder {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `LocatorPrx?` - The locator proxy.
-    func getLocator(current: Current) throws -> LocatorPrx?
+    /// - returns: `LocatorPrx?` - The result of the operation
+    func getLocator(current: Current) async throws -> LocatorPrx?
 }
 
 /// The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
@@ -1116,8 +1116,7 @@ extension Locator {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_id: Identity = try istr.read()
-        let result = try await self.findObjectByIdAsync(
-            id: iceP_id, current: request.current)
+        let result = try await self.findObjectById(id: iceP_id, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -1129,8 +1128,7 @@ extension Locator {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_id: Swift.String = try istr.read()
-        let result = try await self.findAdapterByIdAsync(
-            id: iceP_id, current: request.current)
+        let result = try await self.findAdapterById(id: iceP_id, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -1140,13 +1138,11 @@ extension Locator {
     public func _iceD_getRegistry(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getRegistry(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getRegistry(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }
 
@@ -1169,8 +1165,7 @@ extension LocatorRegistry {
         _ = try istr.startEncapsulation()
         let iceP_id: Swift.String = try istr.read()
         let iceP_proxy: ObjectPrx? = try istr.read(ObjectPrx.self)
-        try await self.setAdapterDirectProxyAsync(
-            id: iceP_id, proxy: iceP_proxy, current: request.current)
+        try await self.setAdapterDirectProxy(id: iceP_id, proxy: iceP_proxy, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1181,8 +1176,7 @@ extension LocatorRegistry {
         let iceP_adapterId: Swift.String = try istr.read()
         let iceP_replicaGroupId: Swift.String = try istr.read()
         let iceP_proxy: ObjectPrx? = try istr.read(ObjectPrx.self)
-        try await self.setReplicatedAdapterDirectProxyAsync(
-            adapterId: iceP_adapterId, replicaGroupId: iceP_replicaGroupId, proxy: iceP_proxy, current: request.current)
+        try await self.setReplicatedAdapterDirectProxy(adapterId: iceP_adapterId, replicaGroupId: iceP_replicaGroupId, proxy: iceP_proxy, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1192,8 +1186,7 @@ extension LocatorRegistry {
         _ = try istr.startEncapsulation()
         let iceP_id: Swift.String = try istr.read()
         let iceP_proxy: ProcessPrx? = try istr.read(ProcessPrx.self)
-        try await self.setServerProcessProxyAsync(
-            id: iceP_id, proxy: iceP_proxy, current: request.current)
+        try await self.setServerProcessProxy(id: iceP_id, proxy: iceP_proxy, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -1209,12 +1202,10 @@ extension LocatorFinder {
     public func _iceD_getLocator(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getLocator(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getLocator(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }

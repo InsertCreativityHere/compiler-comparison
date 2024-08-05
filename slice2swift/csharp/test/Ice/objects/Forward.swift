@@ -196,13 +196,13 @@ public struct F2Disp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? F2Disp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? F2Disp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? F2Disp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? F2Disp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? F2Disp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? F2Disp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? F2Disp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? F2Disp.defaultObject)._iceD_ice_ping(request)
         case "op":
             try await servant._iceD_op(request)
         default:
@@ -214,7 +214,9 @@ public struct F2Disp: Ice.Dispatcher {
 public protocol F2 {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func op(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func op(current: Ice.Current) async throws
 }
 
 /// F2 overview.
@@ -226,8 +228,7 @@ extension F2 {
     public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.op(current: request.current)
+        try await self.op(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

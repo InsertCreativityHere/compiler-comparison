@@ -933,13 +933,13 @@ public struct breakDisp: Ice.Dispatcher {
         case "case":
             try await servant._iceD_case(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_ping(request)
         case "instance_variable_set":
             try await servant._iceD_instance_variable_set(request)
         case "instance_variables":
@@ -959,19 +959,27 @@ public protocol `break` {
     /// - parameter def: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func `case`(clone: Swift.Int32, def: Swift.Int32, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func `case`(clone: Swift.Int32, def: Swift.Int32, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func to_a(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func to_a(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func instance_variable_set(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func instance_variable_set(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func instance_variables(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func instance_variables(current: Ice.Current) async throws
 }
 
 
@@ -989,13 +997,13 @@ public struct elsifDisp: Ice.Dispatcher {
         case "case":
             try await servant._iceD_case(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? elsifDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? elsifDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? elsifDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? elsifDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? elsifDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? elsifDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? elsifDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? elsifDisp.defaultObject)._iceD_ice_ping(request)
         case "instance_variable_set":
             try await servant._iceD_instance_variable_set(request)
         case "instance_variables":
@@ -1025,13 +1033,13 @@ public struct extendDisp: Ice.Dispatcher {
         case "for":
             try await servant._iceD_for(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? extendDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? extendDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? extendDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? extendDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? extendDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? extendDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? extendDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? extendDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -1054,8 +1062,8 @@ public protocol extend {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `END`
-    func `for`(freeze: display?, hash: elsifPrx?, if: breakPrx?, inspect: display?, method: elsifPrx?, methods: Swift.Int32, current: Ice.Current) throws -> END
+    /// - returns: `END` - The result of the operation
+    func `for`(freeze: display?, hash: elsifPrx?, if: breakPrx?, inspect: display?, method: elsifPrx?, methods: Swift.Int32, current: Ice.Current) async throws -> END
 }
 
 /// break overview.
@@ -1076,32 +1084,28 @@ extension `break` {
         _ = try istr.startEncapsulation()
         let iceP_clone: Swift.Int32 = try istr.read()
         let iceP_def: Swift.Int32 = try istr.read()
-
-        try self.`case`(clone: iceP_clone, def: iceP_def, current: request.current)
+        try await self.`case`(clone: iceP_clone, def: iceP_def, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_to_a(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.to_a(current: request.current)
+        try await self.to_a(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_instance_variable_set(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.instance_variable_set(current: request.current)
+        try await self.instance_variable_set(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_instance_variables(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.instance_variables(current: request.current)
+        try await self.instance_variables(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -1128,12 +1132,10 @@ extension extend {
         let iceP_method: elsifPrx? = try istr.read(elsifPrx.self)
         let iceP_methods: Swift.Int32 = try istr.read()
         try istr.readPendingValues()
-
-        let iceP_returnValue = try self.`for`(freeze: iceP_freeze, hash: iceP_hash, if: iceP_if, inspect: iceP_inspect, method: iceP_method, methods: iceP_methods, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.`for`(freeze: iceP_freeze, hash: iceP_hash, if: iceP_if, inspect: iceP_inspect, method: iceP_method, methods: iceP_methods, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }

@@ -156,13 +156,13 @@ public struct Interface2Disp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? Interface2Disp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? Interface2Disp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? Interface2Disp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? Interface2Disp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? Interface2Disp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? Interface2Disp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? Interface2Disp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? Interface2Disp.defaultObject)._iceD_ice_ping(request)
         case "method":
             try await servant._iceD_method(request)
         default:
@@ -174,7 +174,9 @@ public struct Interface2Disp: Ice.Dispatcher {
 public protocol Interface2 {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func method(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func method(current: Ice.Current) async throws
 }
 
 /// Interface2 overview.
@@ -186,8 +188,7 @@ extension Interface2 {
     public func _iceD_method(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.method(current: request.current)
+        try await self.method(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

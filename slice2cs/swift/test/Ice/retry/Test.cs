@@ -45,9 +45,6 @@ namespace Test
         void opNotIdempotent(Ice.Current current);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void sleep(int delay, Ice.Current current);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void shutdown(Ice.Current current);
     }
 }
@@ -68,10 +65,6 @@ namespace Test
         void opNotIdempotent(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task opNotIdempotentAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        void sleep(int delay, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task sleepAsync(int delay, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -114,18 +107,6 @@ namespace Test
             try
             {
                 _iceI_opNotIdempotentAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
-            }
-            catch (global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException!;
-            }
-        }
-
-        public void sleep(int delay, global::System.Collections.Generic.Dictionary<string, string>? context = null)
-        {
-            try
-            {
-                _iceI_sleepAsync(delay, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -235,35 +216,6 @@ namespace Test
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task sleepAsync(int delay, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
-        {
-            return _iceI_sleepAsync(delay, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task _iceI_sleepAsync(int iceP_delay, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_sleep(iceP_delay, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _sleep_name = "sleep";
-
-        private void _iceI_sleep(int iceP_delay, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<object>(completed);
-            outAsync.invoke(
-                _sleep_name,
-                Ice.OperationMode.Idempotent,
-                null,
-                context,
-                synchronous,
-                write: (Ice.OutputStream ostr) =>
-                {
-                    ostr.writeInt(iceP_delay);
-                });
-        }
-
         public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_shutdownAsync(context, progress, cancel, false);
@@ -350,8 +302,6 @@ namespace Test
 
         public abstract void opNotIdempotent(Ice.Current current);
 
-        public abstract void sleep(int delay, Ice.Current current);
-
         public abstract void shutdown(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
@@ -364,7 +314,6 @@ namespace Test
                 "op" => Retry.iceD_opAsync(this, request),
                 "opIdempotent" => Retry.iceD_opIdempotentAsync(this, request),
                 "opNotIdempotent" => Retry.iceD_opNotIdempotentAsync(this, request),
-                "sleep" => Retry.iceD_sleepAsync(this, request),
                 "shutdown" => Retry.iceD_shutdownAsync(this, request),
                 "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
                 "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
@@ -418,20 +367,6 @@ namespace Test
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             obj.opNotIdempotent(request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_sleepAsync(
-            Retry obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            int iceP_delay;
-            iceP_delay = istr.readInt();
-            istr.endEncapsulation();
-            obj.sleep(iceP_delay, request.current);
             return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 

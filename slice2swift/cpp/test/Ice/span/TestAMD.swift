@@ -474,13 +474,13 @@ public struct TestIntfDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
         case "opByteSpan":
             try await servant._iceD_opByteSpan(request)
         case "opOptionalByteSpan":
@@ -508,7 +508,7 @@ public protocol TestIntf {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: ByteSeq, dataOut: ByteSeq)` - The result of the operation
-    func opByteSpanAsync(dataIn: ByteSeq, current: Ice.Current) async throws -> (returnValue: ByteSeq, dataOut: ByteSeq)
+    func opByteSpan(dataIn: ByteSeq, current: Ice.Current) async throws -> (returnValue: ByteSeq, dataOut: ByteSeq)
 
     ///
     /// - parameter dataIn: `ShortSeq`
@@ -516,7 +516,7 @@ public protocol TestIntf {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: ShortSeq, dataOut: ShortSeq)` - The result of the operation
-    func opShortSpanAsync(dataIn: ShortSeq, current: Ice.Current) async throws -> (returnValue: ShortSeq, dataOut: ShortSeq)
+    func opShortSpan(dataIn: ShortSeq, current: Ice.Current) async throws -> (returnValue: ShortSeq, dataOut: ShortSeq)
 
     ///
     /// - parameter dataIn: `StringSeq`
@@ -524,7 +524,7 @@ public protocol TestIntf {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: StringSeq, dataOut: StringSeq)` - The result of the operation
-    func opStringSpanAsync(dataIn: StringSeq, current: Ice.Current) async throws -> (returnValue: StringSeq, dataOut: StringSeq)
+    func opStringSpan(dataIn: StringSeq, current: Ice.Current) async throws -> (returnValue: StringSeq, dataOut: StringSeq)
 
     ///
     /// - parameter dataIn: `ByteSeq?`
@@ -532,7 +532,7 @@ public protocol TestIntf {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: ByteSeq?, dataOut: ByteSeq?)` - The result of the operation
-    func opOptionalByteSpanAsync(dataIn: ByteSeq?, current: Ice.Current) async throws -> (returnValue: ByteSeq?, dataOut: ByteSeq?)
+    func opOptionalByteSpan(dataIn: ByteSeq?, current: Ice.Current) async throws -> (returnValue: ByteSeq?, dataOut: ByteSeq?)
 
     ///
     /// - parameter dataIn: `ShortSeq?`
@@ -540,7 +540,7 @@ public protocol TestIntf {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: ShortSeq?, dataOut: ShortSeq?)` - The result of the operation
-    func opOptionalShortSpanAsync(dataIn: ShortSeq?, current: Ice.Current) async throws -> (returnValue: ShortSeq?, dataOut: ShortSeq?)
+    func opOptionalShortSpan(dataIn: ShortSeq?, current: Ice.Current) async throws -> (returnValue: ShortSeq?, dataOut: ShortSeq?)
 
     ///
     /// - parameter dataIn: `StringSeq?`
@@ -548,13 +548,13 @@ public protocol TestIntf {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: StringSeq?, dataOut: StringSeq?)` - The result of the operation
-    func opOptionalStringSpanAsync(dataIn: StringSeq?, current: Ice.Current) async throws -> (returnValue: StringSeq?, dataOut: StringSeq?)
+    func opOptionalStringSpan(dataIn: StringSeq?, current: Ice.Current) async throws -> (returnValue: StringSeq?, dataOut: StringSeq?)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func shutdownAsync(current: Ice.Current) async throws -> Swift.Void
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// TestIntf overview.
@@ -580,8 +580,7 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_dataIn: ByteSeq = try istr.read()
-        let result = try await self.opByteSpanAsync(
-            dataIn: iceP_dataIn, current: request.current)
+        let result = try await self.opByteSpan(dataIn: iceP_dataIn, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_dataOut) = value
             ostr.write(iceP_dataOut)
@@ -594,8 +593,7 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_dataIn: ShortSeq = try istr.read()
-        let result = try await self.opShortSpanAsync(
-            dataIn: iceP_dataIn, current: request.current)
+        let result = try await self.opShortSpan(dataIn: iceP_dataIn, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_dataOut) = value
             ostr.write(iceP_dataOut)
@@ -608,8 +606,7 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_dataIn: StringSeq = try istr.read()
-        let result = try await self.opStringSpanAsync(
-            dataIn: iceP_dataIn, current: request.current)
+        let result = try await self.opStringSpan(dataIn: iceP_dataIn, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_dataOut) = value
             ostr.write(iceP_dataOut)
@@ -622,8 +619,7 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_dataIn: ByteSeq? = try istr.read(tag: 1)
-        let result = try await self.opOptionalByteSpanAsync(
-            dataIn: iceP_dataIn, current: request.current)
+        let result = try await self.opOptionalByteSpan(dataIn: iceP_dataIn, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_dataOut) = value
             ostr.write(tag: 10, value: iceP_returnValue)
@@ -636,8 +632,7 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_dataIn: ShortSeq? = try istr.read(tag: 1)
-        let result = try await self.opOptionalShortSpanAsync(
-            dataIn: iceP_dataIn, current: request.current)
+        let result = try await self.opOptionalShortSpan(dataIn: iceP_dataIn, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_dataOut) = value
             ostr.write(tag: 10, value: iceP_returnValue)
@@ -650,8 +645,7 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_dataIn: StringSeq? = try istr.read(tag: 1)
-        let result = try await self.opOptionalStringSpanAsync(
-            dataIn: iceP_dataIn, current: request.current)
+        let result = try await self.opOptionalStringSpan(dataIn: iceP_dataIn, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_dataOut) = value
             ostr.write(tag: 10, value: iceP_returnValue)
@@ -662,8 +656,7 @@ extension TestIntf {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.shutdownAsync(
-            current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

@@ -7231,13 +7231,13 @@ public struct AdminDisp: Ice.Dispatcher {
         case "getServerState":
             try await servant._iceD_getServerState(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? AdminDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? AdminDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? AdminDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? AdminDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? AdminDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? AdminDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? AdminDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? AdminDisp.defaultObject)._iceD_ice_ping(request)
         case "instantiateServer":
             try await servant._iceD_instantiateServer(request)
         case "isServerEnabled":
@@ -7289,13 +7289,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
-    ///     holding the lock.
-    ///
-    ///   - DeploymentException - Raised if application deployment failed.
-    func addApplication(descriptor: ApplicationDescriptor, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func addApplication(descriptor: ApplicationDescriptor, current: Ice.Current) async throws
 
     /// Synchronize a deployed application with the given application descriptor. This operation will replace the
     /// current descriptor with this new descriptor.
@@ -7304,15 +7299,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
-    ///     holding the lock.
-    ///
-    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
-    ///
-    ///   - DeploymentException - Raised if application deployment failed.
-    func syncApplication(descriptor: ApplicationDescriptor, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func syncApplication(descriptor: ApplicationDescriptor, current: Ice.Current) async throws
 
     /// Update a deployed application with the given update application descriptor.
     ///
@@ -7320,15 +7308,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
-    ///     holding the lock.
-    ///
-    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
-    ///
-    ///   - DeploymentException - Raised if application deployment failed.
-    func updateApplication(descriptor: ApplicationUpdateDescriptor, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func updateApplication(descriptor: ApplicationUpdateDescriptor, current: Ice.Current) async throws
 
     /// Synchronize a deployed application with the given application descriptor. This operation will replace the
     /// current descriptor with this new descriptor only if no server restarts are necessary for the update of the
@@ -7339,15 +7320,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
-    ///     holding the lock.
-    ///
-    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
-    ///
-    ///   - DeploymentException - Raised if application deployment failed.
-    func syncApplicationWithoutRestart(descriptor: ApplicationDescriptor, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func syncApplicationWithoutRestart(descriptor: ApplicationDescriptor, current: Ice.Current) async throws
 
     /// Update a deployed application with the given update application descriptor only if no server restarts are
     /// necessary for the update of the application. If some servers need to be restarted, the synchronization is
@@ -7357,15 +7331,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
-    ///     holding the lock.
-    ///
-    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
-    ///
-    ///   - DeploymentException - Raised if application deployment failed.
-    func updateApplicationWithoutRestart(descriptor: ApplicationUpdateDescriptor, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func updateApplicationWithoutRestart(descriptor: ApplicationUpdateDescriptor, current: Ice.Current) async throws
 
     /// Remove an application from IceGrid.
     ///
@@ -7373,15 +7340,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
-    ///     holding the lock.
-    ///
-    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
-    ///
-    ///   - DeploymentException - Raised if application deployment failed.
-    func removeApplication(name: Swift.String, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func removeApplication(name: Swift.String, current: Ice.Current) async throws
 
     /// Instantiate a server template from an application on the given node.
     ///
@@ -7393,15 +7353,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
-    ///     holding the lock.
-    ///
-    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
-    ///
-    ///   - DeploymentException - Raised if server instantiation failed.
-    func instantiateServer(application: Swift.String, node: Swift.String, desc: ServerInstanceDescriptor, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func instantiateServer(application: Swift.String, node: Swift.String, desc: ServerInstanceDescriptor, current: Ice.Current) async throws
 
     /// Get an application descriptor.
     ///
@@ -7409,30 +7362,22 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ApplicationInfo` - The application descriptor.
-    ///
-    /// - throws:
-    ///
-    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
-    func getApplicationInfo(name: Swift.String, current: Ice.Current) throws -> ApplicationInfo
+    /// - returns: `ApplicationInfo` - The result of the operation
+    func getApplicationInfo(name: Swift.String, current: Ice.Current) async throws -> ApplicationInfo
 
     /// Get the default application descriptor.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ApplicationDescriptor` - The default application descriptor.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the default application descriptor can't be accessed or is invalid.
-    func getDefaultApplicationDescriptor(current: Ice.Current) throws -> ApplicationDescriptor
+    /// - returns: `ApplicationDescriptor` - The result of the operation
+    func getDefaultApplicationDescriptor(current: Ice.Current) async throws -> ApplicationDescriptor
 
     /// Get all the IceGrid applications currently registered.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.StringSeq` - The application names.
-    func getAllApplicationNames(current: Ice.Current) throws -> Ice.StringSeq
+    /// - returns: `Ice.StringSeq` - The result of the operation
+    func getAllApplicationNames(current: Ice.Current) async throws -> Ice.StringSeq
 
     /// Get the server information for the server with the given id.
     ///
@@ -7440,12 +7385,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ServerInfo` - The server information.
-    ///
-    /// - throws:
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
-    func getServerInfo(id: Swift.String, current: Ice.Current) throws -> ServerInfo
+    /// - returns: `ServerInfo` - The result of the operation
+    func getServerInfo(id: Swift.String, current: Ice.Current) async throws -> ServerInfo
 
     /// Get a server's state.
     ///
@@ -7453,16 +7394,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ServerState` - The server state.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
-    func getServerState(id: Swift.String, current: Ice.Current) throws -> ServerState
+    /// - returns: `ServerState` - The result of the operation
+    func getServerState(id: Swift.String, current: Ice.Current) async throws -> ServerState
 
     /// Get a server's system process id. The process id is operating system dependent.
     ///
@@ -7470,24 +7403,16 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The server's process id.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
-    func getServerPid(id: Swift.String, current: Ice.Current) throws -> Swift.Int32
+    /// - returns: `Swift.Int32` - The result of the operation
+    func getServerPid(id: Swift.String, current: Ice.Current) async throws -> Swift.Int32
 
     /// Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
     /// changing its identity: use the server ID as name and the returned category as category.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The category for server admin objects.
-    func getServerAdminCategory(current: Ice.Current) throws -> Swift.String
+    /// - returns: `Swift.String` - The result of the operation
+    func getServerAdminCategory(current: Ice.Current) async throws -> Swift.String
 
     /// Get a proxy to the server's admin object.
     ///
@@ -7495,16 +7420,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - A proxy to the server's admin object. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
-    func getServerAdmin(id: Swift.String, current: Ice.Current) throws -> Ice.ObjectPrx?
+    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    func getServerAdmin(id: Swift.String, current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
     /// state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
@@ -7516,14 +7433,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
-    func enableServer(id: Swift.String, enabled: Swift.Bool, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func enableServer(id: Swift.String, enabled: Swift.Bool, current: Ice.Current) async throws
 
     /// Check if the server is enabled or disabled.
     ///
@@ -7531,16 +7442,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Bool` - True if the server is enabled.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
-    func isServerEnabled(id: Swift.String, current: Ice.Current) throws -> Swift.Bool
+    /// - returns: `Swift.Bool` - The result of the operation
+    func isServerEnabled(id: Swift.String, current: Ice.Current) async throws -> Swift.Bool
 
     /// Start a server and wait for its activation.
     ///
@@ -7549,7 +7452,7 @@ public protocol Admin {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func startServerAsync(id: Swift.String, current: Ice.Current) async throws -> Swift.Void
+    func startServer(id: Swift.String, current: Ice.Current) async throws
 
     /// Stop a server.
     ///
@@ -7558,7 +7461,7 @@ public protocol Admin {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func stopServerAsync(id: Swift.String, current: Ice.Current) async throws -> Swift.Void
+    func stopServer(id: Swift.String, current: Ice.Current) async throws
 
     /// Send signal to a server.
     ///
@@ -7568,23 +7471,15 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - BadSignalException - Raised if the signal is not recognized by the target server.
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
-    func sendSignal(id: Swift.String, signal: Swift.String, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func sendSignal(id: Swift.String, signal: Swift.String, current: Ice.Current) async throws
 
     /// Get all the server ids registered with IceGrid.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.StringSeq` - The server ids.
-    func getAllServerIds(current: Ice.Current) throws -> Ice.StringSeq
+    /// - returns: `Ice.StringSeq` - The result of the operation
+    func getAllServerIds(current: Ice.Current) async throws -> Ice.StringSeq
 
     /// Get the adapter information for the replica group or adapter with the given id.
     ///
@@ -7592,14 +7487,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `AdapterInfoSeq` - A sequence of adapter information structures. If the given id refers to an adapter, this sequence
-    /// will contain only one element. If the given id refers to a replica group, the sequence will contain the
-    /// adapter information of each member of the replica group.
-    ///
-    /// - throws:
-    ///
-    ///   - AdapterNotExistException - Raised if the adapter or replica group doesn't exist.
-    func getAdapterInfo(id: Swift.String, current: Ice.Current) throws -> AdapterInfoSeq
+    /// - returns: `AdapterInfoSeq` - The result of the operation
+    func getAdapterInfo(id: Swift.String, current: Ice.Current) async throws -> AdapterInfoSeq
 
     /// Remove the adapter with the given id.
     ///
@@ -7607,19 +7496,15 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - AdapterNotExistException - Raised if the adapter doesn't exist.
-    ///
-    ///   - DeploymentException - Raised if application deployment failed.
-    func removeAdapter(id: Swift.String, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func removeAdapter(id: Swift.String, current: Ice.Current) async throws
 
     /// Get all the adapter ids registered with IceGrid.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.StringSeq` - The adapter ids.
-    func getAllAdapterIds(current: Ice.Current) throws -> Ice.StringSeq
+    /// - returns: `Ice.StringSeq` - The result of the operation
+    func getAllAdapterIds(current: Ice.Current) async throws -> Ice.StringSeq
 
     /// Add an object to the object registry. IceGrid will get the object type by calling ice_id on the
     /// given proxy. The object must be reachable.
@@ -7628,13 +7513,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the object can't be added. This might be raised if the invocation on
-    ///     the proxy to get the object type failed.
-    ///
-    ///   - ObjectExistsException - Raised if the object is already registered.
-    func addObject(obj: Ice.ObjectPrx?, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func addObject(obj: Ice.ObjectPrx?, current: Ice.Current) async throws
 
     /// Update an object in the object registry. Only objects added with this interface can be updated with this
     /// operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
@@ -7643,13 +7523,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the object can't be updated. This might happen if the object was added
-    ///     with a deployment descriptor.
-    ///
-    ///   - ObjectNotRegisteredException - Raised if the object isn't registered with the registry.
-    func updateObject(obj: Ice.ObjectPrx?, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func updateObject(obj: Ice.ObjectPrx?, current: Ice.Current) async throws
 
     /// Add an object to the object registry and explicitly specify its type.
     ///
@@ -7659,12 +7534,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if application deployment failed.
-    ///
-    ///   - ObjectExistsException - Raised if the object is already registered.
-    func addObjectWithType(obj: Ice.ObjectPrx?, type: Swift.String, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func addObjectWithType(obj: Ice.ObjectPrx?, type: Swift.String, current: Ice.Current) async throws
 
     /// Remove an object from the object registry. Only objects added with this interface can be removed with this
     /// operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
@@ -7673,13 +7544,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the object can't be removed. This might happen if the object was added
-    ///     with a deployment descriptor.
-    ///
-    ///   - ObjectNotRegisteredException - Raised if the object isn't registered with the registry.
-    func removeObject(id: Ice.Identity, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func removeObject(id: Ice.Identity, current: Ice.Current) async throws
 
     /// Get the object info for the object with the given identity.
     ///
@@ -7687,12 +7553,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ObjectInfo` - The object info.
-    ///
-    /// - throws:
-    ///
-    ///   - ObjectNotRegisteredException - Raised if the object isn't registered with the registry.
-    func getObjectInfo(id: Ice.Identity, current: Ice.Current) throws -> ObjectInfo
+    /// - returns: `ObjectInfo` - The result of the operation
+    func getObjectInfo(id: Ice.Identity, current: Ice.Current) async throws -> ObjectInfo
 
     /// Get the object info of all the registered objects with the given type.
     ///
@@ -7700,8 +7562,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ObjectInfoSeq` - The object infos.
-    func getObjectInfosByType(type: Swift.String, current: Ice.Current) throws -> ObjectInfoSeq
+    /// - returns: `ObjectInfoSeq` - The result of the operation
+    func getObjectInfosByType(type: Swift.String, current: Ice.Current) async throws -> ObjectInfoSeq
 
     /// Get the object info of all the registered objects whose stringified identities match the given expression.
     ///
@@ -7710,8 +7572,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ObjectInfoSeq` - All the object infos with a stringified identity matching the given expression.
-    func getAllObjectInfos(expr: Swift.String, current: Ice.Current) throws -> ObjectInfoSeq
+    /// - returns: `ObjectInfoSeq` - The result of the operation
+    func getAllObjectInfos(expr: Swift.String, current: Ice.Current) async throws -> ObjectInfoSeq
 
     /// Ping an IceGrid node to see if it is active.
     ///
@@ -7719,12 +7581,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Bool` - true if the node ping succeeded, false otherwise.
-    ///
-    /// - throws:
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
-    func pingNode(name: Swift.String, current: Ice.Current) throws -> Swift.Bool
+    /// - returns: `Swift.Bool` - The result of the operation
+    func pingNode(name: Swift.String, current: Ice.Current) async throws -> Swift.Bool
 
     /// Get the load averages of the node.
     ///
@@ -7732,14 +7590,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `LoadInfo` - The node load information.
-    ///
-    /// - throws:
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    func getNodeLoad(name: Swift.String, current: Ice.Current) throws -> LoadInfo
+    /// - returns: `LoadInfo` - The result of the operation
+    func getNodeLoad(name: Swift.String, current: Ice.Current) async throws -> LoadInfo
 
     /// Get the node information for the node with the given name.
     ///
@@ -7747,14 +7599,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NodeInfo` - The node information.
-    ///
-    /// - throws:
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    func getNodeInfo(name: Swift.String, current: Ice.Current) throws -> NodeInfo
+    /// - returns: `NodeInfo` - The result of the operation
+    func getNodeInfo(name: Swift.String, current: Ice.Current) async throws -> NodeInfo
 
     /// Get a proxy to the IceGrid node's admin object.
     ///
@@ -7762,14 +7608,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - A proxy to the IceGrid node's admin object. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    func getNodeAdmin(name: Swift.String, current: Ice.Current) throws -> Ice.ObjectPrx?
+    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    func getNodeAdmin(name: Swift.String, current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Get the number of physical processor sockets for the machine running the node with the given name.
     /// Note that this method will return 1 on operating systems where this can't be automatically determined and
@@ -7779,14 +7619,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The number of processor sockets or 1 if the number of sockets can't determined.
-    ///
-    /// - throws:
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    func getNodeProcessorSocketCount(name: Swift.String, current: Ice.Current) throws -> Swift.Int32
+    /// - returns: `Swift.Int32` - The result of the operation
+    func getNodeProcessorSocketCount(name: Swift.String, current: Ice.Current) async throws -> Swift.Int32
 
     /// Shutdown an IceGrid node.
     ///
@@ -7794,12 +7628,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    func shutdownNode(name: Swift.String, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func shutdownNode(name: Swift.String, current: Ice.Current) async throws
 
     /// Get the hostname of this node.
     ///
@@ -7807,21 +7637,15 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The node hostname.
-    ///
-    /// - throws:
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    func getNodeHostname(name: Swift.String, current: Ice.Current) throws -> Swift.String
+    /// - returns: `Swift.String` - The result of the operation
+    func getNodeHostname(name: Swift.String, current: Ice.Current) async throws -> Swift.String
 
     /// Get all the IceGrid nodes currently registered.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.StringSeq` - The node names.
-    func getAllNodeNames(current: Ice.Current) throws -> Ice.StringSeq
+    /// - returns: `Ice.StringSeq` - The result of the operation
+    func getAllNodeNames(current: Ice.Current) async throws -> Ice.StringSeq
 
     /// Ping an IceGrid registry to see if it is active.
     ///
@@ -7829,12 +7653,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Bool` - true if the registry ping succeeded, false otherwise.
-    ///
-    /// - throws:
-    ///
-    ///   - RegistryNotExistException - Raised if the registry doesn't exist.
-    func pingRegistry(name: Swift.String, current: Ice.Current) throws -> Swift.Bool
+    /// - returns: `Swift.Bool` - The result of the operation
+    func pingRegistry(name: Swift.String, current: Ice.Current) async throws -> Swift.Bool
 
     /// Get the registry information for the registry with the given name.
     ///
@@ -7842,14 +7662,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `RegistryInfo` - The registry information.
-    ///
-    /// - throws:
-    ///
-    ///   - RegistryNotExistException - Raised if the registry doesn't exist.
-    ///
-    ///   - RegistryUnreachableException - Raised if the registry could not be reached.
-    func getRegistryInfo(name: Swift.String, current: Ice.Current) throws -> RegistryInfo
+    /// - returns: `RegistryInfo` - The result of the operation
+    func getRegistryInfo(name: Swift.String, current: Ice.Current) async throws -> RegistryInfo
 
     /// Get a proxy to the IceGrid registry's admin object.
     ///
@@ -7857,12 +7671,8 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - A proxy to the IceGrid registry's admin object. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - RegistryNotExistException - Raised if the registry doesn't exist.
-    func getRegistryAdmin(name: Swift.String, current: Ice.Current) throws -> Ice.ObjectPrx?
+    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    func getRegistryAdmin(name: Swift.String, current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Shutdown an IceGrid registry.
     ///
@@ -7870,24 +7680,22 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - RegistryNotExistException - Raised if the registry doesn't exist.
-    ///
-    ///   - RegistryUnreachableException - Raised if the registry could not be reached.
-    func shutdownRegistry(name: Swift.String, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func shutdownRegistry(name: Swift.String, current: Ice.Current) async throws
 
     /// Get all the IceGrid registries currently registered.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.StringSeq` - The registry names.
-    func getAllRegistryNames(current: Ice.Current) throws -> Ice.StringSeq
+    /// - returns: `Ice.StringSeq` - The result of the operation
+    func getAllRegistryNames(current: Ice.Current) async throws -> Ice.StringSeq
 
     /// Shut down the IceGrid registry.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 
@@ -7905,13 +7713,13 @@ public struct FileIteratorDisp: Ice.Dispatcher {
         case "destroy":
             try await servant._iceD_destroy(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? FileIteratorDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? FileIteratorDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? FileIteratorDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? FileIteratorDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? FileIteratorDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? FileIteratorDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? FileIteratorDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? FileIteratorDisp.defaultObject)._iceD_ice_ping(request)
         case "read":
             try await servant._iceD_read(request)
         default:
@@ -7929,23 +7737,15 @@ public protocol FileIterator {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: Swift.Bool, lines: Ice.StringSeq)`:
-    ///
-    ///   - returnValue: `Swift.Bool` - True if EOF is encountered.
-    ///
-    ///   - lines: `Ice.StringSeq` - The lines read from the file. If there was nothing to read from the file since the last call to
-    /// read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
-    /// '\n' should be added when writing the last line to the to the output device).
-    ///
-    /// - throws:
-    ///
-    ///   - FileNotAvailableException - Raised if there was a problem to read lines from the file.
-    func read(size: Swift.Int32, current: Ice.Current) throws -> (returnValue: Swift.Bool, lines: Ice.StringSeq)
+    /// - returns: `(returnValue: Swift.Bool, lines: Ice.StringSeq)` - The result of the operation
+    func read(size: Swift.Int32, current: Ice.Current) async throws -> (returnValue: Swift.Bool, lines: Ice.StringSeq)
 
     /// Destroy the iterator.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func destroy(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func destroy(current: Ice.Current) async throws
 }
 
 
@@ -7961,13 +7761,13 @@ public struct RegistryObserverDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? RegistryObserverDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? RegistryObserverDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? RegistryObserverDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? RegistryObserverDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? RegistryObserverDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? RegistryObserverDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? RegistryObserverDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? RegistryObserverDisp.defaultObject)._iceD_ice_ping(request)
         case "registryDown":
             try await servant._iceD_registryDown(request)
         case "registryInit":
@@ -7988,21 +7788,27 @@ public protocol RegistryObserver {
     /// - parameter registries: `RegistryInfoSeq` The current state of the registries.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func registryInit(registries: RegistryInfoSeq, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func registryInit(registries: RegistryInfoSeq, current: Ice.Current) async throws
 
     /// The registryUp operation is called to notify an observer that a registry replica came up.
     ///
     /// - parameter registryReplica: `RegistryInfo` The registry state.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func registryUp(registryReplica: RegistryInfo, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func registryUp(registryReplica: RegistryInfo, current: Ice.Current) async throws
 
     /// The registryDown operation is called to notify an observer that a registry replica went down.
     ///
     /// - parameter name: `Swift.String` The registry name.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func registryDown(name: Swift.String, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func registryDown(name: Swift.String, current: Ice.Current) async throws
 }
 
 
@@ -8018,13 +7824,13 @@ public struct NodeObserverDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? NodeObserverDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? NodeObserverDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? NodeObserverDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? NodeObserverDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? NodeObserverDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? NodeObserverDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? NodeObserverDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? NodeObserverDisp.defaultObject)._iceD_ice_ping(request)
         case "nodeDown":
             try await servant._iceD_nodeDown(request)
         case "nodeInit":
@@ -8050,21 +7856,27 @@ public protocol NodeObserver {
     /// - parameter nodes: `NodeDynamicInfoSeq` The current state of the nodes.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func nodeInit(nodes: NodeDynamicInfoSeq, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func nodeInit(nodes: NodeDynamicInfoSeq, current: Ice.Current) async throws
 
     /// The nodeUp operation is called to notify an observer that a node came up.
     ///
     /// - parameter node: `NodeDynamicInfo` The node state.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func nodeUp(node: NodeDynamicInfo, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func nodeUp(node: NodeDynamicInfo, current: Ice.Current) async throws
 
     /// The nodeDown operation is called to notify an observer that a node went down.
     ///
     /// - parameter name: `Swift.String` The node name.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func nodeDown(name: Swift.String, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func nodeDown(name: Swift.String, current: Ice.Current) async throws
 
     /// The updateServer operation is called to notify an observer that the state of a server changed.
     ///
@@ -8073,7 +7885,9 @@ public protocol NodeObserver {
     /// - parameter updatedInfo: `ServerDynamicInfo` The new server state.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func updateServer(node: Swift.String, updatedInfo: ServerDynamicInfo, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func updateServer(node: Swift.String, updatedInfo: ServerDynamicInfo, current: Ice.Current) async throws
 
     /// The updateAdapter operation is called to notify an observer that the state of an adapter
     /// changed.
@@ -8083,7 +7897,9 @@ public protocol NodeObserver {
     /// - parameter updatedInfo: `AdapterDynamicInfo` The new adapter state.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func updateAdapter(node: Swift.String, updatedInfo: AdapterDynamicInfo, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func updateAdapter(node: Swift.String, updatedInfo: AdapterDynamicInfo, current: Ice.Current) async throws
 }
 
 
@@ -8107,13 +7923,13 @@ public struct ApplicationObserverDisp: Ice.Dispatcher {
         case "applicationUpdated":
             try await servant._iceD_applicationUpdated(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? ApplicationObserverDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? ApplicationObserverDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? ApplicationObserverDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? ApplicationObserverDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? ApplicationObserverDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? ApplicationObserverDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? ApplicationObserverDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? ApplicationObserverDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -8132,7 +7948,9 @@ public protocol ApplicationObserver {
     /// - parameter applications: `ApplicationInfoSeq` The applications currently registered with the registry.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func applicationInit(serial: Swift.Int32, applications: ApplicationInfoSeq, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func applicationInit(serial: Swift.Int32, applications: ApplicationInfoSeq, current: Ice.Current) async throws
 
     /// The applicationAdded operation is called to notify an observer that an application was added.
     ///
@@ -8141,7 +7959,9 @@ public protocol ApplicationObserver {
     /// - parameter desc: `ApplicationInfo` The descriptor of the new application.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func applicationAdded(serial: Swift.Int32, desc: ApplicationInfo, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func applicationAdded(serial: Swift.Int32, desc: ApplicationInfo, current: Ice.Current) async throws
 
     /// The applicationRemoved operation is called to notify an observer that an application was
     /// removed.
@@ -8151,7 +7971,9 @@ public protocol ApplicationObserver {
     /// - parameter name: `Swift.String` The name of the application that was removed.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func applicationRemoved(serial: Swift.Int32, name: Swift.String, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func applicationRemoved(serial: Swift.Int32, name: Swift.String, current: Ice.Current) async throws
 
     /// The applicationUpdated operation is called to notify an observer that an application was
     /// updated.
@@ -8161,7 +7983,9 @@ public protocol ApplicationObserver {
     /// - parameter desc: `ApplicationUpdateInfo` The descriptor of the update.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func applicationUpdated(serial: Swift.Int32, desc: ApplicationUpdateInfo, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func applicationUpdated(serial: Swift.Int32, desc: ApplicationUpdateInfo, current: Ice.Current) async throws
 }
 
 
@@ -8185,13 +8009,13 @@ public struct AdapterObserverDisp: Ice.Dispatcher {
         case "adapterUpdated":
             try await servant._iceD_adapterUpdated(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? AdapterObserverDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? AdapterObserverDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? AdapterObserverDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? AdapterObserverDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? AdapterObserverDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? AdapterObserverDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? AdapterObserverDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? AdapterObserverDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -8206,7 +8030,9 @@ public protocol AdapterObserver {
     /// mechanism).
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func adapterInit(adpts: AdapterInfoSeq, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func adapterInit(adpts: AdapterInfoSeq, current: Ice.Current) async throws
 
     /// The adapterAdded operation is called to notify an observer when a dynamically-registered
     /// adapter was added.
@@ -8214,7 +8040,9 @@ public protocol AdapterObserver {
     /// - parameter info: `AdapterInfo` The details of the new adapter.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func adapterAdded(info: AdapterInfo, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func adapterAdded(info: AdapterInfo, current: Ice.Current) async throws
 
     /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
     /// updated.
@@ -8222,7 +8050,9 @@ public protocol AdapterObserver {
     /// - parameter info: `AdapterInfo` The details of the updated adapter.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func adapterUpdated(info: AdapterInfo, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func adapterUpdated(info: AdapterInfo, current: Ice.Current) async throws
 
     /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
     /// removed.
@@ -8230,7 +8060,9 @@ public protocol AdapterObserver {
     /// - parameter id: `Swift.String` The ID of the removed adapter.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func adapterRemoved(id: Swift.String, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func adapterRemoved(id: Swift.String, current: Ice.Current) async throws
 }
 
 
@@ -8246,13 +8078,13 @@ public struct ObjectObserverDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? ObjectObserverDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? ObjectObserverDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? ObjectObserverDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? ObjectObserverDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? ObjectObserverDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? ObjectObserverDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? ObjectObserverDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? ObjectObserverDisp.defaultObject)._iceD_ice_ping(request)
         case "objectAdded":
             try await servant._iceD_objectAdded(request)
         case "objectInit":
@@ -8276,7 +8108,9 @@ public protocol ObjectObserver {
     /// mechanism).
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func objectInit(objects: ObjectInfoSeq, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func objectInit(objects: ObjectInfoSeq, current: Ice.Current) async throws
 
     /// The objectAdded operation is called to notify an observer when an object was added to the
     /// Admin interface.
@@ -8284,7 +8118,9 @@ public protocol ObjectObserver {
     /// - parameter info: `ObjectInfo` The details of the added object.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func objectAdded(info: ObjectInfo, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func objectAdded(info: ObjectInfo, current: Ice.Current) async throws
 
     /// objectUpdated is called to notify an observer when an object registered with the Admin
     /// interface was updated.
@@ -8292,7 +8128,9 @@ public protocol ObjectObserver {
     /// - parameter info: `ObjectInfo` The details of the updated object.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func objectUpdated(info: ObjectInfo, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func objectUpdated(info: ObjectInfo, current: Ice.Current) async throws
 
     /// objectRemoved is called to notify an observer when an object registered with the Admin
     /// interface was removed.
@@ -8300,7 +8138,9 @@ public protocol ObjectObserver {
     /// - parameter id: `Ice.Identity` The identity of the removed object.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func objectRemoved(id: Ice.Identity, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func objectRemoved(id: Ice.Identity, current: Ice.Current) async throws
 }
 
 
@@ -8326,13 +8166,13 @@ public struct AdminSessionDisp: Ice.Dispatcher {
         case "getReplicaName":
             try await servant._iceD_getReplicaName(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? AdminSessionDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? AdminSessionDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? AdminSessionDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? AdminSessionDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? AdminSessionDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? AdminSessionDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? AdminSessionDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? AdminSessionDisp.defaultObject)._iceD_ice_ping(request)
         case "keepAlive":
             try await servant._iceD_keepAlive(request)
         case "openNodeStdErr":
@@ -8369,22 +8209,24 @@ public protocol AdminSession: Glacier2.Session {
     /// need to call this operation and its implementation does nothing.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func keepAlive(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func keepAlive(current: Ice.Current) async throws
 
     /// Get the admin interface. The admin object returned by this operation can only be accessed by the session.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `AdminPrx?` - The admin interface proxy. The returned proxy is never null.
-    func getAdmin(current: Ice.Current) throws -> AdminPrx?
+    /// - returns: `AdminPrx?` - The result of the operation
+    func getAdmin(current: Ice.Current) async throws -> AdminPrx?
 
     /// Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
     /// its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
-    func getAdminCallbackTemplate(current: Ice.Current) throws -> Ice.ObjectPrx?
+    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    func getAdminCallbackTemplate(current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Set the observer proxies that receive notifications when the state of the registry or nodes changes.
     ///
@@ -8400,10 +8242,8 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - ObserverAlreadyRegisteredException - Raised if an observer is already registered with this registry.
-    func setObservers(registryObs: RegistryObserverPrx?, nodeObs: NodeObserverPrx?, appObs: ApplicationObserverPrx?, adptObs: AdapterObserverPrx?, objObs: ObjectObserverPrx?, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func setObservers(registryObs: RegistryObserverPrx?, nodeObs: NodeObserverPrx?, appObs: ApplicationObserverPrx?, adptObs: AdapterObserverPrx?, objObs: ObjectObserverPrx?, current: Ice.Current) async throws
 
     /// Set the observer identities that receive notifications the state of the registry or nodes changes. This
     /// operation should be used by clients that are using a bidirectional connection to communicate with the
@@ -8421,38 +8261,29 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - ObserverAlreadyRegisteredException - Raised if an observer is already registered with this registry.
-    func setObserversByIdentity(registryObs: Ice.Identity, nodeObs: Ice.Identity, appObs: Ice.Identity, adptObs: Ice.Identity, objObs: Ice.Identity, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func setObserversByIdentity(registryObs: Ice.Identity, nodeObs: Ice.Identity, appObs: Ice.Identity, adptObs: Ice.Identity, objObs: Ice.Identity, current: Ice.Current) async throws
 
     /// Acquires an exclusive lock to start updating the registry applications.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The current serial.
-    ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the exclusive lock can't be acquired. This might happen if the lock
-    ///     is currently acquired by another session.
-    func startUpdate(current: Ice.Current) throws -> Swift.Int32
+    /// - returns: `Swift.Int32` - The result of the operation
+    func startUpdate(current: Ice.Current) async throws -> Swift.Int32
 
     /// Finish updating the registry and release the exclusive lock.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock.
-    func finishUpdate(current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func finishUpdate(current: Ice.Current) async throws
 
     /// Get the name of the registry replica hosting this session.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The replica name of the registry.
-    func getReplicaName(current: Ice.Current) throws -> Swift.String
+    /// - returns: `Swift.String` - The result of the operation
+    func getReplicaName(current: Ice.Current) async throws -> Swift.String
 
     /// Open the given server log file for reading. The file can be read with the returned file iterator.
     ///
@@ -8466,18 +8297,8 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - FileNotAvailableException - Raised if the file can't be read.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
-    func openServerLog(id: Swift.String, path: Swift.String, count: Swift.Int32, current: Ice.Current) throws -> FileIteratorPrx?
+    /// - returns: `FileIteratorPrx?` - The result of the operation
+    func openServerLog(id: Swift.String, path: Swift.String, count: Swift.Int32, current: Ice.Current) async throws -> FileIteratorPrx?
 
     /// Open the given server stderr file for reading. The file can be read with the returned file iterator.
     ///
@@ -8488,18 +8309,8 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - FileNotAvailableException - Raised if the file can't be read.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
-    func openServerStdErr(id: Swift.String, count: Swift.Int32, current: Ice.Current) throws -> FileIteratorPrx?
+    /// - returns: `FileIteratorPrx?` - The result of the operation
+    func openServerStdErr(id: Swift.String, count: Swift.Int32, current: Ice.Current) async throws -> FileIteratorPrx?
 
     /// Open the given server stdout file for reading. The file can be read with the returned file iterator.
     ///
@@ -8510,18 +8321,8 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - FileNotAvailableException - Raised if the file can't be read.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
-    func openServerStdOut(id: Swift.String, count: Swift.Int32, current: Ice.Current) throws -> FileIteratorPrx?
+    /// - returns: `FileIteratorPrx?` - The result of the operation
+    func openServerStdOut(id: Swift.String, count: Swift.Int32, current: Ice.Current) async throws -> FileIteratorPrx?
 
     /// Open the given node stderr file for reading. The file can be read with the returned file iterator.
     ///
@@ -8532,16 +8333,8 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - FileNotAvailableException - Raised if the file can't be read.
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    func openNodeStdErr(name: Swift.String, count: Swift.Int32, current: Ice.Current) throws -> FileIteratorPrx?
+    /// - returns: `FileIteratorPrx?` - The result of the operation
+    func openNodeStdErr(name: Swift.String, count: Swift.Int32, current: Ice.Current) async throws -> FileIteratorPrx?
 
     /// Open the given node stdout file for reading. The file can be read with the returned file iterator.
     ///
@@ -8552,16 +8345,8 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - FileNotAvailableException - Raised if the file can't be read.
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    func openNodeStdOut(name: Swift.String, count: Swift.Int32, current: Ice.Current) throws -> FileIteratorPrx?
+    /// - returns: `FileIteratorPrx?` - The result of the operation
+    func openNodeStdOut(name: Swift.String, count: Swift.Int32, current: Ice.Current) async throws -> FileIteratorPrx?
 
     /// Open the given registry stderr file for reading. The file can be read with the returned file iterator.
     ///
@@ -8572,16 +8357,8 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - FileNotAvailableException - Raised if the file can't be read.
-    ///
-    ///   - RegistryNotExistException - Raised if the registry doesn't exist.
-    ///
-    ///   - RegistryUnreachableException - Raised if the registry could not be reached.
-    func openRegistryStdErr(name: Swift.String, count: Swift.Int32, current: Ice.Current) throws -> FileIteratorPrx?
+    /// - returns: `FileIteratorPrx?` - The result of the operation
+    func openRegistryStdErr(name: Swift.String, count: Swift.Int32, current: Ice.Current) async throws -> FileIteratorPrx?
 
     /// Open the given registry stdout file for reading. The file can be read with the returned file iterator.
     ///
@@ -8592,16 +8369,8 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - FileNotAvailableException - Raised if the file can't be read.
-    ///
-    ///   - RegistryNotExistException - Raised if the registry doesn't exist.
-    ///
-    ///   - RegistryUnreachableException - Raised if the registry could not be reached.
-    func openRegistryStdOut(name: Swift.String, count: Swift.Int32, current: Ice.Current) throws -> FileIteratorPrx?
+    /// - returns: `FileIteratorPrx?` - The result of the operation
+    func openRegistryStdOut(name: Swift.String, count: Swift.Int32, current: Ice.Current) async throws -> FileIteratorPrx?
 }
 
 /// The IceGrid administrative interface. Allowing access to this interface is a security risk!
@@ -8705,8 +8474,7 @@ extension Admin {
         _ = try istr.startEncapsulation()
         let iceP_descriptor: ApplicationDescriptor = try istr.read()
         try istr.readPendingValues()
-
-        try self.addApplication(descriptor: iceP_descriptor, current: request.current)
+        try await self.addApplication(descriptor: iceP_descriptor, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -8716,8 +8484,7 @@ extension Admin {
         _ = try istr.startEncapsulation()
         let iceP_descriptor: ApplicationDescriptor = try istr.read()
         try istr.readPendingValues()
-
-        try self.syncApplication(descriptor: iceP_descriptor, current: request.current)
+        try await self.syncApplication(descriptor: iceP_descriptor, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -8727,8 +8494,7 @@ extension Admin {
         _ = try istr.startEncapsulation()
         let iceP_descriptor: ApplicationUpdateDescriptor = try istr.read()
         try istr.readPendingValues()
-
-        try self.updateApplication(descriptor: iceP_descriptor, current: request.current)
+        try await self.updateApplication(descriptor: iceP_descriptor, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -8738,8 +8504,7 @@ extension Admin {
         _ = try istr.startEncapsulation()
         let iceP_descriptor: ApplicationDescriptor = try istr.read()
         try istr.readPendingValues()
-
-        try self.syncApplicationWithoutRestart(descriptor: iceP_descriptor, current: request.current)
+        try await self.syncApplicationWithoutRestart(descriptor: iceP_descriptor, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -8749,8 +8514,7 @@ extension Admin {
         _ = try istr.startEncapsulation()
         let iceP_descriptor: ApplicationUpdateDescriptor = try istr.read()
         try istr.readPendingValues()
-
-        try self.updateApplicationWithoutRestart(descriptor: iceP_descriptor, current: request.current)
+        try await self.updateApplicationWithoutRestart(descriptor: iceP_descriptor, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -8759,8 +8523,7 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_name: Swift.String = try istr.read()
-
-        try self.removeApplication(name: iceP_name, current: request.current)
+        try await self.removeApplication(name: iceP_name, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -8771,8 +8534,7 @@ extension Admin {
         let iceP_application: Swift.String = try istr.read()
         let iceP_node: Swift.String = try istr.read()
         let iceP_desc: ServerInstanceDescriptor = try istr.read()
-
-        try self.instantiateServer(application: iceP_application, node: iceP_node, desc: iceP_desc, current: request.current)
+        try await self.instantiateServer(application: iceP_application, node: iceP_node, desc: iceP_desc, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -8781,39 +8543,33 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_name: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.getApplicationInfo(name: iceP_name, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getApplicationInfo(name: iceP_name, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_getDefaultApplicationDescriptor(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getDefaultApplicationDescriptor(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getDefaultApplicationDescriptor(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_getAllApplicationNames(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getAllApplicationNames(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getAllApplicationNames(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getServerInfo(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -8821,14 +8577,12 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_id: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.getServerInfo(id: iceP_id, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getServerInfo(id: iceP_id, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_getServerState(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -8836,13 +8590,11 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_id: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.getServerState(id: iceP_id, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getServerState(id: iceP_id, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getServerPid(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -8850,25 +8602,21 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_id: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.getServerPid(id: iceP_id, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getServerPid(id: iceP_id, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getServerAdminCategory(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getServerAdminCategory(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getServerAdminCategory(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getServerAdmin(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -8876,13 +8624,11 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_id: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.getServerAdmin(id: iceP_id, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getServerAdmin(id: iceP_id, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_enableServer(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -8891,8 +8637,7 @@ extension Admin {
         _ = try istr.startEncapsulation()
         let iceP_id: Swift.String = try istr.read()
         let iceP_enabled: Swift.Bool = try istr.read()
-
-        try self.enableServer(id: iceP_id, enabled: iceP_enabled, current: request.current)
+        try await self.enableServer(id: iceP_id, enabled: iceP_enabled, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -8901,13 +8646,11 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_id: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.isServerEnabled(id: iceP_id, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.isServerEnabled(id: iceP_id, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_startServer(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -8915,8 +8658,7 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_id: Swift.String = try istr.read()
-        try await self.startServerAsync(
-            id: iceP_id, current: request.current)
+        try await self.startServer(id: iceP_id, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -8925,8 +8667,7 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_id: Swift.String = try istr.read()
-        try await self.stopServerAsync(
-            id: iceP_id, current: request.current)
+        try await self.stopServer(id: iceP_id, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -8936,21 +8677,18 @@ extension Admin {
         _ = try istr.startEncapsulation()
         let iceP_id: Swift.String = try istr.read()
         let iceP_signal: Swift.String = try istr.read()
-
-        try self.sendSignal(id: iceP_id, signal: iceP_signal, current: request.current)
+        try await self.sendSignal(id: iceP_id, signal: iceP_signal, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_getAllServerIds(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getAllServerIds(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getAllServerIds(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getAdapterInfo(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -8958,13 +8696,11 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_id: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.getAdapterInfo(id: iceP_id, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        AdapterInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getAdapterInfo(id: iceP_id, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            AdapterInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_removeAdapter(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -8972,21 +8708,18 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_id: Swift.String = try istr.read()
-
-        try self.removeAdapter(id: iceP_id, current: request.current)
+        try await self.removeAdapter(id: iceP_id, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_getAllAdapterIds(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getAllAdapterIds(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getAllAdapterIds(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_addObject(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -8994,8 +8727,7 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_obj: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-
-        try self.addObject(obj: iceP_obj, current: request.current)
+        try await self.addObject(obj: iceP_obj, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -9004,8 +8736,7 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_obj: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-
-        try self.updateObject(obj: iceP_obj, current: request.current)
+        try await self.updateObject(obj: iceP_obj, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -9015,8 +8746,7 @@ extension Admin {
         _ = try istr.startEncapsulation()
         let iceP_obj: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
         let iceP_type: Swift.String = try istr.read()
-
-        try self.addObjectWithType(obj: iceP_obj, type: iceP_type, current: request.current)
+        try await self.addObjectWithType(obj: iceP_obj, type: iceP_type, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -9025,8 +8755,7 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_id: Ice.Identity = try istr.read()
-
-        try self.removeObject(id: iceP_id, current: request.current)
+        try await self.removeObject(id: iceP_id, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -9035,13 +8764,11 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_id: Ice.Identity = try istr.read()
-
-        let iceP_returnValue = try self.getObjectInfo(id: iceP_id, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getObjectInfo(id: iceP_id, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getObjectInfosByType(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -9049,13 +8776,11 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_type: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.getObjectInfosByType(type: iceP_type, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ObjectInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getObjectInfosByType(type: iceP_type, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ObjectInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_getAllObjectInfos(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -9063,13 +8788,11 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_expr: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.getAllObjectInfos(expr: iceP_expr, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ObjectInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getAllObjectInfos(expr: iceP_expr, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ObjectInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_pingNode(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -9077,13 +8800,11 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_name: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.pingNode(name: iceP_name, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.pingNode(name: iceP_name, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getNodeLoad(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -9091,13 +8812,11 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_name: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.getNodeLoad(name: iceP_name, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getNodeLoad(name: iceP_name, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getNodeInfo(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -9105,13 +8824,11 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_name: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.getNodeInfo(name: iceP_name, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getNodeInfo(name: iceP_name, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getNodeAdmin(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -9119,13 +8836,11 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_name: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.getNodeAdmin(name: iceP_name, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getNodeAdmin(name: iceP_name, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getNodeProcessorSocketCount(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -9133,13 +8848,11 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_name: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.getNodeProcessorSocketCount(name: iceP_name, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getNodeProcessorSocketCount(name: iceP_name, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_shutdownNode(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -9147,8 +8860,7 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_name: Swift.String = try istr.read()
-
-        try self.shutdownNode(name: iceP_name, current: request.current)
+        try await self.shutdownNode(name: iceP_name, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -9157,25 +8869,21 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_name: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.getNodeHostname(name: iceP_name, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getNodeHostname(name: iceP_name, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getAllNodeNames(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getAllNodeNames(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getAllNodeNames(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_pingRegistry(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -9183,13 +8891,11 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_name: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.pingRegistry(name: iceP_name, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.pingRegistry(name: iceP_name, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getRegistryInfo(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -9197,13 +8903,11 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_name: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.getRegistryInfo(name: iceP_name, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getRegistryInfo(name: iceP_name, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getRegistryAdmin(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -9211,13 +8915,11 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_name: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.getRegistryAdmin(name: iceP_name, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getRegistryAdmin(name: iceP_name, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_shutdownRegistry(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -9225,28 +8927,24 @@ extension Admin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_name: Swift.String = try istr.read()
-
-        try self.shutdownRegistry(name: iceP_name, current: request.current)
+        try await self.shutdownRegistry(name: iceP_name, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_getAllRegistryNames(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getAllRegistryNames(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getAllRegistryNames(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -9264,21 +8962,18 @@ extension FileIterator {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_size: Swift.Int32 = try istr.read()
-
-        let (iceP_returnValue, iceP_lines) = try self.read(size: iceP_size, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_lines)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.read(size: iceP_size, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_lines) = value
+            ostr.write(iceP_lines)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_destroy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.destroy(current: request.current)
+        try await self.destroy(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -9298,8 +8993,7 @@ extension RegistryObserver {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_registries: RegistryInfoSeq = try RegistryInfoSeqHelper.read(from: istr)
-
-        try self.registryInit(registries: iceP_registries, current: request.current)
+        try await self.registryInit(registries: iceP_registries, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -9308,8 +9002,7 @@ extension RegistryObserver {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_registryReplica: RegistryInfo = try istr.read()
-
-        try self.registryUp(registryReplica: iceP_registryReplica, current: request.current)
+        try await self.registryUp(registryReplica: iceP_registryReplica, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -9318,8 +9011,7 @@ extension RegistryObserver {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_name: Swift.String = try istr.read()
-
-        try self.registryDown(name: iceP_name, current: request.current)
+        try await self.registryDown(name: iceP_name, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -9344,8 +9036,7 @@ extension NodeObserver {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_nodes: NodeDynamicInfoSeq = try NodeDynamicInfoSeqHelper.read(from: istr)
-
-        try self.nodeInit(nodes: iceP_nodes, current: request.current)
+        try await self.nodeInit(nodes: iceP_nodes, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -9354,8 +9045,7 @@ extension NodeObserver {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_node: NodeDynamicInfo = try istr.read()
-
-        try self.nodeUp(node: iceP_node, current: request.current)
+        try await self.nodeUp(node: iceP_node, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -9364,8 +9054,7 @@ extension NodeObserver {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_name: Swift.String = try istr.read()
-
-        try self.nodeDown(name: iceP_name, current: request.current)
+        try await self.nodeDown(name: iceP_name, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -9375,8 +9064,7 @@ extension NodeObserver {
         _ = try istr.startEncapsulation()
         let iceP_node: Swift.String = try istr.read()
         let iceP_updatedInfo: ServerDynamicInfo = try istr.read()
-
-        try self.updateServer(node: iceP_node, updatedInfo: iceP_updatedInfo, current: request.current)
+        try await self.updateServer(node: iceP_node, updatedInfo: iceP_updatedInfo, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -9386,8 +9074,7 @@ extension NodeObserver {
         _ = try istr.startEncapsulation()
         let iceP_node: Swift.String = try istr.read()
         let iceP_updatedInfo: AdapterDynamicInfo = try istr.read()
-
-        try self.updateAdapter(node: iceP_node, updatedInfo: iceP_updatedInfo, current: request.current)
+        try await self.updateAdapter(node: iceP_node, updatedInfo: iceP_updatedInfo, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -9412,8 +9099,7 @@ extension ApplicationObserver {
         let iceP_serial: Swift.Int32 = try istr.read()
         let iceP_applications: ApplicationInfoSeq = try ApplicationInfoSeqHelper.read(from: istr)
         try istr.readPendingValues()
-
-        try self.applicationInit(serial: iceP_serial, applications: iceP_applications, current: request.current)
+        try await self.applicationInit(serial: iceP_serial, applications: iceP_applications, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -9424,8 +9110,7 @@ extension ApplicationObserver {
         let iceP_serial: Swift.Int32 = try istr.read()
         let iceP_desc: ApplicationInfo = try istr.read()
         try istr.readPendingValues()
-
-        try self.applicationAdded(serial: iceP_serial, desc: iceP_desc, current: request.current)
+        try await self.applicationAdded(serial: iceP_serial, desc: iceP_desc, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -9435,8 +9120,7 @@ extension ApplicationObserver {
         _ = try istr.startEncapsulation()
         let iceP_serial: Swift.Int32 = try istr.read()
         let iceP_name: Swift.String = try istr.read()
-
-        try self.applicationRemoved(serial: iceP_serial, name: iceP_name, current: request.current)
+        try await self.applicationRemoved(serial: iceP_serial, name: iceP_name, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -9447,8 +9131,7 @@ extension ApplicationObserver {
         let iceP_serial: Swift.Int32 = try istr.read()
         let iceP_desc: ApplicationUpdateInfo = try istr.read()
         try istr.readPendingValues()
-
-        try self.applicationUpdated(serial: iceP_serial, desc: iceP_desc, current: request.current)
+        try await self.applicationUpdated(serial: iceP_serial, desc: iceP_desc, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -9470,8 +9153,7 @@ extension AdapterObserver {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_adpts: AdapterInfoSeq = try AdapterInfoSeqHelper.read(from: istr)
-
-        try self.adapterInit(adpts: iceP_adpts, current: request.current)
+        try await self.adapterInit(adpts: iceP_adpts, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -9480,8 +9162,7 @@ extension AdapterObserver {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_info: AdapterInfo = try istr.read()
-
-        try self.adapterAdded(info: iceP_info, current: request.current)
+        try await self.adapterAdded(info: iceP_info, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -9490,8 +9171,7 @@ extension AdapterObserver {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_info: AdapterInfo = try istr.read()
-
-        try self.adapterUpdated(info: iceP_info, current: request.current)
+        try await self.adapterUpdated(info: iceP_info, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -9500,8 +9180,7 @@ extension AdapterObserver {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_id: Swift.String = try istr.read()
-
-        try self.adapterRemoved(id: iceP_id, current: request.current)
+        try await self.adapterRemoved(id: iceP_id, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -9523,8 +9202,7 @@ extension ObjectObserver {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_objects: ObjectInfoSeq = try ObjectInfoSeqHelper.read(from: istr)
-
-        try self.objectInit(objects: iceP_objects, current: request.current)
+        try await self.objectInit(objects: iceP_objects, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -9533,8 +9211,7 @@ extension ObjectObserver {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_info: ObjectInfo = try istr.read()
-
-        try self.objectAdded(info: iceP_info, current: request.current)
+        try await self.objectAdded(info: iceP_info, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -9543,8 +9220,7 @@ extension ObjectObserver {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_info: ObjectInfo = try istr.read()
-
-        try self.objectUpdated(info: iceP_info, current: request.current)
+        try await self.objectUpdated(info: iceP_info, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -9553,8 +9229,7 @@ extension ObjectObserver {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_id: Ice.Identity = try istr.read()
-
-        try self.objectRemoved(id: iceP_id, current: request.current)
+        try await self.objectRemoved(id: iceP_id, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -9598,33 +9273,28 @@ extension AdminSession {
     public func _iceD_keepAlive(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.keepAlive(current: request.current)
+        try await self.keepAlive(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_getAdmin(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getAdmin(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getAdmin(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getAdminCallbackTemplate(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getAdminCallbackTemplate(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getAdminCallbackTemplate(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_setObservers(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -9636,8 +9306,7 @@ extension AdminSession {
         let iceP_appObs: ApplicationObserverPrx? = try istr.read(ApplicationObserverPrx.self)
         let iceP_adptObs: AdapterObserverPrx? = try istr.read(AdapterObserverPrx.self)
         let iceP_objObs: ObjectObserverPrx? = try istr.read(ObjectObserverPrx.self)
-
-        try self.setObservers(registryObs: iceP_registryObs, nodeObs: iceP_nodeObs, appObs: iceP_appObs, adptObs: iceP_adptObs, objObs: iceP_objObs, current: request.current)
+        try await self.setObservers(registryObs: iceP_registryObs, nodeObs: iceP_nodeObs, appObs: iceP_appObs, adptObs: iceP_adptObs, objObs: iceP_objObs, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -9650,41 +9319,35 @@ extension AdminSession {
         let iceP_appObs: Ice.Identity = try istr.read()
         let iceP_adptObs: Ice.Identity = try istr.read()
         let iceP_objObs: Ice.Identity = try istr.read()
-
-        try self.setObserversByIdentity(registryObs: iceP_registryObs, nodeObs: iceP_nodeObs, appObs: iceP_appObs, adptObs: iceP_adptObs, objObs: iceP_objObs, current: request.current)
+        try await self.setObserversByIdentity(registryObs: iceP_registryObs, nodeObs: iceP_nodeObs, appObs: iceP_appObs, adptObs: iceP_adptObs, objObs: iceP_objObs, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_startUpdate(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.startUpdate(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.startUpdate(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_finishUpdate(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.finishUpdate(current: request.current)
+        try await self.finishUpdate(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_getReplicaName(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getReplicaName(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getReplicaName(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_openServerLog(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -9694,13 +9357,11 @@ extension AdminSession {
         let iceP_id: Swift.String = try istr.read()
         let iceP_path: Swift.String = try istr.read()
         let iceP_count: Swift.Int32 = try istr.read()
-
-        let iceP_returnValue = try self.openServerLog(id: iceP_id, path: iceP_path, count: iceP_count, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.openServerLog(id: iceP_id, path: iceP_path, count: iceP_count, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_openServerStdErr(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -9709,13 +9370,11 @@ extension AdminSession {
         _ = try istr.startEncapsulation()
         let iceP_id: Swift.String = try istr.read()
         let iceP_count: Swift.Int32 = try istr.read()
-
-        let iceP_returnValue = try self.openServerStdErr(id: iceP_id, count: iceP_count, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.openServerStdErr(id: iceP_id, count: iceP_count, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_openServerStdOut(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -9724,13 +9383,11 @@ extension AdminSession {
         _ = try istr.startEncapsulation()
         let iceP_id: Swift.String = try istr.read()
         let iceP_count: Swift.Int32 = try istr.read()
-
-        let iceP_returnValue = try self.openServerStdOut(id: iceP_id, count: iceP_count, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.openServerStdOut(id: iceP_id, count: iceP_count, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_openNodeStdErr(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -9739,13 +9396,11 @@ extension AdminSession {
         _ = try istr.startEncapsulation()
         let iceP_name: Swift.String = try istr.read()
         let iceP_count: Swift.Int32 = try istr.read()
-
-        let iceP_returnValue = try self.openNodeStdErr(name: iceP_name, count: iceP_count, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.openNodeStdErr(name: iceP_name, count: iceP_count, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_openNodeStdOut(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -9754,13 +9409,11 @@ extension AdminSession {
         _ = try istr.startEncapsulation()
         let iceP_name: Swift.String = try istr.read()
         let iceP_count: Swift.Int32 = try istr.read()
-
-        let iceP_returnValue = try self.openNodeStdOut(name: iceP_name, count: iceP_count, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.openNodeStdOut(name: iceP_name, count: iceP_count, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_openRegistryStdErr(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -9769,13 +9422,11 @@ extension AdminSession {
         _ = try istr.startEncapsulation()
         let iceP_name: Swift.String = try istr.read()
         let iceP_count: Swift.Int32 = try istr.read()
-
-        let iceP_returnValue = try self.openRegistryStdErr(name: iceP_name, count: iceP_count, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.openRegistryStdErr(name: iceP_name, count: iceP_count, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_openRegistryStdOut(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -9784,12 +9435,10 @@ extension AdminSession {
         _ = try istr.startEncapsulation()
         let iceP_name: Swift.String = try istr.read()
         let iceP_count: Swift.Int32 = try istr.read()
-
-        let iceP_returnValue = try self.openRegistryStdOut(name: iceP_name, count: iceP_count, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.openRegistryStdOut(name: iceP_name, count: iceP_count, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }

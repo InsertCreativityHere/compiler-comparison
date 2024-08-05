@@ -438,13 +438,13 @@ public struct TestIntfDisp: Ice.Dispatcher {
         case "callOpOn":
             try await servant._iceD_callOpOn(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
         case "op":
             try await servant._iceD_op(request)
         case "shutdown":
@@ -469,42 +469,54 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32`
-    func op(current: Ice.Current) throws -> Swift.Int32
+    /// - returns: `Swift.Int32` - The result of the operation
+    func op(current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter proxy: `TestIntfPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32`
-    func callOpOn(proxy: TestIntfPrx?, current: Ice.Current) throws -> Swift.Int32
+    /// - returns: `Swift.Int32` - The result of the operation
+    func callOpOn(proxy: TestIntfPrx?, current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func throwUserException1(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func throwUserException1(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func throwUserException2(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func throwUserException2(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func throwUnhandledException1(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func throwUnhandledException1(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func throwUnhandledException2(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func throwUnhandledException2(current: Ice.Current) async throws
 
     ///
     /// - parameter ms: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func sleep(ms: Swift.Int32, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func sleep(ms: Swift.Int32, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// TestIntf overview.
@@ -530,13 +542,11 @@ extension TestIntf {
     public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.op(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.op(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_callOpOn(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -544,44 +554,38 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_proxy: TestIntfPrx? = try istr.read(TestIntfPrx.self)
-
-        let iceP_returnValue = try self.callOpOn(proxy: iceP_proxy, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.callOpOn(proxy: iceP_proxy, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_throwUserException1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.throwUserException1(current: request.current)
+        try await self.throwUserException1(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_throwUserException2(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.throwUserException2(current: request.current)
+        try await self.throwUserException2(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_throwUnhandledException1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.throwUnhandledException1(current: request.current)
+        try await self.throwUnhandledException1(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_throwUnhandledException2(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.throwUnhandledException2(current: request.current)
+        try await self.throwUnhandledException2(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -590,16 +594,14 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_ms: Swift.Int32 = try istr.read()
-
-        try self.sleep(ms: iceP_ms, current: request.current)
+        try await self.sleep(ms: iceP_ms, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

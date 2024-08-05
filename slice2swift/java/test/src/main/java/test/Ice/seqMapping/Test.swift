@@ -736,13 +736,13 @@ public struct MyClassDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(request)
         case "opSerialLargeJava":
             try await servant._iceD_opSerialLargeJava(request)
         case "opSerialSmallJava":
@@ -760,43 +760,33 @@ public struct MyClassDisp: Ice.Dispatcher {
 public protocol MyClass {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 
     ///
     /// - parameter i: `SerialSmall`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: SerialSmall, o: SerialSmall)`:
-    ///
-    ///   - returnValue: `SerialSmall`
-    ///
-    ///   - o: `SerialSmall`
-    func opSerialSmallJava(i: SerialSmall, current: Ice.Current) throws -> (returnValue: SerialSmall, o: SerialSmall)
+    /// - returns: `(returnValue: SerialSmall, o: SerialSmall)` - The result of the operation
+    func opSerialSmallJava(i: SerialSmall, current: Ice.Current) async throws -> (returnValue: SerialSmall, o: SerialSmall)
 
     ///
     /// - parameter i: `SerialLarge`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: SerialLarge, o: SerialLarge)`:
-    ///
-    ///   - returnValue: `SerialLarge`
-    ///
-    ///   - o: `SerialLarge`
-    func opSerialLargeJava(i: SerialLarge, current: Ice.Current) throws -> (returnValue: SerialLarge, o: SerialLarge)
+    /// - returns: `(returnValue: SerialLarge, o: SerialLarge)` - The result of the operation
+    func opSerialLargeJava(i: SerialLarge, current: Ice.Current) async throws -> (returnValue: SerialLarge, o: SerialLarge)
 
     ///
     /// - parameter i: `SerialStruct`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: SerialStruct, o: SerialStruct)`:
-    ///
-    ///   - returnValue: `SerialStruct`
-    ///
-    ///   - o: `SerialStruct`
-    func opSerialStructJava(i: SerialStruct, current: Ice.Current) throws -> (returnValue: SerialStruct, o: SerialStruct)
+    /// - returns: `(returnValue: SerialStruct, o: SerialStruct)` - The result of the operation
+    func opSerialStructJava(i: SerialStruct, current: Ice.Current) async throws -> (returnValue: SerialStruct, o: SerialStruct)
 }
 
 /// MyClass overview.
@@ -814,8 +804,7 @@ extension MyClass {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -824,14 +813,12 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_i: SerialSmall = try istr.read()
-
-        let (iceP_returnValue, iceP_o) = try self.opSerialSmallJava(i: iceP_i, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_o)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opSerialSmallJava(i: iceP_i, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_o) = value
+            ostr.write(iceP_o)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opSerialLargeJava(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -839,14 +826,12 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_i: SerialLarge = try istr.read()
-
-        let (iceP_returnValue, iceP_o) = try self.opSerialLargeJava(i: iceP_i, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_o)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opSerialLargeJava(i: iceP_i, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_o) = value
+            ostr.write(iceP_o)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opSerialStructJava(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -854,13 +839,11 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_i: SerialStruct = try istr.read()
-
-        let (iceP_returnValue, iceP_o) = try self.opSerialStructJava(i: iceP_i, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_o)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opSerialStructJava(i: iceP_i, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_o) = value
+            ostr.write(iceP_o)
+            ostr.write(iceP_returnValue)
+        }
     }
 }

@@ -341,13 +341,13 @@ public struct MyClassDisp: Ice.Dispatcher {
         case "getContext":
             try await servant._iceD_getContext(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
             try await servant._iceD_shutdown(request)
         default:
@@ -361,13 +361,13 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func shutdownAsync(current: Ice.Current) async throws -> Swift.Void
+    func shutdown(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Ice.Context` - The result of the operation
-    func getContextAsync(current: Ice.Current) async throws -> Ice.Context
+    func getContext(current: Ice.Current) async throws -> Ice.Context
 }
 
 
@@ -387,13 +387,13 @@ public struct MyDerivedClassDisp: Ice.Dispatcher {
         case "getContext":
             try await servant._iceD_getContext(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
             try await servant._iceD_shutdown(request)
         default:
@@ -409,7 +409,7 @@ public protocol MyDerivedClass: MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func echoAsync(obj: Ice.ObjectPrx?, current: Ice.Current) async throws -> Ice.ObjectPrx?
+    func echo(obj: Ice.ObjectPrx?, current: Ice.Current) async throws -> Ice.ObjectPrx?
 }
 
 /// MyClass overview.
@@ -423,16 +423,14 @@ extension MyClass {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.shutdownAsync(
-            current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_getContext(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        let result = try await self.getContextAsync(
-            current: request.current)
+        let result = try await self.getContext(current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             Ice.ContextHelper.write(to: ostr, value: iceP_returnValue)
@@ -451,8 +449,7 @@ extension MyDerivedClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_obj: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-        let result = try await self.echoAsync(
-            obj: iceP_obj, current: request.current)
+        let result = try await self.echo(obj: iceP_obj, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)

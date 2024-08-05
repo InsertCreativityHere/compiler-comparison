@@ -23,8 +23,6 @@ public interface Retry extends com.zeroc.Ice.Object
 
     void opNotIdempotent(com.zeroc.Ice.Current current);
 
-    void sleep(int delay, com.zeroc.Ice.Current current);
-
     void shutdown(com.zeroc.Ice.Current current);
 
     /** @hidden */
@@ -91,19 +89,6 @@ public interface Retry extends com.zeroc.Ice.Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_sleep(Retry obj, com.zeroc.Ice.IncomingRequest request)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
-        com.zeroc.Ice.InputStream istr = request.inputStream;
-        istr.startEncapsulation();
-        int iceP_delay;
-        iceP_delay = istr.readInt();
-        istr.endEncapsulation();
-        obj.sleep(iceP_delay, request.current);
-        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
-    }
-
-    /** @hidden */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_shutdown(Retry obj, com.zeroc.Ice.IncomingRequest request)
     {
         com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
@@ -121,7 +106,6 @@ public interface Retry extends com.zeroc.Ice.Object
             case "op" -> Retry._iceD_op(this, request);
             case "opIdempotent" -> Retry._iceD_opIdempotent(this, request);
             case "opNotIdempotent" -> Retry._iceD_opNotIdempotent(this, request);
-            case "sleep" -> Retry._iceD_sleep(this, request);
             case "shutdown" -> Retry._iceD_shutdown(this, request);
             case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
             case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);

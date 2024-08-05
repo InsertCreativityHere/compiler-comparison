@@ -248,13 +248,13 @@ public struct FileParserDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? FileParserDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? FileParserDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? FileParserDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? FileParserDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? FileParserDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? FileParserDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? FileParserDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? FileParserDisp.defaultObject)._iceD_ice_ping(request)
         case "parse":
             try await servant._iceD_parse(request)
         default:
@@ -274,12 +274,8 @@ public protocol FileParser {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ApplicationDescriptor` - The application descriptor.
-    ///
-    /// - throws:
-    ///
-    ///   - ParseException - Raised if an error occurred during parsing.
-    func parse(xmlFile: Swift.String, adminProxy: AdminPrx?, current: Ice.Current) throws -> ApplicationDescriptor
+    /// - returns: `ApplicationDescriptor` - The result of the operation
+    func parse(xmlFile: Swift.String, adminProxy: AdminPrx?, current: Ice.Current) async throws -> ApplicationDescriptor
 }
 
 /// icegridadmin provides a FileParser object to transform XML files into
@@ -295,13 +291,11 @@ extension FileParser {
         _ = try istr.startEncapsulation()
         let iceP_xmlFile: Swift.String = try istr.read()
         let iceP_adminProxy: AdminPrx? = try istr.read(AdminPrx.self)
-
-        let iceP_returnValue = try self.parse(xmlFile: iceP_xmlFile, adminProxy: iceP_adminProxy, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.parse(xmlFile: iceP_xmlFile, adminProxy: iceP_adminProxy, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 }

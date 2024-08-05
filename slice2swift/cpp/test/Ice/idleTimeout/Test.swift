@@ -442,13 +442,13 @@ public struct DelayedTestIntfDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? DelayedTestIntfDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? DelayedTestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? DelayedTestIntfDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? DelayedTestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? DelayedTestIntfDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? DelayedTestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? DelayedTestIntfDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? DelayedTestIntfDisp.defaultObject)._iceD_ice_ping(request)
         case "sleep":
             try await servant._iceD_sleep(request)
         default:
@@ -462,7 +462,9 @@ public protocol DelayedTestIntf {
     /// - parameter ms: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func sleep(ms: Swift.Int32, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func sleep(ms: Swift.Int32, current: Ice.Current) async throws
 }
 
 
@@ -478,13 +480,13 @@ public struct TestIntfDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
             try await servant._iceD_shutdown(request)
         case "sleep":
@@ -498,7 +500,9 @@ public struct TestIntfDisp: Ice.Dispatcher {
 public protocol TestIntf: DelayedTestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 
@@ -514,13 +518,13 @@ public struct TestIntfBidirDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? TestIntfBidirDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TestIntfBidirDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TestIntfBidirDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TestIntfBidirDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TestIntfBidirDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TestIntfBidirDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TestIntfBidirDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TestIntfBidirDisp.defaultObject)._iceD_ice_ping(request)
         case "makeSleep":
             try await servant._iceD_makeSleep(request)
         default:
@@ -538,7 +542,9 @@ public protocol TestIntfBidir {
     /// - parameter target: `DelayedTestIntfPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func makeSleep(aborted: Swift.Bool, ms: Swift.Int32, target: DelayedTestIntfPrx?, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func makeSleep(aborted: Swift.Bool, ms: Swift.Int32, target: DelayedTestIntfPrx?, current: Ice.Current) async throws
 }
 
 /// DelayedTestIntf overview.
@@ -552,8 +558,7 @@ extension DelayedTestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_ms: Swift.Int32 = try istr.read()
-
-        try self.sleep(ms: iceP_ms, current: request.current)
+        try await self.sleep(ms: iceP_ms, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -567,8 +572,7 @@ extension TestIntf {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -586,8 +590,7 @@ extension TestIntfBidir {
         let iceP_aborted: Swift.Bool = try istr.read()
         let iceP_ms: Swift.Int32 = try istr.read()
         let iceP_target: DelayedTestIntfPrx? = try istr.read(DelayedTestIntfPrx.self)
-
-        try self.makeSleep(aborted: iceP_aborted, ms: iceP_ms, target: iceP_target, current: request.current)
+        try await self.makeSleep(aborted: iceP_aborted, ms: iceP_ms, target: iceP_target, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

@@ -168,13 +168,13 @@ public struct SingleDisp: Ice.Dispatcher {
         case "event":
             try await servant._iceD_event(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? SingleDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? SingleDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? SingleDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? SingleDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? SingleDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? SingleDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? SingleDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? SingleDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -186,7 +186,9 @@ public protocol Single {
     /// - parameter i: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func event(i: Swift.Int32, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func event(i: Swift.Int32, current: Ice.Current) async throws
 }
 
 /// Single overview.
@@ -200,8 +202,7 @@ extension Single {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_i: Swift.Int32 = try istr.read()
-
-        try self.event(i: iceP_i, current: request.current)
+        try await self.event(i: iceP_i, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

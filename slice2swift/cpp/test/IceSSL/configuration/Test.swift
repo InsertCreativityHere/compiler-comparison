@@ -476,13 +476,13 @@ public struct ServerDisp: Ice.Dispatcher {
         case "checkCert":
             try await servant._iceD_checkCert(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_ping(request)
         case "noCert":
             try await servant._iceD_noCert(request)
         default:
@@ -494,7 +494,9 @@ public struct ServerDisp: Ice.Dispatcher {
 public protocol Server {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func noCert(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func noCert(current: Ice.Current) async throws
 
     ///
     /// - parameter subjectDN: `Swift.String`
@@ -502,7 +504,9 @@ public protocol Server {
     /// - parameter issuerDN: `Swift.String`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func checkCert(subjectDN: Swift.String, issuerDN: Swift.String, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func checkCert(subjectDN: Swift.String, issuerDN: Swift.String, current: Ice.Current) async throws
 }
 
 
@@ -522,13 +526,13 @@ public struct ServerFactoryDisp: Ice.Dispatcher {
         case "destroyServer":
             try await servant._iceD_destroyServer(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? ServerFactoryDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? ServerFactoryDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? ServerFactoryDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? ServerFactoryDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? ServerFactoryDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? ServerFactoryDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? ServerFactoryDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? ServerFactoryDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
             try await servant._iceD_shutdown(request)
         default:
@@ -543,18 +547,22 @@ public protocol ServerFactory {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ServerPrx?`
-    func createServer(props: Properties, current: Ice.Current) throws -> ServerPrx?
+    /// - returns: `ServerPrx?` - The result of the operation
+    func createServer(props: Properties, current: Ice.Current) async throws -> ServerPrx?
 
     ///
     /// - parameter srv: `ServerPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func destroyServer(srv: ServerPrx?, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func destroyServer(srv: ServerPrx?, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// Server overview.
@@ -568,8 +576,7 @@ extension Server {
     public func _iceD_noCert(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.noCert(current: request.current)
+        try await self.noCert(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -579,8 +586,7 @@ extension Server {
         _ = try istr.startEncapsulation()
         let iceP_subjectDN: Swift.String = try istr.read()
         let iceP_issuerDN: Swift.String = try istr.read()
-
-        try self.checkCert(subjectDN: iceP_subjectDN, issuerDN: iceP_issuerDN, current: request.current)
+        try await self.checkCert(subjectDN: iceP_subjectDN, issuerDN: iceP_issuerDN, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -600,13 +606,11 @@ extension ServerFactory {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_props: Properties = try PropertiesHelper.read(from: istr)
-
-        let iceP_returnValue = try self.createServer(props: iceP_props, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.createServer(props: iceP_props, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_destroyServer(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -614,16 +618,14 @@ extension ServerFactory {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_srv: ServerPrx? = try istr.read(ServerPrx.self)
-
-        try self.destroyServer(srv: iceP_srv, current: request.current)
+        try await self.destroyServer(srv: iceP_srv, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

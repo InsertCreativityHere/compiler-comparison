@@ -639,13 +639,13 @@ public struct BackendDisp: Ice.Dispatcher {
         case "check":
             try await servant._iceD_check(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? BackendDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? BackendDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? BackendDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? BackendDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? BackendDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? BackendDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? BackendDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? BackendDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
             try await servant._iceD_shutdown(request)
         default:
@@ -657,11 +657,15 @@ public struct BackendDisp: Ice.Dispatcher {
 public protocol Backend {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func check(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func check(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 
@@ -677,13 +681,13 @@ public struct TestControllerDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? TestControllerDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TestControllerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TestControllerDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TestControllerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TestControllerDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TestControllerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TestControllerDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TestControllerDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
             try await servant._iceD_shutdown(request)
         case "step":
@@ -707,12 +711,14 @@ public protocol TestController {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `TestToken`
-    func step(currentSession: Glacier2.SessionPrx?, currentState: TestToken, current: Ice.Current) throws -> TestToken
+    /// - returns: `TestToken` - The result of the operation
+    func step(currentSession: Glacier2.SessionPrx?, currentState: TestToken, current: Ice.Current) async throws -> TestToken
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 
@@ -730,13 +736,13 @@ public struct TestSessionDisp: Ice.Dispatcher {
         case "destroy":
             try await servant._iceD_destroy(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? TestSessionDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TestSessionDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TestSessionDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TestSessionDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TestSessionDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TestSessionDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TestSessionDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TestSessionDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
             try await servant._iceD_shutdown(request)
         default:
@@ -748,7 +754,9 @@ public struct TestSessionDisp: Ice.Dispatcher {
 public protocol TestSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// Backend overview.
@@ -762,16 +770,14 @@ extension Backend {
     public func _iceD_check(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.check(current: request.current)
+        try await self.check(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -794,20 +800,17 @@ extension TestController {
         _ = try istr.startEncapsulation()
         let iceP_currentSession: Glacier2.SessionPrx? = try istr.read(Glacier2.SessionPrx.self)
         let iceP_currentState: TestToken = try istr.read()
-
-        let iceP_newState = try self.step(currentSession: iceP_currentSession, currentState: iceP_currentState, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_newState)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.step(currentSession: iceP_currentSession, currentState: iceP_currentState, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_newState = value
+            ostr.write(iceP_newState)
+        }
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -821,8 +824,7 @@ extension TestSession {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

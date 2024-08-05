@@ -226,13 +226,13 @@ public struct RegistryDisp: Ice.Dispatcher {
         case "getUserInfo":
             try await servant._iceD_getUserInfo(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? RegistryDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? RegistryDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? RegistryDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? RegistryDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? RegistryDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? RegistryDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? RegistryDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? RegistryDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -245,8 +245,8 @@ public protocol Registry {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `UserInfo?`
-    func getUserInfo(id: Swift.String, current: Ice.Current) throws -> UserInfo?
+    /// - returns: `UserInfo?` - The result of the operation
+    func getUserInfo(id: Swift.String, current: Ice.Current) async throws -> UserInfo?
 }
 
 /// Registry overview.
@@ -260,13 +260,11 @@ extension Registry {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_id: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.getUserInfo(id: iceP_id, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getUserInfo(id: iceP_id, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 }

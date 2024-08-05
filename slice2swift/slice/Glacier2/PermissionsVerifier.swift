@@ -427,13 +427,13 @@ public struct PermissionsVerifierDisp: Ice.Dispatcher {
         case "checkPermissions":
             try await servant._iceD_checkPermissions(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? PermissionsVerifierDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? PermissionsVerifierDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? PermissionsVerifierDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? PermissionsVerifierDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? PermissionsVerifierDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? PermissionsVerifierDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? PermissionsVerifierDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? PermissionsVerifierDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -450,17 +450,8 @@ public protocol PermissionsVerifier {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: Swift.Bool, reason: Swift.String)`:
-    ///
-    ///   - returnValue: `Swift.Bool` - True if access is granted, or false otherwise.
-    ///
-    ///   - reason: `Swift.String` - The reason why access was denied.
-    ///
-    /// - throws:
-    ///
-    ///   - PermissionDeniedException - Raised if the user access is denied. This can be raised in place of
-    ///     returning false with a reason set in the reason out parameter.
-    func checkPermissions(userId: Swift.String, password: Swift.String, current: Ice.Current) throws -> (returnValue: Swift.Bool, reason: Swift.String)
+    /// - returns: `(returnValue: Swift.Bool, reason: Swift.String)` - The result of the operation
+    func checkPermissions(userId: Swift.String, password: Swift.String, current: Ice.Current) async throws -> (returnValue: Swift.Bool, reason: Swift.String)
 }
 
 
@@ -478,13 +469,13 @@ public struct SSLPermissionsVerifierDisp: Ice.Dispatcher {
         case "authorize":
             try await servant._iceD_authorize(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? SSLPermissionsVerifierDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? SSLPermissionsVerifierDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? SSLPermissionsVerifierDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? SSLPermissionsVerifierDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? SSLPermissionsVerifierDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? SSLPermissionsVerifierDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? SSLPermissionsVerifierDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? SSLPermissionsVerifierDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -499,17 +490,8 @@ public protocol SSLPermissionsVerifier {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: Swift.Bool, reason: Swift.String)`:
-    ///
-    ///   - returnValue: `Swift.Bool` - True if access is granted, or false otherwise.
-    ///
-    ///   - reason: `Swift.String` - The reason why access was denied.
-    ///
-    /// - throws:
-    ///
-    ///   - PermissionDeniedException - Raised if the user access is denied. This can be raised in place of
-    ///     returning false with a reason set in the reason out parameter.
-    func authorize(info: SSLInfo, current: Ice.Current) throws -> (returnValue: Swift.Bool, reason: Swift.String)
+    /// - returns: `(returnValue: Swift.Bool, reason: Swift.String)` - The result of the operation
+    func authorize(info: SSLInfo, current: Ice.Current) async throws -> (returnValue: Swift.Bool, reason: Swift.String)
 }
 
 /// The Glacier2 permissions verifier. This is called through the process of establishing a session.
@@ -524,14 +506,12 @@ extension PermissionsVerifier {
         _ = try istr.startEncapsulation()
         let iceP_userId: Swift.String = try istr.read()
         let iceP_password: Swift.String = try istr.read()
-
-        let (iceP_returnValue, iceP_reason) = try self.checkPermissions(userId: iceP_userId, password: iceP_password, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_reason)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.checkPermissions(userId: iceP_userId, password: iceP_password, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_reason) = value
+            ostr.write(iceP_reason)
+            ostr.write(iceP_returnValue)
+        }
     }
 }
 
@@ -546,13 +526,11 @@ extension SSLPermissionsVerifier {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_info: SSLInfo = try istr.read()
-
-        let (iceP_returnValue, iceP_reason) = try self.authorize(info: iceP_info, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_reason)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.authorize(info: iceP_info, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_reason) = value
+            ostr.write(iceP_reason)
+            ostr.write(iceP_returnValue)
+        }
     }
 }

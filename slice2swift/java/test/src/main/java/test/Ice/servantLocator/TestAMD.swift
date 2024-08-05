@@ -751,13 +751,13 @@ public struct TestIntfDisp: Ice.Dispatcher {
         case "asyncResponse":
             try await servant._iceD_asyncResponse(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
         case "impossibleException":
             try await servant._iceD_impossibleException(request)
         case "intfUserException":
@@ -789,43 +789,43 @@ public protocol TestIntf {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func requestFailedExceptionAsync(current: Ice.Current) async throws -> Swift.Void
+    func requestFailedException(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func unknownUserExceptionAsync(current: Ice.Current) async throws -> Swift.Void
+    func unknownUserException(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func unknownLocalExceptionAsync(current: Ice.Current) async throws -> Swift.Void
+    func unknownLocalException(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func unknownExceptionAsync(current: Ice.Current) async throws -> Swift.Void
+    func unknownException(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func localExceptionAsync(current: Ice.Current) async throws -> Swift.Void
+    func localException(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func javaExceptionAsync(current: Ice.Current) async throws -> Swift.Void
+    func javaException(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func unknownExceptionWithServantExceptionAsync(current: Ice.Current) async throws -> Swift.Void
+    func unknownExceptionWithServantException(current: Ice.Current) async throws
 
     ///
     /// - parameter throw: `Swift.Bool`
@@ -833,7 +833,7 @@ public protocol TestIntf {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Swift.String` - The result of the operation
-    func impossibleExceptionAsync(throw: Swift.Bool, current: Ice.Current) async throws -> Swift.String
+    func impossibleException(throw: Swift.Bool, current: Ice.Current) async throws -> Swift.String
 
     ///
     /// - parameter throw: `Swift.Bool`
@@ -841,25 +841,25 @@ public protocol TestIntf {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Swift.String` - The result of the operation
-    func intfUserExceptionAsync(throw: Swift.Bool, current: Ice.Current) async throws -> Swift.String
+    func intfUserException(throw: Swift.Bool, current: Ice.Current) async throws -> Swift.String
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func asyncResponseAsync(current: Ice.Current) async throws -> Swift.Void
+    func asyncResponse(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func asyncExceptionAsync(current: Ice.Current) async throws -> Swift.Void
+    func asyncException(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func shutdownAsync(current: Ice.Current) async throws -> Swift.Void
+    func shutdown(current: Ice.Current) async throws
 }
 
 
@@ -877,13 +877,13 @@ public struct TestActivationDisp: Ice.Dispatcher {
         case "activateServantLocator":
             try await servant._iceD_activateServantLocator(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? TestActivationDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TestActivationDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TestActivationDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TestActivationDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TestActivationDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TestActivationDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TestActivationDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TestActivationDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -895,7 +895,9 @@ public protocol TestActivation {
     /// - parameter activate: `Swift.Bool`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func activateServantLocator(activate: Swift.Bool, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func activateServantLocator(activate: Swift.Bool, current: Ice.Current) async throws
 }
 
 /// TestIntf overview.
@@ -929,56 +931,49 @@ extension TestIntf {
     public func _iceD_requestFailedException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.requestFailedExceptionAsync(
-            current: request.current)
+        try await self.requestFailedException(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_unknownUserException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.unknownUserExceptionAsync(
-            current: request.current)
+        try await self.unknownUserException(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_unknownLocalException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.unknownLocalExceptionAsync(
-            current: request.current)
+        try await self.unknownLocalException(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_unknownException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.unknownExceptionAsync(
-            current: request.current)
+        try await self.unknownException(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_localException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.localExceptionAsync(
-            current: request.current)
+        try await self.localException(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_javaException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.javaExceptionAsync(
-            current: request.current)
+        try await self.javaException(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_unknownExceptionWithServantException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.unknownExceptionWithServantExceptionAsync(
-            current: request.current)
+        try await self.unknownExceptionWithServantException(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -987,8 +982,7 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_throw: Swift.Bool = try istr.read()
-        let result = try await self.impossibleExceptionAsync(
-            throw: iceP_throw, current: request.current)
+        let result = try await self.impossibleException(throw: iceP_throw, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -1000,8 +994,7 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_throw: Swift.Bool = try istr.read()
-        let result = try await self.intfUserExceptionAsync(
-            throw: iceP_throw, current: request.current)
+        let result = try await self.intfUserException(throw: iceP_throw, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -1011,24 +1004,21 @@ extension TestIntf {
     public func _iceD_asyncResponse(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.asyncResponseAsync(
-            current: request.current)
+        try await self.asyncResponse(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_asyncException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.asyncExceptionAsync(
-            current: request.current)
+        try await self.asyncException(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.shutdownAsync(
-            current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -1044,8 +1034,7 @@ extension TestActivation {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_activate: Swift.Bool = try istr.read()
-
-        try self.activateServantLocator(activate: iceP_activate, current: request.current)
+        try await self.activateServantLocator(activate: iceP_activate, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

@@ -590,13 +590,13 @@ public struct ServiceObserverDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? ServiceObserverDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? ServiceObserverDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? ServiceObserverDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? ServiceObserverDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? ServiceObserverDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? ServiceObserverDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? ServiceObserverDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? ServiceObserverDisp.defaultObject)._iceD_ice_ping(request)
         case "servicesStarted":
             try await servant._iceD_servicesStarted(request)
         case "servicesStopped":
@@ -614,14 +614,18 @@ public protocol ServiceObserver {
     /// - parameter services: `Ice.StringSeq` The names of the services.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func servicesStarted(services: Ice.StringSeq, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func servicesStarted(services: Ice.StringSeq, current: Ice.Current) async throws
 
     /// Receives the names of the services that were stopped.
     ///
     /// - parameter services: `Ice.StringSeq` The names of the services.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func servicesStopped(services: Ice.StringSeq, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func servicesStopped(services: Ice.StringSeq, current: Ice.Current) async throws
 }
 
 
@@ -639,13 +643,13 @@ public struct ServiceManagerDisp: Ice.Dispatcher {
         case "addObserver":
             try await servant._iceD_addObserver(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? ServiceManagerDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? ServiceManagerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? ServiceManagerDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? ServiceManagerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? ServiceManagerDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? ServiceManagerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? ServiceManagerDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? ServiceManagerDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
             try await servant._iceD_shutdown(request)
         case "startService":
@@ -666,12 +670,8 @@ public protocol ServiceManager {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - AlreadyStartedException - If the service is already running.
-    ///
-    ///   - NoSuchServiceException - If no service could be found with the given name.
-    func startService(service: Swift.String, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func startService(service: Swift.String, current: Ice.Current) async throws
 
     /// Stop an individual service.
     ///
@@ -679,24 +679,24 @@ public protocol ServiceManager {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - AlreadyStoppedException - If the service is already stopped.
-    ///
-    ///   - NoSuchServiceException - If no service could be found with the given name.
-    func stopService(service: Swift.String, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func stopService(service: Swift.String, current: Ice.Current) async throws
 
     /// Registers a new observer with the ServiceManager.
     ///
     /// - parameter observer: `ServiceObserverPrx?` The new observer
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func addObserver(observer: ServiceObserverPrx?, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func addObserver(observer: ServiceObserverPrx?, current: Ice.Current) async throws
 
     /// Shut down all services. This causes stop to be invoked on all configured services.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// An Observer interface implemented by admin clients interested in the status of services.
@@ -712,8 +712,7 @@ extension ServiceObserver {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_services: Ice.StringSeq = try istr.read()
-
-        try self.servicesStarted(services: iceP_services, current: request.current)
+        try await self.servicesStarted(services: iceP_services, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -722,8 +721,7 @@ extension ServiceObserver {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_services: Ice.StringSeq = try istr.read()
-
-        try self.servicesStopped(services: iceP_services, current: request.current)
+        try await self.servicesStopped(services: iceP_services, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -745,8 +743,7 @@ extension ServiceManager {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_service: Swift.String = try istr.read()
-
-        try self.startService(service: iceP_service, current: request.current)
+        try await self.startService(service: iceP_service, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -755,8 +752,7 @@ extension ServiceManager {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_service: Swift.String = try istr.read()
-
-        try self.stopService(service: iceP_service, current: request.current)
+        try await self.stopService(service: iceP_service, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -765,16 +761,14 @@ extension ServiceManager {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_observer: ServiceObserverPrx? = try istr.read(ServiceObserverPrx.self)
-
-        try self.addObserver(observer: iceP_observer, current: request.current)
+        try await self.addObserver(observer: iceP_observer, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

@@ -1038,13 +1038,13 @@ public struct delDisp: Ice.Dispatcher {
         case "elif":
             try await servant._iceD_elif(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? delDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? delDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? delDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? delDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? delDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? delDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? delDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? delDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -1058,7 +1058,7 @@ public protocol del {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Swift.Int32` - The result of the operation
-    func elifAsync(else: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
+    func elif(else: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 }
 
 
@@ -1076,13 +1076,13 @@ public struct execDisp: Ice.Dispatcher {
         case "finally":
             try await servant._iceD_finally(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? execDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? execDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? execDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? execDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? execDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? execDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? execDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? execDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -1092,7 +1092,9 @@ public struct execDisp: Ice.Dispatcher {
 public protocol exec {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func finally(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func finally(current: Ice.Current) async throws
 }
 
 
@@ -1112,13 +1114,13 @@ public struct ifDisp: Ice.Dispatcher {
         case "finally":
             try await servant._iceD_finally(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? ifDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? ifDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? ifDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? ifDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? ifDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? ifDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? ifDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? ifDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -1140,13 +1142,13 @@ public struct printDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? printDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? printDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? printDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? printDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? printDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? printDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? printDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? printDisp.defaultObject)._iceD_ice_ping(request)
         case "raise":
             try await servant._iceD_raise(request)
         default:
@@ -1171,8 +1173,8 @@ public protocol print {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `assert`
-    func raise(else: `continue`, return: `for`?, while: delPrx?, yield: execPrx?, or: ifPrx?, global: Swift.Int32, current: Ice.Current) throws -> assert
+    /// - returns: `assert` - The result of the operation
+    func raise(else: `continue`, return: `for`?, while: delPrx?, yield: execPrx?, or: ifPrx?, global: Swift.Int32, current: Ice.Current) async throws -> assert
 }
 
 /// del overview.
@@ -1186,8 +1188,7 @@ extension del {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_else: Swift.Int32 = try istr.read()
-        let result = try await self.elifAsync(
-            else: iceP_else, current: request.current)
+        let result = try await self.elif(else: iceP_else, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_except = value
             ostr.write(iceP_except)
@@ -1204,8 +1205,7 @@ extension exec {
     public func _iceD_finally(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.finally(current: request.current)
+        try await self.finally(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -1231,12 +1231,10 @@ extension print {
         let iceP_or: ifPrx? = try istr.read(ifPrx.self)
         let iceP_global: Swift.Int32 = try istr.read()
         try istr.readPendingValues()
-
-        let iceP_returnValue = try self.raise(else: iceP_else, return: iceP_return, while: iceP_while, yield: iceP_yield, or: iceP_or, global: iceP_global, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.raise(else: iceP_else, return: iceP_return, while: iceP_while, yield: iceP_yield, or: iceP_or, global: iceP_global, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }

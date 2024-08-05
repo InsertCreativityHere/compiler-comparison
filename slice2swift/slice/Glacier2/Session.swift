@@ -1281,13 +1281,13 @@ public struct SessionDisp: Ice.Dispatcher {
         case "destroy":
             try await servant._iceD_destroy(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -1299,7 +1299,9 @@ public protocol Session {
     /// Destroy the session. This is called automatically when the router is destroyed.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func destroy(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func destroy(current: Ice.Current) async throws
 }
 
 
@@ -1319,13 +1321,13 @@ public struct StringSetDisp: Ice.Dispatcher {
         case "get":
             try await servant._iceD_get(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? StringSetDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? StringSetDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? StringSetDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? StringSetDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? StringSetDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? StringSetDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? StringSetDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? StringSetDisp.defaultObject)._iceD_ice_ping(request)
         case "remove":
             try await servant._iceD_remove(request)
         default:
@@ -1343,21 +1345,25 @@ public protocol StringSet {
     /// - parameter additions: `Ice.StringSeq` The sequence of strings to be added.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func add(additions: Ice.StringSeq, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func add(additions: Ice.StringSeq, current: Ice.Current) async throws
 
     /// Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
     ///
     /// - parameter deletions: `Ice.StringSeq` The sequence of strings to be removed.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func remove(deletions: Ice.StringSeq, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func remove(deletions: Ice.StringSeq, current: Ice.Current) async throws
 
     /// Returns a sequence of strings describing the constraints in this set.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.StringSeq` - The sequence of strings for this set.
-    func `get`(current: Ice.Current) throws -> Ice.StringSeq
+    /// - returns: `Ice.StringSeq` - The result of the operation
+    func `get`(current: Ice.Current) async throws -> Ice.StringSeq
 }
 
 
@@ -1377,13 +1383,13 @@ public struct IdentitySetDisp: Ice.Dispatcher {
         case "get":
             try await servant._iceD_get(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? IdentitySetDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? IdentitySetDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? IdentitySetDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? IdentitySetDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? IdentitySetDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? IdentitySetDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? IdentitySetDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? IdentitySetDisp.defaultObject)._iceD_ice_ping(request)
         case "remove":
             try await servant._iceD_remove(request)
         default:
@@ -1400,7 +1406,9 @@ public protocol IdentitySet {
     /// - parameter additions: `Ice.IdentitySeq` The sequence of Ice identities to be added.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func add(additions: Ice.IdentitySeq, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func add(additions: Ice.IdentitySeq, current: Ice.Current) async throws
 
     /// Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
     /// found.
@@ -1408,14 +1416,16 @@ public protocol IdentitySet {
     /// - parameter deletions: `Ice.IdentitySeq` The sequence of Ice identities to be removed.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func remove(deletions: Ice.IdentitySeq, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func remove(deletions: Ice.IdentitySeq, current: Ice.Current) async throws
 
     /// Returns a sequence of identities describing the constraints in this set.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.IdentitySeq` - The sequence of Ice identities for this set.
-    func `get`(current: Ice.Current) throws -> Ice.IdentitySeq
+    /// - returns: `Ice.IdentitySeq` - The result of the operation
+    func `get`(current: Ice.Current) async throws -> Ice.IdentitySeq
 }
 
 
@@ -1439,13 +1449,13 @@ public struct SessionControlDisp: Ice.Dispatcher {
         case "getSessionTimeout":
             try await servant._iceD_getSessionTimeout(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? SessionControlDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? SessionControlDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? SessionControlDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? SessionControlDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? SessionControlDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? SessionControlDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? SessionControlDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? SessionControlDisp.defaultObject)._iceD_ice_ping(request)
         case "identities":
             try await servant._iceD_identities(request)
         default:
@@ -1460,34 +1470,36 @@ public protocol SessionControl {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `StringSetPrx?` - A StringSet object. The returned proxy is never null.
-    func categories(current: Ice.Current) throws -> StringSetPrx?
+    /// - returns: `StringSetPrx?` - The result of the operation
+    func categories(current: Ice.Current) async throws -> StringSetPrx?
 
     /// Access the object that manages the allowable adapter identities for objects for this session.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `StringSetPrx?` - A StringSet object. The returned proxy is never null.
-    func adapterIds(current: Ice.Current) throws -> StringSetPrx?
+    /// - returns: `StringSetPrx?` - The result of the operation
+    func adapterIds(current: Ice.Current) async throws -> StringSetPrx?
 
     /// Access the object that manages the allowable object identities for this session.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `IdentitySetPrx?` - An IdentitySet object. The returned proxy is never null.
-    func identities(current: Ice.Current) throws -> IdentitySetPrx?
+    /// - returns: `IdentitySetPrx?` - The result of the operation
+    func identities(current: Ice.Current) async throws -> IdentitySetPrx?
 
     /// Get the session timeout.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The timeout.
-    func getSessionTimeout(current: Ice.Current) throws -> Swift.Int32
+    /// - returns: `Swift.Int32` - The result of the operation
+    func getSessionTimeout(current: Ice.Current) async throws -> Swift.Int32
 
     /// Destroy the associated session.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func destroy(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func destroy(current: Ice.Current) async throws
 }
 
 
@@ -1505,13 +1517,13 @@ public struct SessionManagerDisp: Ice.Dispatcher {
         case "create":
             try await servant._iceD_create(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? SessionManagerDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? SessionManagerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? SessionManagerDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? SessionManagerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? SessionManagerDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? SessionManagerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? SessionManagerDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? SessionManagerDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -1533,12 +1545,8 @@ public protocol SessionManager {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `SessionPrx?` - A proxy to the newly created session.
-    ///
-    /// - throws:
-    ///
-    ///   - CannotCreateSessionException - Raised if the session cannot be created.
-    func create(userId: Swift.String, control: SessionControlPrx?, current: Ice.Current) throws -> SessionPrx?
+    /// - returns: `SessionPrx?` - The result of the operation
+    func create(userId: Swift.String, control: SessionControlPrx?, current: Ice.Current) async throws -> SessionPrx?
 }
 
 
@@ -1556,13 +1564,13 @@ public struct SSLSessionManagerDisp: Ice.Dispatcher {
         case "create":
             try await servant._iceD_create(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? SSLSessionManagerDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? SSLSessionManagerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? SSLSessionManagerDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? SSLSessionManagerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? SSLSessionManagerDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? SSLSessionManagerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? SSLSessionManagerDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? SSLSessionManagerDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -1581,12 +1589,8 @@ public protocol SSLSessionManager {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `SessionPrx?` - A proxy to the newly created session.
-    ///
-    /// - throws:
-    ///
-    ///   - CannotCreateSessionException - Raised if the session cannot be created.
-    func create(info: SSLInfo, control: SessionControlPrx?, current: Ice.Current) throws -> SessionPrx?
+    /// - returns: `SessionPrx?` - The result of the operation
+    func create(info: SSLInfo, control: SessionControlPrx?, current: Ice.Current) async throws -> SessionPrx?
 }
 
 /// A client-visible session object, which is tied to the lifecycle of a Router.
@@ -1598,8 +1602,7 @@ extension Session {
     public func _iceD_destroy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.destroy(current: request.current)
+        try await self.destroy(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -1620,8 +1623,7 @@ extension StringSet {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_additions: Ice.StringSeq = try istr.read()
-
-        try self.add(additions: iceP_additions, current: request.current)
+        try await self.add(additions: iceP_additions, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1630,21 +1632,18 @@ extension StringSet {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_deletions: Ice.StringSeq = try istr.read()
-
-        try self.remove(deletions: iceP_deletions, current: request.current)
+        try await self.remove(deletions: iceP_deletions, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_get(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.`get`(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.`get`(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }
 
@@ -1663,8 +1662,7 @@ extension IdentitySet {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_additions: Ice.IdentitySeq = try Ice.IdentitySeqHelper.read(from: istr)
-
-        try self.add(additions: iceP_additions, current: request.current)
+        try await self.add(additions: iceP_additions, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1673,21 +1671,18 @@ extension IdentitySet {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_deletions: Ice.IdentitySeq = try Ice.IdentitySeqHelper.read(from: istr)
-
-        try self.remove(deletions: iceP_deletions, current: request.current)
+        try await self.remove(deletions: iceP_deletions, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_get(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.`get`(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        Ice.IdentitySeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.`get`(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            Ice.IdentitySeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 }
 
@@ -1708,56 +1703,47 @@ extension SessionControl {
     public func _iceD_categories(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.categories(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.categories(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_adapterIds(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.adapterIds(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.adapterIds(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_identities(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.identities(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.identities(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getSessionTimeout(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getSessionTimeout(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getSessionTimeout(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_destroy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.destroy(current: request.current)
+        try await self.destroy(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -1777,13 +1763,11 @@ extension SessionManager {
         _ = try istr.startEncapsulation()
         let iceP_userId: Swift.String = try istr.read()
         let iceP_control: SessionControlPrx? = try istr.read(SessionControlPrx.self)
-
-        let iceP_returnValue = try self.create(userId: iceP_userId, control: iceP_control, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.create(userId: iceP_userId, control: iceP_control, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }
 
@@ -1801,12 +1785,10 @@ extension SSLSessionManager {
         _ = try istr.startEncapsulation()
         let iceP_info: SSLInfo = try istr.read()
         let iceP_control: SessionControlPrx? = try istr.read(SessionControlPrx.self)
-
-        let iceP_returnValue = try self.create(info: iceP_info, control: iceP_control, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.create(info: iceP_info, control: iceP_control, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }

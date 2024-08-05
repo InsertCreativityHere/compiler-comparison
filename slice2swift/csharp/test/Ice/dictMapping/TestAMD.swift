@@ -1114,13 +1114,13 @@ public struct MyClassDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(request)
         case "opNDAIS":
             try await servant._iceD_opNDAIS(request)
         case "opNDASS":
@@ -1150,7 +1150,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func shutdownAsync(current: Ice.Current) async throws -> Swift.Void
+    func shutdown(current: Ice.Current) async throws
 
     ///
     /// - parameter i: `NV`
@@ -1158,7 +1158,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: NV, o: NV)` - The result of the operation
-    func opNVAsync(i: NV, current: Ice.Current) async throws -> (returnValue: NV, o: NV)
+    func opNV(i: NV, current: Ice.Current) async throws -> (returnValue: NV, o: NV)
 
     ///
     /// - parameter i: `NR`
@@ -1166,7 +1166,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: NR, o: NR)` - The result of the operation
-    func opNRAsync(i: NR, current: Ice.Current) async throws -> (returnValue: NR, o: NR)
+    func opNR(i: NR, current: Ice.Current) async throws -> (returnValue: NR, o: NR)
 
     ///
     /// - parameter i: `NDV`
@@ -1174,7 +1174,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: NDV, o: NDV)` - The result of the operation
-    func opNDVAsync(i: NDV, current: Ice.Current) async throws -> (returnValue: NDV, o: NDV)
+    func opNDV(i: NDV, current: Ice.Current) async throws -> (returnValue: NDV, o: NDV)
 
     ///
     /// - parameter i: `NDR`
@@ -1182,7 +1182,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: NDR, o: NDR)` - The result of the operation
-    func opNDRAsync(i: NDR, current: Ice.Current) async throws -> (returnValue: NDR, o: NDR)
+    func opNDR(i: NDR, current: Ice.Current) async throws -> (returnValue: NDR, o: NDR)
 
     ///
     /// - parameter i: `NDAIS`
@@ -1190,7 +1190,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: NDAIS, o: NDAIS)` - The result of the operation
-    func opNDAISAsync(i: NDAIS, current: Ice.Current) async throws -> (returnValue: NDAIS, o: NDAIS)
+    func opNDAIS(i: NDAIS, current: Ice.Current) async throws -> (returnValue: NDAIS, o: NDAIS)
 
     ///
     /// - parameter i: `NDGIS`
@@ -1198,7 +1198,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: NDGIS, o: NDGIS)` - The result of the operation
-    func opNDGISAsync(i: NDGIS, current: Ice.Current) async throws -> (returnValue: NDGIS, o: NDGIS)
+    func opNDGIS(i: NDGIS, current: Ice.Current) async throws -> (returnValue: NDGIS, o: NDGIS)
 
     ///
     /// - parameter i: `NDASS`
@@ -1206,7 +1206,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: NDASS, o: NDASS)` - The result of the operation
-    func opNDASSAsync(i: NDASS, current: Ice.Current) async throws -> (returnValue: NDASS, o: NDASS)
+    func opNDASS(i: NDASS, current: Ice.Current) async throws -> (returnValue: NDASS, o: NDASS)
 
     ///
     /// - parameter i: `NDGSS`
@@ -1214,7 +1214,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: NDGSS, o: NDGSS)` - The result of the operation
-    func opNDGSSAsync(i: NDGSS, current: Ice.Current) async throws -> (returnValue: NDGSS, o: NDGSS)
+    func opNDGSS(i: NDGSS, current: Ice.Current) async throws -> (returnValue: NDGSS, o: NDGSS)
 }
 
 /// MyClass overview.
@@ -1242,8 +1242,7 @@ extension MyClass {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.shutdownAsync(
-            current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1252,8 +1251,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_i: NV = try NVHelper.read(from: istr)
-        let result = try await self.opNVAsync(
-            i: iceP_i, current: request.current)
+        let result = try await self.opNV(i: iceP_i, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             NVHelper.write(to: ostr, value: iceP_o)
@@ -1266,8 +1264,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_i: NR = try NRHelper.read(from: istr)
-        let result = try await self.opNRAsync(
-            i: iceP_i, current: request.current)
+        let result = try await self.opNR(i: iceP_i, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             NRHelper.write(to: ostr, value: iceP_o)
@@ -1280,8 +1277,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_i: NDV = try NDVHelper.read(from: istr)
-        let result = try await self.opNDVAsync(
-            i: iceP_i, current: request.current)
+        let result = try await self.opNDV(i: iceP_i, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             NDVHelper.write(to: ostr, value: iceP_o)
@@ -1294,8 +1290,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_i: NDR = try NDRHelper.read(from: istr)
-        let result = try await self.opNDRAsync(
-            i: iceP_i, current: request.current)
+        let result = try await self.opNDR(i: iceP_i, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             NDRHelper.write(to: ostr, value: iceP_o)
@@ -1308,8 +1303,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_i: NDAIS = try NDAISHelper.read(from: istr)
-        let result = try await self.opNDAISAsync(
-            i: iceP_i, current: request.current)
+        let result = try await self.opNDAIS(i: iceP_i, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             NDAISHelper.write(to: ostr, value: iceP_o)
@@ -1322,8 +1316,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_i: NDGIS = try NDGISHelper.read(from: istr)
-        let result = try await self.opNDGISAsync(
-            i: iceP_i, current: request.current)
+        let result = try await self.opNDGIS(i: iceP_i, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             NDGISHelper.write(to: ostr, value: iceP_o)
@@ -1336,8 +1329,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_i: NDASS = try NDASSHelper.read(from: istr)
-        let result = try await self.opNDASSAsync(
-            i: iceP_i, current: request.current)
+        let result = try await self.opNDASS(i: iceP_i, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             NDASSHelper.write(to: ostr, value: iceP_o)
@@ -1350,8 +1342,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_i: NDGSS = try NDGSSHelper.read(from: istr)
-        let result = try await self.opNDGSSAsync(
-            i: iceP_i, current: request.current)
+        let result = try await self.opNDGSS(i: iceP_i, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_o) = value
             NDGSSHelper.write(to: ostr, value: iceP_o)

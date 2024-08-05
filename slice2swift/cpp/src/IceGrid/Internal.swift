@@ -3859,9 +3859,9 @@ public extension InternalRegistryPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as PermissionDeniedException {
-                                         throw error
                                      } catch let error as ReplicaActiveException {
+                                         throw error
+                                     } catch let error as PermissionDeniedException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -3894,9 +3894,9 @@ public extension InternalRegistryPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
-                                                } catch let error as PermissionDeniedException {
-                                                    throw error
                                                 } catch let error as ReplicaActiveException {
+                                                    throw error
+                                                } catch let error as PermissionDeniedException {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
@@ -4485,13 +4485,13 @@ public struct AdapterDisp: Ice.Dispatcher {
         case "getDirectProxy":
             try await servant._iceD_getDirectProxy(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? AdapterDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? AdapterDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? AdapterDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? AdapterDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? AdapterDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? AdapterDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? AdapterDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? AdapterDisp.defaultObject)._iceD_ice_ping(request)
         case "setDirectProxy":
             try await servant._iceD_setDirectProxy(request)
         default:
@@ -4508,15 +4508,15 @@ public protocol Adapter {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func activateAsync(current: Ice.Current) async throws -> Ice.ObjectPrx?
+    func activate(current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
     /// contains the last known adapter endpoints.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - A direct proxy containing the last known adapter endpoints if the adapter is already active.
-    func getDirectProxy(current: Ice.Current) throws -> Ice.ObjectPrx?
+    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    func getDirectProxy(current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Set the direct proxy for this adapter.
     ///
@@ -4524,11 +4524,8 @@ public protocol Adapter {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - AdapterActiveException - The adapter is already active. It's not possible to override the direct proxy of
-    ///     an active adapter.
-    func setDirectProxy(proxy: Ice.ObjectPrx?, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func setDirectProxy(proxy: Ice.ObjectPrx?, current: Ice.Current) async throws
 }
 
 
@@ -4546,13 +4543,13 @@ public struct FileReaderDisp: Ice.Dispatcher {
         case "getOffsetFromEnd":
             try await servant._iceD_getOffsetFromEnd(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? FileReaderDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? FileReaderDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? FileReaderDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? FileReaderDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? FileReaderDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? FileReaderDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? FileReaderDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? FileReaderDisp.defaultObject)._iceD_ice_ping(request)
         case "read":
             try await servant._iceD_read(request)
         default:
@@ -4570,8 +4567,8 @@ public protocol FileReader {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int64`
-    func getOffsetFromEnd(filename: Swift.String, lines: Swift.Int32, current: Ice.Current) throws -> Swift.Int64
+    /// - returns: `Swift.Int64` - The result of the operation
+    func getOffsetFromEnd(filename: Swift.String, lines: Swift.Int32, current: Ice.Current) async throws -> Swift.Int64
 
     /// Read lines (or size bytes) at the specified position from the given file.
     ///
@@ -4583,14 +4580,8 @@ public protocol FileReader {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: Swift.Bool, newPos: Swift.Int64, lines: Ice.StringSeq)`:
-    ///
-    ///   - returnValue: `Swift.Bool`
-    ///
-    ///   - newPos: `Swift.Int64`
-    ///
-    ///   - lines: `Ice.StringSeq`
-    func read(filename: Swift.String, pos: Swift.Int64, size: Swift.Int32, current: Ice.Current) throws -> (returnValue: Swift.Bool, newPos: Swift.Int64, lines: Ice.StringSeq)
+    /// - returns: `(returnValue: Swift.Bool, newPos: Swift.Int64, lines: Ice.StringSeq)` - The result of the operation
+    func read(filename: Swift.String, pos: Swift.Int64, size: Swift.Int32, current: Ice.Current) async throws -> (returnValue: Swift.Bool, newPos: Swift.Int64, lines: Ice.StringSeq)
 }
 
 
@@ -4614,13 +4605,13 @@ public struct ServerDisp: Ice.Dispatcher {
         case "getState":
             try await servant._iceD_getState(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? ServerDisp.defaultObject)._iceD_ice_ping(request)
         case "isEnabled":
             try await servant._iceD_isEnabled(request)
         case "read":
@@ -4649,7 +4640,7 @@ public protocol Server: FileReader {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func startAsync(current: Ice.Current) async throws -> Swift.Void
+    func start(current: Ice.Current) async throws
 
     /// Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
     /// configurable amount of time, it will be killed.
@@ -4657,7 +4648,7 @@ public protocol Server: FileReader {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func stopAsync(current: Ice.Current) async throws -> Swift.Void
+    func stop(current: Ice.Current) async throws
 
     /// Check if the given server can be loaded on this node.
     ///
@@ -4667,33 +4658,33 @@ public protocol Server: FileReader {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Bool` - True if the server is inactive.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server can't be updated.
-    func checkUpdate(svr: InternalServerDescriptor?, noRestart: Swift.Bool, current: Ice.Current) throws -> Swift.Bool
+    /// - returns: `Swift.Bool` - The result of the operation
+    func checkUpdate(svr: InternalServerDescriptor?, noRestart: Swift.Bool, current: Ice.Current) async throws -> Swift.Bool
 
     /// Enable or disable the server.
     ///
     /// - parameter enable: `Swift.Bool`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func setEnabled(enable: Swift.Bool, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func setEnabled(enable: Swift.Bool, current: Ice.Current) async throws
 
     /// Check if the server is enabled.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Bool`
-    func isEnabled(current: Ice.Current) throws -> Swift.Bool
+    /// - returns: `Swift.Bool` - The result of the operation
+    func isEnabled(current: Ice.Current) async throws -> Swift.Bool
 
     /// Send signal to the server
     ///
     /// - parameter signal: `Swift.String`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func sendSignal(signal: Swift.String, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func sendSignal(signal: Swift.String, current: Ice.Current) async throws
 
     /// Write message on servers' stdout or stderr.
     ///
@@ -4702,22 +4693,24 @@ public protocol Server: FileReader {
     /// - parameter fd: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func writeMessage(message: Swift.String, fd: Swift.Int32, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func writeMessage(message: Swift.String, fd: Swift.Int32, current: Ice.Current) async throws
 
     /// Return the server state.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ServerState` - The server state.
-    func getState(current: Ice.Current) throws -> ServerState
+    /// - returns: `ServerState` - The result of the operation
+    func getState(current: Ice.Current) async throws -> ServerState
 
     /// Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
     /// it's the pid value returned by the fork() system call and converted to an integer.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32`
-    func getPid(current: Ice.Current) throws -> Swift.Int32
+    /// - returns: `Swift.Int32` - The result of the operation
+    func getPid(current: Ice.Current) async throws -> Swift.Int32
 
     /// Set the process proxy.
     ///
@@ -4726,7 +4719,7 @@ public protocol Server: FileReader {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func setProcessAsync(proc: Ice.ProcessPrx?, current: Ice.Current) async throws -> Swift.Void
+    func setProcess(proc: Ice.ProcessPrx?, current: Ice.Current) async throws
 }
 
 
@@ -4742,13 +4735,13 @@ public struct ReplicaObserverDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_ping(request)
         case "replicaAdded":
             try await servant._iceD_replicaAdded(request)
         case "replicaInit":
@@ -4767,21 +4760,27 @@ public protocol ReplicaObserver {
     /// - parameter replicas: `InternalRegistryPrxSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func replicaInit(replicas: InternalRegistryPrxSeq, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func replicaInit(replicas: InternalRegistryPrxSeq, current: Ice.Current) async throws
 
     /// Notification that a replica has been added. The node should establish a session with this new replica.
     ///
     /// - parameter replica: `InternalRegistryPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func replicaAdded(replica: InternalRegistryPrx?, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func replicaAdded(replica: InternalRegistryPrx?, current: Ice.Current) async throws
 
     /// Notification that a replica has been removed. The node should destroy the session to this replica.
     ///
     /// - parameter replica: `InternalRegistryPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func replicaRemoved(replica: InternalRegistryPrx?, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func replicaRemoved(replica: InternalRegistryPrx?, current: Ice.Current) async throws
 }
 
 
@@ -4811,13 +4810,13 @@ public struct NodeDisp: Ice.Dispatcher {
         case "getProcessorSocketCount":
             try await servant._iceD_getProcessorSocketCount(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_ping(request)
         case "loadServer":
             try await servant._iceD_loadServer(request)
         case "loadServerWithoutRestart":
@@ -4851,7 +4850,7 @@ public protocol Node: FileReader, ReplicaObserver {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)` - The result of the operation
-    func loadServerAsync(svr: InternalServerDescriptor?, replicaName: Swift.String, current: Ice.Current) async throws -> (returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)
+    func loadServer(svr: InternalServerDescriptor?, replicaName: Swift.String, current: Ice.Current) async throws -> (returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)
 
     /// Load the given server and ensure the server won't be restarted. If the server resources weren't already created
     /// (database environment directories, property files, etc), they will be created. If the server can't be updated
@@ -4864,7 +4863,7 @@ public protocol Node: FileReader, ReplicaObserver {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)` - The result of the operation
-    func loadServerWithoutRestartAsync(svr: InternalServerDescriptor?, replicaName: Swift.String, current: Ice.Current) async throws -> (returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)
+    func loadServerWithoutRestart(svr: InternalServerDescriptor?, replicaName: Swift.String, current: Ice.Current) async throws -> (returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)
 
     /// Destroy the given server.
     ///
@@ -4879,7 +4878,7 @@ public protocol Node: FileReader, ReplicaObserver {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func destroyServerAsync(name: Swift.String, uuid: Swift.String, revision: Swift.Int32, replicaName: Swift.String, current: Ice.Current) async throws -> Swift.Void
+    func destroyServer(name: Swift.String, uuid: Swift.String, revision: Swift.Int32, replicaName: Swift.String, current: Ice.Current) async throws
 
     /// Destroy the server if it's not active.
     ///
@@ -4894,7 +4893,7 @@ public protocol Node: FileReader, ReplicaObserver {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func destroyServerWithoutRestartAsync(name: Swift.String, uuid: Swift.String, revision: Swift.Int32, replicaName: Swift.String, current: Ice.Current) async throws -> Swift.Void
+    func destroyServerWithoutRestart(name: Swift.String, uuid: Swift.String, revision: Swift.Int32, replicaName: Swift.String, current: Ice.Current) async throws
 
     /// Establish a session to the given replica, this method only returns once the registration was attempted (unlike
     /// replicaAdded below).
@@ -4902,40 +4901,44 @@ public protocol Node: FileReader, ReplicaObserver {
     /// - parameter replica: `InternalRegistryPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func registerWithReplica(replica: InternalRegistryPrx?, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func registerWithReplica(replica: InternalRegistryPrx?, current: Ice.Current) async throws
 
     /// Get the node name.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String`
-    func getName(current: Ice.Current) throws -> Swift.String
+    /// - returns: `Swift.String` - The result of the operation
+    func getName(current: Ice.Current) async throws -> Swift.String
 
     /// Get the node hostname.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String`
-    func getHostname(current: Ice.Current) throws -> Swift.String
+    /// - returns: `Swift.String` - The result of the operation
+    func getHostname(current: Ice.Current) async throws -> Swift.String
 
     /// Get the node load.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `LoadInfo`
-    func getLoad(current: Ice.Current) throws -> LoadInfo
+    /// - returns: `LoadInfo` - The result of the operation
+    func getLoad(current: Ice.Current) async throws -> LoadInfo
 
     /// Get the number of processor sockets for the machine where this node is running.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32`
-    func getProcessorSocketCount(current: Ice.Current) throws -> Swift.Int32
+    /// - returns: `Swift.Int32` - The result of the operation
+    func getProcessorSocketCount(current: Ice.Current) async throws -> Swift.Int32
 
     /// Shutdown the node.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 
@@ -4959,13 +4962,13 @@ public struct NodeSessionDisp: Ice.Dispatcher {
         case "getTimeout":
             try await servant._iceD_getTimeout(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? NodeSessionDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? NodeSessionDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? NodeSessionDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? NodeSessionDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? NodeSessionDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? NodeSessionDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? NodeSessionDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? NodeSessionDisp.defaultObject)._iceD_ice_ping(request)
         case "keepAlive":
             try await servant._iceD_keepAlive(request)
         case "loadServers":
@@ -4986,7 +4989,9 @@ public protocol NodeSession {
     /// - parameter load: `LoadInfo`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func keepAlive(load: LoadInfo, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func keepAlive(load: LoadInfo, current: Ice.Current) async throws
 
     /// Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
     /// It only calls this for the session with the master.
@@ -4994,35 +4999,37 @@ public protocol NodeSession {
     /// - parameter observer: `ReplicaObserverPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func setReplicaObserver(observer: ReplicaObserverPrx?, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func setReplicaObserver(observer: ReplicaObserverPrx?, current: Ice.Current) async throws
 
     /// Return the node session timeout.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32`
-    func getTimeout(current: Ice.Current) throws -> Swift.Int32
+    /// - returns: `Swift.Int32` - The result of the operation
+    func getTimeout(current: Ice.Current) async throws -> Swift.Int32
 
     /// Return the node observer.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NodeObserverPrx?`
-    func getObserver(current: Ice.Current) throws -> NodeObserverPrx?
+    /// - returns: `NodeObserverPrx?` - The result of the operation
+    func getObserver(current: Ice.Current) async throws -> NodeObserverPrx?
 
     /// Ask the registry to load the servers on the node.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func loadServersAsync(current: Ice.Current) async throws -> Swift.Void
+    func loadServers(current: Ice.Current) async throws
 
     /// Get the name of the servers deployed on the node.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.StringSeq`
-    func getServers(current: Ice.Current) throws -> Ice.StringSeq
+    /// - returns: `Ice.StringSeq` - The result of the operation
+    func getServers(current: Ice.Current) async throws -> Ice.StringSeq
 
     /// Wait for the application update to complete (the application is completely updated once all the registry
     /// replicas have been updated). This is used by the node to ensure that before to start a server all the
@@ -5035,12 +5042,14 @@ public protocol NodeSession {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func waitForApplicationUpdateAsync(application: Swift.String, revision: Swift.Int32, current: Ice.Current) async throws -> Swift.Void
+    func waitForApplicationUpdate(application: Swift.String, revision: Swift.Int32, current: Ice.Current) async throws
 
     /// Destroy the session.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func destroy(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func destroy(current: Ice.Current) async throws
 }
 
 
@@ -5072,13 +5081,13 @@ public struct DatabaseObserverDisp: Ice.Dispatcher {
         case "applicationUpdated":
             try await servant._iceD_applicationUpdated(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? DatabaseObserverDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? DatabaseObserverDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? DatabaseObserverDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? DatabaseObserverDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? DatabaseObserverDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? DatabaseObserverDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? DatabaseObserverDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? DatabaseObserverDisp.defaultObject)._iceD_ice_ping(request)
         case "objectAdded":
             try await servant._iceD_objectAdded(request)
         case "objectInit":
@@ -5112,13 +5121,13 @@ public struct ReplicaSessionDisp: Ice.Dispatcher {
         case "getTimeout":
             try await servant._iceD_getTimeout(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? ReplicaSessionDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? ReplicaSessionDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? ReplicaSessionDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? ReplicaSessionDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? ReplicaSessionDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? ReplicaSessionDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? ReplicaSessionDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? ReplicaSessionDisp.defaultObject)._iceD_ice_ping(request)
         case "keepAlive":
             try await servant._iceD_keepAlive(request)
         case "receivedUpdate":
@@ -5141,14 +5150,16 @@ public protocol ReplicaSession {
     /// The replica call this method to keep the session alive.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func keepAlive(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func keepAlive(current: Ice.Current) async throws
 
     /// Return the replica session timeout.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32`
-    func getTimeout(current: Ice.Current) throws -> Swift.Int32
+    /// - returns: `Swift.Int32` - The result of the operation
+    func getTimeout(current: Ice.Current) async throws -> Swift.Int32
 
     /// Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
     ///
@@ -5157,7 +5168,9 @@ public protocol ReplicaSession {
     /// - parameter serials: `StringLongDict?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func setDatabaseObserver(dbObs: DatabaseObserverPrx?, serials: StringLongDict?, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func setDatabaseObserver(dbObs: DatabaseObserverPrx?, serials: StringLongDict?, current: Ice.Current) async throws
 
     /// This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
     /// for replicated objects (e.g.: IceGrid::Query object).
@@ -5165,14 +5178,18 @@ public protocol ReplicaSession {
     /// - parameter endpoints: `StringObjectProxyDict`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func setEndpoints(endpoints: StringObjectProxyDict, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func setEndpoints(endpoints: StringObjectProxyDict, current: Ice.Current) async throws
 
     /// Registers the replica well-known objects with the master.
     ///
     /// - parameter objects: `ObjectInfoSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func registerWellKnownObjects(objects: ObjectInfoSeq, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func registerWellKnownObjects(objects: ObjectInfoSeq, current: Ice.Current) async throws
 
     /// Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
     /// with the locator registry interface.
@@ -5184,7 +5201,9 @@ public protocol ReplicaSession {
     /// - parameter proxy: `Ice.ObjectPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func setAdapterDirectProxy(adapterId: Swift.String, replicaGroupId: Swift.String, proxy: Ice.ObjectPrx?, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func setAdapterDirectProxy(adapterId: Swift.String, replicaGroupId: Swift.String, proxy: Ice.ObjectPrx?, current: Ice.Current) async throws
 
     /// Notify the master that an update was received. The master might wait for replication updates to be received by
     /// all the replicas before to continue.
@@ -5196,12 +5215,16 @@ public protocol ReplicaSession {
     /// - parameter failure: `Swift.String`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func receivedUpdate(name: TopicName, serial: Swift.Int32, failure: Swift.String, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func receivedUpdate(name: TopicName, serial: Swift.Int32, failure: Swift.String, current: Ice.Current) async throws
 
     /// Destroy the session.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func destroy(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func destroy(current: Ice.Current) async throws
 }
 
 
@@ -5229,13 +5252,13 @@ public struct InternalRegistryDisp: Ice.Dispatcher {
         case "getReplicas":
             try await servant._iceD_getReplicas(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? InternalRegistryDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? InternalRegistryDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? InternalRegistryDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? InternalRegistryDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? InternalRegistryDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? InternalRegistryDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? InternalRegistryDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? InternalRegistryDisp.defaultObject)._iceD_ice_ping(request)
         case "read":
             try await servant._iceD_read(request)
         case "registerNode":
@@ -5265,12 +5288,8 @@ public protocol InternalRegistry: FileReader {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NodeSessionPrx?` - The node session proxy.
-    ///
-    /// - throws:
-    ///
-    ///   - NodeActiveException - Raised if the node is already registered and currently active.
-    func registerNode(info: InternalNodeInfo?, prx: NodePrx?, loadInf: LoadInfo, current: Ice.Current) throws -> NodeSessionPrx?
+    /// - returns: `NodeSessionPrx?` - The result of the operation
+    func registerNode(info: InternalNodeInfo?, prx: NodePrx?, loadInf: LoadInfo, current: Ice.Current) async throws -> NodeSessionPrx?
 
     /// Register a replica with the registry. If a replica with the same name is already registered,
     /// registerReplica overrides the existing registration only when the previously
@@ -5282,12 +5301,8 @@ public protocol InternalRegistry: FileReader {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ReplicaSessionPrx?` - The replica session proxy.
-    ///
-    /// - throws:
-    ///
-    ///   - ReplicaActiveException - Raised if the replica is already registered and currently active.
-    func registerReplica(info: InternalReplicaInfo?, prx: InternalRegistryPrx?, current: Ice.Current) throws -> ReplicaSessionPrx?
+    /// - returns: `ReplicaSessionPrx?` - The result of the operation
+    func registerReplica(info: InternalReplicaInfo?, prx: InternalRegistryPrx?, current: Ice.Current) async throws -> ReplicaSessionPrx?
 
     /// Create a session with the given registry replica. This method returns only once the session creation has been
     /// attempted.
@@ -5295,57 +5310,49 @@ public protocol InternalRegistry: FileReader {
     /// - parameter prx: `InternalRegistryPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func registerWithReplica(prx: InternalRegistryPrx?, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func registerWithReplica(prx: InternalRegistryPrx?, current: Ice.Current) async throws
 
     /// Return the proxies of all the nodes known by this registry.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NodePrxSeq`
-    func getNodes(current: Ice.Current) throws -> NodePrxSeq
+    /// - returns: `NodePrxSeq` - The result of the operation
+    func getNodes(current: Ice.Current) async throws -> NodePrxSeq
 
     /// Return the proxies of all the registry replicas known by this registry.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `InternalRegistryPrxSeq`
-    func getReplicas(current: Ice.Current) throws -> InternalRegistryPrxSeq
+    /// - returns: `InternalRegistryPrxSeq` - The result of the operation
+    func getReplicas(current: Ice.Current) async throws -> InternalRegistryPrxSeq
 
     /// Return applications, adapters, objects from this replica.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ApplicationInfoSeq, serial: Swift.Int64)`:
-    ///
-    ///   - returnValue: `ApplicationInfoSeq`
-    ///
-    ///   - serial: `Swift.Int64`
-    func getApplications(current: Ice.Current) throws -> (returnValue: ApplicationInfoSeq, serial: Swift.Int64)
+    /// - returns: `(returnValue: ApplicationInfoSeq, serial: Swift.Int64)` - The result of the operation
+    func getApplications(current: Ice.Current) async throws -> (returnValue: ApplicationInfoSeq, serial: Swift.Int64)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: AdapterInfoSeq, serial: Swift.Int64)`:
-    ///
-    ///   - returnValue: `AdapterInfoSeq`
-    ///
-    ///   - serial: `Swift.Int64`
-    func getAdapters(current: Ice.Current) throws -> (returnValue: AdapterInfoSeq, serial: Swift.Int64)
+    /// - returns: `(returnValue: AdapterInfoSeq, serial: Swift.Int64)` - The result of the operation
+    func getAdapters(current: Ice.Current) async throws -> (returnValue: AdapterInfoSeq, serial: Swift.Int64)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ObjectInfoSeq, serial: Swift.Int64)`:
-    ///
-    ///   - returnValue: `ObjectInfoSeq`
-    ///
-    ///   - serial: `Swift.Int64`
-    func getObjects(current: Ice.Current) throws -> (returnValue: ObjectInfoSeq, serial: Swift.Int64)
+    /// - returns: `(returnValue: ObjectInfoSeq, serial: Swift.Int64)` - The result of the operation
+    func getObjects(current: Ice.Current) async throws -> (returnValue: ObjectInfoSeq, serial: Swift.Int64)
 
     /// Shutdown this registry.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// Adapter overview.
@@ -5361,8 +5368,7 @@ extension Adapter {
     public func _iceD_activate(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        let result = try await self.activateAsync(
-            current: request.current)
+        let result = try await self.activate(current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -5372,13 +5378,11 @@ extension Adapter {
     public func _iceD_getDirectProxy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getDirectProxy(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getDirectProxy(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_setDirectProxy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5386,8 +5390,7 @@ extension Adapter {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_proxy: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-
-        try self.setDirectProxy(proxy: iceP_proxy, current: request.current)
+        try await self.setDirectProxy(proxy: iceP_proxy, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -5406,13 +5409,11 @@ extension FileReader {
         _ = try istr.startEncapsulation()
         let iceP_filename: Swift.String = try istr.read()
         let iceP_lines: Swift.Int32 = try istr.read()
-
-        let iceP_returnValue = try self.getOffsetFromEnd(filename: iceP_filename, lines: iceP_lines, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getOffsetFromEnd(filename: iceP_filename, lines: iceP_lines, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_read(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5422,15 +5423,13 @@ extension FileReader {
         let iceP_filename: Swift.String = try istr.read()
         let iceP_pos: Swift.Int64 = try istr.read()
         let iceP_size: Swift.Int32 = try istr.read()
-
-        let (iceP_returnValue, iceP_newPos, iceP_lines) = try self.read(filename: iceP_filename, pos: iceP_pos, size: iceP_size, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_newPos)
-        ostr.write(iceP_lines)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.read(filename: iceP_filename, pos: iceP_pos, size: iceP_size, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_newPos, iceP_lines) = value
+            ostr.write(iceP_newPos)
+            ostr.write(iceP_lines)
+            ostr.write(iceP_returnValue)
+        }
     }
 }
 
@@ -5461,16 +5460,14 @@ extension Server {
     public func _iceD_start(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.startAsync(
-            current: request.current)
+        try await self.start(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_stop(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.stopAsync(
-            current: request.current)
+        try await self.stop(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -5482,13 +5479,11 @@ extension Server {
         try istr.read(InternalServerDescriptor.self) { iceP_svr = $0 }
         let iceP_noRestart: Swift.Bool = try istr.read()
         try istr.readPendingValues()
-
-        let iceP_returnValue = try self.checkUpdate(svr: iceP_svr, noRestart: iceP_noRestart, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.checkUpdate(svr: iceP_svr, noRestart: iceP_noRestart, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_setEnabled(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5496,21 +5491,18 @@ extension Server {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_enable: Swift.Bool = try istr.read()
-
-        try self.setEnabled(enable: iceP_enable, current: request.current)
+        try await self.setEnabled(enable: iceP_enable, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_isEnabled(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.isEnabled(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.isEnabled(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_sendSignal(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5518,8 +5510,7 @@ extension Server {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_signal: Swift.String = try istr.read()
-
-        try self.sendSignal(signal: iceP_signal, current: request.current)
+        try await self.sendSignal(signal: iceP_signal, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -5529,33 +5520,28 @@ extension Server {
         _ = try istr.startEncapsulation()
         let iceP_message: Swift.String = try istr.read()
         let iceP_fd: Swift.Int32 = try istr.read()
-
-        try self.writeMessage(message: iceP_message, fd: iceP_fd, current: request.current)
+        try await self.writeMessage(message: iceP_message, fd: iceP_fd, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_getState(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getState(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getState(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getPid(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getPid(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getPid(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_setProcess(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5563,8 +5549,7 @@ extension Server {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_proc: Ice.ProcessPrx? = try istr.read(Ice.ProcessPrx.self)
-        try await self.setProcessAsync(
-            proc: iceP_proc, current: request.current)
+        try await self.setProcess(proc: iceP_proc, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -5584,8 +5569,7 @@ extension ReplicaObserver {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_replicas: InternalRegistryPrxSeq = try InternalRegistryPrxSeqHelper.read(from: istr)
-
-        try self.replicaInit(replicas: iceP_replicas, current: request.current)
+        try await self.replicaInit(replicas: iceP_replicas, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -5594,8 +5578,7 @@ extension ReplicaObserver {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_replica: InternalRegistryPrx? = try istr.read(InternalRegistryPrx.self)
-
-        try self.replicaAdded(replica: iceP_replica, current: request.current)
+        try await self.replicaAdded(replica: iceP_replica, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -5604,8 +5587,7 @@ extension ReplicaObserver {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_replica: InternalRegistryPrx? = try istr.read(InternalRegistryPrx.self)
-
-        try self.replicaRemoved(replica: iceP_replica, current: request.current)
+        try await self.replicaRemoved(replica: iceP_replica, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -5642,8 +5624,7 @@ extension Node {
         try istr.read(InternalServerDescriptor.self) { iceP_svr = $0 }
         let iceP_replicaName: Swift.String = try istr.read()
         try istr.readPendingValues()
-        let result = try await self.loadServerAsync(
-            svr: iceP_svr, replicaName: iceP_replicaName, current: request.current)
+        let result = try await self.loadServer(svr: iceP_svr, replicaName: iceP_replicaName, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_adapters, iceP_activateTimeout, iceP_deactivateTimeout) = value
             AdapterPrxDictHelper.write(to: ostr, value: iceP_adapters)
@@ -5661,8 +5642,7 @@ extension Node {
         try istr.read(InternalServerDescriptor.self) { iceP_svr = $0 }
         let iceP_replicaName: Swift.String = try istr.read()
         try istr.readPendingValues()
-        let result = try await self.loadServerWithoutRestartAsync(
-            svr: iceP_svr, replicaName: iceP_replicaName, current: request.current)
+        let result = try await self.loadServerWithoutRestart(svr: iceP_svr, replicaName: iceP_replicaName, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_adapters, iceP_activateTimeout, iceP_deactivateTimeout) = value
             AdapterPrxDictHelper.write(to: ostr, value: iceP_adapters)
@@ -5680,8 +5660,7 @@ extension Node {
         let iceP_uuid: Swift.String = try istr.read()
         let iceP_revision: Swift.Int32 = try istr.read()
         let iceP_replicaName: Swift.String = try istr.read()
-        try await self.destroyServerAsync(
-            name: iceP_name, uuid: iceP_uuid, revision: iceP_revision, replicaName: iceP_replicaName, current: request.current)
+        try await self.destroyServer(name: iceP_name, uuid: iceP_uuid, revision: iceP_revision, replicaName: iceP_replicaName, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -5693,8 +5672,7 @@ extension Node {
         let iceP_uuid: Swift.String = try istr.read()
         let iceP_revision: Swift.Int32 = try istr.read()
         let iceP_replicaName: Swift.String = try istr.read()
-        try await self.destroyServerWithoutRestartAsync(
-            name: iceP_name, uuid: iceP_uuid, revision: iceP_revision, replicaName: iceP_replicaName, current: request.current)
+        try await self.destroyServerWithoutRestart(name: iceP_name, uuid: iceP_uuid, revision: iceP_revision, replicaName: iceP_replicaName, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -5703,64 +5681,54 @@ extension Node {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_replica: InternalRegistryPrx? = try istr.read(InternalRegistryPrx.self)
-
-        try self.registerWithReplica(replica: iceP_replica, current: request.current)
+        try await self.registerWithReplica(replica: iceP_replica, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_getName(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getName(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getName(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getHostname(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getHostname(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getHostname(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getLoad(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getLoad(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getLoad(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getProcessorSocketCount(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getProcessorSocketCount(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getProcessorSocketCount(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -5790,8 +5758,7 @@ extension NodeSession {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_load: LoadInfo = try istr.read()
-
-        try self.keepAlive(load: iceP_load, current: request.current)
+        try await self.keepAlive(load: iceP_load, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -5800,53 +5767,45 @@ extension NodeSession {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_observer: ReplicaObserverPrx? = try istr.read(ReplicaObserverPrx.self)
-
-        try self.setReplicaObserver(observer: iceP_observer, current: request.current)
+        try await self.setReplicaObserver(observer: iceP_observer, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_getTimeout(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getTimeout(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getTimeout(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getObserver(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getObserver(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getObserver(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_loadServers(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.loadServersAsync(
-            current: request.current)
+        try await self.loadServers(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_getServers(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getServers(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getServers(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_waitForApplicationUpdate(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5855,16 +5814,14 @@ extension NodeSession {
         _ = try istr.startEncapsulation()
         let iceP_application: Swift.String = try istr.read()
         let iceP_revision: Swift.Int32 = try istr.read()
-        try await self.waitForApplicationUpdateAsync(
-            application: iceP_application, revision: iceP_revision, current: request.current)
+        try await self.waitForApplicationUpdate(application: iceP_application, revision: iceP_revision, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_destroy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.destroy(current: request.current)
+        try await self.destroy(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -5895,21 +5852,18 @@ extension ReplicaSession {
     public func _iceD_keepAlive(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.keepAlive(current: request.current)
+        try await self.keepAlive(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_getTimeout(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getTimeout(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getTimeout(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_setDatabaseObserver(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5918,8 +5872,7 @@ extension ReplicaSession {
         _ = try istr.startEncapsulation()
         let iceP_dbObs: DatabaseObserverPrx? = try istr.read(DatabaseObserverPrx.self)
         let iceP_serials: StringLongDict? = try StringLongDictHelper.read(from: istr, tag: 1)
-
-        try self.setDatabaseObserver(dbObs: iceP_dbObs, serials: iceP_serials, current: request.current)
+        try await self.setDatabaseObserver(dbObs: iceP_dbObs, serials: iceP_serials, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -5928,8 +5881,7 @@ extension ReplicaSession {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_endpoints: StringObjectProxyDict = try StringObjectProxyDictHelper.read(from: istr)
-
-        try self.setEndpoints(endpoints: iceP_endpoints, current: request.current)
+        try await self.setEndpoints(endpoints: iceP_endpoints, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -5938,8 +5890,7 @@ extension ReplicaSession {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_objects: ObjectInfoSeq = try ObjectInfoSeqHelper.read(from: istr)
-
-        try self.registerWellKnownObjects(objects: iceP_objects, current: request.current)
+        try await self.registerWellKnownObjects(objects: iceP_objects, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -5950,8 +5901,7 @@ extension ReplicaSession {
         let iceP_adapterId: Swift.String = try istr.read()
         let iceP_replicaGroupId: Swift.String = try istr.read()
         let iceP_proxy: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-
-        try self.setAdapterDirectProxy(adapterId: iceP_adapterId, replicaGroupId: iceP_replicaGroupId, proxy: iceP_proxy, current: request.current)
+        try await self.setAdapterDirectProxy(adapterId: iceP_adapterId, replicaGroupId: iceP_replicaGroupId, proxy: iceP_proxy, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -5962,16 +5912,14 @@ extension ReplicaSession {
         let iceP_name: TopicName = try istr.read()
         let iceP_serial: Swift.Int32 = try istr.read()
         let iceP_failure: Swift.String = try istr.read()
-
-        try self.receivedUpdate(name: iceP_name, serial: iceP_serial, failure: iceP_failure, current: request.current)
+        try await self.receivedUpdate(name: iceP_name, serial: iceP_serial, failure: iceP_failure, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_destroy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.destroy(current: request.current)
+        try await self.destroy(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -6007,13 +5955,11 @@ extension InternalRegistry {
         let iceP_prx: NodePrx? = try istr.read(NodePrx.self)
         let iceP_loadInf: LoadInfo = try istr.read()
         try istr.readPendingValues()
-
-        let iceP_returnValue = try self.registerNode(info: iceP_info, prx: iceP_prx, loadInf: iceP_loadInf, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.registerNode(info: iceP_info, prx: iceP_prx, loadInf: iceP_loadInf, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_registerReplica(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -6024,13 +5970,11 @@ extension InternalRegistry {
         try istr.read(InternalReplicaInfo.self) { iceP_info = $0 }
         let iceP_prx: InternalRegistryPrx? = try istr.read(InternalRegistryPrx.self)
         try istr.readPendingValues()
-
-        let iceP_returnValue = try self.registerReplica(info: iceP_info, prx: iceP_prx, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.registerReplica(info: iceP_info, prx: iceP_prx, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_registerWithReplica(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -6038,80 +5982,68 @@ extension InternalRegistry {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_prx: InternalRegistryPrx? = try istr.read(InternalRegistryPrx.self)
-
-        try self.registerWithReplica(prx: iceP_prx, current: request.current)
+        try await self.registerWithReplica(prx: iceP_prx, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_getNodes(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getNodes(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        NodePrxSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getNodes(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            NodePrxSeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_getReplicas(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getReplicas(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        InternalRegistryPrxSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getReplicas(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            InternalRegistryPrxSeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_getApplications(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let (iceP_returnValue, iceP_serial) = try self.getApplications(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_serial)
-        ApplicationInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getApplications(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_serial) = value
+            ostr.write(iceP_serial)
+            ApplicationInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_getAdapters(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let (iceP_returnValue, iceP_serial) = try self.getAdapters(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_serial)
-        AdapterInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getAdapters(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_serial) = value
+            ostr.write(iceP_serial)
+            AdapterInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_getObjects(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let (iceP_returnValue, iceP_serial) = try self.getObjects(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_serial)
-        ObjectInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getObjects(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_serial) = value
+            ostr.write(iceP_serial)
+            ObjectInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

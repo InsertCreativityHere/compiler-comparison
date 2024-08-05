@@ -168,13 +168,13 @@ public struct TestFacetDisp: Ice.Dispatcher {
         case "getChanges":
             try await servant._iceD_getChanges(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TestFacetDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -185,8 +185,8 @@ public protocol TestFacet {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.PropertyDict`
-    func getChanges(current: Ice.Current) throws -> Ice.PropertyDict
+    /// - returns: `Ice.PropertyDict` - The result of the operation
+    func getChanges(current: Ice.Current) async throws -> Ice.PropertyDict
 }
 
 /// TestFacet overview.
@@ -198,12 +198,10 @@ extension TestFacet {
     public func _iceD_getChanges(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getChanges(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        Ice.PropertyDictHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getChanges(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            Ice.PropertyDictHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 }

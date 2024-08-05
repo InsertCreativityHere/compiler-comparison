@@ -753,13 +753,13 @@ public struct CallbackDisp: Ice.Dispatcher {
         case "getDatagramCount":
             try await servant._iceD_getDatagramCount(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_ping(request)
         case "ping":
             try await servant._iceD_ping(request)
         default:
@@ -771,23 +771,27 @@ public struct CallbackDisp: Ice.Dispatcher {
 public protocol Callback {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func ping(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func ping(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32`
-    func getCount(current: Ice.Current) throws -> Swift.Int32
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func datagram(current: Ice.Current) throws
+    /// - returns: `Swift.Int32` - The result of the operation
+    func getCount(current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32`
-    func getDatagramCount(current: Ice.Current) throws -> Swift.Int32
+    /// - returns: `` - The result of the operation
+    func datagram(current: Ice.Current) async throws
+
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `Swift.Int32` - The result of the operation
+    func getDatagramCount(current: Ice.Current) async throws -> Swift.Int32
 }
 
 
@@ -821,13 +825,13 @@ public struct MyClassDisp: Ice.Dispatcher {
         case "getDatagramCount":
             try await servant._iceD_getDatagramCount(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(request)
         case "incCounter":
             try await servant._iceD_incCounter(request)
         case "shutdown":
@@ -845,67 +849,79 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func callCallbackAsync(current: Ice.Current) async throws -> Swift.Void
+    func callCallback(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Swift.Int32` - The result of the operation
-    func getCallbackCountAsync(current: Ice.Current) async throws -> Swift.Int32
+    func getCallbackCount(current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter expected: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func incCounter(expected: Swift.Int32, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func incCounter(expected: Swift.Int32, current: Ice.Current) async throws
 
     ///
     /// - parameter value: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func waitCounter(value: Swift.Int32, current: Ice.Current) throws
-
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
-    func getConnectionCount(current: Ice.Current) throws -> Swift.Int32
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
-    func getConnectionInfo(current: Ice.Current) throws -> Swift.String
-
-    ///
-    /// - parameter force: `Swift.Bool`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func closeConnection(force: Swift.Bool, current: Ice.Current) throws
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func datagram(current: Ice.Current) throws
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
-    func getDatagramCount(current: Ice.Current) throws -> Swift.Int32
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func callDatagramCallback(current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func waitCounter(value: Swift.Int32, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Swift.Int32` - The result of the operation
-    func getCallbackDatagramCountAsync(current: Ice.Current) async throws -> Swift.Int32
+    func getConnectionCount(current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `Swift.String` - The result of the operation
+    func getConnectionInfo(current: Ice.Current) async throws -> Swift.String
+
+    ///
+    /// - parameter force: `Swift.Bool`
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `` - The result of the operation
+    func closeConnection(force: Swift.Bool, current: Ice.Current) async throws
+
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `` - The result of the operation
+    func datagram(current: Ice.Current) async throws
+
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `Swift.Int32` - The result of the operation
+    func getDatagramCount(current: Ice.Current) async throws -> Swift.Int32
+
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `` - The result of the operation
+    func callDatagramCallback(current: Ice.Current) async throws
+
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `Swift.Int32` - The result of the operation
+    func getCallbackDatagramCount(current: Ice.Current) async throws -> Swift.Int32
+
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// Callback overview.
@@ -923,41 +939,35 @@ extension Callback {
     public func _iceD_ping(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.ping(current: request.current)
+        try await self.ping(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_getCount(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getCount(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getCount(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_datagram(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.datagram(current: request.current)
+        try await self.datagram(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_getDatagramCount(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getDatagramCount(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getDatagramCount(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }
 
@@ -992,16 +1002,14 @@ extension MyClass {
     public func _iceD_callCallback(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.callCallbackAsync(
-            current: request.current)
+        try await self.callCallback(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_getCallbackCount(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        let result = try await self.getCallbackCountAsync(
-            current: request.current)
+        let result = try await self.getCallbackCount(current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -1013,8 +1021,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_expected: Swift.Int32 = try istr.read()
-
-        try self.incCounter(expected: iceP_expected, current: request.current)
+        try await self.incCounter(expected: iceP_expected, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1023,33 +1030,28 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_value: Swift.Int32 = try istr.read()
-
-        try self.waitCounter(value: iceP_value, current: request.current)
+        try await self.waitCounter(value: iceP_value, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_getConnectionCount(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getConnectionCount(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getConnectionCount(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getConnectionInfo(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getConnectionInfo(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getConnectionInfo(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_closeConnection(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1057,44 +1059,38 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_force: Swift.Bool = try istr.read()
-
-        try self.closeConnection(force: iceP_force, current: request.current)
+        try await self.closeConnection(force: iceP_force, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_datagram(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.datagram(current: request.current)
+        try await self.datagram(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_getDatagramCount(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getDatagramCount(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getDatagramCount(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_callDatagramCallback(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.callDatagramCallback(current: request.current)
+        try await self.callDatagramCallback(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_getCallbackDatagramCount(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        let result = try await self.getCallbackDatagramCountAsync(
-            current: request.current)
+        let result = try await self.getCallbackDatagramCount(current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -1104,8 +1100,7 @@ extension MyClass {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

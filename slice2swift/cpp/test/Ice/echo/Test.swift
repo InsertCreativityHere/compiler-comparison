@@ -236,13 +236,13 @@ public struct EchoDisp: Ice.Dispatcher {
         case "flushBatch":
             try await servant._iceD_flushBatch(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? EchoDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? EchoDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? EchoDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? EchoDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? EchoDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? EchoDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? EchoDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? EchoDisp.defaultObject)._iceD_ice_ping(request)
         case "setConnection":
             try await servant._iceD_setConnection(request)
         case "shutdown":
@@ -258,19 +258,27 @@ public struct EchoDisp: Ice.Dispatcher {
 public protocol Echo {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func setConnection(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func setConnection(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func startBatch(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func startBatch(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func flushBatch(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func flushBatch(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// Echo overview.
@@ -288,32 +296,28 @@ extension Echo {
     public func _iceD_setConnection(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.setConnection(current: request.current)
+        try await self.setConnection(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_startBatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.startBatch(current: request.current)
+        try await self.startBatch(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_flushBatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.flushBatch(current: request.current)
+        try await self.flushBatch(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

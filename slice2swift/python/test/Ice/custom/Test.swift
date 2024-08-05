@@ -1536,13 +1536,13 @@ public struct CustomDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? CustomDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? CustomDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? CustomDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? CustomDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? CustomDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? CustomDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? CustomDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? CustomDisp.defaultObject)._iceD_ice_ping(request)
         case "opBogusArrayNoCallableFactory":
             try await servant._iceD_opBogusArrayNoCallableFactory(request)
         case "opBogusArrayNoneFactory":
@@ -1605,240 +1605,186 @@ public protocol Custom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ByteString, b2: ByteString)`:
-    ///
-    ///   - returnValue: `ByteString`
-    ///
-    ///   - b2: `ByteString`
-    func opByteString1(b1: ByteString, current: Ice.Current) throws -> (returnValue: ByteString, b2: ByteString)
+    /// - returns: `(returnValue: ByteString, b2: ByteString)` - The result of the operation
+    func opByteString1(b1: ByteString, current: Ice.Current) async throws -> (returnValue: ByteString, b2: ByteString)
 
     ///
     /// - parameter b1: `ByteString`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ByteString, b2: ByteString)`:
-    ///
-    ///   - returnValue: `ByteString`
-    ///
-    ///   - b2: `ByteString`
-    func opByteString2(b1: ByteString, current: Ice.Current) throws -> (returnValue: ByteString, b2: ByteString)
+    /// - returns: `(returnValue: ByteString, b2: ByteString)` - The result of the operation
+    func opByteString2(b1: ByteString, current: Ice.Current) async throws -> (returnValue: ByteString, b2: ByteString)
 
     ///
     /// - parameter b1: `ByteList`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ByteList, b2: ByteList)`:
-    ///
-    ///   - returnValue: `ByteList`
-    ///
-    ///   - b2: `ByteList`
-    func opByteList1(b1: ByteList, current: Ice.Current) throws -> (returnValue: ByteList, b2: ByteList)
+    /// - returns: `(returnValue: ByteList, b2: ByteList)` - The result of the operation
+    func opByteList1(b1: ByteList, current: Ice.Current) async throws -> (returnValue: ByteList, b2: ByteList)
 
     ///
     /// - parameter b1: `ByteList`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ByteList, b2: ByteList)`:
-    ///
-    ///   - returnValue: `ByteList`
-    ///
-    ///   - b2: `ByteList`
-    func opByteList2(b1: ByteList, current: Ice.Current) throws -> (returnValue: ByteList, b2: ByteList)
+    /// - returns: `(returnValue: ByteList, b2: ByteList)` - The result of the operation
+    func opByteList2(b1: ByteList, current: Ice.Current) async throws -> (returnValue: ByteList, b2: ByteList)
 
     ///
     /// - parameter s1: `StringList`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: StringList, s2: StringList)`:
-    ///
-    ///   - returnValue: `StringList`
-    ///
-    ///   - s2: `StringList`
-    func opStringList1(s1: StringList, current: Ice.Current) throws -> (returnValue: StringList, s2: StringList)
+    /// - returns: `(returnValue: StringList, s2: StringList)` - The result of the operation
+    func opStringList1(s1: StringList, current: Ice.Current) async throws -> (returnValue: StringList, s2: StringList)
 
     ///
     /// - parameter s1: `StringList`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: StringList, s2: StringList)`:
-    ///
-    ///   - returnValue: `StringList`
-    ///
-    ///   - s2: `StringList`
-    func opStringList2(s1: StringList, current: Ice.Current) throws -> (returnValue: StringList, s2: StringList)
+    /// - returns: `(returnValue: StringList, s2: StringList)` - The result of the operation
+    func opStringList2(s1: StringList, current: Ice.Current) async throws -> (returnValue: StringList, s2: StringList)
 
     ///
     /// - parameter s1: `StringTuple`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: StringTuple, s2: StringTuple)`:
-    ///
-    ///   - returnValue: `StringTuple`
-    ///
-    ///   - s2: `StringTuple`
-    func opStringTuple1(s1: StringTuple, current: Ice.Current) throws -> (returnValue: StringTuple, s2: StringTuple)
+    /// - returns: `(returnValue: StringTuple, s2: StringTuple)` - The result of the operation
+    func opStringTuple1(s1: StringTuple, current: Ice.Current) async throws -> (returnValue: StringTuple, s2: StringTuple)
 
     ///
     /// - parameter s1: `StringTuple`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: StringTuple, s2: StringTuple)`:
-    ///
-    ///   - returnValue: `StringTuple`
-    ///
-    ///   - s2: `StringTuple`
-    func opStringTuple2(s1: StringTuple, current: Ice.Current) throws -> (returnValue: StringTuple, s2: StringTuple)
+    /// - returns: `(returnValue: StringTuple, s2: StringTuple)` - The result of the operation
+    func opStringTuple2(s1: StringTuple, current: Ice.Current) async throws -> (returnValue: StringTuple, s2: StringTuple)
 
     ///
     /// - parameter val: `S`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func sendS(val: S, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func sendS(val: S, current: Ice.Current) async throws
 
     ///
     /// - parameter val: `C?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func sendC(val: C?, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func sendC(val: C?, current: Ice.Current) async throws
 
     ///
     /// - parameter v1: `BoolSeq1`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: BoolSeq1, v2: BoolSeq2)`:
-    ///
-    ///   - returnValue: `BoolSeq1`
-    ///
-    ///   - v2: `BoolSeq2`
-    func opBoolSeq(v1: BoolSeq1, current: Ice.Current) throws -> (returnValue: BoolSeq1, v2: BoolSeq2)
+    /// - returns: `(returnValue: BoolSeq1, v2: BoolSeq2)` - The result of the operation
+    func opBoolSeq(v1: BoolSeq1, current: Ice.Current) async throws -> (returnValue: BoolSeq1, v2: BoolSeq2)
 
     ///
     /// - parameter v1: `ByteSeq1`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ByteSeq1, v2: ByteSeq2)`:
-    ///
-    ///   - returnValue: `ByteSeq1`
-    ///
-    ///   - v2: `ByteSeq2`
-    func opByteSeq(v1: ByteSeq1, current: Ice.Current) throws -> (returnValue: ByteSeq1, v2: ByteSeq2)
+    /// - returns: `(returnValue: ByteSeq1, v2: ByteSeq2)` - The result of the operation
+    func opByteSeq(v1: ByteSeq1, current: Ice.Current) async throws -> (returnValue: ByteSeq1, v2: ByteSeq2)
 
     ///
     /// - parameter v1: `ShortSeq1`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ShortSeq1, v2: ShortSeq2)`:
-    ///
-    ///   - returnValue: `ShortSeq1`
-    ///
-    ///   - v2: `ShortSeq2`
-    func opShortSeq(v1: ShortSeq1, current: Ice.Current) throws -> (returnValue: ShortSeq1, v2: ShortSeq2)
+    /// - returns: `(returnValue: ShortSeq1, v2: ShortSeq2)` - The result of the operation
+    func opShortSeq(v1: ShortSeq1, current: Ice.Current) async throws -> (returnValue: ShortSeq1, v2: ShortSeq2)
 
     ///
     /// - parameter v1: `IntSeq1`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: IntSeq1, v2: IntSeq2)`:
-    ///
-    ///   - returnValue: `IntSeq1`
-    ///
-    ///   - v2: `IntSeq2`
-    func opIntSeq(v1: IntSeq1, current: Ice.Current) throws -> (returnValue: IntSeq1, v2: IntSeq2)
+    /// - returns: `(returnValue: IntSeq1, v2: IntSeq2)` - The result of the operation
+    func opIntSeq(v1: IntSeq1, current: Ice.Current) async throws -> (returnValue: IntSeq1, v2: IntSeq2)
 
     ///
     /// - parameter v1: `LongSeq1`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: LongSeq1, v2: LongSeq2)`:
-    ///
-    ///   - returnValue: `LongSeq1`
-    ///
-    ///   - v2: `LongSeq2`
-    func opLongSeq(v1: LongSeq1, current: Ice.Current) throws -> (returnValue: LongSeq1, v2: LongSeq2)
+    /// - returns: `(returnValue: LongSeq1, v2: LongSeq2)` - The result of the operation
+    func opLongSeq(v1: LongSeq1, current: Ice.Current) async throws -> (returnValue: LongSeq1, v2: LongSeq2)
 
     ///
     /// - parameter v1: `FloatSeq1`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: FloatSeq1, v2: FloatSeq2)`:
-    ///
-    ///   - returnValue: `FloatSeq1`
-    ///
-    ///   - v2: `FloatSeq2`
-    func opFloatSeq(v1: FloatSeq1, current: Ice.Current) throws -> (returnValue: FloatSeq1, v2: FloatSeq2)
+    /// - returns: `(returnValue: FloatSeq1, v2: FloatSeq2)` - The result of the operation
+    func opFloatSeq(v1: FloatSeq1, current: Ice.Current) async throws -> (returnValue: FloatSeq1, v2: FloatSeq2)
 
     ///
     /// - parameter v1: `DoubleSeq1`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: DoubleSeq1, v2: DoubleSeq2)`:
-    ///
-    ///   - returnValue: `DoubleSeq1`
-    ///
-    ///   - v2: `DoubleSeq2`
-    func opDoubleSeq(v1: DoubleSeq1, current: Ice.Current) throws -> (returnValue: DoubleSeq1, v2: DoubleSeq2)
+    /// - returns: `(returnValue: DoubleSeq1, v2: DoubleSeq2)` - The result of the operation
+    func opDoubleSeq(v1: DoubleSeq1, current: Ice.Current) async throws -> (returnValue: DoubleSeq1, v2: DoubleSeq2)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `BoolSeq1`
-    func opBogusArrayNotExistsFactory(current: Ice.Current) throws -> BoolSeq1
+    /// - returns: `BoolSeq1` - The result of the operation
+    func opBogusArrayNotExistsFactory(current: Ice.Current) async throws -> BoolSeq1
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `BoolSeq1`
-    func opBogusArrayThrowFactory(current: Ice.Current) throws -> BoolSeq1
+    /// - returns: `BoolSeq1` - The result of the operation
+    func opBogusArrayThrowFactory(current: Ice.Current) async throws -> BoolSeq1
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `BoolSeq1`
-    func opBogusArrayType(current: Ice.Current) throws -> BoolSeq1
+    /// - returns: `BoolSeq1` - The result of the operation
+    func opBogusArrayType(current: Ice.Current) async throws -> BoolSeq1
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `BoolSeq1`
-    func opBogusArrayNoneFactory(current: Ice.Current) throws -> BoolSeq1
+    /// - returns: `BoolSeq1` - The result of the operation
+    func opBogusArrayNoneFactory(current: Ice.Current) async throws -> BoolSeq1
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `BoolSeq1`
-    func opBogusArraySignatureFactory(current: Ice.Current) throws -> BoolSeq1
+    /// - returns: `BoolSeq1` - The result of the operation
+    func opBogusArraySignatureFactory(current: Ice.Current) async throws -> BoolSeq1
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `BoolSeq1`
-    func opBogusArrayNoCallableFactory(current: Ice.Current) throws -> BoolSeq1
+    /// - returns: `BoolSeq1` - The result of the operation
+    func opBogusArrayNoCallableFactory(current: Ice.Current) async throws -> BoolSeq1
 
     ///
     /// - parameter d: `D?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `D?`
-    func opD(d: D?, current: Ice.Current) throws -> D?
+    /// - returns: `D?` - The result of the operation
+    func opD(d: D?, current: Ice.Current) async throws -> D?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// Custom overview.
@@ -1900,14 +1846,12 @@ extension Custom {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_b1: ByteString = try istr.read()
-
-        let (iceP_returnValue, iceP_b2) = try self.opByteString1(b1: iceP_b1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_b2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opByteString1(b1: iceP_b1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_b2) = value
+            ostr.write(iceP_b2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opByteString2(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1915,14 +1859,12 @@ extension Custom {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_b1: ByteString = try istr.read()
-
-        let (iceP_returnValue, iceP_b2) = try self.opByteString2(b1: iceP_b1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_b2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opByteString2(b1: iceP_b1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_b2) = value
+            ostr.write(iceP_b2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opByteList1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1930,14 +1872,12 @@ extension Custom {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_b1: ByteList = try istr.read()
-
-        let (iceP_returnValue, iceP_b2) = try self.opByteList1(b1: iceP_b1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_b2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opByteList1(b1: iceP_b1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_b2) = value
+            ostr.write(iceP_b2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opByteList2(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1945,14 +1885,12 @@ extension Custom {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_b1: ByteList = try istr.read()
-
-        let (iceP_returnValue, iceP_b2) = try self.opByteList2(b1: iceP_b1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_b2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opByteList2(b1: iceP_b1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_b2) = value
+            ostr.write(iceP_b2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opStringList1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1960,14 +1898,12 @@ extension Custom {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_s1: StringList = try istr.read()
-
-        let (iceP_returnValue, iceP_s2) = try self.opStringList1(s1: iceP_s1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_s2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opStringList1(s1: iceP_s1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_s2) = value
+            ostr.write(iceP_s2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opStringList2(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1975,14 +1911,12 @@ extension Custom {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_s1: StringList = try istr.read()
-
-        let (iceP_returnValue, iceP_s2) = try self.opStringList2(s1: iceP_s1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_s2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opStringList2(s1: iceP_s1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_s2) = value
+            ostr.write(iceP_s2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opStringTuple1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1990,14 +1924,12 @@ extension Custom {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_s1: StringTuple = try istr.read()
-
-        let (iceP_returnValue, iceP_s2) = try self.opStringTuple1(s1: iceP_s1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_s2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opStringTuple1(s1: iceP_s1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_s2) = value
+            ostr.write(iceP_s2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opStringTuple2(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -2005,14 +1937,12 @@ extension Custom {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_s1: StringTuple = try istr.read()
-
-        let (iceP_returnValue, iceP_s2) = try self.opStringTuple2(s1: iceP_s1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_s2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opStringTuple2(s1: iceP_s1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_s2) = value
+            ostr.write(iceP_s2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_sendS(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -2020,8 +1950,7 @@ extension Custom {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_val: S = try istr.read()
-
-        try self.sendS(val: iceP_val, current: request.current)
+        try await self.sendS(val: iceP_val, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -2032,8 +1961,7 @@ extension Custom {
         var iceP_val: C?
         try istr.read(C.self) { iceP_val = $0 }
         try istr.readPendingValues()
-
-        try self.sendC(val: iceP_val, current: request.current)
+        try await self.sendC(val: iceP_val, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -2042,14 +1970,12 @@ extension Custom {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_v1: BoolSeq1 = try istr.read()
-
-        let (iceP_returnValue, iceP_v2) = try self.opBoolSeq(v1: iceP_v1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_v2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opBoolSeq(v1: iceP_v1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_v2) = value
+            ostr.write(iceP_v2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opByteSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -2057,14 +1983,12 @@ extension Custom {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_v1: ByteSeq1 = try istr.read()
-
-        let (iceP_returnValue, iceP_v2) = try self.opByteSeq(v1: iceP_v1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_v2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opByteSeq(v1: iceP_v1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_v2) = value
+            ostr.write(iceP_v2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opShortSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -2072,14 +1996,12 @@ extension Custom {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_v1: ShortSeq1 = try istr.read()
-
-        let (iceP_returnValue, iceP_v2) = try self.opShortSeq(v1: iceP_v1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_v2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opShortSeq(v1: iceP_v1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_v2) = value
+            ostr.write(iceP_v2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opIntSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -2087,14 +2009,12 @@ extension Custom {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_v1: IntSeq1 = try istr.read()
-
-        let (iceP_returnValue, iceP_v2) = try self.opIntSeq(v1: iceP_v1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_v2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opIntSeq(v1: iceP_v1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_v2) = value
+            ostr.write(iceP_v2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opLongSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -2102,14 +2022,12 @@ extension Custom {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_v1: LongSeq1 = try istr.read()
-
-        let (iceP_returnValue, iceP_v2) = try self.opLongSeq(v1: iceP_v1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_v2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opLongSeq(v1: iceP_v1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_v2) = value
+            ostr.write(iceP_v2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opFloatSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -2117,14 +2035,12 @@ extension Custom {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_v1: FloatSeq1 = try istr.read()
-
-        let (iceP_returnValue, iceP_v2) = try self.opFloatSeq(v1: iceP_v1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_v2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opFloatSeq(v1: iceP_v1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_v2) = value
+            ostr.write(iceP_v2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opDoubleSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -2132,86 +2048,72 @@ extension Custom {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_v1: DoubleSeq1 = try istr.read()
-
-        let (iceP_returnValue, iceP_v2) = try self.opDoubleSeq(v1: iceP_v1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_v2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opDoubleSeq(v1: iceP_v1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_v2) = value
+            ostr.write(iceP_v2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opBogusArrayNotExistsFactory(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.opBogusArrayNotExistsFactory(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opBogusArrayNotExistsFactory(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opBogusArrayThrowFactory(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.opBogusArrayThrowFactory(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opBogusArrayThrowFactory(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opBogusArrayType(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.opBogusArrayType(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opBogusArrayType(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opBogusArrayNoneFactory(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.opBogusArrayNoneFactory(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opBogusArrayNoneFactory(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opBogusArraySignatureFactory(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.opBogusArraySignatureFactory(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opBogusArraySignatureFactory(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opBogusArrayNoCallableFactory(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.opBogusArrayNoCallableFactory(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opBogusArrayNoCallableFactory(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opD(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -2221,21 +2123,18 @@ extension Custom {
         var iceP_d: D?
         try istr.read(D.self) { iceP_d = $0 }
         try istr.readPendingValues()
-
-        let iceP_returnValue = try self.opD(d: iceP_d, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opD(d: iceP_d, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

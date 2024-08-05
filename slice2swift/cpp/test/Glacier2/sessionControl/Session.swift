@@ -187,13 +187,13 @@ public struct SessionDisp: Ice.Dispatcher {
         case "destroyFromClient":
             try await servant._iceD_destroyFromClient(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
             try await servant._iceD_shutdown(request)
         default:
@@ -207,11 +207,13 @@ public protocol Session: Glacier2.Session {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func destroyFromClientAsync(current: Ice.Current) async throws -> Swift.Void
+    func destroyFromClient(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// Session overview.
@@ -225,16 +227,14 @@ extension Session {
     public func _iceD_destroyFromClient(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.destroyFromClientAsync(
-            current: request.current)
+        try await self.destroyFromClient(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

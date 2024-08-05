@@ -308,13 +308,13 @@ public struct InitialDisp: Ice.Dispatcher {
         case "getConcreteClass":
             try await servant._iceD_getConcreteClass(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
             try await servant._iceD_shutdown(request)
         case "throwException":
@@ -329,16 +329,20 @@ public protocol Initial {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ConcreteClass?`
-    func getConcreteClass(current: Ice.Current) throws -> ConcreteClass?
+    /// - returns: `ConcreteClass?` - The result of the operation
+    func getConcreteClass(current: Ice.Current) async throws -> ConcreteClass?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func throwException(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func throwException(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// Initial overview.
@@ -354,29 +358,25 @@ extension Initial {
     public func _iceD_getConcreteClass(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getConcreteClass(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getConcreteClass(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_throwException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.throwException(current: request.current)
+        try await self.throwException(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

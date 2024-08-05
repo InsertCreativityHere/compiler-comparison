@@ -1366,13 +1366,13 @@ public struct EmptyDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? EmptyDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? EmptyDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? EmptyDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? EmptyDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? EmptyDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? EmptyDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? EmptyDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? EmptyDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -1394,13 +1394,13 @@ public struct ThrowerDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? ThrowerDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? ThrowerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? ThrowerDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? ThrowerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? ThrowerDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? ThrowerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? ThrowerDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? ThrowerDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
             try await servant._iceD_shutdown(request)
         case "supportsAssertException":
@@ -1452,19 +1452,19 @@ public protocol Thrower {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func shutdownAsync(current: Ice.Current) async throws -> Swift.Void
+    func shutdown(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Swift.Bool` - The result of the operation
-    func supportsUndeclaredExceptionsAsync(current: Ice.Current) async throws -> Swift.Bool
+    func supportsUndeclaredExceptions(current: Ice.Current) async throws -> Swift.Bool
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Swift.Bool` - The result of the operation
-    func supportsAssertExceptionAsync(current: Ice.Current) async throws -> Swift.Bool
+    func supportsAssertException(current: Ice.Current) async throws -> Swift.Bool
 
     ///
     /// - parameter a: `Swift.Int32`
@@ -1472,7 +1472,7 @@ public protocol Thrower {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func throwAasAAsync(a: Swift.Int32, current: Ice.Current) async throws -> Swift.Void
+    func throwAasA(a: Swift.Int32, current: Ice.Current) async throws
 
     ///
     /// - parameter a: `Swift.Int32`
@@ -1480,29 +1480,7 @@ public protocol Thrower {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func throwAorDasAorDAsync(a: Swift.Int32, current: Ice.Current) async throws -> Swift.Void
-
-    ///
-    /// - parameter a: `Swift.Int32`
-    ///
-    /// - parameter b: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
-    func throwBasAAsync(a: Swift.Int32, b: Swift.Int32, current: Ice.Current) async throws -> Swift.Void
-
-    ///
-    /// - parameter a: `Swift.Int32`
-    ///
-    /// - parameter b: `Swift.Int32`
-    ///
-    /// - parameter c: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
-    func throwCasAAsync(a: Swift.Int32, b: Swift.Int32, c: Swift.Int32, current: Ice.Current) async throws -> Swift.Void
+    func throwAorDasAorD(a: Swift.Int32, current: Ice.Current) async throws
 
     ///
     /// - parameter a: `Swift.Int32`
@@ -1512,7 +1490,7 @@ public protocol Thrower {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func throwBasBAsync(a: Swift.Int32, b: Swift.Int32, current: Ice.Current) async throws -> Swift.Void
+    func throwBasA(a: Swift.Int32, b: Swift.Int32, current: Ice.Current) async throws
 
     ///
     /// - parameter a: `Swift.Int32`
@@ -1524,7 +1502,17 @@ public protocol Thrower {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func throwCasBAsync(a: Swift.Int32, b: Swift.Int32, c: Swift.Int32, current: Ice.Current) async throws -> Swift.Void
+    func throwCasA(a: Swift.Int32, b: Swift.Int32, c: Swift.Int32, current: Ice.Current) async throws
+
+    ///
+    /// - parameter a: `Swift.Int32`
+    ///
+    /// - parameter b: `Swift.Int32`
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `` - The result of the operation
+    func throwBasB(a: Swift.Int32, b: Swift.Int32, current: Ice.Current) async throws
 
     ///
     /// - parameter a: `Swift.Int32`
@@ -1536,25 +1524,7 @@ public protocol Thrower {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func throwCasCAsync(a: Swift.Int32, b: Swift.Int32, c: Swift.Int32, current: Ice.Current) async throws -> Swift.Void
-
-    ///
-    /// - parameter a: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
-    func throwUndeclaredAAsync(a: Swift.Int32, current: Ice.Current) async throws -> Swift.Void
-
-    ///
-    /// - parameter a: `Swift.Int32`
-    ///
-    /// - parameter b: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
-    func throwUndeclaredBAsync(a: Swift.Int32, b: Swift.Int32, current: Ice.Current) async throws -> Swift.Void
+    func throwCasB(a: Swift.Int32, b: Swift.Int32, c: Swift.Int32, current: Ice.Current) async throws
 
     ///
     /// - parameter a: `Swift.Int32`
@@ -1566,25 +1536,55 @@ public protocol Thrower {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func throwUndeclaredCAsync(a: Swift.Int32, b: Swift.Int32, c: Swift.Int32, current: Ice.Current) async throws -> Swift.Void
+    func throwCasC(a: Swift.Int32, b: Swift.Int32, c: Swift.Int32, current: Ice.Current) async throws
+
+    ///
+    /// - parameter a: `Swift.Int32`
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `` - The result of the operation
+    func throwUndeclaredA(a: Swift.Int32, current: Ice.Current) async throws
+
+    ///
+    /// - parameter a: `Swift.Int32`
+    ///
+    /// - parameter b: `Swift.Int32`
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `` - The result of the operation
+    func throwUndeclaredB(a: Swift.Int32, b: Swift.Int32, current: Ice.Current) async throws
+
+    ///
+    /// - parameter a: `Swift.Int32`
+    ///
+    /// - parameter b: `Swift.Int32`
+    ///
+    /// - parameter c: `Swift.Int32`
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `` - The result of the operation
+    func throwUndeclaredC(a: Swift.Int32, b: Swift.Int32, c: Swift.Int32, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func throwLocalExceptionAsync(current: Ice.Current) async throws -> Swift.Void
+    func throwLocalException(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func throwNonIceExceptionAsync(current: Ice.Current) async throws -> Swift.Void
+    func throwNonIceException(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func throwAssertExceptionAsync(current: Ice.Current) async throws -> Swift.Void
+    func throwAssertException(current: Ice.Current) async throws
 
     ///
     /// - parameter seq: `Ice.ByteSeq`
@@ -1592,25 +1592,25 @@ public protocol Thrower {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Ice.ByteSeq` - The result of the operation
-    func throwMemoryLimitExceptionAsync(seq: Ice.ByteSeq, current: Ice.Current) async throws -> Ice.ByteSeq
+    func throwMemoryLimitException(seq: Ice.ByteSeq, current: Ice.Current) async throws -> Ice.ByteSeq
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func throwLocalExceptionIdempotentAsync(current: Ice.Current) async throws -> Swift.Void
+    func throwLocalExceptionIdempotent(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func throwAfterResponseAsync(current: Ice.Current) async throws -> Swift.Void
+    func throwAfterResponse(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func throwAfterExceptionAsync(current: Ice.Current) async throws -> Swift.Void
+    func throwAfterException(current: Ice.Current) async throws
 }
 
 
@@ -1626,13 +1626,13 @@ public struct WrongOperationDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? WrongOperationDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? WrongOperationDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? WrongOperationDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? WrongOperationDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? WrongOperationDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? WrongOperationDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? WrongOperationDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? WrongOperationDisp.defaultObject)._iceD_ice_ping(request)
         case "noSuchOperation":
             try await servant._iceD_noSuchOperation(request)
         default:
@@ -1646,7 +1646,7 @@ public protocol WrongOperation {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func noSuchOperationAsync(current: Ice.Current) async throws -> Swift.Void
+    func noSuchOperation(current: Ice.Current) async throws
 }
 
 /// Empty overview.
@@ -1699,16 +1699,14 @@ extension Thrower {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.shutdownAsync(
-            current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_supportsUndeclaredExceptions(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        let result = try await self.supportsUndeclaredExceptionsAsync(
-            current: request.current)
+        let result = try await self.supportsUndeclaredExceptions(current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -1718,8 +1716,7 @@ extension Thrower {
     public func _iceD_supportsAssertException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        let result = try await self.supportsAssertExceptionAsync(
-            current: request.current)
+        let result = try await self.supportsAssertException(current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -1731,8 +1728,7 @@ extension Thrower {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_a: Swift.Int32 = try istr.read()
-        try await self.throwAasAAsync(
-            a: iceP_a, current: request.current)
+        try await self.throwAasA(a: iceP_a, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1741,8 +1737,7 @@ extension Thrower {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_a: Swift.Int32 = try istr.read()
-        try await self.throwAorDasAorDAsync(
-            a: iceP_a, current: request.current)
+        try await self.throwAorDasAorD(a: iceP_a, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1752,8 +1747,7 @@ extension Thrower {
         _ = try istr.startEncapsulation()
         let iceP_a: Swift.Int32 = try istr.read()
         let iceP_b: Swift.Int32 = try istr.read()
-        try await self.throwBasAAsync(
-            a: iceP_a, b: iceP_b, current: request.current)
+        try await self.throwBasA(a: iceP_a, b: iceP_b, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1764,8 +1758,7 @@ extension Thrower {
         let iceP_a: Swift.Int32 = try istr.read()
         let iceP_b: Swift.Int32 = try istr.read()
         let iceP_c: Swift.Int32 = try istr.read()
-        try await self.throwCasAAsync(
-            a: iceP_a, b: iceP_b, c: iceP_c, current: request.current)
+        try await self.throwCasA(a: iceP_a, b: iceP_b, c: iceP_c, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1775,8 +1768,7 @@ extension Thrower {
         _ = try istr.startEncapsulation()
         let iceP_a: Swift.Int32 = try istr.read()
         let iceP_b: Swift.Int32 = try istr.read()
-        try await self.throwBasBAsync(
-            a: iceP_a, b: iceP_b, current: request.current)
+        try await self.throwBasB(a: iceP_a, b: iceP_b, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1787,8 +1779,7 @@ extension Thrower {
         let iceP_a: Swift.Int32 = try istr.read()
         let iceP_b: Swift.Int32 = try istr.read()
         let iceP_c: Swift.Int32 = try istr.read()
-        try await self.throwCasBAsync(
-            a: iceP_a, b: iceP_b, c: iceP_c, current: request.current)
+        try await self.throwCasB(a: iceP_a, b: iceP_b, c: iceP_c, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1799,8 +1790,7 @@ extension Thrower {
         let iceP_a: Swift.Int32 = try istr.read()
         let iceP_b: Swift.Int32 = try istr.read()
         let iceP_c: Swift.Int32 = try istr.read()
-        try await self.throwCasCAsync(
-            a: iceP_a, b: iceP_b, c: iceP_c, current: request.current)
+        try await self.throwCasC(a: iceP_a, b: iceP_b, c: iceP_c, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1809,8 +1799,7 @@ extension Thrower {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_a: Swift.Int32 = try istr.read()
-        try await self.throwUndeclaredAAsync(
-            a: iceP_a, current: request.current)
+        try await self.throwUndeclaredA(a: iceP_a, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1820,8 +1809,7 @@ extension Thrower {
         _ = try istr.startEncapsulation()
         let iceP_a: Swift.Int32 = try istr.read()
         let iceP_b: Swift.Int32 = try istr.read()
-        try await self.throwUndeclaredBAsync(
-            a: iceP_a, b: iceP_b, current: request.current)
+        try await self.throwUndeclaredB(a: iceP_a, b: iceP_b, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1832,32 +1820,28 @@ extension Thrower {
         let iceP_a: Swift.Int32 = try istr.read()
         let iceP_b: Swift.Int32 = try istr.read()
         let iceP_c: Swift.Int32 = try istr.read()
-        try await self.throwUndeclaredCAsync(
-            a: iceP_a, b: iceP_b, c: iceP_c, current: request.current)
+        try await self.throwUndeclaredC(a: iceP_a, b: iceP_b, c: iceP_c, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_throwLocalException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.throwLocalExceptionAsync(
-            current: request.current)
+        try await self.throwLocalException(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_throwNonIceException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.throwNonIceExceptionAsync(
-            current: request.current)
+        try await self.throwNonIceException(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_throwAssertException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.throwAssertExceptionAsync(
-            current: request.current)
+        try await self.throwAssertException(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1866,8 +1850,7 @@ extension Thrower {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_seq: Ice.ByteSeq = try istr.read()
-        let result = try await self.throwMemoryLimitExceptionAsync(
-            seq: iceP_seq, current: request.current)
+        let result = try await self.throwMemoryLimitException(seq: iceP_seq, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -1877,24 +1860,21 @@ extension Thrower {
     public func _iceD_throwLocalExceptionIdempotent(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.throwLocalExceptionIdempotentAsync(
-            current: request.current)
+        try await self.throwLocalExceptionIdempotent(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_throwAfterResponse(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.throwAfterResponseAsync(
-            current: request.current)
+        try await self.throwAfterResponse(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_throwAfterException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.throwAfterExceptionAsync(
-            current: request.current)
+        try await self.throwAfterException(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -1908,8 +1888,7 @@ extension WrongOperation {
     public func _iceD_noSuchOperation(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.noSuchOperationAsync(
-            current: request.current)
+        try await self.noSuchOperation(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

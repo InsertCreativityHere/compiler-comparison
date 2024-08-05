@@ -4032,13 +4032,13 @@ public struct IDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? IDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? IDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? IDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? IDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? IDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? IDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? IDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? IDisp.defaultObject)._iceD_ice_ping(request)
         case "opC":
             try await servant._iceD_opC(request)
         case "opC1":
@@ -4075,116 +4075,94 @@ public protocol I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: S, s2: S)`:
-    ///
-    ///   - returnValue: `S`
-    ///
-    ///   - s2: `S`
-    func opS(s1: S, current: Ice.Current) throws -> (returnValue: S, s2: S)
+    /// - returns: `(returnValue: S, s2: S)` - The result of the operation
+    func opS(s1: S, current: Ice.Current) async throws -> (returnValue: S, s2: S)
 
     ///
     /// - parameter s1: `SSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: SSeq, s2: SSeq)`:
-    ///
-    ///   - returnValue: `SSeq`
-    ///
-    ///   - s2: `SSeq`
-    func opSSeq(s1: SSeq, current: Ice.Current) throws -> (returnValue: SSeq, s2: SSeq)
+    /// - returns: `(returnValue: SSeq, s2: SSeq)` - The result of the operation
+    func opSSeq(s1: SSeq, current: Ice.Current) async throws -> (returnValue: SSeq, s2: SSeq)
 
     ///
     /// - parameter s1: `SMap`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: SMap, s2: SMap)`:
-    ///
-    ///   - returnValue: `SMap`
-    ///
-    ///   - s2: `SMap`
-    func opSMap(s1: SMap, current: Ice.Current) throws -> (returnValue: SMap, s2: SMap)
+    /// - returns: `(returnValue: SMap, s2: SMap)` - The result of the operation
+    func opSMap(s1: SMap, current: Ice.Current) async throws -> (returnValue: SMap, s2: SMap)
 
     ///
     /// - parameter c1: `C?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: C?, c2: C?)`:
-    ///
-    ///   - returnValue: `C?`
-    ///
-    ///   - c2: `C?`
-    func opC(c1: C?, current: Ice.Current) throws -> (returnValue: C?, c2: C?)
+    /// - returns: `(returnValue: C?, c2: C?)` - The result of the operation
+    func opC(c1: C?, current: Ice.Current) async throws -> (returnValue: C?, c2: C?)
 
     ///
     /// - parameter s1: `CSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: CSeq, s2: CSeq)`:
-    ///
-    ///   - returnValue: `CSeq`
-    ///
-    ///   - s2: `CSeq`
-    func opCSeq(s1: CSeq, current: Ice.Current) throws -> (returnValue: CSeq, s2: CSeq)
+    /// - returns: `(returnValue: CSeq, s2: CSeq)` - The result of the operation
+    func opCSeq(s1: CSeq, current: Ice.Current) async throws -> (returnValue: CSeq, s2: CSeq)
 
     ///
     /// - parameter c1: `CMap`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: CMap, c2: CMap)`:
-    ///
-    ///   - returnValue: `CMap`
-    ///
-    ///   - c2: `CMap`
-    func opCMap(c1: CMap, current: Ice.Current) throws -> (returnValue: CMap, c2: CMap)
+    /// - returns: `(returnValue: CMap, c2: CMap)` - The result of the operation
+    func opCMap(c1: CMap, current: Ice.Current) async throws -> (returnValue: CMap, c2: CMap)
 
     ///
     /// - parameter E1: `E1`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `E1`
-    func opE1(E1: E1, current: Ice.Current) throws -> E1
+    /// - returns: `E1` - The result of the operation
+    func opE1(E1: E1, current: Ice.Current) async throws -> E1
 
     ///
     /// - parameter S1: `S1`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `S1`
-    func opS1(S1: S1, current: Ice.Current) throws -> S1
+    /// - returns: `S1` - The result of the operation
+    func opS1(S1: S1, current: Ice.Current) async throws -> S1
 
     ///
     /// - parameter C1: `C1?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `C1?`
-    func opC1(C1: C1?, current: Ice.Current) throws -> C1?
+    /// - returns: `C1?` - The result of the operation
+    func opC1(C1: C1?, current: Ice.Current) async throws -> C1?
 
     ///
     /// - parameter S1Seq: `S1Seq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `S1Seq`
-    func opS1Seq(S1Seq: S1Seq, current: Ice.Current) throws -> S1Seq
+    /// - returns: `S1Seq` - The result of the operation
+    func opS1Seq(S1Seq: S1Seq, current: Ice.Current) async throws -> S1Seq
 
     ///
     /// - parameter S1Map: `S1Map`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `S1Map`
-    func opS1Map(S1Map: S1Map, current: Ice.Current) throws -> S1Map
+    /// - returns: `S1Map` - The result of the operation
+    func opS1Map(S1Map: S1Map, current: Ice.Current) async throws -> S1Map
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 
@@ -4200,13 +4178,13 @@ public struct InnerInner2IDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? InnerInner2IDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? InnerInner2IDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? InnerInner2IDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? InnerInner2IDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? InnerInner2IDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? InnerInner2IDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? InnerInner2IDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? InnerInner2IDisp.defaultObject)._iceD_ice_ping(request)
         case "opC":
             try await servant._iceD_opC(request)
         case "opCMap":
@@ -4233,76 +4211,54 @@ public protocol InnerInner2I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: InnerInner2S, s2: InnerInner2S)`:
-    ///
-    ///   - returnValue: `InnerInner2S`
-    ///
-    ///   - s2: `InnerInner2S`
-    func opS(s1: InnerInner2S, current: Ice.Current) throws -> (returnValue: InnerInner2S, s2: InnerInner2S)
+    /// - returns: `(returnValue: InnerInner2S, s2: InnerInner2S)` - The result of the operation
+    func opS(s1: InnerInner2S, current: Ice.Current) async throws -> (returnValue: InnerInner2S, s2: InnerInner2S)
 
     ///
     /// - parameter s1: `InnerInner2SSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)`:
-    ///
-    ///   - returnValue: `InnerInner2SSeq`
-    ///
-    ///   - s2: `InnerInner2SSeq`
-    func opSSeq(s1: InnerInner2SSeq, current: Ice.Current) throws -> (returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)
+    /// - returns: `(returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)` - The result of the operation
+    func opSSeq(s1: InnerInner2SSeq, current: Ice.Current) async throws -> (returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)
 
     ///
     /// - parameter s1: `InnerInner2SMap`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: InnerInner2SMap, s2: InnerInner2SMap)`:
-    ///
-    ///   - returnValue: `InnerInner2SMap`
-    ///
-    ///   - s2: `InnerInner2SMap`
-    func opSMap(s1: InnerInner2SMap, current: Ice.Current) throws -> (returnValue: InnerInner2SMap, s2: InnerInner2SMap)
+    /// - returns: `(returnValue: InnerInner2SMap, s2: InnerInner2SMap)` - The result of the operation
+    func opSMap(s1: InnerInner2SMap, current: Ice.Current) async throws -> (returnValue: InnerInner2SMap, s2: InnerInner2SMap)
 
     ///
     /// - parameter c1: `InnerInner2C?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: InnerInner2C?, c2: InnerInner2C?)`:
-    ///
-    ///   - returnValue: `InnerInner2C?`
-    ///
-    ///   - c2: `InnerInner2C?`
-    func opC(c1: InnerInner2C?, current: Ice.Current) throws -> (returnValue: InnerInner2C?, c2: InnerInner2C?)
+    /// - returns: `(returnValue: InnerInner2C?, c2: InnerInner2C?)` - The result of the operation
+    func opC(c1: InnerInner2C?, current: Ice.Current) async throws -> (returnValue: InnerInner2C?, c2: InnerInner2C?)
 
     ///
     /// - parameter c1: `InnerInner2CSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)`:
-    ///
-    ///   - returnValue: `InnerInner2CSeq`
-    ///
-    ///   - c2: `InnerInner2CSeq`
-    func opCSeq(c1: InnerInner2CSeq, current: Ice.Current) throws -> (returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)
+    /// - returns: `(returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)` - The result of the operation
+    func opCSeq(c1: InnerInner2CSeq, current: Ice.Current) async throws -> (returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)
 
     ///
     /// - parameter c1: `InnerInner2CMap`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: InnerInner2CMap, c2: InnerInner2CMap)`:
-    ///
-    ///   - returnValue: `InnerInner2CMap`
-    ///
-    ///   - c2: `InnerInner2CMap`
-    func opCMap(c1: InnerInner2CMap, current: Ice.Current) throws -> (returnValue: InnerInner2CMap, c2: InnerInner2CMap)
+    /// - returns: `(returnValue: InnerInner2CMap, c2: InnerInner2CMap)` - The result of the operation
+    func opCMap(c1: InnerInner2CMap, current: Ice.Current) async throws -> (returnValue: InnerInner2CMap, c2: InnerInner2CMap)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 
@@ -4318,13 +4274,13 @@ public struct InnerIDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? InnerIDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? InnerIDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? InnerIDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? InnerIDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? InnerIDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? InnerIDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? InnerIDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? InnerIDisp.defaultObject)._iceD_ice_ping(request)
         case "opC":
             try await servant._iceD_opC(request)
         case "opCMap":
@@ -4351,76 +4307,54 @@ public protocol InnerI {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: InnerInner2S, s2: InnerInner2S)`:
-    ///
-    ///   - returnValue: `InnerInner2S`
-    ///
-    ///   - s2: `InnerInner2S`
-    func opS(s1: InnerInner2S, current: Ice.Current) throws -> (returnValue: InnerInner2S, s2: InnerInner2S)
+    /// - returns: `(returnValue: InnerInner2S, s2: InnerInner2S)` - The result of the operation
+    func opS(s1: InnerInner2S, current: Ice.Current) async throws -> (returnValue: InnerInner2S, s2: InnerInner2S)
 
     ///
     /// - parameter s1: `InnerInner2SSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)`:
-    ///
-    ///   - returnValue: `InnerInner2SSeq`
-    ///
-    ///   - s2: `InnerInner2SSeq`
-    func opSSeq(s1: InnerInner2SSeq, current: Ice.Current) throws -> (returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)
+    /// - returns: `(returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)` - The result of the operation
+    func opSSeq(s1: InnerInner2SSeq, current: Ice.Current) async throws -> (returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)
 
     ///
     /// - parameter s1: `InnerInner2SMap`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: InnerInner2SMap, s2: InnerInner2SMap)`:
-    ///
-    ///   - returnValue: `InnerInner2SMap`
-    ///
-    ///   - s2: `InnerInner2SMap`
-    func opSMap(s1: InnerInner2SMap, current: Ice.Current) throws -> (returnValue: InnerInner2SMap, s2: InnerInner2SMap)
+    /// - returns: `(returnValue: InnerInner2SMap, s2: InnerInner2SMap)` - The result of the operation
+    func opSMap(s1: InnerInner2SMap, current: Ice.Current) async throws -> (returnValue: InnerInner2SMap, s2: InnerInner2SMap)
 
     ///
     /// - parameter c1: `InnerInner2C?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: InnerInner2C?, c2: InnerInner2C?)`:
-    ///
-    ///   - returnValue: `InnerInner2C?`
-    ///
-    ///   - c2: `InnerInner2C?`
-    func opC(c1: InnerInner2C?, current: Ice.Current) throws -> (returnValue: InnerInner2C?, c2: InnerInner2C?)
+    /// - returns: `(returnValue: InnerInner2C?, c2: InnerInner2C?)` - The result of the operation
+    func opC(c1: InnerInner2C?, current: Ice.Current) async throws -> (returnValue: InnerInner2C?, c2: InnerInner2C?)
 
     ///
     /// - parameter c1: `InnerInner2CSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)`:
-    ///
-    ///   - returnValue: `InnerInner2CSeq`
-    ///
-    ///   - c2: `InnerInner2CSeq`
-    func opCSeq(c1: InnerInner2CSeq, current: Ice.Current) throws -> (returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)
+    /// - returns: `(returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)` - The result of the operation
+    func opCSeq(c1: InnerInner2CSeq, current: Ice.Current) async throws -> (returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)
 
     ///
     /// - parameter c1: `InnerInner2CMap`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: InnerInner2CMap, c2: InnerInner2CMap)`:
-    ///
-    ///   - returnValue: `InnerInner2CMap`
-    ///
-    ///   - c2: `InnerInner2CMap`
-    func opCMap(c1: InnerInner2CMap, current: Ice.Current) throws -> (returnValue: InnerInner2CMap, c2: InnerInner2CMap)
+    /// - returns: `(returnValue: InnerInner2CMap, c2: InnerInner2CMap)` - The result of the operation
+    func opCMap(c1: InnerInner2CMap, current: Ice.Current) async throws -> (returnValue: InnerInner2CMap, c2: InnerInner2CMap)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 
@@ -4436,13 +4370,13 @@ public struct InnerTestInner2IDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? InnerTestInner2IDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? InnerTestInner2IDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? InnerTestInner2IDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? InnerTestInner2IDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? InnerTestInner2IDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? InnerTestInner2IDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? InnerTestInner2IDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? InnerTestInner2IDisp.defaultObject)._iceD_ice_ping(request)
         case "opC":
             try await servant._iceD_opC(request)
         case "opCMap":
@@ -4469,76 +4403,54 @@ public protocol InnerTestInner2I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: S, s2: S)`:
-    ///
-    ///   - returnValue: `S`
-    ///
-    ///   - s2: `S`
-    func opS(s1: S, current: Ice.Current) throws -> (returnValue: S, s2: S)
+    /// - returns: `(returnValue: S, s2: S)` - The result of the operation
+    func opS(s1: S, current: Ice.Current) async throws -> (returnValue: S, s2: S)
 
     ///
     /// - parameter s1: `SSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: SSeq, s2: SSeq)`:
-    ///
-    ///   - returnValue: `SSeq`
-    ///
-    ///   - s2: `SSeq`
-    func opSSeq(s1: SSeq, current: Ice.Current) throws -> (returnValue: SSeq, s2: SSeq)
+    /// - returns: `(returnValue: SSeq, s2: SSeq)` - The result of the operation
+    func opSSeq(s1: SSeq, current: Ice.Current) async throws -> (returnValue: SSeq, s2: SSeq)
 
     ///
     /// - parameter s1: `SMap`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: SMap, s2: SMap)`:
-    ///
-    ///   - returnValue: `SMap`
-    ///
-    ///   - s2: `SMap`
-    func opSMap(s1: SMap, current: Ice.Current) throws -> (returnValue: SMap, s2: SMap)
+    /// - returns: `(returnValue: SMap, s2: SMap)` - The result of the operation
+    func opSMap(s1: SMap, current: Ice.Current) async throws -> (returnValue: SMap, s2: SMap)
 
     ///
     /// - parameter c1: `C?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: C?, c2: C?)`:
-    ///
-    ///   - returnValue: `C?`
-    ///
-    ///   - c2: `C?`
-    func opC(c1: C?, current: Ice.Current) throws -> (returnValue: C?, c2: C?)
+    /// - returns: `(returnValue: C?, c2: C?)` - The result of the operation
+    func opC(c1: C?, current: Ice.Current) async throws -> (returnValue: C?, c2: C?)
 
     ///
     /// - parameter c1: `CSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: CSeq, c2: CSeq)`:
-    ///
-    ///   - returnValue: `CSeq`
-    ///
-    ///   - c2: `CSeq`
-    func opCSeq(c1: CSeq, current: Ice.Current) throws -> (returnValue: CSeq, c2: CSeq)
+    /// - returns: `(returnValue: CSeq, c2: CSeq)` - The result of the operation
+    func opCSeq(c1: CSeq, current: Ice.Current) async throws -> (returnValue: CSeq, c2: CSeq)
 
     ///
     /// - parameter c1: `CMap`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: CMap, c2: CMap)`:
-    ///
-    ///   - returnValue: `CMap`
-    ///
-    ///   - c2: `CMap`
-    func opCMap(c1: CMap, current: Ice.Current) throws -> (returnValue: CMap, c2: CMap)
+    /// - returns: `(returnValue: CMap, c2: CMap)` - The result of the operation
+    func opCMap(c1: CMap, current: Ice.Current) async throws -> (returnValue: CMap, c2: CMap)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// I overview.
@@ -4574,14 +4486,12 @@ extension I {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_s1: S = try istr.read()
-
-        let (iceP_returnValue, iceP_s2) = try self.opS(s1: iceP_s1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_s2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opS(s1: iceP_s1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_s2) = value
+            ostr.write(iceP_s2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opSSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -4589,14 +4499,12 @@ extension I {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_s1: SSeq = try SSeqHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_s2) = try self.opSSeq(s1: iceP_s1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        SSeqHelper.write(to: ostr, value: iceP_s2)
-        SSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opSSeq(s1: iceP_s1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_s2) = value
+            SSeqHelper.write(to: ostr, value: iceP_s2)
+            SSeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opSMap(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -4604,14 +4512,12 @@ extension I {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_s1: SMap = try SMapHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_s2) = try self.opSMap(s1: iceP_s1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        SMapHelper.write(to: ostr, value: iceP_s2)
-        SMapHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opSMap(s1: iceP_s1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_s2) = value
+            SMapHelper.write(to: ostr, value: iceP_s2)
+            SMapHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opC(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -4621,15 +4527,13 @@ extension I {
         var iceP_c1: C?
         try istr.read(C.self) { iceP_c1 = $0 }
         try istr.readPendingValues()
-
-        let (iceP_returnValue, iceP_c2) = try self.opC(c1: iceP_c1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_c2)
-        ostr.write(iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opC(c1: iceP_c1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_c2) = value
+            ostr.write(iceP_c2)
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_opCSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -4638,15 +4542,13 @@ extension I {
         _ = try istr.startEncapsulation()
         let iceP_s1: CSeq = try CSeqHelper.read(from: istr)
         try istr.readPendingValues()
-
-        let (iceP_returnValue, iceP_s2) = try self.opCSeq(s1: iceP_s1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        CSeqHelper.write(to: ostr, value: iceP_s2)
-        CSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opCSeq(s1: iceP_s1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_s2) = value
+            CSeqHelper.write(to: ostr, value: iceP_s2)
+            CSeqHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_opCMap(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -4655,15 +4557,13 @@ extension I {
         _ = try istr.startEncapsulation()
         let iceP_c1: CMap = try CMapHelper.read(from: istr)
         try istr.readPendingValues()
-
-        let (iceP_returnValue, iceP_c2) = try self.opCMap(c1: iceP_c1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        CMapHelper.write(to: ostr, value: iceP_c2)
-        CMapHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opCMap(c1: iceP_c1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_c2) = value
+            CMapHelper.write(to: ostr, value: iceP_c2)
+            CMapHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_opE1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -4671,13 +4571,11 @@ extension I {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_E1: E1 = try istr.read()
-
-        let iceP_returnValue = try self.opE1(E1: iceP_E1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opE1(E1: iceP_E1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opS1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -4685,13 +4583,11 @@ extension I {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_S1: S1 = try istr.read()
-
-        let iceP_returnValue = try self.opS1(S1: iceP_S1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opS1(S1: iceP_S1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opC1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -4701,14 +4597,12 @@ extension I {
         var iceP_C1: C1?
         try istr.read(C1.self) { iceP_C1 = $0 }
         try istr.readPendingValues()
-
-        let iceP_returnValue = try self.opC1(C1: iceP_C1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opC1(C1: iceP_C1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_opS1Seq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -4716,13 +4610,11 @@ extension I {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_S1Seq: S1Seq = try S1SeqHelper.read(from: istr)
-
-        let iceP_returnValue = try self.opS1Seq(S1Seq: iceP_S1Seq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        S1SeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opS1Seq(S1Seq: iceP_S1Seq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            S1SeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opS1Map(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -4730,20 +4622,17 @@ extension I {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_S1Map: S1Map = try S1MapHelper.read(from: istr)
-
-        let iceP_returnValue = try self.opS1Map(S1Map: iceP_S1Map, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        S1MapHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opS1Map(S1Map: iceP_S1Map, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            S1MapHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -4771,14 +4660,12 @@ extension InnerInner2I {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_s1: InnerInner2S = try istr.read()
-
-        let (iceP_returnValue, iceP_s2) = try self.opS(s1: iceP_s1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_s2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opS(s1: iceP_s1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_s2) = value
+            ostr.write(iceP_s2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opSSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -4786,14 +4673,12 @@ extension InnerInner2I {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_s1: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_s2) = try self.opSSeq(s1: iceP_s1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        InnerInner2SSeqHelper.write(to: ostr, value: iceP_s2)
-        InnerInner2SSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opSSeq(s1: iceP_s1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_s2) = value
+            InnerInner2SSeqHelper.write(to: ostr, value: iceP_s2)
+            InnerInner2SSeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opSMap(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -4801,14 +4686,12 @@ extension InnerInner2I {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_s1: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_s2) = try self.opSMap(s1: iceP_s1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        InnerInner2SMapHelper.write(to: ostr, value: iceP_s2)
-        InnerInner2SMapHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opSMap(s1: iceP_s1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_s2) = value
+            InnerInner2SMapHelper.write(to: ostr, value: iceP_s2)
+            InnerInner2SMapHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opC(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -4818,15 +4701,13 @@ extension InnerInner2I {
         var iceP_c1: InnerInner2C?
         try istr.read(InnerInner2C.self) { iceP_c1 = $0 }
         try istr.readPendingValues()
-
-        let (iceP_returnValue, iceP_c2) = try self.opC(c1: iceP_c1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_c2)
-        ostr.write(iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opC(c1: iceP_c1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_c2) = value
+            ostr.write(iceP_c2)
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_opCSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -4835,15 +4716,13 @@ extension InnerInner2I {
         _ = try istr.startEncapsulation()
         let iceP_c1: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
         try istr.readPendingValues()
-
-        let (iceP_returnValue, iceP_c2) = try self.opCSeq(c1: iceP_c1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        InnerInner2CSeqHelper.write(to: ostr, value: iceP_c2)
-        InnerInner2CSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opCSeq(c1: iceP_c1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_c2) = value
+            InnerInner2CSeqHelper.write(to: ostr, value: iceP_c2)
+            InnerInner2CSeqHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_opCMap(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -4852,22 +4731,19 @@ extension InnerInner2I {
         _ = try istr.startEncapsulation()
         let iceP_c1: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
         try istr.readPendingValues()
-
-        let (iceP_returnValue, iceP_c2) = try self.opCMap(c1: iceP_c1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        InnerInner2CMapHelper.write(to: ostr, value: iceP_c2)
-        InnerInner2CMapHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opCMap(c1: iceP_c1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_c2) = value
+            InnerInner2CMapHelper.write(to: ostr, value: iceP_c2)
+            InnerInner2CMapHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -4895,14 +4771,12 @@ extension InnerI {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_s1: InnerInner2S = try istr.read()
-
-        let (iceP_returnValue, iceP_s2) = try self.opS(s1: iceP_s1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_s2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opS(s1: iceP_s1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_s2) = value
+            ostr.write(iceP_s2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opSSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -4910,14 +4784,12 @@ extension InnerI {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_s1: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_s2) = try self.opSSeq(s1: iceP_s1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        InnerInner2SSeqHelper.write(to: ostr, value: iceP_s2)
-        InnerInner2SSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opSSeq(s1: iceP_s1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_s2) = value
+            InnerInner2SSeqHelper.write(to: ostr, value: iceP_s2)
+            InnerInner2SSeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opSMap(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -4925,14 +4797,12 @@ extension InnerI {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_s1: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_s2) = try self.opSMap(s1: iceP_s1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        InnerInner2SMapHelper.write(to: ostr, value: iceP_s2)
-        InnerInner2SMapHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opSMap(s1: iceP_s1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_s2) = value
+            InnerInner2SMapHelper.write(to: ostr, value: iceP_s2)
+            InnerInner2SMapHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opC(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -4942,15 +4812,13 @@ extension InnerI {
         var iceP_c1: InnerInner2C?
         try istr.read(InnerInner2C.self) { iceP_c1 = $0 }
         try istr.readPendingValues()
-
-        let (iceP_returnValue, iceP_c2) = try self.opC(c1: iceP_c1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_c2)
-        ostr.write(iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opC(c1: iceP_c1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_c2) = value
+            ostr.write(iceP_c2)
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_opCSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -4959,15 +4827,13 @@ extension InnerI {
         _ = try istr.startEncapsulation()
         let iceP_c1: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
         try istr.readPendingValues()
-
-        let (iceP_returnValue, iceP_c2) = try self.opCSeq(c1: iceP_c1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        InnerInner2CSeqHelper.write(to: ostr, value: iceP_c2)
-        InnerInner2CSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opCSeq(c1: iceP_c1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_c2) = value
+            InnerInner2CSeqHelper.write(to: ostr, value: iceP_c2)
+            InnerInner2CSeqHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_opCMap(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -4976,22 +4842,19 @@ extension InnerI {
         _ = try istr.startEncapsulation()
         let iceP_c1: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
         try istr.readPendingValues()
-
-        let (iceP_returnValue, iceP_c2) = try self.opCMap(c1: iceP_c1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        InnerInner2CMapHelper.write(to: ostr, value: iceP_c2)
-        InnerInner2CMapHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opCMap(c1: iceP_c1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_c2) = value
+            InnerInner2CMapHelper.write(to: ostr, value: iceP_c2)
+            InnerInner2CMapHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -5019,14 +4882,12 @@ extension InnerTestInner2I {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_s1: S = try istr.read()
-
-        let (iceP_returnValue, iceP_s2) = try self.opS(s1: iceP_s1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_s2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opS(s1: iceP_s1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_s2) = value
+            ostr.write(iceP_s2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opSSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5034,14 +4895,12 @@ extension InnerTestInner2I {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_s1: SSeq = try SSeqHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_s2) = try self.opSSeq(s1: iceP_s1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        SSeqHelper.write(to: ostr, value: iceP_s2)
-        SSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opSSeq(s1: iceP_s1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_s2) = value
+            SSeqHelper.write(to: ostr, value: iceP_s2)
+            SSeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opSMap(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5049,14 +4908,12 @@ extension InnerTestInner2I {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_s1: SMap = try SMapHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_s2) = try self.opSMap(s1: iceP_s1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        SMapHelper.write(to: ostr, value: iceP_s2)
-        SMapHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opSMap(s1: iceP_s1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_s2) = value
+            SMapHelper.write(to: ostr, value: iceP_s2)
+            SMapHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opC(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5066,15 +4923,13 @@ extension InnerTestInner2I {
         var iceP_c1: C?
         try istr.read(C.self) { iceP_c1 = $0 }
         try istr.readPendingValues()
-
-        let (iceP_returnValue, iceP_c2) = try self.opC(c1: iceP_c1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_c2)
-        ostr.write(iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opC(c1: iceP_c1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_c2) = value
+            ostr.write(iceP_c2)
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_opCSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5083,15 +4938,13 @@ extension InnerTestInner2I {
         _ = try istr.startEncapsulation()
         let iceP_c1: CSeq = try CSeqHelper.read(from: istr)
         try istr.readPendingValues()
-
-        let (iceP_returnValue, iceP_c2) = try self.opCSeq(c1: iceP_c1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        CSeqHelper.write(to: ostr, value: iceP_c2)
-        CSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opCSeq(c1: iceP_c1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_c2) = value
+            CSeqHelper.write(to: ostr, value: iceP_c2)
+            CSeqHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_opCMap(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5100,22 +4953,19 @@ extension InnerTestInner2I {
         _ = try istr.startEncapsulation()
         let iceP_c1: CMap = try CMapHelper.read(from: istr)
         try istr.readPendingValues()
-
-        let (iceP_returnValue, iceP_c2) = try self.opCMap(c1: iceP_c1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        CMapHelper.write(to: ostr, value: iceP_c2)
-        CMapHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opCMap(c1: iceP_c1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_c2) = value
+            CMapHelper.write(to: ostr, value: iceP_c2)
+            CMapHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

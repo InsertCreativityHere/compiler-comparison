@@ -1248,13 +1248,13 @@ public struct EmptyDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? EmptyDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? EmptyDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? EmptyDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? EmptyDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? EmptyDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? EmptyDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? EmptyDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? EmptyDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -1278,13 +1278,13 @@ public struct ADisp: Ice.Dispatcher {
         case "callA":
             try await servant._iceD_callA(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? ADisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? ADisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? ADisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? ADisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? ADisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? ADisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? ADisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? ADisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -1295,8 +1295,8 @@ public protocol A {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String`
-    func callA(current: Ice.Current) throws -> Swift.String
+    /// - returns: `Swift.String` - The result of the operation
+    func callA(current: Ice.Current) async throws -> Swift.String
 }
 
 
@@ -1316,13 +1316,13 @@ public struct BDisp: Ice.Dispatcher {
         case "callB":
             try await servant._iceD_callB(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? BDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? BDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? BDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? BDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? BDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? BDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? BDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? BDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -1333,8 +1333,8 @@ public protocol B: A {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String`
-    func callB(current: Ice.Current) throws -> Swift.String
+    /// - returns: `Swift.String` - The result of the operation
+    func callB(current: Ice.Current) async throws -> Swift.String
 }
 
 
@@ -1354,13 +1354,13 @@ public struct CDisp: Ice.Dispatcher {
         case "callC":
             try await servant._iceD_callC(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? CDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? CDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? CDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? CDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? CDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? CDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? CDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? CDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -1371,8 +1371,8 @@ public protocol C: A {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String`
-    func callC(current: Ice.Current) throws -> Swift.String
+    /// - returns: `Swift.String` - The result of the operation
+    func callC(current: Ice.Current) async throws -> Swift.String
 }
 
 
@@ -1396,13 +1396,13 @@ public struct DDisp: Ice.Dispatcher {
         case "callD":
             try await servant._iceD_callD(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? DDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? DDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? DDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? DDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? DDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? DDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? DDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? DDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -1413,8 +1413,8 @@ public protocol D: B, C {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String`
-    func callD(current: Ice.Current) throws -> Swift.String
+    /// - returns: `Swift.String` - The result of the operation
+    func callD(current: Ice.Current) async throws -> Swift.String
 }
 
 
@@ -1432,13 +1432,13 @@ public struct EDisp: Ice.Dispatcher {
         case "callE":
             try await servant._iceD_callE(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? EDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? EDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? EDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? EDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? EDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? EDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? EDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? EDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -1449,8 +1449,8 @@ public protocol E {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String`
-    func callE(current: Ice.Current) throws -> Swift.String
+    /// - returns: `Swift.String` - The result of the operation
+    func callE(current: Ice.Current) async throws -> Swift.String
 }
 
 
@@ -1470,13 +1470,13 @@ public struct FDisp: Ice.Dispatcher {
         case "callF":
             try await servant._iceD_callF(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? FDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? FDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? FDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? FDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? FDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? FDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? FDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? FDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -1487,8 +1487,8 @@ public protocol F: E {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String`
-    func callF(current: Ice.Current) throws -> Swift.String
+    /// - returns: `Swift.String` - The result of the operation
+    func callF(current: Ice.Current) async throws -> Swift.String
 }
 
 
@@ -1506,13 +1506,13 @@ public struct GDisp: Ice.Dispatcher {
         case "callG":
             try await servant._iceD_callG(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? GDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? GDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? GDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? GDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? GDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? GDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? GDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? GDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
             try await servant._iceD_shutdown(request)
         default:
@@ -1524,13 +1524,15 @@ public struct GDisp: Ice.Dispatcher {
 public protocol G {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String`
-    func callG(current: Ice.Current) throws -> Swift.String
+    /// - returns: `Swift.String` - The result of the operation
+    func callG(current: Ice.Current) async throws -> Swift.String
 }
 
 
@@ -1550,13 +1552,13 @@ public struct HDisp: Ice.Dispatcher {
         case "callH":
             try await servant._iceD_callH(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? HDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? HDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? HDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? HDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? HDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? HDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? HDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? HDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
             try await servant._iceD_shutdown(request)
         default:
@@ -1569,8 +1571,8 @@ public protocol H: G {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String`
-    func callH(current: Ice.Current) throws -> Swift.String
+    /// - returns: `Swift.String` - The result of the operation
+    func callH(current: Ice.Current) async throws -> Swift.String
 }
 
 /// Empty overview.
@@ -1585,13 +1587,11 @@ extension A {
     public func _iceD_callA(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.callA(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.callA(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }
 
@@ -1604,13 +1604,11 @@ extension B {
     public func _iceD_callB(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.callB(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.callB(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }
 
@@ -1623,13 +1621,11 @@ extension C {
     public func _iceD_callC(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.callC(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.callC(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }
 
@@ -1642,13 +1638,11 @@ extension D {
     public func _iceD_callD(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.callD(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.callD(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }
 
@@ -1661,13 +1655,11 @@ extension E {
     public func _iceD_callE(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.callE(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.callE(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }
 
@@ -1680,13 +1672,11 @@ extension F {
     public func _iceD_callF(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.callF(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.callF(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }
 
@@ -1701,21 +1691,18 @@ extension G {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_callG(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.callG(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.callG(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }
 
@@ -1728,12 +1715,10 @@ extension H {
     public func _iceD_callH(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.callH(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.callH(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }

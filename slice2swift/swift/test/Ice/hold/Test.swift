@@ -312,13 +312,13 @@ public struct HoldDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? HoldDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? HoldDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? HoldDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? HoldDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? HoldDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? HoldDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? HoldDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? HoldDisp.defaultObject)._iceD_ice_ping(request)
         case "putOnHold":
             try await servant._iceD_putOnHold(request)
         case "set":
@@ -340,11 +340,15 @@ public protocol Hold {
     /// - parameter seconds: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func putOnHold(seconds: Swift.Int32, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func putOnHold(seconds: Swift.Int32, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func waitForHold(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func waitForHold(current: Ice.Current) async throws
 
     ///
     /// - parameter value: `Swift.Int32`
@@ -352,7 +356,9 @@ public protocol Hold {
     /// - parameter expected: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func setOneway(value: Swift.Int32, expected: Swift.Int32, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func setOneway(value: Swift.Int32, expected: Swift.Int32, current: Ice.Current) async throws
 
     ///
     /// - parameter value: `Swift.Int32`
@@ -361,12 +367,14 @@ public protocol Hold {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32`
-    func `set`(value: Swift.Int32, delay: Swift.Int32, current: Ice.Current) throws -> Swift.Int32
+    /// - returns: `Swift.Int32` - The result of the operation
+    func `set`(value: Swift.Int32, delay: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// Hold overview.
@@ -388,16 +396,14 @@ extension Hold {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_seconds: Swift.Int32 = try istr.read()
-
-        try self.putOnHold(seconds: iceP_seconds, current: request.current)
+        try await self.putOnHold(seconds: iceP_seconds, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_waitForHold(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.waitForHold(current: request.current)
+        try await self.waitForHold(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -407,8 +413,7 @@ extension Hold {
         _ = try istr.startEncapsulation()
         let iceP_value: Swift.Int32 = try istr.read()
         let iceP_expected: Swift.Int32 = try istr.read()
-
-        try self.setOneway(value: iceP_value, expected: iceP_expected, current: request.current)
+        try await self.setOneway(value: iceP_value, expected: iceP_expected, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -418,20 +423,17 @@ extension Hold {
         _ = try istr.startEncapsulation()
         let iceP_value: Swift.Int32 = try istr.read()
         let iceP_delay: Swift.Int32 = try istr.read()
-
-        let iceP_returnValue = try self.`set`(value: iceP_value, delay: iceP_delay, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.`set`(value: iceP_value, delay: iceP_delay, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

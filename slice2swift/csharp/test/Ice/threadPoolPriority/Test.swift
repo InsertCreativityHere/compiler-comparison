@@ -194,13 +194,13 @@ public struct PriorityDisp: Ice.Dispatcher {
         case "getPriority":
             try await servant._iceD_getPriority(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? PriorityDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? PriorityDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? PriorityDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? PriorityDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? PriorityDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? PriorityDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? PriorityDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? PriorityDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
             try await servant._iceD_shutdown(request)
         default:
@@ -212,13 +212,15 @@ public struct PriorityDisp: Ice.Dispatcher {
 public protocol Priority {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String`
-    func getPriority(current: Ice.Current) throws -> Swift.String
+    /// - returns: `Swift.String` - The result of the operation
+    func getPriority(current: Ice.Current) async throws -> Swift.String
 }
 
 /// Priority overview.
@@ -232,20 +234,17 @@ extension Priority {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_getPriority(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getPriority(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getPriority(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }

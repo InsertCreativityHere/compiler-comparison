@@ -1316,13 +1316,13 @@ public struct MXMetricsAdminDisp: Ice.Dispatcher {
         case "getMetricsViewNames":
             try await servant._iceD_getMetricsViewNames(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? MXMetricsAdminDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? MXMetricsAdminDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? MXMetricsAdminDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? MXMetricsAdminDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? MXMetricsAdminDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? MXMetricsAdminDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? MXMetricsAdminDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? MXMetricsAdminDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -1336,12 +1336,8 @@ public protocol MXMetricsAdmin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: StringSeq, disabledViews: StringSeq)`:
-    ///
-    ///   - returnValue: `StringSeq` - The name of the enabled views.
-    ///
-    ///   - disabledViews: `StringSeq` - The names of the disabled views.
-    func getMetricsViewNames(current: Current) throws -> (returnValue: StringSeq, disabledViews: StringSeq)
+    /// - returns: `(returnValue: StringSeq, disabledViews: StringSeq)` - The result of the operation
+    func getMetricsViewNames(current: Current) async throws -> (returnValue: StringSeq, disabledViews: StringSeq)
 
     /// Enables a metrics view.
     ///
@@ -1349,10 +1345,8 @@ public protocol MXMetricsAdmin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
-    func enableMetricsView(name: Swift.String, current: Current) throws
+    /// - returns: `` - The result of the operation
+    func enableMetricsView(name: Swift.String, current: Current) async throws
 
     /// Disable a metrics view.
     ///
@@ -1360,10 +1354,8 @@ public protocol MXMetricsAdmin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
-    func disableMetricsView(name: Swift.String, current: Current) throws
+    /// - returns: `` - The result of the operation
+    func disableMetricsView(name: Swift.String, current: Current) async throws
 
     /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
     /// metrics class configured with the view. The timestamp allows the client to compute averages which are not
@@ -1373,16 +1365,8 @@ public protocol MXMetricsAdmin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: MXMetricsView, timestamp: Swift.Int64)`:
-    ///
-    ///   - returnValue: `MXMetricsView` - The metrics view data.
-    ///
-    ///   - timestamp: `Swift.Int64` - The local time of the process when the metrics object were retrieved.
-    ///
-    /// - throws:
-    ///
-    ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
-    func getMetricsView(view: Swift.String, current: Current) throws -> (returnValue: MXMetricsView, timestamp: Swift.Int64)
+    /// - returns: `(returnValue: MXMetricsView, timestamp: Swift.Int64)` - The result of the operation
+    func getMetricsView(view: Swift.String, current: Current) async throws -> (returnValue: MXMetricsView, timestamp: Swift.Int64)
 
     /// Get the metrics failures associated with the given view and map.
     ///
@@ -1392,12 +1376,8 @@ public protocol MXMetricsAdmin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `MXMetricsFailuresSeq` - The metrics failures associated with the map.
-    ///
-    /// - throws:
-    ///
-    ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
-    func getMapMetricsFailures(view: Swift.String, map: Swift.String, current: Current) throws -> MXMetricsFailuresSeq
+    /// - returns: `MXMetricsFailuresSeq` - The result of the operation
+    func getMapMetricsFailures(view: Swift.String, map: Swift.String, current: Current) async throws -> MXMetricsFailuresSeq
 
     /// Get the metrics failure associated for the given metrics.
     ///
@@ -1409,12 +1389,8 @@ public protocol MXMetricsAdmin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `MXMetricsFailures` - The metrics failures associated with the metrics.
-    ///
-    /// - throws:
-    ///
-    ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
-    func getMetricsFailures(view: Swift.String, map: Swift.String, id: Swift.String, current: Current) throws -> MXMetricsFailures
+    /// - returns: `MXMetricsFailures` - The result of the operation
+    func getMetricsFailures(view: Swift.String, map: Swift.String, id: Swift.String, current: Current) async throws -> MXMetricsFailures
 }
 
 /// The metrics administrative facet interface. This interface allows remote administrative clients to access
@@ -1437,14 +1413,12 @@ extension MXMetricsAdmin {
     public func _iceD_getMetricsViewNames(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let (iceP_returnValue, iceP_disabledViews) = try self.getMetricsViewNames(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_disabledViews)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getMetricsViewNames(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_disabledViews) = value
+            ostr.write(iceP_disabledViews)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_enableMetricsView(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1452,8 +1426,7 @@ extension MXMetricsAdmin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_name: Swift.String = try istr.read()
-
-        try self.enableMetricsView(name: iceP_name, current: request.current)
+        try await self.enableMetricsView(name: iceP_name, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1462,8 +1435,7 @@ extension MXMetricsAdmin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_name: Swift.String = try istr.read()
-
-        try self.disableMetricsView(name: iceP_name, current: request.current)
+        try await self.disableMetricsView(name: iceP_name, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1472,15 +1444,13 @@ extension MXMetricsAdmin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_view: Swift.String = try istr.read()
-
-        let (iceP_returnValue, iceP_timestamp) = try self.getMetricsView(view: iceP_view, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: .SlicedFormat)
-        ostr.write(iceP_timestamp)
-        MXMetricsViewHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getMetricsView(view: iceP_view, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: .SlicedFormat) { ostr, value in 
+            let (iceP_returnValue, iceP_timestamp) = value
+            ostr.write(iceP_timestamp)
+            MXMetricsViewHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_getMapMetricsFailures(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1489,13 +1459,11 @@ extension MXMetricsAdmin {
         _ = try istr.startEncapsulation()
         let iceP_view: Swift.String = try istr.read()
         let iceP_map: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.getMapMetricsFailures(view: iceP_view, map: iceP_map, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        MXMetricsFailuresSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getMapMetricsFailures(view: iceP_view, map: iceP_map, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            MXMetricsFailuresSeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_getMetricsFailures(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1505,12 +1473,10 @@ extension MXMetricsAdmin {
         let iceP_view: Swift.String = try istr.read()
         let iceP_map: Swift.String = try istr.read()
         let iceP_id: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.getMetricsFailures(view: iceP_view, map: iceP_map, id: iceP_id, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getMetricsFailures(view: iceP_view, map: iceP_map, id: iceP_id, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }

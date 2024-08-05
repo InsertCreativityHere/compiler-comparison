@@ -680,13 +680,13 @@ public struct TopicLinkDisp: Ice.Dispatcher {
         case "forward":
             try await servant._iceD_forward(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? TopicLinkDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TopicLinkDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TopicLinkDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TopicLinkDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TopicLinkDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TopicLinkDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TopicLinkDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TopicLinkDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -700,7 +700,9 @@ public protocol TopicLink {
     /// - parameter events: `EventDataSeq` The events to forward.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func forward(events: EventDataSeq, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func forward(events: EventDataSeq, current: Ice.Current) async throws
 }
 
 
@@ -730,13 +732,13 @@ public struct TopicInternalDisp: Ice.Dispatcher {
         case "getSubscribers":
             try await servant._iceD_getSubscribers(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? TopicInternalDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TopicInternalDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TopicInternalDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TopicInternalDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TopicInternalDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TopicInternalDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TopicInternalDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TopicInternalDisp.defaultObject)._iceD_ice_ping(request)
         case "link":
             try await servant._iceD_link(request)
         case "reap":
@@ -759,8 +761,8 @@ public protocol TopicInternal: Topic {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `TopicLinkPrx?` - The TopicLink for the Topic.
-    func getLinkProxy(current: Ice.Current) throws -> TopicLinkPrx?
+    /// - returns: `TopicLinkPrx?` - The result of the operation
+    func getLinkProxy(current: Ice.Current) async throws -> TopicLinkPrx?
 
     /// Reap the given identities.
     ///
@@ -768,10 +770,8 @@ public protocol TopicInternal: Topic {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - ReapWouldBlock - Raised if the reap call would block.
-    func reap(id: Ice.IdentitySeq, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func reap(id: Ice.IdentitySeq, current: Ice.Current) async throws
 }
 
 
@@ -791,13 +791,13 @@ public struct TopicManagerInternalDisp: Ice.Dispatcher {
         case "getReplicaNode":
             try await servant._iceD_getReplicaNode(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? TopicManagerInternalDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TopicManagerInternalDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TopicManagerInternalDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TopicManagerInternalDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TopicManagerInternalDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TopicManagerInternalDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TopicManagerInternalDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TopicManagerInternalDisp.defaultObject)._iceD_ice_ping(request)
         case "retrieve":
             try await servant._iceD_retrieve(request)
         case "retrieveAll":
@@ -814,8 +814,8 @@ public protocol TopicManagerInternal: TopicManager {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `IceStormElection.NodePrx?` - The replica proxy, or null if this instance is not replicated.
-    func getReplicaNode(current: Ice.Current) throws -> IceStormElection.NodePrx?
+    /// - returns: `IceStormElection.NodePrx?` - The result of the operation
+    func getReplicaNode(current: Ice.Current) async throws -> IceStormElection.NodePrx?
 }
 
 /// The TopicLink interface. This is used to forward events between federated Topic instances.
@@ -829,8 +829,7 @@ extension TopicLink {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_events: EventDataSeq = try EventDataSeqHelper.read(from: istr)
-
-        try self.forward(events: iceP_events, current: request.current)
+        try await self.forward(events: iceP_events, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -846,13 +845,11 @@ extension TopicInternal {
     public func _iceD_getLinkProxy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getLinkProxy(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getLinkProxy(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_reap(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -860,8 +857,7 @@ extension TopicInternal {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_id: Ice.IdentitySeq = try Ice.IdentitySeqHelper.read(from: istr)
-
-        try self.reap(id: iceP_id, current: request.current)
+        try await self.reap(id: iceP_id, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -875,12 +871,10 @@ extension TopicManagerInternal {
     public func _iceD_getReplicaNode(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getReplicaNode(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getReplicaNode(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }

@@ -417,13 +417,13 @@ public struct RouterDisp: Ice.Dispatcher {
         case "getServerProxy":
             try await servant._iceD_getServerProxy(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? RouterDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? RouterDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? RouterDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? RouterDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? RouterDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? RouterDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? RouterDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? RouterDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -438,22 +438,15 @@ public protocol Router {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ObjectPrx?, hasRoutingTable: Swift.Bool?)`:
-    ///
-    ///   - returnValue: `ObjectPrx?` - The router's client proxy.
-    ///
-    ///   - hasRoutingTable: `Swift.Bool?` - Indicates whether or not the router supports a routing table. If it is supported, the
-    /// Ice runtime will call addProxies to populate the routing table. This out parameter is only supported
-    /// starting with Ice 3.7.
-    /// The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
-    func getClientProxy(current: Current) throws -> (returnValue: ObjectPrx?, hasRoutingTable: Swift.Bool?)
+    /// - returns: `(returnValue: ObjectPrx?, hasRoutingTable: Swift.Bool?)` - The result of the operation
+    func getClientProxy(current: Current) async throws -> (returnValue: ObjectPrx?, hasRoutingTable: Swift.Bool?)
 
     /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ObjectPrx?` - The router's server proxy.
-    func getServerProxy(current: Current) throws -> ObjectPrx?
+    /// - returns: `ObjectPrx?` - The result of the operation
+    func getServerProxy(current: Current) async throws -> ObjectPrx?
 
     /// Add new proxy information to the router's routing table.
     ///
@@ -461,8 +454,8 @@ public protocol Router {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ObjectProxySeq` - Proxies discarded by the router. These proxies are all non-null.
-    func addProxies(proxies: ObjectProxySeq, current: Current) throws -> ObjectProxySeq
+    /// - returns: `ObjectProxySeq` - The result of the operation
+    func addProxies(proxies: ObjectProxySeq, current: Current) async throws -> ObjectProxySeq
 }
 
 
@@ -480,13 +473,13 @@ public struct RouterFinderDisp: Ice.Dispatcher {
         case "getRouter":
             try await servant._iceD_getRouter(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? RouterFinderDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? RouterFinderDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? RouterFinderDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? RouterFinderDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? RouterFinderDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? RouterFinderDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? RouterFinderDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? RouterFinderDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -502,8 +495,8 @@ public protocol RouterFinder {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `RouterPrx?` - The router proxy.
-    func getRouter(current: Current) throws -> RouterPrx?
+    /// - returns: `RouterPrx?` - The result of the operation
+    func getRouter(current: Current) async throws -> RouterPrx?
 }
 
 /// The Ice router interface. Routers can be set either globally though the Communicator, or with
@@ -520,26 +513,22 @@ extension Router {
     public func _iceD_getClientProxy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let (iceP_returnValue, iceP_hasRoutingTable) = try self.getClientProxy(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.write(tag: 1, value: iceP_hasRoutingTable)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getClientProxy(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_hasRoutingTable) = value
+            ostr.write(iceP_returnValue)
+            ostr.write(tag: 1, value: iceP_hasRoutingTable)
+        }
     }
 
     public func _iceD_getServerProxy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getServerProxy(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getServerProxy(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_addProxies(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -547,13 +536,11 @@ extension Router {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_proxies: ObjectProxySeq = try ObjectProxySeqHelper.read(from: istr)
-
-        let iceP_returnValue = try self.addProxies(proxies: iceP_proxies, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ObjectProxySeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.addProxies(proxies: iceP_proxies, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ObjectProxySeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 }
 
@@ -568,12 +555,10 @@ extension RouterFinder {
     public func _iceD_getRouter(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getRouter(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getRouter(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }

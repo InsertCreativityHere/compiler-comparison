@@ -870,13 +870,13 @@ public struct breakelseifDisp: Ice.Dispatcher {
         case "function":
             try await servant._iceD_function(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? breakelseifDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? breakelseifDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? breakelseifDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? breakelseifDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? breakelseifDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? breakelseifDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? breakelseifDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? breakelseifDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -886,19 +886,27 @@ public struct breakelseifDisp: Ice.Dispatcher {
 public protocol breakelseif {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func events(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func events(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func function(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func function(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func delete(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func delete(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func checkedCast(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func checkedCast(current: Ice.Current) async throws
 }
 
 /// breakelseif overview.
@@ -916,32 +924,28 @@ extension breakelseif {
     public func _iceD_events(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.events(current: request.current)
+        try await self.events(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_function(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.function(current: request.current)
+        try await self.function(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_delete(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.delete(current: request.current)
+        try await self.delete(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_checkedCast(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.checkedCast(current: request.current)
+        try await self.checkedCast(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

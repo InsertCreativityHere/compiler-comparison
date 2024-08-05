@@ -587,13 +587,13 @@ public struct MetricsDisp: Ice.Dispatcher {
         case "getAdmin":
             try await servant._iceD_getAdmin(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? MetricsDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? MetricsDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? MetricsDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? MetricsDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? MetricsDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? MetricsDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? MetricsDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? MetricsDisp.defaultObject)._iceD_ice_ping(request)
         case "op":
             try await servant._iceD_op(request)
         case "opByteS":
@@ -617,43 +617,59 @@ public struct MetricsDisp: Ice.Dispatcher {
 public protocol Metrics {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func op(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func op(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func fail(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func fail(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func opWithUserException(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func opWithUserException(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func opWithRequestFailedException(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func opWithRequestFailedException(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func opWithLocalException(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func opWithLocalException(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func opWithUnknownException(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func opWithUnknownException(current: Ice.Current) async throws
 
     ///
     /// - parameter bs: `ByteSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func opByteS(bs: ByteSeq, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func opByteS(bs: ByteSeq, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?`
-    func getAdmin(current: Ice.Current) throws -> Ice.ObjectPrx?
+    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    func getAdmin(current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 
@@ -671,13 +687,13 @@ public struct ControllerDisp: Ice.Dispatcher {
         case "hold":
             try await servant._iceD_hold(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_ping(request)
         case "resume":
             try await servant._iceD_resume(request)
         default:
@@ -689,11 +705,15 @@ public struct ControllerDisp: Ice.Dispatcher {
 public protocol Controller {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func hold(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func hold(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func resume(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func resume(current: Ice.Current) async throws
 }
 
 /// Metrics overview.
@@ -721,48 +741,42 @@ extension Metrics {
     public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.op(current: request.current)
+        try await self.op(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_fail(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.fail(current: request.current)
+        try await self.fail(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_opWithUserException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.opWithUserException(current: request.current)
+        try await self.opWithUserException(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_opWithRequestFailedException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.opWithRequestFailedException(current: request.current)
+        try await self.opWithRequestFailedException(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_opWithLocalException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.opWithLocalException(current: request.current)
+        try await self.opWithLocalException(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_opWithUnknownException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.opWithUnknownException(current: request.current)
+        try await self.opWithUnknownException(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -771,28 +785,24 @@ extension Metrics {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_bs: ByteSeq = try istr.read()
-
-        try self.opByteS(bs: iceP_bs, current: request.current)
+        try await self.opByteS(bs: iceP_bs, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_getAdmin(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getAdmin(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getAdmin(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -808,16 +818,14 @@ extension Controller {
     public func _iceD_hold(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.hold(current: request.current)
+        try await self.hold(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_resume(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.resume(current: request.current)
+        try await self.resume(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

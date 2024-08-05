@@ -1142,13 +1142,13 @@ public struct TestIntfDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
         case "opByte":
             try await servant._iceD_opByte(request)
         case "opByteSeq":
@@ -1179,100 +1179,70 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ByteEnum, b2: ByteEnum)`:
-    ///
-    ///   - returnValue: `ByteEnum`
-    ///
-    ///   - b2: `ByteEnum`
-    func opByte(b1: ByteEnum, current: Ice.Current) throws -> (returnValue: ByteEnum, b2: ByteEnum)
+    /// - returns: `(returnValue: ByteEnum, b2: ByteEnum)` - The result of the operation
+    func opByte(b1: ByteEnum, current: Ice.Current) async throws -> (returnValue: ByteEnum, b2: ByteEnum)
 
     ///
     /// - parameter s1: `ShortEnum`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ShortEnum, s2: ShortEnum)`:
-    ///
-    ///   - returnValue: `ShortEnum`
-    ///
-    ///   - s2: `ShortEnum`
-    func opShort(s1: ShortEnum, current: Ice.Current) throws -> (returnValue: ShortEnum, s2: ShortEnum)
+    /// - returns: `(returnValue: ShortEnum, s2: ShortEnum)` - The result of the operation
+    func opShort(s1: ShortEnum, current: Ice.Current) async throws -> (returnValue: ShortEnum, s2: ShortEnum)
 
     ///
     /// - parameter i1: `IntEnum`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: IntEnum, i2: IntEnum)`:
-    ///
-    ///   - returnValue: `IntEnum`
-    ///
-    ///   - i2: `IntEnum`
-    func opInt(i1: IntEnum, current: Ice.Current) throws -> (returnValue: IntEnum, i2: IntEnum)
+    /// - returns: `(returnValue: IntEnum, i2: IntEnum)` - The result of the operation
+    func opInt(i1: IntEnum, current: Ice.Current) async throws -> (returnValue: IntEnum, i2: IntEnum)
 
     ///
     /// - parameter s1: `SimpleEnum`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: SimpleEnum, s2: SimpleEnum)`:
-    ///
-    ///   - returnValue: `SimpleEnum`
-    ///
-    ///   - s2: `SimpleEnum`
-    func opSimple(s1: SimpleEnum, current: Ice.Current) throws -> (returnValue: SimpleEnum, s2: SimpleEnum)
+    /// - returns: `(returnValue: SimpleEnum, s2: SimpleEnum)` - The result of the operation
+    func opSimple(s1: SimpleEnum, current: Ice.Current) async throws -> (returnValue: SimpleEnum, s2: SimpleEnum)
 
     ///
     /// - parameter b1: `ByteEnumSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ByteEnumSeq, b2: ByteEnumSeq)`:
-    ///
-    ///   - returnValue: `ByteEnumSeq`
-    ///
-    ///   - b2: `ByteEnumSeq`
-    func opByteSeq(b1: ByteEnumSeq, current: Ice.Current) throws -> (returnValue: ByteEnumSeq, b2: ByteEnumSeq)
+    /// - returns: `(returnValue: ByteEnumSeq, b2: ByteEnumSeq)` - The result of the operation
+    func opByteSeq(b1: ByteEnumSeq, current: Ice.Current) async throws -> (returnValue: ByteEnumSeq, b2: ByteEnumSeq)
 
     ///
     /// - parameter s1: `ShortEnumSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ShortEnumSeq, s2: ShortEnumSeq)`:
-    ///
-    ///   - returnValue: `ShortEnumSeq`
-    ///
-    ///   - s2: `ShortEnumSeq`
-    func opShortSeq(s1: ShortEnumSeq, current: Ice.Current) throws -> (returnValue: ShortEnumSeq, s2: ShortEnumSeq)
+    /// - returns: `(returnValue: ShortEnumSeq, s2: ShortEnumSeq)` - The result of the operation
+    func opShortSeq(s1: ShortEnumSeq, current: Ice.Current) async throws -> (returnValue: ShortEnumSeq, s2: ShortEnumSeq)
 
     ///
     /// - parameter i1: `IntEnumSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: IntEnumSeq, i2: IntEnumSeq)`:
-    ///
-    ///   - returnValue: `IntEnumSeq`
-    ///
-    ///   - i2: `IntEnumSeq`
-    func opIntSeq(i1: IntEnumSeq, current: Ice.Current) throws -> (returnValue: IntEnumSeq, i2: IntEnumSeq)
+    /// - returns: `(returnValue: IntEnumSeq, i2: IntEnumSeq)` - The result of the operation
+    func opIntSeq(i1: IntEnumSeq, current: Ice.Current) async throws -> (returnValue: IntEnumSeq, i2: IntEnumSeq)
 
     ///
     /// - parameter s1: `SimpleEnumSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: SimpleEnumSeq, s2: SimpleEnumSeq)`:
-    ///
-    ///   - returnValue: `SimpleEnumSeq`
-    ///
-    ///   - s2: `SimpleEnumSeq`
-    func opSimpleSeq(s1: SimpleEnumSeq, current: Ice.Current) throws -> (returnValue: SimpleEnumSeq, s2: SimpleEnumSeq)
+    /// - returns: `(returnValue: SimpleEnumSeq, s2: SimpleEnumSeq)` - The result of the operation
+    func opSimpleSeq(s1: SimpleEnumSeq, current: Ice.Current) async throws -> (returnValue: SimpleEnumSeq, s2: SimpleEnumSeq)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// TestIntf overview.
@@ -1302,14 +1272,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_b1: ByteEnum = try istr.read()
-
-        let (iceP_returnValue, iceP_b2) = try self.opByte(b1: iceP_b1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_b2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opByte(b1: iceP_b1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_b2) = value
+            ostr.write(iceP_b2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opShort(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1317,14 +1285,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_s1: ShortEnum = try istr.read()
-
-        let (iceP_returnValue, iceP_s2) = try self.opShort(s1: iceP_s1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_s2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opShort(s1: iceP_s1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_s2) = value
+            ostr.write(iceP_s2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opInt(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1332,14 +1298,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_i1: IntEnum = try istr.read()
-
-        let (iceP_returnValue, iceP_i2) = try self.opInt(i1: iceP_i1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_i2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opInt(i1: iceP_i1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_i2) = value
+            ostr.write(iceP_i2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opSimple(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1347,14 +1311,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_s1: SimpleEnum = try istr.read()
-
-        let (iceP_returnValue, iceP_s2) = try self.opSimple(s1: iceP_s1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_s2)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opSimple(s1: iceP_s1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_s2) = value
+            ostr.write(iceP_s2)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opByteSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1362,14 +1324,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_b1: ByteEnumSeq = try ByteEnumSeqHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_b2) = try self.opByteSeq(b1: iceP_b1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ByteEnumSeqHelper.write(to: ostr, value: iceP_b2)
-        ByteEnumSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opByteSeq(b1: iceP_b1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_b2) = value
+            ByteEnumSeqHelper.write(to: ostr, value: iceP_b2)
+            ByteEnumSeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opShortSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1377,14 +1337,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_s1: ShortEnumSeq = try ShortEnumSeqHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_s2) = try self.opShortSeq(s1: iceP_s1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ShortEnumSeqHelper.write(to: ostr, value: iceP_s2)
-        ShortEnumSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opShortSeq(s1: iceP_s1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_s2) = value
+            ShortEnumSeqHelper.write(to: ostr, value: iceP_s2)
+            ShortEnumSeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opIntSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1392,14 +1350,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_i1: IntEnumSeq = try IntEnumSeqHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_i2) = try self.opIntSeq(i1: iceP_i1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        IntEnumSeqHelper.write(to: ostr, value: iceP_i2)
-        IntEnumSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opIntSeq(i1: iceP_i1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_i2) = value
+            IntEnumSeqHelper.write(to: ostr, value: iceP_i2)
+            IntEnumSeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opSimpleSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1407,21 +1363,18 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_s1: SimpleEnumSeq = try SimpleEnumSeqHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_s2) = try self.opSimpleSeq(s1: iceP_s1, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        SimpleEnumSeqHelper.write(to: ostr, value: iceP_s2)
-        SimpleEnumSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opSimpleSeq(s1: iceP_s1, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_s2) = value
+            SimpleEnumSeqHelper.write(to: ostr, value: iceP_s2)
+            SimpleEnumSeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

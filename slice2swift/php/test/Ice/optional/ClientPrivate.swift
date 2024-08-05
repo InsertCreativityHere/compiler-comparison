@@ -216,13 +216,13 @@ public struct Initial2Disp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? Initial2Disp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? Initial2Disp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? Initial2Disp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? Initial2Disp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? Initial2Disp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? Initial2Disp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? Initial2Disp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? Initial2Disp.defaultObject)._iceD_ice_ping(request)
         case "opClassAndUnknownOptional":
             try await servant._iceD_opClassAndUnknownOptional(request)
         case "opVoid":
@@ -240,7 +240,9 @@ public protocol Initial2 {
     /// - parameter ovs: `VarStruct?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func opClassAndUnknownOptional(p: A?, ovs: VarStruct?, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func opClassAndUnknownOptional(p: A?, ovs: VarStruct?, current: Ice.Current) async throws
 
     ///
     /// - parameter a: `Swift.Int32?`
@@ -248,7 +250,9 @@ public protocol Initial2 {
     /// - parameter v: `Swift.String?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func opVoid(a: Swift.Int32?, v: Swift.String?, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func opVoid(a: Swift.Int32?, v: Swift.String?, current: Ice.Current) async throws
 }
 
 /// Initial2 overview.
@@ -267,8 +271,7 @@ extension Initial2 {
         try istr.read(A.self) { iceP_p = $0 }
         let iceP_ovs: VarStruct? = try istr.read(tag: 1)
         try istr.readPendingValues()
-
-        try self.opClassAndUnknownOptional(p: iceP_p, ovs: iceP_ovs, current: request.current)
+        try await self.opClassAndUnknownOptional(p: iceP_p, ovs: iceP_ovs, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -278,8 +281,7 @@ extension Initial2 {
         _ = try istr.startEncapsulation()
         let iceP_a: Swift.Int32? = try istr.read(tag: 1)
         let iceP_v: Swift.String? = try istr.read(tag: 2)
-
-        try self.opVoid(a: iceP_a, v: iceP_v, current: request.current)
+        try await self.opVoid(a: iceP_a, v: iceP_v, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

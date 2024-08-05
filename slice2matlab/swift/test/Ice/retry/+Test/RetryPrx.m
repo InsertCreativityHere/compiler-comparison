@@ -7,8 +7,6 @@
 %   opIdempotentAsync
 %   opNotIdempotent
 %   opNotIdempotentAsync
-%   sleep
-%   sleepAsync
 %   shutdown
 %   shutdownAsync
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
@@ -99,32 +97,6 @@ classdef RetryPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
             r_ = obj.iceInvokeAsync('opNotIdempotent', 0, false, [], 0, [], {}, varargin{:});
-        end
-        function sleep(obj, delay, varargin)
-            % sleep
-            %
-            % Parameters:
-            %   delay (int32)
-            %   context (containers.Map) - Optional request context.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeInt(delay);
-            obj.iceEndWriteParams(os_);
-            obj.iceInvoke('sleep', 2, false, os_, false, {}, varargin{:});
-        end
-        function r_ = sleepAsync(obj, delay, varargin)
-            % sleepAsync
-            %
-            % Parameters:
-            %   delay (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeInt(delay);
-            obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('sleep', 2, false, os_, 0, [], {}, varargin{:});
         end
         function shutdown(obj, varargin)
             % shutdown

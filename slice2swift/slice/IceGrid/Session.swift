@@ -420,13 +420,13 @@ public struct SessionDisp: Ice.Dispatcher {
         case "destroy":
             try await servant._iceD_destroy(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? SessionDisp.defaultObject)._iceD_ice_ping(request)
         case "keepAlive":
             try await servant._iceD_keepAlive(request)
         case "releaseObject":
@@ -446,7 +446,9 @@ public protocol Session: Glacier2.Session {
     /// need to call this operation and its implementation does nothing.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func keepAlive(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func keepAlive(current: Ice.Current) async throws
 
     /// Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
     /// available or until the timeout is reached.
@@ -456,7 +458,7 @@ public protocol Session: Glacier2.Session {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func allocateObjectByIdAsync(id: Ice.Identity, current: Ice.Current) async throws -> Ice.ObjectPrx?
+    func allocateObjectById(id: Ice.Identity, current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
     /// an object becomes available or until the timeout is reached.
@@ -466,7 +468,7 @@ public protocol Session: Glacier2.Session {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func allocateObjectByTypeAsync(type: Swift.String, current: Ice.Current) async throws -> Ice.ObjectPrx?
+    func allocateObjectByType(type: Swift.String, current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Release an object that was allocated using allocateObjectById or
     /// allocateObjectByType.
@@ -475,14 +477,8 @@ public protocol Session: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - AllocationException - Raised if the given object can't be released. This might happen if the object
-    ///     isn't allocatable or isn't allocated by the session.
-    ///
-    ///   - ObjectNotRegisteredException - Raised if the object with the given identity is not registered with
-    ///     the registry.
-    func releaseObject(id: Ice.Identity, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func releaseObject(id: Ice.Identity, current: Ice.Current) async throws
 
     /// Set the allocation timeout. If no objects are available for an allocation request, a call to
     /// allocateObjectById or allocateObjectByType will block for the duration of this
@@ -491,7 +487,9 @@ public protocol Session: Glacier2.Session {
     /// - parameter timeout: `Swift.Int32` The timeout in milliseconds.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func setAllocationTimeout(timeout: Swift.Int32, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func setAllocationTimeout(timeout: Swift.Int32, current: Ice.Current) async throws
 }
 
 /// A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
@@ -512,8 +510,7 @@ extension Session {
     public func _iceD_keepAlive(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.keepAlive(current: request.current)
+        try await self.keepAlive(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -522,8 +519,7 @@ extension Session {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_id: Ice.Identity = try istr.read()
-        let result = try await self.allocateObjectByIdAsync(
-            id: iceP_id, current: request.current)
+        let result = try await self.allocateObjectById(id: iceP_id, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -535,8 +531,7 @@ extension Session {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_type: Swift.String = try istr.read()
-        let result = try await self.allocateObjectByTypeAsync(
-            type: iceP_type, current: request.current)
+        let result = try await self.allocateObjectByType(type: iceP_type, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -548,8 +543,7 @@ extension Session {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_id: Ice.Identity = try istr.read()
-
-        try self.releaseObject(id: iceP_id, current: request.current)
+        try await self.releaseObject(id: iceP_id, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -558,8 +552,7 @@ extension Session {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_timeout: Swift.Int32 = try istr.read()
-
-        try self.setAllocationTimeout(timeout: iceP_timeout, current: request.current)
+        try await self.setAllocationTimeout(timeout: iceP_timeout, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

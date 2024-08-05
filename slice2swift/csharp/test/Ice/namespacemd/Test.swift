@@ -526,13 +526,13 @@ public struct InitialDisp: Ice.Dispatcher {
         case "getWithNamespaceC2AsC2":
             try await servant._iceD_getWithNamespaceC2AsC2(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
             try await servant._iceD_shutdown(request)
         case "throwNoNamespaceE2AsE1":
@@ -555,50 +555,62 @@ public protocol Initial {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NoNamespace.C1?`
-    func getNoNamespaceC2AsC1(current: Ice.Current) throws -> NoNamespace.C1?
+    /// - returns: `NoNamespace.C1?` - The result of the operation
+    func getNoNamespaceC2AsC1(current: Ice.Current) async throws -> NoNamespace.C1?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NoNamespace.C2?`
-    func getNoNamespaceC2AsC2(current: Ice.Current) throws -> NoNamespace.C2?
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func throwNoNamespaceE2AsE1(current: Ice.Current) throws
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func throwNoNamespaceE2AsE2(current: Ice.Current) throws
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func throwNoNamespaceNotify(current: Ice.Current) throws
+    /// - returns: `NoNamespace.C2?` - The result of the operation
+    func getNoNamespaceC2AsC2(current: Ice.Current) async throws -> NoNamespace.C2?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `WithNamespace.C1?`
-    func getWithNamespaceC2AsC1(current: Ice.Current) throws -> WithNamespace.C1?
+    /// - returns: `` - The result of the operation
+    func throwNoNamespaceE2AsE1(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `WithNamespace.C2?`
-    func getWithNamespaceC2AsC2(current: Ice.Current) throws -> WithNamespace.C2?
+    /// - returns: `` - The result of the operation
+    func throwNoNamespaceE2AsE2(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func throwWithNamespaceE2AsE1(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func throwNoNamespaceNotify(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func throwWithNamespaceE2AsE2(current: Ice.Current) throws
+    ///
+    /// - returns: `WithNamespace.C1?` - The result of the operation
+    func getWithNamespaceC2AsC1(current: Ice.Current) async throws -> WithNamespace.C1?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `WithNamespace.C2?` - The result of the operation
+    func getWithNamespaceC2AsC2(current: Ice.Current) async throws -> WithNamespace.C2?
+
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `` - The result of the operation
+    func throwWithNamespaceE2AsE1(current: Ice.Current) async throws
+
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `` - The result of the operation
+    func throwWithNamespaceE2AsE2(current: Ice.Current) async throws
+
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// Initial overview.
@@ -628,100 +640,86 @@ extension Initial {
     public func _iceD_getNoNamespaceC2AsC1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getNoNamespaceC2AsC1(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getNoNamespaceC2AsC1(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_getNoNamespaceC2AsC2(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getNoNamespaceC2AsC2(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getNoNamespaceC2AsC2(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_throwNoNamespaceE2AsE1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.throwNoNamespaceE2AsE1(current: request.current)
+        try await self.throwNoNamespaceE2AsE1(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_throwNoNamespaceE2AsE2(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.throwNoNamespaceE2AsE2(current: request.current)
+        try await self.throwNoNamespaceE2AsE2(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_throwNoNamespaceNotify(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.throwNoNamespaceNotify(current: request.current)
+        try await self.throwNoNamespaceNotify(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_getWithNamespaceC2AsC1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getWithNamespaceC2AsC1(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getWithNamespaceC2AsC1(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_getWithNamespaceC2AsC2(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getWithNamespaceC2AsC2(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getWithNamespaceC2AsC2(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_throwWithNamespaceE2AsE1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.throwWithNamespaceE2AsE1(current: request.current)
+        try await self.throwWithNamespaceE2AsE1(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_throwWithNamespaceE2AsE2(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.throwWithNamespaceE2AsE2(current: request.current)
+        try await self.throwWithNamespaceE2AsE2(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

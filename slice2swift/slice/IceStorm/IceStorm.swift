@@ -895,11 +895,11 @@ public extension TopicPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as BadQoS {
-                                         throw error
                                      } catch let error as AlreadySubscribed {
                                          throw error
                                      } catch let error as InvalidSubscriber {
+                                         throw error
+                                     } catch let error as BadQoS {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -929,11 +929,11 @@ public extension TopicPrx {
                                             userException:{ ex in
                                                 do  {
                                                     throw ex
-                                                } catch let error as BadQoS {
-                                                    throw error
                                                 } catch let error as AlreadySubscribed {
                                                     throw error
                                                 } catch let error as InvalidSubscriber {
+                                                    throw error
+                                                } catch let error as BadQoS {
                                                     throw error
                                                 } catch is Ice.UserException {}
                                             },
@@ -1580,13 +1580,13 @@ public struct TopicDisp: Ice.Dispatcher {
         case "getSubscribers":
             try await servant._iceD_getSubscribers(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? TopicDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TopicDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TopicDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TopicDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TopicDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TopicDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TopicDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TopicDisp.defaultObject)._iceD_ice_ping(request)
         case "link":
             try await servant._iceD_link(request)
         case "subscribeAndGetPublisher":
@@ -1607,8 +1607,8 @@ public protocol Topic {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The name of the topic.
-    func getName(current: Ice.Current) throws -> Swift.String
+    /// - returns: `Swift.String` - The result of the operation
+    func getName(current: Ice.Current) async throws -> Swift.String
 
     /// Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
     /// and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
@@ -1616,8 +1616,8 @@ public protocol Topic {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - A proxy to publish data on this topic.
-    func getPublisher(current: Ice.Current) throws -> Ice.ObjectPrx?
+    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    func getPublisher(current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
     /// calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
@@ -1625,8 +1625,8 @@ public protocol Topic {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - A proxy to publish data on this topic.
-    func getNonReplicatedPublisher(current: Ice.Current) throws -> Ice.ObjectPrx?
+    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    func getNonReplicatedPublisher(current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
     ///
@@ -1636,23 +1636,17 @@ public protocol Topic {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The per-subscriber publisher object. The returned object is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - AlreadySubscribed - Raised if the subscriber object is already subscribed.
-    ///
-    ///   - BadQoS - Raised if the requested quality of service is unavailable or invalid.
-    ///
-    ///   - InvalidSubscriber - Raised if the subscriber object is null.
-    func subscribeAndGetPublisher(theQoS: QoS, subscriber: Ice.ObjectPrx?, current: Ice.Current) throws -> Ice.ObjectPrx?
+    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    func subscribeAndGetPublisher(theQoS: QoS, subscriber: Ice.ObjectPrx?, current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Unsubscribe the given subscriber.
     ///
     /// - parameter subscriber: `Ice.ObjectPrx?` The proxy of an existing subscriber. This proxy is never null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func unsubscribe(subscriber: Ice.ObjectPrx?, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func unsubscribe(subscriber: Ice.ObjectPrx?, current: Ice.Current) async throws
 
     /// Create a link to the given topic. All events originating on this topic will also be sent to
     /// linkTo.
@@ -1663,10 +1657,8 @@ public protocol Topic {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - LinkExists - Raised if a link to the same topic already exists.
-    func link(linkTo: TopicPrx?, cost: Swift.Int32, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func link(linkTo: TopicPrx?, cost: Swift.Int32, current: Ice.Current) async throws
 
     /// Destroy the link from this topic to the given topic linkTo.
     ///
@@ -1674,29 +1666,29 @@ public protocol Topic {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - NoSuchLink - Raised if a link to the topic does not exist.
-    func unlink(linkTo: TopicPrx?, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func unlink(linkTo: TopicPrx?, current: Ice.Current) async throws
 
     /// Retrieve information on the current links.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `LinkInfoSeq` - A sequence of LinkInfo objects.
-    func getLinkInfoSeq(current: Ice.Current) throws -> LinkInfoSeq
+    /// - returns: `LinkInfoSeq` - The result of the operation
+    func getLinkInfoSeq(current: Ice.Current) async throws -> LinkInfoSeq
 
     /// Retrieve the list of subscribers for this topic.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.IdentitySeq` - The sequence of Ice identities for the subscriber objects.
-    func getSubscribers(current: Ice.Current) throws -> Ice.IdentitySeq
+    /// - returns: `Ice.IdentitySeq` - The result of the operation
+    func getSubscribers(current: Ice.Current) async throws -> Ice.IdentitySeq
 
     /// Destroy the topic.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func destroy(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func destroy(current: Ice.Current) async throws
 }
 
 
@@ -1714,13 +1706,13 @@ public struct TopicManagerDisp: Ice.Dispatcher {
         case "create":
             try await servant._iceD_create(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? TopicManagerDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TopicManagerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TopicManagerDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TopicManagerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TopicManagerDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TopicManagerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TopicManagerDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TopicManagerDisp.defaultObject)._iceD_ice_ping(request)
         case "retrieve":
             try await servant._iceD_retrieve(request)
         case "retrieveAll":
@@ -1739,12 +1731,8 @@ public protocol TopicManager {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `TopicPrx?` - A proxy to the topic instance. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - TopicExists - Raised if a topic with the same name already exists.
-    func create(name: Swift.String, current: Ice.Current) throws -> TopicPrx?
+    /// - returns: `TopicPrx?` - The result of the operation
+    func create(name: Swift.String, current: Ice.Current) async throws -> TopicPrx?
 
     /// Retrieve a topic by name.
     ///
@@ -1752,19 +1740,15 @@ public protocol TopicManager {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `TopicPrx?` - A proxy to the topic instance. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - NoSuchTopic - Raised if the topic does not exist.
-    func retrieve(name: Swift.String, current: Ice.Current) throws -> TopicPrx?
+    /// - returns: `TopicPrx?` - The result of the operation
+    func retrieve(name: Swift.String, current: Ice.Current) async throws -> TopicPrx?
 
     /// Retrieve all topics managed by this topic manager.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `TopicDict` - A dictionary of string, topic proxy pairs.
-    func retrieveAll(current: Ice.Current) throws -> TopicDict
+    /// - returns: `TopicDict` - The result of the operation
+    func retrieveAll(current: Ice.Current) async throws -> TopicDict
 }
 
 
@@ -1782,13 +1766,13 @@ public struct FinderDisp: Ice.Dispatcher {
         case "getTopicManager":
             try await servant._iceD_getTopicManager(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? FinderDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? FinderDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? FinderDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? FinderDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? FinderDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? FinderDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? FinderDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? FinderDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -1802,8 +1786,8 @@ public protocol Finder {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `TopicManagerPrx?` - The topic manager proxy. The returned proxy is never null.
-    func getTopicManager(current: Ice.Current) throws -> TopicManagerPrx?
+    /// - returns: `TopicManagerPrx?` - The result of the operation
+    func getTopicManager(current: Ice.Current) async throws -> TopicManagerPrx?
 }
 
 /// Publishers publish information on a particular topic. A topic logically represents a type. A
@@ -1833,37 +1817,31 @@ extension Topic {
     public func _iceD_getName(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getName(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getName(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getPublisher(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getPublisher(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getPublisher(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getNonReplicatedPublisher(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getNonReplicatedPublisher(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getNonReplicatedPublisher(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_subscribeAndGetPublisher(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1872,13 +1850,11 @@ extension Topic {
         _ = try istr.startEncapsulation()
         let iceP_theQoS: QoS = try QoSHelper.read(from: istr)
         let iceP_subscriber: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-
-        let iceP_returnValue = try self.subscribeAndGetPublisher(theQoS: iceP_theQoS, subscriber: iceP_subscriber, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.subscribeAndGetPublisher(theQoS: iceP_theQoS, subscriber: iceP_subscriber, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_unsubscribe(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1886,8 +1862,7 @@ extension Topic {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_subscriber: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-
-        try self.unsubscribe(subscriber: iceP_subscriber, current: request.current)
+        try await self.unsubscribe(subscriber: iceP_subscriber, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1897,8 +1872,7 @@ extension Topic {
         _ = try istr.startEncapsulation()
         let iceP_linkTo: TopicPrx? = try istr.read(TopicPrx.self)
         let iceP_cost: Swift.Int32 = try istr.read()
-
-        try self.link(linkTo: iceP_linkTo, cost: iceP_cost, current: request.current)
+        try await self.link(linkTo: iceP_linkTo, cost: iceP_cost, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1907,40 +1881,34 @@ extension Topic {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_linkTo: TopicPrx? = try istr.read(TopicPrx.self)
-
-        try self.unlink(linkTo: iceP_linkTo, current: request.current)
+        try await self.unlink(linkTo: iceP_linkTo, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_getLinkInfoSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getLinkInfoSeq(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        LinkInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getLinkInfoSeq(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            LinkInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_getSubscribers(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getSubscribers(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        Ice.IdentitySeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getSubscribers(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            Ice.IdentitySeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_destroy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.destroy(current: request.current)
+        try await self.destroy(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -1960,13 +1928,11 @@ extension TopicManager {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_name: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.create(name: iceP_name, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.create(name: iceP_name, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_retrieve(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1974,25 +1940,21 @@ extension TopicManager {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_name: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.retrieve(name: iceP_name, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.retrieve(name: iceP_name, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_retrieveAll(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.retrieveAll(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        TopicDictHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.retrieveAll(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            TopicDictHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 }
 
@@ -2006,12 +1968,10 @@ extension Finder {
     public func _iceD_getTopicManager(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getTopicManager(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getTopicManager(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }

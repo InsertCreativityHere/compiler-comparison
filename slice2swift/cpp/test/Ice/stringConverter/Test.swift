@@ -292,13 +292,13 @@ public struct MyObjectDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_ping(request)
         case "narrow":
             try await servant._iceD_narrow(request)
         case "shutdown":
@@ -317,20 +317,22 @@ public protocol MyObject {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String`
-    func widen(msg: Swift.String, current: Ice.Current) throws -> Swift.String
+    /// - returns: `Swift.String` - The result of the operation
+    func widen(msg: Swift.String, current: Ice.Current) async throws -> Swift.String
 
     ///
     /// - parameter wmsg: `Swift.String`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String`
-    func narrow(wmsg: Swift.String, current: Ice.Current) throws -> Swift.String
+    /// - returns: `Swift.String` - The result of the operation
+    func narrow(wmsg: Swift.String, current: Ice.Current) async throws -> Swift.String
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// MyObject overview.
@@ -348,13 +350,11 @@ extension MyObject {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_msg: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.widen(msg: iceP_msg, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.widen(msg: iceP_msg, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_narrow(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -362,20 +362,17 @@ extension MyObject {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_wmsg: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.narrow(wmsg: iceP_wmsg, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.narrow(wmsg: iceP_wmsg, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

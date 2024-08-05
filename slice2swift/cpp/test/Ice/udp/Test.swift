@@ -399,13 +399,13 @@ public struct PingReplyDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? PingReplyDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? PingReplyDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? PingReplyDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? PingReplyDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? PingReplyDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? PingReplyDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? PingReplyDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? PingReplyDisp.defaultObject)._iceD_ice_ping(request)
         case "reply":
             try await servant._iceD_reply(request)
         default:
@@ -417,7 +417,9 @@ public struct PingReplyDisp: Ice.Dispatcher {
 public protocol PingReply {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func reply(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func reply(current: Ice.Current) async throws
 }
 
 
@@ -433,13 +435,13 @@ public struct TestIntfDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
         case "ping":
             try await servant._iceD_ping(request)
         case "pingBiDir":
@@ -459,7 +461,9 @@ public protocol TestIntf {
     /// - parameter reply: `PingReplyPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func ping(reply: PingReplyPrx?, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func ping(reply: PingReplyPrx?, current: Ice.Current) async throws
 
     ///
     /// - parameter seq: `ByteSeq`
@@ -467,17 +471,23 @@ public protocol TestIntf {
     /// - parameter reply: `PingReplyPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func sendByteSeq(seq: ByteSeq, reply: PingReplyPrx?, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func sendByteSeq(seq: ByteSeq, reply: PingReplyPrx?, current: Ice.Current) async throws
 
     ///
     /// - parameter reply: `Ice.Identity`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func pingBiDir(reply: Ice.Identity, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func pingBiDir(reply: Ice.Identity, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// PingReply overview.
@@ -489,8 +499,7 @@ extension PingReply {
     public func _iceD_reply(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.reply(current: request.current)
+        try await self.reply(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -512,8 +521,7 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_reply: PingReplyPrx? = try istr.read(PingReplyPrx.self)
-
-        try self.ping(reply: iceP_reply, current: request.current)
+        try await self.ping(reply: iceP_reply, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -523,8 +531,7 @@ extension TestIntf {
         _ = try istr.startEncapsulation()
         let iceP_seq: ByteSeq = try istr.read()
         let iceP_reply: PingReplyPrx? = try istr.read(PingReplyPrx.self)
-
-        try self.sendByteSeq(seq: iceP_seq, reply: iceP_reply, current: request.current)
+        try await self.sendByteSeq(seq: iceP_seq, reply: iceP_reply, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -533,16 +540,14 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_reply: Ice.Identity = try istr.read()
-
-        try self.pingBiDir(reply: iceP_reply, current: request.current)
+        try await self.pingBiDir(reply: iceP_reply, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

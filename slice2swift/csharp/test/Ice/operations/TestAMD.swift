@@ -6834,13 +6834,13 @@ public struct MyClassDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? MyClassDisp.defaultObject)._iceD_ice_ping(request)
         case "opBool":
             try await servant._iceD_opBool(request)
         case "opBoolBoolSD":
@@ -6992,19 +6992,19 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func shutdownAsync(current: Ice.Current) async throws -> Swift.Void
+    func shutdown(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Swift.Bool` - The result of the operation
-    func supportsCompressAsync(current: Ice.Current) async throws -> Swift.Bool
+    func supportsCompress(current: Ice.Current) async throws -> Swift.Bool
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func opVoidAsync(current: Ice.Current) async throws -> Swift.Void
+    func opVoid(current: Ice.Current) async throws
 
     ///
     /// - parameter p1: `Swift.UInt8`
@@ -7014,7 +7014,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: Swift.UInt8, p3: Swift.UInt8)` - The result of the operation
-    func opByteAsync(p1: Swift.UInt8, p2: Swift.UInt8, current: Ice.Current) async throws -> (returnValue: Swift.UInt8, p3: Swift.UInt8)
+    func opByte(p1: Swift.UInt8, p2: Swift.UInt8, current: Ice.Current) async throws -> (returnValue: Swift.UInt8, p3: Swift.UInt8)
 
     ///
     /// - parameter p1: `Swift.Bool`
@@ -7024,7 +7024,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: Swift.Bool, p3: Swift.Bool)` - The result of the operation
-    func opBoolAsync(p1: Swift.Bool, p2: Swift.Bool, current: Ice.Current) async throws -> (returnValue: Swift.Bool, p3: Swift.Bool)
+    func opBool(p1: Swift.Bool, p2: Swift.Bool, current: Ice.Current) async throws -> (returnValue: Swift.Bool, p3: Swift.Bool)
 
     ///
     /// - parameter p1: `Swift.Int16`
@@ -7036,7 +7036,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: Swift.Int64, p4: Swift.Int16, p5: Swift.Int32, p6: Swift.Int64)` - The result of the operation
-    func opShortIntLongAsync(p1: Swift.Int16, p2: Swift.Int32, p3: Swift.Int64, current: Ice.Current) async throws -> (returnValue: Swift.Int64, p4: Swift.Int16, p5: Swift.Int32, p6: Swift.Int64)
+    func opShortIntLong(p1: Swift.Int16, p2: Swift.Int32, p3: Swift.Int64, current: Ice.Current) async throws -> (returnValue: Swift.Int64, p4: Swift.Int16, p5: Swift.Int32, p6: Swift.Int64)
 
     ///
     /// - parameter p1: `Swift.Float`
@@ -7046,7 +7046,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: Swift.Double, p3: Swift.Float, p4: Swift.Double)` - The result of the operation
-    func opFloatDoubleAsync(p1: Swift.Float, p2: Swift.Double, current: Ice.Current) async throws -> (returnValue: Swift.Double, p3: Swift.Float, p4: Swift.Double)
+    func opFloatDouble(p1: Swift.Float, p2: Swift.Double, current: Ice.Current) async throws -> (returnValue: Swift.Double, p3: Swift.Float, p4: Swift.Double)
 
     ///
     /// - parameter p1: `Swift.String`
@@ -7056,7 +7056,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: Swift.String, p3: Swift.String)` - The result of the operation
-    func opStringAsync(p1: Swift.String, p2: Swift.String, current: Ice.Current) async throws -> (returnValue: Swift.String, p3: Swift.String)
+    func opString(p1: Swift.String, p2: Swift.String, current: Ice.Current) async throws -> (returnValue: Swift.String, p3: Swift.String)
 
     ///
     /// - parameter p1: `MyEnum`
@@ -7064,7 +7064,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: MyEnum, p2: MyEnum)` - The result of the operation
-    func opMyEnumAsync(p1: MyEnum, current: Ice.Current) async throws -> (returnValue: MyEnum, p2: MyEnum)
+    func opMyEnum(p1: MyEnum, current: Ice.Current) async throws -> (returnValue: MyEnum, p2: MyEnum)
 
     ///
     /// - parameter p1: `MyClassPrx?`
@@ -7072,7 +7072,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: MyClassPrx?, p2: MyClassPrx?, p3: MyClassPrx?)` - The result of the operation
-    func opMyClassAsync(p1: MyClassPrx?, current: Ice.Current) async throws -> (returnValue: MyClassPrx?, p2: MyClassPrx?, p3: MyClassPrx?)
+    func opMyClass(p1: MyClassPrx?, current: Ice.Current) async throws -> (returnValue: MyClassPrx?, p2: MyClassPrx?, p3: MyClassPrx?)
 
     ///
     /// - parameter p1: `Structure`
@@ -7082,7 +7082,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: Structure, p3: Structure)` - The result of the operation
-    func opStructAsync(p1: Structure, p2: Structure, current: Ice.Current) async throws -> (returnValue: Structure, p3: Structure)
+    func opStruct(p1: Structure, p2: Structure, current: Ice.Current) async throws -> (returnValue: Structure, p3: Structure)
 
     ///
     /// - parameter p1: `ByteS`
@@ -7092,7 +7092,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: ByteS, p3: ByteS)` - The result of the operation
-    func opByteSAsync(p1: ByteS, p2: ByteS, current: Ice.Current) async throws -> (returnValue: ByteS, p3: ByteS)
+    func opByteS(p1: ByteS, p2: ByteS, current: Ice.Current) async throws -> (returnValue: ByteS, p3: ByteS)
 
     ///
     /// - parameter p1: `BoolS`
@@ -7102,7 +7102,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: BoolS, p3: BoolS)` - The result of the operation
-    func opBoolSAsync(p1: BoolS, p2: BoolS, current: Ice.Current) async throws -> (returnValue: BoolS, p3: BoolS)
+    func opBoolS(p1: BoolS, p2: BoolS, current: Ice.Current) async throws -> (returnValue: BoolS, p3: BoolS)
 
     ///
     /// - parameter p1: `ShortS`
@@ -7114,7 +7114,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: LongS, p4: ShortS, p5: IntS, p6: LongS)` - The result of the operation
-    func opShortIntLongSAsync(p1: ShortS, p2: IntS, p3: LongS, current: Ice.Current) async throws -> (returnValue: LongS, p4: ShortS, p5: IntS, p6: LongS)
+    func opShortIntLongS(p1: ShortS, p2: IntS, p3: LongS, current: Ice.Current) async throws -> (returnValue: LongS, p4: ShortS, p5: IntS, p6: LongS)
 
     ///
     /// - parameter p1: `FloatS`
@@ -7124,7 +7124,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: DoubleS, p3: FloatS, p4: DoubleS)` - The result of the operation
-    func opFloatDoubleSAsync(p1: FloatS, p2: DoubleS, current: Ice.Current) async throws -> (returnValue: DoubleS, p3: FloatS, p4: DoubleS)
+    func opFloatDoubleS(p1: FloatS, p2: DoubleS, current: Ice.Current) async throws -> (returnValue: DoubleS, p3: FloatS, p4: DoubleS)
 
     ///
     /// - parameter p1: `StringS`
@@ -7134,7 +7134,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: StringS, p3: StringS)` - The result of the operation
-    func opStringSAsync(p1: StringS, p2: StringS, current: Ice.Current) async throws -> (returnValue: StringS, p3: StringS)
+    func opStringS(p1: StringS, p2: StringS, current: Ice.Current) async throws -> (returnValue: StringS, p3: StringS)
 
     ///
     /// - parameter p1: `ByteSS`
@@ -7144,7 +7144,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: ByteSS, p3: ByteSS)` - The result of the operation
-    func opByteSSAsync(p1: ByteSS, p2: ByteSS, current: Ice.Current) async throws -> (returnValue: ByteSS, p3: ByteSS)
+    func opByteSS(p1: ByteSS, p2: ByteSS, current: Ice.Current) async throws -> (returnValue: ByteSS, p3: ByteSS)
 
     ///
     /// - parameter p1: `BoolSS`
@@ -7154,7 +7154,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: BoolSS, p3: BoolSS)` - The result of the operation
-    func opBoolSSAsync(p1: BoolSS, p2: BoolSS, current: Ice.Current) async throws -> (returnValue: BoolSS, p3: BoolSS)
+    func opBoolSS(p1: BoolSS, p2: BoolSS, current: Ice.Current) async throws -> (returnValue: BoolSS, p3: BoolSS)
 
     ///
     /// - parameter p1: `ShortSS`
@@ -7166,7 +7166,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: LongSS, p4: ShortSS, p5: IntSS, p6: LongSS)` - The result of the operation
-    func opShortIntLongSSAsync(p1: ShortSS, p2: IntSS, p3: LongSS, current: Ice.Current) async throws -> (returnValue: LongSS, p4: ShortSS, p5: IntSS, p6: LongSS)
+    func opShortIntLongSS(p1: ShortSS, p2: IntSS, p3: LongSS, current: Ice.Current) async throws -> (returnValue: LongSS, p4: ShortSS, p5: IntSS, p6: LongSS)
 
     ///
     /// - parameter p1: `FloatSS`
@@ -7176,7 +7176,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: DoubleSS, p3: FloatSS, p4: DoubleSS)` - The result of the operation
-    func opFloatDoubleSSAsync(p1: FloatSS, p2: DoubleSS, current: Ice.Current) async throws -> (returnValue: DoubleSS, p3: FloatSS, p4: DoubleSS)
+    func opFloatDoubleSS(p1: FloatSS, p2: DoubleSS, current: Ice.Current) async throws -> (returnValue: DoubleSS, p3: FloatSS, p4: DoubleSS)
 
     ///
     /// - parameter p1: `StringSS`
@@ -7186,7 +7186,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: StringSS, p3: StringSS)` - The result of the operation
-    func opStringSSAsync(p1: StringSS, p2: StringSS, current: Ice.Current) async throws -> (returnValue: StringSS, p3: StringSS)
+    func opStringSS(p1: StringSS, p2: StringSS, current: Ice.Current) async throws -> (returnValue: StringSS, p3: StringSS)
 
     ///
     /// - parameter p1: `StringSSS`
@@ -7196,7 +7196,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: StringSSS, p3: StringSSS)` - The result of the operation
-    func opStringSSSAsync(p1: StringSSS, p2: StringSSS, current: Ice.Current) async throws -> (returnValue: StringSSS, p3: StringSSS)
+    func opStringSSS(p1: StringSSS, p2: StringSSS, current: Ice.Current) async throws -> (returnValue: StringSSS, p3: StringSSS)
 
     ///
     /// - parameter p1: `ByteBoolD`
@@ -7206,7 +7206,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: ByteBoolD, p3: ByteBoolD)` - The result of the operation
-    func opByteBoolDAsync(p1: ByteBoolD, p2: ByteBoolD, current: Ice.Current) async throws -> (returnValue: ByteBoolD, p3: ByteBoolD)
+    func opByteBoolD(p1: ByteBoolD, p2: ByteBoolD, current: Ice.Current) async throws -> (returnValue: ByteBoolD, p3: ByteBoolD)
 
     ///
     /// - parameter p1: `ShortIntD`
@@ -7216,7 +7216,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: ShortIntD, p3: ShortIntD)` - The result of the operation
-    func opShortIntDAsync(p1: ShortIntD, p2: ShortIntD, current: Ice.Current) async throws -> (returnValue: ShortIntD, p3: ShortIntD)
+    func opShortIntD(p1: ShortIntD, p2: ShortIntD, current: Ice.Current) async throws -> (returnValue: ShortIntD, p3: ShortIntD)
 
     ///
     /// - parameter p1: `LongFloatD`
@@ -7226,7 +7226,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: LongFloatD, p3: LongFloatD)` - The result of the operation
-    func opLongFloatDAsync(p1: LongFloatD, p2: LongFloatD, current: Ice.Current) async throws -> (returnValue: LongFloatD, p3: LongFloatD)
+    func opLongFloatD(p1: LongFloatD, p2: LongFloatD, current: Ice.Current) async throws -> (returnValue: LongFloatD, p3: LongFloatD)
 
     ///
     /// - parameter p1: `StringStringD`
@@ -7236,7 +7236,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: StringStringD, p3: StringStringD)` - The result of the operation
-    func opStringStringDAsync(p1: StringStringD, p2: StringStringD, current: Ice.Current) async throws -> (returnValue: StringStringD, p3: StringStringD)
+    func opStringStringD(p1: StringStringD, p2: StringStringD, current: Ice.Current) async throws -> (returnValue: StringStringD, p3: StringStringD)
 
     ///
     /// - parameter p1: `StringMyEnumD`
@@ -7246,7 +7246,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: StringMyEnumD, p3: StringMyEnumD)` - The result of the operation
-    func opStringMyEnumDAsync(p1: StringMyEnumD, p2: StringMyEnumD, current: Ice.Current) async throws -> (returnValue: StringMyEnumD, p3: StringMyEnumD)
+    func opStringMyEnumD(p1: StringMyEnumD, p2: StringMyEnumD, current: Ice.Current) async throws -> (returnValue: StringMyEnumD, p3: StringMyEnumD)
 
     ///
     /// - parameter p1: `MyEnumStringD`
@@ -7256,7 +7256,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: MyEnumStringD, p3: MyEnumStringD)` - The result of the operation
-    func opMyEnumStringDAsync(p1: MyEnumStringD, p2: MyEnumStringD, current: Ice.Current) async throws -> (returnValue: MyEnumStringD, p3: MyEnumStringD)
+    func opMyEnumStringD(p1: MyEnumStringD, p2: MyEnumStringD, current: Ice.Current) async throws -> (returnValue: MyEnumStringD, p3: MyEnumStringD)
 
     ///
     /// - parameter p1: `MyStructMyEnumD`
@@ -7266,7 +7266,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: MyStructMyEnumD, p3: MyStructMyEnumD)` - The result of the operation
-    func opMyStructMyEnumDAsync(p1: MyStructMyEnumD, p2: MyStructMyEnumD, current: Ice.Current) async throws -> (returnValue: MyStructMyEnumD, p3: MyStructMyEnumD)
+    func opMyStructMyEnumD(p1: MyStructMyEnumD, p2: MyStructMyEnumD, current: Ice.Current) async throws -> (returnValue: MyStructMyEnumD, p3: MyStructMyEnumD)
 
     ///
     /// - parameter p1: `ByteBoolDS`
@@ -7276,7 +7276,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: ByteBoolDS, p3: ByteBoolDS)` - The result of the operation
-    func opByteBoolDSAsync(p1: ByteBoolDS, p2: ByteBoolDS, current: Ice.Current) async throws -> (returnValue: ByteBoolDS, p3: ByteBoolDS)
+    func opByteBoolDS(p1: ByteBoolDS, p2: ByteBoolDS, current: Ice.Current) async throws -> (returnValue: ByteBoolDS, p3: ByteBoolDS)
 
     ///
     /// - parameter p1: `ShortIntDS`
@@ -7286,7 +7286,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: ShortIntDS, p3: ShortIntDS)` - The result of the operation
-    func opShortIntDSAsync(p1: ShortIntDS, p2: ShortIntDS, current: Ice.Current) async throws -> (returnValue: ShortIntDS, p3: ShortIntDS)
+    func opShortIntDS(p1: ShortIntDS, p2: ShortIntDS, current: Ice.Current) async throws -> (returnValue: ShortIntDS, p3: ShortIntDS)
 
     ///
     /// - parameter p1: `LongFloatDS`
@@ -7296,7 +7296,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: LongFloatDS, p3: LongFloatDS)` - The result of the operation
-    func opLongFloatDSAsync(p1: LongFloatDS, p2: LongFloatDS, current: Ice.Current) async throws -> (returnValue: LongFloatDS, p3: LongFloatDS)
+    func opLongFloatDS(p1: LongFloatDS, p2: LongFloatDS, current: Ice.Current) async throws -> (returnValue: LongFloatDS, p3: LongFloatDS)
 
     ///
     /// - parameter p1: `StringStringDS`
@@ -7306,7 +7306,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: StringStringDS, p3: StringStringDS)` - The result of the operation
-    func opStringStringDSAsync(p1: StringStringDS, p2: StringStringDS, current: Ice.Current) async throws -> (returnValue: StringStringDS, p3: StringStringDS)
+    func opStringStringDS(p1: StringStringDS, p2: StringStringDS, current: Ice.Current) async throws -> (returnValue: StringStringDS, p3: StringStringDS)
 
     ///
     /// - parameter p1: `StringMyEnumDS`
@@ -7316,7 +7316,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: StringMyEnumDS, p3: StringMyEnumDS)` - The result of the operation
-    func opStringMyEnumDSAsync(p1: StringMyEnumDS, p2: StringMyEnumDS, current: Ice.Current) async throws -> (returnValue: StringMyEnumDS, p3: StringMyEnumDS)
+    func opStringMyEnumDS(p1: StringMyEnumDS, p2: StringMyEnumDS, current: Ice.Current) async throws -> (returnValue: StringMyEnumDS, p3: StringMyEnumDS)
 
     ///
     /// - parameter p1: `MyEnumStringDS`
@@ -7326,7 +7326,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: MyEnumStringDS, p3: MyEnumStringDS)` - The result of the operation
-    func opMyEnumStringDSAsync(p1: MyEnumStringDS, p2: MyEnumStringDS, current: Ice.Current) async throws -> (returnValue: MyEnumStringDS, p3: MyEnumStringDS)
+    func opMyEnumStringDS(p1: MyEnumStringDS, p2: MyEnumStringDS, current: Ice.Current) async throws -> (returnValue: MyEnumStringDS, p3: MyEnumStringDS)
 
     ///
     /// - parameter p1: `MyStructMyEnumDS`
@@ -7336,7 +7336,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: MyStructMyEnumDS, p3: MyStructMyEnumDS)` - The result of the operation
-    func opMyStructMyEnumDSAsync(p1: MyStructMyEnumDS, p2: MyStructMyEnumDS, current: Ice.Current) async throws -> (returnValue: MyStructMyEnumDS, p3: MyStructMyEnumDS)
+    func opMyStructMyEnumDS(p1: MyStructMyEnumDS, p2: MyStructMyEnumDS, current: Ice.Current) async throws -> (returnValue: MyStructMyEnumDS, p3: MyStructMyEnumDS)
 
     ///
     /// - parameter p1: `ByteByteSD`
@@ -7346,7 +7346,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: ByteByteSD, p3: ByteByteSD)` - The result of the operation
-    func opByteByteSDAsync(p1: ByteByteSD, p2: ByteByteSD, current: Ice.Current) async throws -> (returnValue: ByteByteSD, p3: ByteByteSD)
+    func opByteByteSD(p1: ByteByteSD, p2: ByteByteSD, current: Ice.Current) async throws -> (returnValue: ByteByteSD, p3: ByteByteSD)
 
     ///
     /// - parameter p1: `BoolBoolSD`
@@ -7356,7 +7356,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: BoolBoolSD, p3: BoolBoolSD)` - The result of the operation
-    func opBoolBoolSDAsync(p1: BoolBoolSD, p2: BoolBoolSD, current: Ice.Current) async throws -> (returnValue: BoolBoolSD, p3: BoolBoolSD)
+    func opBoolBoolSD(p1: BoolBoolSD, p2: BoolBoolSD, current: Ice.Current) async throws -> (returnValue: BoolBoolSD, p3: BoolBoolSD)
 
     ///
     /// - parameter p1: `ShortShortSD`
@@ -7366,7 +7366,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: ShortShortSD, p3: ShortShortSD)` - The result of the operation
-    func opShortShortSDAsync(p1: ShortShortSD, p2: ShortShortSD, current: Ice.Current) async throws -> (returnValue: ShortShortSD, p3: ShortShortSD)
+    func opShortShortSD(p1: ShortShortSD, p2: ShortShortSD, current: Ice.Current) async throws -> (returnValue: ShortShortSD, p3: ShortShortSD)
 
     ///
     /// - parameter p1: `IntIntSD`
@@ -7376,7 +7376,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: IntIntSD, p3: IntIntSD)` - The result of the operation
-    func opIntIntSDAsync(p1: IntIntSD, p2: IntIntSD, current: Ice.Current) async throws -> (returnValue: IntIntSD, p3: IntIntSD)
+    func opIntIntSD(p1: IntIntSD, p2: IntIntSD, current: Ice.Current) async throws -> (returnValue: IntIntSD, p3: IntIntSD)
 
     ///
     /// - parameter p1: `LongLongSD`
@@ -7386,7 +7386,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: LongLongSD, p3: LongLongSD)` - The result of the operation
-    func opLongLongSDAsync(p1: LongLongSD, p2: LongLongSD, current: Ice.Current) async throws -> (returnValue: LongLongSD, p3: LongLongSD)
+    func opLongLongSD(p1: LongLongSD, p2: LongLongSD, current: Ice.Current) async throws -> (returnValue: LongLongSD, p3: LongLongSD)
 
     ///
     /// - parameter p1: `StringFloatSD`
@@ -7396,7 +7396,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: StringFloatSD, p3: StringFloatSD)` - The result of the operation
-    func opStringFloatSDAsync(p1: StringFloatSD, p2: StringFloatSD, current: Ice.Current) async throws -> (returnValue: StringFloatSD, p3: StringFloatSD)
+    func opStringFloatSD(p1: StringFloatSD, p2: StringFloatSD, current: Ice.Current) async throws -> (returnValue: StringFloatSD, p3: StringFloatSD)
 
     ///
     /// - parameter p1: `StringDoubleSD`
@@ -7406,7 +7406,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: StringDoubleSD, p3: StringDoubleSD)` - The result of the operation
-    func opStringDoubleSDAsync(p1: StringDoubleSD, p2: StringDoubleSD, current: Ice.Current) async throws -> (returnValue: StringDoubleSD, p3: StringDoubleSD)
+    func opStringDoubleSD(p1: StringDoubleSD, p2: StringDoubleSD, current: Ice.Current) async throws -> (returnValue: StringDoubleSD, p3: StringDoubleSD)
 
     ///
     /// - parameter p1: `StringStringSD`
@@ -7416,7 +7416,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: StringStringSD, p3: StringStringSD)` - The result of the operation
-    func opStringStringSDAsync(p1: StringStringSD, p2: StringStringSD, current: Ice.Current) async throws -> (returnValue: StringStringSD, p3: StringStringSD)
+    func opStringStringSD(p1: StringStringSD, p2: StringStringSD, current: Ice.Current) async throws -> (returnValue: StringStringSD, p3: StringStringSD)
 
     ///
     /// - parameter p1: `MyEnumMyEnumSD`
@@ -7426,7 +7426,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: MyEnumMyEnumSD, p3: MyEnumMyEnumSD)` - The result of the operation
-    func opMyEnumMyEnumSDAsync(p1: MyEnumMyEnumSD, p2: MyEnumMyEnumSD, current: Ice.Current) async throws -> (returnValue: MyEnumMyEnumSD, p3: MyEnumMyEnumSD)
+    func opMyEnumMyEnumSD(p1: MyEnumMyEnumSD, p2: MyEnumMyEnumSD, current: Ice.Current) async throws -> (returnValue: MyEnumMyEnumSD, p3: MyEnumMyEnumSD)
 
     ///
     /// - parameter s: `IntS`
@@ -7434,7 +7434,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `IntS` - The result of the operation
-    func opIntSAsync(s: IntS, current: Ice.Current) async throws -> IntS
+    func opIntS(s: IntS, current: Ice.Current) async throws -> IntS
 
     ///
     /// - parameter s: `ByteS`
@@ -7442,19 +7442,19 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func opByteSOnewayAsync(s: ByteS, current: Ice.Current) async throws -> Swift.Void
+    func opByteSOneway(s: ByteS, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Swift.Int32` - The result of the operation
-    func opByteSOnewayCallCountAsync(current: Ice.Current) async throws -> Swift.Int32
+    func opByteSOnewayCallCount(current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Ice.Context` - The result of the operation
-    func opContextAsync(current: Ice.Current) async throws -> Ice.Context
+    func opContext(current: Ice.Current) async throws -> Ice.Context
 
     ///
     /// - parameter p1: `Swift.Double`
@@ -7464,13 +7464,13 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func opDoubleMarshalingAsync(p1: Swift.Double, p2: DoubleS, current: Ice.Current) async throws -> Swift.Void
+    func opDoubleMarshaling(p1: Swift.Double, p2: DoubleS, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func opIdempotentAsync(current: Ice.Current) async throws -> Swift.Void
+    func opIdempotent(current: Ice.Current) async throws
 
     ///
     /// - parameter opByte1: `Swift.UInt8`
@@ -7478,7 +7478,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Swift.UInt8` - The result of the operation
-    func opByte1Async(opByte1: Swift.UInt8, current: Ice.Current) async throws -> Swift.UInt8
+    func opByte1(opByte1: Swift.UInt8, current: Ice.Current) async throws -> Swift.UInt8
 
     ///
     /// - parameter opShort1: `Swift.Int16`
@@ -7486,7 +7486,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Swift.Int16` - The result of the operation
-    func opShort1Async(opShort1: Swift.Int16, current: Ice.Current) async throws -> Swift.Int16
+    func opShort1(opShort1: Swift.Int16, current: Ice.Current) async throws -> Swift.Int16
 
     ///
     /// - parameter opInt1: `Swift.Int32`
@@ -7494,7 +7494,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Swift.Int32` - The result of the operation
-    func opInt1Async(opInt1: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
+    func opInt1(opInt1: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter opLong1: `Swift.Int64`
@@ -7502,7 +7502,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Swift.Int64` - The result of the operation
-    func opLong1Async(opLong1: Swift.Int64, current: Ice.Current) async throws -> Swift.Int64
+    func opLong1(opLong1: Swift.Int64, current: Ice.Current) async throws -> Swift.Int64
 
     ///
     /// - parameter opFloat1: `Swift.Float`
@@ -7510,7 +7510,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Swift.Float` - The result of the operation
-    func opFloat1Async(opFloat1: Swift.Float, current: Ice.Current) async throws -> Swift.Float
+    func opFloat1(opFloat1: Swift.Float, current: Ice.Current) async throws -> Swift.Float
 
     ///
     /// - parameter opDouble1: `Swift.Double`
@@ -7518,7 +7518,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Swift.Double` - The result of the operation
-    func opDouble1Async(opDouble1: Swift.Double, current: Ice.Current) async throws -> Swift.Double
+    func opDouble1(opDouble1: Swift.Double, current: Ice.Current) async throws -> Swift.Double
 
     ///
     /// - parameter opString1: `Swift.String`
@@ -7526,7 +7526,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Swift.String` - The result of the operation
-    func opString1Async(opString1: Swift.String, current: Ice.Current) async throws -> Swift.String
+    func opString1(opString1: Swift.String, current: Ice.Current) async throws -> Swift.String
 
     ///
     /// - parameter opStringS1: `StringS`
@@ -7534,7 +7534,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `StringS` - The result of the operation
-    func opStringS1Async(opStringS1: StringS, current: Ice.Current) async throws -> StringS
+    func opStringS1(opStringS1: StringS, current: Ice.Current) async throws -> StringS
 
     ///
     /// - parameter opByteBoolD1: `ByteBoolD`
@@ -7542,7 +7542,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `ByteBoolD` - The result of the operation
-    func opByteBoolD1Async(opByteBoolD1: ByteBoolD, current: Ice.Current) async throws -> ByteBoolD
+    func opByteBoolD1(opByteBoolD1: ByteBoolD, current: Ice.Current) async throws -> ByteBoolD
 
     ///
     /// - parameter stringS: `StringS`
@@ -7550,7 +7550,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `StringS` - The result of the operation
-    func opStringS2Async(stringS: StringS, current: Ice.Current) async throws -> StringS
+    func opStringS2(stringS: StringS, current: Ice.Current) async throws -> StringS
 
     ///
     /// - parameter byteBoolD: `ByteBoolD`
@@ -7558,25 +7558,25 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `ByteBoolD` - The result of the operation
-    func opByteBoolD2Async(byteBoolD: ByteBoolD, current: Ice.Current) async throws -> ByteBoolD
+    func opByteBoolD2(byteBoolD: ByteBoolD, current: Ice.Current) async throws -> ByteBoolD
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `StringS` - The result of the operation
-    func opStringLiteralsAsync(current: Ice.Current) async throws -> StringS
+    func opStringLiterals(current: Ice.Current) async throws -> StringS
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `StringS` - The result of the operation
-    func opWStringLiteralsAsync(current: Ice.Current) async throws -> StringS
+    func opWStringLiterals(current: Ice.Current) async throws -> StringS
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Structure` - The result of the operation
-    func opMStruct1Async(current: Ice.Current) async throws -> Structure
+    func opMStruct1(current: Ice.Current) async throws -> Structure
 
     ///
     /// - parameter p1: `Structure`
@@ -7584,13 +7584,13 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: Structure, p2: Structure)` - The result of the operation
-    func opMStruct2Async(p1: Structure, current: Ice.Current) async throws -> (returnValue: Structure, p2: Structure)
+    func opMStruct2(p1: Structure, current: Ice.Current) async throws -> (returnValue: Structure, p2: Structure)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `StringS` - The result of the operation
-    func opMSeq1Async(current: Ice.Current) async throws -> StringS
+    func opMSeq1(current: Ice.Current) async throws -> StringS
 
     ///
     /// - parameter p1: `StringS`
@@ -7598,13 +7598,13 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: StringS, p2: StringS)` - The result of the operation
-    func opMSeq2Async(p1: StringS, current: Ice.Current) async throws -> (returnValue: StringS, p2: StringS)
+    func opMSeq2(p1: StringS, current: Ice.Current) async throws -> (returnValue: StringS, p2: StringS)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `StringStringD` - The result of the operation
-    func opMDict1Async(current: Ice.Current) async throws -> StringStringD
+    func opMDict1(current: Ice.Current) async throws -> StringStringD
 
     ///
     /// - parameter p1: `StringStringD`
@@ -7612,7 +7612,7 @@ public protocol MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `(returnValue: StringStringD, p2: StringStringD)` - The result of the operation
-    func opMDict2Async(p1: StringStringD, current: Ice.Current) async throws -> (returnValue: StringStringD, p2: StringStringD)
+    func opMDict2(p1: StringStringD, current: Ice.Current) async throws -> (returnValue: StringStringD, p2: StringStringD)
 }
 
 
@@ -7628,13 +7628,13 @@ public struct MyDerivedClassDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? MyDerivedClassDisp.defaultObject)._iceD_ice_ping(request)
         case "opBool":
             try await servant._iceD_opBool(request)
         case "opBoolBoolSD":
@@ -7792,7 +7792,7 @@ public protocol MyDerivedClass: MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func opDerivedAsync(current: Ice.Current) async throws -> Swift.Void
+    func opDerived(current: Ice.Current) async throws
 
     ///
     /// - parameter opMyClass1: `MyClass1?`
@@ -7800,7 +7800,7 @@ public protocol MyDerivedClass: MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `MyClass1?` - The result of the operation
-    func opMyClass1Async(opMyClass1: MyClass1?, current: Ice.Current) async throws -> MyClass1?
+    func opMyClass1(opMyClass1: MyClass1?, current: Ice.Current) async throws -> MyClass1?
 
     ///
     /// - parameter opMyStruct1: `MyStruct1`
@@ -7808,7 +7808,7 @@ public protocol MyDerivedClass: MyClass {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `MyStruct1` - The result of the operation
-    func opMyStruct1Async(opMyStruct1: MyStruct1, current: Ice.Current) async throws -> MyStruct1
+    func opMyStruct1(opMyStruct1: MyStruct1, current: Ice.Current) async throws -> MyStruct1
 }
 
 /// MyClass overview.
@@ -7958,16 +7958,14 @@ extension MyClass {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.shutdownAsync(
-            current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_supportsCompress(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        let result = try await self.supportsCompressAsync(
-            current: request.current)
+        let result = try await self.supportsCompress(current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -7977,8 +7975,7 @@ extension MyClass {
     public func _iceD_opVoid(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.opVoidAsync(
-            current: request.current)
+        try await self.opVoid(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -7988,8 +7985,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: Swift.UInt8 = try istr.read()
         let iceP_p2: Swift.UInt8 = try istr.read()
-        let result = try await self.opByteAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opByte(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(iceP_p3)
@@ -8003,8 +7999,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: Swift.Bool = try istr.read()
         let iceP_p2: Swift.Bool = try istr.read()
-        let result = try await self.opBoolAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opBool(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(iceP_p3)
@@ -8019,8 +8014,7 @@ extension MyClass {
         let iceP_p1: Swift.Int16 = try istr.read()
         let iceP_p2: Swift.Int32 = try istr.read()
         let iceP_p3: Swift.Int64 = try istr.read()
-        let result = try await self.opShortIntLongAsync(
-            p1: iceP_p1, p2: iceP_p2, p3: iceP_p3, current: request.current)
+        let result = try await self.opShortIntLong(p1: iceP_p1, p2: iceP_p2, p3: iceP_p3, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p4, iceP_p5, iceP_p6) = value
             ostr.write(iceP_p4)
@@ -8036,8 +8030,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: Swift.Float = try istr.read()
         let iceP_p2: Swift.Double = try istr.read()
-        let result = try await self.opFloatDoubleAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opFloatDouble(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3, iceP_p4) = value
             ostr.write(iceP_p3)
@@ -8052,8 +8045,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: Swift.String = try istr.read()
         let iceP_p2: Swift.String = try istr.read()
-        let result = try await self.opStringAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opString(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(iceP_p3)
@@ -8066,8 +8058,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_p1: MyEnum = try istr.read()
-        let result = try await self.opMyEnumAsync(
-            p1: iceP_p1, current: request.current)
+        let result = try await self.opMyEnum(p1: iceP_p1, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p2) = value
             ostr.write(iceP_p2)
@@ -8080,8 +8071,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_p1: MyClassPrx? = try istr.read(MyClassPrx.self)
-        let result = try await self.opMyClassAsync(
-            p1: iceP_p1, current: request.current)
+        let result = try await self.opMyClass(p1: iceP_p1, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p2, iceP_p3) = value
             ostr.write(iceP_p2)
@@ -8096,8 +8086,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: Structure = try istr.read()
         let iceP_p2: Structure = try istr.read()
-        let result = try await self.opStructAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opStruct(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(iceP_p3)
@@ -8111,8 +8100,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: ByteS = try istr.read()
         let iceP_p2: ByteS = try istr.read()
-        let result = try await self.opByteSAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opByteS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(iceP_p3)
@@ -8126,8 +8114,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: BoolS = try istr.read()
         let iceP_p2: BoolS = try istr.read()
-        let result = try await self.opBoolSAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opBoolS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(iceP_p3)
@@ -8142,8 +8129,7 @@ extension MyClass {
         let iceP_p1: ShortS = try istr.read()
         let iceP_p2: IntS = try istr.read()
         let iceP_p3: LongS = try istr.read()
-        let result = try await self.opShortIntLongSAsync(
-            p1: iceP_p1, p2: iceP_p2, p3: iceP_p3, current: request.current)
+        let result = try await self.opShortIntLongS(p1: iceP_p1, p2: iceP_p2, p3: iceP_p3, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p4, iceP_p5, iceP_p6) = value
             ostr.write(iceP_p4)
@@ -8159,8 +8145,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: FloatS = try istr.read()
         let iceP_p2: DoubleS = try istr.read()
-        let result = try await self.opFloatDoubleSAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opFloatDoubleS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3, iceP_p4) = value
             ostr.write(iceP_p3)
@@ -8175,8 +8160,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: StringS = try istr.read()
         let iceP_p2: StringS = try istr.read()
-        let result = try await self.opStringSAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opStringS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ostr.write(iceP_p3)
@@ -8190,8 +8174,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: ByteSS = try ByteSSHelper.read(from: istr)
         let iceP_p2: ByteSS = try ByteSSHelper.read(from: istr)
-        let result = try await self.opByteSSAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opByteSS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ByteSSHelper.write(to: ostr, value: iceP_p3)
@@ -8205,8 +8188,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: BoolSS = try BoolSSHelper.read(from: istr)
         let iceP_p2: BoolSS = try BoolSSHelper.read(from: istr)
-        let result = try await self.opBoolSSAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opBoolSS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             BoolSSHelper.write(to: ostr, value: iceP_p3)
@@ -8221,8 +8203,7 @@ extension MyClass {
         let iceP_p1: ShortSS = try ShortSSHelper.read(from: istr)
         let iceP_p2: IntSS = try IntSSHelper.read(from: istr)
         let iceP_p3: LongSS = try LongSSHelper.read(from: istr)
-        let result = try await self.opShortIntLongSSAsync(
-            p1: iceP_p1, p2: iceP_p2, p3: iceP_p3, current: request.current)
+        let result = try await self.opShortIntLongSS(p1: iceP_p1, p2: iceP_p2, p3: iceP_p3, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p4, iceP_p5, iceP_p6) = value
             ShortSSHelper.write(to: ostr, value: iceP_p4)
@@ -8238,8 +8219,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: FloatSS = try FloatSSHelper.read(from: istr)
         let iceP_p2: DoubleSS = try DoubleSSHelper.read(from: istr)
-        let result = try await self.opFloatDoubleSSAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opFloatDoubleSS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3, iceP_p4) = value
             FloatSSHelper.write(to: ostr, value: iceP_p3)
@@ -8254,8 +8234,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: StringSS = try StringSSHelper.read(from: istr)
         let iceP_p2: StringSS = try StringSSHelper.read(from: istr)
-        let result = try await self.opStringSSAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opStringSS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             StringSSHelper.write(to: ostr, value: iceP_p3)
@@ -8269,8 +8248,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: StringSSS = try StringSSSHelper.read(from: istr)
         let iceP_p2: StringSSS = try StringSSSHelper.read(from: istr)
-        let result = try await self.opStringSSSAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opStringSSS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             StringSSSHelper.write(to: ostr, value: iceP_p3)
@@ -8284,8 +8262,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: ByteBoolD = try ByteBoolDHelper.read(from: istr)
         let iceP_p2: ByteBoolD = try ByteBoolDHelper.read(from: istr)
-        let result = try await self.opByteBoolDAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opByteBoolD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ByteBoolDHelper.write(to: ostr, value: iceP_p3)
@@ -8299,8 +8276,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: ShortIntD = try ShortIntDHelper.read(from: istr)
         let iceP_p2: ShortIntD = try ShortIntDHelper.read(from: istr)
-        let result = try await self.opShortIntDAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opShortIntD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ShortIntDHelper.write(to: ostr, value: iceP_p3)
@@ -8314,8 +8290,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: LongFloatD = try LongFloatDHelper.read(from: istr)
         let iceP_p2: LongFloatD = try LongFloatDHelper.read(from: istr)
-        let result = try await self.opLongFloatDAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opLongFloatD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             LongFloatDHelper.write(to: ostr, value: iceP_p3)
@@ -8329,8 +8304,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: StringStringD = try StringStringDHelper.read(from: istr)
         let iceP_p2: StringStringD = try StringStringDHelper.read(from: istr)
-        let result = try await self.opStringStringDAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opStringStringD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             StringStringDHelper.write(to: ostr, value: iceP_p3)
@@ -8344,8 +8318,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: StringMyEnumD = try StringMyEnumDHelper.read(from: istr)
         let iceP_p2: StringMyEnumD = try StringMyEnumDHelper.read(from: istr)
-        let result = try await self.opStringMyEnumDAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opStringMyEnumD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             StringMyEnumDHelper.write(to: ostr, value: iceP_p3)
@@ -8359,8 +8332,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: MyEnumStringD = try MyEnumStringDHelper.read(from: istr)
         let iceP_p2: MyEnumStringD = try MyEnumStringDHelper.read(from: istr)
-        let result = try await self.opMyEnumStringDAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opMyEnumStringD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             MyEnumStringDHelper.write(to: ostr, value: iceP_p3)
@@ -8374,8 +8346,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: MyStructMyEnumD = try MyStructMyEnumDHelper.read(from: istr)
         let iceP_p2: MyStructMyEnumD = try MyStructMyEnumDHelper.read(from: istr)
-        let result = try await self.opMyStructMyEnumDAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opMyStructMyEnumD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             MyStructMyEnumDHelper.write(to: ostr, value: iceP_p3)
@@ -8389,8 +8360,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: ByteBoolDS = try ByteBoolDSHelper.read(from: istr)
         let iceP_p2: ByteBoolDS = try ByteBoolDSHelper.read(from: istr)
-        let result = try await self.opByteBoolDSAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opByteBoolDS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ByteBoolDSHelper.write(to: ostr, value: iceP_p3)
@@ -8404,8 +8374,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: ShortIntDS = try ShortIntDSHelper.read(from: istr)
         let iceP_p2: ShortIntDS = try ShortIntDSHelper.read(from: istr)
-        let result = try await self.opShortIntDSAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opShortIntDS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ShortIntDSHelper.write(to: ostr, value: iceP_p3)
@@ -8419,8 +8388,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: LongFloatDS = try LongFloatDSHelper.read(from: istr)
         let iceP_p2: LongFloatDS = try LongFloatDSHelper.read(from: istr)
-        let result = try await self.opLongFloatDSAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opLongFloatDS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             LongFloatDSHelper.write(to: ostr, value: iceP_p3)
@@ -8434,8 +8402,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: StringStringDS = try StringStringDSHelper.read(from: istr)
         let iceP_p2: StringStringDS = try StringStringDSHelper.read(from: istr)
-        let result = try await self.opStringStringDSAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opStringStringDS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             StringStringDSHelper.write(to: ostr, value: iceP_p3)
@@ -8449,8 +8416,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: StringMyEnumDS = try StringMyEnumDSHelper.read(from: istr)
         let iceP_p2: StringMyEnumDS = try StringMyEnumDSHelper.read(from: istr)
-        let result = try await self.opStringMyEnumDSAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opStringMyEnumDS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             StringMyEnumDSHelper.write(to: ostr, value: iceP_p3)
@@ -8464,8 +8430,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: MyEnumStringDS = try MyEnumStringDSHelper.read(from: istr)
         let iceP_p2: MyEnumStringDS = try MyEnumStringDSHelper.read(from: istr)
-        let result = try await self.opMyEnumStringDSAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opMyEnumStringDS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             MyEnumStringDSHelper.write(to: ostr, value: iceP_p3)
@@ -8479,8 +8444,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: MyStructMyEnumDS = try MyStructMyEnumDSHelper.read(from: istr)
         let iceP_p2: MyStructMyEnumDS = try MyStructMyEnumDSHelper.read(from: istr)
-        let result = try await self.opMyStructMyEnumDSAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opMyStructMyEnumDS(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             MyStructMyEnumDSHelper.write(to: ostr, value: iceP_p3)
@@ -8494,8 +8458,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: ByteByteSD = try ByteByteSDHelper.read(from: istr)
         let iceP_p2: ByteByteSD = try ByteByteSDHelper.read(from: istr)
-        let result = try await self.opByteByteSDAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opByteByteSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ByteByteSDHelper.write(to: ostr, value: iceP_p3)
@@ -8509,8 +8472,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: BoolBoolSD = try BoolBoolSDHelper.read(from: istr)
         let iceP_p2: BoolBoolSD = try BoolBoolSDHelper.read(from: istr)
-        let result = try await self.opBoolBoolSDAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opBoolBoolSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             BoolBoolSDHelper.write(to: ostr, value: iceP_p3)
@@ -8524,8 +8486,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: ShortShortSD = try ShortShortSDHelper.read(from: istr)
         let iceP_p2: ShortShortSD = try ShortShortSDHelper.read(from: istr)
-        let result = try await self.opShortShortSDAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opShortShortSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             ShortShortSDHelper.write(to: ostr, value: iceP_p3)
@@ -8539,8 +8500,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: IntIntSD = try IntIntSDHelper.read(from: istr)
         let iceP_p2: IntIntSD = try IntIntSDHelper.read(from: istr)
-        let result = try await self.opIntIntSDAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opIntIntSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             IntIntSDHelper.write(to: ostr, value: iceP_p3)
@@ -8554,8 +8514,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: LongLongSD = try LongLongSDHelper.read(from: istr)
         let iceP_p2: LongLongSD = try LongLongSDHelper.read(from: istr)
-        let result = try await self.opLongLongSDAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opLongLongSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             LongLongSDHelper.write(to: ostr, value: iceP_p3)
@@ -8569,8 +8528,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: StringFloatSD = try StringFloatSDHelper.read(from: istr)
         let iceP_p2: StringFloatSD = try StringFloatSDHelper.read(from: istr)
-        let result = try await self.opStringFloatSDAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opStringFloatSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             StringFloatSDHelper.write(to: ostr, value: iceP_p3)
@@ -8584,8 +8542,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: StringDoubleSD = try StringDoubleSDHelper.read(from: istr)
         let iceP_p2: StringDoubleSD = try StringDoubleSDHelper.read(from: istr)
-        let result = try await self.opStringDoubleSDAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opStringDoubleSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             StringDoubleSDHelper.write(to: ostr, value: iceP_p3)
@@ -8599,8 +8556,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: StringStringSD = try StringStringSDHelper.read(from: istr)
         let iceP_p2: StringStringSD = try StringStringSDHelper.read(from: istr)
-        let result = try await self.opStringStringSDAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opStringStringSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             StringStringSDHelper.write(to: ostr, value: iceP_p3)
@@ -8614,8 +8570,7 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: MyEnumMyEnumSD = try MyEnumMyEnumSDHelper.read(from: istr)
         let iceP_p2: MyEnumMyEnumSD = try MyEnumMyEnumSDHelper.read(from: istr)
-        let result = try await self.opMyEnumMyEnumSDAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        let result = try await self.opMyEnumMyEnumSD(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p3) = value
             MyEnumMyEnumSDHelper.write(to: ostr, value: iceP_p3)
@@ -8628,8 +8583,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_s: IntS = try istr.read()
-        let result = try await self.opIntSAsync(
-            s: iceP_s, current: request.current)
+        let result = try await self.opIntS(s: iceP_s, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -8641,16 +8595,14 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_s: ByteS = try istr.read()
-        try await self.opByteSOnewayAsync(
-            s: iceP_s, current: request.current)
+        try await self.opByteSOneway(s: iceP_s, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_opByteSOnewayCallCount(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        let result = try await self.opByteSOnewayCallCountAsync(
-            current: request.current)
+        let result = try await self.opByteSOnewayCallCount(current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -8660,8 +8612,7 @@ extension MyClass {
     public func _iceD_opContext(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        let result = try await self.opContextAsync(
-            current: request.current)
+        let result = try await self.opContext(current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             Ice.ContextHelper.write(to: ostr, value: iceP_returnValue)
@@ -8674,16 +8625,14 @@ extension MyClass {
         _ = try istr.startEncapsulation()
         let iceP_p1: Swift.Double = try istr.read()
         let iceP_p2: DoubleS = try istr.read()
-        try await self.opDoubleMarshalingAsync(
-            p1: iceP_p1, p2: iceP_p2, current: request.current)
+        try await self.opDoubleMarshaling(p1: iceP_p1, p2: iceP_p2, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_opIdempotent(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.opIdempotentAsync(
-            current: request.current)
+        try await self.opIdempotent(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -8692,8 +8641,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_opByte1: Swift.UInt8 = try istr.read()
-        let result = try await self.opByte1Async(
-            opByte1: iceP_opByte1, current: request.current)
+        let result = try await self.opByte1(opByte1: iceP_opByte1, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -8705,8 +8653,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_opShort1: Swift.Int16 = try istr.read()
-        let result = try await self.opShort1Async(
-            opShort1: iceP_opShort1, current: request.current)
+        let result = try await self.opShort1(opShort1: iceP_opShort1, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -8718,8 +8665,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_opInt1: Swift.Int32 = try istr.read()
-        let result = try await self.opInt1Async(
-            opInt1: iceP_opInt1, current: request.current)
+        let result = try await self.opInt1(opInt1: iceP_opInt1, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -8731,8 +8677,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_opLong1: Swift.Int64 = try istr.read()
-        let result = try await self.opLong1Async(
-            opLong1: iceP_opLong1, current: request.current)
+        let result = try await self.opLong1(opLong1: iceP_opLong1, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -8744,8 +8689,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_opFloat1: Swift.Float = try istr.read()
-        let result = try await self.opFloat1Async(
-            opFloat1: iceP_opFloat1, current: request.current)
+        let result = try await self.opFloat1(opFloat1: iceP_opFloat1, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -8757,8 +8701,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_opDouble1: Swift.Double = try istr.read()
-        let result = try await self.opDouble1Async(
-            opDouble1: iceP_opDouble1, current: request.current)
+        let result = try await self.opDouble1(opDouble1: iceP_opDouble1, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -8770,8 +8713,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_opString1: Swift.String = try istr.read()
-        let result = try await self.opString1Async(
-            opString1: iceP_opString1, current: request.current)
+        let result = try await self.opString1(opString1: iceP_opString1, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -8783,8 +8725,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_opStringS1: StringS = try istr.read()
-        let result = try await self.opStringS1Async(
-            opStringS1: iceP_opStringS1, current: request.current)
+        let result = try await self.opStringS1(opStringS1: iceP_opStringS1, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -8796,8 +8737,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_opByteBoolD1: ByteBoolD = try ByteBoolDHelper.read(from: istr)
-        let result = try await self.opByteBoolD1Async(
-            opByteBoolD1: iceP_opByteBoolD1, current: request.current)
+        let result = try await self.opByteBoolD1(opByteBoolD1: iceP_opByteBoolD1, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ByteBoolDHelper.write(to: ostr, value: iceP_returnValue)
@@ -8809,8 +8749,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_stringS: StringS = try istr.read()
-        let result = try await self.opStringS2Async(
-            stringS: iceP_stringS, current: request.current)
+        let result = try await self.opStringS2(stringS: iceP_stringS, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -8822,8 +8761,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_byteBoolD: ByteBoolD = try ByteBoolDHelper.read(from: istr)
-        let result = try await self.opByteBoolD2Async(
-            byteBoolD: iceP_byteBoolD, current: request.current)
+        let result = try await self.opByteBoolD2(byteBoolD: iceP_byteBoolD, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ByteBoolDHelper.write(to: ostr, value: iceP_returnValue)
@@ -8833,8 +8771,7 @@ extension MyClass {
     public func _iceD_opStringLiterals(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        let result = try await self.opStringLiteralsAsync(
-            current: request.current)
+        let result = try await self.opStringLiterals(current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -8844,8 +8781,7 @@ extension MyClass {
     public func _iceD_opWStringLiterals(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        let result = try await self.opWStringLiteralsAsync(
-            current: request.current)
+        let result = try await self.opWStringLiterals(current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -8855,8 +8791,7 @@ extension MyClass {
     public func _iceD_opMStruct1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        let result = try await self.opMStruct1Async(
-            current: request.current)
+        let result = try await self.opMStruct1(current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -8868,8 +8803,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_p1: Structure = try istr.read()
-        let result = try await self.opMStruct2Async(
-            p1: iceP_p1, current: request.current)
+        let result = try await self.opMStruct2(p1: iceP_p1, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p2) = value
             ostr.write(iceP_p2)
@@ -8880,8 +8814,7 @@ extension MyClass {
     public func _iceD_opMSeq1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        let result = try await self.opMSeq1Async(
-            current: request.current)
+        let result = try await self.opMSeq1(current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -8893,8 +8826,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_p1: StringS = try istr.read()
-        let result = try await self.opMSeq2Async(
-            p1: iceP_p1, current: request.current)
+        let result = try await self.opMSeq2(p1: iceP_p1, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p2) = value
             ostr.write(iceP_p2)
@@ -8905,8 +8837,7 @@ extension MyClass {
     public func _iceD_opMDict1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        let result = try await self.opMDict1Async(
-            current: request.current)
+        let result = try await self.opMDict1(current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             StringStringDHelper.write(to: ostr, value: iceP_returnValue)
@@ -8918,8 +8849,7 @@ extension MyClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_p1: StringStringD = try StringStringDHelper.read(from: istr)
-        let result = try await self.opMDict2Async(
-            p1: iceP_p1, current: request.current)
+        let result = try await self.opMDict2(p1: iceP_p1, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let (iceP_returnValue, iceP_p2) = value
             StringStringDHelper.write(to: ostr, value: iceP_p2)
@@ -8941,8 +8871,7 @@ extension MyDerivedClass {
     public func _iceD_opDerived(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.opDerivedAsync(
-            current: request.current)
+        try await self.opDerived(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -8953,8 +8882,7 @@ extension MyDerivedClass {
         var iceP_opMyClass1: MyClass1?
         try istr.read(MyClass1.self) { iceP_opMyClass1 = $0 }
         try istr.readPendingValues()
-        let result = try await self.opMyClass1Async(
-            opMyClass1: iceP_opMyClass1, current: request.current)
+        let result = try await self.opMyClass1(opMyClass1: iceP_opMyClass1, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -8967,8 +8895,7 @@ extension MyDerivedClass {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_opMyStruct1: MyStruct1 = try istr.read()
-        let result = try await self.opMyStruct1Async(
-            opMyStruct1: iceP_opMyStruct1, current: request.current)
+        let result = try await self.opMyStruct1(opMyStruct1: iceP_opMyStruct1, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)

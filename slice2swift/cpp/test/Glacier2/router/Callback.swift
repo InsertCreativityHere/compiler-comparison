@@ -693,13 +693,13 @@ public struct CallbackReceiverDisp: Ice.Dispatcher {
         case "concurrentCallback":
             try await servant._iceD_concurrentCallback(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? CallbackReceiverDisp.defaultObject)._iceD_ice_ping(request)
         case "waitCallback":
             try await servant._iceD_waitCallback(request)
         default:
@@ -711,11 +711,15 @@ public struct CallbackReceiverDisp: Ice.Dispatcher {
 public protocol CallbackReceiver {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func callback(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func callback(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func callbackEx(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func callbackEx(current: Ice.Current) async throws
 
     ///
     /// - parameter number: `Swift.Int32`
@@ -723,17 +727,21 @@ public protocol CallbackReceiver {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Swift.Int32` - The result of the operation
-    func concurrentCallbackAsync(number: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
+    func concurrentCallback(number: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func waitCallback(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func waitCallback(current: Ice.Current) async throws
 
     ///
     /// - parameter payload: `Ice.ByteSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func callbackWithPayload(payload: Ice.ByteSeq, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func callbackWithPayload(payload: Ice.ByteSeq, current: Ice.Current) async throws
 }
 
 
@@ -749,13 +757,13 @@ public struct CallbackDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? CallbackDisp.defaultObject)._iceD_ice_ping(request)
         case "initiateCallback":
             try await servant._iceD_initiateCallback(request)
         case "initiateCallbackEx":
@@ -781,7 +789,7 @@ public protocol Callback {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func initiateCallbackAsync(proxy: CallbackReceiverPrx?, current: Ice.Current) async throws -> Swift.Void
+    func initiateCallback(proxy: CallbackReceiverPrx?, current: Ice.Current) async throws
 
     ///
     /// - parameter proxy: `CallbackReceiverPrx?`
@@ -789,7 +797,7 @@ public protocol Callback {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func initiateCallbackExAsync(proxy: CallbackReceiverPrx?, current: Ice.Current) async throws -> Swift.Void
+    func initiateCallbackEx(proxy: CallbackReceiverPrx?, current: Ice.Current) async throws
 
     ///
     /// - parameter number: `Swift.Int32`
@@ -799,7 +807,7 @@ public protocol Callback {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Swift.Int32` - The result of the operation
-    func initiateConcurrentCallbackAsync(number: Swift.Int32, proxy: CallbackReceiverPrx?, current: Ice.Current) async throws -> Swift.Int32
+    func initiateConcurrentCallback(number: Swift.Int32, proxy: CallbackReceiverPrx?, current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter proxy: `CallbackReceiverPrx?`
@@ -807,7 +815,7 @@ public protocol Callback {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func initiateWaitCallbackAsync(proxy: CallbackReceiverPrx?, current: Ice.Current) async throws -> Swift.Void
+    func initiateWaitCallback(proxy: CallbackReceiverPrx?, current: Ice.Current) async throws
 
     ///
     /// - parameter proxy: `CallbackReceiverPrx?`
@@ -815,11 +823,13 @@ public protocol Callback {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func initiateCallbackWithPayloadAsync(proxy: CallbackReceiverPrx?, current: Ice.Current) async throws -> Swift.Void
+    func initiateCallbackWithPayload(proxy: CallbackReceiverPrx?, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// CallbackReceiver overview.
@@ -839,16 +849,14 @@ extension CallbackReceiver {
     public func _iceD_callback(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.callback(current: request.current)
+        try await self.callback(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_callbackEx(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.callbackEx(current: request.current)
+        try await self.callbackEx(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -857,8 +865,7 @@ extension CallbackReceiver {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_number: Swift.Int32 = try istr.read()
-        let result = try await self.concurrentCallbackAsync(
-            number: iceP_number, current: request.current)
+        let result = try await self.concurrentCallback(number: iceP_number, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -868,8 +875,7 @@ extension CallbackReceiver {
     public func _iceD_waitCallback(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.waitCallback(current: request.current)
+        try await self.waitCallback(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -878,8 +884,7 @@ extension CallbackReceiver {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_payload: Ice.ByteSeq = try istr.read()
-
-        try self.callbackWithPayload(payload: iceP_payload, current: request.current)
+        try await self.callbackWithPayload(payload: iceP_payload, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -905,8 +910,7 @@ extension Callback {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_proxy: CallbackReceiverPrx? = try istr.read(CallbackReceiverPrx.self)
-        try await self.initiateCallbackAsync(
-            proxy: iceP_proxy, current: request.current)
+        try await self.initiateCallback(proxy: iceP_proxy, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -915,8 +919,7 @@ extension Callback {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_proxy: CallbackReceiverPrx? = try istr.read(CallbackReceiverPrx.self)
-        try await self.initiateCallbackExAsync(
-            proxy: iceP_proxy, current: request.current)
+        try await self.initiateCallbackEx(proxy: iceP_proxy, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -926,8 +929,7 @@ extension Callback {
         _ = try istr.startEncapsulation()
         let iceP_number: Swift.Int32 = try istr.read()
         let iceP_proxy: CallbackReceiverPrx? = try istr.read(CallbackReceiverPrx.self)
-        let result = try await self.initiateConcurrentCallbackAsync(
-            number: iceP_number, proxy: iceP_proxy, current: request.current)
+        let result = try await self.initiateConcurrentCallback(number: iceP_number, proxy: iceP_proxy, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -939,8 +941,7 @@ extension Callback {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_proxy: CallbackReceiverPrx? = try istr.read(CallbackReceiverPrx.self)
-        try await self.initiateWaitCallbackAsync(
-            proxy: iceP_proxy, current: request.current)
+        try await self.initiateWaitCallback(proxy: iceP_proxy, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -949,16 +950,14 @@ extension Callback {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_proxy: CallbackReceiverPrx? = try istr.read(CallbackReceiverPrx.self)
-        try await self.initiateCallbackWithPayloadAsync(
-            proxy: iceP_proxy, current: request.current)
+        try await self.initiateCallbackWithPayload(proxy: iceP_proxy, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

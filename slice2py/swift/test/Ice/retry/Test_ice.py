@@ -62,12 +62,6 @@ if 'RetryPrx' not in _M_Test.__dict__:
         def opNotIdempotentAsync(self, context=None):
             return _M_Test.Retry._op_opNotIdempotent.invokeAsync(self, ((), context))
 
-        def sleep(self, delay, context=None):
-            return _M_Test.Retry._op_sleep.invoke(self, ((delay, ), context))
-
-        def sleepAsync(self, delay, context=None):
-            return _M_Test.Retry._op_sleep.invokeAsync(self, ((delay, ), context))
-
         def shutdown(self, context=None):
             return _M_Test.Retry._op_shutdown.invoke(self, ((), context))
 
@@ -112,9 +106,6 @@ if 'RetryPrx' not in _M_Test.__dict__:
         def opNotIdempotent(self, current=None):
             raise NotImplementedError("servant method 'opNotIdempotent' not implemented")
 
-        def sleep(self, delay, current=None):
-            raise NotImplementedError("servant method 'sleep' not implemented")
-
         def shutdown(self, current=None):
             raise NotImplementedError("servant method 'shutdown' not implemented")
 
@@ -129,7 +120,6 @@ if 'RetryPrx' not in _M_Test.__dict__:
     Retry._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0),), (), None, ())
     Retry._op_opIdempotent = IcePy.Operation('opIdempotent', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_int, False, 0),), (), ((), IcePy._t_int, False, 0), ())
     Retry._op_opNotIdempotent = IcePy.Operation('opNotIdempotent', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Retry._op_sleep = IcePy.Operation('sleep', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
     Retry._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
 
     _M_Test.Retry = Retry

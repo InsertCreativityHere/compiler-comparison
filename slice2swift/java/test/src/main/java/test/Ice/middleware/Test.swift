@@ -168,13 +168,13 @@ public struct MyObjectDisp: Ice.Dispatcher {
         case "getName":
             try await servant._iceD_getName(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? MyObjectDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -186,7 +186,7 @@ public protocol MyObject {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Swift.String` - The result of the operation
-    func getNameAsync(current: Ice.Current) async throws -> Swift.String
+    func getName(current: Ice.Current) async throws -> Swift.String
 }
 
 /// MyObject overview.
@@ -198,8 +198,7 @@ extension MyObject {
     public func _iceD_getName(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        let result = try await self.getNameAsync(
-            current: request.current)
+        let result = try await self.getName(current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)

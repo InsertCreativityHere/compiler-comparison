@@ -1020,13 +1020,13 @@ public struct catchDisp: Ice.Dispatcher {
         case "checkedCast":
             try await servant._iceD_checkedCast(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? catchDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? catchDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? catchDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? catchDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? catchDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? catchDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? catchDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? catchDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -1040,7 +1040,7 @@ public protocol `catch` {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Swift.Int32` - The result of the operation
-    func checkedCastAsync(clone: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
+    func checkedCast(clone: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 }
 
 
@@ -1058,13 +1058,13 @@ public struct defaultDisp: Ice.Dispatcher {
         case "do":
             try await servant._iceD_do(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? defaultDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? defaultDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? defaultDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? defaultDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? defaultDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? defaultDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? defaultDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? defaultDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -1074,7 +1074,9 @@ public struct defaultDisp: Ice.Dispatcher {
 public protocol `default` {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func `do`(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func `do`(current: Ice.Current) async throws
 }
 
 
@@ -1094,13 +1096,13 @@ public struct finalizeDisp: Ice.Dispatcher {
         case "do":
             try await servant._iceD_do(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? finalizeDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? finalizeDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? finalizeDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? finalizeDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? finalizeDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? finalizeDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? finalizeDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? finalizeDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -1122,13 +1124,13 @@ public struct newDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? newDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? newDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? newDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? newDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? newDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? newDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? newDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? newDisp.defaultObject)._iceD_ice_ping(request)
         case "notify":
             try await servant._iceD_notify(request)
         default:
@@ -1157,8 +1159,8 @@ public protocol new {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `assert`
-    func notify(notifyAll: `break`, null: `else`?, package: finalizePrx?, public: catchPrx?, return: defaultPrx?, static: Swift.Int32, strictfp: Swift.Int32, super: Swift.Int32, current: Ice.Current) throws -> assert
+    /// - returns: `assert` - The result of the operation
+    func notify(notifyAll: `break`, null: `else`?, package: finalizePrx?, public: catchPrx?, return: defaultPrx?, static: Swift.Int32, strictfp: Swift.Int32, super: Swift.Int32, current: Ice.Current) async throws -> assert
 }
 
 /// catch overview.
@@ -1172,8 +1174,7 @@ extension `catch` {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_clone: Swift.Int32 = try istr.read()
-        let result = try await self.checkedCastAsync(
-            clone: iceP_clone, current: request.current)
+        let result = try await self.checkedCast(clone: iceP_clone, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_continue = value
             ostr.write(iceP_continue)
@@ -1190,8 +1191,7 @@ extension `default` {
     public func _iceD_do(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.`do`(current: request.current)
+        try await self.`do`(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -1219,12 +1219,10 @@ extension new {
         let iceP_strictfp: Swift.Int32 = try istr.read()
         let iceP_super: Swift.Int32 = try istr.read()
         try istr.readPendingValues()
-
-        let iceP_returnValue = try self.notify(notifyAll: iceP_notifyAll, null: iceP_null, package: iceP_package, public: iceP_public, return: iceP_return, static: iceP_static, strictfp: iceP_strictfp, super: iceP_super, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.notify(notifyAll: iceP_notifyAll, null: iceP_null, package: iceP_package, public: iceP_public, return: iceP_return, static: iceP_static, strictfp: iceP_strictfp, super: iceP_super, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }

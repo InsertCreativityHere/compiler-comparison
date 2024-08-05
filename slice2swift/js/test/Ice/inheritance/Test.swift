@@ -2145,13 +2145,13 @@ public struct MAIADisp: Ice.Dispatcher {
         case "iaop":
             try await servant._iceD_iaop(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? MAIADisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? MAIADisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? MAIADisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? MAIADisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? MAIADisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? MAIADisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? MAIADisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? MAIADisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -2164,8 +2164,8 @@ public protocol MAIA {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `MAIAPrx?`
-    func iaop(p: MAIAPrx?, current: Ice.Current) throws -> MAIAPrx?
+    /// - returns: `MAIAPrx?` - The result of the operation
+    func iaop(p: MAIAPrx?, current: Ice.Current) async throws -> MAIAPrx?
 }
 
 
@@ -2185,13 +2185,13 @@ public struct MBIB1Disp: Ice.Dispatcher {
         case "ib1op":
             try await servant._iceD_ib1op(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? MBIB1Disp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? MBIB1Disp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? MBIB1Disp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? MBIB1Disp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? MBIB1Disp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? MBIB1Disp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? MBIB1Disp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? MBIB1Disp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -2204,8 +2204,8 @@ public protocol MBIB1: MAIA {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `MBIB1Prx?`
-    func ib1op(p: MBIB1Prx?, current: Ice.Current) throws -> MBIB1Prx?
+    /// - returns: `MBIB1Prx?` - The result of the operation
+    func ib1op(p: MBIB1Prx?, current: Ice.Current) async throws -> MBIB1Prx?
 }
 
 
@@ -2225,13 +2225,13 @@ public struct MBIB2Disp: Ice.Dispatcher {
         case "ib2op":
             try await servant._iceD_ib2op(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? MBIB2Disp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? MBIB2Disp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? MBIB2Disp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? MBIB2Disp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? MBIB2Disp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? MBIB2Disp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? MBIB2Disp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? MBIB2Disp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -2244,8 +2244,8 @@ public protocol MBIB2: MAIA {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `MBIB2Prx?`
-    func ib2op(p: MBIB2Prx?, current: Ice.Current) throws -> MBIB2Prx?
+    /// - returns: `MBIB2Prx?` - The result of the operation
+    func ib2op(p: MBIB2Prx?, current: Ice.Current) async throws -> MBIB2Prx?
 }
 
 
@@ -2267,13 +2267,13 @@ public struct MAICDisp: Ice.Dispatcher {
         case "ib2op":
             try await servant._iceD_ib2op(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? MAICDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? MAICDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? MAICDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? MAICDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? MAICDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? MAICDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? MAICDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? MAICDisp.defaultObject)._iceD_ice_ping(request)
         case "icop":
             try await servant._iceD_icop(request)
         default:
@@ -2288,8 +2288,8 @@ public protocol MAIC: MBIB1, MBIB2 {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `MAICPrx?`
-    func icop(p: MAICPrx?, current: Ice.Current) throws -> MAICPrx?
+    /// - returns: `MAICPrx?` - The result of the operation
+    func icop(p: MAICPrx?, current: Ice.Current) async throws -> MAICPrx?
 }
 
 
@@ -2311,13 +2311,13 @@ public struct InitialDisp: Ice.Dispatcher {
         case "ib2op":
             try await servant._iceD_ib2op(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? InitialDisp.defaultObject)._iceD_ice_ping(request)
         case "icop":
             try await servant._iceD_icop(request)
         case "shutdown":
@@ -2331,31 +2331,33 @@ public struct InitialDisp: Ice.Dispatcher {
 public protocol Initial {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `MAIAPrx?`
-    func iaop(current: Ice.Current) throws -> MAIAPrx?
+    /// - returns: `MAIAPrx?` - The result of the operation
+    func iaop(current: Ice.Current) async throws -> MAIAPrx?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `MBIB1Prx?`
-    func ib1op(current: Ice.Current) throws -> MBIB1Prx?
+    /// - returns: `MBIB1Prx?` - The result of the operation
+    func ib1op(current: Ice.Current) async throws -> MBIB1Prx?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `MBIB2Prx?`
-    func ib2op(current: Ice.Current) throws -> MBIB2Prx?
+    /// - returns: `MBIB2Prx?` - The result of the operation
+    func ib2op(current: Ice.Current) async throws -> MBIB2Prx?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `MAICPrx?`
-    func icop(current: Ice.Current) throws -> MAICPrx?
+    /// - returns: `MAICPrx?` - The result of the operation
+    func icop(current: Ice.Current) async throws -> MAICPrx?
 }
 
 
@@ -2373,13 +2375,13 @@ public struct EchoDisp: Ice.Dispatcher {
         case "flushBatch":
             try await servant._iceD_flushBatch(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? EchoDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? EchoDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? EchoDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? EchoDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? EchoDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? EchoDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? EchoDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? EchoDisp.defaultObject)._iceD_ice_ping(request)
         case "setConnection":
             try await servant._iceD_setConnection(request)
         case "shutdown":
@@ -2395,19 +2397,27 @@ public struct EchoDisp: Ice.Dispatcher {
 public protocol Echo {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func setConnection(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func setConnection(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func startBatch(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func startBatch(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func flushBatch(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func flushBatch(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// MAIA overview.
@@ -2421,13 +2431,11 @@ extension MAIA {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_p: MAIAPrx? = try istr.read(MAIAPrx.self)
-
-        let iceP_returnValue = try self.iaop(p: iceP_p, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.iaop(p: iceP_p, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }
 
@@ -2442,13 +2450,11 @@ extension MBIB1 {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_p: MBIB1Prx? = try istr.read(MBIB1Prx.self)
-
-        let iceP_returnValue = try self.ib1op(p: iceP_p, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.ib1op(p: iceP_p, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }
 
@@ -2463,13 +2469,11 @@ extension MBIB2 {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_p: MBIB2Prx? = try istr.read(MBIB2Prx.self)
-
-        let iceP_returnValue = try self.ib2op(p: iceP_p, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.ib2op(p: iceP_p, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }
 
@@ -2484,13 +2488,11 @@ extension MAIC {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_p: MAICPrx? = try istr.read(MAICPrx.self)
-
-        let iceP_returnValue = try self.icop(p: iceP_p, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.icop(p: iceP_p, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }
 
@@ -2511,57 +2513,48 @@ extension Initial {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_iaop(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.iaop(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.iaop(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_ib1op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.ib1op(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.ib1op(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_ib2op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.ib2op(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.ib2op(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_icop(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.icop(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.icop(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }
 
@@ -2580,32 +2573,28 @@ extension Echo {
     public func _iceD_setConnection(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.setConnection(current: request.current)
+        try await self.setConnection(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_startBatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.startBatch(current: request.current)
+        try await self.startBatch(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_flushBatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.flushBatch(current: request.current)
+        try await self.flushBatch(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

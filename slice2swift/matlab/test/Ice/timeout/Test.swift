@@ -419,13 +419,13 @@ public struct TimeoutDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? TimeoutDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TimeoutDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TimeoutDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TimeoutDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TimeoutDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TimeoutDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TimeoutDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TimeoutDisp.defaultObject)._iceD_ice_ping(request)
         case "op":
             try await servant._iceD_op(request)
         case "sendData":
@@ -441,19 +441,25 @@ public struct TimeoutDisp: Ice.Dispatcher {
 public protocol Timeout {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func op(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func op(current: Ice.Current) async throws
 
     ///
     /// - parameter seq: `ByteSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func sendData(seq: ByteSeq, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func sendData(seq: ByteSeq, current: Ice.Current) async throws
 
     ///
     /// - parameter to: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func sleep(to: Swift.Int32, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func sleep(to: Swift.Int32, current: Ice.Current) async throws
 }
 
 
@@ -471,13 +477,13 @@ public struct ControllerDisp: Ice.Dispatcher {
         case "holdAdapter":
             try await servant._iceD_holdAdapter(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_ping(request)
         case "resumeAdapter":
             try await servant._iceD_resumeAdapter(request)
         case "shutdown":
@@ -493,15 +499,21 @@ public protocol Controller {
     /// - parameter to: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func holdAdapter(to: Swift.Int32, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func holdAdapter(to: Swift.Int32, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func resumeAdapter(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func resumeAdapter(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// Timeout overview.
@@ -517,8 +529,7 @@ extension Timeout {
     public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.op(current: request.current)
+        try await self.op(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -527,8 +538,7 @@ extension Timeout {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_seq: ByteSeq = try istr.read()
-
-        try self.sendData(seq: iceP_seq, current: request.current)
+        try await self.sendData(seq: iceP_seq, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -537,8 +547,7 @@ extension Timeout {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_to: Swift.Int32 = try istr.read()
-
-        try self.sleep(to: iceP_to, current: request.current)
+        try await self.sleep(to: iceP_to, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -558,24 +567,21 @@ extension Controller {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_to: Swift.Int32 = try istr.read()
-
-        try self.holdAdapter(to: iceP_to, current: request.current)
+        try await self.holdAdapter(to: iceP_to, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_resumeAdapter(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.resumeAdapter(current: request.current)
+        try await self.resumeAdapter(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

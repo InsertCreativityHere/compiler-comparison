@@ -275,13 +275,13 @@ public struct PropertiesAdminDisp: Ice.Dispatcher {
         case "getProperty":
             try await servant._iceD_getProperty(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? PropertiesAdminDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? PropertiesAdminDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? PropertiesAdminDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? PropertiesAdminDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? PropertiesAdminDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? PropertiesAdminDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? PropertiesAdminDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? PropertiesAdminDisp.defaultObject)._iceD_ice_ping(request)
         case "setProperties":
             try await servant._iceD_setProperties(request)
         default:
@@ -298,8 +298,8 @@ public protocol PropertiesAdmin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The property value.
-    func getProperty(key: Swift.String, current: Current) throws -> Swift.String
+    /// - returns: `Swift.String` - The result of the operation
+    func getProperty(key: Swift.String, current: Current) async throws -> Swift.String
 
     /// Get all properties whose keys begin with prefix. If prefix is an empty string then all
     /// properties are returned.
@@ -308,8 +308,8 @@ public protocol PropertiesAdmin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PropertyDict` - The matching property set.
-    func getPropertiesForPrefix(prefix: Swift.String, current: Current) throws -> PropertyDict
+    /// - returns: `PropertyDict` - The result of the operation
+    func getPropertiesForPrefix(prefix: Swift.String, current: Current) async throws -> PropertyDict
 
     /// Update the communicator's properties with the given property set. If an entry in newProperties
     /// matches the name of an existing property, that property's value is replaced with the new value. If the new
@@ -319,7 +319,9 @@ public protocol PropertiesAdmin {
     /// - parameter newProperties: `PropertyDict` Properties to be added, changed, or removed.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func setProperties(newProperties: PropertyDict, current: Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func setProperties(newProperties: PropertyDict, current: Current) async throws
 }
 
 /// The PropertiesAdmin interface provides remote access to the properties of a communicator.
@@ -337,13 +339,11 @@ extension PropertiesAdmin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_key: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.getProperty(key: iceP_key, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getProperty(key: iceP_key, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getPropertiesForPrefix(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -351,13 +351,11 @@ extension PropertiesAdmin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_prefix: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.getPropertiesForPrefix(prefix: iceP_prefix, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        PropertyDictHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getPropertiesForPrefix(prefix: iceP_prefix, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            PropertyDictHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_setProperties(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -365,8 +363,7 @@ extension PropertiesAdmin {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_newProperties: PropertyDict = try PropertyDictHelper.read(from: istr)
-
-        try self.setProperties(newProperties: iceP_newProperties, current: request.current)
+        try await self.setProperties(newProperties: iceP_newProperties, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

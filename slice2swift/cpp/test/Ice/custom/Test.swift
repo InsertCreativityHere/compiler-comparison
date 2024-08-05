@@ -5192,13 +5192,13 @@ public struct DDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? DDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? DDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? DDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? DDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? DDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? DDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? DDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? DDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -5220,13 +5220,13 @@ public struct TestIntfDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
         case "opBoolArray":
             try await servant._iceD_opBoolArray(request)
         case "opBoolBuffer":
@@ -5305,12 +5305,8 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ShortSeq, outSeq: ShortSeq)`:
-    ///
-    ///   - returnValue: `ShortSeq`
-    ///
-    ///   - outSeq: `ShortSeq`
-    func opShortArray(inSeq: ShortSeq, current: Ice.Current) throws -> (returnValue: ShortSeq, outSeq: ShortSeq)
+    /// - returns: `(returnValue: ShortSeq, outSeq: ShortSeq)` - The result of the operation
+    func opShortArray(inSeq: ShortSeq, current: Ice.Current) async throws -> (returnValue: ShortSeq, outSeq: ShortSeq)
 
     ///
     /// - parameter padding: `Swift.Bool`
@@ -5319,368 +5315,254 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: DoubleSeq, outSeq: DoubleSeq)`:
-    ///
-    ///   - returnValue: `DoubleSeq`
-    ///
-    ///   - outSeq: `DoubleSeq`
-    func opDoubleArray(padding: Swift.Bool, inSeq: DoubleSeq, current: Ice.Current) throws -> (returnValue: DoubleSeq, outSeq: DoubleSeq)
+    /// - returns: `(returnValue: DoubleSeq, outSeq: DoubleSeq)` - The result of the operation
+    func opDoubleArray(padding: Swift.Bool, inSeq: DoubleSeq, current: Ice.Current) async throws -> (returnValue: DoubleSeq, outSeq: DoubleSeq)
 
     ///
     /// - parameter inSeq: `BoolSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: BoolSeq, outSeq: BoolSeq)`:
-    ///
-    ///   - returnValue: `BoolSeq`
-    ///
-    ///   - outSeq: `BoolSeq`
-    func opBoolArray(inSeq: BoolSeq, current: Ice.Current) throws -> (returnValue: BoolSeq, outSeq: BoolSeq)
+    /// - returns: `(returnValue: BoolSeq, outSeq: BoolSeq)` - The result of the operation
+    func opBoolArray(inSeq: BoolSeq, current: Ice.Current) async throws -> (returnValue: BoolSeq, outSeq: BoolSeq)
 
     ///
     /// - parameter inSeq: `ByteList`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ByteList, outSeq: ByteList)`:
-    ///
-    ///   - returnValue: `ByteList`
-    ///
-    ///   - outSeq: `ByteList`
-    func opByteArray(inSeq: ByteList, current: Ice.Current) throws -> (returnValue: ByteList, outSeq: ByteList)
+    /// - returns: `(returnValue: ByteList, outSeq: ByteList)` - The result of the operation
+    func opByteArray(inSeq: ByteList, current: Ice.Current) async throws -> (returnValue: ByteList, outSeq: ByteList)
 
     ///
     /// - parameter inSeq: `VariableList`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: VariableList, outSeq: VariableList)`:
-    ///
-    ///   - returnValue: `VariableList`
-    ///
-    ///   - outSeq: `VariableList`
-    func opVariableArray(inSeq: VariableList, current: Ice.Current) throws -> (returnValue: VariableList, outSeq: VariableList)
+    /// - returns: `(returnValue: VariableList, outSeq: VariableList)` - The result of the operation
+    func opVariableArray(inSeq: VariableList, current: Ice.Current) async throws -> (returnValue: VariableList, outSeq: VariableList)
 
     ///
     /// - parameter inSeq: `BoolSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: BoolSeq, outSeq: BoolSeq)`:
-    ///
-    ///   - returnValue: `BoolSeq`
-    ///
-    ///   - outSeq: `BoolSeq`
-    func opBoolSeq(inSeq: BoolSeq, current: Ice.Current) throws -> (returnValue: BoolSeq, outSeq: BoolSeq)
+    /// - returns: `(returnValue: BoolSeq, outSeq: BoolSeq)` - The result of the operation
+    func opBoolSeq(inSeq: BoolSeq, current: Ice.Current) async throws -> (returnValue: BoolSeq, outSeq: BoolSeq)
 
     ///
     /// - parameter inSeq: `BoolList`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: BoolList, outSeq: BoolList)`:
-    ///
-    ///   - returnValue: `BoolList`
-    ///
-    ///   - outSeq: `BoolList`
-    func opBoolList(inSeq: BoolList, current: Ice.Current) throws -> (returnValue: BoolList, outSeq: BoolList)
+    /// - returns: `(returnValue: BoolList, outSeq: BoolList)` - The result of the operation
+    func opBoolList(inSeq: BoolList, current: Ice.Current) async throws -> (returnValue: BoolList, outSeq: BoolList)
 
     ///
     /// - parameter inSeq: `BoolDequeList`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: BoolDequeList, outSeq: BoolDequeList)`:
-    ///
-    ///   - returnValue: `BoolDequeList`
-    ///
-    ///   - outSeq: `BoolDequeList`
-    func opBoolDequeList(inSeq: BoolDequeList, current: Ice.Current) throws -> (returnValue: BoolDequeList, outSeq: BoolDequeList)
+    /// - returns: `(returnValue: BoolDequeList, outSeq: BoolDequeList)` - The result of the operation
+    func opBoolDequeList(inSeq: BoolDequeList, current: Ice.Current) async throws -> (returnValue: BoolDequeList, outSeq: BoolDequeList)
 
     ///
     /// - parameter inSeq: `BoolDequeList`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: BoolDequeList, outSeq: BoolDequeList)`:
-    ///
-    ///   - returnValue: `BoolDequeList`
-    ///
-    ///   - outSeq: `BoolDequeList`
-    func opBoolDequeListArray(inSeq: BoolDequeList, current: Ice.Current) throws -> (returnValue: BoolDequeList, outSeq: BoolDequeList)
+    /// - returns: `(returnValue: BoolDequeList, outSeq: BoolDequeList)` - The result of the operation
+    func opBoolDequeListArray(inSeq: BoolDequeList, current: Ice.Current) async throws -> (returnValue: BoolDequeList, outSeq: BoolDequeList)
 
     ///
     /// - parameter inSeq: `ByteSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ByteSeq, outSeq: ByteSeq)`:
-    ///
-    ///   - returnValue: `ByteSeq`
-    ///
-    ///   - outSeq: `ByteSeq`
-    func opByteSeq(inSeq: ByteSeq, current: Ice.Current) throws -> (returnValue: ByteSeq, outSeq: ByteSeq)
+    /// - returns: `(returnValue: ByteSeq, outSeq: ByteSeq)` - The result of the operation
+    func opByteSeq(inSeq: ByteSeq, current: Ice.Current) async throws -> (returnValue: ByteSeq, outSeq: ByteSeq)
 
     ///
     /// - parameter inSeq: `ByteList`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ByteList, outSeq: ByteList)`:
-    ///
-    ///   - returnValue: `ByteList`
-    ///
-    ///   - outSeq: `ByteList`
-    func opByteList(inSeq: ByteList, current: Ice.Current) throws -> (returnValue: ByteList, outSeq: ByteList)
+    /// - returns: `(returnValue: ByteList, outSeq: ByteList)` - The result of the operation
+    func opByteList(inSeq: ByteList, current: Ice.Current) async throws -> (returnValue: ByteList, outSeq: ByteList)
 
     ///
     /// - parameter inSeq: `ByteSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ByteSeq, outSeq: ByteSeq)`:
-    ///
-    ///   - returnValue: `ByteSeq`
-    ///
-    ///   - outSeq: `ByteSeq`
-    func opMyByteSeq(inSeq: ByteSeq, current: Ice.Current) throws -> (returnValue: ByteSeq, outSeq: ByteSeq)
+    /// - returns: `(returnValue: ByteSeq, outSeq: ByteSeq)` - The result of the operation
+    func opMyByteSeq(inSeq: ByteSeq, current: Ice.Current) async throws -> (returnValue: ByteSeq, outSeq: ByteSeq)
 
     ///
     /// - parameter inSeq: `StringSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: StringSeq, outSeq: StringSeq)`:
-    ///
-    ///   - returnValue: `StringSeq`
-    ///
-    ///   - outSeq: `StringSeq`
-    func opStringSeq(inSeq: StringSeq, current: Ice.Current) throws -> (returnValue: StringSeq, outSeq: StringSeq)
+    /// - returns: `(returnValue: StringSeq, outSeq: StringSeq)` - The result of the operation
+    func opStringSeq(inSeq: StringSeq, current: Ice.Current) async throws -> (returnValue: StringSeq, outSeq: StringSeq)
 
     ///
     /// - parameter inSeq: `StringList`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: StringList, outSeq: StringList)`:
-    ///
-    ///   - returnValue: `StringList`
-    ///
-    ///   - outSeq: `StringList`
-    func opStringList(inSeq: StringList, current: Ice.Current) throws -> (returnValue: StringList, outSeq: StringList)
+    /// - returns: `(returnValue: StringList, outSeq: StringList)` - The result of the operation
+    func opStringList(inSeq: StringList, current: Ice.Current) async throws -> (returnValue: StringList, outSeq: StringList)
 
     ///
     /// - parameter inSeq: `FixedSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: FixedSeq, outSeq: FixedSeq)`:
-    ///
-    ///   - returnValue: `FixedSeq`
-    ///
-    ///   - outSeq: `FixedSeq`
-    func opFixedSeq(inSeq: FixedSeq, current: Ice.Current) throws -> (returnValue: FixedSeq, outSeq: FixedSeq)
+    /// - returns: `(returnValue: FixedSeq, outSeq: FixedSeq)` - The result of the operation
+    func opFixedSeq(inSeq: FixedSeq, current: Ice.Current) async throws -> (returnValue: FixedSeq, outSeq: FixedSeq)
 
     ///
     /// - parameter inSeq: `FixedList`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: FixedList, outSeq: FixedList)`:
-    ///
-    ///   - returnValue: `FixedList`
-    ///
-    ///   - outSeq: `FixedList`
-    func opFixedList(inSeq: FixedList, current: Ice.Current) throws -> (returnValue: FixedList, outSeq: FixedList)
+    /// - returns: `(returnValue: FixedList, outSeq: FixedList)` - The result of the operation
+    func opFixedList(inSeq: FixedList, current: Ice.Current) async throws -> (returnValue: FixedList, outSeq: FixedList)
 
     ///
     /// - parameter inSeq: `VariableSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: VariableSeq, outSeq: VariableSeq)`:
-    ///
-    ///   - returnValue: `VariableSeq`
-    ///
-    ///   - outSeq: `VariableSeq`
-    func opVariableSeq(inSeq: VariableSeq, current: Ice.Current) throws -> (returnValue: VariableSeq, outSeq: VariableSeq)
+    /// - returns: `(returnValue: VariableSeq, outSeq: VariableSeq)` - The result of the operation
+    func opVariableSeq(inSeq: VariableSeq, current: Ice.Current) async throws -> (returnValue: VariableSeq, outSeq: VariableSeq)
 
     ///
     /// - parameter inSeq: `VariableList`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: VariableList, outSeq: VariableList)`:
-    ///
-    ///   - returnValue: `VariableList`
-    ///
-    ///   - outSeq: `VariableList`
-    func opVariableList(inSeq: VariableList, current: Ice.Current) throws -> (returnValue: VariableList, outSeq: VariableList)
+    /// - returns: `(returnValue: VariableList, outSeq: VariableList)` - The result of the operation
+    func opVariableList(inSeq: VariableList, current: Ice.Current) async throws -> (returnValue: VariableList, outSeq: VariableList)
 
     ///
     /// - parameter inSeq: `StringStringDictSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: StringStringDictSeq, outSeq: StringStringDictSeq)`:
-    ///
-    ///   - returnValue: `StringStringDictSeq`
-    ///
-    ///   - outSeq: `StringStringDictSeq`
-    func opStringStringDictSeq(inSeq: StringStringDictSeq, current: Ice.Current) throws -> (returnValue: StringStringDictSeq, outSeq: StringStringDictSeq)
+    /// - returns: `(returnValue: StringStringDictSeq, outSeq: StringStringDictSeq)` - The result of the operation
+    func opStringStringDictSeq(inSeq: StringStringDictSeq, current: Ice.Current) async throws -> (returnValue: StringStringDictSeq, outSeq: StringStringDictSeq)
 
     ///
     /// - parameter inSeq: `StringStringDictList`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: StringStringDictList, outSeq: StringStringDictList)`:
-    ///
-    ///   - returnValue: `StringStringDictList`
-    ///
-    ///   - outSeq: `StringStringDictList`
-    func opStringStringDictList(inSeq: StringStringDictList, current: Ice.Current) throws -> (returnValue: StringStringDictList, outSeq: StringStringDictList)
+    /// - returns: `(returnValue: StringStringDictList, outSeq: StringStringDictList)` - The result of the operation
+    func opStringStringDictList(inSeq: StringStringDictList, current: Ice.Current) async throws -> (returnValue: StringStringDictList, outSeq: StringStringDictList)
 
     ///
     /// - parameter inSeq: `ESeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ESeq, outSeq: ESeq)`:
-    ///
-    ///   - returnValue: `ESeq`
-    ///
-    ///   - outSeq: `ESeq`
-    func opESeq(inSeq: ESeq, current: Ice.Current) throws -> (returnValue: ESeq, outSeq: ESeq)
+    /// - returns: `(returnValue: ESeq, outSeq: ESeq)` - The result of the operation
+    func opESeq(inSeq: ESeq, current: Ice.Current) async throws -> (returnValue: ESeq, outSeq: ESeq)
 
     ///
     /// - parameter inSeq: `EList`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: EList, outSeq: EList)`:
-    ///
-    ///   - returnValue: `EList`
-    ///
-    ///   - outSeq: `EList`
-    func opEList(inSeq: EList, current: Ice.Current) throws -> (returnValue: EList, outSeq: EList)
+    /// - returns: `(returnValue: EList, outSeq: EList)` - The result of the operation
+    func opEList(inSeq: EList, current: Ice.Current) async throws -> (returnValue: EList, outSeq: EList)
 
     ///
     /// - parameter inSeq: `DPrxSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: DPrxSeq, outSeq: DPrxSeq)`:
-    ///
-    ///   - returnValue: `DPrxSeq`
-    ///
-    ///   - outSeq: `DPrxSeq`
-    func opDPrxSeq(inSeq: DPrxSeq, current: Ice.Current) throws -> (returnValue: DPrxSeq, outSeq: DPrxSeq)
+    /// - returns: `(returnValue: DPrxSeq, outSeq: DPrxSeq)` - The result of the operation
+    func opDPrxSeq(inSeq: DPrxSeq, current: Ice.Current) async throws -> (returnValue: DPrxSeq, outSeq: DPrxSeq)
 
     ///
     /// - parameter inSeq: `DPrxList`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: DPrxList, outSeq: DPrxList)`:
-    ///
-    ///   - returnValue: `DPrxList`
-    ///
-    ///   - outSeq: `DPrxList`
-    func opDPrxList(inSeq: DPrxList, current: Ice.Current) throws -> (returnValue: DPrxList, outSeq: DPrxList)
+    /// - returns: `(returnValue: DPrxList, outSeq: DPrxList)` - The result of the operation
+    func opDPrxList(inSeq: DPrxList, current: Ice.Current) async throws -> (returnValue: DPrxList, outSeq: DPrxList)
 
     ///
     /// - parameter inSeq: `CSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: CSeq, outSeq: CSeq)`:
-    ///
-    ///   - returnValue: `CSeq`
-    ///
-    ///   - outSeq: `CSeq`
-    func opCSeq(inSeq: CSeq, current: Ice.Current) throws -> (returnValue: CSeq, outSeq: CSeq)
+    /// - returns: `(returnValue: CSeq, outSeq: CSeq)` - The result of the operation
+    func opCSeq(inSeq: CSeq, current: Ice.Current) async throws -> (returnValue: CSeq, outSeq: CSeq)
 
     ///
     /// - parameter inSeq: `CList`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: CList, outSeq: CList)`:
-    ///
-    ///   - returnValue: `CList`
-    ///
-    ///   - outSeq: `CList`
-    func opCList(inSeq: CList, current: Ice.Current) throws -> (returnValue: CList, outSeq: CList)
+    /// - returns: `(returnValue: CList, outSeq: CList)` - The result of the operation
+    func opCList(inSeq: CList, current: Ice.Current) async throws -> (returnValue: CList, outSeq: CList)
 
     ///
     /// - parameter org: `ByteSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ByteSeq`
-    func opOutArrayByteSeq(org: ByteSeq, current: Ice.Current) throws -> ByteSeq
+    /// - returns: `ByteSeq` - The result of the operation
+    func opOutArrayByteSeq(org: ByteSeq, current: Ice.Current) async throws -> ByteSeq
 
     ///
     /// - parameter idict: `IntStringDict`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: IntStringDict, odict: IntStringDict)`:
-    ///
-    ///   - returnValue: `IntStringDict`
-    ///
-    ///   - odict: `IntStringDict`
-    func opIntStringDict(idict: IntStringDict, current: Ice.Current) throws -> (returnValue: IntStringDict, odict: IntStringDict)
+    /// - returns: `(returnValue: IntStringDict, odict: IntStringDict)` - The result of the operation
+    func opIntStringDict(idict: IntStringDict, current: Ice.Current) async throws -> (returnValue: IntStringDict, odict: IntStringDict)
 
     ///
     /// - parameter idict: `StringIntDict`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: LongLongDict, odict: StringIntDict)`:
-    ///
-    ///   - returnValue: `LongLongDict`
-    ///
-    ///   - odict: `StringIntDict`
-    func opVarDict(idict: StringIntDict, current: Ice.Current) throws -> (returnValue: LongLongDict, odict: StringIntDict)
+    /// - returns: `(returnValue: LongLongDict, odict: StringIntDict)` - The result of the operation
+    func opVarDict(idict: StringIntDict, current: Ice.Current) async throws -> (returnValue: LongLongDict, odict: StringIntDict)
 
     ///
     /// - parameter inS: `ShortBuffer`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ShortBuffer, outS: ShortBuffer)`:
-    ///
-    ///   - returnValue: `ShortBuffer`
-    ///
-    ///   - outS: `ShortBuffer`
-    func opShortBuffer(inS: ShortBuffer, current: Ice.Current) throws -> (returnValue: ShortBuffer, outS: ShortBuffer)
+    /// - returns: `(returnValue: ShortBuffer, outS: ShortBuffer)` - The result of the operation
+    func opShortBuffer(inS: ShortBuffer, current: Ice.Current) async throws -> (returnValue: ShortBuffer, outS: ShortBuffer)
 
     ///
     /// - parameter inS: `BoolSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: BoolSeq, outS: BoolSeq)`:
-    ///
-    ///   - returnValue: `BoolSeq`
-    ///
-    ///   - outS: `BoolSeq`
-    func opBoolBuffer(inS: BoolSeq, current: Ice.Current) throws -> (returnValue: BoolSeq, outS: BoolSeq)
+    /// - returns: `(returnValue: BoolSeq, outS: BoolSeq)` - The result of the operation
+    func opBoolBuffer(inS: BoolSeq, current: Ice.Current) async throws -> (returnValue: BoolSeq, outS: BoolSeq)
 
     ///
     /// - parameter s: `BufferStruct`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `BufferStruct`
-    func opBufferStruct(s: BufferStruct, current: Ice.Current) throws -> BufferStruct
+    /// - returns: `BufferStruct` - The result of the operation
+    func opBufferStruct(s: BufferStruct, current: Ice.Current) async throws -> BufferStruct
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// D overview.
@@ -5761,14 +5643,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_inSeq: ShortSeq = try istr.read()
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opShortArray(inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_outSeq)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opShortArray(inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            ostr.write(iceP_outSeq)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opDoubleArray(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5777,14 +5657,12 @@ extension TestIntf {
         _ = try istr.startEncapsulation()
         let iceP_padding: Swift.Bool = try istr.read()
         let iceP_inSeq: DoubleSeq = try istr.read()
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opDoubleArray(padding: iceP_padding, inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_outSeq)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opDoubleArray(padding: iceP_padding, inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            ostr.write(iceP_outSeq)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opBoolArray(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5792,14 +5670,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_inSeq: BoolSeq = try istr.read()
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opBoolArray(inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_outSeq)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opBoolArray(inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            ostr.write(iceP_outSeq)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opByteArray(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5807,14 +5683,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_inSeq: ByteList = try istr.read()
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opByteArray(inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_outSeq)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opByteArray(inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            ostr.write(iceP_outSeq)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opVariableArray(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5822,14 +5696,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_inSeq: VariableList = try VariableListHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opVariableArray(inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        VariableListHelper.write(to: ostr, value: iceP_outSeq)
-        VariableListHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opVariableArray(inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            VariableListHelper.write(to: ostr, value: iceP_outSeq)
+            VariableListHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opBoolSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5837,14 +5709,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_inSeq: BoolSeq = try istr.read()
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opBoolSeq(inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_outSeq)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opBoolSeq(inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            ostr.write(iceP_outSeq)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opBoolList(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5852,14 +5722,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_inSeq: BoolList = try istr.read()
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opBoolList(inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_outSeq)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opBoolList(inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            ostr.write(iceP_outSeq)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opBoolDequeList(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5867,14 +5735,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_inSeq: BoolDequeList = try BoolDequeListHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opBoolDequeList(inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        BoolDequeListHelper.write(to: ostr, value: iceP_outSeq)
-        BoolDequeListHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opBoolDequeList(inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            BoolDequeListHelper.write(to: ostr, value: iceP_outSeq)
+            BoolDequeListHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opBoolDequeListArray(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5882,14 +5748,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_inSeq: BoolDequeList = try BoolDequeListHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opBoolDequeListArray(inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        BoolDequeListHelper.write(to: ostr, value: iceP_outSeq)
-        BoolDequeListHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opBoolDequeListArray(inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            BoolDequeListHelper.write(to: ostr, value: iceP_outSeq)
+            BoolDequeListHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opByteSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5897,14 +5761,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_inSeq: ByteSeq = try istr.read()
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opByteSeq(inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_outSeq)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opByteSeq(inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            ostr.write(iceP_outSeq)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opByteList(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5912,14 +5774,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_inSeq: ByteList = try istr.read()
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opByteList(inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_outSeq)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opByteList(inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            ostr.write(iceP_outSeq)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opMyByteSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5927,14 +5787,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_inSeq: ByteSeq = try istr.read()
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opMyByteSeq(inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_outSeq)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opMyByteSeq(inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            ostr.write(iceP_outSeq)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opStringSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5942,14 +5800,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_inSeq: StringSeq = try istr.read()
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opStringSeq(inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_outSeq)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opStringSeq(inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            ostr.write(iceP_outSeq)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opStringList(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5957,14 +5813,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_inSeq: StringList = try istr.read()
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opStringList(inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_outSeq)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opStringList(inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            ostr.write(iceP_outSeq)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opFixedSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5972,14 +5826,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_inSeq: FixedSeq = try FixedSeqHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opFixedSeq(inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        FixedSeqHelper.write(to: ostr, value: iceP_outSeq)
-        FixedSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opFixedSeq(inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            FixedSeqHelper.write(to: ostr, value: iceP_outSeq)
+            FixedSeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opFixedList(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -5987,14 +5839,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_inSeq: FixedList = try FixedListHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opFixedList(inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        FixedListHelper.write(to: ostr, value: iceP_outSeq)
-        FixedListHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opFixedList(inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            FixedListHelper.write(to: ostr, value: iceP_outSeq)
+            FixedListHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opVariableSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -6002,14 +5852,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_inSeq: VariableSeq = try VariableSeqHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opVariableSeq(inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        VariableSeqHelper.write(to: ostr, value: iceP_outSeq)
-        VariableSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opVariableSeq(inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            VariableSeqHelper.write(to: ostr, value: iceP_outSeq)
+            VariableSeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opVariableList(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -6017,14 +5865,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_inSeq: VariableList = try VariableListHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opVariableList(inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        VariableListHelper.write(to: ostr, value: iceP_outSeq)
-        VariableListHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opVariableList(inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            VariableListHelper.write(to: ostr, value: iceP_outSeq)
+            VariableListHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opStringStringDictSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -6032,14 +5878,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_inSeq: StringStringDictSeq = try StringStringDictSeqHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opStringStringDictSeq(inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        StringStringDictSeqHelper.write(to: ostr, value: iceP_outSeq)
-        StringStringDictSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opStringStringDictSeq(inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            StringStringDictSeqHelper.write(to: ostr, value: iceP_outSeq)
+            StringStringDictSeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opStringStringDictList(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -6047,14 +5891,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_inSeq: StringStringDictList = try StringStringDictListHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opStringStringDictList(inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        StringStringDictListHelper.write(to: ostr, value: iceP_outSeq)
-        StringStringDictListHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opStringStringDictList(inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            StringStringDictListHelper.write(to: ostr, value: iceP_outSeq)
+            StringStringDictListHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opESeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -6062,14 +5904,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_inSeq: ESeq = try ESeqHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opESeq(inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ESeqHelper.write(to: ostr, value: iceP_outSeq)
-        ESeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opESeq(inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            ESeqHelper.write(to: ostr, value: iceP_outSeq)
+            ESeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opEList(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -6077,14 +5917,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_inSeq: EList = try EListHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opEList(inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        EListHelper.write(to: ostr, value: iceP_outSeq)
-        EListHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opEList(inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            EListHelper.write(to: ostr, value: iceP_outSeq)
+            EListHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opDPrxSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -6092,14 +5930,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_inSeq: DPrxSeq = try DPrxSeqHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opDPrxSeq(inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        DPrxSeqHelper.write(to: ostr, value: iceP_outSeq)
-        DPrxSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opDPrxSeq(inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            DPrxSeqHelper.write(to: ostr, value: iceP_outSeq)
+            DPrxSeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opDPrxList(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -6107,14 +5943,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_inSeq: DPrxList = try DPrxListHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opDPrxList(inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        DPrxListHelper.write(to: ostr, value: iceP_outSeq)
-        DPrxListHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opDPrxList(inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            DPrxListHelper.write(to: ostr, value: iceP_outSeq)
+            DPrxListHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opCSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -6123,15 +5957,13 @@ extension TestIntf {
         _ = try istr.startEncapsulation()
         let iceP_inSeq: CSeq = try CSeqHelper.read(from: istr)
         try istr.readPendingValues()
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opCSeq(inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        CSeqHelper.write(to: ostr, value: iceP_outSeq)
-        CSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opCSeq(inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            CSeqHelper.write(to: ostr, value: iceP_outSeq)
+            CSeqHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_opCList(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -6140,15 +5972,13 @@ extension TestIntf {
         _ = try istr.startEncapsulation()
         let iceP_inSeq: CList = try CListHelper.read(from: istr)
         try istr.readPendingValues()
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opCList(inSeq: iceP_inSeq, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        CListHelper.write(to: ostr, value: iceP_outSeq)
-        CListHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.writePendingValues()
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opCList(inSeq: iceP_inSeq, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outSeq) = value
+            CListHelper.write(to: ostr, value: iceP_outSeq)
+            CListHelper.write(to: ostr, value: iceP_returnValue)
+            ostr.writePendingValues()
+        }
     }
 
     public func _iceD_opOutArrayByteSeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -6156,13 +5986,11 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_org: ByteSeq = try istr.read()
-
-        let iceP_copy = try self.opOutArrayByteSeq(org: iceP_org, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_copy)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opOutArrayByteSeq(org: iceP_org, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_copy = value
+            ostr.write(iceP_copy)
+        }
     }
 
     public func _iceD_opIntStringDict(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -6170,14 +5998,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_idict: IntStringDict = try IntStringDictHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_odict) = try self.opIntStringDict(idict: iceP_idict, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        IntStringDictHelper.write(to: ostr, value: iceP_odict)
-        IntStringDictHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opIntStringDict(idict: iceP_idict, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_odict) = value
+            IntStringDictHelper.write(to: ostr, value: iceP_odict)
+            IntStringDictHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opVarDict(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -6185,14 +6011,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_idict: StringIntDict = try StringIntDictHelper.read(from: istr)
-
-        let (iceP_returnValue, iceP_odict) = try self.opVarDict(idict: iceP_idict, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        StringIntDictHelper.write(to: ostr, value: iceP_odict)
-        LongLongDictHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opVarDict(idict: iceP_idict, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_odict) = value
+            StringIntDictHelper.write(to: ostr, value: iceP_odict)
+            LongLongDictHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_opShortBuffer(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -6200,14 +6024,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_inS: ShortBuffer = try istr.read()
-
-        let (iceP_returnValue, iceP_outS) = try self.opShortBuffer(inS: iceP_inS, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_outS)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opShortBuffer(inS: iceP_inS, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outS) = value
+            ostr.write(iceP_outS)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opBoolBuffer(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -6215,14 +6037,12 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_inS: BoolSeq = try istr.read()
-
-        let (iceP_returnValue, iceP_outS) = try self.opBoolBuffer(inS: iceP_inS, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_outS)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opBoolBuffer(inS: iceP_inS, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_outS) = value
+            ostr.write(iceP_outS)
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opBufferStruct(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -6230,20 +6050,17 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_s: BufferStruct = try istr.read()
-
-        let iceP_returnValue = try self.opBufferStruct(s: iceP_s, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opBufferStruct(s: iceP_s, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

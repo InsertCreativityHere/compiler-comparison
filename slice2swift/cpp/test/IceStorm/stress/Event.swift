@@ -166,13 +166,13 @@ public struct EventDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? EventDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? EventDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? EventDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? EventDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? EventDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? EventDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? EventDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? EventDisp.defaultObject)._iceD_ice_ping(request)
         case "pub":
             try await servant._iceD_pub(request)
         default:
@@ -186,7 +186,9 @@ public protocol Event {
     /// - parameter counter: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func pub(counter: Swift.Int32, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func pub(counter: Swift.Int32, current: Ice.Current) async throws
 }
 
 /// Event overview.
@@ -200,8 +202,7 @@ extension Event {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_counter: Swift.Int32 = try istr.read()
-
-        try self.pub(counter: iceP_counter, current: request.current)
+        try await self.pub(counter: iceP_counter, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

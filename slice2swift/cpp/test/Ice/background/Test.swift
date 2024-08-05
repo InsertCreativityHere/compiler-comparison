@@ -695,13 +695,13 @@ public struct BackgroundDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? BackgroundDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? BackgroundDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? BackgroundDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? BackgroundDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? BackgroundDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? BackgroundDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? BackgroundDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? BackgroundDisp.defaultObject)._iceD_ice_ping(request)
         case "op":
             try await servant._iceD_op(request)
         case "opWithPayload":
@@ -717,17 +717,23 @@ public struct BackgroundDisp: Ice.Dispatcher {
 public protocol Background {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func op(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func op(current: Ice.Current) async throws
 
     ///
     /// - parameter seq: `Ice.ByteSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func opWithPayload(seq: Ice.ByteSeq, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func opWithPayload(seq: Ice.ByteSeq, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 
@@ -747,13 +753,13 @@ public struct BackgroundControllerDisp: Ice.Dispatcher {
         case "holdAdapter":
             try await servant._iceD_holdAdapter(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? BackgroundControllerDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? BackgroundControllerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? BackgroundControllerDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? BackgroundControllerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? BackgroundControllerDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? BackgroundControllerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? BackgroundControllerDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? BackgroundControllerDisp.defaultObject)._iceD_ice_ping(request)
         case "initializeException":
             try await servant._iceD_initializeException(request)
         case "initializeSocketOperation":
@@ -783,63 +789,85 @@ public protocol BackgroundController {
     /// - parameter call: `Swift.String`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func pauseCall(call: Swift.String, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func pauseCall(call: Swift.String, current: Ice.Current) async throws
 
     ///
     /// - parameter call: `Swift.String`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func resumeCall(call: Swift.String, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func resumeCall(call: Swift.String, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func holdAdapter(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func holdAdapter(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func resumeAdapter(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func resumeAdapter(current: Ice.Current) async throws
 
     ///
     /// - parameter status: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func initializeSocketOperation(status: Swift.Int32, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func initializeSocketOperation(status: Swift.Int32, current: Ice.Current) async throws
 
     ///
     /// - parameter enable: `Swift.Bool`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func initializeException(enable: Swift.Bool, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func initializeException(enable: Swift.Bool, current: Ice.Current) async throws
 
     ///
     /// - parameter enable: `Swift.Bool`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func readReady(enable: Swift.Bool, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func readReady(enable: Swift.Bool, current: Ice.Current) async throws
 
     ///
     /// - parameter enable: `Swift.Bool`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func readException(enable: Swift.Bool, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func readException(enable: Swift.Bool, current: Ice.Current) async throws
 
     ///
     /// - parameter enable: `Swift.Bool`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func writeReady(enable: Swift.Bool, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func writeReady(enable: Swift.Bool, current: Ice.Current) async throws
 
     ///
     /// - parameter enable: `Swift.Bool`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func writeException(enable: Swift.Bool, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func writeException(enable: Swift.Bool, current: Ice.Current) async throws
 
     ///
     /// - parameter enable: `Swift.Bool`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func buffered(enable: Swift.Bool, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func buffered(enable: Swift.Bool, current: Ice.Current) async throws
 }
 
 /// Background overview.
@@ -855,8 +883,7 @@ extension Background {
     public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.op(current: request.current)
+        try await self.op(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -865,16 +892,14 @@ extension Background {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_seq: Ice.ByteSeq = try istr.read()
-
-        try self.opWithPayload(seq: iceP_seq, current: request.current)
+        try await self.opWithPayload(seq: iceP_seq, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -910,8 +935,7 @@ extension BackgroundController {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_call: Swift.String = try istr.read()
-
-        try self.pauseCall(call: iceP_call, current: request.current)
+        try await self.pauseCall(call: iceP_call, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -920,24 +944,21 @@ extension BackgroundController {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_call: Swift.String = try istr.read()
-
-        try self.resumeCall(call: iceP_call, current: request.current)
+        try await self.resumeCall(call: iceP_call, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_holdAdapter(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.holdAdapter(current: request.current)
+        try await self.holdAdapter(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_resumeAdapter(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.resumeAdapter(current: request.current)
+        try await self.resumeAdapter(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -946,8 +967,7 @@ extension BackgroundController {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_status: Swift.Int32 = try istr.read()
-
-        try self.initializeSocketOperation(status: iceP_status, current: request.current)
+        try await self.initializeSocketOperation(status: iceP_status, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -956,8 +976,7 @@ extension BackgroundController {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_enable: Swift.Bool = try istr.read()
-
-        try self.initializeException(enable: iceP_enable, current: request.current)
+        try await self.initializeException(enable: iceP_enable, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -966,8 +985,7 @@ extension BackgroundController {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_enable: Swift.Bool = try istr.read()
-
-        try self.readReady(enable: iceP_enable, current: request.current)
+        try await self.readReady(enable: iceP_enable, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -976,8 +994,7 @@ extension BackgroundController {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_enable: Swift.Bool = try istr.read()
-
-        try self.readException(enable: iceP_enable, current: request.current)
+        try await self.readException(enable: iceP_enable, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -986,8 +1003,7 @@ extension BackgroundController {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_enable: Swift.Bool = try istr.read()
-
-        try self.writeReady(enable: iceP_enable, current: request.current)
+        try await self.writeReady(enable: iceP_enable, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -996,8 +1012,7 @@ extension BackgroundController {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_enable: Swift.Bool = try istr.read()
-
-        try self.writeException(enable: iceP_enable, current: request.current)
+        try await self.writeException(enable: iceP_enable, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1006,8 +1021,7 @@ extension BackgroundController {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_enable: Swift.Bool = try istr.read()
-
-        try self.buffered(enable: iceP_enable, current: request.current)
+        try await self.buffered(enable: iceP_enable, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

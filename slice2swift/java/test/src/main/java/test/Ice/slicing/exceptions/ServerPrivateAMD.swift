@@ -1035,13 +1035,13 @@ public struct TestIntfDisp: Ice.Dispatcher {
         case "baseAsBase":
             try await servant._iceD_baseAsBase(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
         case "knownDerivedAsBase":
             try await servant._iceD_knownDerivedAsBase(request)
         case "knownDerivedAsKnownDerived":
@@ -1079,85 +1079,85 @@ public protocol TestIntf {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func baseAsBaseAsync(current: Ice.Current) async throws -> Swift.Void
+    func baseAsBase(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func unknownDerivedAsBaseAsync(current: Ice.Current) async throws -> Swift.Void
+    func unknownDerivedAsBase(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func knownDerivedAsBaseAsync(current: Ice.Current) async throws -> Swift.Void
+    func knownDerivedAsBase(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func knownDerivedAsKnownDerivedAsync(current: Ice.Current) async throws -> Swift.Void
+    func knownDerivedAsKnownDerived(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func unknownIntermediateAsBaseAsync(current: Ice.Current) async throws -> Swift.Void
+    func unknownIntermediateAsBase(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func knownIntermediateAsBaseAsync(current: Ice.Current) async throws -> Swift.Void
+    func knownIntermediateAsBase(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func knownMostDerivedAsBaseAsync(current: Ice.Current) async throws -> Swift.Void
+    func knownMostDerivedAsBase(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func knownIntermediateAsKnownIntermediateAsync(current: Ice.Current) async throws -> Swift.Void
+    func knownIntermediateAsKnownIntermediate(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func knownMostDerivedAsKnownIntermediateAsync(current: Ice.Current) async throws -> Swift.Void
+    func knownMostDerivedAsKnownIntermediate(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func knownMostDerivedAsKnownMostDerivedAsync(current: Ice.Current) async throws -> Swift.Void
+    func knownMostDerivedAsKnownMostDerived(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func unknownMostDerived1AsBaseAsync(current: Ice.Current) async throws -> Swift.Void
+    func unknownMostDerived1AsBase(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func unknownMostDerived1AsKnownIntermediateAsync(current: Ice.Current) async throws -> Swift.Void
+    func unknownMostDerived1AsKnownIntermediate(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func unknownMostDerived2AsBaseAsync(current: Ice.Current) async throws -> Swift.Void
+    func unknownMostDerived2AsBase(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func shutdownAsync(current: Ice.Current) async throws -> Swift.Void
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// TestIntf overview.
@@ -1195,112 +1195,98 @@ extension TestIntf {
     public func _iceD_baseAsBase(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.baseAsBaseAsync(
-            current: request.current)
+        try await self.baseAsBase(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_unknownDerivedAsBase(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.unknownDerivedAsBaseAsync(
-            current: request.current)
+        try await self.unknownDerivedAsBase(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_knownDerivedAsBase(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.knownDerivedAsBaseAsync(
-            current: request.current)
+        try await self.knownDerivedAsBase(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_knownDerivedAsKnownDerived(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.knownDerivedAsKnownDerivedAsync(
-            current: request.current)
+        try await self.knownDerivedAsKnownDerived(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_unknownIntermediateAsBase(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.unknownIntermediateAsBaseAsync(
-            current: request.current)
+        try await self.unknownIntermediateAsBase(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_knownIntermediateAsBase(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.knownIntermediateAsBaseAsync(
-            current: request.current)
+        try await self.knownIntermediateAsBase(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_knownMostDerivedAsBase(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.knownMostDerivedAsBaseAsync(
-            current: request.current)
+        try await self.knownMostDerivedAsBase(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_knownIntermediateAsKnownIntermediate(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.knownIntermediateAsKnownIntermediateAsync(
-            current: request.current)
+        try await self.knownIntermediateAsKnownIntermediate(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_knownMostDerivedAsKnownIntermediate(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.knownMostDerivedAsKnownIntermediateAsync(
-            current: request.current)
+        try await self.knownMostDerivedAsKnownIntermediate(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_knownMostDerivedAsKnownMostDerived(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.knownMostDerivedAsKnownMostDerivedAsync(
-            current: request.current)
+        try await self.knownMostDerivedAsKnownMostDerived(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_unknownMostDerived1AsBase(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.unknownMostDerived1AsBaseAsync(
-            current: request.current)
+        try await self.unknownMostDerived1AsBase(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_unknownMostDerived1AsKnownIntermediate(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.unknownMostDerived1AsKnownIntermediateAsync(
-            current: request.current)
+        try await self.unknownMostDerived1AsKnownIntermediate(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_unknownMostDerived2AsBase(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.unknownMostDerived2AsBaseAsync(
-            current: request.current)
+        try await self.unknownMostDerived2AsBase(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.shutdownAsync(
-            current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

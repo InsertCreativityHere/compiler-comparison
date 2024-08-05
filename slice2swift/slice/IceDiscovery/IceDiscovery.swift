@@ -439,13 +439,13 @@ public struct LookupReplyDisp: Ice.Dispatcher {
         case "foundObjectById":
             try await servant._iceD_foundObjectById(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -461,7 +461,9 @@ public protocol LookupReply {
     /// - parameter prx: `Ice.ObjectPrx?` The proxy of the object. This proxy is never null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func foundObjectById(id: Ice.Identity, prx: Ice.ObjectPrx?, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func foundObjectById(id: Ice.Identity, prx: Ice.ObjectPrx?, current: Ice.Current) async throws
 
     /// Reply to the findAdpaterById request.
     ///
@@ -473,7 +475,9 @@ public protocol LookupReply {
     /// - parameter isReplicaGroup: `Swift.Bool` True if the adapter is also a member of a replica group.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func foundAdapterById(id: Swift.String, prx: Ice.ObjectPrx?, isReplicaGroup: Swift.Bool, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func foundAdapterById(id: Swift.String, prx: Ice.ObjectPrx?, isReplicaGroup: Swift.Bool, current: Ice.Current) async throws
 }
 
 
@@ -493,13 +497,13 @@ public struct LookupDisp: Ice.Dispatcher {
         case "findObjectById":
             try await servant._iceD_findObjectById(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -519,7 +523,9 @@ public protocol Lookup {
     /// object is found. The reply proxy is never null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func findObjectById(domainId: Swift.String, id: Ice.Identity, reply: LookupReplyPrx?, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func findObjectById(domainId: Swift.String, id: Ice.Identity, reply: LookupReplyPrx?, current: Ice.Current) async throws
 
     /// Request to find an object adapter
     ///
@@ -532,7 +538,9 @@ public protocol Lookup {
     /// adapter is found. The reply proxy is never null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func findAdapterById(domainId: Swift.String, id: Swift.String, reply: LookupReplyPrx?, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func findAdapterById(domainId: Swift.String, id: Swift.String, reply: LookupReplyPrx?, current: Ice.Current) async throws
 }
 
 /// The LookupReply interface is used by IceDiscovery clients to answer requests received on the Lookup interface.
@@ -549,8 +557,7 @@ extension LookupReply {
         _ = try istr.startEncapsulation()
         let iceP_id: Ice.Identity = try istr.read()
         let iceP_prx: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-
-        try self.foundObjectById(id: iceP_id, prx: iceP_prx, current: request.current)
+        try await self.foundObjectById(id: iceP_id, prx: iceP_prx, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -561,8 +568,7 @@ extension LookupReply {
         let iceP_id: Swift.String = try istr.read()
         let iceP_prx: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
         let iceP_isReplicaGroup: Swift.Bool = try istr.read()
-
-        try self.foundAdapterById(id: iceP_id, prx: iceP_prx, isReplicaGroup: iceP_isReplicaGroup, current: request.current)
+        try await self.foundAdapterById(id: iceP_id, prx: iceP_prx, isReplicaGroup: iceP_isReplicaGroup, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -582,8 +588,7 @@ extension Lookup {
         let iceP_domainId: Swift.String = try istr.read()
         let iceP_id: Ice.Identity = try istr.read()
         let iceP_reply: LookupReplyPrx? = try istr.read(LookupReplyPrx.self)
-
-        try self.findObjectById(domainId: iceP_domainId, id: iceP_id, reply: iceP_reply, current: request.current)
+        try await self.findObjectById(domainId: iceP_domainId, id: iceP_id, reply: iceP_reply, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -594,8 +599,7 @@ extension Lookup {
         let iceP_domainId: Swift.String = try istr.read()
         let iceP_id: Swift.String = try istr.read()
         let iceP_reply: LookupReplyPrx? = try istr.read(LookupReplyPrx.self)
-
-        try self.findAdapterById(domainId: iceP_domainId, id: iceP_id, reply: iceP_reply, current: request.current)
+        try await self.findAdapterById(domainId: iceP_domainId, id: iceP_id, reply: iceP_reply, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

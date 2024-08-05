@@ -316,13 +316,13 @@ public struct HelloDisp: Ice.Dispatcher {
         case "add":
             try await servant._iceD_add(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? HelloDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? HelloDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? HelloDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? HelloDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? HelloDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? HelloDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? HelloDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? HelloDisp.defaultObject)._iceD_ice_ping(request)
         case "raiseUE":
             try await servant._iceD_raiseUE(request)
         case "sayHello":
@@ -340,7 +340,9 @@ public protocol Hello {
     /// - parameter delay: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func sayHello(delay: Swift.Int32, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func sayHello(delay: Swift.Int32, current: Ice.Current) async throws
 
     ///
     /// - parameter s1: `Swift.Int32`
@@ -349,16 +351,20 @@ public protocol Hello {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32`
-    func add(s1: Swift.Int32, s2: Swift.Int32, current: Ice.Current) throws -> Swift.Int32
+    /// - returns: `Swift.Int32` - The result of the operation
+    func add(s1: Swift.Int32, s2: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func raiseUE(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func raiseUE(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// Hello overview.
@@ -378,8 +384,7 @@ extension Hello {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_delay: Swift.Int32 = try istr.read()
-
-        try self.sayHello(delay: iceP_delay, current: request.current)
+        try await self.sayHello(delay: iceP_delay, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -389,28 +394,24 @@ extension Hello {
         _ = try istr.startEncapsulation()
         let iceP_s1: Swift.Int32 = try istr.read()
         let iceP_s2: Swift.Int32 = try istr.read()
-
-        let iceP_returnValue = try self.add(s1: iceP_s1, s2: iceP_s2, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.add(s1: iceP_s1, s2: iceP_s2, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_raiseUE(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.raiseUE(current: request.current)
+        try await self.raiseUE(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

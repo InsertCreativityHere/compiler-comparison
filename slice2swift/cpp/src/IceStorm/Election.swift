@@ -1684,13 +1684,13 @@ public struct ReplicaObserverDisp: Ice.Dispatcher {
         case "destroyTopic":
             try await servant._iceD_destroyTopic(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? ReplicaObserverDisp.defaultObject)._iceD_ice_ping(request)
         case "init":
             try await servant._iceD_init(request)
         case "removeSubscriber":
@@ -1711,11 +1711,8 @@ public protocol ReplicaObserver {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - ObserverInconsistencyException - Raised if an
-    ///     inconsisency was detected.
-    func `init`(llu: LogUpdate, content: TopicContentSeq, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func `init`(llu: LogUpdate, content: TopicContentSeq, current: Ice.Current) async throws
 
     /// Create the topic with the given name.
     ///
@@ -1725,11 +1722,8 @@ public protocol ReplicaObserver {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - ObserverInconsistencyException - Raised if an
-    ///     inconsisency was detected.
-    func createTopic(llu: LogUpdate, name: Swift.String, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func createTopic(llu: LogUpdate, name: Swift.String, current: Ice.Current) async throws
 
     /// Destroy the topic with the given name.
     ///
@@ -1739,11 +1733,8 @@ public protocol ReplicaObserver {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - ObserverInconsistencyException - Raised if an
-    ///     inconsisency was detected.
-    func destroyTopic(llu: LogUpdate, name: Swift.String, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func destroyTopic(llu: LogUpdate, name: Swift.String, current: Ice.Current) async throws
 
     /// Add a subscriber to a topic.
     ///
@@ -1755,11 +1746,8 @@ public protocol ReplicaObserver {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - ObserverInconsistencyException - Raised if an
-    ///     inconsisency was detected.
-    func addSubscriber(llu: LogUpdate, topic: Swift.String, record: IceStorm.SubscriberRecord, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func addSubscriber(llu: LogUpdate, topic: Swift.String, record: IceStorm.SubscriberRecord, current: Ice.Current) async throws
 
     /// Remove a subscriber from a topic.
     ///
@@ -1771,10 +1759,8 @@ public protocol ReplicaObserver {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - ObserverInconsistencyException - Raised if an inconsisency was detected.
-    func removeSubscriber(llu: LogUpdate, topic: Swift.String, subscribers: Ice.IdentitySeq, current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func removeSubscriber(llu: LogUpdate, topic: Swift.String, subscribers: Ice.IdentitySeq, current: Ice.Current) async throws
 }
 
 
@@ -1792,13 +1778,13 @@ public struct TopicManagerSyncDisp: Ice.Dispatcher {
         case "getContent":
             try await servant._iceD_getContent(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? TopicManagerSyncDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TopicManagerSyncDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TopicManagerSyncDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TopicManagerSyncDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TopicManagerSyncDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TopicManagerSyncDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TopicManagerSyncDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TopicManagerSyncDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -1811,12 +1797,8 @@ public protocol TopicManagerSync {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(llu: LogUpdate, content: TopicContentSeq)`:
-    ///
-    ///   - llu: `LogUpdate` - The last log update token.
-    ///
-    ///   - content: `TopicContentSeq` - The topic content.
-    func getContent(current: Ice.Current) throws -> (llu: LogUpdate, content: TopicContentSeq)
+    /// - returns: `(llu: LogUpdate, content: TopicContentSeq)` - The result of the operation
+    func getContent(current: Ice.Current) async throws -> (llu: LogUpdate, content: TopicContentSeq)
 }
 
 
@@ -1838,13 +1820,13 @@ public struct NodeDisp: Ice.Dispatcher {
         case "areYouThere":
             try await servant._iceD_areYouThere(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? NodeDisp.defaultObject)._iceD_ice_ping(request)
         case "invitation":
             try await servant._iceD_invitation(request)
         case "nodes":
@@ -1870,7 +1852,9 @@ public protocol Node {
     /// - parameter gn: `Swift.String` The group name.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func invitation(j: Swift.Int32, gn: Swift.String, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func invitation(j: Swift.Int32, gn: Swift.String, current: Ice.Current) async throws
 
     /// Call from the group coordinator to a node to inform the node that the replica group is active.
     ///
@@ -1885,7 +1869,9 @@ public protocol Node {
     /// - parameter generation: `Swift.Int64` The current generation count.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func ready(j: Swift.Int32, gn: Swift.String, coordinator: Ice.ObjectPrx?, max: Swift.Int32, generation: Swift.Int64, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func ready(j: Swift.Int32, gn: Swift.String, coordinator: Ice.ObjectPrx?, max: Swift.Int32, generation: Swift.Int64, current: Ice.Current) async throws
 
     /// Called to accept an invitation into the given group.
     ///
@@ -1902,14 +1888,16 @@ public protocol Node {
     /// - parameter max: `Swift.Int32` The highest priority node seen by this replica group.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func accept(j: Swift.Int32, gn: Swift.String, forwardedInvites: Ice.IntSeq, observer: Ice.ObjectPrx?, llu: LogUpdate, max: Swift.Int32, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func accept(j: Swift.Int32, gn: Swift.String, forwardedInvites: Ice.IntSeq, observer: Ice.ObjectPrx?, llu: LogUpdate, max: Swift.Int32, current: Ice.Current) async throws
 
     /// Determine if this node is a coordinator.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Bool` - True if the node is a coordinator, false otherwise.
-    func areYouCoordinator(current: Ice.Current) throws -> Swift.Bool
+    /// - returns: `Swift.Bool` - The result of the operation
+    func areYouCoordinator(current: Ice.Current) async throws -> Swift.Bool
 
     /// Determine if the node is a member of the given group with the given coordinator.
     ///
@@ -1919,29 +1907,29 @@ public protocol Node {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Bool` - True if the node is a member, false otherwise.
-    func areYouThere(gn: Swift.String, j: Swift.Int32, current: Ice.Current) throws -> Swift.Bool
+    /// - returns: `Swift.Bool` - The result of the operation
+    func areYouThere(gn: Swift.String, j: Swift.Int32, current: Ice.Current) async throws -> Swift.Bool
 
     /// Get the sync object for the replica hosted by this node.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The sync object.
-    func sync(current: Ice.Current) throws -> Ice.ObjectPrx?
+    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    func sync(current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Get the replication group information.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NodeInfoSeq` - The set of configured nodes and the associated priority.
-    func nodes(current: Ice.Current) throws -> NodeInfoSeq
+    /// - returns: `NodeInfoSeq` - The result of the operation
+    func nodes(current: Ice.Current) async throws -> NodeInfoSeq
 
     /// Get the query information for the given node.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `QueryInfo` - The query information.
-    func query(current: Ice.Current) throws -> QueryInfo
+    /// - returns: `QueryInfo` - The result of the operation
+    func query(current: Ice.Current) async throws -> QueryInfo
 }
 
 /// The replica observer.
@@ -1964,8 +1952,7 @@ extension ReplicaObserver {
         _ = try istr.startEncapsulation()
         let iceP_llu: LogUpdate = try istr.read()
         let iceP_content: TopicContentSeq = try TopicContentSeqHelper.read(from: istr)
-
-        try self.`init`(llu: iceP_llu, content: iceP_content, current: request.current)
+        try await self.`init`(llu: iceP_llu, content: iceP_content, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1975,8 +1962,7 @@ extension ReplicaObserver {
         _ = try istr.startEncapsulation()
         let iceP_llu: LogUpdate = try istr.read()
         let iceP_name: Swift.String = try istr.read()
-
-        try self.createTopic(llu: iceP_llu, name: iceP_name, current: request.current)
+        try await self.createTopic(llu: iceP_llu, name: iceP_name, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1986,8 +1972,7 @@ extension ReplicaObserver {
         _ = try istr.startEncapsulation()
         let iceP_llu: LogUpdate = try istr.read()
         let iceP_name: Swift.String = try istr.read()
-
-        try self.destroyTopic(llu: iceP_llu, name: iceP_name, current: request.current)
+        try await self.destroyTopic(llu: iceP_llu, name: iceP_name, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1998,8 +1983,7 @@ extension ReplicaObserver {
         let iceP_llu: LogUpdate = try istr.read()
         let iceP_topic: Swift.String = try istr.read()
         let iceP_record: IceStorm.SubscriberRecord = try istr.read()
-
-        try self.addSubscriber(llu: iceP_llu, topic: iceP_topic, record: iceP_record, current: request.current)
+        try await self.addSubscriber(llu: iceP_llu, topic: iceP_topic, record: iceP_record, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -2010,8 +1994,7 @@ extension ReplicaObserver {
         let iceP_llu: LogUpdate = try istr.read()
         let iceP_topic: Swift.String = try istr.read()
         let iceP_subscribers: Ice.IdentitySeq = try Ice.IdentitySeqHelper.read(from: istr)
-
-        try self.removeSubscriber(llu: iceP_llu, topic: iceP_topic, subscribers: iceP_subscribers, current: request.current)
+        try await self.removeSubscriber(llu: iceP_llu, topic: iceP_topic, subscribers: iceP_subscribers, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -2025,14 +2008,12 @@ extension TopicManagerSync {
     public func _iceD_getContent(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let (iceP_llu, iceP_content) = try self.getContent(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_llu)
-        TopicContentSeqHelper.write(to: ostr, value: iceP_content)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getContent(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_llu, iceP_content) = value
+            ostr.write(iceP_llu)
+            TopicContentSeqHelper.write(to: ostr, value: iceP_content)
+        }
     }
 }
 
@@ -2062,8 +2043,7 @@ extension Node {
         _ = try istr.startEncapsulation()
         let iceP_j: Swift.Int32 = try istr.read()
         let iceP_gn: Swift.String = try istr.read()
-
-        try self.invitation(j: iceP_j, gn: iceP_gn, current: request.current)
+        try await self.invitation(j: iceP_j, gn: iceP_gn, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -2076,8 +2056,7 @@ extension Node {
         let iceP_coordinator: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
         let iceP_max: Swift.Int32 = try istr.read()
         let iceP_generation: Swift.Int64 = try istr.read()
-
-        try self.ready(j: iceP_j, gn: iceP_gn, coordinator: iceP_coordinator, max: iceP_max, generation: iceP_generation, current: request.current)
+        try await self.ready(j: iceP_j, gn: iceP_gn, coordinator: iceP_coordinator, max: iceP_max, generation: iceP_generation, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -2091,21 +2070,18 @@ extension Node {
         let iceP_observer: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
         let iceP_llu: LogUpdate = try istr.read()
         let iceP_max: Swift.Int32 = try istr.read()
-
-        try self.accept(j: iceP_j, gn: iceP_gn, forwardedInvites: iceP_forwardedInvites, observer: iceP_observer, llu: iceP_llu, max: iceP_max, current: request.current)
+        try await self.accept(j: iceP_j, gn: iceP_gn, forwardedInvites: iceP_forwardedInvites, observer: iceP_observer, llu: iceP_llu, max: iceP_max, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_areYouCoordinator(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.areYouCoordinator(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.areYouCoordinator(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_areYouThere(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -2114,48 +2090,40 @@ extension Node {
         _ = try istr.startEncapsulation()
         let iceP_gn: Swift.String = try istr.read()
         let iceP_j: Swift.Int32 = try istr.read()
-
-        let iceP_returnValue = try self.areYouThere(gn: iceP_gn, j: iceP_j, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.areYouThere(gn: iceP_gn, j: iceP_j, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_sync(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.sync(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.sync(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_nodes(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.nodes(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        NodeInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.nodes(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            NodeInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
+        }
     }
 
     public func _iceD_query(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.query(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.query(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }

@@ -220,13 +220,13 @@ public struct MyInterfaceDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_ping(request)
         case "op":
             try await servant._iceD_op(request)
         default:
@@ -240,7 +240,9 @@ public protocol MyInterface {
     /// - parameter throwIt: `Swift.Bool`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func op(throwIt: Swift.Bool, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func op(throwIt: Swift.Bool, current: Ice.Current) async throws
 }
 
 /// MyInterface overview.
@@ -254,8 +256,7 @@ extension MyInterface {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_throwIt: Swift.Bool = try istr.read()
-
-        try self.op(throwIt: iceP_throwIt, current: request.current)
+        try await self.op(throwIt: iceP_throwIt, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

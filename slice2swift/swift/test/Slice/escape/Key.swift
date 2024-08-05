@@ -868,13 +868,13 @@ public struct breakDisp: Ice.Dispatcher {
         case "case":
             try await servant._iceD_case(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? breakDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -888,7 +888,7 @@ public protocol `break` {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Swift.Int32` - The result of the operation
-    func caseAsync(catch: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
+    func `case`(catch: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 }
 
 
@@ -904,13 +904,13 @@ public struct funcDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? funcDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? funcDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? funcDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? funcDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? funcDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? funcDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? funcDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? funcDisp.defaultObject)._iceD_ice_ping(request)
         case "public":
             try await servant._iceD_public(request)
         default:
@@ -922,7 +922,9 @@ public struct funcDisp: Ice.Dispatcher {
 public protocol `func` {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func `public`(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func `public`(current: Ice.Current) async throws
 }
 
 
@@ -940,13 +942,13 @@ public struct doDisp: Ice.Dispatcher {
         case "case":
             try await servant._iceD_case(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? doDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? doDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? doDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? doDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? doDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? doDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? doDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? doDisp.defaultObject)._iceD_ice_ping(request)
         case "public":
             try await servant._iceD_public(request)
         default:
@@ -968,8 +970,7 @@ extension `break` {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_catch: Swift.Int32 = try istr.read()
-        let result = try await self.caseAsync(
-            catch: iceP_catch, current: request.current)
+        let result = try await self.`case`(catch: iceP_catch, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_try = value
             ostr.write(iceP_try)
@@ -986,8 +987,7 @@ extension `func` {
     public func _iceD_public(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.`public`(current: request.current)
+        try await self.`public`(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

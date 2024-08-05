@@ -207,13 +207,13 @@ public struct ProcessDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? ProcessDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? ProcessDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? ProcessDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? ProcessDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? ProcessDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? ProcessDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? ProcessDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? ProcessDisp.defaultObject)._iceD_ice_ping(request)
         case "shutdown":
             try await servant._iceD_shutdown(request)
         case "writeMessage":
@@ -232,7 +232,9 @@ public protocol Process {
     /// Initiate a graceful shut-down.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Current) async throws
 
     /// Write a message on the process' stdout or stderr.
     ///
@@ -241,7 +243,9 @@ public protocol Process {
     /// - parameter fd: `Swift.Int32` 1 for stdout, 2 for stderr.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func writeMessage(message: Swift.String, fd: Swift.Int32, current: Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func writeMessage(message: Swift.String, fd: Swift.Int32, current: Current) async throws
 }
 
 /// An administrative interface for process management. Managed servers must implement this interface.
@@ -258,8 +262,7 @@ extension Process {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -269,8 +272,7 @@ extension Process {
         _ = try istr.startEncapsulation()
         let iceP_message: Swift.String = try istr.read()
         let iceP_fd: Swift.Int32 = try istr.read()
-
-        try self.writeMessage(message: iceP_message, fd: iceP_fd, current: request.current)
+        try await self.writeMessage(message: iceP_message, fd: iceP_fd, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

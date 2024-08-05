@@ -556,13 +556,13 @@ public struct RouterDisp: Ice.Dispatcher {
         case "getSessionTimeout":
             try await servant._iceD_getSessionTimeout(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? RouterDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? RouterDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? RouterDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? RouterDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? RouterDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? RouterDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? RouterDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? RouterDisp.defaultObject)._iceD_ice_ping(request)
         case "refreshSession":
             try await servant._iceD_refreshSession(request)
         default:
@@ -579,8 +579,8 @@ public protocol Router: Ice.Router {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The category.
-    func getCategoryForClient(current: Ice.Current) throws -> Swift.String
+    /// - returns: `Swift.String` - The result of the operation
+    func getCategoryForClient(current: Ice.Current) async throws -> Swift.String
 
     /// Create a per-client session with the router. If a SessionManager has been installed, a proxy to a
     /// Session object is returned to the client. Otherwise, null is returned and only an internal session
@@ -596,7 +596,7 @@ public protocol Router: Ice.Router {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `SessionPrx?` - The result of the operation
-    func createSessionAsync(userId: Swift.String, password: Swift.String, current: Ice.Current) async throws -> SessionPrx?
+    func createSession(userId: Swift.String, password: Swift.String, current: Ice.Current) async throws -> SessionPrx?
 
     /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
     /// have been associated with the connection. If a SessionManager has been installed, a proxy to a
@@ -609,40 +609,36 @@ public protocol Router: Ice.Router {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `SessionPrx?` - The result of the operation
-    func createSessionFromSecureConnectionAsync(current: Ice.Current) async throws -> SessionPrx?
+    func createSessionFromSecureConnection(current: Ice.Current) async throws -> SessionPrx?
 
     /// Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
     /// and earlier and does nothing in newer versions of Glacier2.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - SessionNotExistException - Raised if no session exists for the caller (client).
-    func refreshSession(current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func refreshSession(current: Ice.Current) async throws
 
     /// Destroy the calling client's session with this router.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - SessionNotExistException - Raised if no session exists for the calling client.
-    func destroySession(current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func destroySession(current: Ice.Current) async throws
 
     /// Get the idle timeout used by the server-side of the connection.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int64` - The idle timeout (in seconds).
-    func getSessionTimeout(current: Ice.Current) throws -> Swift.Int64
+    /// - returns: `Swift.Int64` - The result of the operation
+    func getSessionTimeout(current: Ice.Current) async throws -> Swift.Int64
 
     /// Get the idle timeout used by the server-side of the connection.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The idle timeout (in seconds).
-    func getACMTimeout(current: Ice.Current) throws -> Swift.Int32
+    /// - returns: `Swift.Int32` - The result of the operation
+    func getACMTimeout(current: Ice.Current) async throws -> Swift.Int32
 }
 
 /// The Glacier2 specialization of the Ice::Router interface.
@@ -666,13 +662,11 @@ extension Router {
     public func _iceD_getCategoryForClient(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getCategoryForClient(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getCategoryForClient(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_createSession(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -681,8 +675,7 @@ extension Router {
         _ = try istr.startEncapsulation()
         let iceP_userId: Swift.String = try istr.read()
         let iceP_password: Swift.String = try istr.read()
-        let result = try await self.createSessionAsync(
-            userId: iceP_userId, password: iceP_password, current: request.current)
+        let result = try await self.createSession(userId: iceP_userId, password: iceP_password, current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -692,8 +685,7 @@ extension Router {
     public func _iceD_createSessionFromSecureConnection(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        let result = try await self.createSessionFromSecureConnectionAsync(
-            current: request.current)
+        let result = try await self.createSessionFromSecureConnection(current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)
@@ -703,40 +695,34 @@ extension Router {
     public func _iceD_refreshSession(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.refreshSession(current: request.current)
+        try await self.refreshSession(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_destroySession(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.destroySession(current: request.current)
+        try await self.destroySession(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_getSessionTimeout(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getSessionTimeout(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getSessionTimeout(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_getACMTimeout(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getACMTimeout(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getACMTimeout(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }

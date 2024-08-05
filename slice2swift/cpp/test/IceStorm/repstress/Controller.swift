@@ -156,13 +156,13 @@ public struct ControllerDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_ping(request)
         case "stop":
             try await servant._iceD_stop(request)
         default:
@@ -174,7 +174,9 @@ public struct ControllerDisp: Ice.Dispatcher {
 public protocol Controller {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func stop(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func stop(current: Ice.Current) async throws
 }
 
 /// Controller overview.
@@ -186,8 +188,7 @@ extension Controller {
     public func _iceD_stop(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.stop(current: request.current)
+        try await self.stop(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

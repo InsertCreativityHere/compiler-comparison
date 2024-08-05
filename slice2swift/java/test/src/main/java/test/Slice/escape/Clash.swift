@@ -814,13 +814,13 @@ public struct IntfDisp: Ice.Dispatcher {
         case "del":
             try await servant._iceD_del(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? IntfDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? IntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? IntfDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? IntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? IntfDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? IntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? IntfDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? IntfDisp.defaultObject)._iceD_ice_ping(request)
         case "inS":
             try await servant._iceD_inS(request)
         case "istr":
@@ -846,43 +846,63 @@ public struct IntfDisp: Ice.Dispatcher {
 public protocol Intf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func context(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func context(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func current(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func current(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func response(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func response(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func typeId(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func typeId(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func del(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func del(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func cookie(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func cookie(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func sync(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func sync(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func inS(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func inS(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func istr(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func istr(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func obj(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func obj(current: Ice.Current) async throws
 
     ///
     /// - parameter context: `Swift.String`
@@ -910,37 +930,15 @@ public protocol Intf {
     /// - parameter obj: `Swift.Int32?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func op(context: Swift.String, current: Swift.String, response: Swift.String, ex: Swift.String, sent: Swift.String, cookie: Swift.String, sync: Swift.String, result: Swift.String, istr: Swift.String, ostr: Swift.String, proxy: Swift.String?, obj: Swift.Int32?, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func op(context: Swift.String, current: Swift.String, response: Swift.String, ex: Swift.String, sent: Swift.String, cookie: Swift.String, sync: Swift.String, result: Swift.String, istr: Swift.String, ostr: Swift.String, proxy: Swift.String?, obj: Swift.Int32?, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(context: Swift.String, current: Swift.String, response: Swift.String, ex: Swift.String, sent: Swift.String, cookie: Swift.String, sync: Swift.String, result: Swift.String, istr: Swift.String, ostr: Swift.String, proxy: Swift.String?, obj: Swift.Int32?)`:
-    ///
-    ///   - context: `Swift.String`
-    ///
-    ///   - current: `Swift.String`
-    ///
-    ///   - response: `Swift.String`
-    ///
-    ///   - ex: `Swift.String`
-    ///
-    ///   - sent: `Swift.String`
-    ///
-    ///   - cookie: `Swift.String`
-    ///
-    ///   - sync: `Swift.String`
-    ///
-    ///   - result: `Swift.String`
-    ///
-    ///   - istr: `Swift.String`
-    ///
-    ///   - ostr: `Swift.String`
-    ///
-    ///   - proxy: `Swift.String?`
-    ///
-    ///   - obj: `Swift.Int32?`
-    func opOut(current: Ice.Current) throws -> (context: Swift.String, current: Swift.String, response: Swift.String, ex: Swift.String, sent: Swift.String, cookie: Swift.String, sync: Swift.String, result: Swift.String, istr: Swift.String, ostr: Swift.String, proxy: Swift.String?, obj: Swift.Int32?)
+    /// - returns: `(context: Swift.String, current: Swift.String, response: Swift.String, ex: Swift.String, sent: Swift.String, cookie: Swift.String, sync: Swift.String, result: Swift.String, istr: Swift.String, ostr: Swift.String, proxy: Swift.String?, obj: Swift.Int32?)` - The result of the operation
+    func opOut(current: Ice.Current) async throws -> (context: Swift.String, current: Swift.String, response: Swift.String, ex: Swift.String, sent: Swift.String, cookie: Swift.String, sync: Swift.String, result: Swift.String, istr: Swift.String, ostr: Swift.String, proxy: Swift.String?, obj: Swift.Int32?)
 }
 
 /// Intf overview.
@@ -974,80 +972,70 @@ extension Intf {
     public func _iceD_context(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.context(current: request.current)
+        try await self.context(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_current(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.current(current: request.current)
+        try await self.current(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_response(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.response(current: request.current)
+        try await self.response(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_typeId(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.typeId(current: request.current)
+        try await self.typeId(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_del(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.del(current: request.current)
+        try await self.del(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_cookie(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.cookie(current: request.current)
+        try await self.cookie(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_sync(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.sync(current: request.current)
+        try await self.sync(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_inS(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.inS(current: request.current)
+        try await self.inS(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_istr(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.istr(current: request.current)
+        try await self.istr(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_obj(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.obj(current: request.current)
+        try await self.obj(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1067,31 +1055,28 @@ extension Intf {
         let iceP_ostr: Swift.String = try istr.read()
         let iceP_proxy: Swift.String? = try istr.read(tag: 1)
         let iceP_obj: Swift.Int32? = try istr.read(tag: 2)
-
-        try self.op(context: iceP_context, current: iceP_current, response: iceP_response, ex: iceP_ex, sent: iceP_sent, cookie: iceP_cookie, sync: iceP_sync, result: iceP_result, istr: iceP_istr, ostr: iceP_ostr, proxy: iceP_proxy, obj: iceP_obj, current: request.current)
+        try await self.op(context: iceP_context, current: iceP_current, response: iceP_response, ex: iceP_ex, sent: iceP_sent, cookie: iceP_cookie, sync: iceP_sync, result: iceP_result, istr: iceP_istr, ostr: iceP_ostr, proxy: iceP_proxy, obj: iceP_obj, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_opOut(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let (iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, iceP_obj) = try self.opOut(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_context)
-        ostr.write(iceP_current)
-        ostr.write(iceP_response)
-        ostr.write(iceP_ex)
-        ostr.write(iceP_sent)
-        ostr.write(iceP_cookie)
-        ostr.write(iceP_sync)
-        ostr.write(iceP_result)
-        ostr.write(iceP_istr)
-        ostr.write(iceP_ostr)
-        ostr.write(tag: 1, value: iceP_proxy)
-        ostr.write(tag: 2, value: iceP_obj)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opOut(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, iceP_obj) = value
+            ostr.write(iceP_context)
+            ostr.write(iceP_current)
+            ostr.write(iceP_response)
+            ostr.write(iceP_ex)
+            ostr.write(iceP_sent)
+            ostr.write(iceP_cookie)
+            ostr.write(iceP_sync)
+            ostr.write(iceP_result)
+            ostr.write(iceP_istr)
+            ostr.write(iceP_ostr)
+            ostr.write(tag: 1, value: iceP_proxy)
+            ostr.write(tag: 2, value: iceP_obj)
+        }
     }
 }

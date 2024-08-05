@@ -325,13 +325,13 @@ public struct LookupReplyDisp: Ice.Dispatcher {
         case "foundLocator":
             try await servant._iceD_foundLocator(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? LookupReplyDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -346,7 +346,9 @@ public protocol LookupReply {
     /// - parameter prx: `Ice.LocatorPrx?` The proxy of the locator.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func foundLocator(prx: Ice.LocatorPrx?, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func foundLocator(prx: Ice.LocatorPrx?, current: Ice.Current) async throws
 }
 
 
@@ -364,13 +366,13 @@ public struct LookupDisp: Ice.Dispatcher {
         case "findLocator":
             try await servant._iceD_findLocator(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? LookupDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -390,7 +392,9 @@ public protocol Lookup {
     /// - parameter reply: `LookupReplyPrx?` The reply object to use to send the reply.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func findLocator(instanceName: Swift.String, reply: LookupReplyPrx?, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func findLocator(instanceName: Swift.String, reply: LookupReplyPrx?, current: Ice.Current) async throws
 }
 
 /// The Ice lookup reply interface must be implemented by clients which are searching for Ice locators. Ice locator
@@ -405,8 +409,7 @@ extension LookupReply {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_prx: Ice.LocatorPrx? = try istr.read(Ice.LocatorPrx.self)
-
-        try self.foundLocator(prx: iceP_prx, current: request.current)
+        try await self.foundLocator(prx: iceP_prx, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -426,8 +429,7 @@ extension Lookup {
         _ = try istr.startEncapsulation()
         let iceP_instanceName: Swift.String = try istr.read()
         let iceP_reply: LookupReplyPrx? = try istr.read(LookupReplyPrx.self)
-
-        try self.findLocator(instanceName: iceP_instanceName, reply: iceP_reply, current: request.current)
+        try await self.findLocator(instanceName: iceP_instanceName, reply: iceP_reply, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

@@ -463,13 +463,13 @@ public struct TestIntfDisp: Ice.Dispatcher {
         case "getAdapterId":
             try await servant._iceD_getAdapterId(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -480,8 +480,8 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String`
-    func getAdapterId(current: Ice.Current) throws -> Swift.String
+    /// - returns: `Swift.String` - The result of the operation
+    func getAdapterId(current: Ice.Current) async throws -> Swift.String
 }
 
 
@@ -503,13 +503,13 @@ public struct ControllerDisp: Ice.Dispatcher {
         case "deactivateObjectAdapter":
             try await servant._iceD_deactivateObjectAdapter(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? ControllerDisp.defaultObject)._iceD_ice_ping(request)
         case "removeObject":
             try await servant._iceD_removeObject(request)
         case "shutdown":
@@ -529,13 +529,17 @@ public protocol Controller {
     /// - parameter replicaGroupId: `Swift.String`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func activateObjectAdapter(name: Swift.String, adapterId: Swift.String, replicaGroupId: Swift.String, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func activateObjectAdapter(name: Swift.String, adapterId: Swift.String, replicaGroupId: Swift.String, current: Ice.Current) async throws
 
     ///
     /// - parameter name: `Swift.String`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func deactivateObjectAdapter(name: Swift.String, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func deactivateObjectAdapter(name: Swift.String, current: Ice.Current) async throws
 
     ///
     /// - parameter oaName: `Swift.String`
@@ -543,7 +547,9 @@ public protocol Controller {
     /// - parameter id: `Swift.String`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func addObject(oaName: Swift.String, id: Swift.String, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func addObject(oaName: Swift.String, id: Swift.String, current: Ice.Current) async throws
 
     ///
     /// - parameter oaName: `Swift.String`
@@ -551,11 +557,15 @@ public protocol Controller {
     /// - parameter id: `Swift.String`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func removeObject(oaName: Swift.String, id: Swift.String, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func removeObject(oaName: Swift.String, id: Swift.String, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 }
 
 /// TestIntf overview.
@@ -567,13 +577,11 @@ extension TestIntf {
     public func _iceD_getAdapterId(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.getAdapterId(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getAdapterId(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }
 
@@ -598,8 +606,7 @@ extension Controller {
         let iceP_name: Swift.String = try istr.read()
         let iceP_adapterId: Swift.String = try istr.read()
         let iceP_replicaGroupId: Swift.String = try istr.read()
-
-        try self.activateObjectAdapter(name: iceP_name, adapterId: iceP_adapterId, replicaGroupId: iceP_replicaGroupId, current: request.current)
+        try await self.activateObjectAdapter(name: iceP_name, adapterId: iceP_adapterId, replicaGroupId: iceP_replicaGroupId, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -608,8 +615,7 @@ extension Controller {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_name: Swift.String = try istr.read()
-
-        try self.deactivateObjectAdapter(name: iceP_name, current: request.current)
+        try await self.deactivateObjectAdapter(name: iceP_name, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -619,8 +625,7 @@ extension Controller {
         _ = try istr.startEncapsulation()
         let iceP_oaName: Swift.String = try istr.read()
         let iceP_id: Swift.String = try istr.read()
-
-        try self.addObject(oaName: iceP_oaName, id: iceP_id, current: request.current)
+        try await self.addObject(oaName: iceP_oaName, id: iceP_id, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -630,16 +635,14 @@ extension Controller {
         _ = try istr.startEncapsulation()
         let iceP_oaName: Swift.String = try istr.read()
         let iceP_id: Swift.String = try istr.read()
-
-        try self.removeObject(oaName: iceP_oaName, id: iceP_id, current: request.current)
+        try await self.removeObject(oaName: iceP_oaName, id: iceP_id, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

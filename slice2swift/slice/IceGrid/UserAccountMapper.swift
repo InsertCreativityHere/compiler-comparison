@@ -235,13 +235,13 @@ public struct UserAccountMapperDisp: Ice.Dispatcher {
         case "getUserAccount":
             try await servant._iceD_getUserAccount(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? UserAccountMapperDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? UserAccountMapperDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? UserAccountMapperDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? UserAccountMapperDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? UserAccountMapperDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? UserAccountMapperDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? UserAccountMapperDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? UserAccountMapperDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -259,12 +259,8 @@ public protocol UserAccountMapper {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The user account name.
-    ///
-    /// - throws:
-    ///
-    ///   - UserAccountNotFoundException - Raised if no user account is found for the given user.
-    func getUserAccount(user: Swift.String, current: Ice.Current) throws -> Swift.String
+    /// - returns: `Swift.String` - The result of the operation
+    func getUserAccount(user: Swift.String, current: Ice.Current) async throws -> Swift.String
 }
 
 /// A user account mapper object is used by IceGrid nodes to map session identifiers to user accounts.
@@ -278,12 +274,10 @@ extension UserAccountMapper {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_user: Swift.String = try istr.read()
-
-        let iceP_returnValue = try self.getUserAccount(user: iceP_user, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.getUserAccount(user: iceP_user, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }

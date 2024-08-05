@@ -1479,13 +1479,13 @@ public struct PingReplyDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? PingReplyDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? PingReplyDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? PingReplyDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? PingReplyDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? PingReplyDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? PingReplyDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? PingReplyDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? PingReplyDisp.defaultObject)._iceD_ice_ping(request)
         case "reply":
             try await servant._iceD_reply(request)
         default:
@@ -1497,7 +1497,9 @@ public struct PingReplyDisp: Ice.Dispatcher {
 public protocol PingReply {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func reply(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func reply(current: Ice.Current) async throws
 }
 
 
@@ -1517,13 +1519,13 @@ public struct TestIntfDisp: Ice.Dispatcher {
         case "finishDispatch":
             try await servant._iceD_finishDispatch(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
         case "op":
             try await servant._iceD_op(request)
         case "opBatch":
@@ -1573,141 +1575,159 @@ public struct TestIntfDisp: Ice.Dispatcher {
 public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func op(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func op(current: Ice.Current) async throws
 
     ///
     /// - parameter seq: `Ice.ByteSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func opWithPayload(seq: Ice.ByteSeq, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func opWithPayload(seq: Ice.ByteSeq, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32`
-    func opWithResult(current: Ice.Current) throws -> Swift.Int32
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func opWithUE(current: Ice.Current) throws
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func opBatch(current: Ice.Current) throws
+    /// - returns: `Swift.Int32` - The result of the operation
+    func opWithResult(current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32`
-    func opBatchCount(current: Ice.Current) throws -> Swift.Int32
+    /// - returns: `` - The result of the operation
+    func opWithUE(current: Ice.Current) async throws
+
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `` - The result of the operation
+    func opBatch(current: Ice.Current) async throws
+
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `Swift.Int32` - The result of the operation
+    func opBatchCount(current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter count: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Bool`
-    func waitForBatch(count: Swift.Int32, current: Ice.Current) throws -> Swift.Bool
+    /// - returns: `Swift.Bool` - The result of the operation
+    func waitForBatch(count: Swift.Int32, current: Ice.Current) async throws -> Swift.Bool
 
     ///
     /// - parameter mode: `CloseMode`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func close(mode: CloseMode, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func close(mode: CloseMode, current: Ice.Current) async throws
 
     ///
     /// - parameter ms: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func sleep(ms: Swift.Int32, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func sleep(ms: Swift.Int32, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `` - The result of the operation
-    func startDispatchAsync(current: Ice.Current) async throws -> Swift.Void
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func finishDispatch(current: Ice.Current) throws
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
+    func startDispatch(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Bool`
-    func supportsAMD(current: Ice.Current) throws -> Swift.Bool
+    /// - returns: `` - The result of the operation
+    func finishDispatch(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Bool`
-    func supportsFunctionalTests(current: Ice.Current) throws -> Swift.Bool
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
+
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `Swift.Bool` - The result of the operation
+    func supportsAMD(current: Ice.Current) async throws -> Swift.Bool
+
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `Swift.Bool` - The result of the operation
+    func supportsFunctionalTests(current: Ice.Current) async throws -> Swift.Bool
 
     ///
     /// - parameter b: `Swift.Bool`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Bool`
-    func opBool(b: Swift.Bool, current: Ice.Current) throws -> Swift.Bool
+    /// - returns: `Swift.Bool` - The result of the operation
+    func opBool(b: Swift.Bool, current: Ice.Current) async throws -> Swift.Bool
 
     ///
     /// - parameter b: `Swift.UInt8`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.UInt8`
-    func opByte(b: Swift.UInt8, current: Ice.Current) throws -> Swift.UInt8
+    /// - returns: `Swift.UInt8` - The result of the operation
+    func opByte(b: Swift.UInt8, current: Ice.Current) async throws -> Swift.UInt8
 
     ///
     /// - parameter s: `Swift.Int16`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int16`
-    func opShort(s: Swift.Int16, current: Ice.Current) throws -> Swift.Int16
+    /// - returns: `Swift.Int16` - The result of the operation
+    func opShort(s: Swift.Int16, current: Ice.Current) async throws -> Swift.Int16
 
     ///
     /// - parameter i: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32`
-    func opInt(i: Swift.Int32, current: Ice.Current) throws -> Swift.Int32
+    /// - returns: `Swift.Int32` - The result of the operation
+    func opInt(i: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter l: `Swift.Int64`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int64`
-    func opLong(l: Swift.Int64, current: Ice.Current) throws -> Swift.Int64
+    /// - returns: `Swift.Int64` - The result of the operation
+    func opLong(l: Swift.Int64, current: Ice.Current) async throws -> Swift.Int64
 
     ///
     /// - parameter f: `Swift.Float`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Float`
-    func opFloat(f: Swift.Float, current: Ice.Current) throws -> Swift.Float
+    /// - returns: `Swift.Float` - The result of the operation
+    func opFloat(f: Swift.Float, current: Ice.Current) async throws -> Swift.Float
 
     ///
     /// - parameter d: `Swift.Double`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Double`
-    func opDouble(d: Swift.Double, current: Ice.Current) throws -> Swift.Double
+    /// - returns: `Swift.Double` - The result of the operation
+    func opDouble(d: Swift.Double, current: Ice.Current) async throws -> Swift.Double
 
     ///
     /// - parameter reply: `PingReplyPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func pingBiDir(reply: PingReplyPrx?, current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func pingBiDir(reply: PingReplyPrx?, current: Ice.Current) async throws
 }
 
 
@@ -1725,13 +1745,13 @@ public struct TestIntfControllerDisp: Ice.Dispatcher {
         case "holdAdapter":
             try await servant._iceD_holdAdapter(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? TestIntfControllerDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TestIntfControllerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TestIntfControllerDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TestIntfControllerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TestIntfControllerDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TestIntfControllerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TestIntfControllerDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TestIntfControllerDisp.defaultObject)._iceD_ice_ping(request)
         case "resumeAdapter":
             try await servant._iceD_resumeAdapter(request)
         default:
@@ -1743,11 +1763,15 @@ public struct TestIntfControllerDisp: Ice.Dispatcher {
 public protocol TestIntfController {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func holdAdapter(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func holdAdapter(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func resumeAdapter(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func resumeAdapter(current: Ice.Current) async throws
 }
 
 
@@ -1763,13 +1787,13 @@ public struct OuterInnerTestIntfDisp: Ice.Dispatcher {
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
         case "ice_id":
-            try (servant as? Ice.Object ?? OuterInnerTestIntfDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? OuterInnerTestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? OuterInnerTestIntfDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? OuterInnerTestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? OuterInnerTestIntfDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? OuterInnerTestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? OuterInnerTestIntfDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? OuterInnerTestIntfDisp.defaultObject)._iceD_ice_ping(request)
         case "op":
             try await servant._iceD_op(request)
         default:
@@ -1784,12 +1808,8 @@ public protocol OuterInnerTestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: Swift.Int32, j: Swift.Int32)`:
-    ///
-    ///   - returnValue: `Swift.Int32`
-    ///
-    ///   - j: `Swift.Int32`
-    func op(i: Swift.Int32, current: Ice.Current) throws -> (returnValue: Swift.Int32, j: Swift.Int32)
+    /// - returns: `(returnValue: Swift.Int32, j: Swift.Int32)` - The result of the operation
+    func op(i: Swift.Int32, current: Ice.Current) async throws -> (returnValue: Swift.Int32, j: Swift.Int32)
 }
 
 /// PingReply overview.
@@ -1801,8 +1821,7 @@ extension PingReply {
     public func _iceD_reply(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.reply(current: request.current)
+        try await self.reply(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -1858,8 +1877,7 @@ extension TestIntf {
     public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.op(current: request.current)
+        try await self.op(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1868,49 +1886,42 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_seq: Ice.ByteSeq = try istr.read()
-
-        try self.opWithPayload(seq: iceP_seq, current: request.current)
+        try await self.opWithPayload(seq: iceP_seq, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_opWithResult(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.opWithResult(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opWithResult(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opWithUE(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.opWithUE(current: request.current)
+        try await self.opWithUE(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_opBatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.opBatch(current: request.current)
+        try await self.opBatch(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_opBatchCount(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.opBatchCount(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opBatchCount(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_waitForBatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1918,13 +1929,11 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_count: Swift.Int32 = try istr.read()
-
-        let iceP_returnValue = try self.waitForBatch(count: iceP_count, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.waitForBatch(count: iceP_count, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_close(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1932,8 +1941,7 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_mode: CloseMode = try istr.read()
-
-        try self.close(mode: iceP_mode, current: request.current)
+        try await self.close(mode: iceP_mode, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -1942,57 +1950,49 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_ms: Swift.Int32 = try istr.read()
-
-        try self.sleep(ms: iceP_ms, current: request.current)
+        try await self.sleep(ms: iceP_ms, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_startDispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-        try await self.startDispatchAsync(
-            current: request.current)
+        try await self.startDispatch(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_finishDispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.finishDispatch(current: request.current)
+        try await self.finishDispatch(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_supportsAMD(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.supportsAMD(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.supportsAMD(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_supportsFunctionalTests(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.supportsFunctionalTests(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.supportsFunctionalTests(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opBool(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -2000,13 +2000,11 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_b: Swift.Bool = try istr.read()
-
-        let iceP_returnValue = try self.opBool(b: iceP_b, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opBool(b: iceP_b, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opByte(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -2014,13 +2012,11 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_b: Swift.UInt8 = try istr.read()
-
-        let iceP_returnValue = try self.opByte(b: iceP_b, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opByte(b: iceP_b, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opShort(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -2028,13 +2024,11 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_s: Swift.Int16 = try istr.read()
-
-        let iceP_returnValue = try self.opShort(s: iceP_s, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opShort(s: iceP_s, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opInt(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -2042,13 +2036,11 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_i: Swift.Int32 = try istr.read()
-
-        let iceP_returnValue = try self.opInt(i: iceP_i, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opInt(i: iceP_i, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opLong(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -2056,13 +2048,11 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_l: Swift.Int64 = try istr.read()
-
-        let iceP_returnValue = try self.opLong(l: iceP_l, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opLong(l: iceP_l, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opFloat(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -2070,13 +2060,11 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_f: Swift.Float = try istr.read()
-
-        let iceP_returnValue = try self.opFloat(f: iceP_f, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opFloat(f: iceP_f, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_opDouble(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -2084,13 +2072,11 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_d: Swift.Double = try istr.read()
-
-        let iceP_returnValue = try self.opDouble(d: iceP_d, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.opDouble(d: iceP_d, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 
     public func _iceD_pingBiDir(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -2098,8 +2084,7 @@ extension TestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_reply: PingReplyPrx? = try istr.read(PingReplyPrx.self)
-
-        try self.pingBiDir(reply: iceP_reply, current: request.current)
+        try await self.pingBiDir(reply: iceP_reply, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -2115,16 +2100,14 @@ extension TestIntfController {
     public func _iceD_holdAdapter(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.holdAdapter(current: request.current)
+        try await self.holdAdapter(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_resumeAdapter(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.resumeAdapter(current: request.current)
+        try await self.resumeAdapter(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
@@ -2140,13 +2123,11 @@ extension OuterInnerTestIntf {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_i: Swift.Int32 = try istr.read()
-
-        let (iceP_returnValue, iceP_j) = try self.op(i: iceP_i, current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_j)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.op(i: iceP_i, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let (iceP_returnValue, iceP_j) = value
+            ostr.write(iceP_j)
+            ostr.write(iceP_returnValue)
+        }
     }
 }

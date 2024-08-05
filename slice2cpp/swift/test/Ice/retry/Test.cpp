@@ -128,37 +128,6 @@ Test::RetryPrx::_iceI_opNotIdempotent(const ::std::shared_ptr<::IceInternal::Out
 }
 
 void
-Test::RetryPrx::sleep(::std::int32_t iceP_delay, const ::Ice::Context& context) const
-{
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_sleep, iceP_delay, context).get();
-}
-
-::std::future<void>
-Test::RetryPrx::sleepAsync(::std::int32_t iceP_delay, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &RetryPrx::_iceI_sleep, iceP_delay, context);
-}
-
-::std::function<void()>
-Test::RetryPrx::sleepAsync(::std::int32_t iceP_delay, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::RetryPrx::_iceI_sleep, iceP_delay, context);
-}
-
-void
-Test::RetryPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_delay, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "sleep";
-
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_delay);
-        },
-        nullptr);
-}
-
-void
 Test::RetryPrx::shutdown(const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_shutdown, context).get();
@@ -258,21 +227,6 @@ Test::Retry::_iceD_opNotIdempotent(::Ice::IncomingRequest& request, ::std::funct
 
 /// \cond INTERNAL
 void
-Test::Retry::_iceD_sleep(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
-{
-    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
-    auto istr = &request.inputStream();
-    istr->startEncapsulation();
-    ::std::int32_t iceP_delay;
-    istr->readAll(iceP_delay);
-    istr->endEncapsulation();
-    this->sleep(iceP_delay, request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
 Test::Retry::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
@@ -286,10 +240,10 @@ Test::Retry::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<voi
 void
 Test::Retry::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opIdempotent", "opNotIdempotent", "shutdown", "sleep"};
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opIdempotent", "opNotIdempotent", "shutdown"};
 
     const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
         sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
@@ -336,11 +290,6 @@ Test::Retry::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ic
         case 7:
         {
             _iceD_shutdown(request, ::std::move(sendResponse));
-            break;
-        }
-        case 8:
-        {
-            _iceD_sleep(request, ::std::move(sendResponse));
             break;
         }
         default:

@@ -184,13 +184,13 @@ public struct TestIntfDisp: Ice.Dispatcher {
         case "deactivate":
             try await servant._iceD_deactivate(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
         case "transient":
             try await servant._iceD_transient(request)
         default:
@@ -202,11 +202,15 @@ public struct TestIntfDisp: Ice.Dispatcher {
 public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func transient(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func transient(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func deactivate(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func deactivate(current: Ice.Current) async throws
 }
 
 /// TestIntf overview.
@@ -220,16 +224,14 @@ extension TestIntf {
     public func _iceD_transient(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.transient(current: request.current)
+        try await self.transient(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_deactivate(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.deactivate(current: request.current)
+        try await self.deactivate(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

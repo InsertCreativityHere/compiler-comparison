@@ -126,42 +126,6 @@ public interface RetryPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default void sleep(int delay)
-    {
-        sleep(delay, com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default void sleep(int delay, java.util.Map<String, String> context)
-    {
-        _iceI_sleepAsync(delay, context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<Void> sleepAsync(int delay)
-    {
-        return _iceI_sleepAsync(delay, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<Void> sleepAsync(int delay, java.util.Map<String, String> context)
-    {
-        return _iceI_sleepAsync(delay, context, false);
-    }
-
-    /**
-     * @hidden
-     * @param iceP_delay -
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_sleepAsync(int iceP_delay, java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "sleep", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
-        f.invoke(false, context, null, ostr -> {
-                     ostr.writeInt(iceP_delay);
-                 }, null);
-        return f;
-    }
-
     default void shutdown()
     {
         shutdown(com.zeroc.Ice.ObjectPrx.noExplicitContext);

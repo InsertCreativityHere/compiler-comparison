@@ -373,13 +373,13 @@ public struct TestIntfDisp: Ice.Dispatcher {
         case "abort":
             try await servant._iceD_abort(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? TestIntfDisp.defaultObject)._iceD_ice_ping(request)
         case "idempotentAbort":
             try await servant._iceD_idempotentAbort(request)
         case "pid":
@@ -395,21 +395,27 @@ public struct TestIntfDisp: Ice.Dispatcher {
 public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func shutdown(current: Ice.Current) throws
-
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func abort(current: Ice.Current) throws
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func idempotentAbort(current: Ice.Current) throws
+    /// - returns: `` - The result of the operation
+    func shutdown(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32`
-    func pid(current: Ice.Current) throws -> Swift.Int32
+    /// - returns: `` - The result of the operation
+    func abort(current: Ice.Current) async throws
+
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `` - The result of the operation
+    func idempotentAbort(current: Ice.Current) async throws
+
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `Swift.Int32` - The result of the operation
+    func pid(current: Ice.Current) async throws -> Swift.Int32
 }
 
 
@@ -427,13 +433,13 @@ public struct CleanerDisp: Ice.Dispatcher {
         case "cleanup":
             try await servant._iceD_cleanup(request)
         case "ice_id":
-            try (servant as? Ice.Object ?? CleanerDisp.defaultObject)._iceD_ice_id(request)
+            try await (servant as? Ice.Object ?? CleanerDisp.defaultObject)._iceD_ice_id(request)
         case "ice_ids":
-            try (servant as? Ice.Object ?? CleanerDisp.defaultObject)._iceD_ice_ids(request)
+            try await (servant as? Ice.Object ?? CleanerDisp.defaultObject)._iceD_ice_ids(request)
         case "ice_isA":
-            try (servant as? Ice.Object ?? CleanerDisp.defaultObject)._iceD_ice_isA(request)
+            try await (servant as? Ice.Object ?? CleanerDisp.defaultObject)._iceD_ice_isA(request)
         case "ice_ping":
-            try (servant as? Ice.Object ?? CleanerDisp.defaultObject)._iceD_ice_ping(request)
+            try await (servant as? Ice.Object ?? CleanerDisp.defaultObject)._iceD_ice_ping(request)
         default:
             throw Ice.OperationNotExistException()
         }
@@ -443,7 +449,9 @@ public struct CleanerDisp: Ice.Dispatcher {
 public protocol Cleaner {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func cleanup(current: Ice.Current) throws
+    ///
+    /// - returns: `` - The result of the operation
+    func cleanup(current: Ice.Current) async throws
 }
 
 /// TestIntf overview.
@@ -461,37 +469,32 @@ extension TestIntf {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.shutdown(current: request.current)
+        try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_abort(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.abort(current: request.current)
+        try await self.abort(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_idempotentAbort(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.idempotentAbort(current: request.current)
+        try await self.idempotentAbort(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
     public func _iceD_pid(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        let iceP_returnValue = try self.pid(current: request.current)
-        let ostr = request.current.startReplyStream()
-        ostr.startEncapsulation(encoding: request.current.encoding, format: nil)
-        ostr.write(iceP_returnValue)
-        ostr.endEncapsulation()
-        return Ice.OutgoingResponse(ostr)
+        let result = try await self.pid(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }
 
@@ -504,8 +507,7 @@ extension Cleaner {
     public func _iceD_cleanup(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
-
-        try self.cleanup(current: request.current)
+        try await self.cleanup(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }
