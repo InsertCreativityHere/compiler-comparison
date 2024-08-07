@@ -81,8 +81,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: BackgroundPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> BackgroundPrx? {
-    return try BackgroundPrxI.checkedCast(prx: prx, facet: facet, context: context) as BackgroundPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: BackgroundPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> BackgroundPrx? {
+    return try await BackgroundPrxI.checkedCast(prx: prx, facet: facet, context: context) as BackgroundPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -148,66 +148,31 @@ public extension Ice.InputStream {
 public extension BackgroundPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func op(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "op",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func opAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "op",
-                                            mode: .Normal,
-                                            context: context)
+    func op(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "op",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter _: `Ice.ByteSeq`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func opWithPayload(_ iceP_seq: Ice.ByteSeq, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "opWithPayload",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_seq)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Ice.ByteSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func opWithPayloadAsync(_ iceP_seq: Ice.ByteSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "opWithPayload",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_seq)
-                                            },
-                                            context: context)
+    func opWithPayload(_ iceP_seq: Ice.ByteSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "opWithPayload",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_seq)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -292,8 +257,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: BackgroundControllerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> BackgroundControllerPrx? {
-    return try BackgroundControllerPrxI.checkedCast(prx: prx, facet: facet, context: context) as BackgroundControllerPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: BackgroundControllerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> BackgroundControllerPrx? {
+    return try await BackgroundControllerPrxI.checkedCast(prx: prx, facet: facet, context: context) as BackgroundControllerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -389,260 +354,120 @@ public extension BackgroundControllerPrx {
     /// - parameter _: `Swift.String`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func pauseCall(_ iceP_call: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "pauseCall",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_call)
-                          },
-                          context: context)
+    func pauseCall(_ iceP_call: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "pauseCall",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_call)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter _: `Swift.String`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func pauseCallAsync(_ iceP_call: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "pauseCall",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_call)
-                                            },
-                                            context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func resumeCall(_ iceP_call: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "resumeCall",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_call)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func resumeCallAsync(_ iceP_call: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "resumeCall",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_call)
-                                            },
-                                            context: context)
+    func resumeCall(_ iceP_call: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "resumeCall",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_call)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func holdAdapter(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "holdAdapter",
-                          mode: .Normal,
-                          context: context)
+    func holdAdapter(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "holdAdapter",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func holdAdapterAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "holdAdapter",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func resumeAdapter(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "resumeAdapter",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func resumeAdapterAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "resumeAdapter",
-                                            mode: .Normal,
-                                            context: context)
+    func resumeAdapter(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "resumeAdapter",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter _: `Swift.Bool`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func initializeException(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "initializeException",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_enable)
-                          },
-                          context: context)
+    func initializeException(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "initializeException",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_enable)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter _: `Swift.Bool`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func initializeExceptionAsync(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "initializeException",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_enable)
-                                            },
-                                            context: context)
+    func readReady(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "readReady",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_enable)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter _: `Swift.Bool`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func readReady(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "readReady",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_enable)
-                          },
-                          context: context)
+    func readException(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "readException",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_enable)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter _: `Swift.Bool`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func readReadyAsync(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "readReady",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_enable)
-                                            },
-                                            context: context)
+    func writeReady(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "writeReady",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_enable)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter _: `Swift.Bool`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func readException(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "readException",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_enable)
-                          },
-                          context: context)
+    func writeException(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "writeException",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_enable)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter _: `Swift.Bool`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func readExceptionAsync(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "readException",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_enable)
-                                            },
-                                            context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func writeReady(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "writeReady",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_enable)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func writeReadyAsync(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "writeReady",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_enable)
-                                            },
-                                            context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func writeException(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "writeException",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_enable)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func writeExceptionAsync(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "writeException",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_enable)
-                                            },
-                                            context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func buffered(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "buffered",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_enable)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func bufferedAsync(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "buffered",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_enable)
-                                            },
-                                            context: context)
+    func buffered(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "buffered",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_enable)
+                                       },
+                                       context: context)
     }
 }
 
@@ -681,22 +506,16 @@ public struct BackgroundDisp: Ice.Dispatcher {
 public protocol Background {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func op(current: Ice.Current) async throws
 
     ///
     /// - parameter seq: `Ice.ByteSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func opWithPayload(seq: Ice.ByteSeq, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -751,76 +570,56 @@ public protocol BackgroundController {
     /// - parameter call: `Swift.String`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func pauseCall(call: Swift.String, current: Ice.Current) async throws
 
     ///
     /// - parameter call: `Swift.String`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func resumeCall(call: Swift.String, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func holdAdapter(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func resumeAdapter(current: Ice.Current) async throws
 
     ///
     /// - parameter enable: `Swift.Bool`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func initializeException(enable: Swift.Bool, current: Ice.Current) async throws
 
     ///
     /// - parameter enable: `Swift.Bool`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func readReady(enable: Swift.Bool, current: Ice.Current) async throws
 
     ///
     /// - parameter enable: `Swift.Bool`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func readException(enable: Swift.Bool, current: Ice.Current) async throws
 
     ///
     /// - parameter enable: `Swift.Bool`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func writeReady(enable: Swift.Bool, current: Ice.Current) async throws
 
     ///
     /// - parameter enable: `Swift.Bool`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func writeException(enable: Swift.Bool, current: Ice.Current) async throws
 
     ///
     /// - parameter enable: `Swift.Bool`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func buffered(enable: Swift.Bool, current: Ice.Current) async throws
 }
 

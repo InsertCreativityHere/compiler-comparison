@@ -673,8 +673,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TopicPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TopicPrx? {
-    return try TopicPrxI.checkedCast(prx: prx, facet: facet, context: context) as TopicPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TopicPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TopicPrx? {
+    return try await TopicPrxI.checkedCast(prx: prx, facet: facet, context: context) as TopicPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -771,29 +771,14 @@ public extension TopicPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.String` - The name of the topic.
-    func getName(context: Ice.Context? = nil) throws -> Swift.String {
-        return try _impl._invoke(operation: "getName",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.String = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get the name of this topic.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String` - The result of the operation
-    func getNameAsync(context: Ice.Context? = nil) async throws -> Swift.String {
-        return try await _impl._invokeAsync(operation: "getName",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.String = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getName(context: Ice.Context? = nil) async throws -> Swift.String {
+        return try await _impl._invoke(operation: "getName",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.String = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
@@ -803,31 +788,14 @@ public extension TopicPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Ice.ObjectPrx?` - A proxy to publish data on this topic.
-    func getPublisher(context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
-        return try _impl._invoke(operation: "getPublisher",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
-    /// and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
-    /// deployment is used this call may return a replicated proxy. The returned proxy is never null.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func getPublisherAsync(context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
-        return try await _impl._invokeAsync(operation: "getPublisher",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getPublisher(context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
+        return try await _impl._invoke(operation: "getPublisher",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
@@ -837,31 +805,14 @@ public extension TopicPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Ice.ObjectPrx?` - A proxy to publish data on this topic.
-    func getNonReplicatedPublisher(context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
-        return try _impl._invoke(operation: "getNonReplicatedPublisher",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
-    /// calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
-    /// never null.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func getNonReplicatedPublisherAsync(context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
-        return try await _impl._invokeAsync(operation: "getNonReplicatedPublisher",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getNonReplicatedPublisher(context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
+        return try await _impl._invoke(operation: "getNonReplicatedPublisher",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
@@ -881,63 +832,29 @@ public extension TopicPrx {
     ///   - BadQoS - Raised if the requested quality of service is unavailable or invalid.
     ///
     ///   - InvalidSubscriber - Raised if the subscriber object is null.
-    func subscribeAndGetPublisher(theQoS iceP_theQoS: QoS, subscriber iceP_subscriber: Ice.ObjectPrx?, context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
-        return try _impl._invoke(operation: "subscribeAndGetPublisher",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     QoSHelper.write(to: ostr, value: iceP_theQoS)
-                                     ostr.write(iceP_subscriber)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as AlreadySubscribed {
-                                         throw error
-                                     } catch let error as InvalidSubscriber {
-                                         throw error
-                                     } catch let error as BadQoS {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
-    ///
-    /// - parameter theQoS: `QoS` The quality of service parameters for this subscription.
-    ///
-    /// - parameter subscriber: `Ice.ObjectPrx?` The subscriber's proxy. This proxy is never null.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func subscribeAndGetPublisherAsync(theQoS iceP_theQoS: QoS, subscriber iceP_subscriber: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
-        return try await _impl._invokeAsync(operation: "subscribeAndGetPublisher",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                QoSHelper.write(to: ostr, value: iceP_theQoS)
-                                                ostr.write(iceP_subscriber)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as AlreadySubscribed {
-                                                    throw error
-                                                } catch let error as InvalidSubscriber {
-                                                    throw error
-                                                } catch let error as BadQoS {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func subscribeAndGetPublisher(theQoS iceP_theQoS: QoS, subscriber iceP_subscriber: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
+        return try await _impl._invoke(operation: "subscribeAndGetPublisher",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           QoSHelper.write(to: ostr, value: iceP_theQoS)
+                                           ostr.write(iceP_subscriber)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as AlreadySubscribed {
+                                               throw error
+                                           } catch let error as InvalidSubscriber {
+                                               throw error
+                                           } catch let error as BadQoS {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Unsubscribe the given subscriber.
@@ -945,29 +862,13 @@ public extension TopicPrx {
     /// - parameter _: `Ice.ObjectPrx?` The proxy of an existing subscriber. This proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func unsubscribe(_ iceP_subscriber: Ice.ObjectPrx?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "unsubscribe",
-                          mode: .Idempotent,
-                          write: { ostr in
-                              ostr.write(iceP_subscriber)
-                          },
-                          context: context)
-    }
-
-    /// Unsubscribe the given subscriber.
-    ///
-    /// - parameter _: `Ice.ObjectPrx?` The proxy of an existing subscriber. This proxy is never null.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func unsubscribeAsync(_ iceP_subscriber: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "unsubscribe",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_subscriber)
-                                            },
-                                            context: context)
+    func unsubscribe(_ iceP_subscriber: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "unsubscribe",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_subscriber)
+                                       },
+                                       context: context)
     }
 
     /// Create a link to the given topic. All events originating on this topic will also be sent to
@@ -982,48 +883,21 @@ public extension TopicPrx {
     /// - throws:
     ///
     ///   - LinkExists - Raised if a link to the same topic already exists.
-    func link(linkTo iceP_linkTo: TopicPrx?, cost iceP_cost: Swift.Int32, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "link",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_linkTo)
-                              ostr.write(iceP_cost)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as LinkExists {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Create a link to the given topic. All events originating on this topic will also be sent to
-    /// linkTo.
-    ///
-    /// - parameter linkTo: `TopicPrx?` The topic to link to. This proxy is never null.
-    ///
-    /// - parameter cost: `Swift.Int32` The cost to the linked topic.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func linkAsync(linkTo iceP_linkTo: TopicPrx?, cost iceP_cost: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "link",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_linkTo)
-                                                ostr.write(iceP_cost)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as LinkExists {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func link(linkTo iceP_linkTo: TopicPrx?, cost iceP_cost: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "link",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_linkTo)
+                                           ostr.write(iceP_cost)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as LinkExists {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Destroy the link from this topic to the given topic linkTo.
@@ -1035,43 +909,20 @@ public extension TopicPrx {
     /// - throws:
     ///
     ///   - NoSuchLink - Raised if a link to the topic does not exist.
-    func unlink(_ iceP_linkTo: TopicPrx?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "unlink",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_linkTo)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as NoSuchLink {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Destroy the link from this topic to the given topic linkTo.
-    ///
-    /// - parameter _: `TopicPrx?` The topic to destroy the link to. This proxy is never null.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func unlinkAsync(_ iceP_linkTo: TopicPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "unlink",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_linkTo)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as NoSuchLink {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func unlink(_ iceP_linkTo: TopicPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "unlink",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_linkTo)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as NoSuchLink {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Retrieve information on the current links.
@@ -1079,29 +930,14 @@ public extension TopicPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `LinkInfoSeq` - A sequence of LinkInfo objects.
-    func getLinkInfoSeq(context: Ice.Context? = nil) throws -> LinkInfoSeq {
-        return try _impl._invoke(operation: "getLinkInfoSeq",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: LinkInfoSeq = try LinkInfoSeqHelper.read(from: istr)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Retrieve information on the current links.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `LinkInfoSeq` - The result of the operation
-    func getLinkInfoSeqAsync(context: Ice.Context? = nil) async throws -> LinkInfoSeq {
-        return try await _impl._invokeAsync(operation: "getLinkInfoSeq",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: LinkInfoSeq = try LinkInfoSeqHelper.read(from: istr)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getLinkInfoSeq(context: Ice.Context? = nil) async throws -> LinkInfoSeq {
+        return try await _impl._invoke(operation: "getLinkInfoSeq",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: LinkInfoSeq = try LinkInfoSeqHelper.read(from: istr)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Retrieve the list of subscribers for this topic.
@@ -1109,49 +945,23 @@ public extension TopicPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Ice.IdentitySeq` - The sequence of Ice identities for the subscriber objects.
-    func getSubscribers(context: Ice.Context? = nil) throws -> Ice.IdentitySeq {
-        return try _impl._invoke(operation: "getSubscribers",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.IdentitySeq = try Ice.IdentitySeqHelper.read(from: istr)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Retrieve the list of subscribers for this topic.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.IdentitySeq` - The result of the operation
-    func getSubscribersAsync(context: Ice.Context? = nil) async throws -> Ice.IdentitySeq {
-        return try await _impl._invokeAsync(operation: "getSubscribers",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.IdentitySeq = try Ice.IdentitySeqHelper.read(from: istr)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getSubscribers(context: Ice.Context? = nil) async throws -> Ice.IdentitySeq {
+        return try await _impl._invoke(operation: "getSubscribers",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.IdentitySeq = try Ice.IdentitySeqHelper.read(from: istr)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Destroy the topic.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func destroy(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "destroy",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    /// Destroy the topic.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func destroyAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "destroy",
-                                            mode: .Normal,
-                                            context: context)
+    func destroy(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "destroy",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -1208,8 +1018,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TopicManagerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TopicManagerPrx? {
-    return try TopicManagerPrxI.checkedCast(prx: prx, facet: facet, context: context) as TopicManagerPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TopicManagerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TopicManagerPrx? {
+    return try await TopicManagerPrxI.checkedCast(prx: prx, facet: facet, context: context) as TopicManagerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -1284,51 +1094,24 @@ public extension TopicManagerPrx {
     /// - throws:
     ///
     ///   - TopicExists - Raised if a topic with the same name already exists.
-    func create(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws -> TopicPrx? {
-        return try _impl._invoke(operation: "create",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_name)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: TopicPrx? = try istr.read(TopicPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as TopicExists {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Create a new topic. The topic name must be unique.
-    ///
-    /// - parameter _: `Swift.String` The name of the topic.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `TopicPrx?` - The result of the operation
-    func createAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> TopicPrx? {
-        return try await _impl._invokeAsync(operation: "create",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: TopicPrx? = try istr.read(TopicPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as TopicExists {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func create(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> TopicPrx? {
+        return try await _impl._invoke(operation: "create",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: TopicPrx? = try istr.read(TopicPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as TopicExists {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Retrieve a topic by name.
@@ -1342,51 +1125,24 @@ public extension TopicManagerPrx {
     /// - throws:
     ///
     ///   - NoSuchTopic - Raised if the topic does not exist.
-    func retrieve(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws -> TopicPrx? {
-        return try _impl._invoke(operation: "retrieve",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_name)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: TopicPrx? = try istr.read(TopicPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as NoSuchTopic {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Retrieve a topic by name.
-    ///
-    /// - parameter _: `Swift.String` The name of the topic.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `TopicPrx?` - The result of the operation
-    func retrieveAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> TopicPrx? {
-        return try await _impl._invokeAsync(operation: "retrieve",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: TopicPrx? = try istr.read(TopicPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as NoSuchTopic {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func retrieve(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> TopicPrx? {
+        return try await _impl._invoke(operation: "retrieve",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: TopicPrx? = try istr.read(TopicPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as NoSuchTopic {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Retrieve all topics managed by this topic manager.
@@ -1394,29 +1150,14 @@ public extension TopicManagerPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `TopicDict` - A dictionary of string, topic proxy pairs.
-    func retrieveAll(context: Ice.Context? = nil) throws -> TopicDict {
-        return try _impl._invoke(operation: "retrieveAll",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: TopicDict = try TopicDictHelper.read(from: istr)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Retrieve all topics managed by this topic manager.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `TopicDict` - The result of the operation
-    func retrieveAllAsync(context: Ice.Context? = nil) async throws -> TopicDict {
-        return try await _impl._invokeAsync(operation: "retrieveAll",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: TopicDict = try TopicDictHelper.read(from: istr)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func retrieveAll(context: Ice.Context? = nil) async throws -> TopicDict {
+        return try await _impl._invoke(operation: "retrieveAll",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: TopicDict = try TopicDictHelper.read(from: istr)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -1466,8 +1207,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: FinderPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> FinderPrx? {
-    return try FinderPrxI.checkedCast(prx: prx, facet: facet, context: context) as FinderPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: FinderPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> FinderPrx? {
+    return try await FinderPrxI.checkedCast(prx: prx, facet: facet, context: context) as FinderPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -1529,29 +1270,14 @@ public extension FinderPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `TopicManagerPrx?` - The topic manager proxy. The returned proxy is never null.
-    func getTopicManager(context: Ice.Context? = nil) throws -> TopicManagerPrx? {
-        return try _impl._invoke(operation: "getTopicManager",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: TopicManagerPrx? = try istr.read(TopicManagerPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get the topic manager proxy. The proxy might point to several replicas.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `TopicManagerPrx?` - The result of the operation
-    func getTopicManagerAsync(context: Ice.Context? = nil) async throws -> TopicManagerPrx? {
-        return try await _impl._invokeAsync(operation: "getTopicManager",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: TopicManagerPrx? = try istr.read(TopicManagerPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getTopicManager(context: Ice.Context? = nil) async throws -> TopicManagerPrx? {
+        return try await _impl._invoke(operation: "getTopicManager",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: TopicManagerPrx? = try istr.read(TopicManagerPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -1607,7 +1333,7 @@ public protocol Topic {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The result of the operation
+    /// - returns: `Swift.String` - The name of the topic.
     func getName(current: Ice.Current) async throws -> Swift.String
 
     /// Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
@@ -1616,7 +1342,7 @@ public protocol Topic {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    /// - returns: `Ice.ObjectPrx?` - A proxy to publish data on this topic.
     func getPublisher(current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
@@ -1625,7 +1351,7 @@ public protocol Topic {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    /// - returns: `Ice.ObjectPrx?` - A proxy to publish data on this topic.
     func getNonReplicatedPublisher(current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
@@ -1636,7 +1362,15 @@ public protocol Topic {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    /// - returns: `Ice.ObjectPrx?` - The per-subscriber publisher object. The returned object is never null.
+    ///
+    /// - throws:
+    ///
+    ///   - AlreadySubscribed - Raised if the subscriber object is already subscribed.
+    ///
+    ///   - BadQoS - Raised if the requested quality of service is unavailable or invalid.
+    ///
+    ///   - InvalidSubscriber - Raised if the subscriber object is null.
     func subscribeAndGetPublisher(theQoS: QoS, subscriber: Ice.ObjectPrx?, current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Unsubscribe the given subscriber.
@@ -1644,8 +1378,6 @@ public protocol Topic {
     /// - parameter subscriber: `Ice.ObjectPrx?` The proxy of an existing subscriber. This proxy is never null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func unsubscribe(subscriber: Ice.ObjectPrx?, current: Ice.Current) async throws
 
     /// Create a link to the given topic. All events originating on this topic will also be sent to
@@ -1657,7 +1389,9 @@ public protocol Topic {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - LinkExists - Raised if a link to the same topic already exists.
     func link(linkTo: TopicPrx?, cost: Swift.Int32, current: Ice.Current) async throws
 
     /// Destroy the link from this topic to the given topic linkTo.
@@ -1666,28 +1400,28 @@ public protocol Topic {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - NoSuchLink - Raised if a link to the topic does not exist.
     func unlink(linkTo: TopicPrx?, current: Ice.Current) async throws
 
     /// Retrieve information on the current links.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `LinkInfoSeq` - The result of the operation
+    /// - returns: `LinkInfoSeq` - A sequence of LinkInfo objects.
     func getLinkInfoSeq(current: Ice.Current) async throws -> LinkInfoSeq
 
     /// Retrieve the list of subscribers for this topic.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.IdentitySeq` - The result of the operation
+    /// - returns: `Ice.IdentitySeq` - The sequence of Ice identities for the subscriber objects.
     func getSubscribers(current: Ice.Current) async throws -> Ice.IdentitySeq
 
     /// Destroy the topic.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func destroy(current: Ice.Current) async throws
 }
 
@@ -1731,7 +1465,11 @@ public protocol TopicManager {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `TopicPrx?` - The result of the operation
+    /// - returns: `TopicPrx?` - A proxy to the topic instance. The returned proxy is never null.
+    ///
+    /// - throws:
+    ///
+    ///   - TopicExists - Raised if a topic with the same name already exists.
     func create(name: Swift.String, current: Ice.Current) async throws -> TopicPrx?
 
     /// Retrieve a topic by name.
@@ -1740,14 +1478,18 @@ public protocol TopicManager {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `TopicPrx?` - The result of the operation
+    /// - returns: `TopicPrx?` - A proxy to the topic instance. The returned proxy is never null.
+    ///
+    /// - throws:
+    ///
+    ///   - NoSuchTopic - Raised if the topic does not exist.
     func retrieve(name: Swift.String, current: Ice.Current) async throws -> TopicPrx?
 
     /// Retrieve all topics managed by this topic manager.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `TopicDict` - The result of the operation
+    /// - returns: `TopicDict` - A dictionary of string, topic proxy pairs.
     func retrieveAll(current: Ice.Current) async throws -> TopicDict
 }
 
@@ -1786,7 +1528,7 @@ public protocol Finder {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `TopicManagerPrx?` - The result of the operation
+    /// - returns: `TopicManagerPrx?` - The topic manager proxy. The returned proxy is never null.
     func getTopicManager(current: Ice.Current) async throws -> TopicManagerPrx?
 }
 

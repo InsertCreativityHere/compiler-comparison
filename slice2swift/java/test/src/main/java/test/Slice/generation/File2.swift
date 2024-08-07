@@ -67,8 +67,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: Interface2Prx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> Interface2Prx? {
-    return try Interface2PrxI.checkedCast(prx: prx, facet: facet, context: context) as Interface2PrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: Interface2Prx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> Interface2Prx? {
+    return try await Interface2PrxI.checkedCast(prx: prx, facet: facet, context: context) as Interface2PrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -126,20 +126,10 @@ public extension Ice.InputStream {
 public extension Interface2Prx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func method(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "method",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func methodAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "method",
-                                            mode: .Normal,
-                                            context: context)
+    func method(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "method",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -174,8 +164,6 @@ public struct Interface2Disp: Ice.Dispatcher {
 public protocol Interface2 {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func method(current: Ice.Current) async throws
 }
 

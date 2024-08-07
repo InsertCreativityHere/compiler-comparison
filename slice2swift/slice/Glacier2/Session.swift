@@ -139,8 +139,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: SessionPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> SessionPrx? {
-    return try SessionPrxI.checkedCast(prx: prx, facet: facet, context: context) as SessionPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: SessionPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> SessionPrx? {
+    return try await SessionPrxI.checkedCast(prx: prx, facet: facet, context: context) as SessionPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -199,21 +199,10 @@ public extension SessionPrx {
     /// Destroy the session. This is called automatically when the router is destroyed.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func destroy(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "destroy",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    /// Destroy the session. This is called automatically when the router is destroyed.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func destroyAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "destroy",
-                                            mode: .Normal,
-                                            context: context)
+    func destroy(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "destroy",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -271,8 +260,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: StringSetPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> StringSetPrx? {
-    return try StringSetPrxI.checkedCast(prx: prx, facet: facet, context: context) as StringSetPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: StringSetPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> StringSetPrx? {
+    return try await StringSetPrxI.checkedCast(prx: prx, facet: facet, context: context) as StringSetPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -343,30 +332,13 @@ public extension StringSetPrx {
     /// - parameter _: `Ice.StringSeq` The sequence of strings to be added.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func add(_ iceP_additions: Ice.StringSeq, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "add",
-                          mode: .Idempotent,
-                          write: { ostr in
-                              ostr.write(iceP_additions)
-                          },
-                          context: context)
-    }
-
-    /// Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
-    /// removed.
-    ///
-    /// - parameter _: `Ice.StringSeq` The sequence of strings to be added.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func addAsync(_ iceP_additions: Ice.StringSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "add",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_additions)
-                                            },
-                                            context: context)
+    func add(_ iceP_additions: Ice.StringSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "add",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_additions)
+                                       },
+                                       context: context)
     }
 
     /// Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
@@ -374,29 +346,13 @@ public extension StringSetPrx {
     /// - parameter _: `Ice.StringSeq` The sequence of strings to be removed.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func remove(_ iceP_deletions: Ice.StringSeq, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "remove",
-                          mode: .Idempotent,
-                          write: { ostr in
-                              ostr.write(iceP_deletions)
-                          },
-                          context: context)
-    }
-
-    /// Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
-    ///
-    /// - parameter _: `Ice.StringSeq` The sequence of strings to be removed.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func removeAsync(_ iceP_deletions: Ice.StringSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "remove",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_deletions)
-                                            },
-                                            context: context)
+    func remove(_ iceP_deletions: Ice.StringSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "remove",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_deletions)
+                                       },
+                                       context: context)
     }
 
     /// Returns a sequence of strings describing the constraints in this set.
@@ -404,29 +360,14 @@ public extension StringSetPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Ice.StringSeq` - The sequence of strings for this set.
-    func `get`(context: Ice.Context? = nil) throws -> Ice.StringSeq {
-        return try _impl._invoke(operation: "get",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.StringSeq = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Returns a sequence of strings describing the constraints in this set.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.StringSeq` - The result of the operation
-    func getAsync(context: Ice.Context? = nil) async throws -> Ice.StringSeq {
-        return try await _impl._invokeAsync(operation: "get",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.StringSeq = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func `get`(context: Ice.Context? = nil) async throws -> Ice.StringSeq {
+        return try await _impl._invoke(operation: "get",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.StringSeq = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -483,8 +424,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: IdentitySetPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> IdentitySetPrx? {
-    return try IdentitySetPrxI.checkedCast(prx: prx, facet: facet, context: context) as IdentitySetPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: IdentitySetPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> IdentitySetPrx? {
+    return try await IdentitySetPrxI.checkedCast(prx: prx, facet: facet, context: context) as IdentitySetPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -554,30 +495,13 @@ public extension IdentitySetPrx {
     /// - parameter _: `Ice.IdentitySeq` The sequence of Ice identities to be added.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func add(_ iceP_additions: Ice.IdentitySeq, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "add",
-                          mode: .Idempotent,
-                          write: { ostr in
-                              Ice.IdentitySeqHelper.write(to: ostr, value: iceP_additions)
-                          },
-                          context: context)
-    }
-
-    /// Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
-    /// implicitly removed.
-    ///
-    /// - parameter _: `Ice.IdentitySeq` The sequence of Ice identities to be added.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func addAsync(_ iceP_additions: Ice.IdentitySeq, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "add",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                Ice.IdentitySeqHelper.write(to: ostr, value: iceP_additions)
-                                            },
-                                            context: context)
+    func add(_ iceP_additions: Ice.IdentitySeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "add",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           Ice.IdentitySeqHelper.write(to: ostr, value: iceP_additions)
+                                       },
+                                       context: context)
     }
 
     /// Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
@@ -586,30 +510,13 @@ public extension IdentitySetPrx {
     /// - parameter _: `Ice.IdentitySeq` The sequence of Ice identities to be removed.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func remove(_ iceP_deletions: Ice.IdentitySeq, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "remove",
-                          mode: .Idempotent,
-                          write: { ostr in
-                              Ice.IdentitySeqHelper.write(to: ostr, value: iceP_deletions)
-                          },
-                          context: context)
-    }
-
-    /// Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
-    /// found.
-    ///
-    /// - parameter _: `Ice.IdentitySeq` The sequence of Ice identities to be removed.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func removeAsync(_ iceP_deletions: Ice.IdentitySeq, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "remove",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                Ice.IdentitySeqHelper.write(to: ostr, value: iceP_deletions)
-                                            },
-                                            context: context)
+    func remove(_ iceP_deletions: Ice.IdentitySeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "remove",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           Ice.IdentitySeqHelper.write(to: ostr, value: iceP_deletions)
+                                       },
+                                       context: context)
     }
 
     /// Returns a sequence of identities describing the constraints in this set.
@@ -617,29 +524,14 @@ public extension IdentitySetPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Ice.IdentitySeq` - The sequence of Ice identities for this set.
-    func `get`(context: Ice.Context? = nil) throws -> Ice.IdentitySeq {
-        return try _impl._invoke(operation: "get",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.IdentitySeq = try Ice.IdentitySeqHelper.read(from: istr)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Returns a sequence of identities describing the constraints in this set.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.IdentitySeq` - The result of the operation
-    func getAsync(context: Ice.Context? = nil) async throws -> Ice.IdentitySeq {
-        return try await _impl._invokeAsync(operation: "get",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.IdentitySeq = try Ice.IdentitySeqHelper.read(from: istr)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func `get`(context: Ice.Context? = nil) async throws -> Ice.IdentitySeq {
+        return try await _impl._invoke(operation: "get",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.IdentitySeq = try Ice.IdentitySeqHelper.read(from: istr)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -704,8 +596,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: SessionControlPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> SessionControlPrx? {
-    return try SessionControlPrxI.checkedCast(prx: prx, facet: facet, context: context) as SessionControlPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: SessionControlPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> SessionControlPrx? {
+    return try await SessionControlPrxI.checkedCast(prx: prx, facet: facet, context: context) as SessionControlPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -782,29 +674,14 @@ public extension SessionControlPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `StringSetPrx?` - A StringSet object. The returned proxy is never null.
-    func categories(context: Ice.Context? = nil) throws -> StringSetPrx? {
-        return try _impl._invoke(operation: "categories",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: StringSetPrx? = try istr.read(StringSetPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Access the object that manages the allowable categories for object identities for this session.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `StringSetPrx?` - The result of the operation
-    func categoriesAsync(context: Ice.Context? = nil) async throws -> StringSetPrx? {
-        return try await _impl._invokeAsync(operation: "categories",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: StringSetPrx? = try istr.read(StringSetPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func categories(context: Ice.Context? = nil) async throws -> StringSetPrx? {
+        return try await _impl._invoke(operation: "categories",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: StringSetPrx? = try istr.read(StringSetPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Access the object that manages the allowable adapter identities for objects for this session.
@@ -812,29 +689,14 @@ public extension SessionControlPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `StringSetPrx?` - A StringSet object. The returned proxy is never null.
-    func adapterIds(context: Ice.Context? = nil) throws -> StringSetPrx? {
-        return try _impl._invoke(operation: "adapterIds",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: StringSetPrx? = try istr.read(StringSetPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Access the object that manages the allowable adapter identities for objects for this session.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `StringSetPrx?` - The result of the operation
-    func adapterIdsAsync(context: Ice.Context? = nil) async throws -> StringSetPrx? {
-        return try await _impl._invokeAsync(operation: "adapterIds",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: StringSetPrx? = try istr.read(StringSetPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func adapterIds(context: Ice.Context? = nil) async throws -> StringSetPrx? {
+        return try await _impl._invoke(operation: "adapterIds",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: StringSetPrx? = try istr.read(StringSetPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Access the object that manages the allowable object identities for this session.
@@ -842,29 +704,14 @@ public extension SessionControlPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `IdentitySetPrx?` - An IdentitySet object. The returned proxy is never null.
-    func identities(context: Ice.Context? = nil) throws -> IdentitySetPrx? {
-        return try _impl._invoke(operation: "identities",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: IdentitySetPrx? = try istr.read(IdentitySetPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Access the object that manages the allowable object identities for this session.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `IdentitySetPrx?` - The result of the operation
-    func identitiesAsync(context: Ice.Context? = nil) async throws -> IdentitySetPrx? {
-        return try await _impl._invokeAsync(operation: "identities",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: IdentitySetPrx? = try istr.read(IdentitySetPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func identities(context: Ice.Context? = nil) async throws -> IdentitySetPrx? {
+        return try await _impl._invoke(operation: "identities",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: IdentitySetPrx? = try istr.read(IdentitySetPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Get the session timeout.
@@ -872,49 +719,23 @@ public extension SessionControlPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Int32` - The timeout.
-    func getSessionTimeout(context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "getSessionTimeout",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get the session timeout.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The result of the operation
-    func getSessionTimeoutAsync(context: Ice.Context? = nil) async throws -> Swift.Int32 {
-        return try await _impl._invokeAsync(operation: "getSessionTimeout",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Int32 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getSessionTimeout(context: Ice.Context? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invoke(operation: "getSessionTimeout",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Int32 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Destroy the associated session.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func destroy(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "destroy",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    /// Destroy the associated session.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func destroyAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "destroy",
-                                            mode: .Normal,
-                                            context: context)
+    func destroy(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "destroy",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -966,8 +787,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: SessionManagerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> SessionManagerPrx? {
-    return try SessionManagerPrxI.checkedCast(prx: prx, facet: facet, context: context) as SessionManagerPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: SessionManagerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> SessionManagerPrx? {
+    return try await SessionManagerPrxI.checkedCast(prx: prx, facet: facet, context: context) as SessionManagerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -1041,57 +862,25 @@ public extension SessionManagerPrx {
     /// - throws:
     ///
     ///   - CannotCreateSessionException - Raised if the session cannot be created.
-    func create(userId iceP_userId: Swift.String, control iceP_control: SessionControlPrx?, context: Ice.Context? = nil) throws -> SessionPrx? {
-        return try _impl._invoke(operation: "create",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_userId)
-                                     ostr.write(iceP_control)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: SessionPrx? = try istr.read(SessionPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as CannotCreateSessionException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Create a new session. The implementation must return a non-null proxy or raise
-    /// CannotCreateSessionException if the session cannot be created.
-    ///
-    /// - parameter userId: `Swift.String` The user id for the session.
-    ///
-    /// - parameter control: `SessionControlPrx?` A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
-    /// are not configured.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `SessionPrx?` - The result of the operation
-    func createAsync(userId iceP_userId: Swift.String, control iceP_control: SessionControlPrx?, context: Ice.Context? = nil) async throws -> SessionPrx? {
-        return try await _impl._invokeAsync(operation: "create",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_userId)
-                                                ostr.write(iceP_control)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: SessionPrx? = try istr.read(SessionPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as CannotCreateSessionException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func create(userId iceP_userId: Swift.String, control iceP_control: SessionControlPrx?, context: Ice.Context? = nil) async throws -> SessionPrx? {
+        return try await _impl._invoke(operation: "create",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_userId)
+                                           ostr.write(iceP_control)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: SessionPrx? = try istr.read(SessionPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as CannotCreateSessionException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 }
 
@@ -1142,8 +931,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: SSLSessionManagerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> SSLSessionManagerPrx? {
-    return try SSLSessionManagerPrxI.checkedCast(prx: prx, facet: facet, context: context) as SSLSessionManagerPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: SSLSessionManagerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> SSLSessionManagerPrx? {
+    return try await SSLSessionManagerPrxI.checkedCast(prx: prx, facet: facet, context: context) as SSLSessionManagerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -1214,55 +1003,25 @@ public extension SSLSessionManagerPrx {
     /// - throws:
     ///
     ///   - CannotCreateSessionException - Raised if the session cannot be created.
-    func create(info iceP_info: SSLInfo, control iceP_control: SessionControlPrx?, context: Ice.Context? = nil) throws -> SessionPrx? {
-        return try _impl._invoke(operation: "create",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_info)
-                                     ostr.write(iceP_control)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: SessionPrx? = try istr.read(SessionPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as CannotCreateSessionException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Create a new session.
-    ///
-    /// - parameter info: `SSLInfo` The SSL info.
-    ///
-    /// - parameter control: `SessionControlPrx?` A proxy to the session control object.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `SessionPrx?` - The result of the operation
-    func createAsync(info iceP_info: SSLInfo, control iceP_control: SessionControlPrx?, context: Ice.Context? = nil) async throws -> SessionPrx? {
-        return try await _impl._invokeAsync(operation: "create",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_info)
-                                                ostr.write(iceP_control)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: SessionPrx? = try istr.read(SessionPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as CannotCreateSessionException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func create(info iceP_info: SSLInfo, control iceP_control: SessionControlPrx?, context: Ice.Context? = nil) async throws -> SessionPrx? {
+        return try await _impl._invoke(operation: "create",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_info)
+                                           ostr.write(iceP_control)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: SessionPrx? = try istr.read(SessionPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as CannotCreateSessionException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 }
 
@@ -1299,8 +1058,6 @@ public protocol Session {
     /// Destroy the session. This is called automatically when the router is destroyed.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func destroy(current: Ice.Current) async throws
 }
 
@@ -1345,8 +1102,6 @@ public protocol StringSet {
     /// - parameter additions: `Ice.StringSeq` The sequence of strings to be added.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func add(additions: Ice.StringSeq, current: Ice.Current) async throws
 
     /// Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
@@ -1354,15 +1109,13 @@ public protocol StringSet {
     /// - parameter deletions: `Ice.StringSeq` The sequence of strings to be removed.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func remove(deletions: Ice.StringSeq, current: Ice.Current) async throws
 
     /// Returns a sequence of strings describing the constraints in this set.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.StringSeq` - The result of the operation
+    /// - returns: `Ice.StringSeq` - The sequence of strings for this set.
     func `get`(current: Ice.Current) async throws -> Ice.StringSeq
 }
 
@@ -1406,8 +1159,6 @@ public protocol IdentitySet {
     /// - parameter additions: `Ice.IdentitySeq` The sequence of Ice identities to be added.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func add(additions: Ice.IdentitySeq, current: Ice.Current) async throws
 
     /// Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
@@ -1416,15 +1167,13 @@ public protocol IdentitySet {
     /// - parameter deletions: `Ice.IdentitySeq` The sequence of Ice identities to be removed.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func remove(deletions: Ice.IdentitySeq, current: Ice.Current) async throws
 
     /// Returns a sequence of identities describing the constraints in this set.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.IdentitySeq` - The result of the operation
+    /// - returns: `Ice.IdentitySeq` - The sequence of Ice identities for this set.
     func `get`(current: Ice.Current) async throws -> Ice.IdentitySeq
 }
 
@@ -1470,35 +1219,33 @@ public protocol SessionControl {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `StringSetPrx?` - The result of the operation
+    /// - returns: `StringSetPrx?` - A StringSet object. The returned proxy is never null.
     func categories(current: Ice.Current) async throws -> StringSetPrx?
 
     /// Access the object that manages the allowable adapter identities for objects for this session.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `StringSetPrx?` - The result of the operation
+    /// - returns: `StringSetPrx?` - A StringSet object. The returned proxy is never null.
     func adapterIds(current: Ice.Current) async throws -> StringSetPrx?
 
     /// Access the object that manages the allowable object identities for this session.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `IdentitySetPrx?` - The result of the operation
+    /// - returns: `IdentitySetPrx?` - An IdentitySet object. The returned proxy is never null.
     func identities(current: Ice.Current) async throws -> IdentitySetPrx?
 
     /// Get the session timeout.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The result of the operation
+    /// - returns: `Swift.Int32` - The timeout.
     func getSessionTimeout(current: Ice.Current) async throws -> Swift.Int32
 
     /// Destroy the associated session.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func destroy(current: Ice.Current) async throws
 }
 
@@ -1545,7 +1292,11 @@ public protocol SessionManager {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `SessionPrx?` - The result of the operation
+    /// - returns: `SessionPrx?` - A proxy to the newly created session.
+    ///
+    /// - throws:
+    ///
+    ///   - CannotCreateSessionException - Raised if the session cannot be created.
     func create(userId: Swift.String, control: SessionControlPrx?, current: Ice.Current) async throws -> SessionPrx?
 }
 
@@ -1589,7 +1340,11 @@ public protocol SSLSessionManager {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `SessionPrx?` - The result of the operation
+    /// - returns: `SessionPrx?` - A proxy to the newly created session.
+    ///
+    /// - throws:
+    ///
+    ///   - CannotCreateSessionException - Raised if the session cannot be created.
     func create(info: SSLInfo, control: SessionControlPrx?, current: Ice.Current) async throws -> SessionPrx?
 }
 

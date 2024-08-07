@@ -707,8 +707,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: MyClassPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> MyClassPrx? {
-    return try MyClassPrxI.checkedCast(prx: prx, facet: facet, context: context) as MyClassPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: MyClassPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> MyClassPrx? {
+    return try await MyClassPrxI.checkedCast(prx: prx, facet: facet, context: context) as MyClassPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -798,20 +798,10 @@ public extension Ice.InputStream {
 public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
@@ -824,38 +814,18 @@ public extension MyClassPrx {
     ///   - returnValue: `NV`
     ///
     ///   - o: `NV`
-    func opNV(_ iceP_i: NV, context: Ice.Context? = nil) throws -> (returnValue: NV, o: NV) {
-        return try _impl._invoke(operation: "opNV",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     NVHelper.write(to: ostr, value: iceP_i)
-                                 },
-                                 read: { istr in
-                                     let iceP_o: NV = try NVHelper.read(from: istr)
-                                     let iceP_returnValue: NV = try NVHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_o)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `NV`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: NV, o: NV)` - The result of the operation
-    func opNVAsync(_ iceP_i: NV, context: Ice.Context? = nil) async throws -> (returnValue: NV, o: NV) {
-        return try await _impl._invokeAsync(operation: "opNV",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                NVHelper.write(to: ostr, value: iceP_i)
-                                            },
-                                            read: { istr in
-                                                let iceP_o: NV = try NVHelper.read(from: istr)
-                                                let iceP_returnValue: NV = try NVHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_o)
-                                            },
-                                            context: context)
+    func opNV(_ iceP_i: NV, context: Ice.Context? = nil) async throws -> (returnValue: NV, o: NV) {
+        return try await _impl._invoke(operation: "opNV",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           NVHelper.write(to: ostr, value: iceP_i)
+                                       },
+                                       read: { istr in
+                                           let iceP_o: NV = try NVHelper.read(from: istr)
+                                           let iceP_returnValue: NV = try NVHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_o)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -868,38 +838,18 @@ public extension MyClassPrx {
     ///   - returnValue: `NR`
     ///
     ///   - o: `NR`
-    func opNR(_ iceP_i: NR, context: Ice.Context? = nil) throws -> (returnValue: NR, o: NR) {
-        return try _impl._invoke(operation: "opNR",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     NRHelper.write(to: ostr, value: iceP_i)
-                                 },
-                                 read: { istr in
-                                     let iceP_o: NR = try NRHelper.read(from: istr)
-                                     let iceP_returnValue: NR = try NRHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_o)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `NR`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: NR, o: NR)` - The result of the operation
-    func opNRAsync(_ iceP_i: NR, context: Ice.Context? = nil) async throws -> (returnValue: NR, o: NR) {
-        return try await _impl._invokeAsync(operation: "opNR",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                NRHelper.write(to: ostr, value: iceP_i)
-                                            },
-                                            read: { istr in
-                                                let iceP_o: NR = try NRHelper.read(from: istr)
-                                                let iceP_returnValue: NR = try NRHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_o)
-                                            },
-                                            context: context)
+    func opNR(_ iceP_i: NR, context: Ice.Context? = nil) async throws -> (returnValue: NR, o: NR) {
+        return try await _impl._invoke(operation: "opNR",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           NRHelper.write(to: ostr, value: iceP_i)
+                                       },
+                                       read: { istr in
+                                           let iceP_o: NR = try NRHelper.read(from: istr)
+                                           let iceP_returnValue: NR = try NRHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_o)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -912,38 +862,18 @@ public extension MyClassPrx {
     ///   - returnValue: `NDV`
     ///
     ///   - o: `NDV`
-    func opNDV(_ iceP_i: NDV, context: Ice.Context? = nil) throws -> (returnValue: NDV, o: NDV) {
-        return try _impl._invoke(operation: "opNDV",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     NDVHelper.write(to: ostr, value: iceP_i)
-                                 },
-                                 read: { istr in
-                                     let iceP_o: NDV = try NDVHelper.read(from: istr)
-                                     let iceP_returnValue: NDV = try NDVHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_o)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `NDV`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: NDV, o: NDV)` - The result of the operation
-    func opNDVAsync(_ iceP_i: NDV, context: Ice.Context? = nil) async throws -> (returnValue: NDV, o: NDV) {
-        return try await _impl._invokeAsync(operation: "opNDV",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                NDVHelper.write(to: ostr, value: iceP_i)
-                                            },
-                                            read: { istr in
-                                                let iceP_o: NDV = try NDVHelper.read(from: istr)
-                                                let iceP_returnValue: NDV = try NDVHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_o)
-                                            },
-                                            context: context)
+    func opNDV(_ iceP_i: NDV, context: Ice.Context? = nil) async throws -> (returnValue: NDV, o: NDV) {
+        return try await _impl._invoke(operation: "opNDV",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           NDVHelper.write(to: ostr, value: iceP_i)
+                                       },
+                                       read: { istr in
+                                           let iceP_o: NDV = try NDVHelper.read(from: istr)
+                                           let iceP_returnValue: NDV = try NDVHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_o)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -956,38 +886,18 @@ public extension MyClassPrx {
     ///   - returnValue: `NDR`
     ///
     ///   - o: `NDR`
-    func opNDR(_ iceP_i: NDR, context: Ice.Context? = nil) throws -> (returnValue: NDR, o: NDR) {
-        return try _impl._invoke(operation: "opNDR",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     NDRHelper.write(to: ostr, value: iceP_i)
-                                 },
-                                 read: { istr in
-                                     let iceP_o: NDR = try NDRHelper.read(from: istr)
-                                     let iceP_returnValue: NDR = try NDRHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_o)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `NDR`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: NDR, o: NDR)` - The result of the operation
-    func opNDRAsync(_ iceP_i: NDR, context: Ice.Context? = nil) async throws -> (returnValue: NDR, o: NDR) {
-        return try await _impl._invokeAsync(operation: "opNDR",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                NDRHelper.write(to: ostr, value: iceP_i)
-                                            },
-                                            read: { istr in
-                                                let iceP_o: NDR = try NDRHelper.read(from: istr)
-                                                let iceP_returnValue: NDR = try NDRHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_o)
-                                            },
-                                            context: context)
+    func opNDR(_ iceP_i: NDR, context: Ice.Context? = nil) async throws -> (returnValue: NDR, o: NDR) {
+        return try await _impl._invoke(operation: "opNDR",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           NDRHelper.write(to: ostr, value: iceP_i)
+                                       },
+                                       read: { istr in
+                                           let iceP_o: NDR = try NDRHelper.read(from: istr)
+                                           let iceP_returnValue: NDR = try NDRHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_o)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1000,38 +910,18 @@ public extension MyClassPrx {
     ///   - returnValue: `NDAIS`
     ///
     ///   - o: `NDAIS`
-    func opNDAIS(_ iceP_i: NDAIS, context: Ice.Context? = nil) throws -> (returnValue: NDAIS, o: NDAIS) {
-        return try _impl._invoke(operation: "opNDAIS",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     NDAISHelper.write(to: ostr, value: iceP_i)
-                                 },
-                                 read: { istr in
-                                     let iceP_o: NDAIS = try NDAISHelper.read(from: istr)
-                                     let iceP_returnValue: NDAIS = try NDAISHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_o)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `NDAIS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: NDAIS, o: NDAIS)` - The result of the operation
-    func opNDAISAsync(_ iceP_i: NDAIS, context: Ice.Context? = nil) async throws -> (returnValue: NDAIS, o: NDAIS) {
-        return try await _impl._invokeAsync(operation: "opNDAIS",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                NDAISHelper.write(to: ostr, value: iceP_i)
-                                            },
-                                            read: { istr in
-                                                let iceP_o: NDAIS = try NDAISHelper.read(from: istr)
-                                                let iceP_returnValue: NDAIS = try NDAISHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_o)
-                                            },
-                                            context: context)
+    func opNDAIS(_ iceP_i: NDAIS, context: Ice.Context? = nil) async throws -> (returnValue: NDAIS, o: NDAIS) {
+        return try await _impl._invoke(operation: "opNDAIS",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           NDAISHelper.write(to: ostr, value: iceP_i)
+                                       },
+                                       read: { istr in
+                                           let iceP_o: NDAIS = try NDAISHelper.read(from: istr)
+                                           let iceP_returnValue: NDAIS = try NDAISHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_o)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1044,38 +934,18 @@ public extension MyClassPrx {
     ///   - returnValue: `NDGIS`
     ///
     ///   - o: `NDGIS`
-    func opNDGIS(_ iceP_i: NDGIS, context: Ice.Context? = nil) throws -> (returnValue: NDGIS, o: NDGIS) {
-        return try _impl._invoke(operation: "opNDGIS",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     NDGISHelper.write(to: ostr, value: iceP_i)
-                                 },
-                                 read: { istr in
-                                     let iceP_o: NDGIS = try NDGISHelper.read(from: istr)
-                                     let iceP_returnValue: NDGIS = try NDGISHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_o)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `NDGIS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: NDGIS, o: NDGIS)` - The result of the operation
-    func opNDGISAsync(_ iceP_i: NDGIS, context: Ice.Context? = nil) async throws -> (returnValue: NDGIS, o: NDGIS) {
-        return try await _impl._invokeAsync(operation: "opNDGIS",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                NDGISHelper.write(to: ostr, value: iceP_i)
-                                            },
-                                            read: { istr in
-                                                let iceP_o: NDGIS = try NDGISHelper.read(from: istr)
-                                                let iceP_returnValue: NDGIS = try NDGISHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_o)
-                                            },
-                                            context: context)
+    func opNDGIS(_ iceP_i: NDGIS, context: Ice.Context? = nil) async throws -> (returnValue: NDGIS, o: NDGIS) {
+        return try await _impl._invoke(operation: "opNDGIS",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           NDGISHelper.write(to: ostr, value: iceP_i)
+                                       },
+                                       read: { istr in
+                                           let iceP_o: NDGIS = try NDGISHelper.read(from: istr)
+                                           let iceP_returnValue: NDGIS = try NDGISHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_o)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1088,38 +958,18 @@ public extension MyClassPrx {
     ///   - returnValue: `NDASS`
     ///
     ///   - o: `NDASS`
-    func opNDASS(_ iceP_i: NDASS, context: Ice.Context? = nil) throws -> (returnValue: NDASS, o: NDASS) {
-        return try _impl._invoke(operation: "opNDASS",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     NDASSHelper.write(to: ostr, value: iceP_i)
-                                 },
-                                 read: { istr in
-                                     let iceP_o: NDASS = try NDASSHelper.read(from: istr)
-                                     let iceP_returnValue: NDASS = try NDASSHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_o)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `NDASS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: NDASS, o: NDASS)` - The result of the operation
-    func opNDASSAsync(_ iceP_i: NDASS, context: Ice.Context? = nil) async throws -> (returnValue: NDASS, o: NDASS) {
-        return try await _impl._invokeAsync(operation: "opNDASS",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                NDASSHelper.write(to: ostr, value: iceP_i)
-                                            },
-                                            read: { istr in
-                                                let iceP_o: NDASS = try NDASSHelper.read(from: istr)
-                                                let iceP_returnValue: NDASS = try NDASSHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_o)
-                                            },
-                                            context: context)
+    func opNDASS(_ iceP_i: NDASS, context: Ice.Context? = nil) async throws -> (returnValue: NDASS, o: NDASS) {
+        return try await _impl._invoke(operation: "opNDASS",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           NDASSHelper.write(to: ostr, value: iceP_i)
+                                       },
+                                       read: { istr in
+                                           let iceP_o: NDASS = try NDASSHelper.read(from: istr)
+                                           let iceP_returnValue: NDASS = try NDASSHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_o)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1132,38 +982,18 @@ public extension MyClassPrx {
     ///   - returnValue: `NDGSS`
     ///
     ///   - o: `NDGSS`
-    func opNDGSS(_ iceP_i: NDGSS, context: Ice.Context? = nil) throws -> (returnValue: NDGSS, o: NDGSS) {
-        return try _impl._invoke(operation: "opNDGSS",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     NDGSSHelper.write(to: ostr, value: iceP_i)
-                                 },
-                                 read: { istr in
-                                     let iceP_o: NDGSS = try NDGSSHelper.read(from: istr)
-                                     let iceP_returnValue: NDGSS = try NDGSSHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_o)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `NDGSS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: NDGSS, o: NDGSS)` - The result of the operation
-    func opNDGSSAsync(_ iceP_i: NDGSS, context: Ice.Context? = nil) async throws -> (returnValue: NDGSS, o: NDGSS) {
-        return try await _impl._invokeAsync(operation: "opNDGSS",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                NDGSSHelper.write(to: ostr, value: iceP_i)
-                                            },
-                                            read: { istr in
-                                                let iceP_o: NDGSS = try NDGSSHelper.read(from: istr)
-                                                let iceP_returnValue: NDGSS = try NDGSSHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_o)
-                                            },
-                                            context: context)
+    func opNDGSS(_ iceP_i: NDGSS, context: Ice.Context? = nil) async throws -> (returnValue: NDGSS, o: NDGSS) {
+        return try await _impl._invoke(operation: "opNDGSS",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           NDGSSHelper.write(to: ostr, value: iceP_i)
+                                       },
+                                       read: { istr in
+                                           let iceP_o: NDGSS = try NDGSSHelper.read(from: istr)
+                                           let iceP_returnValue: NDGSS = try NDGSSHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_o)
+                                       },
+                                       context: context)
     }
 }
 
@@ -1214,8 +1044,6 @@ public struct MyClassDisp: Ice.Dispatcher {
 public protocol MyClass {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 
     ///
@@ -1223,7 +1051,11 @@ public protocol MyClass {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: NV, o: NV)` - The result of the operation
+    /// - returns: `(returnValue: NV, o: NV)`:
+    ///
+    ///   - returnValue: `NV`
+    ///
+    ///   - o: `NV`
     func opNV(i: NV, current: Ice.Current) async throws -> (returnValue: NV, o: NV)
 
     ///
@@ -1231,7 +1063,11 @@ public protocol MyClass {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: NR, o: NR)` - The result of the operation
+    /// - returns: `(returnValue: NR, o: NR)`:
+    ///
+    ///   - returnValue: `NR`
+    ///
+    ///   - o: `NR`
     func opNR(i: NR, current: Ice.Current) async throws -> (returnValue: NR, o: NR)
 
     ///
@@ -1239,7 +1075,11 @@ public protocol MyClass {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: NDV, o: NDV)` - The result of the operation
+    /// - returns: `(returnValue: NDV, o: NDV)`:
+    ///
+    ///   - returnValue: `NDV`
+    ///
+    ///   - o: `NDV`
     func opNDV(i: NDV, current: Ice.Current) async throws -> (returnValue: NDV, o: NDV)
 
     ///
@@ -1247,7 +1087,11 @@ public protocol MyClass {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: NDR, o: NDR)` - The result of the operation
+    /// - returns: `(returnValue: NDR, o: NDR)`:
+    ///
+    ///   - returnValue: `NDR`
+    ///
+    ///   - o: `NDR`
     func opNDR(i: NDR, current: Ice.Current) async throws -> (returnValue: NDR, o: NDR)
 
     ///
@@ -1255,7 +1099,11 @@ public protocol MyClass {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: NDAIS, o: NDAIS)` - The result of the operation
+    /// - returns: `(returnValue: NDAIS, o: NDAIS)`:
+    ///
+    ///   - returnValue: `NDAIS`
+    ///
+    ///   - o: `NDAIS`
     func opNDAIS(i: NDAIS, current: Ice.Current) async throws -> (returnValue: NDAIS, o: NDAIS)
 
     ///
@@ -1263,7 +1111,11 @@ public protocol MyClass {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: NDGIS, o: NDGIS)` - The result of the operation
+    /// - returns: `(returnValue: NDGIS, o: NDGIS)`:
+    ///
+    ///   - returnValue: `NDGIS`
+    ///
+    ///   - o: `NDGIS`
     func opNDGIS(i: NDGIS, current: Ice.Current) async throws -> (returnValue: NDGIS, o: NDGIS)
 
     ///
@@ -1271,7 +1123,11 @@ public protocol MyClass {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: NDASS, o: NDASS)` - The result of the operation
+    /// - returns: `(returnValue: NDASS, o: NDASS)`:
+    ///
+    ///   - returnValue: `NDASS`
+    ///
+    ///   - o: `NDASS`
     func opNDASS(i: NDASS, current: Ice.Current) async throws -> (returnValue: NDASS, o: NDASS)
 
     ///
@@ -1279,7 +1135,11 @@ public protocol MyClass {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: NDGSS, o: NDGSS)` - The result of the operation
+    /// - returns: `(returnValue: NDGSS, o: NDGSS)`:
+    ///
+    ///   - returnValue: `NDGSS`
+    ///
+    ///   - o: `NDGSS`
     func opNDGSS(i: NDGSS, current: Ice.Current) async throws -> (returnValue: NDGSS, o: NDGSS)
 }
 

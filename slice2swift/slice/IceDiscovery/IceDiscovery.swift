@@ -77,8 +77,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: LookupReplyPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> LookupReplyPrx? {
-    return try LookupReplyPrxI.checkedCast(prx: prx, facet: facet, context: context) as LookupReplyPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: LookupReplyPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> LookupReplyPrx? {
+    return try await LookupReplyPrxI.checkedCast(prx: prx, facet: facet, context: context) as LookupReplyPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -145,33 +145,14 @@ public extension LookupReplyPrx {
     /// - parameter prx: `Ice.ObjectPrx?` The proxy of the object. This proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func foundObjectById(id iceP_id: Ice.Identity, prx iceP_prx: Ice.ObjectPrx?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "foundObjectById",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_id)
-                              ostr.write(iceP_prx)
-                          },
-                          context: context)
-    }
-
-    /// Reply to the findObjectById request.
-    ///
-    /// - parameter id: `Ice.Identity` The identity of the object.
-    ///
-    /// - parameter prx: `Ice.ObjectPrx?` The proxy of the object. This proxy is never null.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func foundObjectByIdAsync(id iceP_id: Ice.Identity, prx iceP_prx: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "foundObjectById",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                                ostr.write(iceP_prx)
-                                            },
-                                            context: context)
+    func foundObjectById(id iceP_id: Ice.Identity, prx iceP_prx: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "foundObjectById",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                           ostr.write(iceP_prx)
+                                       },
+                                       context: context)
     }
 
     /// Reply to the findAdpaterById request.
@@ -184,38 +165,15 @@ public extension LookupReplyPrx {
     /// - parameter isReplicaGroup: `Swift.Bool` True if the adapter is also a member of a replica group.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func foundAdapterById(id iceP_id: Swift.String, prx iceP_prx: Ice.ObjectPrx?, isReplicaGroup iceP_isReplicaGroup: Swift.Bool, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "foundAdapterById",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_id)
-                              ostr.write(iceP_prx)
-                              ostr.write(iceP_isReplicaGroup)
-                          },
-                          context: context)
-    }
-
-    /// Reply to the findAdpaterById request.
-    ///
-    /// - parameter id: `Swift.String` The adapter ID.
-    ///
-    /// - parameter prx: `Ice.ObjectPrx?` The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
-    /// endpoints. This proxy is never null.
-    ///
-    /// - parameter isReplicaGroup: `Swift.Bool` True if the adapter is also a member of a replica group.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func foundAdapterByIdAsync(id iceP_id: Swift.String, prx iceP_prx: Ice.ObjectPrx?, isReplicaGroup iceP_isReplicaGroup: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "foundAdapterById",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                                ostr.write(iceP_prx)
-                                                ostr.write(iceP_isReplicaGroup)
-                                            },
-                                            context: context)
+    func foundAdapterById(id iceP_id: Swift.String, prx iceP_prx: Ice.ObjectPrx?, isReplicaGroup iceP_isReplicaGroup: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "foundAdapterById",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                           ostr.write(iceP_prx)
+                                           ostr.write(iceP_isReplicaGroup)
+                                       },
+                                       context: context)
     }
 }
 
@@ -268,8 +226,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: LookupPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> LookupPrx? {
-    return try LookupPrxI.checkedCast(prx: prx, facet: facet, context: context) as LookupPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: LookupPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> LookupPrx? {
+    return try await LookupPrxI.checkedCast(prx: prx, facet: facet, context: context) as LookupPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -340,39 +298,15 @@ public extension LookupPrx {
     /// object is found. The reply proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func findObjectById(domainId iceP_domainId: Swift.String, id iceP_id: Ice.Identity, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "findObjectById",
-                          mode: .Idempotent,
-                          write: { ostr in
-                              ostr.write(iceP_domainId)
-                              ostr.write(iceP_id)
-                              ostr.write(iceP_reply)
-                          },
-                          context: context)
-    }
-
-    /// Request to find an Ice object
-    ///
-    /// - parameter domainId: `Swift.String` The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
-    /// matching domain identifier.
-    ///
-    /// - parameter id: `Ice.Identity` The object identity.
-    ///
-    /// - parameter reply: `LookupReplyPrx?` The proxy of the LookupReply interface that should be used to send the reply if a matching
-    /// object is found. The reply proxy is never null.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func findObjectByIdAsync(domainId iceP_domainId: Swift.String, id iceP_id: Ice.Identity, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "findObjectById",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_domainId)
-                                                ostr.write(iceP_id)
-                                                ostr.write(iceP_reply)
-                                            },
-                                            context: context)
+    func findObjectById(domainId iceP_domainId: Swift.String, id iceP_id: Ice.Identity, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "findObjectById",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_domainId)
+                                           ostr.write(iceP_id)
+                                           ostr.write(iceP_reply)
+                                       },
+                                       context: context)
     }
 
     /// Request to find an object adapter
@@ -386,39 +320,15 @@ public extension LookupPrx {
     /// adapter is found. The reply proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func findAdapterById(domainId iceP_domainId: Swift.String, id iceP_id: Swift.String, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "findAdapterById",
-                          mode: .Idempotent,
-                          write: { ostr in
-                              ostr.write(iceP_domainId)
-                              ostr.write(iceP_id)
-                              ostr.write(iceP_reply)
-                          },
-                          context: context)
-    }
-
-    /// Request to find an object adapter
-    ///
-    /// - parameter domainId: `Swift.String` The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
-    /// matching domain identifier.
-    ///
-    /// - parameter id: `Swift.String` The adapter ID.
-    ///
-    /// - parameter reply: `LookupReplyPrx?` The proxy of the LookupReply interface that should be used to send the reply if a matching
-    /// adapter is found. The reply proxy is never null.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func findAdapterByIdAsync(domainId iceP_domainId: Swift.String, id iceP_id: Swift.String, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "findAdapterById",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_domainId)
-                                                ostr.write(iceP_id)
-                                                ostr.write(iceP_reply)
-                                            },
-                                            context: context)
+    func findAdapterById(domainId iceP_domainId: Swift.String, id iceP_id: Swift.String, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "findAdapterById",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_domainId)
+                                           ostr.write(iceP_id)
+                                           ostr.write(iceP_reply)
+                                       },
+                                       context: context)
     }
 }
 
@@ -461,8 +371,6 @@ public protocol LookupReply {
     /// - parameter prx: `Ice.ObjectPrx?` The proxy of the object. This proxy is never null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func foundObjectById(id: Ice.Identity, prx: Ice.ObjectPrx?, current: Ice.Current) async throws
 
     /// Reply to the findAdpaterById request.
@@ -475,8 +383,6 @@ public protocol LookupReply {
     /// - parameter isReplicaGroup: `Swift.Bool` True if the adapter is also a member of a replica group.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func foundAdapterById(id: Swift.String, prx: Ice.ObjectPrx?, isReplicaGroup: Swift.Bool, current: Ice.Current) async throws
 }
 
@@ -523,8 +429,6 @@ public protocol Lookup {
     /// object is found. The reply proxy is never null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func findObjectById(domainId: Swift.String, id: Ice.Identity, reply: LookupReplyPrx?, current: Ice.Current) async throws
 
     /// Request to find an object adapter
@@ -538,8 +442,6 @@ public protocol Lookup {
     /// adapter is found. The reply proxy is never null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func findAdapterById(domainId: Swift.String, id: Swift.String, reply: LookupReplyPrx?, current: Ice.Current) async throws
 }
 

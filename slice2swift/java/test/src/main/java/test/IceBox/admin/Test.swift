@@ -67,8 +67,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TestFacetPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TestFacetPrx? {
-    return try TestFacetPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestFacetPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TestFacetPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TestFacetPrx? {
+    return try await TestFacetPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestFacetPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -128,28 +128,14 @@ public extension TestFacetPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Ice.PropertyDict`
-    func getChanges(context: Ice.Context? = nil) throws -> Ice.PropertyDict {
-        return try _impl._invoke(operation: "getChanges",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.PropertyDict = try Ice.PropertyDictHelper.read(from: istr)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.PropertyDict` - The result of the operation
-    func getChangesAsync(context: Ice.Context? = nil) async throws -> Ice.PropertyDict {
-        return try await _impl._invokeAsync(operation: "getChanges",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.PropertyDict = try Ice.PropertyDictHelper.read(from: istr)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getChanges(context: Ice.Context? = nil) async throws -> Ice.PropertyDict {
+        return try await _impl._invoke(operation: "getChanges",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.PropertyDict = try Ice.PropertyDictHelper.read(from: istr)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -185,7 +171,7 @@ public protocol TestFacet {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.PropertyDict` - The result of the operation
+    /// - returns: `Ice.PropertyDict`
     func getChanges(current: Ice.Current) async throws -> Ice.PropertyDict
 }
 

@@ -75,8 +75,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: PingReplyPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> PingReplyPrx? {
-    return try PingReplyPrxI.checkedCast(prx: prx, facet: facet, context: context) as PingReplyPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: PingReplyPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> PingReplyPrx? {
+    return try await PingReplyPrxI.checkedCast(prx: prx, facet: facet, context: context) as PingReplyPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -134,20 +134,10 @@ public extension Ice.InputStream {
 public extension PingReplyPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func reply(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "reply",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func replyAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "reply",
-                                            mode: .Normal,
-                                            context: context)
+    func reply(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "reply",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -208,8 +198,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TestIntfPrx? {
-    return try TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TestIntfPrx? {
+    return try await TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -281,28 +271,13 @@ public extension TestIntfPrx {
     /// - parameter _: `PingReplyPrx?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func ping(_ iceP_reply: PingReplyPrx?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "ping",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_reply)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `PingReplyPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func pingAsync(_ iceP_reply: PingReplyPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "ping",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_reply)
-                                            },
-                                            context: context)
+    func ping(_ iceP_reply: PingReplyPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "ping",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_reply)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -311,78 +286,35 @@ public extension TestIntfPrx {
     /// - parameter reply: `PingReplyPrx?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func sendByteSeq(seq iceP_seq: ByteSeq, reply iceP_reply: PingReplyPrx?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "sendByteSeq",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_seq)
-                              ostr.write(iceP_reply)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter seq: `ByteSeq`
-    ///
-    /// - parameter reply: `PingReplyPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func sendByteSeqAsync(seq iceP_seq: ByteSeq, reply iceP_reply: PingReplyPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "sendByteSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_seq)
-                                                ostr.write(iceP_reply)
-                                            },
-                                            context: context)
+    func sendByteSeq(seq iceP_seq: ByteSeq, reply iceP_reply: PingReplyPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "sendByteSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_seq)
+                                           ostr.write(iceP_reply)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter _: `Ice.Identity`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func pingBiDir(_ iceP_reply: Ice.Identity, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "pingBiDir",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_reply)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Ice.Identity`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func pingBiDirAsync(_ iceP_reply: Ice.Identity, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "pingBiDir",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_reply)
-                                            },
-                                            context: context)
+    func pingBiDir(_ iceP_reply: Ice.Identity, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "pingBiDir",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_reply)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -417,8 +349,6 @@ public struct PingReplyDisp: Ice.Dispatcher {
 public protocol PingReply {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func reply(current: Ice.Current) async throws
 }
 
@@ -461,8 +391,6 @@ public protocol TestIntf {
     /// - parameter reply: `PingReplyPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func ping(reply: PingReplyPrx?, current: Ice.Current) async throws
 
     ///
@@ -471,22 +399,16 @@ public protocol TestIntf {
     /// - parameter reply: `PingReplyPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func sendByteSeq(seq: ByteSeq, reply: PingReplyPrx?, current: Ice.Current) async throws
 
     ///
     /// - parameter reply: `Ice.Identity`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func pingBiDir(reply: Ice.Identity, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 

@@ -85,8 +85,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TestIntfPrx? {
-    return try TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TestIntfPrx? {
+    return try await TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -156,94 +156,44 @@ public extension Ice.InputStream {
 public extension TestIntfPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func op(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "op",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func opAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "op",
-                                            mode: .Normal,
-                                            context: context)
+    func op(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "op",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter _: `Swift.Int32`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func sleep(_ iceP_to: Swift.Int32, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "sleep",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_to)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func sleepAsync(_ iceP_to: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "sleep",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_to)
-                                            },
-                                            context: context)
+    func sleep(_ iceP_to: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "sleep",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_to)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter _: `Ice.ByteSeq`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func opWithPayload(_ iceP_seq: Ice.ByteSeq, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "opWithPayload",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_seq)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Ice.ByteSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func opWithPayloadAsync(_ iceP_seq: Ice.ByteSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "opWithPayload",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_seq)
-                                            },
-                                            context: context)
+    func opWithPayload(_ iceP_seq: Ice.ByteSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "opWithPayload",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_seq)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -296,8 +246,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfControllerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TestIntfControllerPrx? {
-    return try TestIntfControllerPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfControllerPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfControllerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TestIntfControllerPrx? {
+    return try await TestIntfControllerPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfControllerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -359,38 +309,18 @@ public extension Ice.InputStream {
 public extension TestIntfControllerPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func holdAdapter(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "holdAdapter",
-                          mode: .Normal,
-                          context: context)
+    func holdAdapter(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "holdAdapter",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func holdAdapterAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "holdAdapter",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func resumeAdapter(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "resumeAdapter",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func resumeAdapterAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "resumeAdapter",
-                                            mode: .Normal,
-                                            context: context)
+    func resumeAdapter(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "resumeAdapter",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -431,30 +361,22 @@ public struct TestIntfDisp: Ice.Dispatcher {
 public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func op(current: Ice.Current) async throws
 
     ///
     /// - parameter to: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func sleep(to: Swift.Int32, current: Ice.Current) async throws
 
     ///
     /// - parameter seq: `Ice.ByteSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func opWithPayload(seq: Ice.ByteSeq, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -491,14 +413,10 @@ public struct TestIntfControllerDisp: Ice.Dispatcher {
 public protocol TestIntfController {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func holdAdapter(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func resumeAdapter(current: Ice.Current) async throws
 }
 

@@ -513,8 +513,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: breakelseifPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> breakelseifPrx? {
-    return try breakelseifPrxI.checkedCast(prx: prx, facet: facet, context: context) as breakelseifPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: breakelseifPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> breakelseifPrx? {
+    return try await breakelseifPrxI.checkedCast(prx: prx, facet: facet, context: context) as breakelseifPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -584,74 +584,34 @@ public extension Ice.InputStream {
 public extension breakelseifPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func events(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "events",
-                          mode: .Normal,
-                          context: context)
+    func events(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "events",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func eventsAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "events",
-                                            mode: .Normal,
-                                            context: context)
+    func function(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "function",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func function(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "function",
-                          mode: .Normal,
-                          context: context)
+    func delete(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "delete",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func functionAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "function",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func delete(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "delete",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func deleteAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "delete",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func checkedCast(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "checkedCast",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func checkedCastAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "checkedCast",
-                                            mode: .Normal,
-                                            context: context)
+    func checkedCast(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "checkedCast",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -886,26 +846,18 @@ public struct breakelseifDisp: Ice.Dispatcher {
 public protocol breakelseif {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func events(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func function(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func delete(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func checkedCast(current: Ice.Current) async throws
 }
 

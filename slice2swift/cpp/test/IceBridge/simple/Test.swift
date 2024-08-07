@@ -85,8 +85,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: CallbackPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> CallbackPrx? {
-    return try CallbackPrxI.checkedCast(prx: prx, facet: facet, context: context) as CallbackPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: CallbackPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> CallbackPrx? {
+    return try await CallbackPrxI.checkedCast(prx: prx, facet: facet, context: context) as CallbackPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -156,94 +156,46 @@ public extension Ice.InputStream {
 public extension CallbackPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func ping(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "ping",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func pingAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "ping",
-                                            mode: .Normal,
-                                            context: context)
+    func ping(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "ping",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Int32`
-    func getCount(context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "getCount",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
+    func getCount(context: Ice.Context? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invoke(operation: "getCount",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Int32 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The result of the operation
-    func getCountAsync(context: Ice.Context? = nil) async throws -> Swift.Int32 {
-        return try await _impl._invokeAsync(operation: "getCount",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Int32 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func datagram(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "datagram",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func datagramAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "datagram",
-                                            mode: .Normal,
-                                            context: context)
+    func datagram(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "datagram",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Int32`
-    func getDatagramCount(context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "getDatagramCount",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The result of the operation
-    func getDatagramCountAsync(context: Ice.Context? = nil) async throws -> Swift.Int32 {
-        return try await _impl._invokeAsync(operation: "getDatagramCount",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Int32 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getDatagramCount(context: Ice.Context? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invoke(operation: "getDatagramCount",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Int32 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -336,8 +288,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: MyClassPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> MyClassPrx? {
-    return try MyClassPrxI.checkedCast(prx: prx, facet: facet, context: context) as MyClassPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: MyClassPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> MyClassPrx? {
+    return try await MyClassPrxI.checkedCast(prx: prx, facet: facet, context: context) as MyClassPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -439,298 +391,143 @@ public extension Ice.InputStream {
 public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func callCallback(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "callCallback",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func callCallbackAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "callCallback",
-                                            mode: .Normal,
-                                            context: context)
+    func callCallback(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "callCallback",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Int32`
-    func getCallbackCount(context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "getCallbackCount",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The result of the operation
-    func getCallbackCountAsync(context: Ice.Context? = nil) async throws -> Swift.Int32 {
-        return try await _impl._invokeAsync(operation: "getCallbackCount",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Int32 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getCallbackCount(context: Ice.Context? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invoke(operation: "getCallbackCount",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Int32 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter _: `Swift.Int32`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func incCounter(_ iceP_expected: Swift.Int32, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "incCounter",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_expected)
-                          },
-                          context: context)
+    func incCounter(_ iceP_expected: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "incCounter",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_expected)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter _: `Swift.Int32`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func incCounterAsync(_ iceP_expected: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "incCounter",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_expected)
-                                            },
-                                            context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func waitCounter(_ iceP_value: Swift.Int32, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "waitCounter",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_value)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func waitCounterAsync(_ iceP_value: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "waitCounter",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_value)
-                                            },
-                                            context: context)
+    func waitCounter(_ iceP_value: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "waitCounter",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_value)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Int32`
-    func getConnectionCount(context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "getConnectionCount",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The result of the operation
-    func getConnectionCountAsync(context: Ice.Context? = nil) async throws -> Swift.Int32 {
-        return try await _impl._invokeAsync(operation: "getConnectionCount",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Int32 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getConnectionCount(context: Ice.Context? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invoke(operation: "getConnectionCount",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Int32 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.String`
-    func getConnectionInfo(context: Ice.Context? = nil) throws -> Swift.String {
-        return try _impl._invoke(operation: "getConnectionInfo",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.String = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String` - The result of the operation
-    func getConnectionInfoAsync(context: Ice.Context? = nil) async throws -> Swift.String {
-        return try await _impl._invokeAsync(operation: "getConnectionInfo",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.String = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getConnectionInfo(context: Ice.Context? = nil) async throws -> Swift.String {
+        return try await _impl._invoke(operation: "getConnectionInfo",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.String = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter _: `Swift.Bool`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func closeConnection(_ iceP_force: Swift.Bool, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "closeConnection",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_force)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func closeConnectionAsync(_ iceP_force: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "closeConnection",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_force)
-                                            },
-                                            context: context)
+    func closeConnection(_ iceP_force: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "closeConnection",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_force)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func datagram(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "datagram",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func datagramAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "datagram",
-                                            mode: .Normal,
-                                            context: context)
+    func datagram(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "datagram",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Int32`
-    func getDatagramCount(context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "getDatagramCount",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
+    func getDatagramCount(context: Ice.Context? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invoke(operation: "getDatagramCount",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Int32 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The result of the operation
-    func getDatagramCountAsync(context: Ice.Context? = nil) async throws -> Swift.Int32 {
-        return try await _impl._invokeAsync(operation: "getDatagramCount",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Int32 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func callDatagramCallback(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "callDatagramCallback",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func callDatagramCallbackAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "callDatagramCallback",
-                                            mode: .Normal,
-                                            context: context)
+    func callDatagramCallback(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "callDatagramCallback",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Int32`
-    func getCallbackDatagramCount(context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "getCallbackDatagramCount",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
+    func getCallbackDatagramCount(context: Ice.Context? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invoke(operation: "getCallbackDatagramCount",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Int32 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The result of the operation
-    func getCallbackDatagramCountAsync(context: Ice.Context? = nil) async throws -> Swift.Int32 {
-        return try await _impl._invokeAsync(operation: "getCallbackDatagramCount",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Int32 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -771,26 +568,22 @@ public struct CallbackDisp: Ice.Dispatcher {
 public protocol Callback {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func ping(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The result of the operation
+    /// - returns: `Swift.Int32`
     func getCount(current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func datagram(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The result of the operation
+    /// - returns: `Swift.Int32`
     func getDatagramCount(current: Ice.Current) async throws -> Swift.Int32
 }
 
@@ -847,80 +640,66 @@ public struct MyClassDisp: Ice.Dispatcher {
 public protocol MyClass {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func callCallback(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The result of the operation
+    /// - returns: `Swift.Int32`
     func getCallbackCount(current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter expected: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func incCounter(expected: Swift.Int32, current: Ice.Current) async throws
 
     ///
     /// - parameter value: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func waitCounter(value: Swift.Int32, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The result of the operation
+    /// - returns: `Swift.Int32`
     func getConnectionCount(current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The result of the operation
+    /// - returns: `Swift.String`
     func getConnectionInfo(current: Ice.Current) async throws -> Swift.String
 
     ///
     /// - parameter force: `Swift.Bool`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func closeConnection(force: Swift.Bool, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func datagram(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The result of the operation
+    /// - returns: `Swift.Int32`
     func getDatagramCount(current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func callDatagramCallback(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The result of the operation
+    /// - returns: `Swift.Int32`
     func getCallbackDatagramCount(current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 

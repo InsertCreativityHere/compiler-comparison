@@ -965,8 +965,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TestIntfPrx? {
-    return try TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TestIntfPrx? {
+    return try await TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -1200,38 +1200,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `ASeq`
     ///
     ///   - outSeq: `ASeq`
-    func opASeq(_ iceP_inSeq: ASeq, context: Ice.Context? = nil) throws -> (returnValue: ASeq, outSeq: ASeq) {
-        return try _impl._invoke(operation: "opASeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ASeqHelper.write(to: ostr, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: ASeq = try ASeqHelper.read(from: istr)
-                                     let iceP_returnValue: ASeq = try ASeqHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `ASeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ASeq, outSeq: ASeq)` - The result of the operation
-    func opASeqAsync(_ iceP_inSeq: ASeq, context: Ice.Context? = nil) async throws -> (returnValue: ASeq, outSeq: ASeq) {
-        return try await _impl._invokeAsync(operation: "opASeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ASeqHelper.write(to: ostr, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_outSeq: ASeq = try ASeqHelper.read(from: istr)
-                                                let iceP_returnValue: ASeq = try ASeqHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opASeq(_ iceP_inSeq: ASeq, context: Ice.Context? = nil) async throws -> (returnValue: ASeq, outSeq: ASeq) {
+        return try await _impl._invoke(operation: "opASeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ASeqHelper.write(to: ostr, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_outSeq: ASeq = try ASeqHelper.read(from: istr)
+                                           let iceP_returnValue: ASeq = try ASeqHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1244,38 +1224,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `AArray`
     ///
     ///   - outSeq: `AArray`
-    func opAArray(_ iceP_inSeq: AArray, context: Ice.Context? = nil) throws -> (returnValue: AArray, outSeq: AArray) {
-        return try _impl._invoke(operation: "opAArray",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     AArrayHelper.write(to: ostr, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: AArray = try AArrayHelper.read(from: istr)
-                                     let iceP_returnValue: AArray = try AArrayHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `AArray`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: AArray, outSeq: AArray)` - The result of the operation
-    func opAArrayAsync(_ iceP_inSeq: AArray, context: Ice.Context? = nil) async throws -> (returnValue: AArray, outSeq: AArray) {
-        return try await _impl._invokeAsync(operation: "opAArray",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                AArrayHelper.write(to: ostr, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_outSeq: AArray = try AArrayHelper.read(from: istr)
-                                                let iceP_returnValue: AArray = try AArrayHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opAArray(_ iceP_inSeq: AArray, context: Ice.Context? = nil) async throws -> (returnValue: AArray, outSeq: AArray) {
+        return try await _impl._invoke(operation: "opAArray",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           AArrayHelper.write(to: ostr, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_outSeq: AArray = try AArrayHelper.read(from: istr)
+                                           let iceP_returnValue: AArray = try AArrayHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1288,38 +1248,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `AList`
     ///
     ///   - outSeq: `AList`
-    func opAList(_ iceP_inSeq: AList, context: Ice.Context? = nil) throws -> (returnValue: AList, outSeq: AList) {
-        return try _impl._invoke(operation: "opAList",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     AListHelper.write(to: ostr, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: AList = try AListHelper.read(from: istr)
-                                     let iceP_returnValue: AList = try AListHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `AList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: AList, outSeq: AList)` - The result of the operation
-    func opAListAsync(_ iceP_inSeq: AList, context: Ice.Context? = nil) async throws -> (returnValue: AList, outSeq: AList) {
-        return try await _impl._invokeAsync(operation: "opAList",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                AListHelper.write(to: ostr, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_outSeq: AList = try AListHelper.read(from: istr)
-                                                let iceP_returnValue: AList = try AListHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opAList(_ iceP_inSeq: AList, context: Ice.Context? = nil) async throws -> (returnValue: AList, outSeq: AList) {
+        return try await _impl._invoke(operation: "opAList",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           AListHelper.write(to: ostr, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_outSeq: AList = try AListHelper.read(from: istr)
+                                           let iceP_returnValue: AList = try AListHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1332,38 +1272,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `BoolSeq`
     ///
     ///   - outSeq: `BoolSeq`
-    func opBoolSeq(_ iceP_inSeq: BoolSeq, context: Ice.Context? = nil) throws -> (returnValue: BoolSeq, outSeq: BoolSeq) {
-        return try _impl._invoke(operation: "opBoolSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: BoolSeq = try istr.read()
-                                     let iceP_returnValue: BoolSeq = try istr.read()
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `BoolSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: BoolSeq, outSeq: BoolSeq)` - The result of the operation
-    func opBoolSeqAsync(_ iceP_inSeq: BoolSeq, context: Ice.Context? = nil) async throws -> (returnValue: BoolSeq, outSeq: BoolSeq) {
-        return try await _impl._invokeAsync(operation: "opBoolSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_outSeq: BoolSeq = try istr.read()
-                                                let iceP_returnValue: BoolSeq = try istr.read()
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opBoolSeq(_ iceP_inSeq: BoolSeq, context: Ice.Context? = nil) async throws -> (returnValue: BoolSeq, outSeq: BoolSeq) {
+        return try await _impl._invoke(operation: "opBoolSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_outSeq: BoolSeq = try istr.read()
+                                           let iceP_returnValue: BoolSeq = try istr.read()
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1376,38 +1296,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `ByteSeq`
     ///
     ///   - outSeq: `ByteSeq`
-    func opByteSeq(_ iceP_inSeq: ByteSeq, context: Ice.Context? = nil) throws -> (returnValue: ByteSeq, outSeq: ByteSeq) {
-        return try _impl._invoke(operation: "opByteSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: ByteSeq = try istr.read()
-                                     let iceP_returnValue: ByteSeq = try istr.read()
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `ByteSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteSeq, outSeq: ByteSeq)` - The result of the operation
-    func opByteSeqAsync(_ iceP_inSeq: ByteSeq, context: Ice.Context? = nil) async throws -> (returnValue: ByteSeq, outSeq: ByteSeq) {
-        return try await _impl._invokeAsync(operation: "opByteSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_outSeq: ByteSeq = try istr.read()
-                                                let iceP_returnValue: ByteSeq = try istr.read()
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opByteSeq(_ iceP_inSeq: ByteSeq, context: Ice.Context? = nil) async throws -> (returnValue: ByteSeq, outSeq: ByteSeq) {
+        return try await _impl._invoke(operation: "opByteSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_outSeq: ByteSeq = try istr.read()
+                                           let iceP_returnValue: ByteSeq = try istr.read()
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1420,38 +1320,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `ShortSeq`
     ///
     ///   - outSeq: `ShortSeq`
-    func opShortSeq(_ iceP_inSeq: ShortSeq, context: Ice.Context? = nil) throws -> (returnValue: ShortSeq, outSeq: ShortSeq) {
-        return try _impl._invoke(operation: "opShortSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: ShortSeq = try istr.read()
-                                     let iceP_returnValue: ShortSeq = try istr.read()
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `ShortSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ShortSeq, outSeq: ShortSeq)` - The result of the operation
-    func opShortSeqAsync(_ iceP_inSeq: ShortSeq, context: Ice.Context? = nil) async throws -> (returnValue: ShortSeq, outSeq: ShortSeq) {
-        return try await _impl._invokeAsync(operation: "opShortSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_outSeq: ShortSeq = try istr.read()
-                                                let iceP_returnValue: ShortSeq = try istr.read()
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opShortSeq(_ iceP_inSeq: ShortSeq, context: Ice.Context? = nil) async throws -> (returnValue: ShortSeq, outSeq: ShortSeq) {
+        return try await _impl._invoke(operation: "opShortSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_outSeq: ShortSeq = try istr.read()
+                                           let iceP_returnValue: ShortSeq = try istr.read()
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1464,38 +1344,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `IntSeq`
     ///
     ///   - outSeq: `IntSeq`
-    func opIntSeq(_ iceP_inSeq: IntSeq, context: Ice.Context? = nil) throws -> (returnValue: IntSeq, outSeq: IntSeq) {
-        return try _impl._invoke(operation: "opIntSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: IntSeq = try istr.read()
-                                     let iceP_returnValue: IntSeq = try istr.read()
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `IntSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: IntSeq, outSeq: IntSeq)` - The result of the operation
-    func opIntSeqAsync(_ iceP_inSeq: IntSeq, context: Ice.Context? = nil) async throws -> (returnValue: IntSeq, outSeq: IntSeq) {
-        return try await _impl._invokeAsync(operation: "opIntSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_outSeq: IntSeq = try istr.read()
-                                                let iceP_returnValue: IntSeq = try istr.read()
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opIntSeq(_ iceP_inSeq: IntSeq, context: Ice.Context? = nil) async throws -> (returnValue: IntSeq, outSeq: IntSeq) {
+        return try await _impl._invoke(operation: "opIntSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_outSeq: IntSeq = try istr.read()
+                                           let iceP_returnValue: IntSeq = try istr.read()
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1508,38 +1368,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `LongSeq`
     ///
     ///   - outSeq: `LongSeq`
-    func opLongSeq(_ iceP_inSeq: LongSeq, context: Ice.Context? = nil) throws -> (returnValue: LongSeq, outSeq: LongSeq) {
-        return try _impl._invoke(operation: "opLongSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: LongSeq = try istr.read()
-                                     let iceP_returnValue: LongSeq = try istr.read()
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `LongSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LongSeq, outSeq: LongSeq)` - The result of the operation
-    func opLongSeqAsync(_ iceP_inSeq: LongSeq, context: Ice.Context? = nil) async throws -> (returnValue: LongSeq, outSeq: LongSeq) {
-        return try await _impl._invokeAsync(operation: "opLongSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_outSeq: LongSeq = try istr.read()
-                                                let iceP_returnValue: LongSeq = try istr.read()
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opLongSeq(_ iceP_inSeq: LongSeq, context: Ice.Context? = nil) async throws -> (returnValue: LongSeq, outSeq: LongSeq) {
+        return try await _impl._invoke(operation: "opLongSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_outSeq: LongSeq = try istr.read()
+                                           let iceP_returnValue: LongSeq = try istr.read()
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1552,38 +1392,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `FloatSeq`
     ///
     ///   - outSeq: `FloatSeq`
-    func opFloatSeq(_ iceP_inSeq: FloatSeq, context: Ice.Context? = nil) throws -> (returnValue: FloatSeq, outSeq: FloatSeq) {
-        return try _impl._invoke(operation: "opFloatSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: FloatSeq = try istr.read()
-                                     let iceP_returnValue: FloatSeq = try istr.read()
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `FloatSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: FloatSeq, outSeq: FloatSeq)` - The result of the operation
-    func opFloatSeqAsync(_ iceP_inSeq: FloatSeq, context: Ice.Context? = nil) async throws -> (returnValue: FloatSeq, outSeq: FloatSeq) {
-        return try await _impl._invokeAsync(operation: "opFloatSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_outSeq: FloatSeq = try istr.read()
-                                                let iceP_returnValue: FloatSeq = try istr.read()
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opFloatSeq(_ iceP_inSeq: FloatSeq, context: Ice.Context? = nil) async throws -> (returnValue: FloatSeq, outSeq: FloatSeq) {
+        return try await _impl._invoke(operation: "opFloatSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_outSeq: FloatSeq = try istr.read()
+                                           let iceP_returnValue: FloatSeq = try istr.read()
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1596,38 +1416,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `DoubleSeq`
     ///
     ///   - outSeq: `DoubleSeq`
-    func opDoubleSeq(_ iceP_inSeq: DoubleSeq, context: Ice.Context? = nil) throws -> (returnValue: DoubleSeq, outSeq: DoubleSeq) {
-        return try _impl._invoke(operation: "opDoubleSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: DoubleSeq = try istr.read()
-                                     let iceP_returnValue: DoubleSeq = try istr.read()
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `DoubleSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: DoubleSeq, outSeq: DoubleSeq)` - The result of the operation
-    func opDoubleSeqAsync(_ iceP_inSeq: DoubleSeq, context: Ice.Context? = nil) async throws -> (returnValue: DoubleSeq, outSeq: DoubleSeq) {
-        return try await _impl._invokeAsync(operation: "opDoubleSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_outSeq: DoubleSeq = try istr.read()
-                                                let iceP_returnValue: DoubleSeq = try istr.read()
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opDoubleSeq(_ iceP_inSeq: DoubleSeq, context: Ice.Context? = nil) async throws -> (returnValue: DoubleSeq, outSeq: DoubleSeq) {
+        return try await _impl._invoke(operation: "opDoubleSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_outSeq: DoubleSeq = try istr.read()
+                                           let iceP_returnValue: DoubleSeq = try istr.read()
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1640,38 +1440,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `StringSeq`
     ///
     ///   - outSeq: `StringSeq`
-    func opStringSeq(_ iceP_inSeq: StringSeq, context: Ice.Context? = nil) throws -> (returnValue: StringSeq, outSeq: StringSeq) {
-        return try _impl._invoke(operation: "opStringSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: StringSeq = try istr.read()
-                                     let iceP_returnValue: StringSeq = try istr.read()
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `StringSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringSeq, outSeq: StringSeq)` - The result of the operation
-    func opStringSeqAsync(_ iceP_inSeq: StringSeq, context: Ice.Context? = nil) async throws -> (returnValue: StringSeq, outSeq: StringSeq) {
-        return try await _impl._invokeAsync(operation: "opStringSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_outSeq: StringSeq = try istr.read()
-                                                let iceP_returnValue: StringSeq = try istr.read()
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opStringSeq(_ iceP_inSeq: StringSeq, context: Ice.Context? = nil) async throws -> (returnValue: StringSeq, outSeq: StringSeq) {
+        return try await _impl._invoke(operation: "opStringSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_outSeq: StringSeq = try istr.read()
+                                           let iceP_returnValue: StringSeq = try istr.read()
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1684,38 +1464,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `ESeq`
     ///
     ///   - outSeq: `ESeq`
-    func opESeq(_ iceP_inSeq: ESeq, context: Ice.Context? = nil) throws -> (returnValue: ESeq, outSeq: ESeq) {
-        return try _impl._invoke(operation: "opESeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ESeqHelper.write(to: ostr, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: ESeq = try ESeqHelper.read(from: istr)
-                                     let iceP_returnValue: ESeq = try ESeqHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `ESeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ESeq, outSeq: ESeq)` - The result of the operation
-    func opESeqAsync(_ iceP_inSeq: ESeq, context: Ice.Context? = nil) async throws -> (returnValue: ESeq, outSeq: ESeq) {
-        return try await _impl._invokeAsync(operation: "opESeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ESeqHelper.write(to: ostr, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_outSeq: ESeq = try ESeqHelper.read(from: istr)
-                                                let iceP_returnValue: ESeq = try ESeqHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opESeq(_ iceP_inSeq: ESeq, context: Ice.Context? = nil) async throws -> (returnValue: ESeq, outSeq: ESeq) {
+        return try await _impl._invoke(operation: "opESeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ESeqHelper.write(to: ostr, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_outSeq: ESeq = try ESeqHelper.read(from: istr)
+                                           let iceP_returnValue: ESeq = try ESeqHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1728,38 +1488,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `SSeq`
     ///
     ///   - outSeq: `SSeq`
-    func opSSeq(_ iceP_inSeq: SSeq, context: Ice.Context? = nil) throws -> (returnValue: SSeq, outSeq: SSeq) {
-        return try _impl._invoke(operation: "opSSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     SSeqHelper.write(to: ostr, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: SSeq = try SSeqHelper.read(from: istr)
-                                     let iceP_returnValue: SSeq = try SSeqHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `SSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SSeq, outSeq: SSeq)` - The result of the operation
-    func opSSeqAsync(_ iceP_inSeq: SSeq, context: Ice.Context? = nil) async throws -> (returnValue: SSeq, outSeq: SSeq) {
-        return try await _impl._invokeAsync(operation: "opSSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                SSeqHelper.write(to: ostr, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_outSeq: SSeq = try SSeqHelper.read(from: istr)
-                                                let iceP_returnValue: SSeq = try SSeqHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opSSeq(_ iceP_inSeq: SSeq, context: Ice.Context? = nil) async throws -> (returnValue: SSeq, outSeq: SSeq) {
+        return try await _impl._invoke(operation: "opSSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           SSeqHelper.write(to: ostr, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_outSeq: SSeq = try SSeqHelper.read(from: istr)
+                                           let iceP_returnValue: SSeq = try SSeqHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1772,38 +1512,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `DSeq`
     ///
     ///   - outSeq: `DSeq`
-    func opDSeq(_ iceP_inSeq: DSeq, context: Ice.Context? = nil) throws -> (returnValue: DSeq, outSeq: DSeq) {
-        return try _impl._invoke(operation: "opDSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     DSeqHelper.write(to: ostr, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: DSeq = try DSeqHelper.read(from: istr)
-                                     let iceP_returnValue: DSeq = try DSeqHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `DSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: DSeq, outSeq: DSeq)` - The result of the operation
-    func opDSeqAsync(_ iceP_inSeq: DSeq, context: Ice.Context? = nil) async throws -> (returnValue: DSeq, outSeq: DSeq) {
-        return try await _impl._invokeAsync(operation: "opDSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                DSeqHelper.write(to: ostr, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_outSeq: DSeq = try DSeqHelper.read(from: istr)
-                                                let iceP_returnValue: DSeq = try DSeqHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opDSeq(_ iceP_inSeq: DSeq, context: Ice.Context? = nil) async throws -> (returnValue: DSeq, outSeq: DSeq) {
+        return try await _impl._invoke(operation: "opDSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           DSeqHelper.write(to: ostr, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_outSeq: DSeq = try DSeqHelper.read(from: istr)
+                                           let iceP_returnValue: DSeq = try DSeqHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1816,38 +1536,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `StringSeqSeq`
     ///
     ///   - outSeq: `StringSeqSeq`
-    func opStringSeqSeq(_ iceP_inSeq: StringSeqSeq, context: Ice.Context? = nil) throws -> (returnValue: StringSeqSeq, outSeq: StringSeqSeq) {
-        return try _impl._invoke(operation: "opStringSeqSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     StringSeqSeqHelper.write(to: ostr, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: StringSeqSeq = try StringSeqSeqHelper.read(from: istr)
-                                     let iceP_returnValue: StringSeqSeq = try StringSeqSeqHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `StringSeqSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringSeqSeq, outSeq: StringSeqSeq)` - The result of the operation
-    func opStringSeqSeqAsync(_ iceP_inSeq: StringSeqSeq, context: Ice.Context? = nil) async throws -> (returnValue: StringSeqSeq, outSeq: StringSeqSeq) {
-        return try await _impl._invokeAsync(operation: "opStringSeqSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                StringSeqSeqHelper.write(to: ostr, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_outSeq: StringSeqSeq = try StringSeqSeqHelper.read(from: istr)
-                                                let iceP_returnValue: StringSeqSeq = try StringSeqSeqHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opStringSeqSeq(_ iceP_inSeq: StringSeqSeq, context: Ice.Context? = nil) async throws -> (returnValue: StringSeqSeq, outSeq: StringSeqSeq) {
+        return try await _impl._invoke(operation: "opStringSeqSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           StringSeqSeqHelper.write(to: ostr, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_outSeq: StringSeqSeq = try StringSeqSeqHelper.read(from: istr)
+                                           let iceP_returnValue: StringSeqSeq = try StringSeqSeqHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1860,38 +1560,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `ByteBuffer`
     ///
     ///   - outSeq: `ByteBuffer`
-    func opByteBufferSeq(_ iceP_inSeq: ByteBuffer, context: Ice.Context? = nil) throws -> (returnValue: ByteBuffer, outSeq: ByteBuffer) {
-        return try _impl._invoke(operation: "opByteBufferSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: ByteBuffer = try istr.read()
-                                     let iceP_returnValue: ByteBuffer = try istr.read()
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `ByteBuffer`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteBuffer, outSeq: ByteBuffer)` - The result of the operation
-    func opByteBufferSeqAsync(_ iceP_inSeq: ByteBuffer, context: Ice.Context? = nil) async throws -> (returnValue: ByteBuffer, outSeq: ByteBuffer) {
-        return try await _impl._invokeAsync(operation: "opByteBufferSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_outSeq: ByteBuffer = try istr.read()
-                                                let iceP_returnValue: ByteBuffer = try istr.read()
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opByteBufferSeq(_ iceP_inSeq: ByteBuffer, context: Ice.Context? = nil) async throws -> (returnValue: ByteBuffer, outSeq: ByteBuffer) {
+        return try await _impl._invoke(operation: "opByteBufferSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_outSeq: ByteBuffer = try istr.read()
+                                           let iceP_returnValue: ByteBuffer = try istr.read()
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1904,38 +1584,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `ShortBuffer`
     ///
     ///   - outSeq: `ShortBuffer`
-    func opShortBufferSeq(_ iceP_inSeq: ShortBuffer, context: Ice.Context? = nil) throws -> (returnValue: ShortBuffer, outSeq: ShortBuffer) {
-        return try _impl._invoke(operation: "opShortBufferSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: ShortBuffer = try istr.read()
-                                     let iceP_returnValue: ShortBuffer = try istr.read()
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `ShortBuffer`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ShortBuffer, outSeq: ShortBuffer)` - The result of the operation
-    func opShortBufferSeqAsync(_ iceP_inSeq: ShortBuffer, context: Ice.Context? = nil) async throws -> (returnValue: ShortBuffer, outSeq: ShortBuffer) {
-        return try await _impl._invokeAsync(operation: "opShortBufferSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_outSeq: ShortBuffer = try istr.read()
-                                                let iceP_returnValue: ShortBuffer = try istr.read()
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opShortBufferSeq(_ iceP_inSeq: ShortBuffer, context: Ice.Context? = nil) async throws -> (returnValue: ShortBuffer, outSeq: ShortBuffer) {
+        return try await _impl._invoke(operation: "opShortBufferSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_outSeq: ShortBuffer = try istr.read()
+                                           let iceP_returnValue: ShortBuffer = try istr.read()
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1948,38 +1608,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `IntBuffer`
     ///
     ///   - outSeq: `IntBuffer`
-    func opIntBufferSeq(_ iceP_inSeq: IntBuffer, context: Ice.Context? = nil) throws -> (returnValue: IntBuffer, outSeq: IntBuffer) {
-        return try _impl._invoke(operation: "opIntBufferSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: IntBuffer = try istr.read()
-                                     let iceP_returnValue: IntBuffer = try istr.read()
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `IntBuffer`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: IntBuffer, outSeq: IntBuffer)` - The result of the operation
-    func opIntBufferSeqAsync(_ iceP_inSeq: IntBuffer, context: Ice.Context? = nil) async throws -> (returnValue: IntBuffer, outSeq: IntBuffer) {
-        return try await _impl._invokeAsync(operation: "opIntBufferSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_outSeq: IntBuffer = try istr.read()
-                                                let iceP_returnValue: IntBuffer = try istr.read()
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opIntBufferSeq(_ iceP_inSeq: IntBuffer, context: Ice.Context? = nil) async throws -> (returnValue: IntBuffer, outSeq: IntBuffer) {
+        return try await _impl._invoke(operation: "opIntBufferSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_outSeq: IntBuffer = try istr.read()
+                                           let iceP_returnValue: IntBuffer = try istr.read()
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1992,38 +1632,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `LongBuffer`
     ///
     ///   - outSeq: `LongBuffer`
-    func opLongBufferSeq(_ iceP_inSeq: LongBuffer, context: Ice.Context? = nil) throws -> (returnValue: LongBuffer, outSeq: LongBuffer) {
-        return try _impl._invoke(operation: "opLongBufferSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: LongBuffer = try istr.read()
-                                     let iceP_returnValue: LongBuffer = try istr.read()
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `LongBuffer`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LongBuffer, outSeq: LongBuffer)` - The result of the operation
-    func opLongBufferSeqAsync(_ iceP_inSeq: LongBuffer, context: Ice.Context? = nil) async throws -> (returnValue: LongBuffer, outSeq: LongBuffer) {
-        return try await _impl._invokeAsync(operation: "opLongBufferSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_outSeq: LongBuffer = try istr.read()
-                                                let iceP_returnValue: LongBuffer = try istr.read()
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opLongBufferSeq(_ iceP_inSeq: LongBuffer, context: Ice.Context? = nil) async throws -> (returnValue: LongBuffer, outSeq: LongBuffer) {
+        return try await _impl._invoke(operation: "opLongBufferSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_outSeq: LongBuffer = try istr.read()
+                                           let iceP_returnValue: LongBuffer = try istr.read()
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2036,38 +1656,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `FloatBuffer`
     ///
     ///   - outSeq: `FloatBuffer`
-    func opFloatBufferSeq(_ iceP_inSeq: FloatBuffer, context: Ice.Context? = nil) throws -> (returnValue: FloatBuffer, outSeq: FloatBuffer) {
-        return try _impl._invoke(operation: "opFloatBufferSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: FloatBuffer = try istr.read()
-                                     let iceP_returnValue: FloatBuffer = try istr.read()
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `FloatBuffer`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: FloatBuffer, outSeq: FloatBuffer)` - The result of the operation
-    func opFloatBufferSeqAsync(_ iceP_inSeq: FloatBuffer, context: Ice.Context? = nil) async throws -> (returnValue: FloatBuffer, outSeq: FloatBuffer) {
-        return try await _impl._invokeAsync(operation: "opFloatBufferSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_outSeq: FloatBuffer = try istr.read()
-                                                let iceP_returnValue: FloatBuffer = try istr.read()
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opFloatBufferSeq(_ iceP_inSeq: FloatBuffer, context: Ice.Context? = nil) async throws -> (returnValue: FloatBuffer, outSeq: FloatBuffer) {
+        return try await _impl._invoke(operation: "opFloatBufferSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_outSeq: FloatBuffer = try istr.read()
+                                           let iceP_returnValue: FloatBuffer = try istr.read()
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2080,38 +1680,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `DoubleBuffer`
     ///
     ///   - outSeq: `DoubleBuffer`
-    func opDoubleBufferSeq(_ iceP_inSeq: DoubleBuffer, context: Ice.Context? = nil) throws -> (returnValue: DoubleBuffer, outSeq: DoubleBuffer) {
-        return try _impl._invoke(operation: "opDoubleBufferSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: DoubleBuffer = try istr.read()
-                                     let iceP_returnValue: DoubleBuffer = try istr.read()
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `DoubleBuffer`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: DoubleBuffer, outSeq: DoubleBuffer)` - The result of the operation
-    func opDoubleBufferSeqAsync(_ iceP_inSeq: DoubleBuffer, context: Ice.Context? = nil) async throws -> (returnValue: DoubleBuffer, outSeq: DoubleBuffer) {
-        return try await _impl._invokeAsync(operation: "opDoubleBufferSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_outSeq: DoubleBuffer = try istr.read()
-                                                let iceP_returnValue: DoubleBuffer = try istr.read()
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opDoubleBufferSeq(_ iceP_inSeq: DoubleBuffer, context: Ice.Context? = nil) async throws -> (returnValue: DoubleBuffer, outSeq: DoubleBuffer) {
+        return try await _impl._invoke(operation: "opDoubleBufferSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_outSeq: DoubleBuffer = try istr.read()
+                                           let iceP_returnValue: DoubleBuffer = try istr.read()
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2124,38 +1704,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `ASeq?`
     ///
     ///   - outSeq: `ASeq?`
-    func opOptASeq(_ iceP_inSeq: ASeq? = nil, context: Ice.Context? = nil) throws -> (returnValue: ASeq?, outSeq: ASeq?) {
-        return try _impl._invoke(operation: "opOptASeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ASeqHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: ASeq? = try ASeqHelper.read(from: istr, tag: 1)
-                                     let iceP_outSeq: ASeq? = try ASeqHelper.read(from: istr, tag: 3)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `ASeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ASeq?, outSeq: ASeq?)` - The result of the operation
-    func opOptASeqAsync(_ iceP_inSeq: ASeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: ASeq?, outSeq: ASeq?) {
-        return try await _impl._invokeAsync(operation: "opOptASeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ASeqHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: ASeq? = try ASeqHelper.read(from: istr, tag: 1)
-                                                let iceP_outSeq: ASeq? = try ASeqHelper.read(from: istr, tag: 3)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opOptASeq(_ iceP_inSeq: ASeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: ASeq?, outSeq: ASeq?) {
+        return try await _impl._invoke(operation: "opOptASeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ASeqHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: ASeq? = try ASeqHelper.read(from: istr, tag: 1)
+                                           let iceP_outSeq: ASeq? = try ASeqHelper.read(from: istr, tag: 3)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2168,38 +1728,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `AArray?`
     ///
     ///   - outSeq: `AArray?`
-    func opOptAArray(_ iceP_inSeq: AArray? = nil, context: Ice.Context? = nil) throws -> (returnValue: AArray?, outSeq: AArray?) {
-        return try _impl._invoke(operation: "opOptAArray",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     AArrayHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: AArray? = try AArrayHelper.read(from: istr, tag: 1)
-                                     let iceP_outSeq: AArray? = try AArrayHelper.read(from: istr, tag: 3)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `AArray?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: AArray?, outSeq: AArray?)` - The result of the operation
-    func opOptAArrayAsync(_ iceP_inSeq: AArray? = nil, context: Ice.Context? = nil) async throws -> (returnValue: AArray?, outSeq: AArray?) {
-        return try await _impl._invokeAsync(operation: "opOptAArray",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                AArrayHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: AArray? = try AArrayHelper.read(from: istr, tag: 1)
-                                                let iceP_outSeq: AArray? = try AArrayHelper.read(from: istr, tag: 3)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opOptAArray(_ iceP_inSeq: AArray? = nil, context: Ice.Context? = nil) async throws -> (returnValue: AArray?, outSeq: AArray?) {
+        return try await _impl._invoke(operation: "opOptAArray",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           AArrayHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: AArray? = try AArrayHelper.read(from: istr, tag: 1)
+                                           let iceP_outSeq: AArray? = try AArrayHelper.read(from: istr, tag: 3)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2212,38 +1752,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `AList?`
     ///
     ///   - outSeq: `AList?`
-    func opOptAList(_ iceP_inSeq: AList? = nil, context: Ice.Context? = nil) throws -> (returnValue: AList?, outSeq: AList?) {
-        return try _impl._invoke(operation: "opOptAList",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     AListHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: AList? = try AListHelper.read(from: istr, tag: 1)
-                                     let iceP_outSeq: AList? = try AListHelper.read(from: istr, tag: 3)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `AList?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: AList?, outSeq: AList?)` - The result of the operation
-    func opOptAListAsync(_ iceP_inSeq: AList? = nil, context: Ice.Context? = nil) async throws -> (returnValue: AList?, outSeq: AList?) {
-        return try await _impl._invokeAsync(operation: "opOptAList",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                AListHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: AList? = try AListHelper.read(from: istr, tag: 1)
-                                                let iceP_outSeq: AList? = try AListHelper.read(from: istr, tag: 3)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opOptAList(_ iceP_inSeq: AList? = nil, context: Ice.Context? = nil) async throws -> (returnValue: AList?, outSeq: AList?) {
+        return try await _impl._invoke(operation: "opOptAList",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           AListHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: AList? = try AListHelper.read(from: istr, tag: 1)
+                                           let iceP_outSeq: AList? = try AListHelper.read(from: istr, tag: 3)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2256,38 +1776,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `BoolSeq?`
     ///
     ///   - outSeq: `BoolSeq?`
-    func opOptBoolSeq(_ iceP_inSeq: BoolSeq? = nil, context: Ice.Context? = nil) throws -> (returnValue: BoolSeq?, outSeq: BoolSeq?) {
-        return try _impl._invoke(operation: "opOptBoolSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(tag: 2, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: BoolSeq? = try istr.read(tag: 1)
-                                     let iceP_outSeq: BoolSeq? = try istr.read(tag: 3)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `BoolSeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: BoolSeq?, outSeq: BoolSeq?)` - The result of the operation
-    func opOptBoolSeqAsync(_ iceP_inSeq: BoolSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: BoolSeq?, outSeq: BoolSeq?) {
-        return try await _impl._invokeAsync(operation: "opOptBoolSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(tag: 2, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: BoolSeq? = try istr.read(tag: 1)
-                                                let iceP_outSeq: BoolSeq? = try istr.read(tag: 3)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opOptBoolSeq(_ iceP_inSeq: BoolSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: BoolSeq?, outSeq: BoolSeq?) {
+        return try await _impl._invoke(operation: "opOptBoolSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(tag: 2, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: BoolSeq? = try istr.read(tag: 1)
+                                           let iceP_outSeq: BoolSeq? = try istr.read(tag: 3)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2300,38 +1800,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `ByteSeq?`
     ///
     ///   - outSeq: `ByteSeq?`
-    func opOptByteSeq(_ iceP_inSeq: ByteSeq? = nil, context: Ice.Context? = nil) throws -> (returnValue: ByteSeq?, outSeq: ByteSeq?) {
-        return try _impl._invoke(operation: "opOptByteSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(tag: 2, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: ByteSeq? = try istr.read(tag: 1)
-                                     let iceP_outSeq: ByteSeq? = try istr.read(tag: 3)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `ByteSeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteSeq?, outSeq: ByteSeq?)` - The result of the operation
-    func opOptByteSeqAsync(_ iceP_inSeq: ByteSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: ByteSeq?, outSeq: ByteSeq?) {
-        return try await _impl._invokeAsync(operation: "opOptByteSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(tag: 2, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: ByteSeq? = try istr.read(tag: 1)
-                                                let iceP_outSeq: ByteSeq? = try istr.read(tag: 3)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opOptByteSeq(_ iceP_inSeq: ByteSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: ByteSeq?, outSeq: ByteSeq?) {
+        return try await _impl._invoke(operation: "opOptByteSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(tag: 2, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: ByteSeq? = try istr.read(tag: 1)
+                                           let iceP_outSeq: ByteSeq? = try istr.read(tag: 3)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2344,38 +1824,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `ShortSeq?`
     ///
     ///   - outSeq: `ShortSeq?`
-    func opOptShortSeq(_ iceP_inSeq: ShortSeq? = nil, context: Ice.Context? = nil) throws -> (returnValue: ShortSeq?, outSeq: ShortSeq?) {
-        return try _impl._invoke(operation: "opOptShortSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(tag: 2, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: ShortSeq? = try istr.read(tag: 1)
-                                     let iceP_outSeq: ShortSeq? = try istr.read(tag: 3)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `ShortSeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ShortSeq?, outSeq: ShortSeq?)` - The result of the operation
-    func opOptShortSeqAsync(_ iceP_inSeq: ShortSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: ShortSeq?, outSeq: ShortSeq?) {
-        return try await _impl._invokeAsync(operation: "opOptShortSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(tag: 2, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: ShortSeq? = try istr.read(tag: 1)
-                                                let iceP_outSeq: ShortSeq? = try istr.read(tag: 3)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opOptShortSeq(_ iceP_inSeq: ShortSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: ShortSeq?, outSeq: ShortSeq?) {
+        return try await _impl._invoke(operation: "opOptShortSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(tag: 2, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: ShortSeq? = try istr.read(tag: 1)
+                                           let iceP_outSeq: ShortSeq? = try istr.read(tag: 3)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2388,38 +1848,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `IntSeq?`
     ///
     ///   - outSeq: `IntSeq?`
-    func opOptIntSeq(_ iceP_inSeq: IntSeq? = nil, context: Ice.Context? = nil) throws -> (returnValue: IntSeq?, outSeq: IntSeq?) {
-        return try _impl._invoke(operation: "opOptIntSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(tag: 2, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: IntSeq? = try istr.read(tag: 1)
-                                     let iceP_outSeq: IntSeq? = try istr.read(tag: 3)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `IntSeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: IntSeq?, outSeq: IntSeq?)` - The result of the operation
-    func opOptIntSeqAsync(_ iceP_inSeq: IntSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: IntSeq?, outSeq: IntSeq?) {
-        return try await _impl._invokeAsync(operation: "opOptIntSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(tag: 2, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: IntSeq? = try istr.read(tag: 1)
-                                                let iceP_outSeq: IntSeq? = try istr.read(tag: 3)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opOptIntSeq(_ iceP_inSeq: IntSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: IntSeq?, outSeq: IntSeq?) {
+        return try await _impl._invoke(operation: "opOptIntSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(tag: 2, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: IntSeq? = try istr.read(tag: 1)
+                                           let iceP_outSeq: IntSeq? = try istr.read(tag: 3)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2432,38 +1872,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `LongSeq?`
     ///
     ///   - outSeq: `LongSeq?`
-    func opOptLongSeq(_ iceP_inSeq: LongSeq? = nil, context: Ice.Context? = nil) throws -> (returnValue: LongSeq?, outSeq: LongSeq?) {
-        return try _impl._invoke(operation: "opOptLongSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(tag: 2, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: LongSeq? = try istr.read(tag: 1)
-                                     let iceP_outSeq: LongSeq? = try istr.read(tag: 3)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `LongSeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LongSeq?, outSeq: LongSeq?)` - The result of the operation
-    func opOptLongSeqAsync(_ iceP_inSeq: LongSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: LongSeq?, outSeq: LongSeq?) {
-        return try await _impl._invokeAsync(operation: "opOptLongSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(tag: 2, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: LongSeq? = try istr.read(tag: 1)
-                                                let iceP_outSeq: LongSeq? = try istr.read(tag: 3)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opOptLongSeq(_ iceP_inSeq: LongSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: LongSeq?, outSeq: LongSeq?) {
+        return try await _impl._invoke(operation: "opOptLongSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(tag: 2, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: LongSeq? = try istr.read(tag: 1)
+                                           let iceP_outSeq: LongSeq? = try istr.read(tag: 3)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2476,38 +1896,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `FloatSeq?`
     ///
     ///   - outSeq: `FloatSeq?`
-    func opOptFloatSeq(_ iceP_inSeq: FloatSeq? = nil, context: Ice.Context? = nil) throws -> (returnValue: FloatSeq?, outSeq: FloatSeq?) {
-        return try _impl._invoke(operation: "opOptFloatSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(tag: 2, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: FloatSeq? = try istr.read(tag: 1)
-                                     let iceP_outSeq: FloatSeq? = try istr.read(tag: 3)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `FloatSeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: FloatSeq?, outSeq: FloatSeq?)` - The result of the operation
-    func opOptFloatSeqAsync(_ iceP_inSeq: FloatSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: FloatSeq?, outSeq: FloatSeq?) {
-        return try await _impl._invokeAsync(operation: "opOptFloatSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(tag: 2, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: FloatSeq? = try istr.read(tag: 1)
-                                                let iceP_outSeq: FloatSeq? = try istr.read(tag: 3)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opOptFloatSeq(_ iceP_inSeq: FloatSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: FloatSeq?, outSeq: FloatSeq?) {
+        return try await _impl._invoke(operation: "opOptFloatSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(tag: 2, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: FloatSeq? = try istr.read(tag: 1)
+                                           let iceP_outSeq: FloatSeq? = try istr.read(tag: 3)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2520,38 +1920,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `DoubleSeq?`
     ///
     ///   - outSeq: `DoubleSeq?`
-    func opOptDoubleSeq(_ iceP_inSeq: DoubleSeq? = nil, context: Ice.Context? = nil) throws -> (returnValue: DoubleSeq?, outSeq: DoubleSeq?) {
-        return try _impl._invoke(operation: "opOptDoubleSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(tag: 2, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: DoubleSeq? = try istr.read(tag: 1)
-                                     let iceP_outSeq: DoubleSeq? = try istr.read(tag: 3)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `DoubleSeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: DoubleSeq?, outSeq: DoubleSeq?)` - The result of the operation
-    func opOptDoubleSeqAsync(_ iceP_inSeq: DoubleSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: DoubleSeq?, outSeq: DoubleSeq?) {
-        return try await _impl._invokeAsync(operation: "opOptDoubleSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(tag: 2, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: DoubleSeq? = try istr.read(tag: 1)
-                                                let iceP_outSeq: DoubleSeq? = try istr.read(tag: 3)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opOptDoubleSeq(_ iceP_inSeq: DoubleSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: DoubleSeq?, outSeq: DoubleSeq?) {
+        return try await _impl._invoke(operation: "opOptDoubleSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(tag: 2, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: DoubleSeq? = try istr.read(tag: 1)
+                                           let iceP_outSeq: DoubleSeq? = try istr.read(tag: 3)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2564,38 +1944,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `StringSeq?`
     ///
     ///   - outSeq: `StringSeq?`
-    func opOptStringSeq(_ iceP_inSeq: StringSeq? = nil, context: Ice.Context? = nil) throws -> (returnValue: StringSeq?, outSeq: StringSeq?) {
-        return try _impl._invoke(operation: "opOptStringSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(tag: 2, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: StringSeq? = try istr.read(tag: 1)
-                                     let iceP_outSeq: StringSeq? = try istr.read(tag: 3)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `StringSeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringSeq?, outSeq: StringSeq?)` - The result of the operation
-    func opOptStringSeqAsync(_ iceP_inSeq: StringSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: StringSeq?, outSeq: StringSeq?) {
-        return try await _impl._invokeAsync(operation: "opOptStringSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(tag: 2, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: StringSeq? = try istr.read(tag: 1)
-                                                let iceP_outSeq: StringSeq? = try istr.read(tag: 3)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opOptStringSeq(_ iceP_inSeq: StringSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: StringSeq?, outSeq: StringSeq?) {
+        return try await _impl._invoke(operation: "opOptStringSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(tag: 2, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: StringSeq? = try istr.read(tag: 1)
+                                           let iceP_outSeq: StringSeq? = try istr.read(tag: 3)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2608,38 +1968,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `ESeq?`
     ///
     ///   - outSeq: `ESeq?`
-    func opOptESeq(_ iceP_inSeq: ESeq? = nil, context: Ice.Context? = nil) throws -> (returnValue: ESeq?, outSeq: ESeq?) {
-        return try _impl._invoke(operation: "opOptESeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ESeqHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: ESeq? = try ESeqHelper.read(from: istr, tag: 1)
-                                     let iceP_outSeq: ESeq? = try ESeqHelper.read(from: istr, tag: 3)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `ESeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ESeq?, outSeq: ESeq?)` - The result of the operation
-    func opOptESeqAsync(_ iceP_inSeq: ESeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: ESeq?, outSeq: ESeq?) {
-        return try await _impl._invokeAsync(operation: "opOptESeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ESeqHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: ESeq? = try ESeqHelper.read(from: istr, tag: 1)
-                                                let iceP_outSeq: ESeq? = try ESeqHelper.read(from: istr, tag: 3)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opOptESeq(_ iceP_inSeq: ESeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: ESeq?, outSeq: ESeq?) {
+        return try await _impl._invoke(operation: "opOptESeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ESeqHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: ESeq? = try ESeqHelper.read(from: istr, tag: 1)
+                                           let iceP_outSeq: ESeq? = try ESeqHelper.read(from: istr, tag: 3)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2652,38 +1992,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `SSeq?`
     ///
     ///   - outSeq: `SSeq?`
-    func opOptSSeq(_ iceP_inSeq: SSeq? = nil, context: Ice.Context? = nil) throws -> (returnValue: SSeq?, outSeq: SSeq?) {
-        return try _impl._invoke(operation: "opOptSSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     SSeqHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: SSeq? = try SSeqHelper.read(from: istr, tag: 1)
-                                     let iceP_outSeq: SSeq? = try SSeqHelper.read(from: istr, tag: 3)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `SSeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SSeq?, outSeq: SSeq?)` - The result of the operation
-    func opOptSSeqAsync(_ iceP_inSeq: SSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: SSeq?, outSeq: SSeq?) {
-        return try await _impl._invokeAsync(operation: "opOptSSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                SSeqHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: SSeq? = try SSeqHelper.read(from: istr, tag: 1)
-                                                let iceP_outSeq: SSeq? = try SSeqHelper.read(from: istr, tag: 3)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opOptSSeq(_ iceP_inSeq: SSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: SSeq?, outSeq: SSeq?) {
+        return try await _impl._invoke(operation: "opOptSSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           SSeqHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: SSeq? = try SSeqHelper.read(from: istr, tag: 1)
+                                           let iceP_outSeq: SSeq? = try SSeqHelper.read(from: istr, tag: 3)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2696,38 +2016,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `DSeq?`
     ///
     ///   - outSeq: `DSeq?`
-    func opOptDSeq(_ iceP_inSeq: DSeq? = nil, context: Ice.Context? = nil) throws -> (returnValue: DSeq?, outSeq: DSeq?) {
-        return try _impl._invoke(operation: "opOptDSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     DSeqHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: DSeq? = try DSeqHelper.read(from: istr, tag: 1)
-                                     let iceP_outSeq: DSeq? = try DSeqHelper.read(from: istr, tag: 3)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `DSeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: DSeq?, outSeq: DSeq?)` - The result of the operation
-    func opOptDSeqAsync(_ iceP_inSeq: DSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: DSeq?, outSeq: DSeq?) {
-        return try await _impl._invokeAsync(operation: "opOptDSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                DSeqHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: DSeq? = try DSeqHelper.read(from: istr, tag: 1)
-                                                let iceP_outSeq: DSeq? = try DSeqHelper.read(from: istr, tag: 3)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opOptDSeq(_ iceP_inSeq: DSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: DSeq?, outSeq: DSeq?) {
+        return try await _impl._invoke(operation: "opOptDSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           DSeqHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: DSeq? = try DSeqHelper.read(from: istr, tag: 1)
+                                           let iceP_outSeq: DSeq? = try DSeqHelper.read(from: istr, tag: 3)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2740,38 +2040,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `StringSeqSeq?`
     ///
     ///   - outSeq: `StringSeqSeq?`
-    func opOptStringSeqSeq(_ iceP_inSeq: StringSeqSeq? = nil, context: Ice.Context? = nil) throws -> (returnValue: StringSeqSeq?, outSeq: StringSeqSeq?) {
-        return try _impl._invoke(operation: "opOptStringSeqSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     StringSeqSeqHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: StringSeqSeq? = try StringSeqSeqHelper.read(from: istr, tag: 1)
-                                     let iceP_outSeq: StringSeqSeq? = try StringSeqSeqHelper.read(from: istr, tag: 3)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `StringSeqSeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringSeqSeq?, outSeq: StringSeqSeq?)` - The result of the operation
-    func opOptStringSeqSeqAsync(_ iceP_inSeq: StringSeqSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: StringSeqSeq?, outSeq: StringSeqSeq?) {
-        return try await _impl._invokeAsync(operation: "opOptStringSeqSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                StringSeqSeqHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: StringSeqSeq? = try StringSeqSeqHelper.read(from: istr, tag: 1)
-                                                let iceP_outSeq: StringSeqSeq? = try StringSeqSeqHelper.read(from: istr, tag: 3)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opOptStringSeqSeq(_ iceP_inSeq: StringSeqSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: StringSeqSeq?, outSeq: StringSeqSeq?) {
+        return try await _impl._invoke(operation: "opOptStringSeqSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           StringSeqSeqHelper.write(to: ostr, tag: 2, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: StringSeqSeq? = try StringSeqSeqHelper.read(from: istr, tag: 1)
+                                           let iceP_outSeq: StringSeqSeq? = try StringSeqSeqHelper.read(from: istr, tag: 3)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2784,38 +2064,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `ByteBuffer?`
     ///
     ///   - outSeq: `ByteBuffer?`
-    func opOptByteBufferSeq(_ iceP_inSeq: ByteBuffer? = nil, context: Ice.Context? = nil) throws -> (returnValue: ByteBuffer?, outSeq: ByteBuffer?) {
-        return try _impl._invoke(operation: "opOptByteBufferSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(tag: 2, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: ByteBuffer? = try istr.read(tag: 1)
-                                     let iceP_outSeq: ByteBuffer? = try istr.read(tag: 3)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `ByteBuffer?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteBuffer?, outSeq: ByteBuffer?)` - The result of the operation
-    func opOptByteBufferSeqAsync(_ iceP_inSeq: ByteBuffer? = nil, context: Ice.Context? = nil) async throws -> (returnValue: ByteBuffer?, outSeq: ByteBuffer?) {
-        return try await _impl._invokeAsync(operation: "opOptByteBufferSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(tag: 2, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: ByteBuffer? = try istr.read(tag: 1)
-                                                let iceP_outSeq: ByteBuffer? = try istr.read(tag: 3)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opOptByteBufferSeq(_ iceP_inSeq: ByteBuffer? = nil, context: Ice.Context? = nil) async throws -> (returnValue: ByteBuffer?, outSeq: ByteBuffer?) {
+        return try await _impl._invoke(operation: "opOptByteBufferSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(tag: 2, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: ByteBuffer? = try istr.read(tag: 1)
+                                           let iceP_outSeq: ByteBuffer? = try istr.read(tag: 3)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2828,38 +2088,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `ShortBuffer?`
     ///
     ///   - outSeq: `ShortBuffer?`
-    func opOptShortBufferSeq(_ iceP_inSeq: ShortBuffer? = nil, context: Ice.Context? = nil) throws -> (returnValue: ShortBuffer?, outSeq: ShortBuffer?) {
-        return try _impl._invoke(operation: "opOptShortBufferSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(tag: 2, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: ShortBuffer? = try istr.read(tag: 1)
-                                     let iceP_outSeq: ShortBuffer? = try istr.read(tag: 3)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `ShortBuffer?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ShortBuffer?, outSeq: ShortBuffer?)` - The result of the operation
-    func opOptShortBufferSeqAsync(_ iceP_inSeq: ShortBuffer? = nil, context: Ice.Context? = nil) async throws -> (returnValue: ShortBuffer?, outSeq: ShortBuffer?) {
-        return try await _impl._invokeAsync(operation: "opOptShortBufferSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(tag: 2, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: ShortBuffer? = try istr.read(tag: 1)
-                                                let iceP_outSeq: ShortBuffer? = try istr.read(tag: 3)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opOptShortBufferSeq(_ iceP_inSeq: ShortBuffer? = nil, context: Ice.Context? = nil) async throws -> (returnValue: ShortBuffer?, outSeq: ShortBuffer?) {
+        return try await _impl._invoke(operation: "opOptShortBufferSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(tag: 2, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: ShortBuffer? = try istr.read(tag: 1)
+                                           let iceP_outSeq: ShortBuffer? = try istr.read(tag: 3)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2872,38 +2112,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `IntBuffer?`
     ///
     ///   - outSeq: `IntBuffer?`
-    func opOptIntBufferSeq(_ iceP_inSeq: IntBuffer? = nil, context: Ice.Context? = nil) throws -> (returnValue: IntBuffer?, outSeq: IntBuffer?) {
-        return try _impl._invoke(operation: "opOptIntBufferSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(tag: 2, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: IntBuffer? = try istr.read(tag: 1)
-                                     let iceP_outSeq: IntBuffer? = try istr.read(tag: 3)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `IntBuffer?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: IntBuffer?, outSeq: IntBuffer?)` - The result of the operation
-    func opOptIntBufferSeqAsync(_ iceP_inSeq: IntBuffer? = nil, context: Ice.Context? = nil) async throws -> (returnValue: IntBuffer?, outSeq: IntBuffer?) {
-        return try await _impl._invokeAsync(operation: "opOptIntBufferSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(tag: 2, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: IntBuffer? = try istr.read(tag: 1)
-                                                let iceP_outSeq: IntBuffer? = try istr.read(tag: 3)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opOptIntBufferSeq(_ iceP_inSeq: IntBuffer? = nil, context: Ice.Context? = nil) async throws -> (returnValue: IntBuffer?, outSeq: IntBuffer?) {
+        return try await _impl._invoke(operation: "opOptIntBufferSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(tag: 2, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: IntBuffer? = try istr.read(tag: 1)
+                                           let iceP_outSeq: IntBuffer? = try istr.read(tag: 3)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2916,38 +2136,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `LongBuffer?`
     ///
     ///   - outSeq: `LongBuffer?`
-    func opOptLongBufferSeq(_ iceP_inSeq: LongBuffer? = nil, context: Ice.Context? = nil) throws -> (returnValue: LongBuffer?, outSeq: LongBuffer?) {
-        return try _impl._invoke(operation: "opOptLongBufferSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(tag: 2, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: LongBuffer? = try istr.read(tag: 1)
-                                     let iceP_outSeq: LongBuffer? = try istr.read(tag: 3)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `LongBuffer?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LongBuffer?, outSeq: LongBuffer?)` - The result of the operation
-    func opOptLongBufferSeqAsync(_ iceP_inSeq: LongBuffer? = nil, context: Ice.Context? = nil) async throws -> (returnValue: LongBuffer?, outSeq: LongBuffer?) {
-        return try await _impl._invokeAsync(operation: "opOptLongBufferSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(tag: 2, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: LongBuffer? = try istr.read(tag: 1)
-                                                let iceP_outSeq: LongBuffer? = try istr.read(tag: 3)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opOptLongBufferSeq(_ iceP_inSeq: LongBuffer? = nil, context: Ice.Context? = nil) async throws -> (returnValue: LongBuffer?, outSeq: LongBuffer?) {
+        return try await _impl._invoke(operation: "opOptLongBufferSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(tag: 2, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: LongBuffer? = try istr.read(tag: 1)
+                                           let iceP_outSeq: LongBuffer? = try istr.read(tag: 3)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2960,38 +2160,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `FloatBuffer?`
     ///
     ///   - outSeq: `FloatBuffer?`
-    func opOptFloatBufferSeq(_ iceP_inSeq: FloatBuffer? = nil, context: Ice.Context? = nil) throws -> (returnValue: FloatBuffer?, outSeq: FloatBuffer?) {
-        return try _impl._invoke(operation: "opOptFloatBufferSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(tag: 2, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: FloatBuffer? = try istr.read(tag: 1)
-                                     let iceP_outSeq: FloatBuffer? = try istr.read(tag: 3)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `FloatBuffer?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: FloatBuffer?, outSeq: FloatBuffer?)` - The result of the operation
-    func opOptFloatBufferSeqAsync(_ iceP_inSeq: FloatBuffer? = nil, context: Ice.Context? = nil) async throws -> (returnValue: FloatBuffer?, outSeq: FloatBuffer?) {
-        return try await _impl._invokeAsync(operation: "opOptFloatBufferSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(tag: 2, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: FloatBuffer? = try istr.read(tag: 1)
-                                                let iceP_outSeq: FloatBuffer? = try istr.read(tag: 3)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opOptFloatBufferSeq(_ iceP_inSeq: FloatBuffer? = nil, context: Ice.Context? = nil) async throws -> (returnValue: FloatBuffer?, outSeq: FloatBuffer?) {
+        return try await _impl._invoke(operation: "opOptFloatBufferSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(tag: 2, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: FloatBuffer? = try istr.read(tag: 1)
+                                           let iceP_outSeq: FloatBuffer? = try istr.read(tag: 3)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -3004,56 +2184,26 @@ public extension TestIntfPrx {
     ///   - returnValue: `DoubleBuffer?`
     ///
     ///   - outSeq: `DoubleBuffer?`
-    func opOptDoubleBufferSeq(_ iceP_inSeq: DoubleBuffer? = nil, context: Ice.Context? = nil) throws -> (returnValue: DoubleBuffer?, outSeq: DoubleBuffer?) {
-        return try _impl._invoke(operation: "opOptDoubleBufferSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(tag: 2, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: DoubleBuffer? = try istr.read(tag: 1)
-                                     let iceP_outSeq: DoubleBuffer? = try istr.read(tag: 3)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `DoubleBuffer?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: DoubleBuffer?, outSeq: DoubleBuffer?)` - The result of the operation
-    func opOptDoubleBufferSeqAsync(_ iceP_inSeq: DoubleBuffer? = nil, context: Ice.Context? = nil) async throws -> (returnValue: DoubleBuffer?, outSeq: DoubleBuffer?) {
-        return try await _impl._invokeAsync(operation: "opOptDoubleBufferSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(tag: 2, value: iceP_inSeq)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: DoubleBuffer? = try istr.read(tag: 1)
-                                                let iceP_outSeq: DoubleBuffer? = try istr.read(tag: 3)
-                                                return (iceP_returnValue, iceP_outSeq)
-                                            },
-                                            context: context)
+    func opOptDoubleBufferSeq(_ iceP_inSeq: DoubleBuffer? = nil, context: Ice.Context? = nil) async throws -> (returnValue: DoubleBuffer?, outSeq: DoubleBuffer?) {
+        return try await _impl._invoke(operation: "opOptDoubleBufferSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(tag: 2, value: iceP_inSeq)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: DoubleBuffer? = try istr.read(tag: 1)
+                                           let iceP_outSeq: DoubleBuffer? = try istr.read(tag: 3)
+                                           return (iceP_returnValue, iceP_outSeq)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -3175,7 +2325,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ASeq, outSeq: ASeq)` - The result of the operation
+    /// - returns: `(returnValue: ASeq, outSeq: ASeq)`:
+    ///
+    ///   - returnValue: `ASeq`
+    ///
+    ///   - outSeq: `ASeq`
     func opASeq(inSeq: ASeq, current: Ice.Current) async throws -> (returnValue: ASeq, outSeq: ASeq)
 
     ///
@@ -3183,7 +2337,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: AArray, outSeq: AArray)` - The result of the operation
+    /// - returns: `(returnValue: AArray, outSeq: AArray)`:
+    ///
+    ///   - returnValue: `AArray`
+    ///
+    ///   - outSeq: `AArray`
     func opAArray(inSeq: AArray, current: Ice.Current) async throws -> (returnValue: AArray, outSeq: AArray)
 
     ///
@@ -3191,7 +2349,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: AList, outSeq: AList)` - The result of the operation
+    /// - returns: `(returnValue: AList, outSeq: AList)`:
+    ///
+    ///   - returnValue: `AList`
+    ///
+    ///   - outSeq: `AList`
     func opAList(inSeq: AList, current: Ice.Current) async throws -> (returnValue: AList, outSeq: AList)
 
     ///
@@ -3199,7 +2361,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: BoolSeq, outSeq: BoolSeq)` - The result of the operation
+    /// - returns: `(returnValue: BoolSeq, outSeq: BoolSeq)`:
+    ///
+    ///   - returnValue: `BoolSeq`
+    ///
+    ///   - outSeq: `BoolSeq`
     func opBoolSeq(inSeq: BoolSeq, current: Ice.Current) async throws -> (returnValue: BoolSeq, outSeq: BoolSeq)
 
     ///
@@ -3207,7 +2373,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ByteSeq, outSeq: ByteSeq)` - The result of the operation
+    /// - returns: `(returnValue: ByteSeq, outSeq: ByteSeq)`:
+    ///
+    ///   - returnValue: `ByteSeq`
+    ///
+    ///   - outSeq: `ByteSeq`
     func opByteSeq(inSeq: ByteSeq, current: Ice.Current) async throws -> (returnValue: ByteSeq, outSeq: ByteSeq)
 
     ///
@@ -3215,7 +2385,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ShortSeq, outSeq: ShortSeq)` - The result of the operation
+    /// - returns: `(returnValue: ShortSeq, outSeq: ShortSeq)`:
+    ///
+    ///   - returnValue: `ShortSeq`
+    ///
+    ///   - outSeq: `ShortSeq`
     func opShortSeq(inSeq: ShortSeq, current: Ice.Current) async throws -> (returnValue: ShortSeq, outSeq: ShortSeq)
 
     ///
@@ -3223,7 +2397,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: IntSeq, outSeq: IntSeq)` - The result of the operation
+    /// - returns: `(returnValue: IntSeq, outSeq: IntSeq)`:
+    ///
+    ///   - returnValue: `IntSeq`
+    ///
+    ///   - outSeq: `IntSeq`
     func opIntSeq(inSeq: IntSeq, current: Ice.Current) async throws -> (returnValue: IntSeq, outSeq: IntSeq)
 
     ///
@@ -3231,7 +2409,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: LongSeq, outSeq: LongSeq)` - The result of the operation
+    /// - returns: `(returnValue: LongSeq, outSeq: LongSeq)`:
+    ///
+    ///   - returnValue: `LongSeq`
+    ///
+    ///   - outSeq: `LongSeq`
     func opLongSeq(inSeq: LongSeq, current: Ice.Current) async throws -> (returnValue: LongSeq, outSeq: LongSeq)
 
     ///
@@ -3239,7 +2421,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: FloatSeq, outSeq: FloatSeq)` - The result of the operation
+    /// - returns: `(returnValue: FloatSeq, outSeq: FloatSeq)`:
+    ///
+    ///   - returnValue: `FloatSeq`
+    ///
+    ///   - outSeq: `FloatSeq`
     func opFloatSeq(inSeq: FloatSeq, current: Ice.Current) async throws -> (returnValue: FloatSeq, outSeq: FloatSeq)
 
     ///
@@ -3247,7 +2433,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: DoubleSeq, outSeq: DoubleSeq)` - The result of the operation
+    /// - returns: `(returnValue: DoubleSeq, outSeq: DoubleSeq)`:
+    ///
+    ///   - returnValue: `DoubleSeq`
+    ///
+    ///   - outSeq: `DoubleSeq`
     func opDoubleSeq(inSeq: DoubleSeq, current: Ice.Current) async throws -> (returnValue: DoubleSeq, outSeq: DoubleSeq)
 
     ///
@@ -3255,7 +2445,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: StringSeq, outSeq: StringSeq)` - The result of the operation
+    /// - returns: `(returnValue: StringSeq, outSeq: StringSeq)`:
+    ///
+    ///   - returnValue: `StringSeq`
+    ///
+    ///   - outSeq: `StringSeq`
     func opStringSeq(inSeq: StringSeq, current: Ice.Current) async throws -> (returnValue: StringSeq, outSeq: StringSeq)
 
     ///
@@ -3263,7 +2457,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ESeq, outSeq: ESeq)` - The result of the operation
+    /// - returns: `(returnValue: ESeq, outSeq: ESeq)`:
+    ///
+    ///   - returnValue: `ESeq`
+    ///
+    ///   - outSeq: `ESeq`
     func opESeq(inSeq: ESeq, current: Ice.Current) async throws -> (returnValue: ESeq, outSeq: ESeq)
 
     ///
@@ -3271,7 +2469,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: SSeq, outSeq: SSeq)` - The result of the operation
+    /// - returns: `(returnValue: SSeq, outSeq: SSeq)`:
+    ///
+    ///   - returnValue: `SSeq`
+    ///
+    ///   - outSeq: `SSeq`
     func opSSeq(inSeq: SSeq, current: Ice.Current) async throws -> (returnValue: SSeq, outSeq: SSeq)
 
     ///
@@ -3279,7 +2481,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: DSeq, outSeq: DSeq)` - The result of the operation
+    /// - returns: `(returnValue: DSeq, outSeq: DSeq)`:
+    ///
+    ///   - returnValue: `DSeq`
+    ///
+    ///   - outSeq: `DSeq`
     func opDSeq(inSeq: DSeq, current: Ice.Current) async throws -> (returnValue: DSeq, outSeq: DSeq)
 
     ///
@@ -3287,7 +2493,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: StringSeqSeq, outSeq: StringSeqSeq)` - The result of the operation
+    /// - returns: `(returnValue: StringSeqSeq, outSeq: StringSeqSeq)`:
+    ///
+    ///   - returnValue: `StringSeqSeq`
+    ///
+    ///   - outSeq: `StringSeqSeq`
     func opStringSeqSeq(inSeq: StringSeqSeq, current: Ice.Current) async throws -> (returnValue: StringSeqSeq, outSeq: StringSeqSeq)
 
     ///
@@ -3295,7 +2505,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ByteBuffer, outSeq: ByteBuffer)` - The result of the operation
+    /// - returns: `(returnValue: ByteBuffer, outSeq: ByteBuffer)`:
+    ///
+    ///   - returnValue: `ByteBuffer`
+    ///
+    ///   - outSeq: `ByteBuffer`
     func opByteBufferSeq(inSeq: ByteBuffer, current: Ice.Current) async throws -> (returnValue: ByteBuffer, outSeq: ByteBuffer)
 
     ///
@@ -3303,7 +2517,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ShortBuffer, outSeq: ShortBuffer)` - The result of the operation
+    /// - returns: `(returnValue: ShortBuffer, outSeq: ShortBuffer)`:
+    ///
+    ///   - returnValue: `ShortBuffer`
+    ///
+    ///   - outSeq: `ShortBuffer`
     func opShortBufferSeq(inSeq: ShortBuffer, current: Ice.Current) async throws -> (returnValue: ShortBuffer, outSeq: ShortBuffer)
 
     ///
@@ -3311,7 +2529,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: IntBuffer, outSeq: IntBuffer)` - The result of the operation
+    /// - returns: `(returnValue: IntBuffer, outSeq: IntBuffer)`:
+    ///
+    ///   - returnValue: `IntBuffer`
+    ///
+    ///   - outSeq: `IntBuffer`
     func opIntBufferSeq(inSeq: IntBuffer, current: Ice.Current) async throws -> (returnValue: IntBuffer, outSeq: IntBuffer)
 
     ///
@@ -3319,7 +2541,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: LongBuffer, outSeq: LongBuffer)` - The result of the operation
+    /// - returns: `(returnValue: LongBuffer, outSeq: LongBuffer)`:
+    ///
+    ///   - returnValue: `LongBuffer`
+    ///
+    ///   - outSeq: `LongBuffer`
     func opLongBufferSeq(inSeq: LongBuffer, current: Ice.Current) async throws -> (returnValue: LongBuffer, outSeq: LongBuffer)
 
     ///
@@ -3327,7 +2553,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: FloatBuffer, outSeq: FloatBuffer)` - The result of the operation
+    /// - returns: `(returnValue: FloatBuffer, outSeq: FloatBuffer)`:
+    ///
+    ///   - returnValue: `FloatBuffer`
+    ///
+    ///   - outSeq: `FloatBuffer`
     func opFloatBufferSeq(inSeq: FloatBuffer, current: Ice.Current) async throws -> (returnValue: FloatBuffer, outSeq: FloatBuffer)
 
     ///
@@ -3335,7 +2565,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: DoubleBuffer, outSeq: DoubleBuffer)` - The result of the operation
+    /// - returns: `(returnValue: DoubleBuffer, outSeq: DoubleBuffer)`:
+    ///
+    ///   - returnValue: `DoubleBuffer`
+    ///
+    ///   - outSeq: `DoubleBuffer`
     func opDoubleBufferSeq(inSeq: DoubleBuffer, current: Ice.Current) async throws -> (returnValue: DoubleBuffer, outSeq: DoubleBuffer)
 
     ///
@@ -3343,7 +2577,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ASeq?, outSeq: ASeq?)` - The result of the operation
+    /// - returns: `(returnValue: ASeq?, outSeq: ASeq?)`:
+    ///
+    ///   - returnValue: `ASeq?`
+    ///
+    ///   - outSeq: `ASeq?`
     func opOptASeq(inSeq: ASeq?, current: Ice.Current) async throws -> (returnValue: ASeq?, outSeq: ASeq?)
 
     ///
@@ -3351,7 +2589,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: AArray?, outSeq: AArray?)` - The result of the operation
+    /// - returns: `(returnValue: AArray?, outSeq: AArray?)`:
+    ///
+    ///   - returnValue: `AArray?`
+    ///
+    ///   - outSeq: `AArray?`
     func opOptAArray(inSeq: AArray?, current: Ice.Current) async throws -> (returnValue: AArray?, outSeq: AArray?)
 
     ///
@@ -3359,7 +2601,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: AList?, outSeq: AList?)` - The result of the operation
+    /// - returns: `(returnValue: AList?, outSeq: AList?)`:
+    ///
+    ///   - returnValue: `AList?`
+    ///
+    ///   - outSeq: `AList?`
     func opOptAList(inSeq: AList?, current: Ice.Current) async throws -> (returnValue: AList?, outSeq: AList?)
 
     ///
@@ -3367,7 +2613,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: BoolSeq?, outSeq: BoolSeq?)` - The result of the operation
+    /// - returns: `(returnValue: BoolSeq?, outSeq: BoolSeq?)`:
+    ///
+    ///   - returnValue: `BoolSeq?`
+    ///
+    ///   - outSeq: `BoolSeq?`
     func opOptBoolSeq(inSeq: BoolSeq?, current: Ice.Current) async throws -> (returnValue: BoolSeq?, outSeq: BoolSeq?)
 
     ///
@@ -3375,7 +2625,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ByteSeq?, outSeq: ByteSeq?)` - The result of the operation
+    /// - returns: `(returnValue: ByteSeq?, outSeq: ByteSeq?)`:
+    ///
+    ///   - returnValue: `ByteSeq?`
+    ///
+    ///   - outSeq: `ByteSeq?`
     func opOptByteSeq(inSeq: ByteSeq?, current: Ice.Current) async throws -> (returnValue: ByteSeq?, outSeq: ByteSeq?)
 
     ///
@@ -3383,7 +2637,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ShortSeq?, outSeq: ShortSeq?)` - The result of the operation
+    /// - returns: `(returnValue: ShortSeq?, outSeq: ShortSeq?)`:
+    ///
+    ///   - returnValue: `ShortSeq?`
+    ///
+    ///   - outSeq: `ShortSeq?`
     func opOptShortSeq(inSeq: ShortSeq?, current: Ice.Current) async throws -> (returnValue: ShortSeq?, outSeq: ShortSeq?)
 
     ///
@@ -3391,7 +2649,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: IntSeq?, outSeq: IntSeq?)` - The result of the operation
+    /// - returns: `(returnValue: IntSeq?, outSeq: IntSeq?)`:
+    ///
+    ///   - returnValue: `IntSeq?`
+    ///
+    ///   - outSeq: `IntSeq?`
     func opOptIntSeq(inSeq: IntSeq?, current: Ice.Current) async throws -> (returnValue: IntSeq?, outSeq: IntSeq?)
 
     ///
@@ -3399,7 +2661,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: LongSeq?, outSeq: LongSeq?)` - The result of the operation
+    /// - returns: `(returnValue: LongSeq?, outSeq: LongSeq?)`:
+    ///
+    ///   - returnValue: `LongSeq?`
+    ///
+    ///   - outSeq: `LongSeq?`
     func opOptLongSeq(inSeq: LongSeq?, current: Ice.Current) async throws -> (returnValue: LongSeq?, outSeq: LongSeq?)
 
     ///
@@ -3407,7 +2673,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: FloatSeq?, outSeq: FloatSeq?)` - The result of the operation
+    /// - returns: `(returnValue: FloatSeq?, outSeq: FloatSeq?)`:
+    ///
+    ///   - returnValue: `FloatSeq?`
+    ///
+    ///   - outSeq: `FloatSeq?`
     func opOptFloatSeq(inSeq: FloatSeq?, current: Ice.Current) async throws -> (returnValue: FloatSeq?, outSeq: FloatSeq?)
 
     ///
@@ -3415,7 +2685,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: DoubleSeq?, outSeq: DoubleSeq?)` - The result of the operation
+    /// - returns: `(returnValue: DoubleSeq?, outSeq: DoubleSeq?)`:
+    ///
+    ///   - returnValue: `DoubleSeq?`
+    ///
+    ///   - outSeq: `DoubleSeq?`
     func opOptDoubleSeq(inSeq: DoubleSeq?, current: Ice.Current) async throws -> (returnValue: DoubleSeq?, outSeq: DoubleSeq?)
 
     ///
@@ -3423,7 +2697,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: StringSeq?, outSeq: StringSeq?)` - The result of the operation
+    /// - returns: `(returnValue: StringSeq?, outSeq: StringSeq?)`:
+    ///
+    ///   - returnValue: `StringSeq?`
+    ///
+    ///   - outSeq: `StringSeq?`
     func opOptStringSeq(inSeq: StringSeq?, current: Ice.Current) async throws -> (returnValue: StringSeq?, outSeq: StringSeq?)
 
     ///
@@ -3431,7 +2709,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ESeq?, outSeq: ESeq?)` - The result of the operation
+    /// - returns: `(returnValue: ESeq?, outSeq: ESeq?)`:
+    ///
+    ///   - returnValue: `ESeq?`
+    ///
+    ///   - outSeq: `ESeq?`
     func opOptESeq(inSeq: ESeq?, current: Ice.Current) async throws -> (returnValue: ESeq?, outSeq: ESeq?)
 
     ///
@@ -3439,7 +2721,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: SSeq?, outSeq: SSeq?)` - The result of the operation
+    /// - returns: `(returnValue: SSeq?, outSeq: SSeq?)`:
+    ///
+    ///   - returnValue: `SSeq?`
+    ///
+    ///   - outSeq: `SSeq?`
     func opOptSSeq(inSeq: SSeq?, current: Ice.Current) async throws -> (returnValue: SSeq?, outSeq: SSeq?)
 
     ///
@@ -3447,7 +2733,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: DSeq?, outSeq: DSeq?)` - The result of the operation
+    /// - returns: `(returnValue: DSeq?, outSeq: DSeq?)`:
+    ///
+    ///   - returnValue: `DSeq?`
+    ///
+    ///   - outSeq: `DSeq?`
     func opOptDSeq(inSeq: DSeq?, current: Ice.Current) async throws -> (returnValue: DSeq?, outSeq: DSeq?)
 
     ///
@@ -3455,7 +2745,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: StringSeqSeq?, outSeq: StringSeqSeq?)` - The result of the operation
+    /// - returns: `(returnValue: StringSeqSeq?, outSeq: StringSeqSeq?)`:
+    ///
+    ///   - returnValue: `StringSeqSeq?`
+    ///
+    ///   - outSeq: `StringSeqSeq?`
     func opOptStringSeqSeq(inSeq: StringSeqSeq?, current: Ice.Current) async throws -> (returnValue: StringSeqSeq?, outSeq: StringSeqSeq?)
 
     ///
@@ -3463,7 +2757,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ByteBuffer?, outSeq: ByteBuffer?)` - The result of the operation
+    /// - returns: `(returnValue: ByteBuffer?, outSeq: ByteBuffer?)`:
+    ///
+    ///   - returnValue: `ByteBuffer?`
+    ///
+    ///   - outSeq: `ByteBuffer?`
     func opOptByteBufferSeq(inSeq: ByteBuffer?, current: Ice.Current) async throws -> (returnValue: ByteBuffer?, outSeq: ByteBuffer?)
 
     ///
@@ -3471,7 +2769,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ShortBuffer?, outSeq: ShortBuffer?)` - The result of the operation
+    /// - returns: `(returnValue: ShortBuffer?, outSeq: ShortBuffer?)`:
+    ///
+    ///   - returnValue: `ShortBuffer?`
+    ///
+    ///   - outSeq: `ShortBuffer?`
     func opOptShortBufferSeq(inSeq: ShortBuffer?, current: Ice.Current) async throws -> (returnValue: ShortBuffer?, outSeq: ShortBuffer?)
 
     ///
@@ -3479,7 +2781,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: IntBuffer?, outSeq: IntBuffer?)` - The result of the operation
+    /// - returns: `(returnValue: IntBuffer?, outSeq: IntBuffer?)`:
+    ///
+    ///   - returnValue: `IntBuffer?`
+    ///
+    ///   - outSeq: `IntBuffer?`
     func opOptIntBufferSeq(inSeq: IntBuffer?, current: Ice.Current) async throws -> (returnValue: IntBuffer?, outSeq: IntBuffer?)
 
     ///
@@ -3487,7 +2793,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: LongBuffer?, outSeq: LongBuffer?)` - The result of the operation
+    /// - returns: `(returnValue: LongBuffer?, outSeq: LongBuffer?)`:
+    ///
+    ///   - returnValue: `LongBuffer?`
+    ///
+    ///   - outSeq: `LongBuffer?`
     func opOptLongBufferSeq(inSeq: LongBuffer?, current: Ice.Current) async throws -> (returnValue: LongBuffer?, outSeq: LongBuffer?)
 
     ///
@@ -3495,7 +2805,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: FloatBuffer?, outSeq: FloatBuffer?)` - The result of the operation
+    /// - returns: `(returnValue: FloatBuffer?, outSeq: FloatBuffer?)`:
+    ///
+    ///   - returnValue: `FloatBuffer?`
+    ///
+    ///   - outSeq: `FloatBuffer?`
     func opOptFloatBufferSeq(inSeq: FloatBuffer?, current: Ice.Current) async throws -> (returnValue: FloatBuffer?, outSeq: FloatBuffer?)
 
     ///
@@ -3503,13 +2817,15 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: DoubleBuffer?, outSeq: DoubleBuffer?)` - The result of the operation
+    /// - returns: `(returnValue: DoubleBuffer?, outSeq: DoubleBuffer?)`:
+    ///
+    ///   - returnValue: `DoubleBuffer?`
+    ///
+    ///   - outSeq: `DoubleBuffer?`
     func opOptDoubleBufferSeq(inSeq: DoubleBuffer?, current: Ice.Current) async throws -> (returnValue: DoubleBuffer?, outSeq: DoubleBuffer?)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 

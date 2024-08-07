@@ -85,8 +85,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TestIntfPrx? {
-    return try TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TestIntfPrx? {
+    return try await TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -156,84 +156,40 @@ public extension Ice.InputStream {
 public extension TestIntfPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func abort(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "abort",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func abort(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "abort",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func abortAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "abort",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func idempotentAbort(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "idempotentAbort",
-                          mode: .Idempotent,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func idempotentAbortAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "idempotentAbort",
-                                            mode: .Idempotent,
-                                            context: context)
+    func idempotentAbort(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "idempotentAbort",
+                                       mode: .Idempotent,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Int32`
-    func pid(context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "pid",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The result of the operation
-    func pidAsync(context: Ice.Context? = nil) async throws -> Swift.Int32 {
-        return try await _impl._invokeAsync(operation: "pid",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Int32 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func pid(context: Ice.Context? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invoke(operation: "pid",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Int32 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -282,8 +238,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: CleanerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> CleanerPrx? {
-    return try CleanerPrxI.checkedCast(prx: prx, facet: facet, context: context) as CleanerPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: CleanerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> CleanerPrx? {
+    return try await CleanerPrxI.checkedCast(prx: prx, facet: facet, context: context) as CleanerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -341,20 +297,10 @@ public extension Ice.InputStream {
 public extension CleanerPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func cleanup(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "cleanup",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func cleanupAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "cleanup",
-                                            mode: .Normal,
-                                            context: context)
+    func cleanup(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "cleanup",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -395,26 +341,20 @@ public struct TestIntfDisp: Ice.Dispatcher {
 public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func abort(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func idempotentAbort(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The result of the operation
+    /// - returns: `Swift.Int32`
     func pid(current: Ice.Current) async throws -> Swift.Int32
 }
 
@@ -449,8 +389,6 @@ public struct CleanerDisp: Ice.Dispatcher {
 public protocol Cleaner {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func cleanup(current: Ice.Current) async throws
 }
 

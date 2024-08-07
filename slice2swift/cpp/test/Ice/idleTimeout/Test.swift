@@ -79,8 +79,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: DelayedTestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> DelayedTestIntfPrx? {
-    return try DelayedTestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as DelayedTestIntfPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: DelayedTestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> DelayedTestIntfPrx? {
+    return try await DelayedTestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as DelayedTestIntfPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -140,28 +140,13 @@ public extension DelayedTestIntfPrx {
     /// - parameter _: `Swift.Int32`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func sleep(_ iceP_ms: Swift.Int32, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "sleep",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_ms)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func sleepAsync(_ iceP_ms: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "sleep",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_ms)
-                                            },
-                                            context: context)
+    func sleep(_ iceP_ms: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "sleep",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_ms)
+                                       },
+                                       context: context)
     }
 }
 
@@ -210,8 +195,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TestIntfPrx? {
-    return try TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TestIntfPrx? {
+    return try await TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -269,20 +254,10 @@ public extension Ice.InputStream {
 public extension TestIntfPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -331,8 +306,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfBidirPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TestIntfBidirPrx? {
-    return try TestIntfBidirPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfBidirPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfBidirPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TestIntfBidirPrx? {
+    return try await TestIntfBidirPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfBidirPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -396,36 +371,15 @@ public extension TestIntfBidirPrx {
     /// - parameter target: `DelayedTestIntfPrx?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func makeSleep(aborted iceP_aborted: Swift.Bool, ms iceP_ms: Swift.Int32, target iceP_target: DelayedTestIntfPrx?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "makeSleep",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_aborted)
-                              ostr.write(iceP_ms)
-                              ostr.write(iceP_target)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter aborted: `Swift.Bool`
-    ///
-    /// - parameter ms: `Swift.Int32`
-    ///
-    /// - parameter target: `DelayedTestIntfPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func makeSleepAsync(aborted iceP_aborted: Swift.Bool, ms iceP_ms: Swift.Int32, target iceP_target: DelayedTestIntfPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "makeSleep",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_aborted)
-                                                ostr.write(iceP_ms)
-                                                ostr.write(iceP_target)
-                                            },
-                                            context: context)
+    func makeSleep(aborted iceP_aborted: Swift.Bool, ms iceP_ms: Swift.Int32, target iceP_target: DelayedTestIntfPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "makeSleep",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_aborted)
+                                           ostr.write(iceP_ms)
+                                           ostr.write(iceP_target)
+                                       },
+                                       context: context)
     }
 }
 
@@ -462,8 +416,6 @@ public protocol DelayedTestIntf {
     /// - parameter ms: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func sleep(ms: Swift.Int32, current: Ice.Current) async throws
 }
 
@@ -500,8 +452,6 @@ public struct TestIntfDisp: Ice.Dispatcher {
 public protocol TestIntf: DelayedTestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -542,8 +492,6 @@ public protocol TestIntfBidir {
     /// - parameter target: `DelayedTestIntfPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func makeSleep(aborted: Swift.Bool, ms: Swift.Int32, target: DelayedTestIntfPrx?, current: Ice.Current) async throws
 }
 

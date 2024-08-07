@@ -459,8 +459,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: MyClassPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> MyClassPrx? {
-    return try MyClassPrxI.checkedCast(prx: prx, facet: facet, context: context) as MyClassPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: MyClassPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> MyClassPrx? {
+    return try await MyClassPrxI.checkedCast(prx: prx, facet: facet, context: context) as MyClassPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -530,20 +530,10 @@ public extension Ice.InputStream {
 public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
@@ -556,38 +546,18 @@ public extension MyClassPrx {
     ///   - returnValue: `SerialSmall`
     ///
     ///   - o: `SerialSmall`
-    func opSerialSmallJava(_ iceP_i: SerialSmall, context: Ice.Context? = nil) throws -> (returnValue: SerialSmall, o: SerialSmall) {
-        return try _impl._invoke(operation: "opSerialSmallJava",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_i)
-                                 },
-                                 read: { istr in
-                                     let iceP_o: SerialSmall = try istr.read()
-                                     let iceP_returnValue: SerialSmall = try istr.read()
-                                     return (iceP_returnValue, iceP_o)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `SerialSmall`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SerialSmall, o: SerialSmall)` - The result of the operation
-    func opSerialSmallJavaAsync(_ iceP_i: SerialSmall, context: Ice.Context? = nil) async throws -> (returnValue: SerialSmall, o: SerialSmall) {
-        return try await _impl._invokeAsync(operation: "opSerialSmallJava",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_i)
-                                            },
-                                            read: { istr in
-                                                let iceP_o: SerialSmall = try istr.read()
-                                                let iceP_returnValue: SerialSmall = try istr.read()
-                                                return (iceP_returnValue, iceP_o)
-                                            },
-                                            context: context)
+    func opSerialSmallJava(_ iceP_i: SerialSmall, context: Ice.Context? = nil) async throws -> (returnValue: SerialSmall, o: SerialSmall) {
+        return try await _impl._invoke(operation: "opSerialSmallJava",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_i)
+                                       },
+                                       read: { istr in
+                                           let iceP_o: SerialSmall = try istr.read()
+                                           let iceP_returnValue: SerialSmall = try istr.read()
+                                           return (iceP_returnValue, iceP_o)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -600,38 +570,18 @@ public extension MyClassPrx {
     ///   - returnValue: `SerialLarge`
     ///
     ///   - o: `SerialLarge`
-    func opSerialLargeJava(_ iceP_i: SerialLarge, context: Ice.Context? = nil) throws -> (returnValue: SerialLarge, o: SerialLarge) {
-        return try _impl._invoke(operation: "opSerialLargeJava",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_i)
-                                 },
-                                 read: { istr in
-                                     let iceP_o: SerialLarge = try istr.read()
-                                     let iceP_returnValue: SerialLarge = try istr.read()
-                                     return (iceP_returnValue, iceP_o)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `SerialLarge`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SerialLarge, o: SerialLarge)` - The result of the operation
-    func opSerialLargeJavaAsync(_ iceP_i: SerialLarge, context: Ice.Context? = nil) async throws -> (returnValue: SerialLarge, o: SerialLarge) {
-        return try await _impl._invokeAsync(operation: "opSerialLargeJava",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_i)
-                                            },
-                                            read: { istr in
-                                                let iceP_o: SerialLarge = try istr.read()
-                                                let iceP_returnValue: SerialLarge = try istr.read()
-                                                return (iceP_returnValue, iceP_o)
-                                            },
-                                            context: context)
+    func opSerialLargeJava(_ iceP_i: SerialLarge, context: Ice.Context? = nil) async throws -> (returnValue: SerialLarge, o: SerialLarge) {
+        return try await _impl._invoke(operation: "opSerialLargeJava",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_i)
+                                       },
+                                       read: { istr in
+                                           let iceP_o: SerialLarge = try istr.read()
+                                           let iceP_returnValue: SerialLarge = try istr.read()
+                                           return (iceP_returnValue, iceP_o)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -644,38 +594,18 @@ public extension MyClassPrx {
     ///   - returnValue: `SerialStruct`
     ///
     ///   - o: `SerialStruct`
-    func opSerialStructJava(_ iceP_i: SerialStruct, context: Ice.Context? = nil) throws -> (returnValue: SerialStruct, o: SerialStruct) {
-        return try _impl._invoke(operation: "opSerialStructJava",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_i)
-                                 },
-                                 read: { istr in
-                                     let iceP_o: SerialStruct = try istr.read()
-                                     let iceP_returnValue: SerialStruct = try istr.read()
-                                     return (iceP_returnValue, iceP_o)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `SerialStruct`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SerialStruct, o: SerialStruct)` - The result of the operation
-    func opSerialStructJavaAsync(_ iceP_i: SerialStruct, context: Ice.Context? = nil) async throws -> (returnValue: SerialStruct, o: SerialStruct) {
-        return try await _impl._invokeAsync(operation: "opSerialStructJava",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_i)
-                                            },
-                                            read: { istr in
-                                                let iceP_o: SerialStruct = try istr.read()
-                                                let iceP_returnValue: SerialStruct = try istr.read()
-                                                return (iceP_returnValue, iceP_o)
-                                            },
-                                            context: context)
+    func opSerialStructJava(_ iceP_i: SerialStruct, context: Ice.Context? = nil) async throws -> (returnValue: SerialStruct, o: SerialStruct) {
+        return try await _impl._invoke(operation: "opSerialStructJava",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_i)
+                                       },
+                                       read: { istr in
+                                           let iceP_o: SerialStruct = try istr.read()
+                                           let iceP_returnValue: SerialStruct = try istr.read()
+                                           return (iceP_returnValue, iceP_o)
+                                       },
+                                       context: context)
     }
 }
 
@@ -760,8 +690,6 @@ public struct MyClassDisp: Ice.Dispatcher {
 public protocol MyClass {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 
     ///
@@ -769,7 +697,11 @@ public protocol MyClass {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: SerialSmall, o: SerialSmall)` - The result of the operation
+    /// - returns: `(returnValue: SerialSmall, o: SerialSmall)`:
+    ///
+    ///   - returnValue: `SerialSmall`
+    ///
+    ///   - o: `SerialSmall`
     func opSerialSmallJava(i: SerialSmall, current: Ice.Current) async throws -> (returnValue: SerialSmall, o: SerialSmall)
 
     ///
@@ -777,7 +709,11 @@ public protocol MyClass {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: SerialLarge, o: SerialLarge)` - The result of the operation
+    /// - returns: `(returnValue: SerialLarge, o: SerialLarge)`:
+    ///
+    ///   - returnValue: `SerialLarge`
+    ///
+    ///   - o: `SerialLarge`
     func opSerialLargeJava(i: SerialLarge, current: Ice.Current) async throws -> (returnValue: SerialLarge, o: SerialLarge)
 
     ///
@@ -785,7 +721,11 @@ public protocol MyClass {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: SerialStruct, o: SerialStruct)` - The result of the operation
+    /// - returns: `(returnValue: SerialStruct, o: SerialStruct)`:
+    ///
+    ///   - returnValue: `SerialStruct`
+    ///
+    ///   - o: `SerialStruct`
     func opSerialStructJava(i: SerialStruct, current: Ice.Current) async throws -> (returnValue: SerialStruct, o: SerialStruct)
 }
 

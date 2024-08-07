@@ -187,8 +187,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TestIntfPrx? {
-    return try TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TestIntfPrx? {
+    return try await TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -294,146 +294,66 @@ public extension Ice.InputStream {
 public extension TestIntfPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func requestFailedException(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "requestFailedException",
-                          mode: .Normal,
-                          context: context)
+    func requestFailedException(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "requestFailedException",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func requestFailedExceptionAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "requestFailedException",
-                                            mode: .Normal,
-                                            context: context)
+    func unknownUserException(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "unknownUserException",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func unknownUserException(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "unknownUserException",
-                          mode: .Normal,
-                          context: context)
+    func unknownLocalException(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "unknownLocalException",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func unknownUserExceptionAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "unknownUserException",
-                                            mode: .Normal,
-                                            context: context)
+    func unknownException(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "unknownException",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func unknownLocalException(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "unknownLocalException",
-                          mode: .Normal,
-                          context: context)
+    func localException(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "localException",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func unknownLocalExceptionAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "unknownLocalException",
-                                            mode: .Normal,
-                                            context: context)
+    func userException(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "userException",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func unknownException(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "unknownException",
-                          mode: .Normal,
-                          context: context)
+    func jsException(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "jsException",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func unknownExceptionAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "unknownException",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func localException(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "localException",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func localExceptionAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "localException",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func userException(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "userException",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func userExceptionAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "userException",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func jsException(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "jsException",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func jsExceptionAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "jsException",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func unknownExceptionWithServantException(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "unknownExceptionWithServantException",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func unknownExceptionWithServantExceptionAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "unknownExceptionWithServantException",
-                                            mode: .Normal,
-                                            context: context)
+    func unknownExceptionWithServantException(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "unknownExceptionWithServantException",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
@@ -442,50 +362,24 @@ public extension TestIntfPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.String`
-    func impossibleException(_ iceP_throw: Swift.Bool, context: Ice.Context? = nil) throws -> Swift.String {
-        return try _impl._invoke(operation: "impossibleException",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_throw)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.String = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as TestImpossibleException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String` - The result of the operation
-    func impossibleExceptionAsync(_ iceP_throw: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.String {
-        return try await _impl._invokeAsync(operation: "impossibleException",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_throw)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.String = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as TestImpossibleException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func impossibleException(_ iceP_throw: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.String {
+        return try await _impl._invoke(operation: "impossibleException",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_throw)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.String = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as TestImpossibleException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     ///
@@ -494,144 +388,68 @@ public extension TestIntfPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.String`
-    func intfUserException(_ iceP_throw: Swift.Bool, context: Ice.Context? = nil) throws -> Swift.String {
-        return try _impl._invoke(operation: "intfUserException",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_throw)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.String = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as TestIntfUserException {
-                                         throw error
-                                     } catch let error as TestImpossibleException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String` - The result of the operation
-    func intfUserExceptionAsync(_ iceP_throw: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.String {
-        return try await _impl._invokeAsync(operation: "intfUserException",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_throw)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.String = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as TestIntfUserException {
-                                                    throw error
-                                                } catch let error as TestImpossibleException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func intfUserException(_ iceP_throw: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.String {
+        return try await _impl._invoke(operation: "intfUserException",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_throw)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.String = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as TestIntfUserException {
+                                               throw error
+                                           } catch let error as TestImpossibleException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func asyncResponse(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "asyncResponse",
-                          mode: .Normal,
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as TestIntfUserException {
-                                  throw error
-                              } catch let error as TestImpossibleException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
+    func asyncResponse(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "asyncResponse",
+                                       mode: .Normal,
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as TestIntfUserException {
+                                               throw error
+                                           } catch let error as TestImpossibleException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func asyncResponseAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "asyncResponse",
-                                            mode: .Normal,
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as TestIntfUserException {
-                                                    throw error
-                                                } catch let error as TestImpossibleException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func asyncException(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "asyncException",
+                                       mode: .Normal,
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as TestIntfUserException {
+                                               throw error
+                                           } catch let error as TestImpossibleException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func asyncException(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "asyncException",
-                          mode: .Normal,
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as TestIntfUserException {
-                                  throw error
-                              } catch let error as TestImpossibleException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func asyncExceptionAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "asyncException",
-                                            mode: .Normal,
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as TestIntfUserException {
-                                                    throw error
-                                                } catch let error as TestImpossibleException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -680,8 +498,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TestActivationPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TestActivationPrx? {
-    return try TestActivationPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestActivationPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TestActivationPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TestActivationPrx? {
+    return try await TestActivationPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestActivationPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -741,28 +559,13 @@ public extension TestActivationPrx {
     /// - parameter _: `Swift.Bool`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func activateServantLocator(_ iceP_activate: Swift.Bool, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "activateServantLocator",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_activate)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func activateServantLocatorAsync(_ iceP_activate: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "activateServantLocator",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_activate)
-                                            },
-                                            context: context)
+    func activateServantLocator(_ iceP_activate: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "activateServantLocator",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_activate)
+                                       },
+                                       context: context)
     }
 }
 
@@ -823,8 +626,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: EchoPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> EchoPrx? {
-    return try EchoPrxI.checkedCast(prx: prx, facet: facet, context: context) as EchoPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: EchoPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> EchoPrx? {
+    return try await EchoPrxI.checkedCast(prx: prx, facet: facet, context: context) as EchoPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -894,74 +697,34 @@ public extension Ice.InputStream {
 public extension EchoPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func setConnection(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "setConnection",
-                          mode: .Normal,
-                          context: context)
+    func setConnection(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "setConnection",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func setConnectionAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "setConnection",
-                                            mode: .Normal,
-                                            context: context)
+    func startBatch(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "startBatch",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func startBatch(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "startBatch",
-                          mode: .Normal,
-                          context: context)
+    func flushBatch(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "flushBatch",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func startBatchAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "startBatch",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func flushBatch(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "flushBatch",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func flushBatchAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "flushBatch",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -1020,50 +783,34 @@ public struct TestIntfDisp: Ice.Dispatcher {
 public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func requestFailedException(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func unknownUserException(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func unknownLocalException(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func unknownException(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func localException(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func userException(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func jsException(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func unknownExceptionWithServantException(current: Ice.Current) async throws
 
     ///
@@ -1071,7 +818,7 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The result of the operation
+    /// - returns: `Swift.String`
     func impossibleException(throw: Swift.Bool, current: Ice.Current) async throws -> Swift.String
 
     ///
@@ -1079,25 +826,19 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The result of the operation
+    /// - returns: `Swift.String`
     func intfUserException(throw: Swift.Bool, current: Ice.Current) async throws -> Swift.String
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func asyncResponse(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func asyncException(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -1134,8 +875,6 @@ public protocol TestActivation {
     /// - parameter activate: `Swift.Bool`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func activateServantLocator(activate: Swift.Bool, current: Ice.Current) async throws
 }
 
@@ -1176,26 +915,18 @@ public struct EchoDisp: Ice.Dispatcher {
 public protocol Echo {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func setConnection(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func startBatch(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func flushBatch(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 

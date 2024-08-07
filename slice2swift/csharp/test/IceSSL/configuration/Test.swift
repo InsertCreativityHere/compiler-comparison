@@ -154,8 +154,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: ServerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> ServerPrx? {
-    return try ServerPrxI.checkedCast(prx: prx, facet: facet, context: context) as ServerPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: ServerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> ServerPrx? {
+    return try await ServerPrxI.checkedCast(prx: prx, facet: facet, context: context) as ServerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -221,20 +221,10 @@ public extension Ice.InputStream {
 public extension ServerPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func noCert(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "noCert",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func noCertAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "noCert",
-                                            mode: .Normal,
-                                            context: context)
+    func noCert(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "noCert",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
@@ -243,60 +233,27 @@ public extension ServerPrx {
     /// - parameter issuerDN: `Swift.String`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func checkCert(subjectDN iceP_subjectDN: Swift.String, issuerDN iceP_issuerDN: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "checkCert",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_subjectDN)
-                              ostr.write(iceP_issuerDN)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter subjectDN: `Swift.String`
-    ///
-    /// - parameter issuerDN: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func checkCertAsync(subjectDN iceP_subjectDN: Swift.String, issuerDN iceP_issuerDN: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "checkCert",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_subjectDN)
-                                                ostr.write(iceP_issuerDN)
-                                            },
-                                            context: context)
+    func checkCert(subjectDN iceP_subjectDN: Swift.String, issuerDN iceP_issuerDN: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "checkCert",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_subjectDN)
+                                           ostr.write(iceP_issuerDN)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter _: `Swift.String`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func checkCipher(_ iceP_cipher: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "checkCipher",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_cipher)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func checkCipherAsync(_ iceP_cipher: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "checkCipher",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_cipher)
-                                            },
-                                            context: context)
+    func checkCipher(_ iceP_cipher: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "checkCipher",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_cipher)
+                                       },
+                                       context: context)
     }
 }
 
@@ -353,8 +310,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: ServerFactoryPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> ServerFactoryPrx? {
-    return try ServerFactoryPrxI.checkedCast(prx: prx, facet: facet, context: context) as ServerFactoryPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: ServerFactoryPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> ServerFactoryPrx? {
+    return try await ServerFactoryPrxI.checkedCast(prx: prx, facet: facet, context: context) as ServerFactoryPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -424,82 +381,38 @@ public extension ServerFactoryPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `ServerPrx?`
-    func createServer(_ iceP_props: Properties, context: Ice.Context? = nil) throws -> ServerPrx? {
-        return try _impl._invoke(operation: "createServer",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     PropertiesHelper.write(to: ostr, value: iceP_props)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: ServerPrx? = try istr.read(ServerPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `Properties`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ServerPrx?` - The result of the operation
-    func createServerAsync(_ iceP_props: Properties, context: Ice.Context? = nil) async throws -> ServerPrx? {
-        return try await _impl._invokeAsync(operation: "createServer",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                PropertiesHelper.write(to: ostr, value: iceP_props)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: ServerPrx? = try istr.read(ServerPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func createServer(_ iceP_props: Properties, context: Ice.Context? = nil) async throws -> ServerPrx? {
+        return try await _impl._invoke(operation: "createServer",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           PropertiesHelper.write(to: ostr, value: iceP_props)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: ServerPrx? = try istr.read(ServerPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter _: `ServerPrx?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func destroyServer(_ iceP_srv: ServerPrx?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "destroyServer",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_srv)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `ServerPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func destroyServerAsync(_ iceP_srv: ServerPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "destroyServer",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_srv)
-                                            },
-                                            context: context)
+    func destroyServer(_ iceP_srv: ServerPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "destroyServer",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_srv)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -548,8 +461,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: PingablePrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> PingablePrx? {
-    return try PingablePrxI.checkedCast(prx: prx, facet: facet, context: context) as PingablePrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: PingablePrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> PingablePrx? {
+    return try await PingablePrxI.checkedCast(prx: prx, facet: facet, context: context) as PingablePrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -607,20 +520,10 @@ public extension Ice.InputStream {
 public extension PingablePrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func ping(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "ping",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func pingAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "ping",
-                                            mode: .Normal,
-                                            context: context)
+    func ping(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "ping",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -659,8 +562,6 @@ public struct ServerDisp: Ice.Dispatcher {
 public protocol Server {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func noCert(current: Ice.Current) async throws
 
     ///
@@ -669,16 +570,12 @@ public protocol Server {
     /// - parameter issuerDN: `Swift.String`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func checkCert(subjectDN: Swift.String, issuerDN: Swift.String, current: Ice.Current) async throws
 
     ///
     /// - parameter cipher: `Swift.String`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func checkCipher(cipher: Swift.String, current: Ice.Current) async throws
 }
 
@@ -720,21 +617,17 @@ public protocol ServerFactory {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ServerPrx?` - The result of the operation
+    /// - returns: `ServerPrx?`
     func createServer(props: Properties, current: Ice.Current) async throws -> ServerPrx?
 
     ///
     /// - parameter srv: `ServerPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func destroyServer(srv: ServerPrx?, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -769,8 +662,6 @@ public struct PingableDisp: Ice.Dispatcher {
 public protocol Pingable {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func ping(current: Ice.Current) async throws
 }
 

@@ -435,8 +435,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: UnexpectedObjectExceptionTestPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> UnexpectedObjectExceptionTestPrx? {
-    return try UnexpectedObjectExceptionTestPrxI.checkedCast(prx: prx, facet: facet, context: context) as UnexpectedObjectExceptionTestPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: UnexpectedObjectExceptionTestPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> UnexpectedObjectExceptionTestPrx? {
+    return try await UnexpectedObjectExceptionTestPrxI.checkedCast(prx: prx, facet: facet, context: context) as UnexpectedObjectExceptionTestPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -496,32 +496,16 @@ public extension UnexpectedObjectExceptionTestPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `AlsoEmpty?`
-    func op(context: Ice.Context? = nil) throws -> AlsoEmpty? {
-        return try _impl._invoke(operation: "op",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     var iceP_returnValue: AlsoEmpty?
-                                     try istr.read(AlsoEmpty.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `AlsoEmpty?` - The result of the operation
-    func opAsync(context: Ice.Context? = nil) async throws -> AlsoEmpty? {
-        return try await _impl._invokeAsync(operation: "op",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                var iceP_returnValue: AlsoEmpty?
-                                                try istr.read(AlsoEmpty.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func op(context: Ice.Context? = nil) async throws -> AlsoEmpty? {
+        return try await _impl._invoke(operation: "op",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           var iceP_returnValue: AlsoEmpty?
+                                           try istr.read(AlsoEmpty.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -701,7 +685,7 @@ public protocol UnexpectedObjectExceptionTest {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `AlsoEmpty?` - The result of the operation
+    /// - returns: `AlsoEmpty?`
     func op(current: Ice.Current) async throws -> AlsoEmpty?
 }
 

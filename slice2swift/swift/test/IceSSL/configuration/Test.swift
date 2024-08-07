@@ -144,8 +144,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: SSLServerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> SSLServerPrx? {
-    return try SSLServerPrxI.checkedCast(prx: prx, facet: facet, context: context) as SSLServerPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: SSLServerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> SSLServerPrx? {
+    return try await SSLServerPrxI.checkedCast(prx: prx, facet: facet, context: context) as SSLServerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -207,20 +207,10 @@ public extension Ice.InputStream {
 public extension SSLServerPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func noCert(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "noCert",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func noCertAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "noCert",
-                                            mode: .Normal,
-                                            context: context)
+    func noCert(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "noCert",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
@@ -229,32 +219,14 @@ public extension SSLServerPrx {
     /// - parameter issuerDN: `Swift.String`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func checkCert(subjectDN iceP_subjectDN: Swift.String, issuerDN iceP_issuerDN: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "checkCert",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_subjectDN)
-                              ostr.write(iceP_issuerDN)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter subjectDN: `Swift.String`
-    ///
-    /// - parameter issuerDN: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func checkCertAsync(subjectDN iceP_subjectDN: Swift.String, issuerDN iceP_issuerDN: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "checkCert",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_subjectDN)
-                                                ostr.write(iceP_issuerDN)
-                                            },
-                                            context: context)
+    func checkCert(subjectDN iceP_subjectDN: Swift.String, issuerDN iceP_issuerDN: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "checkCert",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_subjectDN)
+                                           ostr.write(iceP_issuerDN)
+                                       },
+                                       context: context)
     }
 }
 
@@ -311,8 +283,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: SSLServerFactoryPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> SSLServerFactoryPrx? {
-    return try SSLServerFactoryPrxI.checkedCast(prx: prx, facet: facet, context: context) as SSLServerFactoryPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: SSLServerFactoryPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> SSLServerFactoryPrx? {
+    return try await SSLServerFactoryPrxI.checkedCast(prx: prx, facet: facet, context: context) as SSLServerFactoryPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -382,82 +354,38 @@ public extension SSLServerFactoryPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `SSLServerPrx?`
-    func createServer(_ iceP_props: SSLProperties, context: Ice.Context? = nil) throws -> SSLServerPrx? {
-        return try _impl._invoke(operation: "createServer",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     SSLPropertiesHelper.write(to: ostr, value: iceP_props)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: SSLServerPrx? = try istr.read(SSLServerPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `SSLProperties`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `SSLServerPrx?` - The result of the operation
-    func createServerAsync(_ iceP_props: SSLProperties, context: Ice.Context? = nil) async throws -> SSLServerPrx? {
-        return try await _impl._invokeAsync(operation: "createServer",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                SSLPropertiesHelper.write(to: ostr, value: iceP_props)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: SSLServerPrx? = try istr.read(SSLServerPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func createServer(_ iceP_props: SSLProperties, context: Ice.Context? = nil) async throws -> SSLServerPrx? {
+        return try await _impl._invoke(operation: "createServer",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           SSLPropertiesHelper.write(to: ostr, value: iceP_props)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: SSLServerPrx? = try istr.read(SSLServerPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter _: `SSLServerPrx?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func destroyServer(_ iceP_srv: SSLServerPrx?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "destroyServer",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_srv)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `SSLServerPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func destroyServerAsync(_ iceP_srv: SSLServerPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "destroyServer",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_srv)
-                                            },
-                                            context: context)
+    func destroyServer(_ iceP_srv: SSLServerPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "destroyServer",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_srv)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -494,8 +422,6 @@ public struct SSLServerDisp: Ice.Dispatcher {
 public protocol SSLServer {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func noCert(current: Ice.Current) async throws
 
     ///
@@ -504,8 +430,6 @@ public protocol SSLServer {
     /// - parameter issuerDN: `Swift.String`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func checkCert(subjectDN: Swift.String, issuerDN: Swift.String, current: Ice.Current) async throws
 }
 
@@ -547,21 +471,17 @@ public protocol SSLServerFactory {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `SSLServerPrx?` - The result of the operation
+    /// - returns: `SSLServerPrx?`
     func createServer(props: SSLProperties, current: Ice.Current) async throws -> SSLServerPrx?
 
     ///
     /// - parameter srv: `SSLServerPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func destroyServer(srv: SSLServerPrx?, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 

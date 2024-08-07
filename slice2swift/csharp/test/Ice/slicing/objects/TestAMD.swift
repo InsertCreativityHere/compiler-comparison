@@ -610,8 +610,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TestIntfPrx? {
-    return try TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TestIntfPrx? {
+    return try await TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -815,440 +815,219 @@ public extension TestIntfPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Ice.Value?`
-    func SBaseAsObject(context: Ice.Context? = nil) throws -> Ice.Value? {
-        return try _impl._invoke(operation: "SBaseAsObject",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 read: { istr in
-                                     var iceP_returnValue: Ice.Value?
-                                     try istr.read() { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.Value?` - The result of the operation
-    func SBaseAsObjectAsync(context: Ice.Context? = nil) async throws -> Ice.Value? {
-        return try await _impl._invokeAsync(operation: "SBaseAsObject",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            read: { istr in
-                                                var iceP_returnValue: Ice.Value?
-                                                try istr.read() { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func SBaseAsObject(context: Ice.Context? = nil) async throws -> Ice.Value? {
+        return try await _impl._invoke(operation: "SBaseAsObject",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       read: { istr in
+                                           var iceP_returnValue: Ice.Value?
+                                           try istr.read() { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `SBase?`
-    func SBaseAsSBase(context: Ice.Context? = nil) throws -> SBase? {
-        return try _impl._invoke(operation: "SBaseAsSBase",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 read: { istr in
-                                     var iceP_returnValue: SBase?
-                                     try istr.read(SBase.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `SBase?` - The result of the operation
-    func SBaseAsSBaseAsync(context: Ice.Context? = nil) async throws -> SBase? {
-        return try await _impl._invokeAsync(operation: "SBaseAsSBase",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            read: { istr in
-                                                var iceP_returnValue: SBase?
-                                                try istr.read(SBase.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func SBaseAsSBase(context: Ice.Context? = nil) async throws -> SBase? {
+        return try await _impl._invoke(operation: "SBaseAsSBase",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       read: { istr in
+                                           var iceP_returnValue: SBase?
+                                           try istr.read(SBase.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `SBase?`
-    func SBSKnownDerivedAsSBase(context: Ice.Context? = nil) throws -> SBase? {
-        return try _impl._invoke(operation: "SBSKnownDerivedAsSBase",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 read: { istr in
-                                     var iceP_returnValue: SBase?
-                                     try istr.read(SBase.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `SBase?` - The result of the operation
-    func SBSKnownDerivedAsSBaseAsync(context: Ice.Context? = nil) async throws -> SBase? {
-        return try await _impl._invokeAsync(operation: "SBSKnownDerivedAsSBase",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            read: { istr in
-                                                var iceP_returnValue: SBase?
-                                                try istr.read(SBase.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func SBSKnownDerivedAsSBase(context: Ice.Context? = nil) async throws -> SBase? {
+        return try await _impl._invoke(operation: "SBSKnownDerivedAsSBase",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       read: { istr in
+                                           var iceP_returnValue: SBase?
+                                           try istr.read(SBase.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `SBSKnownDerived?`
-    func SBSKnownDerivedAsSBSKnownDerived(context: Ice.Context? = nil) throws -> SBSKnownDerived? {
-        return try _impl._invoke(operation: "SBSKnownDerivedAsSBSKnownDerived",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 read: { istr in
-                                     var iceP_returnValue: SBSKnownDerived?
-                                     try istr.read(SBSKnownDerived.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `SBSKnownDerived?` - The result of the operation
-    func SBSKnownDerivedAsSBSKnownDerivedAsync(context: Ice.Context? = nil) async throws -> SBSKnownDerived? {
-        return try await _impl._invokeAsync(operation: "SBSKnownDerivedAsSBSKnownDerived",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            read: { istr in
-                                                var iceP_returnValue: SBSKnownDerived?
-                                                try istr.read(SBSKnownDerived.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func SBSKnownDerivedAsSBSKnownDerived(context: Ice.Context? = nil) async throws -> SBSKnownDerived? {
+        return try await _impl._invoke(operation: "SBSKnownDerivedAsSBSKnownDerived",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       read: { istr in
+                                           var iceP_returnValue: SBSKnownDerived?
+                                           try istr.read(SBSKnownDerived.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `SBase?`
-    func SBSUnknownDerivedAsSBase(context: Ice.Context? = nil) throws -> SBase? {
-        return try _impl._invoke(operation: "SBSUnknownDerivedAsSBase",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 read: { istr in
-                                     var iceP_returnValue: SBase?
-                                     try istr.read(SBase.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `SBase?` - The result of the operation
-    func SBSUnknownDerivedAsSBaseAsync(context: Ice.Context? = nil) async throws -> SBase? {
-        return try await _impl._invokeAsync(operation: "SBSUnknownDerivedAsSBase",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            read: { istr in
-                                                var iceP_returnValue: SBase?
-                                                try istr.read(SBase.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func SBSUnknownDerivedAsSBase(context: Ice.Context? = nil) async throws -> SBase? {
+        return try await _impl._invoke(operation: "SBSUnknownDerivedAsSBase",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       read: { istr in
+                                           var iceP_returnValue: SBase?
+                                           try istr.read(SBase.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `SBase?`
-    func SBSUnknownDerivedAsSBaseCompact(context: Ice.Context? = nil) throws -> SBase? {
-        return try _impl._invoke(operation: "SBSUnknownDerivedAsSBaseCompact",
-                                 mode: .Normal,
-                                 format: .CompactFormat,
-                                 read: { istr in
-                                     var iceP_returnValue: SBase?
-                                     try istr.read(SBase.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `SBase?` - The result of the operation
-    func SBSUnknownDerivedAsSBaseCompactAsync(context: Ice.Context? = nil) async throws -> SBase? {
-        return try await _impl._invokeAsync(operation: "SBSUnknownDerivedAsSBaseCompact",
-                                            mode: .Normal,
-                                            format: .CompactFormat,
-                                            read: { istr in
-                                                var iceP_returnValue: SBase?
-                                                try istr.read(SBase.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func SBSUnknownDerivedAsSBaseCompact(context: Ice.Context? = nil) async throws -> SBase? {
+        return try await _impl._invoke(operation: "SBSUnknownDerivedAsSBaseCompact",
+                                       mode: .Normal,
+                                       format: .CompactFormat,
+                                       read: { istr in
+                                           var iceP_returnValue: SBase?
+                                           try istr.read(SBase.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Ice.Value?`
-    func SUnknownAsObject(context: Ice.Context? = nil) throws -> Ice.Value? {
-        return try _impl._invoke(operation: "SUnknownAsObject",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 read: { istr in
-                                     var iceP_returnValue: Ice.Value?
-                                     try istr.read() { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.Value?` - The result of the operation
-    func SUnknownAsObjectAsync(context: Ice.Context? = nil) async throws -> Ice.Value? {
-        return try await _impl._invokeAsync(operation: "SUnknownAsObject",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            read: { istr in
-                                                var iceP_returnValue: Ice.Value?
-                                                try istr.read() { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func SUnknownAsObject(context: Ice.Context? = nil) async throws -> Ice.Value? {
+        return try await _impl._invoke(operation: "SUnknownAsObject",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       read: { istr in
+                                           var iceP_returnValue: Ice.Value?
+                                           try istr.read() { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter _: `Ice.Value?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func checkSUnknown(_ iceP_o: Ice.Value?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "checkSUnknown",
-                          mode: .Normal,
-                          format: .SlicedFormat,
-                          write: { ostr in
-                              ostr.write(iceP_o)
-                              ostr.writePendingValues()
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Ice.Value?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func checkSUnknownAsync(_ iceP_o: Ice.Value?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "checkSUnknown",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            write: { ostr in
-                                                ostr.write(iceP_o)
-                                                ostr.writePendingValues()
-                                            },
-                                            context: context)
+    func checkSUnknown(_ iceP_o: Ice.Value?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "checkSUnknown",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       write: { ostr in
+                                           ostr.write(iceP_o)
+                                           ostr.writePendingValues()
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `B?`
-    func oneElementCycle(context: Ice.Context? = nil) throws -> B? {
-        return try _impl._invoke(operation: "oneElementCycle",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 read: { istr in
-                                     var iceP_returnValue: B?
-                                     try istr.read(B.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `B?` - The result of the operation
-    func oneElementCycleAsync(context: Ice.Context? = nil) async throws -> B? {
-        return try await _impl._invokeAsync(operation: "oneElementCycle",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            read: { istr in
-                                                var iceP_returnValue: B?
-                                                try istr.read(B.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func oneElementCycle(context: Ice.Context? = nil) async throws -> B? {
+        return try await _impl._invoke(operation: "oneElementCycle",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       read: { istr in
+                                           var iceP_returnValue: B?
+                                           try istr.read(B.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `B?`
-    func twoElementCycle(context: Ice.Context? = nil) throws -> B? {
-        return try _impl._invoke(operation: "twoElementCycle",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 read: { istr in
-                                     var iceP_returnValue: B?
-                                     try istr.read(B.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `B?` - The result of the operation
-    func twoElementCycleAsync(context: Ice.Context? = nil) async throws -> B? {
-        return try await _impl._invokeAsync(operation: "twoElementCycle",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            read: { istr in
-                                                var iceP_returnValue: B?
-                                                try istr.read(B.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func twoElementCycle(context: Ice.Context? = nil) async throws -> B? {
+        return try await _impl._invoke(operation: "twoElementCycle",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       read: { istr in
+                                           var iceP_returnValue: B?
+                                           try istr.read(B.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `B?`
-    func D1AsB(context: Ice.Context? = nil) throws -> B? {
-        return try _impl._invoke(operation: "D1AsB",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 read: { istr in
-                                     var iceP_returnValue: B?
-                                     try istr.read(B.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `B?` - The result of the operation
-    func D1AsBAsync(context: Ice.Context? = nil) async throws -> B? {
-        return try await _impl._invokeAsync(operation: "D1AsB",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            read: { istr in
-                                                var iceP_returnValue: B?
-                                                try istr.read(B.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func D1AsB(context: Ice.Context? = nil) async throws -> B? {
+        return try await _impl._invoke(operation: "D1AsB",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       read: { istr in
+                                           var iceP_returnValue: B?
+                                           try istr.read(B.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `D1?`
-    func D1AsD1(context: Ice.Context? = nil) throws -> D1? {
-        return try _impl._invoke(operation: "D1AsD1",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 read: { istr in
-                                     var iceP_returnValue: D1?
-                                     try istr.read(D1.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `D1?` - The result of the operation
-    func D1AsD1Async(context: Ice.Context? = nil) async throws -> D1? {
-        return try await _impl._invokeAsync(operation: "D1AsD1",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            read: { istr in
-                                                var iceP_returnValue: D1?
-                                                try istr.read(D1.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func D1AsD1(context: Ice.Context? = nil) async throws -> D1? {
+        return try await _impl._invoke(operation: "D1AsD1",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       read: { istr in
+                                           var iceP_returnValue: D1?
+                                           try istr.read(D1.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `B?`
-    func D2AsB(context: Ice.Context? = nil) throws -> B? {
-        return try _impl._invoke(operation: "D2AsB",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 read: { istr in
-                                     var iceP_returnValue: B?
-                                     try istr.read(B.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `B?` - The result of the operation
-    func D2AsBAsync(context: Ice.Context? = nil) async throws -> B? {
-        return try await _impl._invokeAsync(operation: "D2AsB",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            read: { istr in
-                                                var iceP_returnValue: B?
-                                                try istr.read(B.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func D2AsB(context: Ice.Context? = nil) async throws -> B? {
+        return try await _impl._invoke(operation: "D2AsB",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       read: { istr in
+                                           var iceP_returnValue: B?
+                                           try istr.read(B.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1259,38 +1038,19 @@ public extension TestIntfPrx {
     ///   - p1: `B?`
     ///
     ///   - p2: `B?`
-    func paramTest1(context: Ice.Context? = nil) throws -> (p1: B?, p2: B?) {
-        return try _impl._invoke(operation: "paramTest1",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 read: { istr in
-                                     var iceP_p1: B?
-                                     try istr.read(B.self) { iceP_p1 = $0 }
-                                     var iceP_p2: B?
-                                     try istr.read(B.self) { iceP_p2 = $0 }
-                                     try istr.readPendingValues()
-                                     return (iceP_p1, iceP_p2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(p1: B?, p2: B?)` - The result of the operation
-    func paramTest1Async(context: Ice.Context? = nil) async throws -> (p1: B?, p2: B?) {
-        return try await _impl._invokeAsync(operation: "paramTest1",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            read: { istr in
-                                                var iceP_p1: B?
-                                                try istr.read(B.self) { iceP_p1 = $0 }
-                                                var iceP_p2: B?
-                                                try istr.read(B.self) { iceP_p2 = $0 }
-                                                try istr.readPendingValues()
-                                                return (iceP_p1, iceP_p2)
-                                            },
-                                            context: context)
+    func paramTest1(context: Ice.Context? = nil) async throws -> (p1: B?, p2: B?) {
+        return try await _impl._invoke(operation: "paramTest1",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       read: { istr in
+                                           var iceP_p1: B?
+                                           try istr.read(B.self) { iceP_p1 = $0 }
+                                           var iceP_p2: B?
+                                           try istr.read(B.self) { iceP_p2 = $0 }
+                                           try istr.readPendingValues()
+                                           return (iceP_p1, iceP_p2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1301,38 +1061,19 @@ public extension TestIntfPrx {
     ///   - p2: `B?`
     ///
     ///   - p1: `B?`
-    func paramTest2(context: Ice.Context? = nil) throws -> (p2: B?, p1: B?) {
-        return try _impl._invoke(operation: "paramTest2",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 read: { istr in
-                                     var iceP_p2: B?
-                                     try istr.read(B.self) { iceP_p2 = $0 }
-                                     var iceP_p1: B?
-                                     try istr.read(B.self) { iceP_p1 = $0 }
-                                     try istr.readPendingValues()
-                                     return (iceP_p2, iceP_p1)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(p2: B?, p1: B?)` - The result of the operation
-    func paramTest2Async(context: Ice.Context? = nil) async throws -> (p2: B?, p1: B?) {
-        return try await _impl._invokeAsync(operation: "paramTest2",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            read: { istr in
-                                                var iceP_p2: B?
-                                                try istr.read(B.self) { iceP_p2 = $0 }
-                                                var iceP_p1: B?
-                                                try istr.read(B.self) { iceP_p1 = $0 }
-                                                try istr.readPendingValues()
-                                                return (iceP_p2, iceP_p1)
-                                            },
-                                            context: context)
+    func paramTest2(context: Ice.Context? = nil) async throws -> (p2: B?, p1: B?) {
+        return try await _impl._invoke(operation: "paramTest2",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       read: { istr in
+                                           var iceP_p2: B?
+                                           try istr.read(B.self) { iceP_p2 = $0 }
+                                           var iceP_p1: B?
+                                           try istr.read(B.self) { iceP_p1 = $0 }
+                                           try istr.readPendingValues()
+                                           return (iceP_p2, iceP_p1)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1345,42 +1086,21 @@ public extension TestIntfPrx {
     ///   - p1: `B?`
     ///
     ///   - p2: `B?`
-    func paramTest3(context: Ice.Context? = nil) throws -> (returnValue: B?, p1: B?, p2: B?) {
-        return try _impl._invoke(operation: "paramTest3",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 read: { istr in
-                                     var iceP_p1: B?
-                                     try istr.read(B.self) { iceP_p1 = $0 }
-                                     var iceP_p2: B?
-                                     try istr.read(B.self) { iceP_p2 = $0 }
-                                     var iceP_returnValue: B?
-                                     try istr.read(B.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return (iceP_returnValue, iceP_p1, iceP_p2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: B?, p1: B?, p2: B?)` - The result of the operation
-    func paramTest3Async(context: Ice.Context? = nil) async throws -> (returnValue: B?, p1: B?, p2: B?) {
-        return try await _impl._invokeAsync(operation: "paramTest3",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            read: { istr in
-                                                var iceP_p1: B?
-                                                try istr.read(B.self) { iceP_p1 = $0 }
-                                                var iceP_p2: B?
-                                                try istr.read(B.self) { iceP_p2 = $0 }
-                                                var iceP_returnValue: B?
-                                                try istr.read(B.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return (iceP_returnValue, iceP_p1, iceP_p2)
-                                            },
-                                            context: context)
+    func paramTest3(context: Ice.Context? = nil) async throws -> (returnValue: B?, p1: B?, p2: B?) {
+        return try await _impl._invoke(operation: "paramTest3",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       read: { istr in
+                                           var iceP_p1: B?
+                                           try istr.read(B.self) { iceP_p1 = $0 }
+                                           var iceP_p2: B?
+                                           try istr.read(B.self) { iceP_p2 = $0 }
+                                           var iceP_returnValue: B?
+                                           try istr.read(B.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return (iceP_returnValue, iceP_p1, iceP_p2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1391,38 +1111,19 @@ public extension TestIntfPrx {
     ///   - returnValue: `B?`
     ///
     ///   - p: `B?`
-    func paramTest4(context: Ice.Context? = nil) throws -> (returnValue: B?, p: B?) {
-        return try _impl._invoke(operation: "paramTest4",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 read: { istr in
-                                     var iceP_p: B?
-                                     try istr.read(B.self) { iceP_p = $0 }
-                                     var iceP_returnValue: B?
-                                     try istr.read(B.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return (iceP_returnValue, iceP_p)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: B?, p: B?)` - The result of the operation
-    func paramTest4Async(context: Ice.Context? = nil) async throws -> (returnValue: B?, p: B?) {
-        return try await _impl._invokeAsync(operation: "paramTest4",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            read: { istr in
-                                                var iceP_p: B?
-                                                try istr.read(B.self) { iceP_p = $0 }
-                                                var iceP_returnValue: B?
-                                                try istr.read(B.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return (iceP_returnValue, iceP_p)
-                                            },
-                                            context: context)
+    func paramTest4(context: Ice.Context? = nil) async throws -> (returnValue: B?, p: B?) {
+        return try await _impl._invoke(operation: "paramTest4",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       read: { istr in
+                                           var iceP_p: B?
+                                           try istr.read(B.self) { iceP_p = $0 }
+                                           var iceP_returnValue: B?
+                                           try istr.read(B.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return (iceP_returnValue, iceP_p)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1435,42 +1136,21 @@ public extension TestIntfPrx {
     ///   - p1: `B?`
     ///
     ///   - p2: `B?`
-    func returnTest1(context: Ice.Context? = nil) throws -> (returnValue: B?, p1: B?, p2: B?) {
-        return try _impl._invoke(operation: "returnTest1",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 read: { istr in
-                                     var iceP_p1: B?
-                                     try istr.read(B.self) { iceP_p1 = $0 }
-                                     var iceP_p2: B?
-                                     try istr.read(B.self) { iceP_p2 = $0 }
-                                     var iceP_returnValue: B?
-                                     try istr.read(B.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return (iceP_returnValue, iceP_p1, iceP_p2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: B?, p1: B?, p2: B?)` - The result of the operation
-    func returnTest1Async(context: Ice.Context? = nil) async throws -> (returnValue: B?, p1: B?, p2: B?) {
-        return try await _impl._invokeAsync(operation: "returnTest1",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            read: { istr in
-                                                var iceP_p1: B?
-                                                try istr.read(B.self) { iceP_p1 = $0 }
-                                                var iceP_p2: B?
-                                                try istr.read(B.self) { iceP_p2 = $0 }
-                                                var iceP_returnValue: B?
-                                                try istr.read(B.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return (iceP_returnValue, iceP_p1, iceP_p2)
-                                            },
-                                            context: context)
+    func returnTest1(context: Ice.Context? = nil) async throws -> (returnValue: B?, p1: B?, p2: B?) {
+        return try await _impl._invoke(operation: "returnTest1",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       read: { istr in
+                                           var iceP_p1: B?
+                                           try istr.read(B.self) { iceP_p1 = $0 }
+                                           var iceP_p2: B?
+                                           try istr.read(B.self) { iceP_p2 = $0 }
+                                           var iceP_returnValue: B?
+                                           try istr.read(B.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return (iceP_returnValue, iceP_p1, iceP_p2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1483,42 +1163,21 @@ public extension TestIntfPrx {
     ///   - p2: `B?`
     ///
     ///   - p1: `B?`
-    func returnTest2(context: Ice.Context? = nil) throws -> (returnValue: B?, p2: B?, p1: B?) {
-        return try _impl._invoke(operation: "returnTest2",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 read: { istr in
-                                     var iceP_p2: B?
-                                     try istr.read(B.self) { iceP_p2 = $0 }
-                                     var iceP_p1: B?
-                                     try istr.read(B.self) { iceP_p1 = $0 }
-                                     var iceP_returnValue: B?
-                                     try istr.read(B.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return (iceP_returnValue, iceP_p2, iceP_p1)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: B?, p2: B?, p1: B?)` - The result of the operation
-    func returnTest2Async(context: Ice.Context? = nil) async throws -> (returnValue: B?, p2: B?, p1: B?) {
-        return try await _impl._invokeAsync(operation: "returnTest2",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            read: { istr in
-                                                var iceP_p2: B?
-                                                try istr.read(B.self) { iceP_p2 = $0 }
-                                                var iceP_p1: B?
-                                                try istr.read(B.self) { iceP_p1 = $0 }
-                                                var iceP_returnValue: B?
-                                                try istr.read(B.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return (iceP_returnValue, iceP_p2, iceP_p1)
-                                            },
-                                            context: context)
+    func returnTest2(context: Ice.Context? = nil) async throws -> (returnValue: B?, p2: B?, p1: B?) {
+        return try await _impl._invoke(operation: "returnTest2",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       read: { istr in
+                                           var iceP_p2: B?
+                                           try istr.read(B.self) { iceP_p2 = $0 }
+                                           var iceP_p1: B?
+                                           try istr.read(B.self) { iceP_p1 = $0 }
+                                           var iceP_returnValue: B?
+                                           try istr.read(B.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return (iceP_returnValue, iceP_p2, iceP_p1)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1529,48 +1188,22 @@ public extension TestIntfPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `B?`
-    func returnTest3(p1 iceP_p1: B?, p2 iceP_p2: B?, context: Ice.Context? = nil) throws -> B? {
-        return try _impl._invoke(operation: "returnTest3",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 write: { ostr in
-                                     ostr.write(iceP_p1)
-                                     ostr.write(iceP_p2)
-                                     ostr.writePendingValues()
-                                 },
-                                 read: { istr in
-                                     var iceP_returnValue: B?
-                                     try istr.read(B.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter p1: `B?`
-    ///
-    /// - parameter p2: `B?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `B?` - The result of the operation
-    func returnTest3Async(p1 iceP_p1: B?, p2 iceP_p2: B?, context: Ice.Context? = nil) async throws -> B? {
-        return try await _impl._invokeAsync(operation: "returnTest3",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            write: { ostr in
-                                                ostr.write(iceP_p1)
-                                                ostr.write(iceP_p2)
-                                                ostr.writePendingValues()
-                                            },
-                                            read: { istr in
-                                                var iceP_returnValue: B?
-                                                try istr.read(B.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func returnTest3(p1 iceP_p1: B?, p2 iceP_p2: B?, context: Ice.Context? = nil) async throws -> B? {
+        return try await _impl._invoke(operation: "returnTest3",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       write: { ostr in
+                                           ostr.write(iceP_p1)
+                                           ostr.write(iceP_p2)
+                                           ostr.writePendingValues()
+                                       },
+                                       read: { istr in
+                                           var iceP_returnValue: B?
+                                           try istr.read(B.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1581,46 +1214,21 @@ public extension TestIntfPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `SS3`
-    func sequenceTest(p1 iceP_p1: SS1?, p2 iceP_p2: SS2?, context: Ice.Context? = nil) throws -> SS3 {
-        return try _impl._invoke(operation: "sequenceTest",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 write: { ostr in
-                                     ostr.write(iceP_p1)
-                                     ostr.write(iceP_p2)
-                                     ostr.writePendingValues()
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: SS3 = try istr.read()
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter p1: `SS1?`
-    ///
-    /// - parameter p2: `SS2?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `SS3` - The result of the operation
-    func sequenceTestAsync(p1 iceP_p1: SS1?, p2 iceP_p2: SS2?, context: Ice.Context? = nil) async throws -> SS3 {
-        return try await _impl._invokeAsync(operation: "sequenceTest",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            write: { ostr in
-                                                ostr.write(iceP_p1)
-                                                ostr.write(iceP_p2)
-                                                ostr.writePendingValues()
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: SS3 = try istr.read()
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func sequenceTest(p1 iceP_p1: SS1?, p2 iceP_p2: SS2?, context: Ice.Context? = nil) async throws -> SS3 {
+        return try await _impl._invoke(operation: "sequenceTest",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       write: { ostr in
+                                           ostr.write(iceP_p1)
+                                           ostr.write(iceP_p2)
+                                           ostr.writePendingValues()
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: SS3 = try istr.read()
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1633,44 +1241,21 @@ public extension TestIntfPrx {
     ///   - returnValue: `BDict`
     ///
     ///   - bout: `BDict`
-    func dictionaryTest(_ iceP_bin: BDict, context: Ice.Context? = nil) throws -> (returnValue: BDict, bout: BDict) {
-        return try _impl._invoke(operation: "dictionaryTest",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 write: { ostr in
-                                     BDictHelper.write(to: ostr, value: iceP_bin)
-                                     ostr.writePendingValues()
-                                 },
-                                 read: { istr in
-                                     let iceP_bout: BDict = try BDictHelper.read(from: istr)
-                                     let iceP_returnValue: BDict = try BDictHelper.read(from: istr)
-                                     try istr.readPendingValues()
-                                     return (iceP_returnValue, iceP_bout)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `BDict`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: BDict, bout: BDict)` - The result of the operation
-    func dictionaryTestAsync(_ iceP_bin: BDict, context: Ice.Context? = nil) async throws -> (returnValue: BDict, bout: BDict) {
-        return try await _impl._invokeAsync(operation: "dictionaryTest",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            write: { ostr in
-                                                BDictHelper.write(to: ostr, value: iceP_bin)
-                                                ostr.writePendingValues()
-                                            },
-                                            read: { istr in
-                                                let iceP_bout: BDict = try BDictHelper.read(from: istr)
-                                                let iceP_returnValue: BDict = try BDictHelper.read(from: istr)
-                                                try istr.readPendingValues()
-                                                return (iceP_returnValue, iceP_bout)
-                                            },
-                                            context: context)
+    func dictionaryTest(_ iceP_bin: BDict, context: Ice.Context? = nil) async throws -> (returnValue: BDict, bout: BDict) {
+        return try await _impl._invoke(operation: "dictionaryTest",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       write: { ostr in
+                                           BDictHelper.write(to: ostr, value: iceP_bin)
+                                           ostr.writePendingValues()
+                                       },
+                                       read: { istr in
+                                           let iceP_bout: BDict = try BDictHelper.read(from: istr)
+                                           let iceP_returnValue: BDict = try BDictHelper.read(from: istr)
+                                           try istr.readPendingValues()
+                                           return (iceP_returnValue, iceP_bout)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1679,242 +1264,117 @@ public extension TestIntfPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `PBase?`
-    func exchangePBase(_ iceP_pb: PBase?, context: Ice.Context? = nil) throws -> PBase? {
-        return try _impl._invoke(operation: "exchangePBase",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 write: { ostr in
-                                     ostr.write(iceP_pb)
-                                     ostr.writePendingValues()
-                                 },
-                                 read: { istr in
-                                     var iceP_returnValue: PBase?
-                                     try istr.read(PBase.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `PBase?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `PBase?` - The result of the operation
-    func exchangePBaseAsync(_ iceP_pb: PBase?, context: Ice.Context? = nil) async throws -> PBase? {
-        return try await _impl._invokeAsync(operation: "exchangePBase",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            write: { ostr in
-                                                ostr.write(iceP_pb)
-                                                ostr.writePendingValues()
-                                            },
-                                            read: { istr in
-                                                var iceP_returnValue: PBase?
-                                                try istr.read(PBase.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func exchangePBase(_ iceP_pb: PBase?, context: Ice.Context? = nil) async throws -> PBase? {
+        return try await _impl._invoke(operation: "exchangePBase",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       write: { ostr in
+                                           ostr.write(iceP_pb)
+                                           ostr.writePendingValues()
+                                       },
+                                       read: { istr in
+                                           var iceP_returnValue: PBase?
+                                           try istr.read(PBase.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Preserved?`
-    func PBSUnknownAsPreserved(context: Ice.Context? = nil) throws -> Preserved? {
-        return try _impl._invoke(operation: "PBSUnknownAsPreserved",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 read: { istr in
-                                     var iceP_returnValue: Preserved?
-                                     try istr.read(Preserved.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Preserved?` - The result of the operation
-    func PBSUnknownAsPreservedAsync(context: Ice.Context? = nil) async throws -> Preserved? {
-        return try await _impl._invokeAsync(operation: "PBSUnknownAsPreserved",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            read: { istr in
-                                                var iceP_returnValue: Preserved?
-                                                try istr.read(Preserved.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func PBSUnknownAsPreserved(context: Ice.Context? = nil) async throws -> Preserved? {
+        return try await _impl._invoke(operation: "PBSUnknownAsPreserved",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       read: { istr in
+                                           var iceP_returnValue: Preserved?
+                                           try istr.read(Preserved.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter _: `Preserved?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func checkPBSUnknown(_ iceP_p: Preserved?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "checkPBSUnknown",
-                          mode: .Normal,
-                          format: .SlicedFormat,
-                          write: { ostr in
-                              ostr.write(iceP_p)
-                              ostr.writePendingValues()
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Preserved?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func checkPBSUnknownAsync(_ iceP_p: Preserved?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "checkPBSUnknown",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            write: { ostr in
-                                                ostr.write(iceP_p)
-                                                ostr.writePendingValues()
-                                            },
-                                            context: context)
+    func checkPBSUnknown(_ iceP_p: Preserved?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "checkPBSUnknown",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       write: { ostr in
+                                           ostr.write(iceP_p)
+                                           ostr.writePendingValues()
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Preserved?`
-    func PBSUnknownAsPreservedWithGraph(context: Ice.Context? = nil) throws -> Preserved? {
-        return try _impl._invoke(operation: "PBSUnknownAsPreservedWithGraph",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 read: { istr in
-                                     var iceP_returnValue: Preserved?
-                                     try istr.read(Preserved.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Preserved?` - The result of the operation
-    func PBSUnknownAsPreservedWithGraphAsync(context: Ice.Context? = nil) async throws -> Preserved? {
-        return try await _impl._invokeAsync(operation: "PBSUnknownAsPreservedWithGraph",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            read: { istr in
-                                                var iceP_returnValue: Preserved?
-                                                try istr.read(Preserved.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func PBSUnknownAsPreservedWithGraph(context: Ice.Context? = nil) async throws -> Preserved? {
+        return try await _impl._invoke(operation: "PBSUnknownAsPreservedWithGraph",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       read: { istr in
+                                           var iceP_returnValue: Preserved?
+                                           try istr.read(Preserved.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter _: `Preserved?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func checkPBSUnknownWithGraph(_ iceP_p: Preserved?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "checkPBSUnknownWithGraph",
-                          mode: .Normal,
-                          format: .SlicedFormat,
-                          write: { ostr in
-                              ostr.write(iceP_p)
-                              ostr.writePendingValues()
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Preserved?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func checkPBSUnknownWithGraphAsync(_ iceP_p: Preserved?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "checkPBSUnknownWithGraph",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            write: { ostr in
-                                                ostr.write(iceP_p)
-                                                ostr.writePendingValues()
-                                            },
-                                            context: context)
+    func checkPBSUnknownWithGraph(_ iceP_p: Preserved?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "checkPBSUnknownWithGraph",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       write: { ostr in
+                                           ostr.write(iceP_p)
+                                           ostr.writePendingValues()
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Preserved?`
-    func PBSUnknown2AsPreservedWithGraph(context: Ice.Context? = nil) throws -> Preserved? {
-        return try _impl._invoke(operation: "PBSUnknown2AsPreservedWithGraph",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 read: { istr in
-                                     var iceP_returnValue: Preserved?
-                                     try istr.read(Preserved.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Preserved?` - The result of the operation
-    func PBSUnknown2AsPreservedWithGraphAsync(context: Ice.Context? = nil) async throws -> Preserved? {
-        return try await _impl._invokeAsync(operation: "PBSUnknown2AsPreservedWithGraph",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            read: { istr in
-                                                var iceP_returnValue: Preserved?
-                                                try istr.read(Preserved.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func PBSUnknown2AsPreservedWithGraph(context: Ice.Context? = nil) async throws -> Preserved? {
+        return try await _impl._invoke(operation: "PBSUnknown2AsPreservedWithGraph",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       read: { istr in
+                                           var iceP_returnValue: Preserved?
+                                           try istr.read(Preserved.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter _: `Preserved?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func checkPBSUnknown2WithGraph(_ iceP_p: Preserved?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "checkPBSUnknown2WithGraph",
-                          mode: .Normal,
-                          format: .SlicedFormat,
-                          write: { ostr in
-                              ostr.write(iceP_p)
-                              ostr.writePendingValues()
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Preserved?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func checkPBSUnknown2WithGraphAsync(_ iceP_p: Preserved?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "checkPBSUnknown2WithGraph",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            write: { ostr in
-                                                ostr.write(iceP_p)
-                                                ostr.writePendingValues()
-                                            },
-                                            context: context)
+    func checkPBSUnknown2WithGraph(_ iceP_p: Preserved?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "checkPBSUnknown2WithGraph",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       write: { ostr in
+                                           ostr.write(iceP_p)
+                                           ostr.writePendingValues()
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1923,214 +1383,101 @@ public extension TestIntfPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `PNode?`
-    func exchangePNode(_ iceP_pn: PNode?, context: Ice.Context? = nil) throws -> PNode? {
-        return try _impl._invoke(operation: "exchangePNode",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 write: { ostr in
-                                     ostr.write(iceP_pn)
-                                     ostr.writePendingValues()
-                                 },
-                                 read: { istr in
-                                     var iceP_returnValue: PNode?
-                                     try istr.read(PNode.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `PNode?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `PNode?` - The result of the operation
-    func exchangePNodeAsync(_ iceP_pn: PNode?, context: Ice.Context? = nil) async throws -> PNode? {
-        return try await _impl._invokeAsync(operation: "exchangePNode",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            write: { ostr in
-                                                ostr.write(iceP_pn)
-                                                ostr.writePendingValues()
-                                            },
-                                            read: { istr in
-                                                var iceP_returnValue: PNode?
-                                                try istr.read(PNode.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func exchangePNode(_ iceP_pn: PNode?, context: Ice.Context? = nil) async throws -> PNode? {
+        return try await _impl._invoke(operation: "exchangePNode",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       write: { ostr in
+                                           ostr.write(iceP_pn)
+                                           ostr.writePendingValues()
+                                       },
+                                       read: { istr in
+                                           var iceP_returnValue: PNode?
+                                           try istr.read(PNode.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func throwBaseAsBase(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "throwBaseAsBase",
-                          mode: .Normal,
-                          format: .SlicedFormat,
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as BaseException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
+    func throwBaseAsBase(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "throwBaseAsBase",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as BaseException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func throwBaseAsBaseAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "throwBaseAsBase",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as BaseException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func throwDerivedAsBase(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "throwDerivedAsBase",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as BaseException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func throwDerivedAsBase(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "throwDerivedAsBase",
-                          mode: .Normal,
-                          format: .SlicedFormat,
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as BaseException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
+    func throwDerivedAsDerived(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "throwDerivedAsDerived",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as DerivedException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func throwDerivedAsBaseAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "throwDerivedAsBase",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as BaseException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func throwUnknownDerivedAsBase(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "throwUnknownDerivedAsBase",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as BaseException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func throwDerivedAsDerived(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "throwDerivedAsDerived",
-                          mode: .Normal,
-                          format: .SlicedFormat,
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as DerivedException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func throwDerivedAsDerivedAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "throwDerivedAsDerived",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as DerivedException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func throwUnknownDerivedAsBase(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "throwUnknownDerivedAsBase",
-                          mode: .Normal,
-                          format: .SlicedFormat,
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as BaseException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func throwUnknownDerivedAsBaseAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "throwUnknownDerivedAsBase",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as BaseException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func throwPreservedException(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "throwPreservedException",
-                          mode: .Normal,
-                          format: .SlicedFormat,
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as PreservedException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func throwPreservedExceptionAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "throwPreservedException",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as PreservedException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func throwPreservedException(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "throwPreservedException",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as PreservedException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Use of forward-declared class to verify that code is generated correctly.
@@ -2138,55 +1485,26 @@ public extension TestIntfPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Forward?`
-    func useForward(context: Ice.Context? = nil) throws -> Forward? {
-        return try _impl._invoke(operation: "useForward",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 read: { istr in
-                                     var iceP_f: Forward?
-                                     try istr.read(Forward.self) { iceP_f = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_f
-                                 },
-                                 context: context)
-    }
-
-    /// Use of forward-declared class to verify that code is generated correctly.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Forward?` - The result of the operation
-    func useForwardAsync(context: Ice.Context? = nil) async throws -> Forward? {
-        return try await _impl._invokeAsync(operation: "useForward",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            read: { istr in
-                                                var iceP_f: Forward?
-                                                try istr.read(Forward.self) { iceP_f = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_f
-                                            },
-                                            context: context)
+    func useForward(context: Ice.Context? = nil) async throws -> Forward? {
+        return try await _impl._invoke(operation: "useForward",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       read: { istr in
+                                           var iceP_f: Forward?
+                                           try istr.read(Forward.self) { iceP_f = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_f
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          format: .SlicedFormat,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       context: context)
     }
 }
 
@@ -2802,117 +2120,145 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.Value?` - The result of the operation
+    /// - returns: `Ice.Value?`
     func SBaseAsObject(current: Ice.Current) async throws -> Ice.Value?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `SBase?` - The result of the operation
+    /// - returns: `SBase?`
     func SBaseAsSBase(current: Ice.Current) async throws -> SBase?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `SBase?` - The result of the operation
+    /// - returns: `SBase?`
     func SBSKnownDerivedAsSBase(current: Ice.Current) async throws -> SBase?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `SBSKnownDerived?` - The result of the operation
+    /// - returns: `SBSKnownDerived?`
     func SBSKnownDerivedAsSBSKnownDerived(current: Ice.Current) async throws -> SBSKnownDerived?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `SBase?` - The result of the operation
+    /// - returns: `SBase?`
     func SBSUnknownDerivedAsSBase(current: Ice.Current) async throws -> SBase?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `SBase?` - The result of the operation
+    /// - returns: `SBase?`
     func SBSUnknownDerivedAsSBaseCompact(current: Ice.Current) async throws -> SBase?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.Value?` - The result of the operation
+    /// - returns: `Ice.Value?`
     func SUnknownAsObject(current: Ice.Current) async throws -> Ice.Value?
 
     ///
     /// - parameter o: `Ice.Value?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func checkSUnknown(o: Ice.Value?, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `B?` - The result of the operation
+    /// - returns: `B?`
     func oneElementCycle(current: Ice.Current) async throws -> B?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `B?` - The result of the operation
+    /// - returns: `B?`
     func twoElementCycle(current: Ice.Current) async throws -> B?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `B?` - The result of the operation
+    /// - returns: `B?`
     func D1AsB(current: Ice.Current) async throws -> B?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `D1?` - The result of the operation
+    /// - returns: `D1?`
     func D1AsD1(current: Ice.Current) async throws -> D1?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `B?` - The result of the operation
+    /// - returns: `B?`
     func D2AsB(current: Ice.Current) async throws -> B?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(p1: B?, p2: B?)` - The result of the operation
+    /// - returns: `(p1: B?, p2: B?)`:
+    ///
+    ///   - p1: `B?`
+    ///
+    ///   - p2: `B?`
     func paramTest1(current: Ice.Current) async throws -> (p1: B?, p2: B?)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(p2: B?, p1: B?)` - The result of the operation
+    /// - returns: `(p2: B?, p1: B?)`:
+    ///
+    ///   - p2: `B?`
+    ///
+    ///   - p1: `B?`
     func paramTest2(current: Ice.Current) async throws -> (p2: B?, p1: B?)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: B?, p1: B?, p2: B?)` - The result of the operation
+    /// - returns: `(returnValue: B?, p1: B?, p2: B?)`:
+    ///
+    ///   - returnValue: `B?`
+    ///
+    ///   - p1: `B?`
+    ///
+    ///   - p2: `B?`
     func paramTest3(current: Ice.Current) async throws -> (returnValue: B?, p1: B?, p2: B?)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: B?, p: B?)` - The result of the operation
+    /// - returns: `(returnValue: B?, p: B?)`:
+    ///
+    ///   - returnValue: `B?`
+    ///
+    ///   - p: `B?`
     func paramTest4(current: Ice.Current) async throws -> (returnValue: B?, p: B?)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: B?, p1: B?, p2: B?)` - The result of the operation
+    /// - returns: `(returnValue: B?, p1: B?, p2: B?)`:
+    ///
+    ///   - returnValue: `B?`
+    ///
+    ///   - p1: `B?`
+    ///
+    ///   - p2: `B?`
     func returnTest1(current: Ice.Current) async throws -> (returnValue: B?, p1: B?, p2: B?)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: B?, p2: B?, p1: B?)` - The result of the operation
+    /// - returns: `(returnValue: B?, p2: B?, p1: B?)`:
+    ///
+    ///   - returnValue: `B?`
+    ///
+    ///   - p2: `B?`
+    ///
+    ///   - p1: `B?`
     func returnTest2(current: Ice.Current) async throws -> (returnValue: B?, p2: B?, p1: B?)
 
     ///
@@ -2922,7 +2268,7 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `B?` - The result of the operation
+    /// - returns: `B?`
     func returnTest3(p1: B?, p2: B?, current: Ice.Current) async throws -> B?
 
     ///
@@ -2932,7 +2278,7 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `SS3` - The result of the operation
+    /// - returns: `SS3`
     func sequenceTest(p1: SS1?, p2: SS2?, current: Ice.Current) async throws -> SS3
 
     ///
@@ -2940,7 +2286,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: BDict, bout: BDict)` - The result of the operation
+    /// - returns: `(returnValue: BDict, bout: BDict)`:
+    ///
+    ///   - returnValue: `BDict`
+    ///
+    ///   - bout: `BDict`
     func dictionaryTest(bin: BDict, current: Ice.Current) async throws -> (returnValue: BDict, bout: BDict)
 
     ///
@@ -2948,49 +2298,43 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PBase?` - The result of the operation
+    /// - returns: `PBase?`
     func exchangePBase(pb: PBase?, current: Ice.Current) async throws -> PBase?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Preserved?` - The result of the operation
+    /// - returns: `Preserved?`
     func PBSUnknownAsPreserved(current: Ice.Current) async throws -> Preserved?
 
     ///
     /// - parameter p: `Preserved?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func checkPBSUnknown(p: Preserved?, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Preserved?` - The result of the operation
+    /// - returns: `Preserved?`
     func PBSUnknownAsPreservedWithGraph(current: Ice.Current) async throws -> Preserved?
 
     ///
     /// - parameter p: `Preserved?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func checkPBSUnknownWithGraph(p: Preserved?, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Preserved?` - The result of the operation
+    /// - returns: `Preserved?`
     func PBSUnknown2AsPreservedWithGraph(current: Ice.Current) async throws -> Preserved?
 
     ///
     /// - parameter p: `Preserved?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func checkPBSUnknown2WithGraph(p: Preserved?, current: Ice.Current) async throws
 
     ///
@@ -2998,50 +2342,38 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PNode?` - The result of the operation
+    /// - returns: `PNode?`
     func exchangePNode(pn: PNode?, current: Ice.Current) async throws -> PNode?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func throwBaseAsBase(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func throwDerivedAsBase(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func throwDerivedAsDerived(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func throwUnknownDerivedAsBase(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func throwPreservedException(current: Ice.Current) async throws
 
     /// Use of forward-declared class to verify that code is generated correctly.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Forward?` - The result of the operation
+    /// - returns: `Forward?`
     func useForward(current: Ice.Current) async throws -> Forward?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 

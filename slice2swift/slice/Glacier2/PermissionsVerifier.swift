@@ -115,8 +115,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: PermissionsVerifierPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> PermissionsVerifierPrx? {
-    return try PermissionsVerifierPrxI.checkedCast(prx: prx, facet: facet, context: context) as PermissionsVerifierPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: PermissionsVerifierPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> PermissionsVerifierPrx? {
+    return try await PermissionsVerifierPrxI.checkedCast(prx: prx, facet: facet, context: context) as PermissionsVerifierPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -190,57 +190,26 @@ public extension PermissionsVerifierPrx {
     ///
     ///   - PermissionDeniedException - Raised if the user access is denied. This can be raised in place of
     ///     returning false with a reason set in the reason out parameter.
-    func checkPermissions(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil) throws -> (returnValue: Swift.Bool, reason: Swift.String) {
-        return try _impl._invoke(operation: "checkPermissions",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_userId)
-                                     ostr.write(iceP_password)
-                                 },
-                                 read: { istr in
-                                     let iceP_reason: Swift.String = try istr.read()
-                                     let iceP_returnValue: Swift.Bool = try istr.read()
-                                     return (iceP_returnValue, iceP_reason)
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as PermissionDeniedException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Check whether a user has permission to access the router.
-    ///
-    /// - parameter userId: `Swift.String` The user id for which to check permission.
-    ///
-    /// - parameter password: `Swift.String` The user's password.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: Swift.Bool, reason: Swift.String)` - The result of the operation
-    func checkPermissionsAsync(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil) async throws -> (returnValue: Swift.Bool, reason: Swift.String) {
-        return try await _impl._invokeAsync(operation: "checkPermissions",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_userId)
-                                                ostr.write(iceP_password)
-                                            },
-                                            read: { istr in
-                                                let iceP_reason: Swift.String = try istr.read()
-                                                let iceP_returnValue: Swift.Bool = try istr.read()
-                                                return (iceP_returnValue, iceP_reason)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as PermissionDeniedException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func checkPermissions(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil) async throws -> (returnValue: Swift.Bool, reason: Swift.String) {
+        return try await _impl._invoke(operation: "checkPermissions",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_userId)
+                                           ostr.write(iceP_password)
+                                       },
+                                       read: { istr in
+                                           let iceP_reason: Swift.String = try istr.read()
+                                           let iceP_returnValue: Swift.Bool = try istr.read()
+                                           return (iceP_returnValue, iceP_reason)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as PermissionDeniedException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 }
 
@@ -289,8 +258,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: SSLPermissionsVerifierPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> SSLPermissionsVerifierPrx? {
-    return try SSLPermissionsVerifierPrxI.checkedCast(prx: prx, facet: facet, context: context) as SSLPermissionsVerifierPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: SSLPermissionsVerifierPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> SSLPermissionsVerifierPrx? {
+    return try await SSLPermissionsVerifierPrxI.checkedCast(prx: prx, facet: facet, context: context) as SSLPermissionsVerifierPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -362,53 +331,25 @@ public extension SSLPermissionsVerifierPrx {
     ///
     ///   - PermissionDeniedException - Raised if the user access is denied. This can be raised in place of
     ///     returning false with a reason set in the reason out parameter.
-    func authorize(_ iceP_info: SSLInfo, context: Ice.Context? = nil) throws -> (returnValue: Swift.Bool, reason: Swift.String) {
-        return try _impl._invoke(operation: "authorize",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_info)
-                                 },
-                                 read: { istr in
-                                     let iceP_reason: Swift.String = try istr.read()
-                                     let iceP_returnValue: Swift.Bool = try istr.read()
-                                     return (iceP_returnValue, iceP_reason)
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as PermissionDeniedException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Check whether a user has permission to access the router.
-    ///
-    /// - parameter _: `SSLInfo` The SSL information.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: Swift.Bool, reason: Swift.String)` - The result of the operation
-    func authorizeAsync(_ iceP_info: SSLInfo, context: Ice.Context? = nil) async throws -> (returnValue: Swift.Bool, reason: Swift.String) {
-        return try await _impl._invokeAsync(operation: "authorize",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_info)
-                                            },
-                                            read: { istr in
-                                                let iceP_reason: Swift.String = try istr.read()
-                                                let iceP_returnValue: Swift.Bool = try istr.read()
-                                                return (iceP_returnValue, iceP_reason)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as PermissionDeniedException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func authorize(_ iceP_info: SSLInfo, context: Ice.Context? = nil) async throws -> (returnValue: Swift.Bool, reason: Swift.String) {
+        return try await _impl._invoke(operation: "authorize",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_info)
+                                       },
+                                       read: { istr in
+                                           let iceP_reason: Swift.String = try istr.read()
+                                           let iceP_returnValue: Swift.Bool = try istr.read()
+                                           return (iceP_returnValue, iceP_reason)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as PermissionDeniedException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 }
 
@@ -450,7 +391,16 @@ public protocol PermissionsVerifier {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: Swift.Bool, reason: Swift.String)` - The result of the operation
+    /// - returns: `(returnValue: Swift.Bool, reason: Swift.String)`:
+    ///
+    ///   - returnValue: `Swift.Bool` - True if access is granted, or false otherwise.
+    ///
+    ///   - reason: `Swift.String` - The reason why access was denied.
+    ///
+    /// - throws:
+    ///
+    ///   - PermissionDeniedException - Raised if the user access is denied. This can be raised in place of
+    ///     returning false with a reason set in the reason out parameter.
     func checkPermissions(userId: Swift.String, password: Swift.String, current: Ice.Current) async throws -> (returnValue: Swift.Bool, reason: Swift.String)
 }
 
@@ -490,7 +440,16 @@ public protocol SSLPermissionsVerifier {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: Swift.Bool, reason: Swift.String)` - The result of the operation
+    /// - returns: `(returnValue: Swift.Bool, reason: Swift.String)`:
+    ///
+    ///   - returnValue: `Swift.Bool` - True if access is granted, or false otherwise.
+    ///
+    ///   - reason: `Swift.String` - The reason why access was denied.
+    ///
+    /// - throws:
+    ///
+    ///   - PermissionDeniedException - Raised if the user access is denied. This can be raised in place of
+    ///     returning false with a reason set in the reason out parameter.
     func authorize(info: SSLInfo, current: Ice.Current) async throws -> (returnValue: Swift.Bool, reason: Swift.String)
 }
 

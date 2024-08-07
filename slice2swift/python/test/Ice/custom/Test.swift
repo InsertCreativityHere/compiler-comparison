@@ -289,8 +289,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: CustomPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> CustomPrx? {
-    return try CustomPrxI.checkedCast(prx: prx, facet: facet, context: context) as CustomPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: CustomPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> CustomPrx? {
+    return try await CustomPrxI.checkedCast(prx: prx, facet: facet, context: context) as CustomPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -452,38 +452,18 @@ public extension CustomPrx {
     ///   - returnValue: `ByteString`
     ///
     ///   - b2: `ByteString`
-    func opByteString1(_ iceP_b1: ByteString, context: Ice.Context? = nil) throws -> (returnValue: ByteString, b2: ByteString) {
-        return try _impl._invoke(operation: "opByteString1",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_b1)
-                                 },
-                                 read: { istr in
-                                     let iceP_b2: ByteString = try istr.read()
-                                     let iceP_returnValue: ByteString = try istr.read()
-                                     return (iceP_returnValue, iceP_b2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `ByteString`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteString, b2: ByteString)` - The result of the operation
-    func opByteString1Async(_ iceP_b1: ByteString, context: Ice.Context? = nil) async throws -> (returnValue: ByteString, b2: ByteString) {
-        return try await _impl._invokeAsync(operation: "opByteString1",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_b1)
-                                            },
-                                            read: { istr in
-                                                let iceP_b2: ByteString = try istr.read()
-                                                let iceP_returnValue: ByteString = try istr.read()
-                                                return (iceP_returnValue, iceP_b2)
-                                            },
-                                            context: context)
+    func opByteString1(_ iceP_b1: ByteString, context: Ice.Context? = nil) async throws -> (returnValue: ByteString, b2: ByteString) {
+        return try await _impl._invoke(operation: "opByteString1",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_b1)
+                                       },
+                                       read: { istr in
+                                           let iceP_b2: ByteString = try istr.read()
+                                           let iceP_returnValue: ByteString = try istr.read()
+                                           return (iceP_returnValue, iceP_b2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -496,38 +476,18 @@ public extension CustomPrx {
     ///   - returnValue: `ByteString`
     ///
     ///   - b2: `ByteString`
-    func opByteString2(_ iceP_b1: ByteString, context: Ice.Context? = nil) throws -> (returnValue: ByteString, b2: ByteString) {
-        return try _impl._invoke(operation: "opByteString2",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_b1)
-                                 },
-                                 read: { istr in
-                                     let iceP_b2: ByteString = try istr.read()
-                                     let iceP_returnValue: ByteString = try istr.read()
-                                     return (iceP_returnValue, iceP_b2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `ByteString`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteString, b2: ByteString)` - The result of the operation
-    func opByteString2Async(_ iceP_b1: ByteString, context: Ice.Context? = nil) async throws -> (returnValue: ByteString, b2: ByteString) {
-        return try await _impl._invokeAsync(operation: "opByteString2",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_b1)
-                                            },
-                                            read: { istr in
-                                                let iceP_b2: ByteString = try istr.read()
-                                                let iceP_returnValue: ByteString = try istr.read()
-                                                return (iceP_returnValue, iceP_b2)
-                                            },
-                                            context: context)
+    func opByteString2(_ iceP_b1: ByteString, context: Ice.Context? = nil) async throws -> (returnValue: ByteString, b2: ByteString) {
+        return try await _impl._invoke(operation: "opByteString2",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_b1)
+                                       },
+                                       read: { istr in
+                                           let iceP_b2: ByteString = try istr.read()
+                                           let iceP_returnValue: ByteString = try istr.read()
+                                           return (iceP_returnValue, iceP_b2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -540,38 +500,18 @@ public extension CustomPrx {
     ///   - returnValue: `ByteList`
     ///
     ///   - b2: `ByteList`
-    func opByteList1(_ iceP_b1: ByteList, context: Ice.Context? = nil) throws -> (returnValue: ByteList, b2: ByteList) {
-        return try _impl._invoke(operation: "opByteList1",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_b1)
-                                 },
-                                 read: { istr in
-                                     let iceP_b2: ByteList = try istr.read()
-                                     let iceP_returnValue: ByteList = try istr.read()
-                                     return (iceP_returnValue, iceP_b2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `ByteList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteList, b2: ByteList)` - The result of the operation
-    func opByteList1Async(_ iceP_b1: ByteList, context: Ice.Context? = nil) async throws -> (returnValue: ByteList, b2: ByteList) {
-        return try await _impl._invokeAsync(operation: "opByteList1",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_b1)
-                                            },
-                                            read: { istr in
-                                                let iceP_b2: ByteList = try istr.read()
-                                                let iceP_returnValue: ByteList = try istr.read()
-                                                return (iceP_returnValue, iceP_b2)
-                                            },
-                                            context: context)
+    func opByteList1(_ iceP_b1: ByteList, context: Ice.Context? = nil) async throws -> (returnValue: ByteList, b2: ByteList) {
+        return try await _impl._invoke(operation: "opByteList1",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_b1)
+                                       },
+                                       read: { istr in
+                                           let iceP_b2: ByteList = try istr.read()
+                                           let iceP_returnValue: ByteList = try istr.read()
+                                           return (iceP_returnValue, iceP_b2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -584,38 +524,18 @@ public extension CustomPrx {
     ///   - returnValue: `ByteList`
     ///
     ///   - b2: `ByteList`
-    func opByteList2(_ iceP_b1: ByteList, context: Ice.Context? = nil) throws -> (returnValue: ByteList, b2: ByteList) {
-        return try _impl._invoke(operation: "opByteList2",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_b1)
-                                 },
-                                 read: { istr in
-                                     let iceP_b2: ByteList = try istr.read()
-                                     let iceP_returnValue: ByteList = try istr.read()
-                                     return (iceP_returnValue, iceP_b2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `ByteList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteList, b2: ByteList)` - The result of the operation
-    func opByteList2Async(_ iceP_b1: ByteList, context: Ice.Context? = nil) async throws -> (returnValue: ByteList, b2: ByteList) {
-        return try await _impl._invokeAsync(operation: "opByteList2",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_b1)
-                                            },
-                                            read: { istr in
-                                                let iceP_b2: ByteList = try istr.read()
-                                                let iceP_returnValue: ByteList = try istr.read()
-                                                return (iceP_returnValue, iceP_b2)
-                                            },
-                                            context: context)
+    func opByteList2(_ iceP_b1: ByteList, context: Ice.Context? = nil) async throws -> (returnValue: ByteList, b2: ByteList) {
+        return try await _impl._invoke(operation: "opByteList2",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_b1)
+                                       },
+                                       read: { istr in
+                                           let iceP_b2: ByteList = try istr.read()
+                                           let iceP_returnValue: ByteList = try istr.read()
+                                           return (iceP_returnValue, iceP_b2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -628,38 +548,18 @@ public extension CustomPrx {
     ///   - returnValue: `StringList`
     ///
     ///   - s2: `StringList`
-    func opStringList1(_ iceP_s1: StringList, context: Ice.Context? = nil) throws -> (returnValue: StringList, s2: StringList) {
-        return try _impl._invoke(operation: "opStringList1",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_s1)
-                                 },
-                                 read: { istr in
-                                     let iceP_s2: StringList = try istr.read()
-                                     let iceP_returnValue: StringList = try istr.read()
-                                     return (iceP_returnValue, iceP_s2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `StringList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringList, s2: StringList)` - The result of the operation
-    func opStringList1Async(_ iceP_s1: StringList, context: Ice.Context? = nil) async throws -> (returnValue: StringList, s2: StringList) {
-        return try await _impl._invokeAsync(operation: "opStringList1",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_s1)
-                                            },
-                                            read: { istr in
-                                                let iceP_s2: StringList = try istr.read()
-                                                let iceP_returnValue: StringList = try istr.read()
-                                                return (iceP_returnValue, iceP_s2)
-                                            },
-                                            context: context)
+    func opStringList1(_ iceP_s1: StringList, context: Ice.Context? = nil) async throws -> (returnValue: StringList, s2: StringList) {
+        return try await _impl._invoke(operation: "opStringList1",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_s1)
+                                       },
+                                       read: { istr in
+                                           let iceP_s2: StringList = try istr.read()
+                                           let iceP_returnValue: StringList = try istr.read()
+                                           return (iceP_returnValue, iceP_s2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -672,38 +572,18 @@ public extension CustomPrx {
     ///   - returnValue: `StringList`
     ///
     ///   - s2: `StringList`
-    func opStringList2(_ iceP_s1: StringList, context: Ice.Context? = nil) throws -> (returnValue: StringList, s2: StringList) {
-        return try _impl._invoke(operation: "opStringList2",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_s1)
-                                 },
-                                 read: { istr in
-                                     let iceP_s2: StringList = try istr.read()
-                                     let iceP_returnValue: StringList = try istr.read()
-                                     return (iceP_returnValue, iceP_s2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `StringList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringList, s2: StringList)` - The result of the operation
-    func opStringList2Async(_ iceP_s1: StringList, context: Ice.Context? = nil) async throws -> (returnValue: StringList, s2: StringList) {
-        return try await _impl._invokeAsync(operation: "opStringList2",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_s1)
-                                            },
-                                            read: { istr in
-                                                let iceP_s2: StringList = try istr.read()
-                                                let iceP_returnValue: StringList = try istr.read()
-                                                return (iceP_returnValue, iceP_s2)
-                                            },
-                                            context: context)
+    func opStringList2(_ iceP_s1: StringList, context: Ice.Context? = nil) async throws -> (returnValue: StringList, s2: StringList) {
+        return try await _impl._invoke(operation: "opStringList2",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_s1)
+                                       },
+                                       read: { istr in
+                                           let iceP_s2: StringList = try istr.read()
+                                           let iceP_returnValue: StringList = try istr.read()
+                                           return (iceP_returnValue, iceP_s2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -716,38 +596,18 @@ public extension CustomPrx {
     ///   - returnValue: `StringTuple`
     ///
     ///   - s2: `StringTuple`
-    func opStringTuple1(_ iceP_s1: StringTuple, context: Ice.Context? = nil) throws -> (returnValue: StringTuple, s2: StringTuple) {
-        return try _impl._invoke(operation: "opStringTuple1",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_s1)
-                                 },
-                                 read: { istr in
-                                     let iceP_s2: StringTuple = try istr.read()
-                                     let iceP_returnValue: StringTuple = try istr.read()
-                                     return (iceP_returnValue, iceP_s2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `StringTuple`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringTuple, s2: StringTuple)` - The result of the operation
-    func opStringTuple1Async(_ iceP_s1: StringTuple, context: Ice.Context? = nil) async throws -> (returnValue: StringTuple, s2: StringTuple) {
-        return try await _impl._invokeAsync(operation: "opStringTuple1",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_s1)
-                                            },
-                                            read: { istr in
-                                                let iceP_s2: StringTuple = try istr.read()
-                                                let iceP_returnValue: StringTuple = try istr.read()
-                                                return (iceP_returnValue, iceP_s2)
-                                            },
-                                            context: context)
+    func opStringTuple1(_ iceP_s1: StringTuple, context: Ice.Context? = nil) async throws -> (returnValue: StringTuple, s2: StringTuple) {
+        return try await _impl._invoke(operation: "opStringTuple1",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_s1)
+                                       },
+                                       read: { istr in
+                                           let iceP_s2: StringTuple = try istr.read()
+                                           let iceP_returnValue: StringTuple = try istr.read()
+                                           return (iceP_returnValue, iceP_s2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -760,96 +620,45 @@ public extension CustomPrx {
     ///   - returnValue: `StringTuple`
     ///
     ///   - s2: `StringTuple`
-    func opStringTuple2(_ iceP_s1: StringTuple, context: Ice.Context? = nil) throws -> (returnValue: StringTuple, s2: StringTuple) {
-        return try _impl._invoke(operation: "opStringTuple2",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_s1)
-                                 },
-                                 read: { istr in
-                                     let iceP_s2: StringTuple = try istr.read()
-                                     let iceP_returnValue: StringTuple = try istr.read()
-                                     return (iceP_returnValue, iceP_s2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `StringTuple`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringTuple, s2: StringTuple)` - The result of the operation
-    func opStringTuple2Async(_ iceP_s1: StringTuple, context: Ice.Context? = nil) async throws -> (returnValue: StringTuple, s2: StringTuple) {
-        return try await _impl._invokeAsync(operation: "opStringTuple2",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_s1)
-                                            },
-                                            read: { istr in
-                                                let iceP_s2: StringTuple = try istr.read()
-                                                let iceP_returnValue: StringTuple = try istr.read()
-                                                return (iceP_returnValue, iceP_s2)
-                                            },
-                                            context: context)
+    func opStringTuple2(_ iceP_s1: StringTuple, context: Ice.Context? = nil) async throws -> (returnValue: StringTuple, s2: StringTuple) {
+        return try await _impl._invoke(operation: "opStringTuple2",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_s1)
+                                       },
+                                       read: { istr in
+                                           let iceP_s2: StringTuple = try istr.read()
+                                           let iceP_returnValue: StringTuple = try istr.read()
+                                           return (iceP_returnValue, iceP_s2)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter _: `S`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func sendS(_ iceP_val: S, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "sendS",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_val)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `S`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func sendSAsync(_ iceP_val: S, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "sendS",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_val)
-                                            },
-                                            context: context)
+    func sendS(_ iceP_val: S, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "sendS",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_val)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter _: `C?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func sendC(_ iceP_val: C?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "sendC",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_val)
-                              ostr.writePendingValues()
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `C?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func sendCAsync(_ iceP_val: C?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "sendC",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_val)
-                                                ostr.writePendingValues()
-                                            },
-                                            context: context)
+    func sendC(_ iceP_val: C?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "sendC",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_val)
+                                           ostr.writePendingValues()
+                                       },
+                                       context: context)
     }
 
     ///
@@ -862,38 +671,18 @@ public extension CustomPrx {
     ///   - returnValue: `BoolSeq1`
     ///
     ///   - v2: `BoolSeq2`
-    func opBoolSeq(_ iceP_v1: BoolSeq1, context: Ice.Context? = nil) throws -> (returnValue: BoolSeq1, v2: BoolSeq2) {
-        return try _impl._invoke(operation: "opBoolSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_v1)
-                                 },
-                                 read: { istr in
-                                     let iceP_v2: BoolSeq2 = try istr.read()
-                                     let iceP_returnValue: BoolSeq1 = try istr.read()
-                                     return (iceP_returnValue, iceP_v2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `BoolSeq1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: BoolSeq1, v2: BoolSeq2)` - The result of the operation
-    func opBoolSeqAsync(_ iceP_v1: BoolSeq1, context: Ice.Context? = nil) async throws -> (returnValue: BoolSeq1, v2: BoolSeq2) {
-        return try await _impl._invokeAsync(operation: "opBoolSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_v1)
-                                            },
-                                            read: { istr in
-                                                let iceP_v2: BoolSeq2 = try istr.read()
-                                                let iceP_returnValue: BoolSeq1 = try istr.read()
-                                                return (iceP_returnValue, iceP_v2)
-                                            },
-                                            context: context)
+    func opBoolSeq(_ iceP_v1: BoolSeq1, context: Ice.Context? = nil) async throws -> (returnValue: BoolSeq1, v2: BoolSeq2) {
+        return try await _impl._invoke(operation: "opBoolSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_v1)
+                                       },
+                                       read: { istr in
+                                           let iceP_v2: BoolSeq2 = try istr.read()
+                                           let iceP_returnValue: BoolSeq1 = try istr.read()
+                                           return (iceP_returnValue, iceP_v2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -906,38 +695,18 @@ public extension CustomPrx {
     ///   - returnValue: `ByteSeq1`
     ///
     ///   - v2: `ByteSeq2`
-    func opByteSeq(_ iceP_v1: ByteSeq1, context: Ice.Context? = nil) throws -> (returnValue: ByteSeq1, v2: ByteSeq2) {
-        return try _impl._invoke(operation: "opByteSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_v1)
-                                 },
-                                 read: { istr in
-                                     let iceP_v2: ByteSeq2 = try istr.read()
-                                     let iceP_returnValue: ByteSeq1 = try istr.read()
-                                     return (iceP_returnValue, iceP_v2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `ByteSeq1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteSeq1, v2: ByteSeq2)` - The result of the operation
-    func opByteSeqAsync(_ iceP_v1: ByteSeq1, context: Ice.Context? = nil) async throws -> (returnValue: ByteSeq1, v2: ByteSeq2) {
-        return try await _impl._invokeAsync(operation: "opByteSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_v1)
-                                            },
-                                            read: { istr in
-                                                let iceP_v2: ByteSeq2 = try istr.read()
-                                                let iceP_returnValue: ByteSeq1 = try istr.read()
-                                                return (iceP_returnValue, iceP_v2)
-                                            },
-                                            context: context)
+    func opByteSeq(_ iceP_v1: ByteSeq1, context: Ice.Context? = nil) async throws -> (returnValue: ByteSeq1, v2: ByteSeq2) {
+        return try await _impl._invoke(operation: "opByteSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_v1)
+                                       },
+                                       read: { istr in
+                                           let iceP_v2: ByteSeq2 = try istr.read()
+                                           let iceP_returnValue: ByteSeq1 = try istr.read()
+                                           return (iceP_returnValue, iceP_v2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -950,38 +719,18 @@ public extension CustomPrx {
     ///   - returnValue: `ShortSeq1`
     ///
     ///   - v2: `ShortSeq2`
-    func opShortSeq(_ iceP_v1: ShortSeq1, context: Ice.Context? = nil) throws -> (returnValue: ShortSeq1, v2: ShortSeq2) {
-        return try _impl._invoke(operation: "opShortSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_v1)
-                                 },
-                                 read: { istr in
-                                     let iceP_v2: ShortSeq2 = try istr.read()
-                                     let iceP_returnValue: ShortSeq1 = try istr.read()
-                                     return (iceP_returnValue, iceP_v2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `ShortSeq1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ShortSeq1, v2: ShortSeq2)` - The result of the operation
-    func opShortSeqAsync(_ iceP_v1: ShortSeq1, context: Ice.Context? = nil) async throws -> (returnValue: ShortSeq1, v2: ShortSeq2) {
-        return try await _impl._invokeAsync(operation: "opShortSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_v1)
-                                            },
-                                            read: { istr in
-                                                let iceP_v2: ShortSeq2 = try istr.read()
-                                                let iceP_returnValue: ShortSeq1 = try istr.read()
-                                                return (iceP_returnValue, iceP_v2)
-                                            },
-                                            context: context)
+    func opShortSeq(_ iceP_v1: ShortSeq1, context: Ice.Context? = nil) async throws -> (returnValue: ShortSeq1, v2: ShortSeq2) {
+        return try await _impl._invoke(operation: "opShortSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_v1)
+                                       },
+                                       read: { istr in
+                                           let iceP_v2: ShortSeq2 = try istr.read()
+                                           let iceP_returnValue: ShortSeq1 = try istr.read()
+                                           return (iceP_returnValue, iceP_v2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -994,38 +743,18 @@ public extension CustomPrx {
     ///   - returnValue: `IntSeq1`
     ///
     ///   - v2: `IntSeq2`
-    func opIntSeq(_ iceP_v1: IntSeq1, context: Ice.Context? = nil) throws -> (returnValue: IntSeq1, v2: IntSeq2) {
-        return try _impl._invoke(operation: "opIntSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_v1)
-                                 },
-                                 read: { istr in
-                                     let iceP_v2: IntSeq2 = try istr.read()
-                                     let iceP_returnValue: IntSeq1 = try istr.read()
-                                     return (iceP_returnValue, iceP_v2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `IntSeq1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: IntSeq1, v2: IntSeq2)` - The result of the operation
-    func opIntSeqAsync(_ iceP_v1: IntSeq1, context: Ice.Context? = nil) async throws -> (returnValue: IntSeq1, v2: IntSeq2) {
-        return try await _impl._invokeAsync(operation: "opIntSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_v1)
-                                            },
-                                            read: { istr in
-                                                let iceP_v2: IntSeq2 = try istr.read()
-                                                let iceP_returnValue: IntSeq1 = try istr.read()
-                                                return (iceP_returnValue, iceP_v2)
-                                            },
-                                            context: context)
+    func opIntSeq(_ iceP_v1: IntSeq1, context: Ice.Context? = nil) async throws -> (returnValue: IntSeq1, v2: IntSeq2) {
+        return try await _impl._invoke(operation: "opIntSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_v1)
+                                       },
+                                       read: { istr in
+                                           let iceP_v2: IntSeq2 = try istr.read()
+                                           let iceP_returnValue: IntSeq1 = try istr.read()
+                                           return (iceP_returnValue, iceP_v2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1038,38 +767,18 @@ public extension CustomPrx {
     ///   - returnValue: `LongSeq1`
     ///
     ///   - v2: `LongSeq2`
-    func opLongSeq(_ iceP_v1: LongSeq1, context: Ice.Context? = nil) throws -> (returnValue: LongSeq1, v2: LongSeq2) {
-        return try _impl._invoke(operation: "opLongSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_v1)
-                                 },
-                                 read: { istr in
-                                     let iceP_v2: LongSeq2 = try istr.read()
-                                     let iceP_returnValue: LongSeq1 = try istr.read()
-                                     return (iceP_returnValue, iceP_v2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `LongSeq1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LongSeq1, v2: LongSeq2)` - The result of the operation
-    func opLongSeqAsync(_ iceP_v1: LongSeq1, context: Ice.Context? = nil) async throws -> (returnValue: LongSeq1, v2: LongSeq2) {
-        return try await _impl._invokeAsync(operation: "opLongSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_v1)
-                                            },
-                                            read: { istr in
-                                                let iceP_v2: LongSeq2 = try istr.read()
-                                                let iceP_returnValue: LongSeq1 = try istr.read()
-                                                return (iceP_returnValue, iceP_v2)
-                                            },
-                                            context: context)
+    func opLongSeq(_ iceP_v1: LongSeq1, context: Ice.Context? = nil) async throws -> (returnValue: LongSeq1, v2: LongSeq2) {
+        return try await _impl._invoke(operation: "opLongSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_v1)
+                                       },
+                                       read: { istr in
+                                           let iceP_v2: LongSeq2 = try istr.read()
+                                           let iceP_returnValue: LongSeq1 = try istr.read()
+                                           return (iceP_returnValue, iceP_v2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1082,38 +791,18 @@ public extension CustomPrx {
     ///   - returnValue: `FloatSeq1`
     ///
     ///   - v2: `FloatSeq2`
-    func opFloatSeq(_ iceP_v1: FloatSeq1, context: Ice.Context? = nil) throws -> (returnValue: FloatSeq1, v2: FloatSeq2) {
-        return try _impl._invoke(operation: "opFloatSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_v1)
-                                 },
-                                 read: { istr in
-                                     let iceP_v2: FloatSeq2 = try istr.read()
-                                     let iceP_returnValue: FloatSeq1 = try istr.read()
-                                     return (iceP_returnValue, iceP_v2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `FloatSeq1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: FloatSeq1, v2: FloatSeq2)` - The result of the operation
-    func opFloatSeqAsync(_ iceP_v1: FloatSeq1, context: Ice.Context? = nil) async throws -> (returnValue: FloatSeq1, v2: FloatSeq2) {
-        return try await _impl._invokeAsync(operation: "opFloatSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_v1)
-                                            },
-                                            read: { istr in
-                                                let iceP_v2: FloatSeq2 = try istr.read()
-                                                let iceP_returnValue: FloatSeq1 = try istr.read()
-                                                return (iceP_returnValue, iceP_v2)
-                                            },
-                                            context: context)
+    func opFloatSeq(_ iceP_v1: FloatSeq1, context: Ice.Context? = nil) async throws -> (returnValue: FloatSeq1, v2: FloatSeq2) {
+        return try await _impl._invoke(operation: "opFloatSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_v1)
+                                       },
+                                       read: { istr in
+                                           let iceP_v2: FloatSeq2 = try istr.read()
+                                           let iceP_returnValue: FloatSeq1 = try istr.read()
+                                           return (iceP_returnValue, iceP_v2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1126,206 +815,102 @@ public extension CustomPrx {
     ///   - returnValue: `DoubleSeq1`
     ///
     ///   - v2: `DoubleSeq2`
-    func opDoubleSeq(_ iceP_v1: DoubleSeq1, context: Ice.Context? = nil) throws -> (returnValue: DoubleSeq1, v2: DoubleSeq2) {
-        return try _impl._invoke(operation: "opDoubleSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_v1)
-                                 },
-                                 read: { istr in
-                                     let iceP_v2: DoubleSeq2 = try istr.read()
-                                     let iceP_returnValue: DoubleSeq1 = try istr.read()
-                                     return (iceP_returnValue, iceP_v2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `DoubleSeq1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: DoubleSeq1, v2: DoubleSeq2)` - The result of the operation
-    func opDoubleSeqAsync(_ iceP_v1: DoubleSeq1, context: Ice.Context? = nil) async throws -> (returnValue: DoubleSeq1, v2: DoubleSeq2) {
-        return try await _impl._invokeAsync(operation: "opDoubleSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_v1)
-                                            },
-                                            read: { istr in
-                                                let iceP_v2: DoubleSeq2 = try istr.read()
-                                                let iceP_returnValue: DoubleSeq1 = try istr.read()
-                                                return (iceP_returnValue, iceP_v2)
-                                            },
-                                            context: context)
+    func opDoubleSeq(_ iceP_v1: DoubleSeq1, context: Ice.Context? = nil) async throws -> (returnValue: DoubleSeq1, v2: DoubleSeq2) {
+        return try await _impl._invoke(operation: "opDoubleSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_v1)
+                                       },
+                                       read: { istr in
+                                           let iceP_v2: DoubleSeq2 = try istr.read()
+                                           let iceP_returnValue: DoubleSeq1 = try istr.read()
+                                           return (iceP_returnValue, iceP_v2)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `BoolSeq1`
-    func opBogusArrayNotExistsFactory(context: Ice.Context? = nil) throws -> BoolSeq1 {
-        return try _impl._invoke(operation: "opBogusArrayNotExistsFactory",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: BoolSeq1 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `BoolSeq1` - The result of the operation
-    func opBogusArrayNotExistsFactoryAsync(context: Ice.Context? = nil) async throws -> BoolSeq1 {
-        return try await _impl._invokeAsync(operation: "opBogusArrayNotExistsFactory",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: BoolSeq1 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func opBogusArrayNotExistsFactory(context: Ice.Context? = nil) async throws -> BoolSeq1 {
+        return try await _impl._invoke(operation: "opBogusArrayNotExistsFactory",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: BoolSeq1 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `BoolSeq1`
-    func opBogusArrayThrowFactory(context: Ice.Context? = nil) throws -> BoolSeq1 {
-        return try _impl._invoke(operation: "opBogusArrayThrowFactory",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: BoolSeq1 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `BoolSeq1` - The result of the operation
-    func opBogusArrayThrowFactoryAsync(context: Ice.Context? = nil) async throws -> BoolSeq1 {
-        return try await _impl._invokeAsync(operation: "opBogusArrayThrowFactory",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: BoolSeq1 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func opBogusArrayThrowFactory(context: Ice.Context? = nil) async throws -> BoolSeq1 {
+        return try await _impl._invoke(operation: "opBogusArrayThrowFactory",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: BoolSeq1 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `BoolSeq1`
-    func opBogusArrayType(context: Ice.Context? = nil) throws -> BoolSeq1 {
-        return try _impl._invoke(operation: "opBogusArrayType",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: BoolSeq1 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `BoolSeq1` - The result of the operation
-    func opBogusArrayTypeAsync(context: Ice.Context? = nil) async throws -> BoolSeq1 {
-        return try await _impl._invokeAsync(operation: "opBogusArrayType",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: BoolSeq1 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func opBogusArrayType(context: Ice.Context? = nil) async throws -> BoolSeq1 {
+        return try await _impl._invoke(operation: "opBogusArrayType",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: BoolSeq1 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `BoolSeq1`
-    func opBogusArrayNoneFactory(context: Ice.Context? = nil) throws -> BoolSeq1 {
-        return try _impl._invoke(operation: "opBogusArrayNoneFactory",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: BoolSeq1 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `BoolSeq1` - The result of the operation
-    func opBogusArrayNoneFactoryAsync(context: Ice.Context? = nil) async throws -> BoolSeq1 {
-        return try await _impl._invokeAsync(operation: "opBogusArrayNoneFactory",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: BoolSeq1 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func opBogusArrayNoneFactory(context: Ice.Context? = nil) async throws -> BoolSeq1 {
+        return try await _impl._invoke(operation: "opBogusArrayNoneFactory",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: BoolSeq1 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `BoolSeq1`
-    func opBogusArraySignatureFactory(context: Ice.Context? = nil) throws -> BoolSeq1 {
-        return try _impl._invoke(operation: "opBogusArraySignatureFactory",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: BoolSeq1 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `BoolSeq1` - The result of the operation
-    func opBogusArraySignatureFactoryAsync(context: Ice.Context? = nil) async throws -> BoolSeq1 {
-        return try await _impl._invokeAsync(operation: "opBogusArraySignatureFactory",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: BoolSeq1 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func opBogusArraySignatureFactory(context: Ice.Context? = nil) async throws -> BoolSeq1 {
+        return try await _impl._invoke(operation: "opBogusArraySignatureFactory",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: BoolSeq1 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `BoolSeq1`
-    func opBogusArrayNoCallableFactory(context: Ice.Context? = nil) throws -> BoolSeq1 {
-        return try _impl._invoke(operation: "opBogusArrayNoCallableFactory",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: BoolSeq1 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `BoolSeq1` - The result of the operation
-    func opBogusArrayNoCallableFactoryAsync(context: Ice.Context? = nil) async throws -> BoolSeq1 {
-        return try await _impl._invokeAsync(operation: "opBogusArrayNoCallableFactory",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: BoolSeq1 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func opBogusArrayNoCallableFactory(context: Ice.Context? = nil) async throws -> BoolSeq1 {
+        return try await _impl._invoke(operation: "opBogusArrayNoCallableFactory",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: BoolSeq1 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1334,60 +919,28 @@ public extension CustomPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `D?`
-    func opD(_ iceP_d: D?, context: Ice.Context? = nil) throws -> D? {
-        return try _impl._invoke(operation: "opD",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_d)
-                                     ostr.writePendingValues()
-                                 },
-                                 read: { istr in
-                                     var iceP_returnValue: D?
-                                     try istr.read(D.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `D?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `D?` - The result of the operation
-    func opDAsync(_ iceP_d: D?, context: Ice.Context? = nil) async throws -> D? {
-        return try await _impl._invokeAsync(operation: "opD",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_d)
-                                                ostr.writePendingValues()
-                                            },
-                                            read: { istr in
-                                                var iceP_returnValue: D?
-                                                try istr.read(D.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func opD(_ iceP_d: D?, context: Ice.Context? = nil) async throws -> D? {
+        return try await _impl._invoke(operation: "opD",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_d)
+                                           ostr.writePendingValues()
+                                       },
+                                       read: { istr in
+                                           var iceP_returnValue: D?
+                                           try istr.read(D.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -1605,7 +1158,11 @@ public protocol Custom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ByteString, b2: ByteString)` - The result of the operation
+    /// - returns: `(returnValue: ByteString, b2: ByteString)`:
+    ///
+    ///   - returnValue: `ByteString`
+    ///
+    ///   - b2: `ByteString`
     func opByteString1(b1: ByteString, current: Ice.Current) async throws -> (returnValue: ByteString, b2: ByteString)
 
     ///
@@ -1613,7 +1170,11 @@ public protocol Custom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ByteString, b2: ByteString)` - The result of the operation
+    /// - returns: `(returnValue: ByteString, b2: ByteString)`:
+    ///
+    ///   - returnValue: `ByteString`
+    ///
+    ///   - b2: `ByteString`
     func opByteString2(b1: ByteString, current: Ice.Current) async throws -> (returnValue: ByteString, b2: ByteString)
 
     ///
@@ -1621,7 +1182,11 @@ public protocol Custom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ByteList, b2: ByteList)` - The result of the operation
+    /// - returns: `(returnValue: ByteList, b2: ByteList)`:
+    ///
+    ///   - returnValue: `ByteList`
+    ///
+    ///   - b2: `ByteList`
     func opByteList1(b1: ByteList, current: Ice.Current) async throws -> (returnValue: ByteList, b2: ByteList)
 
     ///
@@ -1629,7 +1194,11 @@ public protocol Custom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ByteList, b2: ByteList)` - The result of the operation
+    /// - returns: `(returnValue: ByteList, b2: ByteList)`:
+    ///
+    ///   - returnValue: `ByteList`
+    ///
+    ///   - b2: `ByteList`
     func opByteList2(b1: ByteList, current: Ice.Current) async throws -> (returnValue: ByteList, b2: ByteList)
 
     ///
@@ -1637,7 +1206,11 @@ public protocol Custom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: StringList, s2: StringList)` - The result of the operation
+    /// - returns: `(returnValue: StringList, s2: StringList)`:
+    ///
+    ///   - returnValue: `StringList`
+    ///
+    ///   - s2: `StringList`
     func opStringList1(s1: StringList, current: Ice.Current) async throws -> (returnValue: StringList, s2: StringList)
 
     ///
@@ -1645,7 +1218,11 @@ public protocol Custom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: StringList, s2: StringList)` - The result of the operation
+    /// - returns: `(returnValue: StringList, s2: StringList)`:
+    ///
+    ///   - returnValue: `StringList`
+    ///
+    ///   - s2: `StringList`
     func opStringList2(s1: StringList, current: Ice.Current) async throws -> (returnValue: StringList, s2: StringList)
 
     ///
@@ -1653,7 +1230,11 @@ public protocol Custom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: StringTuple, s2: StringTuple)` - The result of the operation
+    /// - returns: `(returnValue: StringTuple, s2: StringTuple)`:
+    ///
+    ///   - returnValue: `StringTuple`
+    ///
+    ///   - s2: `StringTuple`
     func opStringTuple1(s1: StringTuple, current: Ice.Current) async throws -> (returnValue: StringTuple, s2: StringTuple)
 
     ///
@@ -1661,23 +1242,23 @@ public protocol Custom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: StringTuple, s2: StringTuple)` - The result of the operation
+    /// - returns: `(returnValue: StringTuple, s2: StringTuple)`:
+    ///
+    ///   - returnValue: `StringTuple`
+    ///
+    ///   - s2: `StringTuple`
     func opStringTuple2(s1: StringTuple, current: Ice.Current) async throws -> (returnValue: StringTuple, s2: StringTuple)
 
     ///
     /// - parameter val: `S`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func sendS(val: S, current: Ice.Current) async throws
 
     ///
     /// - parameter val: `C?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func sendC(val: C?, current: Ice.Current) async throws
 
     ///
@@ -1685,7 +1266,11 @@ public protocol Custom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: BoolSeq1, v2: BoolSeq2)` - The result of the operation
+    /// - returns: `(returnValue: BoolSeq1, v2: BoolSeq2)`:
+    ///
+    ///   - returnValue: `BoolSeq1`
+    ///
+    ///   - v2: `BoolSeq2`
     func opBoolSeq(v1: BoolSeq1, current: Ice.Current) async throws -> (returnValue: BoolSeq1, v2: BoolSeq2)
 
     ///
@@ -1693,7 +1278,11 @@ public protocol Custom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ByteSeq1, v2: ByteSeq2)` - The result of the operation
+    /// - returns: `(returnValue: ByteSeq1, v2: ByteSeq2)`:
+    ///
+    ///   - returnValue: `ByteSeq1`
+    ///
+    ///   - v2: `ByteSeq2`
     func opByteSeq(v1: ByteSeq1, current: Ice.Current) async throws -> (returnValue: ByteSeq1, v2: ByteSeq2)
 
     ///
@@ -1701,7 +1290,11 @@ public protocol Custom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ShortSeq1, v2: ShortSeq2)` - The result of the operation
+    /// - returns: `(returnValue: ShortSeq1, v2: ShortSeq2)`:
+    ///
+    ///   - returnValue: `ShortSeq1`
+    ///
+    ///   - v2: `ShortSeq2`
     func opShortSeq(v1: ShortSeq1, current: Ice.Current) async throws -> (returnValue: ShortSeq1, v2: ShortSeq2)
 
     ///
@@ -1709,7 +1302,11 @@ public protocol Custom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: IntSeq1, v2: IntSeq2)` - The result of the operation
+    /// - returns: `(returnValue: IntSeq1, v2: IntSeq2)`:
+    ///
+    ///   - returnValue: `IntSeq1`
+    ///
+    ///   - v2: `IntSeq2`
     func opIntSeq(v1: IntSeq1, current: Ice.Current) async throws -> (returnValue: IntSeq1, v2: IntSeq2)
 
     ///
@@ -1717,7 +1314,11 @@ public protocol Custom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: LongSeq1, v2: LongSeq2)` - The result of the operation
+    /// - returns: `(returnValue: LongSeq1, v2: LongSeq2)`:
+    ///
+    ///   - returnValue: `LongSeq1`
+    ///
+    ///   - v2: `LongSeq2`
     func opLongSeq(v1: LongSeq1, current: Ice.Current) async throws -> (returnValue: LongSeq1, v2: LongSeq2)
 
     ///
@@ -1725,7 +1326,11 @@ public protocol Custom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: FloatSeq1, v2: FloatSeq2)` - The result of the operation
+    /// - returns: `(returnValue: FloatSeq1, v2: FloatSeq2)`:
+    ///
+    ///   - returnValue: `FloatSeq1`
+    ///
+    ///   - v2: `FloatSeq2`
     func opFloatSeq(v1: FloatSeq1, current: Ice.Current) async throws -> (returnValue: FloatSeq1, v2: FloatSeq2)
 
     ///
@@ -1733,43 +1338,47 @@ public protocol Custom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: DoubleSeq1, v2: DoubleSeq2)` - The result of the operation
+    /// - returns: `(returnValue: DoubleSeq1, v2: DoubleSeq2)`:
+    ///
+    ///   - returnValue: `DoubleSeq1`
+    ///
+    ///   - v2: `DoubleSeq2`
     func opDoubleSeq(v1: DoubleSeq1, current: Ice.Current) async throws -> (returnValue: DoubleSeq1, v2: DoubleSeq2)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `BoolSeq1` - The result of the operation
+    /// - returns: `BoolSeq1`
     func opBogusArrayNotExistsFactory(current: Ice.Current) async throws -> BoolSeq1
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `BoolSeq1` - The result of the operation
+    /// - returns: `BoolSeq1`
     func opBogusArrayThrowFactory(current: Ice.Current) async throws -> BoolSeq1
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `BoolSeq1` - The result of the operation
+    /// - returns: `BoolSeq1`
     func opBogusArrayType(current: Ice.Current) async throws -> BoolSeq1
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `BoolSeq1` - The result of the operation
+    /// - returns: `BoolSeq1`
     func opBogusArrayNoneFactory(current: Ice.Current) async throws -> BoolSeq1
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `BoolSeq1` - The result of the operation
+    /// - returns: `BoolSeq1`
     func opBogusArraySignatureFactory(current: Ice.Current) async throws -> BoolSeq1
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `BoolSeq1` - The result of the operation
+    /// - returns: `BoolSeq1`
     func opBogusArrayNoCallableFactory(current: Ice.Current) async throws -> BoolSeq1
 
     ///
@@ -1777,13 +1386,11 @@ public protocol Custom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `D?` - The result of the operation
+    /// - returns: `D?`
     func opD(d: D?, current: Ice.Current) async throws -> D?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 

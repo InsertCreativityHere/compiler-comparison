@@ -67,8 +67,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: ClockPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> ClockPrx? {
-    return try ClockPrxI.checkedCast(prx: prx, facet: facet, context: context) as ClockPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: ClockPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> ClockPrx? {
+    return try await ClockPrxI.checkedCast(prx: prx, facet: facet, context: context) as ClockPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -128,28 +128,13 @@ public extension ClockPrx {
     /// - parameter _: `Swift.String`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func tick(_ iceP_time: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "tick",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_time)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func tickAsync(_ iceP_time: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "tick",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_time)
-                                            },
-                                            context: context)
+    func tick(_ iceP_time: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "tick",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_time)
+                                       },
+                                       context: context)
     }
 }
 
@@ -186,8 +171,6 @@ public protocol Clock {
     /// - parameter time: `Swift.String`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func tick(time: Swift.String, current: Ice.Current) async throws
 }
 

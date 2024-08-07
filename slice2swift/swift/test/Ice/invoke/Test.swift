@@ -109,8 +109,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: MyClassPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> MyClassPrx? {
-    return try MyClassPrxI.checkedCast(prx: prx, facet: facet, context: context) as MyClassPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: MyClassPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> MyClassPrx? {
+    return try await MyClassPrxI.checkedCast(prx: prx, facet: facet, context: context) as MyClassPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -180,20 +180,10 @@ public extension Ice.InputStream {
 public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func opOneway(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "opOneway",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func opOnewayAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "opOneway",
-                                            mode: .Normal,
-                                            context: context)
+    func opOneway(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "opOneway",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
@@ -206,88 +196,41 @@ public extension MyClassPrx {
     ///   - returnValue: `Swift.String`
     ///
     ///   - s2: `Swift.String`
-    func opString(_ iceP_s1: Swift.String, context: Ice.Context? = nil) throws -> (returnValue: Swift.String, s2: Swift.String) {
-        return try _impl._invoke(operation: "opString",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_s1)
-                                 },
-                                 read: { istr in
-                                     let iceP_s2: Swift.String = try istr.read()
-                                     let iceP_returnValue: Swift.String = try istr.read()
-                                     return (iceP_returnValue, iceP_s2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: Swift.String, s2: Swift.String)` - The result of the operation
-    func opStringAsync(_ iceP_s1: Swift.String, context: Ice.Context? = nil) async throws -> (returnValue: Swift.String, s2: Swift.String) {
-        return try await _impl._invokeAsync(operation: "opString",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_s1)
-                                            },
-                                            read: { istr in
-                                                let iceP_s2: Swift.String = try istr.read()
-                                                let iceP_returnValue: Swift.String = try istr.read()
-                                                return (iceP_returnValue, iceP_s2)
-                                            },
-                                            context: context)
+    func opString(_ iceP_s1: Swift.String, context: Ice.Context? = nil) async throws -> (returnValue: Swift.String, s2: Swift.String) {
+        return try await _impl._invoke(operation: "opString",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_s1)
+                                       },
+                                       read: { istr in
+                                           let iceP_s2: Swift.String = try istr.read()
+                                           let iceP_returnValue: Swift.String = try istr.read()
+                                           return (iceP_returnValue, iceP_s2)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func opException(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "opException",
-                          mode: .Normal,
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as MyException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
+    func opException(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "opException",
+                                       mode: .Normal,
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as MyException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func opExceptionAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "opException",
-                                            mode: .Normal,
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as MyException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -328,8 +271,6 @@ public struct MyClassDisp: Ice.Dispatcher {
 public protocol MyClass {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func opOneway(current: Ice.Current) async throws
 
     ///
@@ -337,19 +278,19 @@ public protocol MyClass {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: Swift.String, s2: Swift.String)` - The result of the operation
+    /// - returns: `(returnValue: Swift.String, s2: Swift.String)`:
+    ///
+    ///   - returnValue: `Swift.String`
+    ///
+    ///   - s2: `Swift.String`
     func opString(s1: Swift.String, current: Ice.Current) async throws -> (returnValue: Swift.String, s2: Swift.String)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func opException(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 

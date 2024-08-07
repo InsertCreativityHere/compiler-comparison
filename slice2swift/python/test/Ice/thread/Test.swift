@@ -79,8 +79,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TestIntfPrx? {
-    return try TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TestIntfPrx? {
+    return try await TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -140,28 +140,13 @@ public extension TestIntfPrx {
     /// - parameter _: `Swift.Int32`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func sleep(_ iceP_ms: Swift.Int32, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "sleep",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_ms)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func sleepAsync(_ iceP_ms: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "sleep",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_ms)
-                                            },
-                                            context: context)
+    func sleep(_ iceP_ms: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "sleep",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_ms)
+                                       },
+                                       context: context)
     }
 }
 
@@ -222,8 +207,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: RemoteCommunicatorPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> RemoteCommunicatorPrx? {
-    return try RemoteCommunicatorPrxI.checkedCast(prx: prx, facet: facet, context: context) as RemoteCommunicatorPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: RemoteCommunicatorPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> RemoteCommunicatorPrx? {
+    return try await RemoteCommunicatorPrxI.checkedCast(prx: prx, facet: facet, context: context) as RemoteCommunicatorPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -295,102 +280,50 @@ public extension RemoteCommunicatorPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `TestIntfPrx?`
-    func getObject(context: Ice.Context? = nil) throws -> TestIntfPrx? {
-        return try _impl._invoke(operation: "getObject",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: TestIntfPrx? = try istr.read(TestIntfPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `TestIntfPrx?` - The result of the operation
-    func getObjectAsync(context: Ice.Context? = nil) async throws -> TestIntfPrx? {
-        return try await _impl._invokeAsync(operation: "getObject",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: TestIntfPrx? = try istr.read(TestIntfPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getObject(context: Ice.Context? = nil) async throws -> TestIntfPrx? {
+        return try await _impl._invoke(operation: "getObject",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: TestIntfPrx? = try istr.read(TestIntfPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Int32`
-    func getThreadStartCount(context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "getThreadStartCount",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The result of the operation
-    func getThreadStartCountAsync(context: Ice.Context? = nil) async throws -> Swift.Int32 {
-        return try await _impl._invokeAsync(operation: "getThreadStartCount",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Int32 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getThreadStartCount(context: Ice.Context? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invoke(operation: "getThreadStartCount",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Int32 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Int32`
-    func getThreadStopCount(context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "getThreadStopCount",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
+    func getThreadStopCount(context: Ice.Context? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invoke(operation: "getThreadStopCount",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Int32 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The result of the operation
-    func getThreadStopCountAsync(context: Ice.Context? = nil) async throws -> Swift.Int32 {
-        return try await _impl._invokeAsync(operation: "getThreadStopCount",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Int32 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func destroy(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "destroy",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func destroyAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "destroy",
-                                            mode: .Normal,
-                                            context: context)
+    func destroy(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "destroy",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -443,8 +376,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: RemoteCommunicatorFactoryPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> RemoteCommunicatorFactoryPrx? {
-    return try RemoteCommunicatorFactoryPrxI.checkedCast(prx: prx, facet: facet, context: context) as RemoteCommunicatorFactoryPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: RemoteCommunicatorFactoryPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> RemoteCommunicatorFactoryPrx? {
+    return try await RemoteCommunicatorFactoryPrxI.checkedCast(prx: prx, facet: facet, context: context) as RemoteCommunicatorFactoryPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -510,54 +443,25 @@ public extension RemoteCommunicatorFactoryPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `RemoteCommunicatorPrx?`
-    func createCommunicator(_ iceP_props: Ice.PropertyDict, context: Ice.Context? = nil) throws -> RemoteCommunicatorPrx? {
-        return try _impl._invoke(operation: "createCommunicator",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     Ice.PropertyDictHelper.write(to: ostr, value: iceP_props)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: RemoteCommunicatorPrx? = try istr.read(RemoteCommunicatorPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `Ice.PropertyDict`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `RemoteCommunicatorPrx?` - The result of the operation
-    func createCommunicatorAsync(_ iceP_props: Ice.PropertyDict, context: Ice.Context? = nil) async throws -> RemoteCommunicatorPrx? {
-        return try await _impl._invokeAsync(operation: "createCommunicator",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                Ice.PropertyDictHelper.write(to: ostr, value: iceP_props)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: RemoteCommunicatorPrx? = try istr.read(RemoteCommunicatorPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func createCommunicator(_ iceP_props: Ice.PropertyDict, context: Ice.Context? = nil) async throws -> RemoteCommunicatorPrx? {
+        return try await _impl._invoke(operation: "createCommunicator",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           Ice.PropertyDictHelper.write(to: ostr, value: iceP_props)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: RemoteCommunicatorPrx? = try istr.read(RemoteCommunicatorPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -594,8 +498,6 @@ public protocol TestIntf {
     /// - parameter ms: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func sleep(ms: Swift.Int32, current: Ice.Current) async throws
 }
 
@@ -637,25 +539,23 @@ public protocol RemoteCommunicator {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `TestIntfPrx?` - The result of the operation
+    /// - returns: `TestIntfPrx?`
     func getObject(current: Ice.Current) async throws -> TestIntfPrx?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The result of the operation
+    /// - returns: `Swift.Int32`
     func getThreadStartCount(current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The result of the operation
+    /// - returns: `Swift.Int32`
     func getThreadStopCount(current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func destroy(current: Ice.Current) async throws
 }
 
@@ -695,13 +595,11 @@ public protocol RemoteCommunicatorFactory {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `RemoteCommunicatorPrx?` - The result of the operation
+    /// - returns: `RemoteCommunicatorPrx?`
     func createCommunicator(props: Ice.PropertyDict, current: Ice.Current) async throws -> RemoteCommunicatorPrx?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 

@@ -157,8 +157,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: QueryPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> QueryPrx? {
-    return try QueryPrxI.checkedCast(prx: prx, facet: facet, context: context) as QueryPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: QueryPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> QueryPrx? {
+    return try await QueryPrxI.checkedCast(prx: prx, facet: facet, context: context) as QueryPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -238,37 +238,17 @@ public extension QueryPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Ice.ObjectPrx?` - The proxy or null if no such object has been found.
-    func findObjectById(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
-        return try _impl._invoke(operation: "findObjectById",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_id)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Find a well-known object by identity.
-    ///
-    /// - parameter _: `Ice.Identity` The identity.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func findObjectByIdAsync(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
-        return try await _impl._invokeAsync(operation: "findObjectById",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func findObjectById(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
+        return try await _impl._invoke(operation: "findObjectById",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Find a well-known object by type. If there are several objects registered for the given type, the object is
@@ -279,38 +259,17 @@ public extension QueryPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Ice.ObjectPrx?` - The proxy or null, if no such object has been found.
-    func findObjectByType(_ iceP_type: Swift.String, context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
-        return try _impl._invoke(operation: "findObjectByType",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_type)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Find a well-known object by type. If there are several objects registered for the given type, the object is
-    /// randomly selected.
-    ///
-    /// - parameter _: `Swift.String` The object type.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func findObjectByTypeAsync(_ iceP_type: Swift.String, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
-        return try await _impl._invokeAsync(operation: "findObjectByType",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_type)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func findObjectByType(_ iceP_type: Swift.String, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
+        return try await _impl._invoke(operation: "findObjectByType",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_type)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
@@ -324,43 +283,18 @@ public extension QueryPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Ice.ObjectPrx?` - The proxy or null, if no such object has been found.
-    func findObjectByTypeOnLeastLoadedNode(type iceP_type: Swift.String, sample iceP_sample: LoadSample, context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
-        return try _impl._invoke(operation: "findObjectByTypeOnLeastLoadedNode",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_type)
-                                     ostr.write(iceP_sample)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
-    /// the object (for example, because the object was registered with a direct proxy), the registry assumes the
-    /// object is hosted on a node that has a load average of 1.0.
-    ///
-    /// - parameter type: `Swift.String` The object type.
-    ///
-    /// - parameter sample: `LoadSample` The sampling interval.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func findObjectByTypeOnLeastLoadedNodeAsync(type iceP_type: Swift.String, sample iceP_sample: LoadSample, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
-        return try await _impl._invokeAsync(operation: "findObjectByTypeOnLeastLoadedNode",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_type)
-                                                ostr.write(iceP_sample)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func findObjectByTypeOnLeastLoadedNode(type iceP_type: Swift.String, sample iceP_sample: LoadSample, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
+        return try await _impl._invoke(operation: "findObjectByTypeOnLeastLoadedNode",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_type)
+                                           ostr.write(iceP_sample)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Find all the well-known objects with the given type.
@@ -370,37 +304,17 @@ public extension QueryPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Ice.ObjectProxySeq` - The proxies or an empty sequence, if no such objects have been found.
-    func findAllObjectsByType(_ iceP_type: Swift.String, context: Ice.Context? = nil) throws -> Ice.ObjectProxySeq {
-        return try _impl._invoke(operation: "findAllObjectsByType",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_type)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.ObjectProxySeq = try Ice.ObjectProxySeqHelper.read(from: istr)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Find all the well-known objects with the given type.
-    ///
-    /// - parameter _: `Swift.String` The object type.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.ObjectProxySeq` - The result of the operation
-    func findAllObjectsByTypeAsync(_ iceP_type: Swift.String, context: Ice.Context? = nil) async throws -> Ice.ObjectProxySeq {
-        return try await _impl._invokeAsync(operation: "findAllObjectsByType",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_type)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.ObjectProxySeq = try Ice.ObjectProxySeqHelper.read(from: istr)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func findAllObjectsByType(_ iceP_type: Swift.String, context: Ice.Context? = nil) async throws -> Ice.ObjectProxySeq {
+        return try await _impl._invoke(operation: "findAllObjectsByType",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_type)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.ObjectProxySeq = try Ice.ObjectProxySeqHelper.read(from: istr)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
@@ -412,38 +326,17 @@ public extension QueryPrx {
     ///
     /// - returns: `Ice.ObjectProxySeq` - The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
     /// group.
-    func findAllReplicas(_ iceP_proxy: Ice.ObjectPrx?, context: Ice.Context? = nil) throws -> Ice.ObjectProxySeq {
-        return try _impl._invoke(operation: "findAllReplicas",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_proxy)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.ObjectProxySeq = try Ice.ObjectProxySeqHelper.read(from: istr)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
-    /// from a replica group, an empty sequence is returned.
-    ///
-    /// - parameter _: `Ice.ObjectPrx?` The object proxy.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.ObjectProxySeq` - The result of the operation
-    func findAllReplicasAsync(_ iceP_proxy: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Ice.ObjectProxySeq {
-        return try await _impl._invokeAsync(operation: "findAllReplicas",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_proxy)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.ObjectProxySeq = try Ice.ObjectProxySeqHelper.read(from: istr)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func findAllReplicas(_ iceP_proxy: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Ice.ObjectProxySeq {
+        return try await _impl._invoke(operation: "findAllReplicas",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_proxy)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.ObjectProxySeq = try Ice.ObjectProxySeqHelper.read(from: istr)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -512,8 +405,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: RegistryPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> RegistryPrx? {
-    return try RegistryPrxI.checkedCast(prx: prx, facet: facet, context: context) as RegistryPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: RegistryPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> RegistryPrx? {
+    return try await RegistryPrxI.checkedCast(prx: prx, facet: facet, context: context) as RegistryPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -603,55 +496,25 @@ public extension RegistryPrx {
     ///
     ///   - PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
     ///     user is not allowed access.
-    func createSession(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil) throws -> SessionPrx? {
-        return try _impl._invoke(operation: "createSession",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_userId)
-                                     ostr.write(iceP_password)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: SessionPrx? = try istr.read(SessionPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as PermissionDeniedException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Create a client session.
-    ///
-    /// - parameter userId: `Swift.String` The user id.
-    ///
-    /// - parameter password: `Swift.String` The password for the given user id.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `SessionPrx?` - The result of the operation
-    func createSessionAsync(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil) async throws -> SessionPrx? {
-        return try await _impl._invokeAsync(operation: "createSession",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_userId)
-                                                ostr.write(iceP_password)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: SessionPrx? = try istr.read(SessionPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as PermissionDeniedException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func createSession(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil) async throws -> SessionPrx? {
+        return try await _impl._invoke(operation: "createSession",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_userId)
+                                           ostr.write(iceP_password)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: SessionPrx? = try istr.read(SessionPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as PermissionDeniedException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Create an administrative session.
@@ -668,55 +531,25 @@ public extension RegistryPrx {
     ///
     ///   - PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
     ///     user is not allowed access.
-    func createAdminSession(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil) throws -> AdminSessionPrx? {
-        return try _impl._invoke(operation: "createAdminSession",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_userId)
-                                     ostr.write(iceP_password)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: AdminSessionPrx? = try istr.read(AdminSessionPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as PermissionDeniedException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Create an administrative session.
-    ///
-    /// - parameter userId: `Swift.String` The user id.
-    ///
-    /// - parameter password: `Swift.String` The password for the given user id.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `AdminSessionPrx?` - The result of the operation
-    func createAdminSessionAsync(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil) async throws -> AdminSessionPrx? {
-        return try await _impl._invokeAsync(operation: "createAdminSession",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_userId)
-                                                ostr.write(iceP_password)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: AdminSessionPrx? = try istr.read(AdminSessionPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as PermissionDeniedException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func createAdminSession(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil) async throws -> AdminSessionPrx? {
+        return try await _impl._invoke(operation: "createAdminSession",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_userId)
+                                           ostr.write(iceP_password)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: AdminSessionPrx? = try istr.read(AdminSessionPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as PermissionDeniedException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Create a client session from a secure connection.
@@ -729,43 +562,21 @@ public extension RegistryPrx {
     ///
     ///   - PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
     ///     user is not allowed access.
-    func createSessionFromSecureConnection(context: Ice.Context? = nil) throws -> SessionPrx? {
-        return try _impl._invoke(operation: "createSessionFromSecureConnection",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: SessionPrx? = try istr.read(SessionPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as PermissionDeniedException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Create a client session from a secure connection.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `SessionPrx?` - The result of the operation
-    func createSessionFromSecureConnectionAsync(context: Ice.Context? = nil) async throws -> SessionPrx? {
-        return try await _impl._invokeAsync(operation: "createSessionFromSecureConnection",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: SessionPrx? = try istr.read(SessionPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as PermissionDeniedException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func createSessionFromSecureConnection(context: Ice.Context? = nil) async throws -> SessionPrx? {
+        return try await _impl._invoke(operation: "createSessionFromSecureConnection",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: SessionPrx? = try istr.read(SessionPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as PermissionDeniedException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Create an administrative session from a secure connection.
@@ -778,43 +589,21 @@ public extension RegistryPrx {
     ///
     ///   - PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
     ///     user is not allowed access.
-    func createAdminSessionFromSecureConnection(context: Ice.Context? = nil) throws -> AdminSessionPrx? {
-        return try _impl._invoke(operation: "createAdminSessionFromSecureConnection",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: AdminSessionPrx? = try istr.read(AdminSessionPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as PermissionDeniedException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Create an administrative session from a secure connection.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `AdminSessionPrx?` - The result of the operation
-    func createAdminSessionFromSecureConnectionAsync(context: Ice.Context? = nil) async throws -> AdminSessionPrx? {
-        return try await _impl._invokeAsync(operation: "createAdminSessionFromSecureConnection",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: AdminSessionPrx? = try istr.read(AdminSessionPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as PermissionDeniedException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func createAdminSessionFromSecureConnection(context: Ice.Context? = nil) async throws -> AdminSessionPrx? {
+        return try await _impl._invoke(operation: "createAdminSessionFromSecureConnection",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: AdminSessionPrx? = try istr.read(AdminSessionPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as PermissionDeniedException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get the idle timeout used by IceGrid for its side of the connection.
@@ -822,29 +611,14 @@ public extension RegistryPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Int32` - The idle timeout (in seconds).
-    func getSessionTimeout(context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "getSessionTimeout",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get the idle timeout used by IceGrid for its side of the connection.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The result of the operation
-    func getSessionTimeoutAsync(context: Ice.Context? = nil) async throws -> Swift.Int32 {
-        return try await _impl._invokeAsync(operation: "getSessionTimeout",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Int32 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getSessionTimeout(context: Ice.Context? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invoke(operation: "getSessionTimeout",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Int32 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Get the idle timeout used by IceGrid for its side of the connection.
@@ -852,29 +626,14 @@ public extension RegistryPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Int32` - The idle timeout (in seconds).
-    func getACMTimeout(context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "getACMTimeout",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get the idle timeout used by IceGrid for its side of the connection.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The result of the operation
-    func getACMTimeoutAsync(context: Ice.Context? = nil) async throws -> Swift.Int32 {
-        return try await _impl._invokeAsync(operation: "getACMTimeout",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Int32 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getACMTimeout(context: Ice.Context? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invoke(operation: "getACMTimeout",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Int32 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -928,8 +687,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: LocatorPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> LocatorPrx? {
-    return try LocatorPrxI.checkedCast(prx: prx, facet: facet, context: context) as LocatorPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: LocatorPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> LocatorPrx? {
+    return try await LocatorPrxI.checkedCast(prx: prx, facet: facet, context: context) as LocatorPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -995,29 +754,14 @@ public extension LocatorPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `RegistryPrx?` - The proxy of the registry object. The returned proxy is never null.
-    func getLocalRegistry(context: Ice.Context? = nil) throws -> RegistryPrx? {
-        return try _impl._invoke(operation: "getLocalRegistry",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: RegistryPrx? = try istr.read(RegistryPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get the proxy of the registry object hosted by this IceGrid registry.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `RegistryPrx?` - The result of the operation
-    func getLocalRegistryAsync(context: Ice.Context? = nil) async throws -> RegistryPrx? {
-        return try await _impl._invokeAsync(operation: "getLocalRegistry",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: RegistryPrx? = try istr.read(RegistryPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getLocalRegistry(context: Ice.Context? = nil) async throws -> RegistryPrx? {
+        return try await _impl._invoke(operation: "getLocalRegistry",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: RegistryPrx? = try istr.read(RegistryPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Get the proxy of the query object hosted by this IceGrid registry.
@@ -1025,29 +769,14 @@ public extension LocatorPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `QueryPrx?` - The proxy of the query object. The returned proxy is never null.
-    func getLocalQuery(context: Ice.Context? = nil) throws -> QueryPrx? {
-        return try _impl._invoke(operation: "getLocalQuery",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: QueryPrx? = try istr.read(QueryPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get the proxy of the query object hosted by this IceGrid registry.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `QueryPrx?` - The result of the operation
-    func getLocalQueryAsync(context: Ice.Context? = nil) async throws -> QueryPrx? {
-        return try await _impl._invokeAsync(operation: "getLocalQuery",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: QueryPrx? = try istr.read(QueryPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getLocalQuery(context: Ice.Context? = nil) async throws -> QueryPrx? {
+        return try await _impl._invoke(operation: "getLocalQuery",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: QueryPrx? = try istr.read(QueryPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -1096,7 +825,7 @@ public protocol Query {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    /// - returns: `Ice.ObjectPrx?` - The proxy or null if no such object has been found.
     func findObjectById(id: Ice.Identity, current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Find a well-known object by type. If there are several objects registered for the given type, the object is
@@ -1106,7 +835,7 @@ public protocol Query {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    /// - returns: `Ice.ObjectPrx?` - The proxy or null, if no such object has been found.
     func findObjectByType(type: Swift.String, current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
@@ -1119,7 +848,7 @@ public protocol Query {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    /// - returns: `Ice.ObjectPrx?` - The proxy or null, if no such object has been found.
     func findObjectByTypeOnLeastLoadedNode(type: Swift.String, sample: LoadSample, current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Find all the well-known objects with the given type.
@@ -1128,7 +857,7 @@ public protocol Query {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectProxySeq` - The result of the operation
+    /// - returns: `Ice.ObjectProxySeq` - The proxies or an empty sequence, if no such objects have been found.
     func findAllObjectsByType(type: Swift.String, current: Ice.Current) async throws -> Ice.ObjectProxySeq
 
     /// Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
@@ -1138,7 +867,8 @@ public protocol Query {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectProxySeq` - The result of the operation
+    /// - returns: `Ice.ObjectProxySeq` - The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
+    /// group.
     func findAllReplicas(proxy: Ice.ObjectPrx?, current: Ice.Current) async throws -> Ice.ObjectProxySeq
 }
 
@@ -1190,7 +920,12 @@ public protocol Registry {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `SessionPrx?` - The result of the operation
+    /// - returns: `SessionPrx?` - A proxy for the newly created session. The returned proxy is never null.
+    ///
+    /// - throws:
+    ///
+    ///   - PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
+    ///     user is not allowed access.
     func createSession(userId: Swift.String, password: Swift.String, current: Ice.Current) async throws -> SessionPrx?
 
     /// Create an administrative session.
@@ -1201,35 +936,50 @@ public protocol Registry {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `AdminSessionPrx?` - The result of the operation
+    /// - returns: `AdminSessionPrx?` - A proxy for the newly created session. The returned proxy is never null.
+    ///
+    /// - throws:
+    ///
+    ///   - PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
+    ///     user is not allowed access.
     func createAdminSession(userId: Swift.String, password: Swift.String, current: Ice.Current) async throws -> AdminSessionPrx?
 
     /// Create a client session from a secure connection.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `SessionPrx?` - The result of the operation
+    /// - returns: `SessionPrx?` - A proxy for the newly created session. The returned proxy is never null.
+    ///
+    /// - throws:
+    ///
+    ///   - PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
+    ///     user is not allowed access.
     func createSessionFromSecureConnection(current: Ice.Current) async throws -> SessionPrx?
 
     /// Create an administrative session from a secure connection.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `AdminSessionPrx?` - The result of the operation
+    /// - returns: `AdminSessionPrx?` - A proxy for the newly created session. The returned proxy is never null.
+    ///
+    /// - throws:
+    ///
+    ///   - PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
+    ///     user is not allowed access.
     func createAdminSessionFromSecureConnection(current: Ice.Current) async throws -> AdminSessionPrx?
 
     /// Get the idle timeout used by IceGrid for its side of the connection.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The result of the operation
+    /// - returns: `Swift.Int32` - The idle timeout (in seconds).
     func getSessionTimeout(current: Ice.Current) async throws -> Swift.Int32
 
     /// Get the idle timeout used by IceGrid for its side of the connection.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The result of the operation
+    /// - returns: `Swift.Int32` - The idle timeout (in seconds).
     func getACMTimeout(current: Ice.Current) async throws -> Swift.Int32
 }
 
@@ -1276,14 +1026,14 @@ public protocol Locator: Ice.Locator {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `RegistryPrx?` - The result of the operation
+    /// - returns: `RegistryPrx?` - The proxy of the registry object. The returned proxy is never null.
     func getLocalRegistry(current: Ice.Current) async throws -> RegistryPrx?
 
     /// Get the proxy of the query object hosted by this IceGrid registry.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `QueryPrx?` - The result of the operation
+    /// - returns: `QueryPrx?` - The proxy of the query object. The returned proxy is never null.
     func getLocalQuery(current: Ice.Current) async throws -> QueryPrx?
 }
 

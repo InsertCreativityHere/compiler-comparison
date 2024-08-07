@@ -692,8 +692,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: InitialPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> InitialPrx? {
-    return try InitialPrxI.checkedCast(prx: prx, facet: facet, context: context) as InitialPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: InitialPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> InitialPrx? {
+    return try await InitialPrxI.checkedCast(prx: prx, facet: facet, context: context) as InitialPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -765,102 +765,50 @@ public extension InitialPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `ByteS`
-    func getStruct1(context: Ice.Context? = nil) throws -> ByteS {
-        return try _impl._invoke(operation: "getStruct1",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: ByteS = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ByteS` - The result of the operation
-    func getStruct1Async(context: Ice.Context? = nil) async throws -> ByteS {
-        return try await _impl._invokeAsync(operation: "getStruct1",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: ByteS = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getStruct1(context: Ice.Context? = nil) async throws -> ByteS {
+        return try await _impl._invoke(operation: "getStruct1",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: ByteS = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `ByteS`
-    func getBase(context: Ice.Context? = nil) throws -> ByteS {
-        return try _impl._invoke(operation: "getBase",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: ByteS = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ByteS` - The result of the operation
-    func getBaseAsync(context: Ice.Context? = nil) async throws -> ByteS {
-        return try await _impl._invokeAsync(operation: "getBase",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: ByteS = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getBase(context: Ice.Context? = nil) async throws -> ByteS {
+        return try await _impl._invoke(operation: "getBase",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: ByteS = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `ByteS`
-    func getEx(context: Ice.Context? = nil) throws -> ByteS {
-        return try _impl._invoke(operation: "getEx",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: ByteS = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
+    func getEx(context: Ice.Context? = nil) async throws -> ByteS {
+        return try await _impl._invoke(operation: "getEx",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: ByteS = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ByteS` - The result of the operation
-    func getExAsync(context: Ice.Context? = nil) async throws -> ByteS {
-        return try await _impl._invokeAsync(operation: "getEx",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: ByteS = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -1027,25 +975,23 @@ public protocol Initial {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ByteS` - The result of the operation
+    /// - returns: `ByteS`
     func getStruct1(current: Ice.Current) async throws -> ByteS
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ByteS` - The result of the operation
+    /// - returns: `ByteS`
     func getBase(current: Ice.Current) async throws -> ByteS
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ByteS` - The result of the operation
+    /// - returns: `ByteS`
     func getEx(current: Ice.Current) async throws -> ByteS
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 

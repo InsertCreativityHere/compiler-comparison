@@ -244,8 +244,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: ObjectPrx, type: LocatorPrx.Protocol, facet: Swift.String? = nil, context: Context? = nil) throws -> LocatorPrx? {
-    return try LocatorPrxI.checkedCast(prx: prx, facet: facet, context: context) as LocatorPrxI?
+public func checkedCast(prx: ObjectPrx, type: LocatorPrx.Protocol, facet: Swift.String? = nil, context: Context? = nil) async throws -> LocatorPrx? {
+    return try await LocatorPrxI.checkedCast(prx: prx, facet: facet, context: context) as LocatorPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -324,52 +324,24 @@ public extension LocatorPrx {
     /// - throws:
     ///
     ///   - ObjectNotFoundException - Raised if the object cannot be found.
-    func findObjectById(_ iceP_id: Identity, context: Context? = nil) throws -> ObjectPrx? {
-        return try _impl._invoke(operation: "findObjectById",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_id)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: ObjectPrx? = try istr.read(ObjectPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as ObjectNotFoundException {
-                                         throw error
-                                     } catch is UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
-    /// access the object.
-    ///
-    /// - parameter _: `Identity` The identity.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ObjectPrx?` - The result of the operation
-    func findObjectByIdAsync(_ iceP_id: Identity, context: Context? = nil) async throws -> ObjectPrx? {
-        return try await _impl._invokeAsync(operation: "findObjectById",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: ObjectPrx? = try istr.read(ObjectPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ObjectNotFoundException {
-                                                    throw error
-                                                } catch is UserException {}
-                                            },
-                                            context: context)
+    func findObjectById(_ iceP_id: Identity, context: Context? = nil) async throws -> ObjectPrx? {
+        return try await _impl._invoke(operation: "findObjectById",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: ObjectPrx? = try istr.read(ObjectPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ObjectNotFoundException {
+                                               throw error
+                                           } catch is UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Find an adapter by id and return a proxy that contains its endpoints.
@@ -383,51 +355,24 @@ public extension LocatorPrx {
     /// - throws:
     ///
     ///   - AdapterNotFoundException - Raised if the adapter cannot be found.
-    func findAdapterById(_ iceP_id: Swift.String, context: Context? = nil) throws -> ObjectPrx? {
-        return try _impl._invoke(operation: "findAdapterById",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_id)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: ObjectPrx? = try istr.read(ObjectPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as AdapterNotFoundException {
-                                         throw error
-                                     } catch is UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Find an adapter by id and return a proxy that contains its endpoints.
-    ///
-    /// - parameter _: `Swift.String` The adapter id.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ObjectPrx?` - The result of the operation
-    func findAdapterByIdAsync(_ iceP_id: Swift.String, context: Context? = nil) async throws -> ObjectPrx? {
-        return try await _impl._invokeAsync(operation: "findAdapterById",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: ObjectPrx? = try istr.read(ObjectPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as AdapterNotFoundException {
-                                                    throw error
-                                                } catch is UserException {}
-                                            },
-                                            context: context)
+    func findAdapterById(_ iceP_id: Swift.String, context: Context? = nil) async throws -> ObjectPrx? {
+        return try await _impl._invoke(operation: "findAdapterById",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: ObjectPrx? = try istr.read(ObjectPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as AdapterNotFoundException {
+                                               throw error
+                                           } catch is UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get the locator registry.
@@ -435,29 +380,14 @@ public extension LocatorPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `LocatorRegistryPrx?` - The locator registry.
-    func getRegistry(context: Context? = nil) throws -> LocatorRegistryPrx? {
-        return try _impl._invoke(operation: "getRegistry",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: LocatorRegistryPrx? = try istr.read(LocatorRegistryPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get the locator registry.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `LocatorRegistryPrx?` - The result of the operation
-    func getRegistryAsync(context: Context? = nil) async throws -> LocatorRegistryPrx? {
-        return try await _impl._invokeAsync(operation: "getRegistry",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: LocatorRegistryPrx? = try istr.read(LocatorRegistryPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getRegistry(context: Context? = nil) async throws -> LocatorRegistryPrx? {
+        return try await _impl._invoke(operation: "getRegistry",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: LocatorRegistryPrx? = try istr.read(LocatorRegistryPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -517,8 +447,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: ObjectPrx, type: LocatorRegistryPrx.Protocol, facet: Swift.String? = nil, context: Context? = nil) throws -> LocatorRegistryPrx? {
-    return try LocatorRegistryPrxI.checkedCast(prx: prx, facet: facet, context: context) as LocatorRegistryPrxI?
+public func checkedCast(prx: ObjectPrx, type: LocatorRegistryPrx.Protocol, facet: Swift.String? = nil, context: Context? = nil) async throws -> LocatorRegistryPrx? {
+    return try await LocatorRegistryPrxI.checkedCast(prx: prx, facet: facet, context: context) as LocatorRegistryPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -600,52 +530,23 @@ public extension LocatorRegistryPrx {
     ///
     ///   - AdapterNotFoundException - Raised if the adapter cannot be found, or if the locator only allows
     ///     registered adapters to set their active proxy and the adapter is not registered with the locator.
-    func setAdapterDirectProxy(id iceP_id: Swift.String, proxy iceP_proxy: ObjectPrx?, context: Context? = nil) throws {
-        try _impl._invoke(operation: "setAdapterDirectProxy",
-                          mode: .Idempotent,
-                          write: { ostr in
-                              ostr.write(iceP_id)
-                              ostr.write(iceP_proxy)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as AdapterNotFoundException {
-                                  throw error
-                              } catch let error as AdapterAlreadyActiveException {
-                                  throw error
-                              } catch is UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Set the adapter endpoints with the locator registry.
-    ///
-    /// - parameter id: `Swift.String` The adapter id.
-    ///
-    /// - parameter proxy: `ObjectPrx?` The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-    /// adapter endpoints. The proxy can be null, typically during adapter deactivation.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func setAdapterDirectProxyAsync(id iceP_id: Swift.String, proxy iceP_proxy: ObjectPrx?, context: Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "setAdapterDirectProxy",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                                ostr.write(iceP_proxy)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as AdapterNotFoundException {
-                                                    throw error
-                                                } catch let error as AdapterAlreadyActiveException {
-                                                    throw error
-                                                } catch is UserException {}
-                                            },
-                                            context: context)
+    func setAdapterDirectProxy(id iceP_id: Swift.String, proxy iceP_proxy: ObjectPrx?, context: Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "setAdapterDirectProxy",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                           ostr.write(iceP_proxy)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as AdapterNotFoundException {
+                                               throw error
+                                           } catch let error as AdapterAlreadyActiveException {
+                                               throw error
+                                           } catch is UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Set the adapter endpoints with the locator registry.
@@ -668,60 +569,26 @@ public extension LocatorRegistryPrx {
     ///
     ///   - InvalidReplicaGroupIdException - Raised if the given replica group doesn't match the one registered
     ///     with the locator registry for this object adapter.
-    func setReplicatedAdapterDirectProxy(adapterId iceP_adapterId: Swift.String, replicaGroupId iceP_replicaGroupId: Swift.String, proxy iceP_proxy: ObjectPrx?, context: Context? = nil) throws {
-        try _impl._invoke(operation: "setReplicatedAdapterDirectProxy",
-                          mode: .Idempotent,
-                          write: { ostr in
-                              ostr.write(iceP_adapterId)
-                              ostr.write(iceP_replicaGroupId)
-                              ostr.write(iceP_proxy)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as AdapterNotFoundException {
-                                  throw error
-                              } catch let error as InvalidReplicaGroupIdException {
-                                  throw error
-                              } catch let error as AdapterAlreadyActiveException {
-                                  throw error
-                              } catch is UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Set the adapter endpoints with the locator registry.
-    ///
-    /// - parameter adapterId: `Swift.String` The adapter id.
-    ///
-    /// - parameter replicaGroupId: `Swift.String` The replica group id.
-    ///
-    /// - parameter proxy: `ObjectPrx?` The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-    /// adapter endpoints. The proxy can be null, typically during adapter deactivation.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func setReplicatedAdapterDirectProxyAsync(adapterId iceP_adapterId: Swift.String, replicaGroupId iceP_replicaGroupId: Swift.String, proxy iceP_proxy: ObjectPrx?, context: Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "setReplicatedAdapterDirectProxy",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_adapterId)
-                                                ostr.write(iceP_replicaGroupId)
-                                                ostr.write(iceP_proxy)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as AdapterNotFoundException {
-                                                    throw error
-                                                } catch let error as InvalidReplicaGroupIdException {
-                                                    throw error
-                                                } catch let error as AdapterAlreadyActiveException {
-                                                    throw error
-                                                } catch is UserException {}
-                                            },
-                                            context: context)
+    func setReplicatedAdapterDirectProxy(adapterId iceP_adapterId: Swift.String, replicaGroupId iceP_replicaGroupId: Swift.String, proxy iceP_proxy: ObjectPrx?, context: Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "setReplicatedAdapterDirectProxy",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_adapterId)
+                                           ostr.write(iceP_replicaGroupId)
+                                           ostr.write(iceP_proxy)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as AdapterNotFoundException {
+                                               throw error
+                                           } catch let error as InvalidReplicaGroupIdException {
+                                               throw error
+                                           } catch let error as AdapterAlreadyActiveException {
+                                               throw error
+                                           } catch is UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Set the process proxy for a server.
@@ -735,47 +602,21 @@ public extension LocatorRegistryPrx {
     /// - throws:
     ///
     ///   - ServerNotFoundException - Raised if the server cannot be found.
-    func setServerProcessProxy(id iceP_id: Swift.String, proxy iceP_proxy: ProcessPrx?, context: Context? = nil) throws {
-        try _impl._invoke(operation: "setServerProcessProxy",
-                          mode: .Idempotent,
-                          write: { ostr in
-                              ostr.write(iceP_id)
-                              ostr.write(iceP_proxy)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ServerNotFoundException {
-                                  throw error
-                              } catch is UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Set the process proxy for a server.
-    ///
-    /// - parameter id: `Swift.String` The server id.
-    ///
-    /// - parameter proxy: `ProcessPrx?` The process proxy. The proxy is never null.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func setServerProcessProxyAsync(id iceP_id: Swift.String, proxy iceP_proxy: ProcessPrx?, context: Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "setServerProcessProxy",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                                ostr.write(iceP_proxy)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ServerNotFoundException {
-                                                    throw error
-                                                } catch is UserException {}
-                                            },
-                                            context: context)
+    func setServerProcessProxy(id iceP_id: Swift.String, proxy iceP_proxy: ProcessPrx?, context: Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "setServerProcessProxy",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                           ostr.write(iceP_proxy)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ServerNotFoundException {
+                                               throw error
+                                           } catch is UserException {}
+                                       },
+                                       context: context)
     }
 }
 
@@ -826,8 +667,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: ObjectPrx, type: LocatorFinderPrx.Protocol, facet: Swift.String? = nil, context: Context? = nil) throws -> LocatorFinderPrx? {
-    return try LocatorFinderPrxI.checkedCast(prx: prx, facet: facet, context: context) as LocatorFinderPrxI?
+public func checkedCast(prx: ObjectPrx, type: LocatorFinderPrx.Protocol, facet: Swift.String? = nil, context: Context? = nil) async throws -> LocatorFinderPrx? {
+    return try await LocatorFinderPrxI.checkedCast(prx: prx, facet: facet, context: context) as LocatorFinderPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -891,30 +732,14 @@ public extension LocatorFinderPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `LocatorPrx?` - The locator proxy.
-    func getLocator(context: Context? = nil) throws -> LocatorPrx? {
-        return try _impl._invoke(operation: "getLocator",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: LocatorPrx? = try istr.read(LocatorPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get the locator proxy implemented by the process hosting this finder object. The proxy might point to
-    /// several replicas. This proxy is never null.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `LocatorPrx?` - The result of the operation
-    func getLocatorAsync(context: Context? = nil) async throws -> LocatorPrx? {
-        return try await _impl._invokeAsync(operation: "getLocator",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: LocatorPrx? = try istr.read(LocatorPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getLocator(context: Context? = nil) async throws -> LocatorPrx? {
+        return try await _impl._invoke(operation: "getLocator",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: LocatorPrx? = try istr.read(LocatorPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -962,7 +787,11 @@ public protocol Locator {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ObjectPrx?` - The result of the operation
+    /// - returns: `ObjectPrx?` - The proxy, or null if the object is not active.
+    ///
+    /// - throws:
+    ///
+    ///   - ObjectNotFoundException - Raised if the object cannot be found.
     func findObjectById(id: Identity, current: Current) async throws -> ObjectPrx?
 
     /// Find an adapter by id and return a proxy that contains its endpoints.
@@ -971,14 +800,18 @@ public protocol Locator {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ObjectPrx?` - The result of the operation
+    /// - returns: `ObjectPrx?` - The adapter proxy, or null if the adapter is not active.
+    ///
+    /// - throws:
+    ///
+    ///   - AdapterNotFoundException - Raised if the adapter cannot be found.
     func findAdapterById(id: Swift.String, current: Current) async throws -> ObjectPrx?
 
     /// Get the locator registry.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `LocatorRegistryPrx?` - The result of the operation
+    /// - returns: `LocatorRegistryPrx?` - The locator registry.
     func getRegistry(current: Current) async throws -> LocatorRegistryPrx?
 }
 
@@ -1028,7 +861,12 @@ public protocol LocatorRegistry {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - AdapterAlreadyActiveException - Raised if an adapter with the same id is already active.
+    ///
+    ///   - AdapterNotFoundException - Raised if the adapter cannot be found, or if the locator only allows
+    ///     registered adapters to set their active proxy and the adapter is not registered with the locator.
     func setAdapterDirectProxy(id: Swift.String, proxy: ObjectPrx?, current: Current) async throws
 
     /// Set the adapter endpoints with the locator registry.
@@ -1042,7 +880,15 @@ public protocol LocatorRegistry {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - AdapterAlreadyActiveException - Raised if an adapter with the same id is already active.
+    ///
+    ///   - AdapterNotFoundException - Raised if the adapter cannot be found, or if the locator only allows
+    ///     registered adapters to set their active proxy and the adapter is not registered with the locator.
+    ///
+    ///   - InvalidReplicaGroupIdException - Raised if the given replica group doesn't match the one registered
+    ///     with the locator registry for this object adapter.
     func setReplicatedAdapterDirectProxy(adapterId: Swift.String, replicaGroupId: Swift.String, proxy: ObjectPrx?, current: Current) async throws
 
     /// Set the process proxy for a server.
@@ -1053,7 +899,9 @@ public protocol LocatorRegistry {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - ServerNotFoundException - Raised if the server cannot be found.
     func setServerProcessProxy(id: Swift.String, proxy: ProcessPrx?, current: Current) async throws
 }
 
@@ -1094,7 +942,7 @@ public protocol LocatorFinder {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `LocatorPrx?` - The result of the operation
+    /// - returns: `LocatorPrx?` - The locator proxy.
     func getLocator(current: Current) async throws -> LocatorPrx?
 }
 

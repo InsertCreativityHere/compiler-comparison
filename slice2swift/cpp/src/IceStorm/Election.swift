@@ -691,8 +691,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: ReplicaObserverPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> ReplicaObserverPrx? {
-    return try ReplicaObserverPrxI.checkedCast(prx: prx, facet: facet, context: context) as ReplicaObserverPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: ReplicaObserverPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> ReplicaObserverPrx? {
+    return try await ReplicaObserverPrxI.checkedCast(prx: prx, facet: facet, context: context) as ReplicaObserverPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -776,47 +776,21 @@ public extension ReplicaObserverPrx {
     ///
     ///   - ObserverInconsistencyException - Raised if an
     ///     inconsisency was detected.
-    func `init`(llu iceP_llu: LogUpdate, content iceP_content: TopicContentSeq, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "init",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_llu)
-                              TopicContentSeqHelper.write(to: ostr, value: iceP_content)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ObserverInconsistencyException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Initialize the observer.
-    ///
-    /// - parameter llu: `LogUpdate` The last log update seen by the master.
-    ///
-    /// - parameter content: `TopicContentSeq` The topic content.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func initAsync(llu iceP_llu: LogUpdate, content iceP_content: TopicContentSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "init",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_llu)
-                                                TopicContentSeqHelper.write(to: ostr, value: iceP_content)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ObserverInconsistencyException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func `init`(llu iceP_llu: LogUpdate, content iceP_content: TopicContentSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "init",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_llu)
+                                           TopicContentSeqHelper.write(to: ostr, value: iceP_content)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ObserverInconsistencyException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Create the topic with the given name.
@@ -831,47 +805,21 @@ public extension ReplicaObserverPrx {
     ///
     ///   - ObserverInconsistencyException - Raised if an
     ///     inconsisency was detected.
-    func createTopic(llu iceP_llu: LogUpdate, name iceP_name: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "createTopic",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_llu)
-                              ostr.write(iceP_name)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ObserverInconsistencyException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Create the topic with the given name.
-    ///
-    /// - parameter llu: `LogUpdate` The log update token.
-    ///
-    /// - parameter name: `Swift.String` The topic name.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func createTopicAsync(llu iceP_llu: LogUpdate, name iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "createTopic",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_llu)
-                                                ostr.write(iceP_name)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ObserverInconsistencyException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func createTopic(llu iceP_llu: LogUpdate, name iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "createTopic",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_llu)
+                                           ostr.write(iceP_name)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ObserverInconsistencyException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Destroy the topic with the given name.
@@ -886,47 +834,21 @@ public extension ReplicaObserverPrx {
     ///
     ///   - ObserverInconsistencyException - Raised if an
     ///     inconsisency was detected.
-    func destroyTopic(llu iceP_llu: LogUpdate, name iceP_name: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "destroyTopic",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_llu)
-                              ostr.write(iceP_name)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ObserverInconsistencyException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Destroy the topic with the given name.
-    ///
-    /// - parameter llu: `LogUpdate` The log update token.
-    ///
-    /// - parameter name: `Swift.String` The topic name.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func destroyTopicAsync(llu iceP_llu: LogUpdate, name iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "destroyTopic",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_llu)
-                                                ostr.write(iceP_name)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ObserverInconsistencyException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func destroyTopic(llu iceP_llu: LogUpdate, name iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "destroyTopic",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_llu)
+                                           ostr.write(iceP_name)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ObserverInconsistencyException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Add a subscriber to a topic.
@@ -943,51 +865,22 @@ public extension ReplicaObserverPrx {
     ///
     ///   - ObserverInconsistencyException - Raised if an
     ///     inconsisency was detected.
-    func addSubscriber(llu iceP_llu: LogUpdate, topic iceP_topic: Swift.String, record iceP_record: IceStorm.SubscriberRecord, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "addSubscriber",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_llu)
-                              ostr.write(iceP_topic)
-                              ostr.write(iceP_record)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ObserverInconsistencyException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Add a subscriber to a topic.
-    ///
-    /// - parameter llu: `LogUpdate` The log update token.
-    ///
-    /// - parameter topic: `Swift.String` The topic name to which to add the subscriber.
-    ///
-    /// - parameter record: `IceStorm.SubscriberRecord` The subscriber information.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func addSubscriberAsync(llu iceP_llu: LogUpdate, topic iceP_topic: Swift.String, record iceP_record: IceStorm.SubscriberRecord, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "addSubscriber",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_llu)
-                                                ostr.write(iceP_topic)
-                                                ostr.write(iceP_record)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ObserverInconsistencyException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func addSubscriber(llu iceP_llu: LogUpdate, topic iceP_topic: Swift.String, record iceP_record: IceStorm.SubscriberRecord, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "addSubscriber",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_llu)
+                                           ostr.write(iceP_topic)
+                                           ostr.write(iceP_record)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ObserverInconsistencyException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Remove a subscriber from a topic.
@@ -1003,51 +896,22 @@ public extension ReplicaObserverPrx {
     /// - throws:
     ///
     ///   - ObserverInconsistencyException - Raised if an inconsisency was detected.
-    func removeSubscriber(llu iceP_llu: LogUpdate, topic iceP_topic: Swift.String, subscribers iceP_subscribers: Ice.IdentitySeq, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "removeSubscriber",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_llu)
-                              ostr.write(iceP_topic)
-                              Ice.IdentitySeqHelper.write(to: ostr, value: iceP_subscribers)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ObserverInconsistencyException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Remove a subscriber from a topic.
-    ///
-    /// - parameter llu: `LogUpdate` The log update token.
-    ///
-    /// - parameter topic: `Swift.String`
-    ///
-    /// - parameter subscribers: `Ice.IdentitySeq` The identities of the subscribers to remove.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func removeSubscriberAsync(llu iceP_llu: LogUpdate, topic iceP_topic: Swift.String, subscribers iceP_subscribers: Ice.IdentitySeq, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "removeSubscriber",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_llu)
-                                                ostr.write(iceP_topic)
-                                                Ice.IdentitySeqHelper.write(to: ostr, value: iceP_subscribers)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ObserverInconsistencyException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func removeSubscriber(llu iceP_llu: LogUpdate, topic iceP_topic: Swift.String, subscribers iceP_subscribers: Ice.IdentitySeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "removeSubscriber",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_llu)
+                                           ostr.write(iceP_topic)
+                                           Ice.IdentitySeqHelper.write(to: ostr, value: iceP_subscribers)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ObserverInconsistencyException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 }
 
@@ -1096,8 +960,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TopicManagerSyncPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TopicManagerSyncPrx? {
-    return try TopicManagerSyncPrxI.checkedCast(prx: prx, facet: facet, context: context) as TopicManagerSyncPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TopicManagerSyncPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TopicManagerSyncPrx? {
+    return try await TopicManagerSyncPrxI.checkedCast(prx: prx, facet: facet, context: context) as TopicManagerSyncPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -1162,31 +1026,15 @@ public extension TopicManagerSyncPrx {
     ///   - llu: `LogUpdate` - The last log update token.
     ///
     ///   - content: `TopicContentSeq` - The topic content.
-    func getContent(context: Ice.Context? = nil) throws -> (llu: LogUpdate, content: TopicContentSeq) {
-        return try _impl._invoke(operation: "getContent",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_llu: LogUpdate = try istr.read()
-                                     let iceP_content: TopicContentSeq = try TopicContentSeqHelper.read(from: istr)
-                                     return (iceP_llu, iceP_content)
-                                 },
-                                 context: context)
-    }
-
-    /// Retrieve the topic content.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(llu: LogUpdate, content: TopicContentSeq)` - The result of the operation
-    func getContentAsync(context: Ice.Context? = nil) async throws -> (llu: LogUpdate, content: TopicContentSeq) {
-        return try await _impl._invokeAsync(operation: "getContent",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_llu: LogUpdate = try istr.read()
-                                                let iceP_content: TopicContentSeq = try TopicContentSeqHelper.read(from: istr)
-                                                return (iceP_llu, iceP_content)
-                                            },
-                                            context: context)
+    func getContent(context: Ice.Context? = nil) async throws -> (llu: LogUpdate, content: TopicContentSeq) {
+        return try await _impl._invoke(operation: "getContent",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_llu: LogUpdate = try istr.read()
+                                           let iceP_content: TopicContentSeq = try TopicContentSeqHelper.read(from: istr)
+                                           return (iceP_llu, iceP_content)
+                                       },
+                                       context: context)
     }
 }
 
@@ -1263,8 +1111,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: NodePrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> NodePrx? {
-    return try NodePrxI.checkedCast(prx: prx, facet: facet, context: context) as NodePrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: NodePrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> NodePrx? {
+    return try await NodePrxI.checkedCast(prx: prx, facet: facet, context: context) as NodePrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -1355,33 +1203,14 @@ public extension NodePrx {
     /// - parameter gn: `Swift.String` The group name.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func invitation(j iceP_j: Swift.Int32, gn iceP_gn: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "invitation",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_j)
-                              ostr.write(iceP_gn)
-                          },
-                          context: context)
-    }
-
-    /// Invite the node into a group with the given coordinator and group name.
-    ///
-    /// - parameter j: `Swift.Int32` The group coordinator.
-    ///
-    /// - parameter gn: `Swift.String` The group name.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func invitationAsync(j iceP_j: Swift.Int32, gn iceP_gn: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "invitation",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_j)
-                                                ostr.write(iceP_gn)
-                                            },
-                                            context: context)
+    func invitation(j iceP_j: Swift.Int32, gn iceP_gn: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "invitation",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_j)
+                                           ostr.write(iceP_gn)
+                                       },
+                                       context: context)
     }
 
     /// Call from the group coordinator to a node to inform the node that the replica group is active.
@@ -1397,45 +1226,17 @@ public extension NodePrx {
     /// - parameter generation: `Swift.Int64` The current generation count.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func ready(j iceP_j: Swift.Int32, gn iceP_gn: Swift.String, coordinator iceP_coordinator: Ice.ObjectPrx?, max iceP_max: Swift.Int32, generation iceP_generation: Swift.Int64, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "ready",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_j)
-                              ostr.write(iceP_gn)
-                              ostr.write(iceP_coordinator)
-                              ostr.write(iceP_max)
-                              ostr.write(iceP_generation)
-                          },
-                          context: context)
-    }
-
-    /// Call from the group coordinator to a node to inform the node that the replica group is active.
-    ///
-    /// - parameter j: `Swift.Int32` The group coordinator.
-    ///
-    /// - parameter gn: `Swift.String` The group name.
-    ///
-    /// - parameter coordinator: `Ice.ObjectPrx?` The proxy to the coordinator.
-    ///
-    /// - parameter max: `Swift.Int32` The highest priority node seen by this replica group.
-    ///
-    /// - parameter generation: `Swift.Int64` The current generation count.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func readyAsync(j iceP_j: Swift.Int32, gn iceP_gn: Swift.String, coordinator iceP_coordinator: Ice.ObjectPrx?, max iceP_max: Swift.Int32, generation iceP_generation: Swift.Int64, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "ready",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_j)
-                                                ostr.write(iceP_gn)
-                                                ostr.write(iceP_coordinator)
-                                                ostr.write(iceP_max)
-                                                ostr.write(iceP_generation)
-                                            },
-                                            context: context)
+    func ready(j iceP_j: Swift.Int32, gn iceP_gn: Swift.String, coordinator iceP_coordinator: Ice.ObjectPrx?, max iceP_max: Swift.Int32, generation iceP_generation: Swift.Int64, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "ready",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_j)
+                                           ostr.write(iceP_gn)
+                                           ostr.write(iceP_coordinator)
+                                           ostr.write(iceP_max)
+                                           ostr.write(iceP_generation)
+                                       },
+                                       context: context)
     }
 
     /// Called to accept an invitation into the given group.
@@ -1453,49 +1254,18 @@ public extension NodePrx {
     /// - parameter max: `Swift.Int32` The highest priority node seen by this replica group.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func accept(j iceP_j: Swift.Int32, gn iceP_gn: Swift.String, forwardedInvites iceP_forwardedInvites: Ice.IntSeq, observer iceP_observer: Ice.ObjectPrx?, llu iceP_llu: LogUpdate, max iceP_max: Swift.Int32, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "accept",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_j)
-                              ostr.write(iceP_gn)
-                              ostr.write(iceP_forwardedInvites)
-                              ostr.write(iceP_observer)
-                              ostr.write(iceP_llu)
-                              ostr.write(iceP_max)
-                          },
-                          context: context)
-    }
-
-    /// Called to accept an invitation into the given group.
-    ///
-    /// - parameter j: `Swift.Int32` The id of the node accepting the invitation.
-    ///
-    /// - parameter gn: `Swift.String` The group name.
-    ///
-    /// - parameter forwardedInvites: `Ice.IntSeq` The ids of the nodes to which invitations were forwarded.
-    ///
-    /// - parameter observer: `Ice.ObjectPrx?` The observer.
-    ///
-    /// - parameter llu: `LogUpdate` The last log update for the given node.
-    ///
-    /// - parameter max: `Swift.Int32` The highest priority node seen by this replica group.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func acceptAsync(j iceP_j: Swift.Int32, gn iceP_gn: Swift.String, forwardedInvites iceP_forwardedInvites: Ice.IntSeq, observer iceP_observer: Ice.ObjectPrx?, llu iceP_llu: LogUpdate, max iceP_max: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "accept",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_j)
-                                                ostr.write(iceP_gn)
-                                                ostr.write(iceP_forwardedInvites)
-                                                ostr.write(iceP_observer)
-                                                ostr.write(iceP_llu)
-                                                ostr.write(iceP_max)
-                                            },
-                                            context: context)
+    func accept(j iceP_j: Swift.Int32, gn iceP_gn: Swift.String, forwardedInvites iceP_forwardedInvites: Ice.IntSeq, observer iceP_observer: Ice.ObjectPrx?, llu iceP_llu: LogUpdate, max iceP_max: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "accept",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_j)
+                                           ostr.write(iceP_gn)
+                                           ostr.write(iceP_forwardedInvites)
+                                           ostr.write(iceP_observer)
+                                           ostr.write(iceP_llu)
+                                           ostr.write(iceP_max)
+                                       },
+                                       context: context)
     }
 
     /// Determine if this node is a coordinator.
@@ -1503,29 +1273,14 @@ public extension NodePrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Bool` - True if the node is a coordinator, false otherwise.
-    func areYouCoordinator(context: Ice.Context? = nil) throws -> Swift.Bool {
-        return try _impl._invoke(operation: "areYouCoordinator",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Bool = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Determine if this node is a coordinator.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool` - The result of the operation
-    func areYouCoordinatorAsync(context: Ice.Context? = nil) async throws -> Swift.Bool {
-        return try await _impl._invokeAsync(operation: "areYouCoordinator",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Bool = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func areYouCoordinator(context: Ice.Context? = nil) async throws -> Swift.Bool {
+        return try await _impl._invoke(operation: "areYouCoordinator",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Bool = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Determine if the node is a member of the given group with the given coordinator.
@@ -1537,41 +1292,18 @@ public extension NodePrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Bool` - True if the node is a member, false otherwise.
-    func areYouThere(gn iceP_gn: Swift.String, j iceP_j: Swift.Int32, context: Ice.Context? = nil) throws -> Swift.Bool {
-        return try _impl._invoke(operation: "areYouThere",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_gn)
-                                     ostr.write(iceP_j)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Bool = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Determine if the node is a member of the given group with the given coordinator.
-    ///
-    /// - parameter gn: `Swift.String` The group name.
-    ///
-    /// - parameter j: `Swift.Int32` The group coordinator.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool` - The result of the operation
-    func areYouThereAsync(gn iceP_gn: Swift.String, j iceP_j: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Bool {
-        return try await _impl._invokeAsync(operation: "areYouThere",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_gn)
-                                                ostr.write(iceP_j)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Bool = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func areYouThere(gn iceP_gn: Swift.String, j iceP_j: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Bool {
+        return try await _impl._invoke(operation: "areYouThere",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_gn)
+                                           ostr.write(iceP_j)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Bool = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Get the sync object for the replica hosted by this node.
@@ -1579,29 +1311,14 @@ public extension NodePrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Ice.ObjectPrx?` - The sync object.
-    func sync(context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
-        return try _impl._invoke(operation: "sync",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get the sync object for the replica hosted by this node.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func syncAsync(context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
-        return try await _impl._invokeAsync(operation: "sync",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func sync(context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
+        return try await _impl._invoke(operation: "sync",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Get the replication group information.
@@ -1609,29 +1326,14 @@ public extension NodePrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `NodeInfoSeq` - The set of configured nodes and the associated priority.
-    func nodes(context: Ice.Context? = nil) throws -> NodeInfoSeq {
-        return try _impl._invoke(operation: "nodes",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: NodeInfoSeq = try NodeInfoSeqHelper.read(from: istr)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get the replication group information.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `NodeInfoSeq` - The result of the operation
-    func nodesAsync(context: Ice.Context? = nil) async throws -> NodeInfoSeq {
-        return try await _impl._invokeAsync(operation: "nodes",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: NodeInfoSeq = try NodeInfoSeqHelper.read(from: istr)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func nodes(context: Ice.Context? = nil) async throws -> NodeInfoSeq {
+        return try await _impl._invoke(operation: "nodes",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: NodeInfoSeq = try NodeInfoSeqHelper.read(from: istr)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Get the query information for the given node.
@@ -1639,29 +1341,14 @@ public extension NodePrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `QueryInfo` - The query information.
-    func query(context: Ice.Context? = nil) throws -> QueryInfo {
-        return try _impl._invoke(operation: "query",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: QueryInfo = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get the query information for the given node.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `QueryInfo` - The result of the operation
-    func queryAsync(context: Ice.Context? = nil) async throws -> QueryInfo {
-        return try await _impl._invokeAsync(operation: "query",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: QueryInfo = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func query(context: Ice.Context? = nil) async throws -> QueryInfo {
+        return try await _impl._invoke(operation: "query",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: QueryInfo = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -1711,7 +1398,10 @@ public protocol ReplicaObserver {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - ObserverInconsistencyException - Raised if an
+    ///     inconsisency was detected.
     func `init`(llu: LogUpdate, content: TopicContentSeq, current: Ice.Current) async throws
 
     /// Create the topic with the given name.
@@ -1722,7 +1412,10 @@ public protocol ReplicaObserver {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - ObserverInconsistencyException - Raised if an
+    ///     inconsisency was detected.
     func createTopic(llu: LogUpdate, name: Swift.String, current: Ice.Current) async throws
 
     /// Destroy the topic with the given name.
@@ -1733,7 +1426,10 @@ public protocol ReplicaObserver {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - ObserverInconsistencyException - Raised if an
+    ///     inconsisency was detected.
     func destroyTopic(llu: LogUpdate, name: Swift.String, current: Ice.Current) async throws
 
     /// Add a subscriber to a topic.
@@ -1746,7 +1442,10 @@ public protocol ReplicaObserver {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - ObserverInconsistencyException - Raised if an
+    ///     inconsisency was detected.
     func addSubscriber(llu: LogUpdate, topic: Swift.String, record: IceStorm.SubscriberRecord, current: Ice.Current) async throws
 
     /// Remove a subscriber from a topic.
@@ -1759,7 +1458,9 @@ public protocol ReplicaObserver {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - ObserverInconsistencyException - Raised if an inconsisency was detected.
     func removeSubscriber(llu: LogUpdate, topic: Swift.String, subscribers: Ice.IdentitySeq, current: Ice.Current) async throws
 }
 
@@ -1797,7 +1498,11 @@ public protocol TopicManagerSync {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(llu: LogUpdate, content: TopicContentSeq)` - The result of the operation
+    /// - returns: `(llu: LogUpdate, content: TopicContentSeq)`:
+    ///
+    ///   - llu: `LogUpdate` - The last log update token.
+    ///
+    ///   - content: `TopicContentSeq` - The topic content.
     func getContent(current: Ice.Current) async throws -> (llu: LogUpdate, content: TopicContentSeq)
 }
 
@@ -1852,8 +1557,6 @@ public protocol Node {
     /// - parameter gn: `Swift.String` The group name.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func invitation(j: Swift.Int32, gn: Swift.String, current: Ice.Current) async throws
 
     /// Call from the group coordinator to a node to inform the node that the replica group is active.
@@ -1869,8 +1572,6 @@ public protocol Node {
     /// - parameter generation: `Swift.Int64` The current generation count.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func ready(j: Swift.Int32, gn: Swift.String, coordinator: Ice.ObjectPrx?, max: Swift.Int32, generation: Swift.Int64, current: Ice.Current) async throws
 
     /// Called to accept an invitation into the given group.
@@ -1888,15 +1589,13 @@ public protocol Node {
     /// - parameter max: `Swift.Int32` The highest priority node seen by this replica group.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func accept(j: Swift.Int32, gn: Swift.String, forwardedInvites: Ice.IntSeq, observer: Ice.ObjectPrx?, llu: LogUpdate, max: Swift.Int32, current: Ice.Current) async throws
 
     /// Determine if this node is a coordinator.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Bool` - The result of the operation
+    /// - returns: `Swift.Bool` - True if the node is a coordinator, false otherwise.
     func areYouCoordinator(current: Ice.Current) async throws -> Swift.Bool
 
     /// Determine if the node is a member of the given group with the given coordinator.
@@ -1907,28 +1606,28 @@ public protocol Node {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Bool` - The result of the operation
+    /// - returns: `Swift.Bool` - True if the node is a member, false otherwise.
     func areYouThere(gn: Swift.String, j: Swift.Int32, current: Ice.Current) async throws -> Swift.Bool
 
     /// Get the sync object for the replica hosted by this node.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    /// - returns: `Ice.ObjectPrx?` - The sync object.
     func sync(current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Get the replication group information.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NodeInfoSeq` - The result of the operation
+    /// - returns: `NodeInfoSeq` - The set of configured nodes and the associated priority.
     func nodes(current: Ice.Current) async throws -> NodeInfoSeq
 
     /// Get the query information for the given node.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `QueryInfo` - The result of the operation
+    /// - returns: `QueryInfo` - The query information.
     func query(current: Ice.Current) async throws -> QueryInfo
 }
 

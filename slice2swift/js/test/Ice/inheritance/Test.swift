@@ -97,8 +97,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: MAIAPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> MAIAPrx? {
-    return try MAIAPrxI.checkedCast(prx: prx, facet: facet, context: context) as MAIAPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: MAIAPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> MAIAPrx? {
+    return try await MAIAPrxI.checkedCast(prx: prx, facet: facet, context: context) as MAIAPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -160,36 +160,17 @@ public extension MAIAPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `MAIAPrx?`
-    func iaop(_ iceP_p: MAIAPrx?, context: Ice.Context? = nil) throws -> MAIAPrx? {
-        return try _impl._invoke(operation: "iaop",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_p)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: MAIAPrx? = try istr.read(MAIAPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `MAIAPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MAIAPrx?` - The result of the operation
-    func iaopAsync(_ iceP_p: MAIAPrx?, context: Ice.Context? = nil) async throws -> MAIAPrx? {
-        return try await _impl._invokeAsync(operation: "iaop",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_p)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: MAIAPrx? = try istr.read(MAIAPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func iaop(_ iceP_p: MAIAPrx?, context: Ice.Context? = nil) async throws -> MAIAPrx? {
+        return try await _impl._invoke(operation: "iaop",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_p)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: MAIAPrx? = try istr.read(MAIAPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -238,8 +219,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: MBIB1Prx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> MBIB1Prx? {
-    return try MBIB1PrxI.checkedCast(prx: prx, facet: facet, context: context) as MBIB1PrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: MBIB1Prx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> MBIB1Prx? {
+    return try await MBIB1PrxI.checkedCast(prx: prx, facet: facet, context: context) as MBIB1PrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -301,36 +282,17 @@ public extension MBIB1Prx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `MBIB1Prx?`
-    func ib1op(_ iceP_p: MBIB1Prx?, context: Ice.Context? = nil) throws -> MBIB1Prx? {
-        return try _impl._invoke(operation: "ib1op",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_p)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: MBIB1Prx? = try istr.read(MBIB1Prx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `MBIB1Prx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MBIB1Prx?` - The result of the operation
-    func ib1opAsync(_ iceP_p: MBIB1Prx?, context: Ice.Context? = nil) async throws -> MBIB1Prx? {
-        return try await _impl._invokeAsync(operation: "ib1op",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_p)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: MBIB1Prx? = try istr.read(MBIB1Prx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func ib1op(_ iceP_p: MBIB1Prx?, context: Ice.Context? = nil) async throws -> MBIB1Prx? {
+        return try await _impl._invoke(operation: "ib1op",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_p)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: MBIB1Prx? = try istr.read(MBIB1Prx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -379,8 +341,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: MBIB2Prx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> MBIB2Prx? {
-    return try MBIB2PrxI.checkedCast(prx: prx, facet: facet, context: context) as MBIB2PrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: MBIB2Prx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> MBIB2Prx? {
+    return try await MBIB2PrxI.checkedCast(prx: prx, facet: facet, context: context) as MBIB2PrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -442,36 +404,17 @@ public extension MBIB2Prx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `MBIB2Prx?`
-    func ib2op(_ iceP_p: MBIB2Prx?, context: Ice.Context? = nil) throws -> MBIB2Prx? {
-        return try _impl._invoke(operation: "ib2op",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_p)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: MBIB2Prx? = try istr.read(MBIB2Prx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `MBIB2Prx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MBIB2Prx?` - The result of the operation
-    func ib2opAsync(_ iceP_p: MBIB2Prx?, context: Ice.Context? = nil) async throws -> MBIB2Prx? {
-        return try await _impl._invokeAsync(operation: "ib2op",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_p)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: MBIB2Prx? = try istr.read(MBIB2Prx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func ib2op(_ iceP_p: MBIB2Prx?, context: Ice.Context? = nil) async throws -> MBIB2Prx? {
+        return try await _impl._invoke(operation: "ib2op",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_p)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: MBIB2Prx? = try istr.read(MBIB2Prx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -520,8 +463,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: MAICPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> MAICPrx? {
-    return try MAICPrxI.checkedCast(prx: prx, facet: facet, context: context) as MAICPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: MAICPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> MAICPrx? {
+    return try await MAICPrxI.checkedCast(prx: prx, facet: facet, context: context) as MAICPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -583,36 +526,17 @@ public extension MAICPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `MAICPrx?`
-    func icop(_ iceP_p: MAICPrx?, context: Ice.Context? = nil) throws -> MAICPrx? {
-        return try _impl._invoke(operation: "icop",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_p)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: MAICPrx? = try istr.read(MAICPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `MAICPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MAICPrx?` - The result of the operation
-    func icopAsync(_ iceP_p: MAICPrx?, context: Ice.Context? = nil) async throws -> MAICPrx? {
-        return try await _impl._invokeAsync(operation: "icop",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_p)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: MAICPrx? = try istr.read(MAICPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func icop(_ iceP_p: MAICPrx?, context: Ice.Context? = nil) async throws -> MAICPrx? {
+        return try await _impl._invoke(operation: "icop",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_p)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: MAICPrx? = try istr.read(MAICPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -677,8 +601,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: InitialPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> InitialPrx? {
-    return try InitialPrxI.checkedCast(prx: prx, facet: facet, context: context) as InitialPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: InitialPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> InitialPrx? {
+    return try await InitialPrxI.checkedCast(prx: prx, facet: facet, context: context) as InitialPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -752,132 +676,66 @@ public extension Ice.InputStream {
 public extension InitialPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `MAIAPrx?`
-    func iaop(context: Ice.Context? = nil) throws -> MAIAPrx? {
-        return try _impl._invoke(operation: "iaop",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: MAIAPrx? = try istr.read(MAIAPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MAIAPrx?` - The result of the operation
-    func iaopAsync(context: Ice.Context? = nil) async throws -> MAIAPrx? {
-        return try await _impl._invokeAsync(operation: "iaop",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: MAIAPrx? = try istr.read(MAIAPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func iaop(context: Ice.Context? = nil) async throws -> MAIAPrx? {
+        return try await _impl._invoke(operation: "iaop",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: MAIAPrx? = try istr.read(MAIAPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `MBIB1Prx?`
-    func ib1op(context: Ice.Context? = nil) throws -> MBIB1Prx? {
-        return try _impl._invoke(operation: "ib1op",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: MBIB1Prx? = try istr.read(MBIB1Prx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MBIB1Prx?` - The result of the operation
-    func ib1opAsync(context: Ice.Context? = nil) async throws -> MBIB1Prx? {
-        return try await _impl._invokeAsync(operation: "ib1op",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: MBIB1Prx? = try istr.read(MBIB1Prx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func ib1op(context: Ice.Context? = nil) async throws -> MBIB1Prx? {
+        return try await _impl._invoke(operation: "ib1op",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: MBIB1Prx? = try istr.read(MBIB1Prx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `MBIB2Prx?`
-    func ib2op(context: Ice.Context? = nil) throws -> MBIB2Prx? {
-        return try _impl._invoke(operation: "ib2op",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: MBIB2Prx? = try istr.read(MBIB2Prx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MBIB2Prx?` - The result of the operation
-    func ib2opAsync(context: Ice.Context? = nil) async throws -> MBIB2Prx? {
-        return try await _impl._invokeAsync(operation: "ib2op",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: MBIB2Prx? = try istr.read(MBIB2Prx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func ib2op(context: Ice.Context? = nil) async throws -> MBIB2Prx? {
+        return try await _impl._invoke(operation: "ib2op",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: MBIB2Prx? = try istr.read(MBIB2Prx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `MAICPrx?`
-    func icop(context: Ice.Context? = nil) throws -> MAICPrx? {
-        return try _impl._invoke(operation: "icop",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: MAICPrx? = try istr.read(MAICPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MAICPrx?` - The result of the operation
-    func icopAsync(context: Ice.Context? = nil) async throws -> MAICPrx? {
-        return try await _impl._invokeAsync(operation: "icop",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: MAICPrx? = try istr.read(MAICPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func icop(context: Ice.Context? = nil) async throws -> MAICPrx? {
+        return try await _impl._invoke(operation: "icop",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: MAICPrx? = try istr.read(MAICPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -938,8 +796,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: EchoPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> EchoPrx? {
-    return try EchoPrxI.checkedCast(prx: prx, facet: facet, context: context) as EchoPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: EchoPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> EchoPrx? {
+    return try await EchoPrxI.checkedCast(prx: prx, facet: facet, context: context) as EchoPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -1009,74 +867,34 @@ public extension Ice.InputStream {
 public extension EchoPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func setConnection(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "setConnection",
-                          mode: .Normal,
-                          context: context)
+    func setConnection(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "setConnection",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func setConnectionAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "setConnection",
-                                            mode: .Normal,
-                                            context: context)
+    func startBatch(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "startBatch",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func startBatch(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "startBatch",
-                          mode: .Normal,
-                          context: context)
+    func flushBatch(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "flushBatch",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func startBatchAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "startBatch",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func flushBatch(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "flushBatch",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func flushBatchAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "flushBatch",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -2164,7 +1982,7 @@ public protocol MAIA {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `MAIAPrx?` - The result of the operation
+    /// - returns: `MAIAPrx?`
     func iaop(p: MAIAPrx?, current: Ice.Current) async throws -> MAIAPrx?
 }
 
@@ -2204,7 +2022,7 @@ public protocol MBIB1: MAIA {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `MBIB1Prx?` - The result of the operation
+    /// - returns: `MBIB1Prx?`
     func ib1op(p: MBIB1Prx?, current: Ice.Current) async throws -> MBIB1Prx?
 }
 
@@ -2244,7 +2062,7 @@ public protocol MBIB2: MAIA {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `MBIB2Prx?` - The result of the operation
+    /// - returns: `MBIB2Prx?`
     func ib2op(p: MBIB2Prx?, current: Ice.Current) async throws -> MBIB2Prx?
 }
 
@@ -2288,7 +2106,7 @@ public protocol MAIC: MBIB1, MBIB2 {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `MAICPrx?` - The result of the operation
+    /// - returns: `MAICPrx?`
     func icop(p: MAICPrx?, current: Ice.Current) async throws -> MAICPrx?
 }
 
@@ -2331,32 +2149,30 @@ public struct InitialDisp: Ice.Dispatcher {
 public protocol Initial {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `MAIAPrx?` - The result of the operation
+    /// - returns: `MAIAPrx?`
     func iaop(current: Ice.Current) async throws -> MAIAPrx?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `MBIB1Prx?` - The result of the operation
+    /// - returns: `MBIB1Prx?`
     func ib1op(current: Ice.Current) async throws -> MBIB1Prx?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `MBIB2Prx?` - The result of the operation
+    /// - returns: `MBIB2Prx?`
     func ib2op(current: Ice.Current) async throws -> MBIB2Prx?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `MAICPrx?` - The result of the operation
+    /// - returns: `MAICPrx?`
     func icop(current: Ice.Current) async throws -> MAICPrx?
 }
 
@@ -2397,26 +2213,18 @@ public struct EchoDisp: Ice.Dispatcher {
 public protocol Echo {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func setConnection(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func startBatch(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func flushBatch(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 

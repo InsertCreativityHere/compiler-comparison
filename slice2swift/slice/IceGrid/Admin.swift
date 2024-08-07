@@ -1741,8 +1741,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: AdminPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> AdminPrx? {
-    return try AdminPrxI.checkedCast(prx: prx, facet: facet, context: context) as AdminPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: AdminPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> AdminPrx? {
+    return try await AdminPrxI.checkedCast(prx: prx, facet: facet, context: context) as AdminPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -1987,49 +1987,23 @@ public extension AdminPrx {
     ///     holding the lock.
     ///
     ///   - DeploymentException - Raised if application deployment failed.
-    func addApplication(_ iceP_descriptor: ApplicationDescriptor, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "addApplication",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_descriptor)
-                              ostr.writePendingValues()
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as DeploymentException {
-                                  throw error
-                              } catch let error as AccessDeniedException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Add an application to IceGrid.
-    ///
-    /// - parameter _: `ApplicationDescriptor` The application descriptor.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func addApplicationAsync(_ iceP_descriptor: ApplicationDescriptor, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "addApplication",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_descriptor)
-                                                ostr.writePendingValues()
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as DeploymentException {
-                                                    throw error
-                                                } catch let error as AccessDeniedException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func addApplication(_ iceP_descriptor: ApplicationDescriptor, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "addApplication",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_descriptor)
+                                           ostr.writePendingValues()
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as DeploymentException {
+                                               throw error
+                                           } catch let error as AccessDeniedException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Synchronize a deployed application with the given application descriptor. This operation will replace the
@@ -2047,54 +2021,25 @@ public extension AdminPrx {
     ///   - ApplicationNotExistException - Raised if the application doesn't exist.
     ///
     ///   - DeploymentException - Raised if application deployment failed.
-    func syncApplication(_ iceP_descriptor: ApplicationDescriptor, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "syncApplication",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_descriptor)
-                              ostr.writePendingValues()
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ApplicationNotExistException {
-                                  throw error
-                              } catch let error as DeploymentException {
-                                  throw error
-                              } catch let error as AccessDeniedException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Synchronize a deployed application with the given application descriptor. This operation will replace the
-    /// current descriptor with this new descriptor.
-    ///
-    /// - parameter _: `ApplicationDescriptor` The application descriptor.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func syncApplicationAsync(_ iceP_descriptor: ApplicationDescriptor, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "syncApplication",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_descriptor)
-                                                ostr.writePendingValues()
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ApplicationNotExistException {
-                                                    throw error
-                                                } catch let error as DeploymentException {
-                                                    throw error
-                                                } catch let error as AccessDeniedException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func syncApplication(_ iceP_descriptor: ApplicationDescriptor, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "syncApplication",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_descriptor)
+                                           ostr.writePendingValues()
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ApplicationNotExistException {
+                                               throw error
+                                           } catch let error as DeploymentException {
+                                               throw error
+                                           } catch let error as AccessDeniedException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Update a deployed application with the given update application descriptor.
@@ -2111,53 +2056,25 @@ public extension AdminPrx {
     ///   - ApplicationNotExistException - Raised if the application doesn't exist.
     ///
     ///   - DeploymentException - Raised if application deployment failed.
-    func updateApplication(_ iceP_descriptor: ApplicationUpdateDescriptor, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "updateApplication",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_descriptor)
-                              ostr.writePendingValues()
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ApplicationNotExistException {
-                                  throw error
-                              } catch let error as DeploymentException {
-                                  throw error
-                              } catch let error as AccessDeniedException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Update a deployed application with the given update application descriptor.
-    ///
-    /// - parameter _: `ApplicationUpdateDescriptor` The update descriptor.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func updateApplicationAsync(_ iceP_descriptor: ApplicationUpdateDescriptor, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "updateApplication",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_descriptor)
-                                                ostr.writePendingValues()
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ApplicationNotExistException {
-                                                    throw error
-                                                } catch let error as DeploymentException {
-                                                    throw error
-                                                } catch let error as AccessDeniedException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func updateApplication(_ iceP_descriptor: ApplicationUpdateDescriptor, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "updateApplication",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_descriptor)
+                                           ostr.writePendingValues()
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ApplicationNotExistException {
+                                               throw error
+                                           } catch let error as DeploymentException {
+                                               throw error
+                                           } catch let error as AccessDeniedException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Synchronize a deployed application with the given application descriptor. This operation will replace the
@@ -2177,56 +2094,25 @@ public extension AdminPrx {
     ///   - ApplicationNotExistException - Raised if the application doesn't exist.
     ///
     ///   - DeploymentException - Raised if application deployment failed.
-    func syncApplicationWithoutRestart(_ iceP_descriptor: ApplicationDescriptor, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "syncApplicationWithoutRestart",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_descriptor)
-                              ostr.writePendingValues()
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ApplicationNotExistException {
-                                  throw error
-                              } catch let error as DeploymentException {
-                                  throw error
-                              } catch let error as AccessDeniedException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Synchronize a deployed application with the given application descriptor. This operation will replace the
-    /// current descriptor with this new descriptor only if no server restarts are necessary for the update of the
-    /// application. If some servers need to be restarted, the synchronization is rejected with a
-    /// DeploymentException.
-    ///
-    /// - parameter _: `ApplicationDescriptor` The application descriptor.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func syncApplicationWithoutRestartAsync(_ iceP_descriptor: ApplicationDescriptor, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "syncApplicationWithoutRestart",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_descriptor)
-                                                ostr.writePendingValues()
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ApplicationNotExistException {
-                                                    throw error
-                                                } catch let error as DeploymentException {
-                                                    throw error
-                                                } catch let error as AccessDeniedException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func syncApplicationWithoutRestart(_ iceP_descriptor: ApplicationDescriptor, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "syncApplicationWithoutRestart",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_descriptor)
+                                           ostr.writePendingValues()
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ApplicationNotExistException {
+                                               throw error
+                                           } catch let error as DeploymentException {
+                                               throw error
+                                           } catch let error as AccessDeniedException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Update a deployed application with the given update application descriptor only if no server restarts are
@@ -2245,55 +2131,25 @@ public extension AdminPrx {
     ///   - ApplicationNotExistException - Raised if the application doesn't exist.
     ///
     ///   - DeploymentException - Raised if application deployment failed.
-    func updateApplicationWithoutRestart(_ iceP_descriptor: ApplicationUpdateDescriptor, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "updateApplicationWithoutRestart",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_descriptor)
-                              ostr.writePendingValues()
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ApplicationNotExistException {
-                                  throw error
-                              } catch let error as DeploymentException {
-                                  throw error
-                              } catch let error as AccessDeniedException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Update a deployed application with the given update application descriptor only if no server restarts are
-    /// necessary for the update of the application. If some servers need to be restarted, the synchronization is
-    /// rejected with a DeploymentException.
-    ///
-    /// - parameter _: `ApplicationUpdateDescriptor` The update descriptor.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func updateApplicationWithoutRestartAsync(_ iceP_descriptor: ApplicationUpdateDescriptor, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "updateApplicationWithoutRestart",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_descriptor)
-                                                ostr.writePendingValues()
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ApplicationNotExistException {
-                                                    throw error
-                                                } catch let error as DeploymentException {
-                                                    throw error
-                                                } catch let error as AccessDeniedException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func updateApplicationWithoutRestart(_ iceP_descriptor: ApplicationUpdateDescriptor, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "updateApplicationWithoutRestart",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_descriptor)
+                                           ostr.writePendingValues()
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ApplicationNotExistException {
+                                               throw error
+                                           } catch let error as DeploymentException {
+                                               throw error
+                                           } catch let error as AccessDeniedException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Remove an application from IceGrid.
@@ -2310,51 +2166,24 @@ public extension AdminPrx {
     ///   - ApplicationNotExistException - Raised if the application doesn't exist.
     ///
     ///   - DeploymentException - Raised if application deployment failed.
-    func removeApplication(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "removeApplication",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_name)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ApplicationNotExistException {
-                                  throw error
-                              } catch let error as DeploymentException {
-                                  throw error
-                              } catch let error as AccessDeniedException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Remove an application from IceGrid.
-    ///
-    /// - parameter _: `Swift.String` The application name.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func removeApplicationAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "removeApplication",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ApplicationNotExistException {
-                                                    throw error
-                                                } catch let error as DeploymentException {
-                                                    throw error
-                                                } catch let error as AccessDeniedException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func removeApplication(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "removeApplication",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ApplicationNotExistException {
+                                               throw error
+                                           } catch let error as DeploymentException {
+                                               throw error
+                                           } catch let error as AccessDeniedException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Instantiate a server template from an application on the given node.
@@ -2375,59 +2204,26 @@ public extension AdminPrx {
     ///   - ApplicationNotExistException - Raised if the application doesn't exist.
     ///
     ///   - DeploymentException - Raised if server instantiation failed.
-    func instantiateServer(application iceP_application: Swift.String, node iceP_node: Swift.String, desc iceP_desc: ServerInstanceDescriptor, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "instantiateServer",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_application)
-                              ostr.write(iceP_node)
-                              ostr.write(iceP_desc)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ApplicationNotExistException {
-                                  throw error
-                              } catch let error as DeploymentException {
-                                  throw error
-                              } catch let error as AccessDeniedException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Instantiate a server template from an application on the given node.
-    ///
-    /// - parameter application: `Swift.String` The application name.
-    ///
-    /// - parameter node: `Swift.String` The name of the node where the server will be deployed.
-    ///
-    /// - parameter desc: `ServerInstanceDescriptor` The descriptor of the server instance to deploy.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func instantiateServerAsync(application iceP_application: Swift.String, node iceP_node: Swift.String, desc iceP_desc: ServerInstanceDescriptor, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "instantiateServer",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_application)
-                                                ostr.write(iceP_node)
-                                                ostr.write(iceP_desc)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ApplicationNotExistException {
-                                                    throw error
-                                                } catch let error as DeploymentException {
-                                                    throw error
-                                                } catch let error as AccessDeniedException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func instantiateServer(application iceP_application: Swift.String, node iceP_node: Swift.String, desc iceP_desc: ServerInstanceDescriptor, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "instantiateServer",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_application)
+                                           ostr.write(iceP_node)
+                                           ostr.write(iceP_desc)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ApplicationNotExistException {
+                                               throw error
+                                           } catch let error as DeploymentException {
+                                               throw error
+                                           } catch let error as AccessDeniedException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get an application descriptor.
@@ -2441,53 +2237,25 @@ public extension AdminPrx {
     /// - throws:
     ///
     ///   - ApplicationNotExistException - Raised if the application doesn't exist.
-    func getApplicationInfo(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws -> ApplicationInfo {
-        return try _impl._invoke(operation: "getApplicationInfo",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_name)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: ApplicationInfo = try istr.read()
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as ApplicationNotExistException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Get an application descriptor.
-    ///
-    /// - parameter _: `Swift.String` The application name.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ApplicationInfo` - The result of the operation
-    func getApplicationInfoAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> ApplicationInfo {
-        return try await _impl._invokeAsync(operation: "getApplicationInfo",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: ApplicationInfo = try istr.read()
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ApplicationNotExistException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func getApplicationInfo(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> ApplicationInfo {
+        return try await _impl._invoke(operation: "getApplicationInfo",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: ApplicationInfo = try istr.read()
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ApplicationNotExistException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get the default application descriptor.
@@ -2499,45 +2267,22 @@ public extension AdminPrx {
     /// - throws:
     ///
     ///   - DeploymentException - Raised if the default application descriptor can't be accessed or is invalid.
-    func getDefaultApplicationDescriptor(context: Ice.Context? = nil) throws -> ApplicationDescriptor {
-        return try _impl._invoke(operation: "getDefaultApplicationDescriptor",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: ApplicationDescriptor = try istr.read()
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as DeploymentException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Get the default application descriptor.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ApplicationDescriptor` - The result of the operation
-    func getDefaultApplicationDescriptorAsync(context: Ice.Context? = nil) async throws -> ApplicationDescriptor {
-        return try await _impl._invokeAsync(operation: "getDefaultApplicationDescriptor",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: ApplicationDescriptor = try istr.read()
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as DeploymentException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func getDefaultApplicationDescriptor(context: Ice.Context? = nil) async throws -> ApplicationDescriptor {
+        return try await _impl._invoke(operation: "getDefaultApplicationDescriptor",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: ApplicationDescriptor = try istr.read()
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as DeploymentException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get all the IceGrid applications currently registered.
@@ -2545,29 +2290,14 @@ public extension AdminPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Ice.StringSeq` - The application names.
-    func getAllApplicationNames(context: Ice.Context? = nil) throws -> Ice.StringSeq {
-        return try _impl._invoke(operation: "getAllApplicationNames",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.StringSeq = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get all the IceGrid applications currently registered.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.StringSeq` - The result of the operation
-    func getAllApplicationNamesAsync(context: Ice.Context? = nil) async throws -> Ice.StringSeq {
-        return try await _impl._invokeAsync(operation: "getAllApplicationNames",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.StringSeq = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getAllApplicationNames(context: Ice.Context? = nil) async throws -> Ice.StringSeq {
+        return try await _impl._invoke(operation: "getAllApplicationNames",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.StringSeq = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Get the server information for the server with the given id.
@@ -2581,53 +2311,25 @@ public extension AdminPrx {
     /// - throws:
     ///
     ///   - ServerNotExistException - Raised if the server doesn't exist.
-    func getServerInfo(_ iceP_id: Swift.String, context: Ice.Context? = nil) throws -> ServerInfo {
-        return try _impl._invoke(operation: "getServerInfo",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_id)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: ServerInfo = try istr.read()
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as ServerNotExistException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Get the server information for the server with the given id.
-    ///
-    /// - parameter _: `Swift.String` The server id.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ServerInfo` - The result of the operation
-    func getServerInfoAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> ServerInfo {
-        return try await _impl._invokeAsync(operation: "getServerInfo",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: ServerInfo = try istr.read()
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ServerNotExistException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func getServerInfo(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> ServerInfo {
+        return try await _impl._invoke(operation: "getServerInfo",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: ServerInfo = try istr.read()
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ServerNotExistException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get a server's state.
@@ -2645,59 +2347,28 @@ public extension AdminPrx {
     ///   - NodeUnreachableException - Raised if the node could not be reached.
     ///
     ///   - ServerNotExistException - Raised if the server doesn't exist.
-    func getServerState(_ iceP_id: Swift.String, context: Ice.Context? = nil) throws -> ServerState {
-        return try _impl._invoke(operation: "getServerState",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_id)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: ServerState = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as ServerNotExistException {
-                                         throw error
-                                     } catch let error as DeploymentException {
-                                         throw error
-                                     } catch let error as NodeUnreachableException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Get a server's state.
-    ///
-    /// - parameter _: `Swift.String` The server id.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ServerState` - The result of the operation
-    func getServerStateAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> ServerState {
-        return try await _impl._invokeAsync(operation: "getServerState",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: ServerState = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ServerNotExistException {
-                                                    throw error
-                                                } catch let error as DeploymentException {
-                                                    throw error
-                                                } catch let error as NodeUnreachableException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func getServerState(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> ServerState {
+        return try await _impl._invoke(operation: "getServerState",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: ServerState = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ServerNotExistException {
+                                               throw error
+                                           } catch let error as DeploymentException {
+                                               throw error
+                                           } catch let error as NodeUnreachableException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get a server's system process id. The process id is operating system dependent.
@@ -2715,59 +2386,28 @@ public extension AdminPrx {
     ///   - NodeUnreachableException - Raised if the node could not be reached.
     ///
     ///   - ServerNotExistException - Raised if the server doesn't exist.
-    func getServerPid(_ iceP_id: Swift.String, context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "getServerPid",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_id)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as ServerNotExistException {
-                                         throw error
-                                     } catch let error as DeploymentException {
-                                         throw error
-                                     } catch let error as NodeUnreachableException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Get a server's system process id. The process id is operating system dependent.
-    ///
-    /// - parameter _: `Swift.String` The server id.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The result of the operation
-    func getServerPidAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Int32 {
-        return try await _impl._invokeAsync(operation: "getServerPid",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Int32 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ServerNotExistException {
-                                                    throw error
-                                                } catch let error as DeploymentException {
-                                                    throw error
-                                                } catch let error as NodeUnreachableException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func getServerPid(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invoke(operation: "getServerPid",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Int32 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ServerNotExistException {
+                                               throw error
+                                           } catch let error as DeploymentException {
+                                               throw error
+                                           } catch let error as NodeUnreachableException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
@@ -2776,30 +2416,14 @@ public extension AdminPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.String` - The category for server admin objects.
-    func getServerAdminCategory(context: Ice.Context? = nil) throws -> Swift.String {
-        return try _impl._invoke(operation: "getServerAdminCategory",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.String = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
-    /// changing its identity: use the server ID as name and the returned category as category.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String` - The result of the operation
-    func getServerAdminCategoryAsync(context: Ice.Context? = nil) async throws -> Swift.String {
-        return try await _impl._invokeAsync(operation: "getServerAdminCategory",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.String = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getServerAdminCategory(context: Ice.Context? = nil) async throws -> Swift.String {
+        return try await _impl._invoke(operation: "getServerAdminCategory",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.String = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Get a proxy to the server's admin object.
@@ -2817,59 +2441,28 @@ public extension AdminPrx {
     ///   - NodeUnreachableException - Raised if the node could not be reached.
     ///
     ///   - ServerNotExistException - Raised if the server doesn't exist.
-    func getServerAdmin(_ iceP_id: Swift.String, context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
-        return try _impl._invoke(operation: "getServerAdmin",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_id)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as ServerNotExistException {
-                                         throw error
-                                     } catch let error as DeploymentException {
-                                         throw error
-                                     } catch let error as NodeUnreachableException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Get a proxy to the server's admin object.
-    ///
-    /// - parameter _: `Swift.String` The server id.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func getServerAdminAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
-        return try await _impl._invokeAsync(operation: "getServerAdmin",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ServerNotExistException {
-                                                    throw error
-                                                } catch let error as DeploymentException {
-                                                    throw error
-                                                } catch let error as NodeUnreachableException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func getServerAdmin(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
+        return try await _impl._invoke(operation: "getServerAdmin",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ServerNotExistException {
+                                               throw error
+                                           } catch let error as DeploymentException {
+                                               throw error
+                                           } catch let error as NodeUnreachableException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
@@ -2889,57 +2482,25 @@ public extension AdminPrx {
     ///   - NodeUnreachableException - Raised if the node could not be reached.
     ///
     ///   - ServerNotExistException - Raised if the server doesn't exist.
-    func enableServer(id iceP_id: Swift.String, enabled iceP_enabled: Swift.Bool, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "enableServer",
-                          mode: .Idempotent,
-                          write: { ostr in
-                              ostr.write(iceP_id)
-                              ostr.write(iceP_enabled)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ServerNotExistException {
-                                  throw error
-                              } catch let error as DeploymentException {
-                                  throw error
-                              } catch let error as NodeUnreachableException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
-    /// state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
-    /// default.
-    ///
-    /// - parameter id: `Swift.String` The server id.
-    ///
-    /// - parameter enabled: `Swift.Bool` True to enable the server, false to disable it.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func enableServerAsync(id iceP_id: Swift.String, enabled iceP_enabled: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "enableServer",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                                ostr.write(iceP_enabled)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ServerNotExistException {
-                                                    throw error
-                                                } catch let error as DeploymentException {
-                                                    throw error
-                                                } catch let error as NodeUnreachableException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func enableServer(id iceP_id: Swift.String, enabled iceP_enabled: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "enableServer",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                           ostr.write(iceP_enabled)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ServerNotExistException {
+                                               throw error
+                                           } catch let error as DeploymentException {
+                                               throw error
+                                           } catch let error as NodeUnreachableException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Check if the server is enabled or disabled.
@@ -2957,59 +2518,28 @@ public extension AdminPrx {
     ///   - NodeUnreachableException - Raised if the node could not be reached.
     ///
     ///   - ServerNotExistException - Raised if the server doesn't exist.
-    func isServerEnabled(_ iceP_id: Swift.String, context: Ice.Context? = nil) throws -> Swift.Bool {
-        return try _impl._invoke(operation: "isServerEnabled",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_id)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Bool = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as ServerNotExistException {
-                                         throw error
-                                     } catch let error as DeploymentException {
-                                         throw error
-                                     } catch let error as NodeUnreachableException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Check if the server is enabled or disabled.
-    ///
-    /// - parameter _: `Swift.String` The server id.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool` - The result of the operation
-    func isServerEnabledAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Bool {
-        return try await _impl._invokeAsync(operation: "isServerEnabled",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Bool = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ServerNotExistException {
-                                                    throw error
-                                                } catch let error as DeploymentException {
-                                                    throw error
-                                                } catch let error as NodeUnreachableException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func isServerEnabled(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Bool {
+        return try await _impl._invoke(operation: "isServerEnabled",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Bool = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ServerNotExistException {
+                                               throw error
+                                           } catch let error as DeploymentException {
+                                               throw error
+                                           } catch let error as NodeUnreachableException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Start a server and wait for its activation.
@@ -3027,55 +2557,26 @@ public extension AdminPrx {
     ///   - ServerNotExistException - Raised if the server doesn't exist.
     ///
     ///   - ServerStartException - Raised if the server couldn't be started.
-    func startServer(_ iceP_id: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "startServer",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_id)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ServerNotExistException {
-                                  throw error
-                              } catch let error as ServerStartException {
-                                  throw error
-                              } catch let error as DeploymentException {
-                                  throw error
-                              } catch let error as NodeUnreachableException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Start a server and wait for its activation.
-    ///
-    /// - parameter _: `Swift.String` The server id.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func startServerAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "startServer",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ServerNotExistException {
-                                                    throw error
-                                                } catch let error as ServerStartException {
-                                                    throw error
-                                                } catch let error as DeploymentException {
-                                                    throw error
-                                                } catch let error as NodeUnreachableException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func startServer(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "startServer",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ServerNotExistException {
+                                               throw error
+                                           } catch let error as ServerStartException {
+                                               throw error
+                                           } catch let error as DeploymentException {
+                                               throw error
+                                           } catch let error as NodeUnreachableException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Stop a server.
@@ -3093,55 +2594,26 @@ public extension AdminPrx {
     ///   - ServerNotExistException - Raised if the server doesn't exist.
     ///
     ///   - ServerStopException - Raised if the server couldn't be stopped.
-    func stopServer(_ iceP_id: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "stopServer",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_id)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ServerNotExistException {
-                                  throw error
-                              } catch let error as ServerStopException {
-                                  throw error
-                              } catch let error as DeploymentException {
-                                  throw error
-                              } catch let error as NodeUnreachableException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Stop a server.
-    ///
-    /// - parameter _: `Swift.String` The server id.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func stopServerAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "stopServer",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ServerNotExistException {
-                                                    throw error
-                                                } catch let error as ServerStopException {
-                                                    throw error
-                                                } catch let error as DeploymentException {
-                                                    throw error
-                                                } catch let error as NodeUnreachableException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func stopServer(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "stopServer",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ServerNotExistException {
+                                               throw error
+                                           } catch let error as ServerStopException {
+                                               throw error
+                                           } catch let error as DeploymentException {
+                                               throw error
+                                           } catch let error as NodeUnreachableException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Send signal to a server.
@@ -3161,59 +2633,27 @@ public extension AdminPrx {
     ///   - NodeUnreachableException - Raised if the node could not be reached.
     ///
     ///   - ServerNotExistException - Raised if the server doesn't exist.
-    func sendSignal(id iceP_id: Swift.String, signal iceP_signal: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "sendSignal",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_id)
-                              ostr.write(iceP_signal)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ServerNotExistException {
-                                  throw error
-                              } catch let error as DeploymentException {
-                                  throw error
-                              } catch let error as NodeUnreachableException {
-                                  throw error
-                              } catch let error as BadSignalException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Send signal to a server.
-    ///
-    /// - parameter id: `Swift.String` The server id.
-    ///
-    /// - parameter signal: `Swift.String` The signal, for example SIGTERM or 15.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func sendSignalAsync(id iceP_id: Swift.String, signal iceP_signal: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "sendSignal",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                                ostr.write(iceP_signal)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ServerNotExistException {
-                                                    throw error
-                                                } catch let error as DeploymentException {
-                                                    throw error
-                                                } catch let error as NodeUnreachableException {
-                                                    throw error
-                                                } catch let error as BadSignalException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func sendSignal(id iceP_id: Swift.String, signal iceP_signal: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "sendSignal",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                           ostr.write(iceP_signal)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ServerNotExistException {
+                                               throw error
+                                           } catch let error as DeploymentException {
+                                               throw error
+                                           } catch let error as NodeUnreachableException {
+                                               throw error
+                                           } catch let error as BadSignalException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get all the server ids registered with IceGrid.
@@ -3221,29 +2661,14 @@ public extension AdminPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Ice.StringSeq` - The server ids.
-    func getAllServerIds(context: Ice.Context? = nil) throws -> Ice.StringSeq {
-        return try _impl._invoke(operation: "getAllServerIds",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.StringSeq = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get all the server ids registered with IceGrid.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.StringSeq` - The result of the operation
-    func getAllServerIdsAsync(context: Ice.Context? = nil) async throws -> Ice.StringSeq {
-        return try await _impl._invokeAsync(operation: "getAllServerIds",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.StringSeq = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getAllServerIds(context: Ice.Context? = nil) async throws -> Ice.StringSeq {
+        return try await _impl._invoke(operation: "getAllServerIds",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.StringSeq = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Get the adapter information for the replica group or adapter with the given id.
@@ -3259,51 +2684,24 @@ public extension AdminPrx {
     /// - throws:
     ///
     ///   - AdapterNotExistException - Raised if the adapter or replica group doesn't exist.
-    func getAdapterInfo(_ iceP_id: Swift.String, context: Ice.Context? = nil) throws -> AdapterInfoSeq {
-        return try _impl._invoke(operation: "getAdapterInfo",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_id)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: AdapterInfoSeq = try AdapterInfoSeqHelper.read(from: istr)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as AdapterNotExistException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Get the adapter information for the replica group or adapter with the given id.
-    ///
-    /// - parameter _: `Swift.String` The adapter id.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `AdapterInfoSeq` - The result of the operation
-    func getAdapterInfoAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> AdapterInfoSeq {
-        return try await _impl._invokeAsync(operation: "getAdapterInfo",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: AdapterInfoSeq = try AdapterInfoSeqHelper.read(from: istr)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as AdapterNotExistException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func getAdapterInfo(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> AdapterInfoSeq {
+        return try await _impl._invoke(operation: "getAdapterInfo",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: AdapterInfoSeq = try AdapterInfoSeqHelper.read(from: istr)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as AdapterNotExistException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Remove the adapter with the given id.
@@ -3317,47 +2715,22 @@ public extension AdminPrx {
     ///   - AdapterNotExistException - Raised if the adapter doesn't exist.
     ///
     ///   - DeploymentException - Raised if application deployment failed.
-    func removeAdapter(_ iceP_id: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "removeAdapter",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_id)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as AdapterNotExistException {
-                                  throw error
-                              } catch let error as DeploymentException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Remove the adapter with the given id.
-    ///
-    /// - parameter _: `Swift.String` The adapter id.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func removeAdapterAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "removeAdapter",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as AdapterNotExistException {
-                                                    throw error
-                                                } catch let error as DeploymentException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func removeAdapter(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "removeAdapter",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as AdapterNotExistException {
+                                               throw error
+                                           } catch let error as DeploymentException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get all the adapter ids registered with IceGrid.
@@ -3365,29 +2738,14 @@ public extension AdminPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Ice.StringSeq` - The adapter ids.
-    func getAllAdapterIds(context: Ice.Context? = nil) throws -> Ice.StringSeq {
-        return try _impl._invoke(operation: "getAllAdapterIds",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.StringSeq = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get all the adapter ids registered with IceGrid.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.StringSeq` - The result of the operation
-    func getAllAdapterIdsAsync(context: Ice.Context? = nil) async throws -> Ice.StringSeq {
-        return try await _impl._invokeAsync(operation: "getAllAdapterIds",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.StringSeq = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getAllAdapterIds(context: Ice.Context? = nil) async throws -> Ice.StringSeq {
+        return try await _impl._invoke(operation: "getAllAdapterIds",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.StringSeq = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Add an object to the object registry. IceGrid will get the object type by calling ice_id on the
@@ -3403,48 +2761,22 @@ public extension AdminPrx {
     ///     the proxy to get the object type failed.
     ///
     ///   - ObjectExistsException - Raised if the object is already registered.
-    func addObject(_ iceP_obj: Ice.ObjectPrx?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "addObject",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_obj)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ObjectExistsException {
-                                  throw error
-                              } catch let error as DeploymentException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Add an object to the object registry. IceGrid will get the object type by calling ice_id on the
-    /// given proxy. The object must be reachable.
-    ///
-    /// - parameter _: `Ice.ObjectPrx?` The object to be added to the registry.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func addObjectAsync(_ iceP_obj: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "addObject",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_obj)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ObjectExistsException {
-                                                    throw error
-                                                } catch let error as DeploymentException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func addObject(_ iceP_obj: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "addObject",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_obj)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ObjectExistsException {
+                                               throw error
+                                           } catch let error as DeploymentException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Update an object in the object registry. Only objects added with this interface can be updated with this
@@ -3460,48 +2792,22 @@ public extension AdminPrx {
     ///     with a deployment descriptor.
     ///
     ///   - ObjectNotRegisteredException - Raised if the object isn't registered with the registry.
-    func updateObject(_ iceP_obj: Ice.ObjectPrx?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "updateObject",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_obj)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ObjectNotRegisteredException {
-                                  throw error
-                              } catch let error as DeploymentException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Update an object in the object registry. Only objects added with this interface can be updated with this
-    /// operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
-    ///
-    /// - parameter _: `Ice.ObjectPrx?` The object to be updated to the registry.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func updateObjectAsync(_ iceP_obj: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "updateObject",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_obj)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ObjectNotRegisteredException {
-                                                    throw error
-                                                } catch let error as DeploymentException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func updateObject(_ iceP_obj: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "updateObject",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_obj)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ObjectNotRegisteredException {
+                                               throw error
+                                           } catch let error as DeploymentException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Add an object to the object registry and explicitly specify its type.
@@ -3517,51 +2823,23 @@ public extension AdminPrx {
     ///   - DeploymentException - Raised if application deployment failed.
     ///
     ///   - ObjectExistsException - Raised if the object is already registered.
-    func addObjectWithType(obj iceP_obj: Ice.ObjectPrx?, type iceP_type: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "addObjectWithType",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_obj)
-                              ostr.write(iceP_type)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ObjectExistsException {
-                                  throw error
-                              } catch let error as DeploymentException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Add an object to the object registry and explicitly specify its type.
-    ///
-    /// - parameter obj: `Ice.ObjectPrx?` The object to be added to the registry. The proxy is never null.
-    ///
-    /// - parameter type: `Swift.String` The object type.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func addObjectWithTypeAsync(obj iceP_obj: Ice.ObjectPrx?, type iceP_type: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "addObjectWithType",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_obj)
-                                                ostr.write(iceP_type)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ObjectExistsException {
-                                                    throw error
-                                                } catch let error as DeploymentException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func addObjectWithType(obj iceP_obj: Ice.ObjectPrx?, type iceP_type: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "addObjectWithType",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_obj)
+                                           ostr.write(iceP_type)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ObjectExistsException {
+                                               throw error
+                                           } catch let error as DeploymentException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Remove an object from the object registry. Only objects added with this interface can be removed with this
@@ -3577,48 +2855,22 @@ public extension AdminPrx {
     ///     with a deployment descriptor.
     ///
     ///   - ObjectNotRegisteredException - Raised if the object isn't registered with the registry.
-    func removeObject(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "removeObject",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_id)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ObjectNotRegisteredException {
-                                  throw error
-                              } catch let error as DeploymentException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Remove an object from the object registry. Only objects added with this interface can be removed with this
-    /// operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
-    ///
-    /// - parameter _: `Ice.Identity` The identity of the object to be removed from the registry.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func removeObjectAsync(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "removeObject",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ObjectNotRegisteredException {
-                                                    throw error
-                                                } catch let error as DeploymentException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func removeObject(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "removeObject",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ObjectNotRegisteredException {
+                                               throw error
+                                           } catch let error as DeploymentException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get the object info for the object with the given identity.
@@ -3632,51 +2884,24 @@ public extension AdminPrx {
     /// - throws:
     ///
     ///   - ObjectNotRegisteredException - Raised if the object isn't registered with the registry.
-    func getObjectInfo(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) throws -> ObjectInfo {
-        return try _impl._invoke(operation: "getObjectInfo",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_id)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: ObjectInfo = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as ObjectNotRegisteredException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Get the object info for the object with the given identity.
-    ///
-    /// - parameter _: `Ice.Identity` The identity of the object.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ObjectInfo` - The result of the operation
-    func getObjectInfoAsync(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) async throws -> ObjectInfo {
-        return try await _impl._invokeAsync(operation: "getObjectInfo",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: ObjectInfo = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ObjectNotRegisteredException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func getObjectInfo(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) async throws -> ObjectInfo {
+        return try await _impl._invoke(operation: "getObjectInfo",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: ObjectInfo = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ObjectNotRegisteredException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get the object info of all the registered objects with the given type.
@@ -3686,37 +2911,17 @@ public extension AdminPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `ObjectInfoSeq` - The object infos.
-    func getObjectInfosByType(_ iceP_type: Swift.String, context: Ice.Context? = nil) throws -> ObjectInfoSeq {
-        return try _impl._invoke(operation: "getObjectInfosByType",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_type)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: ObjectInfoSeq = try ObjectInfoSeqHelper.read(from: istr)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get the object info of all the registered objects with the given type.
-    ///
-    /// - parameter _: `Swift.String` The type of the object.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ObjectInfoSeq` - The result of the operation
-    func getObjectInfosByTypeAsync(_ iceP_type: Swift.String, context: Ice.Context? = nil) async throws -> ObjectInfoSeq {
-        return try await _impl._invokeAsync(operation: "getObjectInfosByType",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_type)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: ObjectInfoSeq = try ObjectInfoSeqHelper.read(from: istr)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getObjectInfosByType(_ iceP_type: Swift.String, context: Ice.Context? = nil) async throws -> ObjectInfoSeq {
+        return try await _impl._invoke(operation: "getObjectInfosByType",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_type)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: ObjectInfoSeq = try ObjectInfoSeqHelper.read(from: istr)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Get the object info of all the registered objects whose stringified identities match the given expression.
@@ -3727,38 +2932,17 @@ public extension AdminPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `ObjectInfoSeq` - All the object infos with a stringified identity matching the given expression.
-    func getAllObjectInfos(_ iceP_expr: Swift.String, context: Ice.Context? = nil) throws -> ObjectInfoSeq {
-        return try _impl._invoke(operation: "getAllObjectInfos",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_expr)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: ObjectInfoSeq = try ObjectInfoSeqHelper.read(from: istr)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get the object info of all the registered objects whose stringified identities match the given expression.
-    ///
-    /// - parameter _: `Swift.String` The expression to match against the stringified identities of registered objects. The expression
-    /// may contain a trailing wildcard (*) character.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ObjectInfoSeq` - The result of the operation
-    func getAllObjectInfosAsync(_ iceP_expr: Swift.String, context: Ice.Context? = nil) async throws -> ObjectInfoSeq {
-        return try await _impl._invokeAsync(operation: "getAllObjectInfos",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_expr)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: ObjectInfoSeq = try ObjectInfoSeqHelper.read(from: istr)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getAllObjectInfos(_ iceP_expr: Swift.String, context: Ice.Context? = nil) async throws -> ObjectInfoSeq {
+        return try await _impl._invoke(operation: "getAllObjectInfos",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_expr)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: ObjectInfoSeq = try ObjectInfoSeqHelper.read(from: istr)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Ping an IceGrid node to see if it is active.
@@ -3772,51 +2956,24 @@ public extension AdminPrx {
     /// - throws:
     ///
     ///   - NodeNotExistException - Raised if the node doesn't exist.
-    func pingNode(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws -> Swift.Bool {
-        return try _impl._invoke(operation: "pingNode",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_name)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Bool = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as NodeNotExistException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Ping an IceGrid node to see if it is active.
-    ///
-    /// - parameter _: `Swift.String` The node name.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool` - The result of the operation
-    func pingNodeAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Bool {
-        return try await _impl._invokeAsync(operation: "pingNode",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Bool = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as NodeNotExistException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func pingNode(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Bool {
+        return try await _impl._invoke(operation: "pingNode",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Bool = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as NodeNotExistException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get the load averages of the node.
@@ -3832,55 +2989,26 @@ public extension AdminPrx {
     ///   - NodeNotExistException - Raised if the node doesn't exist.
     ///
     ///   - NodeUnreachableException - Raised if the node could not be reached.
-    func getNodeLoad(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws -> LoadInfo {
-        return try _impl._invoke(operation: "getNodeLoad",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_name)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: LoadInfo = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as NodeNotExistException {
-                                         throw error
-                                     } catch let error as NodeUnreachableException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Get the load averages of the node.
-    ///
-    /// - parameter _: `Swift.String` The node name.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `LoadInfo` - The result of the operation
-    func getNodeLoadAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> LoadInfo {
-        return try await _impl._invokeAsync(operation: "getNodeLoad",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: LoadInfo = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as NodeNotExistException {
-                                                    throw error
-                                                } catch let error as NodeUnreachableException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func getNodeLoad(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> LoadInfo {
+        return try await _impl._invoke(operation: "getNodeLoad",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: LoadInfo = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as NodeNotExistException {
+                                               throw error
+                                           } catch let error as NodeUnreachableException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get the node information for the node with the given name.
@@ -3896,55 +3024,26 @@ public extension AdminPrx {
     ///   - NodeNotExistException - Raised if the node doesn't exist.
     ///
     ///   - NodeUnreachableException - Raised if the node could not be reached.
-    func getNodeInfo(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws -> NodeInfo {
-        return try _impl._invoke(operation: "getNodeInfo",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_name)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: NodeInfo = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as NodeNotExistException {
-                                         throw error
-                                     } catch let error as NodeUnreachableException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Get the node information for the node with the given name.
-    ///
-    /// - parameter _: `Swift.String` The node name.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `NodeInfo` - The result of the operation
-    func getNodeInfoAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> NodeInfo {
-        return try await _impl._invokeAsync(operation: "getNodeInfo",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: NodeInfo = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as NodeNotExistException {
-                                                    throw error
-                                                } catch let error as NodeUnreachableException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func getNodeInfo(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> NodeInfo {
+        return try await _impl._invoke(operation: "getNodeInfo",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: NodeInfo = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as NodeNotExistException {
+                                               throw error
+                                           } catch let error as NodeUnreachableException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get a proxy to the IceGrid node's admin object.
@@ -3960,55 +3059,26 @@ public extension AdminPrx {
     ///   - NodeNotExistException - Raised if the node doesn't exist.
     ///
     ///   - NodeUnreachableException - Raised if the node could not be reached.
-    func getNodeAdmin(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
-        return try _impl._invoke(operation: "getNodeAdmin",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_name)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as NodeNotExistException {
-                                         throw error
-                                     } catch let error as NodeUnreachableException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Get a proxy to the IceGrid node's admin object.
-    ///
-    /// - parameter _: `Swift.String` The IceGrid node name
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func getNodeAdminAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
-        return try await _impl._invokeAsync(operation: "getNodeAdmin",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as NodeNotExistException {
-                                                    throw error
-                                                } catch let error as NodeUnreachableException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func getNodeAdmin(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
+        return try await _impl._invoke(operation: "getNodeAdmin",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as NodeNotExistException {
+                                               throw error
+                                           } catch let error as NodeUnreachableException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get the number of physical processor sockets for the machine running the node with the given name.
@@ -4026,57 +3096,26 @@ public extension AdminPrx {
     ///   - NodeNotExistException - Raised if the node doesn't exist.
     ///
     ///   - NodeUnreachableException - Raised if the node could not be reached.
-    func getNodeProcessorSocketCount(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "getNodeProcessorSocketCount",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_name)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as NodeNotExistException {
-                                         throw error
-                                     } catch let error as NodeUnreachableException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Get the number of physical processor sockets for the machine running the node with the given name.
-    /// Note that this method will return 1 on operating systems where this can't be automatically determined and
-    /// where the IceGrid.Node.ProcessorSocketCount property for the node is not set.
-    ///
-    /// - parameter _: `Swift.String` The node name.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The result of the operation
-    func getNodeProcessorSocketCountAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Int32 {
-        return try await _impl._invokeAsync(operation: "getNodeProcessorSocketCount",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Int32 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as NodeNotExistException {
-                                                    throw error
-                                                } catch let error as NodeUnreachableException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func getNodeProcessorSocketCount(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invoke(operation: "getNodeProcessorSocketCount",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Int32 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as NodeNotExistException {
+                                               throw error
+                                           } catch let error as NodeUnreachableException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Shutdown an IceGrid node.
@@ -4090,47 +3129,22 @@ public extension AdminPrx {
     ///   - NodeNotExistException - Raised if the node doesn't exist.
     ///
     ///   - NodeUnreachableException - Raised if the node could not be reached.
-    func shutdownNode(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdownNode",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_name)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as NodeNotExistException {
-                                  throw error
-                              } catch let error as NodeUnreachableException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Shutdown an IceGrid node.
-    ///
-    /// - parameter _: `Swift.String` The node name.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownNodeAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdownNode",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as NodeNotExistException {
-                                                    throw error
-                                                } catch let error as NodeUnreachableException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func shutdownNode(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdownNode",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as NodeNotExistException {
+                                               throw error
+                                           } catch let error as NodeUnreachableException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get the hostname of this node.
@@ -4146,55 +3160,26 @@ public extension AdminPrx {
     ///   - NodeNotExistException - Raised if the node doesn't exist.
     ///
     ///   - NodeUnreachableException - Raised if the node could not be reached.
-    func getNodeHostname(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws -> Swift.String {
-        return try _impl._invoke(operation: "getNodeHostname",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_name)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.String = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as NodeNotExistException {
-                                         throw error
-                                     } catch let error as NodeUnreachableException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Get the hostname of this node.
-    ///
-    /// - parameter _: `Swift.String` The node name.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String` - The result of the operation
-    func getNodeHostnameAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.String {
-        return try await _impl._invokeAsync(operation: "getNodeHostname",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.String = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as NodeNotExistException {
-                                                    throw error
-                                                } catch let error as NodeUnreachableException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func getNodeHostname(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.String {
+        return try await _impl._invoke(operation: "getNodeHostname",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.String = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as NodeNotExistException {
+                                               throw error
+                                           } catch let error as NodeUnreachableException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get all the IceGrid nodes currently registered.
@@ -4202,29 +3187,14 @@ public extension AdminPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Ice.StringSeq` - The node names.
-    func getAllNodeNames(context: Ice.Context? = nil) throws -> Ice.StringSeq {
-        return try _impl._invoke(operation: "getAllNodeNames",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.StringSeq = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get all the IceGrid nodes currently registered.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.StringSeq` - The result of the operation
-    func getAllNodeNamesAsync(context: Ice.Context? = nil) async throws -> Ice.StringSeq {
-        return try await _impl._invokeAsync(operation: "getAllNodeNames",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.StringSeq = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getAllNodeNames(context: Ice.Context? = nil) async throws -> Ice.StringSeq {
+        return try await _impl._invoke(operation: "getAllNodeNames",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.StringSeq = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Ping an IceGrid registry to see if it is active.
@@ -4238,51 +3208,24 @@ public extension AdminPrx {
     /// - throws:
     ///
     ///   - RegistryNotExistException - Raised if the registry doesn't exist.
-    func pingRegistry(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws -> Swift.Bool {
-        return try _impl._invoke(operation: "pingRegistry",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_name)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Bool = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as RegistryNotExistException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Ping an IceGrid registry to see if it is active.
-    ///
-    /// - parameter _: `Swift.String` The registry name.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool` - The result of the operation
-    func pingRegistryAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Bool {
-        return try await _impl._invokeAsync(operation: "pingRegistry",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Bool = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as RegistryNotExistException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func pingRegistry(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Bool {
+        return try await _impl._invoke(operation: "pingRegistry",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Bool = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as RegistryNotExistException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get the registry information for the registry with the given name.
@@ -4298,55 +3241,26 @@ public extension AdminPrx {
     ///   - RegistryNotExistException - Raised if the registry doesn't exist.
     ///
     ///   - RegistryUnreachableException - Raised if the registry could not be reached.
-    func getRegistryInfo(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws -> RegistryInfo {
-        return try _impl._invoke(operation: "getRegistryInfo",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_name)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: RegistryInfo = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as RegistryNotExistException {
-                                         throw error
-                                     } catch let error as RegistryUnreachableException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Get the registry information for the registry with the given name.
-    ///
-    /// - parameter _: `Swift.String` The registry name.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `RegistryInfo` - The result of the operation
-    func getRegistryInfoAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> RegistryInfo {
-        return try await _impl._invokeAsync(operation: "getRegistryInfo",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: RegistryInfo = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as RegistryNotExistException {
-                                                    throw error
-                                                } catch let error as RegistryUnreachableException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func getRegistryInfo(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> RegistryInfo {
+        return try await _impl._invoke(operation: "getRegistryInfo",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: RegistryInfo = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as RegistryNotExistException {
+                                               throw error
+                                           } catch let error as RegistryUnreachableException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get a proxy to the IceGrid registry's admin object.
@@ -4360,51 +3274,24 @@ public extension AdminPrx {
     /// - throws:
     ///
     ///   - RegistryNotExistException - Raised if the registry doesn't exist.
-    func getRegistryAdmin(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
-        return try _impl._invoke(operation: "getRegistryAdmin",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_name)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as RegistryNotExistException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Get a proxy to the IceGrid registry's admin object.
-    ///
-    /// - parameter _: `Swift.String` The registry name
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func getRegistryAdminAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
-        return try await _impl._invokeAsync(operation: "getRegistryAdmin",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as RegistryNotExistException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func getRegistryAdmin(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
+        return try await _impl._invoke(operation: "getRegistryAdmin",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as RegistryNotExistException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Shutdown an IceGrid registry.
@@ -4418,47 +3305,22 @@ public extension AdminPrx {
     ///   - RegistryNotExistException - Raised if the registry doesn't exist.
     ///
     ///   - RegistryUnreachableException - Raised if the registry could not be reached.
-    func shutdownRegistry(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdownRegistry",
-                          mode: .Idempotent,
-                          write: { ostr in
-                              ostr.write(iceP_name)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as RegistryNotExistException {
-                                  throw error
-                              } catch let error as RegistryUnreachableException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Shutdown an IceGrid registry.
-    ///
-    /// - parameter _: `Swift.String` The registry name.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownRegistryAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdownRegistry",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as RegistryNotExistException {
-                                                    throw error
-                                                } catch let error as RegistryUnreachableException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func shutdownRegistry(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdownRegistry",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as RegistryNotExistException {
+                                               throw error
+                                           } catch let error as RegistryUnreachableException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get all the IceGrid registries currently registered.
@@ -4466,49 +3328,23 @@ public extension AdminPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Ice.StringSeq` - The registry names.
-    func getAllRegistryNames(context: Ice.Context? = nil) throws -> Ice.StringSeq {
-        return try _impl._invoke(operation: "getAllRegistryNames",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.StringSeq = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get all the IceGrid registries currently registered.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.StringSeq` - The result of the operation
-    func getAllRegistryNamesAsync(context: Ice.Context? = nil) async throws -> Ice.StringSeq {
-        return try await _impl._invokeAsync(operation: "getAllRegistryNames",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.StringSeq = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getAllRegistryNames(context: Ice.Context? = nil) async throws -> Ice.StringSeq {
+        return try await _impl._invoke(operation: "getAllRegistryNames",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.StringSeq = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Shut down the IceGrid registry.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    /// Shut down the IceGrid registry.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -4561,8 +3397,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: FileIteratorPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> FileIteratorPrx? {
-    return try FileIteratorPrxI.checkedCast(prx: prx, facet: facet, context: context) as FileIteratorPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: FileIteratorPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
+    return try await FileIteratorPrxI.checkedCast(prx: prx, facet: facet, context: context) as FileIteratorPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -4640,74 +3476,34 @@ public extension FileIteratorPrx {
     /// - throws:
     ///
     ///   - FileNotAvailableException - Raised if there was a problem to read lines from the file.
-    func read(_ iceP_size: Swift.Int32, context: Ice.Context? = nil) throws -> (returnValue: Swift.Bool, lines: Ice.StringSeq) {
-        return try _impl._invoke(operation: "read",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_size)
-                                 },
-                                 read: { istr in
-                                     let iceP_lines: Ice.StringSeq = try istr.read()
-                                     let iceP_returnValue: Swift.Bool = try istr.read()
-                                     return (iceP_returnValue, iceP_lines)
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as FileNotAvailableException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Read lines from the log file.
-    ///
-    /// - parameter _: `Swift.Int32` Specifies the maximum number of bytes to be received. The server will ensure that the returned
-    /// message doesn't exceed the given size.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: Swift.Bool, lines: Ice.StringSeq)` - The result of the operation
-    func readAsync(_ iceP_size: Swift.Int32, context: Ice.Context? = nil) async throws -> (returnValue: Swift.Bool, lines: Ice.StringSeq) {
-        return try await _impl._invokeAsync(operation: "read",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_size)
-                                            },
-                                            read: { istr in
-                                                let iceP_lines: Ice.StringSeq = try istr.read()
-                                                let iceP_returnValue: Swift.Bool = try istr.read()
-                                                return (iceP_returnValue, iceP_lines)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as FileNotAvailableException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func read(_ iceP_size: Swift.Int32, context: Ice.Context? = nil) async throws -> (returnValue: Swift.Bool, lines: Ice.StringSeq) {
+        return try await _impl._invoke(operation: "read",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_size)
+                                       },
+                                       read: { istr in
+                                           let iceP_lines: Ice.StringSeq = try istr.read()
+                                           let iceP_returnValue: Swift.Bool = try istr.read()
+                                           return (iceP_returnValue, iceP_lines)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as FileNotAvailableException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Destroy the iterator.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func destroy(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "destroy",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    /// Destroy the iterator.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func destroyAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "destroy",
-                                            mode: .Normal,
-                                            context: context)
+    func destroy(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "destroy",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -4764,8 +3560,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: RegistryObserverPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> RegistryObserverPrx? {
-    return try RegistryObserverPrxI.checkedCast(prx: prx, facet: facet, context: context) as RegistryObserverPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: RegistryObserverPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> RegistryObserverPrx? {
+    return try await RegistryObserverPrxI.checkedCast(prx: prx, facet: facet, context: context) as RegistryObserverPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -4835,30 +3631,13 @@ public extension RegistryObserverPrx {
     /// - parameter _: `RegistryInfoSeq` The current state of the registries.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func registryInit(_ iceP_registries: RegistryInfoSeq, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "registryInit",
-                          mode: .Normal,
-                          write: { ostr in
-                              RegistryInfoSeqHelper.write(to: ostr, value: iceP_registries)
-                          },
-                          context: context)
-    }
-
-    /// The registryInit operation is called after registration of an observer to indicate the state of
-    /// the registries.
-    ///
-    /// - parameter _: `RegistryInfoSeq` The current state of the registries.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func registryInitAsync(_ iceP_registries: RegistryInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "registryInit",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                RegistryInfoSeqHelper.write(to: ostr, value: iceP_registries)
-                                            },
-                                            context: context)
+    func registryInit(_ iceP_registries: RegistryInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "registryInit",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           RegistryInfoSeqHelper.write(to: ostr, value: iceP_registries)
+                                       },
+                                       context: context)
     }
 
     /// The registryUp operation is called to notify an observer that a registry replica came up.
@@ -4866,29 +3645,13 @@ public extension RegistryObserverPrx {
     /// - parameter _: `RegistryInfo` The registry state.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func registryUp(_ iceP_registryReplica: RegistryInfo, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "registryUp",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_registryReplica)
-                          },
-                          context: context)
-    }
-
-    /// The registryUp operation is called to notify an observer that a registry replica came up.
-    ///
-    /// - parameter _: `RegistryInfo` The registry state.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func registryUpAsync(_ iceP_registryReplica: RegistryInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "registryUp",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_registryReplica)
-                                            },
-                                            context: context)
+    func registryUp(_ iceP_registryReplica: RegistryInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "registryUp",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_registryReplica)
+                                       },
+                                       context: context)
     }
 
     /// The registryDown operation is called to notify an observer that a registry replica went down.
@@ -4896,29 +3659,13 @@ public extension RegistryObserverPrx {
     /// - parameter _: `Swift.String` The registry name.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func registryDown(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "registryDown",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_name)
-                          },
-                          context: context)
-    }
-
-    /// The registryDown operation is called to notify an observer that a registry replica went down.
-    ///
-    /// - parameter _: `Swift.String` The registry name.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func registryDownAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "registryDown",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                            },
-                                            context: context)
+    func registryDown(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "registryDown",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                       },
+                                       context: context)
     }
 }
 
@@ -4984,8 +3731,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: NodeObserverPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> NodeObserverPrx? {
-    return try NodeObserverPrxI.checkedCast(prx: prx, facet: facet, context: context) as NodeObserverPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: NodeObserverPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> NodeObserverPrx? {
+    return try await NodeObserverPrxI.checkedCast(prx: prx, facet: facet, context: context) as NodeObserverPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -5064,30 +3811,13 @@ public extension NodeObserverPrx {
     /// - parameter _: `NodeDynamicInfoSeq` The current state of the nodes.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func nodeInit(_ iceP_nodes: NodeDynamicInfoSeq, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "nodeInit",
-                          mode: .Normal,
-                          write: { ostr in
-                              NodeDynamicInfoSeqHelper.write(to: ostr, value: iceP_nodes)
-                          },
-                          context: context)
-    }
-
-    /// The nodeInit operation indicates the current state of nodes. It is called after the
-    /// registration of an observer.
-    ///
-    /// - parameter _: `NodeDynamicInfoSeq` The current state of the nodes.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func nodeInitAsync(_ iceP_nodes: NodeDynamicInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "nodeInit",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                NodeDynamicInfoSeqHelper.write(to: ostr, value: iceP_nodes)
-                                            },
-                                            context: context)
+    func nodeInit(_ iceP_nodes: NodeDynamicInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "nodeInit",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           NodeDynamicInfoSeqHelper.write(to: ostr, value: iceP_nodes)
+                                       },
+                                       context: context)
     }
 
     /// The nodeUp operation is called to notify an observer that a node came up.
@@ -5095,29 +3825,13 @@ public extension NodeObserverPrx {
     /// - parameter _: `NodeDynamicInfo` The node state.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func nodeUp(_ iceP_node: NodeDynamicInfo, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "nodeUp",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_node)
-                          },
-                          context: context)
-    }
-
-    /// The nodeUp operation is called to notify an observer that a node came up.
-    ///
-    /// - parameter _: `NodeDynamicInfo` The node state.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func nodeUpAsync(_ iceP_node: NodeDynamicInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "nodeUp",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_node)
-                                            },
-                                            context: context)
+    func nodeUp(_ iceP_node: NodeDynamicInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "nodeUp",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_node)
+                                       },
+                                       context: context)
     }
 
     /// The nodeDown operation is called to notify an observer that a node went down.
@@ -5125,29 +3839,13 @@ public extension NodeObserverPrx {
     /// - parameter _: `Swift.String` The node name.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func nodeDown(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "nodeDown",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_name)
-                          },
-                          context: context)
-    }
-
-    /// The nodeDown operation is called to notify an observer that a node went down.
-    ///
-    /// - parameter _: `Swift.String` The node name.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func nodeDownAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "nodeDown",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                            },
-                                            context: context)
+    func nodeDown(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "nodeDown",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                       },
+                                       context: context)
     }
 
     /// The updateServer operation is called to notify an observer that the state of a server changed.
@@ -5157,33 +3855,14 @@ public extension NodeObserverPrx {
     /// - parameter updatedInfo: `ServerDynamicInfo` The new server state.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func updateServer(node iceP_node: Swift.String, updatedInfo iceP_updatedInfo: ServerDynamicInfo, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "updateServer",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_node)
-                              ostr.write(iceP_updatedInfo)
-                          },
-                          context: context)
-    }
-
-    /// The updateServer operation is called to notify an observer that the state of a server changed.
-    ///
-    /// - parameter node: `Swift.String` The node hosting the server.
-    ///
-    /// - parameter updatedInfo: `ServerDynamicInfo` The new server state.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func updateServerAsync(node iceP_node: Swift.String, updatedInfo iceP_updatedInfo: ServerDynamicInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "updateServer",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_node)
-                                                ostr.write(iceP_updatedInfo)
-                                            },
-                                            context: context)
+    func updateServer(node iceP_node: Swift.String, updatedInfo iceP_updatedInfo: ServerDynamicInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "updateServer",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_node)
+                                           ostr.write(iceP_updatedInfo)
+                                       },
+                                       context: context)
     }
 
     /// The updateAdapter operation is called to notify an observer that the state of an adapter
@@ -5194,34 +3873,14 @@ public extension NodeObserverPrx {
     /// - parameter updatedInfo: `AdapterDynamicInfo` The new adapter state.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func updateAdapter(node iceP_node: Swift.String, updatedInfo iceP_updatedInfo: AdapterDynamicInfo, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "updateAdapter",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_node)
-                              ostr.write(iceP_updatedInfo)
-                          },
-                          context: context)
-    }
-
-    /// The updateAdapter operation is called to notify an observer that the state of an adapter
-    /// changed.
-    ///
-    /// - parameter node: `Swift.String` The node hosting the adapter.
-    ///
-    /// - parameter updatedInfo: `AdapterDynamicInfo` The new adapter state.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func updateAdapterAsync(node iceP_node: Swift.String, updatedInfo iceP_updatedInfo: AdapterDynamicInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "updateAdapter",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_node)
-                                                ostr.write(iceP_updatedInfo)
-                                            },
-                                            context: context)
+    func updateAdapter(node iceP_node: Swift.String, updatedInfo iceP_updatedInfo: AdapterDynamicInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "updateAdapter",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_node)
+                                           ostr.write(iceP_updatedInfo)
+                                       },
+                                       context: context)
     }
 }
 
@@ -5283,8 +3942,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: ApplicationObserverPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> ApplicationObserverPrx? {
-    return try ApplicationObserverPrxI.checkedCast(prx: prx, facet: facet, context: context) as ApplicationObserverPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: ApplicationObserverPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> ApplicationObserverPrx? {
+    return try await ApplicationObserverPrxI.checkedCast(prx: prx, facet: facet, context: context) as ApplicationObserverPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -5362,37 +4021,15 @@ public extension ApplicationObserverPrx {
     /// - parameter applications: `ApplicationInfoSeq` The applications currently registered with the registry.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func applicationInit(serial iceP_serial: Swift.Int32, applications iceP_applications: ApplicationInfoSeq, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "applicationInit",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_serial)
-                              ApplicationInfoSeqHelper.write(to: ostr, value: iceP_applications)
-                              ostr.writePendingValues()
-                          },
-                          context: context)
-    }
-
-    /// applicationInit is called after the registration of an observer to indicate the state of the
-    /// registry.
-    ///
-    /// - parameter serial: `Swift.Int32` The current serial number of the registry database. This serial number allows observers to
-    /// make sure that their internal state is synchronized with the registry.
-    ///
-    /// - parameter applications: `ApplicationInfoSeq` The applications currently registered with the registry.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func applicationInitAsync(serial iceP_serial: Swift.Int32, applications iceP_applications: ApplicationInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "applicationInit",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_serial)
-                                                ApplicationInfoSeqHelper.write(to: ostr, value: iceP_applications)
-                                                ostr.writePendingValues()
-                                            },
-                                            context: context)
+    func applicationInit(serial iceP_serial: Swift.Int32, applications iceP_applications: ApplicationInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "applicationInit",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_serial)
+                                           ApplicationInfoSeqHelper.write(to: ostr, value: iceP_applications)
+                                           ostr.writePendingValues()
+                                       },
+                                       context: context)
     }
 
     /// The applicationAdded operation is called to notify an observer that an application was added.
@@ -5402,35 +4039,15 @@ public extension ApplicationObserverPrx {
     /// - parameter desc: `ApplicationInfo` The descriptor of the new application.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func applicationAdded(serial iceP_serial: Swift.Int32, desc iceP_desc: ApplicationInfo, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "applicationAdded",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_serial)
-                              ostr.write(iceP_desc)
-                              ostr.writePendingValues()
-                          },
-                          context: context)
-    }
-
-    /// The applicationAdded operation is called to notify an observer that an application was added.
-    ///
-    /// - parameter serial: `Swift.Int32` The new serial number of the registry database.
-    ///
-    /// - parameter desc: `ApplicationInfo` The descriptor of the new application.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func applicationAddedAsync(serial iceP_serial: Swift.Int32, desc iceP_desc: ApplicationInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "applicationAdded",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_serial)
-                                                ostr.write(iceP_desc)
-                                                ostr.writePendingValues()
-                                            },
-                                            context: context)
+    func applicationAdded(serial iceP_serial: Swift.Int32, desc iceP_desc: ApplicationInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "applicationAdded",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_serial)
+                                           ostr.write(iceP_desc)
+                                           ostr.writePendingValues()
+                                       },
+                                       context: context)
     }
 
     /// The applicationRemoved operation is called to notify an observer that an application was
@@ -5441,34 +4058,14 @@ public extension ApplicationObserverPrx {
     /// - parameter name: `Swift.String` The name of the application that was removed.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func applicationRemoved(serial iceP_serial: Swift.Int32, name iceP_name: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "applicationRemoved",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_serial)
-                              ostr.write(iceP_name)
-                          },
-                          context: context)
-    }
-
-    /// The applicationRemoved operation is called to notify an observer that an application was
-    /// removed.
-    ///
-    /// - parameter serial: `Swift.Int32` The new serial number of the registry database.
-    ///
-    /// - parameter name: `Swift.String` The name of the application that was removed.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func applicationRemovedAsync(serial iceP_serial: Swift.Int32, name iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "applicationRemoved",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_serial)
-                                                ostr.write(iceP_name)
-                                            },
-                                            context: context)
+    func applicationRemoved(serial iceP_serial: Swift.Int32, name iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "applicationRemoved",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_serial)
+                                           ostr.write(iceP_name)
+                                       },
+                                       context: context)
     }
 
     /// The applicationUpdated operation is called to notify an observer that an application was
@@ -5479,36 +4076,15 @@ public extension ApplicationObserverPrx {
     /// - parameter desc: `ApplicationUpdateInfo` The descriptor of the update.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func applicationUpdated(serial iceP_serial: Swift.Int32, desc iceP_desc: ApplicationUpdateInfo, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "applicationUpdated",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_serial)
-                              ostr.write(iceP_desc)
-                              ostr.writePendingValues()
-                          },
-                          context: context)
-    }
-
-    /// The applicationUpdated operation is called to notify an observer that an application was
-    /// updated.
-    ///
-    /// - parameter serial: `Swift.Int32` The new serial number of the registry database.
-    ///
-    /// - parameter desc: `ApplicationUpdateInfo` The descriptor of the update.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func applicationUpdatedAsync(serial iceP_serial: Swift.Int32, desc iceP_desc: ApplicationUpdateInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "applicationUpdated",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_serial)
-                                                ostr.write(iceP_desc)
-                                                ostr.writePendingValues()
-                                            },
-                                            context: context)
+    func applicationUpdated(serial iceP_serial: Swift.Int32, desc iceP_desc: ApplicationUpdateInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "applicationUpdated",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_serial)
+                                           ostr.write(iceP_desc)
+                                           ostr.writePendingValues()
+                                       },
+                                       context: context)
     }
 }
 
@@ -5569,8 +4145,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: AdapterObserverPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> AdapterObserverPrx? {
-    return try AdapterObserverPrxI.checkedCast(prx: prx, facet: facet, context: context) as AdapterObserverPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: AdapterObserverPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> AdapterObserverPrx? {
+    return try await AdapterObserverPrxI.checkedCast(prx: prx, facet: facet, context: context) as AdapterObserverPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -5644,30 +4220,13 @@ public extension AdapterObserverPrx {
     /// mechanism).
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func adapterInit(_ iceP_adpts: AdapterInfoSeq, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "adapterInit",
-                          mode: .Normal,
-                          write: { ostr in
-                              AdapterInfoSeqHelper.write(to: ostr, value: iceP_adpts)
-                          },
-                          context: context)
-    }
-
-    /// adapterInit is called after registration of an observer to indicate the state of the registry.
-    ///
-    /// - parameter _: `AdapterInfoSeq` The adapters that were dynamically registered with the registry (not through the deployment
-    /// mechanism).
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func adapterInitAsync(_ iceP_adpts: AdapterInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "adapterInit",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                AdapterInfoSeqHelper.write(to: ostr, value: iceP_adpts)
-                                            },
-                                            context: context)
+    func adapterInit(_ iceP_adpts: AdapterInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "adapterInit",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           AdapterInfoSeqHelper.write(to: ostr, value: iceP_adpts)
+                                       },
+                                       context: context)
     }
 
     /// The adapterAdded operation is called to notify an observer when a dynamically-registered
@@ -5676,30 +4235,13 @@ public extension AdapterObserverPrx {
     /// - parameter _: `AdapterInfo` The details of the new adapter.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func adapterAdded(_ iceP_info: AdapterInfo, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "adapterAdded",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_info)
-                          },
-                          context: context)
-    }
-
-    /// The adapterAdded operation is called to notify an observer when a dynamically-registered
-    /// adapter was added.
-    ///
-    /// - parameter _: `AdapterInfo` The details of the new adapter.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func adapterAddedAsync(_ iceP_info: AdapterInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "adapterAdded",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_info)
-                                            },
-                                            context: context)
+    func adapterAdded(_ iceP_info: AdapterInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "adapterAdded",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_info)
+                                       },
+                                       context: context)
     }
 
     /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
@@ -5708,30 +4250,13 @@ public extension AdapterObserverPrx {
     /// - parameter _: `AdapterInfo` The details of the updated adapter.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func adapterUpdated(_ iceP_info: AdapterInfo, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "adapterUpdated",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_info)
-                          },
-                          context: context)
-    }
-
-    /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
-    /// updated.
-    ///
-    /// - parameter _: `AdapterInfo` The details of the updated adapter.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func adapterUpdatedAsync(_ iceP_info: AdapterInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "adapterUpdated",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_info)
-                                            },
-                                            context: context)
+    func adapterUpdated(_ iceP_info: AdapterInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "adapterUpdated",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_info)
+                                       },
+                                       context: context)
     }
 
     /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
@@ -5740,30 +4265,13 @@ public extension AdapterObserverPrx {
     /// - parameter _: `Swift.String` The ID of the removed adapter.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func adapterRemoved(_ iceP_id: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "adapterRemoved",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_id)
-                          },
-                          context: context)
-    }
-
-    /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
-    /// removed.
-    ///
-    /// - parameter _: `Swift.String` The ID of the removed adapter.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func adapterRemovedAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "adapterRemoved",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                            },
-                                            context: context)
+    func adapterRemoved(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "adapterRemoved",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                       },
+                                       context: context)
     }
 }
 
@@ -5824,8 +4332,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: ObjectObserverPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> ObjectObserverPrx? {
-    return try ObjectObserverPrxI.checkedCast(prx: prx, facet: facet, context: context) as ObjectObserverPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: ObjectObserverPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> ObjectObserverPrx? {
+    return try await ObjectObserverPrxI.checkedCast(prx: prx, facet: facet, context: context) as ObjectObserverPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -5900,31 +4408,13 @@ public extension ObjectObserverPrx {
     /// mechanism).
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func objectInit(_ iceP_objects: ObjectInfoSeq, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "objectInit",
-                          mode: .Normal,
-                          write: { ostr in
-                              ObjectInfoSeqHelper.write(to: ostr, value: iceP_objects)
-                          },
-                          context: context)
-    }
-
-    /// objectInit is called after the registration of an observer to indicate the state of the
-    /// registry.
-    ///
-    /// - parameter _: `ObjectInfoSeq` The objects registered with the Admin interface (not through the deployment
-    /// mechanism).
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func objectInitAsync(_ iceP_objects: ObjectInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "objectInit",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ObjectInfoSeqHelper.write(to: ostr, value: iceP_objects)
-                                            },
-                                            context: context)
+    func objectInit(_ iceP_objects: ObjectInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "objectInit",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ObjectInfoSeqHelper.write(to: ostr, value: iceP_objects)
+                                       },
+                                       context: context)
     }
 
     /// The objectAdded operation is called to notify an observer when an object was added to the
@@ -5933,30 +4423,13 @@ public extension ObjectObserverPrx {
     /// - parameter _: `ObjectInfo` The details of the added object.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func objectAdded(_ iceP_info: ObjectInfo, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "objectAdded",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_info)
-                          },
-                          context: context)
-    }
-
-    /// The objectAdded operation is called to notify an observer when an object was added to the
-    /// Admin interface.
-    ///
-    /// - parameter _: `ObjectInfo` The details of the added object.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func objectAddedAsync(_ iceP_info: ObjectInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "objectAdded",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_info)
-                                            },
-                                            context: context)
+    func objectAdded(_ iceP_info: ObjectInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "objectAdded",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_info)
+                                       },
+                                       context: context)
     }
 
     /// objectUpdated is called to notify an observer when an object registered with the Admin
@@ -5965,30 +4438,13 @@ public extension ObjectObserverPrx {
     /// - parameter _: `ObjectInfo` The details of the updated object.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func objectUpdated(_ iceP_info: ObjectInfo, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "objectUpdated",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_info)
-                          },
-                          context: context)
-    }
-
-    /// objectUpdated is called to notify an observer when an object registered with the Admin
-    /// interface was updated.
-    ///
-    /// - parameter _: `ObjectInfo` The details of the updated object.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func objectUpdatedAsync(_ iceP_info: ObjectInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "objectUpdated",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_info)
-                                            },
-                                            context: context)
+    func objectUpdated(_ iceP_info: ObjectInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "objectUpdated",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_info)
+                                       },
+                                       context: context)
     }
 
     /// objectRemoved is called to notify an observer when an object registered with the Admin
@@ -5997,30 +4453,13 @@ public extension ObjectObserverPrx {
     /// - parameter _: `Ice.Identity` The identity of the removed object.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func objectRemoved(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "objectRemoved",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_id)
-                          },
-                          context: context)
-    }
-
-    /// objectRemoved is called to notify an observer when an object registered with the Admin
-    /// interface was removed.
-    ///
-    /// - parameter _: `Ice.Identity` The identity of the removed object.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func objectRemovedAsync(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "objectRemoved",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                            },
-                                            context: context)
+    func objectRemoved(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "objectRemoved",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                       },
+                                       context: context)
     }
 }
 
@@ -6127,8 +4566,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: AdminSessionPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> AdminSessionPrx? {
-    return try AdminSessionPrxI.checkedCast(prx: prx, facet: facet, context: context) as AdminSessionPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: AdminSessionPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> AdminSessionPrx? {
+    return try await AdminSessionPrxI.checkedCast(prx: prx, facet: facet, context: context) as AdminSessionPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -6246,22 +4685,10 @@ public extension AdminSessionPrx {
     /// need to call this operation and its implementation does nothing.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func keepAlive(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "keepAlive",
-                          mode: .Idempotent,
-                          context: context)
-    }
-
-    /// Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
-    /// need to call this operation and its implementation does nothing.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func keepAliveAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "keepAlive",
-                                            mode: .Idempotent,
-                                            context: context)
+    func keepAlive(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "keepAlive",
+                                       mode: .Idempotent,
+                                       context: context)
     }
 
     /// Get the admin interface. The admin object returned by this operation can only be accessed by the session.
@@ -6269,29 +4696,14 @@ public extension AdminSessionPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `AdminPrx?` - The admin interface proxy. The returned proxy is never null.
-    func getAdmin(context: Ice.Context? = nil) throws -> AdminPrx? {
-        return try _impl._invoke(operation: "getAdmin",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: AdminPrx? = try istr.read(AdminPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get the admin interface. The admin object returned by this operation can only be accessed by the session.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `AdminPrx?` - The result of the operation
-    func getAdminAsync(context: Ice.Context? = nil) async throws -> AdminPrx? {
-        return try await _impl._invokeAsync(operation: "getAdmin",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: AdminPrx? = try istr.read(AdminPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getAdmin(context: Ice.Context? = nil) async throws -> AdminPrx? {
+        return try await _impl._invoke(operation: "getAdmin",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: AdminPrx? = try istr.read(AdminPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
@@ -6300,30 +4712,14 @@ public extension AdminSessionPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Ice.ObjectPrx?` - A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
-    func getAdminCallbackTemplate(context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
-        return try _impl._invoke(operation: "getAdminCallbackTemplate",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
-    /// its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func getAdminCallbackTemplateAsync(context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
-        return try await _impl._invokeAsync(operation: "getAdminCallbackTemplate",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getAdminCallbackTemplate(context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
+        return try await _impl._invoke(operation: "getAdminCallbackTemplate",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Set the observer proxies that receive notifications when the state of the registry or nodes changes.
@@ -6343,59 +4739,24 @@ public extension AdminSessionPrx {
     /// - throws:
     ///
     ///   - ObserverAlreadyRegisteredException - Raised if an observer is already registered with this registry.
-    func setObservers(registryObs iceP_registryObs: RegistryObserverPrx?, nodeObs iceP_nodeObs: NodeObserverPrx?, appObs iceP_appObs: ApplicationObserverPrx?, adptObs iceP_adptObs: AdapterObserverPrx?, objObs iceP_objObs: ObjectObserverPrx?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "setObservers",
-                          mode: .Idempotent,
-                          write: { ostr in
-                              ostr.write(iceP_registryObs)
-                              ostr.write(iceP_nodeObs)
-                              ostr.write(iceP_appObs)
-                              ostr.write(iceP_adptObs)
-                              ostr.write(iceP_objObs)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ObserverAlreadyRegisteredException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Set the observer proxies that receive notifications when the state of the registry or nodes changes.
-    ///
-    /// - parameter registryObs: `RegistryObserverPrx?` The registry observer.
-    ///
-    /// - parameter nodeObs: `NodeObserverPrx?` The node observer.
-    ///
-    /// - parameter appObs: `ApplicationObserverPrx?` The application observer.
-    ///
-    /// - parameter adptObs: `AdapterObserverPrx?` The adapter observer.
-    ///
-    /// - parameter objObs: `ObjectObserverPrx?` The object observer.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func setObserversAsync(registryObs iceP_registryObs: RegistryObserverPrx?, nodeObs iceP_nodeObs: NodeObserverPrx?, appObs iceP_appObs: ApplicationObserverPrx?, adptObs iceP_adptObs: AdapterObserverPrx?, objObs iceP_objObs: ObjectObserverPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "setObservers",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_registryObs)
-                                                ostr.write(iceP_nodeObs)
-                                                ostr.write(iceP_appObs)
-                                                ostr.write(iceP_adptObs)
-                                                ostr.write(iceP_objObs)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ObserverAlreadyRegisteredException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func setObservers(registryObs iceP_registryObs: RegistryObserverPrx?, nodeObs iceP_nodeObs: NodeObserverPrx?, appObs iceP_appObs: ApplicationObserverPrx?, adptObs iceP_adptObs: AdapterObserverPrx?, objObs iceP_objObs: ObjectObserverPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "setObservers",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_registryObs)
+                                           ostr.write(iceP_nodeObs)
+                                           ostr.write(iceP_appObs)
+                                           ostr.write(iceP_adptObs)
+                                           ostr.write(iceP_objObs)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ObserverAlreadyRegisteredException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Set the observer identities that receive notifications the state of the registry or nodes changes. This
@@ -6417,61 +4778,24 @@ public extension AdminSessionPrx {
     /// - throws:
     ///
     ///   - ObserverAlreadyRegisteredException - Raised if an observer is already registered with this registry.
-    func setObserversByIdentity(registryObs iceP_registryObs: Ice.Identity, nodeObs iceP_nodeObs: Ice.Identity, appObs iceP_appObs: Ice.Identity, adptObs iceP_adptObs: Ice.Identity, objObs iceP_objObs: Ice.Identity, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "setObserversByIdentity",
-                          mode: .Idempotent,
-                          write: { ostr in
-                              ostr.write(iceP_registryObs)
-                              ostr.write(iceP_nodeObs)
-                              ostr.write(iceP_appObs)
-                              ostr.write(iceP_adptObs)
-                              ostr.write(iceP_objObs)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ObserverAlreadyRegisteredException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Set the observer identities that receive notifications the state of the registry or nodes changes. This
-    /// operation should be used by clients that are using a bidirectional connection to communicate with the
-    /// session.
-    ///
-    /// - parameter registryObs: `Ice.Identity` The registry observer identity.
-    ///
-    /// - parameter nodeObs: `Ice.Identity` The node observer identity.
-    ///
-    /// - parameter appObs: `Ice.Identity` The application observer.
-    ///
-    /// - parameter adptObs: `Ice.Identity` The adapter observer.
-    ///
-    /// - parameter objObs: `Ice.Identity` The object observer.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func setObserversByIdentityAsync(registryObs iceP_registryObs: Ice.Identity, nodeObs iceP_nodeObs: Ice.Identity, appObs iceP_appObs: Ice.Identity, adptObs iceP_adptObs: Ice.Identity, objObs iceP_objObs: Ice.Identity, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "setObserversByIdentity",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_registryObs)
-                                                ostr.write(iceP_nodeObs)
-                                                ostr.write(iceP_appObs)
-                                                ostr.write(iceP_adptObs)
-                                                ostr.write(iceP_objObs)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ObserverAlreadyRegisteredException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func setObserversByIdentity(registryObs iceP_registryObs: Ice.Identity, nodeObs iceP_nodeObs: Ice.Identity, appObs iceP_appObs: Ice.Identity, adptObs iceP_adptObs: Ice.Identity, objObs iceP_objObs: Ice.Identity, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "setObserversByIdentity",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_registryObs)
+                                           ostr.write(iceP_nodeObs)
+                                           ostr.write(iceP_appObs)
+                                           ostr.write(iceP_adptObs)
+                                           ostr.write(iceP_objObs)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ObserverAlreadyRegisteredException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Acquires an exclusive lock to start updating the registry applications.
@@ -6484,43 +4808,21 @@ public extension AdminSessionPrx {
     ///
     ///   - AccessDeniedException - Raised if the exclusive lock can't be acquired. This might happen if the lock
     ///     is currently acquired by another session.
-    func startUpdate(context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "startUpdate",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as AccessDeniedException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Acquires an exclusive lock to start updating the registry applications.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The result of the operation
-    func startUpdateAsync(context: Ice.Context? = nil) async throws -> Swift.Int32 {
-        return try await _impl._invokeAsync(operation: "startUpdate",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Int32 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as AccessDeniedException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func startUpdate(context: Ice.Context? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invoke(operation: "startUpdate",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Int32 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as AccessDeniedException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Finish updating the registry and release the exclusive lock.
@@ -6530,35 +4832,17 @@ public extension AdminSessionPrx {
     /// - throws:
     ///
     ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock.
-    func finishUpdate(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "finishUpdate",
-                          mode: .Normal,
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as AccessDeniedException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Finish updating the registry and release the exclusive lock.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func finishUpdateAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "finishUpdate",
-                                            mode: .Normal,
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as AccessDeniedException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func finishUpdate(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "finishUpdate",
+                                       mode: .Normal,
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as AccessDeniedException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get the name of the registry replica hosting this session.
@@ -6566,29 +4850,14 @@ public extension AdminSessionPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.String` - The replica name of the registry.
-    func getReplicaName(context: Ice.Context? = nil) throws -> Swift.String {
-        return try _impl._invoke(operation: "getReplicaName",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.String = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get the name of the registry replica hosting this session.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String` - The result of the operation
-    func getReplicaNameAsync(context: Ice.Context? = nil) async throws -> Swift.String {
-        return try await _impl._invokeAsync(operation: "getReplicaName",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.String = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getReplicaName(context: Ice.Context? = nil) async throws -> Swift.String {
+        return try await _impl._invoke(operation: "getReplicaName",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.String = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Open the given server log file for reading. The file can be read with the returned file iterator.
@@ -6614,73 +4883,32 @@ public extension AdminSessionPrx {
     ///   - NodeUnreachableException - Raised if the node could not be reached.
     ///
     ///   - ServerNotExistException - Raised if the server doesn't exist.
-    func openServerLog(id iceP_id: Swift.String, path iceP_path: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) throws -> FileIteratorPrx? {
-        return try _impl._invoke(operation: "openServerLog",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_id)
-                                     ostr.write(iceP_path)
-                                     ostr.write(iceP_count)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: FileIteratorPrx? = try istr.read(FileIteratorPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as ServerNotExistException {
-                                         throw error
-                                     } catch let error as DeploymentException {
-                                         throw error
-                                     } catch let error as NodeUnreachableException {
-                                         throw error
-                                     } catch let error as FileNotAvailableException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Open the given server log file for reading. The file can be read with the returned file iterator.
-    ///
-    /// - parameter id: `Swift.String` The server id.
-    ///
-    /// - parameter path: `Swift.String` The path of the log file. A log file can be opened only if it's declared in the server or
-    /// service deployment descriptor.
-    ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
-    /// 0 or positive, the file is read from the last count lines.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `FileIteratorPrx?` - The result of the operation
-    func openServerLogAsync(id iceP_id: Swift.String, path iceP_path: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
-        return try await _impl._invokeAsync(operation: "openServerLog",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                                ostr.write(iceP_path)
-                                                ostr.write(iceP_count)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: FileIteratorPrx? = try istr.read(FileIteratorPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ServerNotExistException {
-                                                    throw error
-                                                } catch let error as DeploymentException {
-                                                    throw error
-                                                } catch let error as NodeUnreachableException {
-                                                    throw error
-                                                } catch let error as FileNotAvailableException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func openServerLog(id iceP_id: Swift.String, path iceP_path: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
+        return try await _impl._invoke(operation: "openServerLog",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                           ostr.write(iceP_path)
+                                           ostr.write(iceP_count)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: FileIteratorPrx? = try istr.read(FileIteratorPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ServerNotExistException {
+                                               throw error
+                                           } catch let error as DeploymentException {
+                                               throw error
+                                           } catch let error as NodeUnreachableException {
+                                               throw error
+                                           } catch let error as FileNotAvailableException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Open the given server stderr file for reading. The file can be read with the returned file iterator.
@@ -6703,68 +4931,31 @@ public extension AdminSessionPrx {
     ///   - NodeUnreachableException - Raised if the node could not be reached.
     ///
     ///   - ServerNotExistException - Raised if the server doesn't exist.
-    func openServerStdErr(id iceP_id: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) throws -> FileIteratorPrx? {
-        return try _impl._invoke(operation: "openServerStdErr",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_id)
-                                     ostr.write(iceP_count)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: FileIteratorPrx? = try istr.read(FileIteratorPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as ServerNotExistException {
-                                         throw error
-                                     } catch let error as DeploymentException {
-                                         throw error
-                                     } catch let error as NodeUnreachableException {
-                                         throw error
-                                     } catch let error as FileNotAvailableException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Open the given server stderr file for reading. The file can be read with the returned file iterator.
-    ///
-    /// - parameter id: `Swift.String` The server id.
-    ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
-    /// 0 or positive, the file is read from the last count lines.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `FileIteratorPrx?` - The result of the operation
-    func openServerStdErrAsync(id iceP_id: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
-        return try await _impl._invokeAsync(operation: "openServerStdErr",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                                ostr.write(iceP_count)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: FileIteratorPrx? = try istr.read(FileIteratorPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ServerNotExistException {
-                                                    throw error
-                                                } catch let error as DeploymentException {
-                                                    throw error
-                                                } catch let error as NodeUnreachableException {
-                                                    throw error
-                                                } catch let error as FileNotAvailableException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func openServerStdErr(id iceP_id: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
+        return try await _impl._invoke(operation: "openServerStdErr",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                           ostr.write(iceP_count)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: FileIteratorPrx? = try istr.read(FileIteratorPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ServerNotExistException {
+                                               throw error
+                                           } catch let error as DeploymentException {
+                                               throw error
+                                           } catch let error as NodeUnreachableException {
+                                               throw error
+                                           } catch let error as FileNotAvailableException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Open the given server stdout file for reading. The file can be read with the returned file iterator.
@@ -6787,68 +4978,31 @@ public extension AdminSessionPrx {
     ///   - NodeUnreachableException - Raised if the node could not be reached.
     ///
     ///   - ServerNotExistException - Raised if the server doesn't exist.
-    func openServerStdOut(id iceP_id: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) throws -> FileIteratorPrx? {
-        return try _impl._invoke(operation: "openServerStdOut",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_id)
-                                     ostr.write(iceP_count)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: FileIteratorPrx? = try istr.read(FileIteratorPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as ServerNotExistException {
-                                         throw error
-                                     } catch let error as DeploymentException {
-                                         throw error
-                                     } catch let error as NodeUnreachableException {
-                                         throw error
-                                     } catch let error as FileNotAvailableException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Open the given server stdout file for reading. The file can be read with the returned file iterator.
-    ///
-    /// - parameter id: `Swift.String` The server id.
-    ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining.
-    /// If 0 or positive, the file is read from the last count lines.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `FileIteratorPrx?` - The result of the operation
-    func openServerStdOutAsync(id iceP_id: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
-        return try await _impl._invokeAsync(operation: "openServerStdOut",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                                ostr.write(iceP_count)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: FileIteratorPrx? = try istr.read(FileIteratorPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ServerNotExistException {
-                                                    throw error
-                                                } catch let error as DeploymentException {
-                                                    throw error
-                                                } catch let error as NodeUnreachableException {
-                                                    throw error
-                                                } catch let error as FileNotAvailableException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func openServerStdOut(id iceP_id: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
+        return try await _impl._invoke(operation: "openServerStdOut",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                           ostr.write(iceP_count)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: FileIteratorPrx? = try istr.read(FileIteratorPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ServerNotExistException {
+                                               throw error
+                                           } catch let error as DeploymentException {
+                                               throw error
+                                           } catch let error as NodeUnreachableException {
+                                               throw error
+                                           } catch let error as FileNotAvailableException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Open the given node stderr file for reading. The file can be read with the returned file iterator.
@@ -6869,64 +5023,29 @@ public extension AdminSessionPrx {
     ///   - NodeNotExistException - Raised if the node doesn't exist.
     ///
     ///   - NodeUnreachableException - Raised if the node could not be reached.
-    func openNodeStdErr(name iceP_name: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) throws -> FileIteratorPrx? {
-        return try _impl._invoke(operation: "openNodeStdErr",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_name)
-                                     ostr.write(iceP_count)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: FileIteratorPrx? = try istr.read(FileIteratorPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as NodeNotExistException {
-                                         throw error
-                                     } catch let error as NodeUnreachableException {
-                                         throw error
-                                     } catch let error as FileNotAvailableException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Open the given node stderr file for reading. The file can be read with the returned file iterator.
-    ///
-    /// - parameter name: `Swift.String` The node name.
-    ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
-    /// 0 or positive, the file is read from the last count lines.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `FileIteratorPrx?` - The result of the operation
-    func openNodeStdErrAsync(name iceP_name: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
-        return try await _impl._invokeAsync(operation: "openNodeStdErr",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                                ostr.write(iceP_count)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: FileIteratorPrx? = try istr.read(FileIteratorPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as NodeNotExistException {
-                                                    throw error
-                                                } catch let error as NodeUnreachableException {
-                                                    throw error
-                                                } catch let error as FileNotAvailableException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func openNodeStdErr(name iceP_name: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
+        return try await _impl._invoke(operation: "openNodeStdErr",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                           ostr.write(iceP_count)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: FileIteratorPrx? = try istr.read(FileIteratorPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as NodeNotExistException {
+                                               throw error
+                                           } catch let error as NodeUnreachableException {
+                                               throw error
+                                           } catch let error as FileNotAvailableException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Open the given node stdout file for reading. The file can be read with the returned file iterator.
@@ -6947,64 +5066,29 @@ public extension AdminSessionPrx {
     ///   - NodeNotExistException - Raised if the node doesn't exist.
     ///
     ///   - NodeUnreachableException - Raised if the node could not be reached.
-    func openNodeStdOut(name iceP_name: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) throws -> FileIteratorPrx? {
-        return try _impl._invoke(operation: "openNodeStdOut",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_name)
-                                     ostr.write(iceP_count)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: FileIteratorPrx? = try istr.read(FileIteratorPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as NodeNotExistException {
-                                         throw error
-                                     } catch let error as NodeUnreachableException {
-                                         throw error
-                                     } catch let error as FileNotAvailableException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Open the given node stdout file for reading. The file can be read with the returned file iterator.
-    ///
-    /// - parameter name: `Swift.String` The node name.
-    ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
-    /// 0 or positive, the file is read from the last count lines.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `FileIteratorPrx?` - The result of the operation
-    func openNodeStdOutAsync(name iceP_name: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
-        return try await _impl._invokeAsync(operation: "openNodeStdOut",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                                ostr.write(iceP_count)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: FileIteratorPrx? = try istr.read(FileIteratorPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as NodeNotExistException {
-                                                    throw error
-                                                } catch let error as NodeUnreachableException {
-                                                    throw error
-                                                } catch let error as FileNotAvailableException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func openNodeStdOut(name iceP_name: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
+        return try await _impl._invoke(operation: "openNodeStdOut",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                           ostr.write(iceP_count)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: FileIteratorPrx? = try istr.read(FileIteratorPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as NodeNotExistException {
+                                               throw error
+                                           } catch let error as NodeUnreachableException {
+                                               throw error
+                                           } catch let error as FileNotAvailableException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Open the given registry stderr file for reading. The file can be read with the returned file iterator.
@@ -7025,64 +5109,29 @@ public extension AdminSessionPrx {
     ///   - RegistryNotExistException - Raised if the registry doesn't exist.
     ///
     ///   - RegistryUnreachableException - Raised if the registry could not be reached.
-    func openRegistryStdErr(name iceP_name: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) throws -> FileIteratorPrx? {
-        return try _impl._invoke(operation: "openRegistryStdErr",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_name)
-                                     ostr.write(iceP_count)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: FileIteratorPrx? = try istr.read(FileIteratorPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as RegistryNotExistException {
-                                         throw error
-                                     } catch let error as RegistryUnreachableException {
-                                         throw error
-                                     } catch let error as FileNotAvailableException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Open the given registry stderr file for reading. The file can be read with the returned file iterator.
-    ///
-    /// - parameter name: `Swift.String` The registry name.
-    ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
-    /// 0 or positive, the file is read from the last count lines.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `FileIteratorPrx?` - The result of the operation
-    func openRegistryStdErrAsync(name iceP_name: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
-        return try await _impl._invokeAsync(operation: "openRegistryStdErr",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                                ostr.write(iceP_count)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: FileIteratorPrx? = try istr.read(FileIteratorPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as RegistryNotExistException {
-                                                    throw error
-                                                } catch let error as RegistryUnreachableException {
-                                                    throw error
-                                                } catch let error as FileNotAvailableException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func openRegistryStdErr(name iceP_name: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
+        return try await _impl._invoke(operation: "openRegistryStdErr",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                           ostr.write(iceP_count)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: FileIteratorPrx? = try istr.read(FileIteratorPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as RegistryNotExistException {
+                                               throw error
+                                           } catch let error as RegistryUnreachableException {
+                                               throw error
+                                           } catch let error as FileNotAvailableException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Open the given registry stdout file for reading. The file can be read with the returned file iterator.
@@ -7103,64 +5152,29 @@ public extension AdminSessionPrx {
     ///   - RegistryNotExistException - Raised if the registry doesn't exist.
     ///
     ///   - RegistryUnreachableException - Raised if the registry could not be reached.
-    func openRegistryStdOut(name iceP_name: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) throws -> FileIteratorPrx? {
-        return try _impl._invoke(operation: "openRegistryStdOut",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_name)
-                                     ostr.write(iceP_count)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: FileIteratorPrx? = try istr.read(FileIteratorPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as RegistryNotExistException {
-                                         throw error
-                                     } catch let error as RegistryUnreachableException {
-                                         throw error
-                                     } catch let error as FileNotAvailableException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Open the given registry stdout file for reading. The file can be read with the returned file iterator.
-    ///
-    /// - parameter name: `Swift.String` The registry name.
-    ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
-    /// 0 or positive, the file is read from the last count lines.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `FileIteratorPrx?` - The result of the operation
-    func openRegistryStdOutAsync(name iceP_name: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
-        return try await _impl._invokeAsync(operation: "openRegistryStdOut",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                                ostr.write(iceP_count)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: FileIteratorPrx? = try istr.read(FileIteratorPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as RegistryNotExistException {
-                                                    throw error
-                                                } catch let error as RegistryUnreachableException {
-                                                    throw error
-                                                } catch let error as FileNotAvailableException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func openRegistryStdOut(name iceP_name: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
+        return try await _impl._invoke(operation: "openRegistryStdOut",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                           ostr.write(iceP_count)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: FileIteratorPrx? = try istr.read(FileIteratorPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as RegistryNotExistException {
+                                               throw error
+                                           } catch let error as RegistryUnreachableException {
+                                               throw error
+                                           } catch let error as FileNotAvailableException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 }
 
@@ -7289,7 +5303,12 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
+    ///     holding the lock.
+    ///
+    ///   - DeploymentException - Raised if application deployment failed.
     func addApplication(descriptor: ApplicationDescriptor, current: Ice.Current) async throws
 
     /// Synchronize a deployed application with the given application descriptor. This operation will replace the
@@ -7299,7 +5318,14 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
+    ///     holding the lock.
+    ///
+    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
+    ///
+    ///   - DeploymentException - Raised if application deployment failed.
     func syncApplication(descriptor: ApplicationDescriptor, current: Ice.Current) async throws
 
     /// Update a deployed application with the given update application descriptor.
@@ -7308,7 +5334,14 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
+    ///     holding the lock.
+    ///
+    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
+    ///
+    ///   - DeploymentException - Raised if application deployment failed.
     func updateApplication(descriptor: ApplicationUpdateDescriptor, current: Ice.Current) async throws
 
     /// Synchronize a deployed application with the given application descriptor. This operation will replace the
@@ -7320,7 +5353,14 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
+    ///     holding the lock.
+    ///
+    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
+    ///
+    ///   - DeploymentException - Raised if application deployment failed.
     func syncApplicationWithoutRestart(descriptor: ApplicationDescriptor, current: Ice.Current) async throws
 
     /// Update a deployed application with the given update application descriptor only if no server restarts are
@@ -7331,7 +5371,14 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
+    ///     holding the lock.
+    ///
+    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
+    ///
+    ///   - DeploymentException - Raised if application deployment failed.
     func updateApplicationWithoutRestart(descriptor: ApplicationUpdateDescriptor, current: Ice.Current) async throws
 
     /// Remove an application from IceGrid.
@@ -7340,7 +5387,14 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
+    ///     holding the lock.
+    ///
+    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
+    ///
+    ///   - DeploymentException - Raised if application deployment failed.
     func removeApplication(name: Swift.String, current: Ice.Current) async throws
 
     /// Instantiate a server template from an application on the given node.
@@ -7353,7 +5407,14 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
+    ///     holding the lock.
+    ///
+    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
+    ///
+    ///   - DeploymentException - Raised if server instantiation failed.
     func instantiateServer(application: Swift.String, node: Swift.String, desc: ServerInstanceDescriptor, current: Ice.Current) async throws
 
     /// Get an application descriptor.
@@ -7362,21 +5423,29 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ApplicationInfo` - The result of the operation
+    /// - returns: `ApplicationInfo` - The application descriptor.
+    ///
+    /// - throws:
+    ///
+    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
     func getApplicationInfo(name: Swift.String, current: Ice.Current) async throws -> ApplicationInfo
 
     /// Get the default application descriptor.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ApplicationDescriptor` - The result of the operation
+    /// - returns: `ApplicationDescriptor` - The default application descriptor.
+    ///
+    /// - throws:
+    ///
+    ///   - DeploymentException - Raised if the default application descriptor can't be accessed or is invalid.
     func getDefaultApplicationDescriptor(current: Ice.Current) async throws -> ApplicationDescriptor
 
     /// Get all the IceGrid applications currently registered.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.StringSeq` - The result of the operation
+    /// - returns: `Ice.StringSeq` - The application names.
     func getAllApplicationNames(current: Ice.Current) async throws -> Ice.StringSeq
 
     /// Get the server information for the server with the given id.
@@ -7385,7 +5454,11 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ServerInfo` - The result of the operation
+    /// - returns: `ServerInfo` - The server information.
+    ///
+    /// - throws:
+    ///
+    ///   - ServerNotExistException - Raised if the server doesn't exist.
     func getServerInfo(id: Swift.String, current: Ice.Current) async throws -> ServerInfo
 
     /// Get a server's state.
@@ -7394,7 +5467,15 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ServerState` - The result of the operation
+    /// - returns: `ServerState` - The server state.
+    ///
+    /// - throws:
+    ///
+    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
+    ///
+    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    ///
+    ///   - ServerNotExistException - Raised if the server doesn't exist.
     func getServerState(id: Swift.String, current: Ice.Current) async throws -> ServerState
 
     /// Get a server's system process id. The process id is operating system dependent.
@@ -7403,7 +5484,15 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The result of the operation
+    /// - returns: `Swift.Int32` - The server's process id.
+    ///
+    /// - throws:
+    ///
+    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
+    ///
+    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    ///
+    ///   - ServerNotExistException - Raised if the server doesn't exist.
     func getServerPid(id: Swift.String, current: Ice.Current) async throws -> Swift.Int32
 
     /// Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
@@ -7411,7 +5500,7 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The result of the operation
+    /// - returns: `Swift.String` - The category for server admin objects.
     func getServerAdminCategory(current: Ice.Current) async throws -> Swift.String
 
     /// Get a proxy to the server's admin object.
@@ -7420,7 +5509,15 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    /// - returns: `Ice.ObjectPrx?` - A proxy to the server's admin object. The returned proxy is never null.
+    ///
+    /// - throws:
+    ///
+    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
+    ///
+    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    ///
+    ///   - ServerNotExistException - Raised if the server doesn't exist.
     func getServerAdmin(id: Swift.String, current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
@@ -7433,7 +5530,13 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
+    ///
+    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    ///
+    ///   - ServerNotExistException - Raised if the server doesn't exist.
     func enableServer(id: Swift.String, enabled: Swift.Bool, current: Ice.Current) async throws
 
     /// Check if the server is enabled or disabled.
@@ -7442,7 +5545,15 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Bool` - The result of the operation
+    /// - returns: `Swift.Bool` - True if the server is enabled.
+    ///
+    /// - throws:
+    ///
+    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
+    ///
+    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    ///
+    ///   - ServerNotExistException - Raised if the server doesn't exist.
     func isServerEnabled(id: Swift.String, current: Ice.Current) async throws -> Swift.Bool
 
     /// Start a server and wait for its activation.
@@ -7451,7 +5562,15 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
+    ///
+    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    ///
+    ///   - ServerNotExistException - Raised if the server doesn't exist.
+    ///
+    ///   - ServerStartException - Raised if the server couldn't be started.
     func startServer(id: Swift.String, current: Ice.Current) async throws
 
     /// Stop a server.
@@ -7460,7 +5579,15 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
+    ///
+    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    ///
+    ///   - ServerNotExistException - Raised if the server doesn't exist.
+    ///
+    ///   - ServerStopException - Raised if the server couldn't be stopped.
     func stopServer(id: Swift.String, current: Ice.Current) async throws
 
     /// Send signal to a server.
@@ -7471,14 +5598,22 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - BadSignalException - Raised if the signal is not recognized by the target server.
+    ///
+    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
+    ///
+    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    ///
+    ///   - ServerNotExistException - Raised if the server doesn't exist.
     func sendSignal(id: Swift.String, signal: Swift.String, current: Ice.Current) async throws
 
     /// Get all the server ids registered with IceGrid.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.StringSeq` - The result of the operation
+    /// - returns: `Ice.StringSeq` - The server ids.
     func getAllServerIds(current: Ice.Current) async throws -> Ice.StringSeq
 
     /// Get the adapter information for the replica group or adapter with the given id.
@@ -7487,7 +5622,13 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `AdapterInfoSeq` - The result of the operation
+    /// - returns: `AdapterInfoSeq` - A sequence of adapter information structures. If the given id refers to an adapter, this sequence
+    /// will contain only one element. If the given id refers to a replica group, the sequence will contain the
+    /// adapter information of each member of the replica group.
+    ///
+    /// - throws:
+    ///
+    ///   - AdapterNotExistException - Raised if the adapter or replica group doesn't exist.
     func getAdapterInfo(id: Swift.String, current: Ice.Current) async throws -> AdapterInfoSeq
 
     /// Remove the adapter with the given id.
@@ -7496,14 +5637,18 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - AdapterNotExistException - Raised if the adapter doesn't exist.
+    ///
+    ///   - DeploymentException - Raised if application deployment failed.
     func removeAdapter(id: Swift.String, current: Ice.Current) async throws
 
     /// Get all the adapter ids registered with IceGrid.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.StringSeq` - The result of the operation
+    /// - returns: `Ice.StringSeq` - The adapter ids.
     func getAllAdapterIds(current: Ice.Current) async throws -> Ice.StringSeq
 
     /// Add an object to the object registry. IceGrid will get the object type by calling ice_id on the
@@ -7513,7 +5658,12 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - DeploymentException - Raised if the object can't be added. This might be raised if the invocation on
+    ///     the proxy to get the object type failed.
+    ///
+    ///   - ObjectExistsException - Raised if the object is already registered.
     func addObject(obj: Ice.ObjectPrx?, current: Ice.Current) async throws
 
     /// Update an object in the object registry. Only objects added with this interface can be updated with this
@@ -7523,7 +5673,12 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - DeploymentException - Raised if the object can't be updated. This might happen if the object was added
+    ///     with a deployment descriptor.
+    ///
+    ///   - ObjectNotRegisteredException - Raised if the object isn't registered with the registry.
     func updateObject(obj: Ice.ObjectPrx?, current: Ice.Current) async throws
 
     /// Add an object to the object registry and explicitly specify its type.
@@ -7534,7 +5689,11 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - DeploymentException - Raised if application deployment failed.
+    ///
+    ///   - ObjectExistsException - Raised if the object is already registered.
     func addObjectWithType(obj: Ice.ObjectPrx?, type: Swift.String, current: Ice.Current) async throws
 
     /// Remove an object from the object registry. Only objects added with this interface can be removed with this
@@ -7544,7 +5703,12 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - DeploymentException - Raised if the object can't be removed. This might happen if the object was added
+    ///     with a deployment descriptor.
+    ///
+    ///   - ObjectNotRegisteredException - Raised if the object isn't registered with the registry.
     func removeObject(id: Ice.Identity, current: Ice.Current) async throws
 
     /// Get the object info for the object with the given identity.
@@ -7553,7 +5717,11 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ObjectInfo` - The result of the operation
+    /// - returns: `ObjectInfo` - The object info.
+    ///
+    /// - throws:
+    ///
+    ///   - ObjectNotRegisteredException - Raised if the object isn't registered with the registry.
     func getObjectInfo(id: Ice.Identity, current: Ice.Current) async throws -> ObjectInfo
 
     /// Get the object info of all the registered objects with the given type.
@@ -7562,7 +5730,7 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ObjectInfoSeq` - The result of the operation
+    /// - returns: `ObjectInfoSeq` - The object infos.
     func getObjectInfosByType(type: Swift.String, current: Ice.Current) async throws -> ObjectInfoSeq
 
     /// Get the object info of all the registered objects whose stringified identities match the given expression.
@@ -7572,7 +5740,7 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ObjectInfoSeq` - The result of the operation
+    /// - returns: `ObjectInfoSeq` - All the object infos with a stringified identity matching the given expression.
     func getAllObjectInfos(expr: Swift.String, current: Ice.Current) async throws -> ObjectInfoSeq
 
     /// Ping an IceGrid node to see if it is active.
@@ -7581,7 +5749,11 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Bool` - The result of the operation
+    /// - returns: `Swift.Bool` - true if the node ping succeeded, false otherwise.
+    ///
+    /// - throws:
+    ///
+    ///   - NodeNotExistException - Raised if the node doesn't exist.
     func pingNode(name: Swift.String, current: Ice.Current) async throws -> Swift.Bool
 
     /// Get the load averages of the node.
@@ -7590,7 +5762,13 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `LoadInfo` - The result of the operation
+    /// - returns: `LoadInfo` - The node load information.
+    ///
+    /// - throws:
+    ///
+    ///   - NodeNotExistException - Raised if the node doesn't exist.
+    ///
+    ///   - NodeUnreachableException - Raised if the node could not be reached.
     func getNodeLoad(name: Swift.String, current: Ice.Current) async throws -> LoadInfo
 
     /// Get the node information for the node with the given name.
@@ -7599,7 +5777,13 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NodeInfo` - The result of the operation
+    /// - returns: `NodeInfo` - The node information.
+    ///
+    /// - throws:
+    ///
+    ///   - NodeNotExistException - Raised if the node doesn't exist.
+    ///
+    ///   - NodeUnreachableException - Raised if the node could not be reached.
     func getNodeInfo(name: Swift.String, current: Ice.Current) async throws -> NodeInfo
 
     /// Get a proxy to the IceGrid node's admin object.
@@ -7608,7 +5792,13 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    /// - returns: `Ice.ObjectPrx?` - A proxy to the IceGrid node's admin object. The returned proxy is never null.
+    ///
+    /// - throws:
+    ///
+    ///   - NodeNotExistException - Raised if the node doesn't exist.
+    ///
+    ///   - NodeUnreachableException - Raised if the node could not be reached.
     func getNodeAdmin(name: Swift.String, current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Get the number of physical processor sockets for the machine running the node with the given name.
@@ -7619,7 +5809,13 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The result of the operation
+    /// - returns: `Swift.Int32` - The number of processor sockets or 1 if the number of sockets can't determined.
+    ///
+    /// - throws:
+    ///
+    ///   - NodeNotExistException - Raised if the node doesn't exist.
+    ///
+    ///   - NodeUnreachableException - Raised if the node could not be reached.
     func getNodeProcessorSocketCount(name: Swift.String, current: Ice.Current) async throws -> Swift.Int32
 
     /// Shutdown an IceGrid node.
@@ -7628,7 +5824,11 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - NodeNotExistException - Raised if the node doesn't exist.
+    ///
+    ///   - NodeUnreachableException - Raised if the node could not be reached.
     func shutdownNode(name: Swift.String, current: Ice.Current) async throws
 
     /// Get the hostname of this node.
@@ -7637,14 +5837,20 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The result of the operation
+    /// - returns: `Swift.String` - The node hostname.
+    ///
+    /// - throws:
+    ///
+    ///   - NodeNotExistException - Raised if the node doesn't exist.
+    ///
+    ///   - NodeUnreachableException - Raised if the node could not be reached.
     func getNodeHostname(name: Swift.String, current: Ice.Current) async throws -> Swift.String
 
     /// Get all the IceGrid nodes currently registered.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.StringSeq` - The result of the operation
+    /// - returns: `Ice.StringSeq` - The node names.
     func getAllNodeNames(current: Ice.Current) async throws -> Ice.StringSeq
 
     /// Ping an IceGrid registry to see if it is active.
@@ -7653,7 +5859,11 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Bool` - The result of the operation
+    /// - returns: `Swift.Bool` - true if the registry ping succeeded, false otherwise.
+    ///
+    /// - throws:
+    ///
+    ///   - RegistryNotExistException - Raised if the registry doesn't exist.
     func pingRegistry(name: Swift.String, current: Ice.Current) async throws -> Swift.Bool
 
     /// Get the registry information for the registry with the given name.
@@ -7662,7 +5872,13 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `RegistryInfo` - The result of the operation
+    /// - returns: `RegistryInfo` - The registry information.
+    ///
+    /// - throws:
+    ///
+    ///   - RegistryNotExistException - Raised if the registry doesn't exist.
+    ///
+    ///   - RegistryUnreachableException - Raised if the registry could not be reached.
     func getRegistryInfo(name: Swift.String, current: Ice.Current) async throws -> RegistryInfo
 
     /// Get a proxy to the IceGrid registry's admin object.
@@ -7671,7 +5887,11 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    /// - returns: `Ice.ObjectPrx?` - A proxy to the IceGrid registry's admin object. The returned proxy is never null.
+    ///
+    /// - throws:
+    ///
+    ///   - RegistryNotExistException - Raised if the registry doesn't exist.
     func getRegistryAdmin(name: Swift.String, current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Shutdown an IceGrid registry.
@@ -7680,21 +5900,23 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - RegistryNotExistException - Raised if the registry doesn't exist.
+    ///
+    ///   - RegistryUnreachableException - Raised if the registry could not be reached.
     func shutdownRegistry(name: Swift.String, current: Ice.Current) async throws
 
     /// Get all the IceGrid registries currently registered.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.StringSeq` - The result of the operation
+    /// - returns: `Ice.StringSeq` - The registry names.
     func getAllRegistryNames(current: Ice.Current) async throws -> Ice.StringSeq
 
     /// Shut down the IceGrid registry.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -7737,14 +5959,22 @@ public protocol FileIterator {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: Swift.Bool, lines: Ice.StringSeq)` - The result of the operation
+    /// - returns: `(returnValue: Swift.Bool, lines: Ice.StringSeq)`:
+    ///
+    ///   - returnValue: `Swift.Bool` - True if EOF is encountered.
+    ///
+    ///   - lines: `Ice.StringSeq` - The lines read from the file. If there was nothing to read from the file since the last call to
+    /// read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
+    /// '\n' should be added when writing the last line to the to the output device).
+    ///
+    /// - throws:
+    ///
+    ///   - FileNotAvailableException - Raised if there was a problem to read lines from the file.
     func read(size: Swift.Int32, current: Ice.Current) async throws -> (returnValue: Swift.Bool, lines: Ice.StringSeq)
 
     /// Destroy the iterator.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func destroy(current: Ice.Current) async throws
 }
 
@@ -7788,8 +6018,6 @@ public protocol RegistryObserver {
     /// - parameter registries: `RegistryInfoSeq` The current state of the registries.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func registryInit(registries: RegistryInfoSeq, current: Ice.Current) async throws
 
     /// The registryUp operation is called to notify an observer that a registry replica came up.
@@ -7797,8 +6025,6 @@ public protocol RegistryObserver {
     /// - parameter registryReplica: `RegistryInfo` The registry state.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func registryUp(registryReplica: RegistryInfo, current: Ice.Current) async throws
 
     /// The registryDown operation is called to notify an observer that a registry replica went down.
@@ -7806,8 +6032,6 @@ public protocol RegistryObserver {
     /// - parameter name: `Swift.String` The registry name.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func registryDown(name: Swift.String, current: Ice.Current) async throws
 }
 
@@ -7856,8 +6080,6 @@ public protocol NodeObserver {
     /// - parameter nodes: `NodeDynamicInfoSeq` The current state of the nodes.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func nodeInit(nodes: NodeDynamicInfoSeq, current: Ice.Current) async throws
 
     /// The nodeUp operation is called to notify an observer that a node came up.
@@ -7865,8 +6087,6 @@ public protocol NodeObserver {
     /// - parameter node: `NodeDynamicInfo` The node state.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func nodeUp(node: NodeDynamicInfo, current: Ice.Current) async throws
 
     /// The nodeDown operation is called to notify an observer that a node went down.
@@ -7874,8 +6094,6 @@ public protocol NodeObserver {
     /// - parameter name: `Swift.String` The node name.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func nodeDown(name: Swift.String, current: Ice.Current) async throws
 
     /// The updateServer operation is called to notify an observer that the state of a server changed.
@@ -7885,8 +6103,6 @@ public protocol NodeObserver {
     /// - parameter updatedInfo: `ServerDynamicInfo` The new server state.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func updateServer(node: Swift.String, updatedInfo: ServerDynamicInfo, current: Ice.Current) async throws
 
     /// The updateAdapter operation is called to notify an observer that the state of an adapter
@@ -7897,8 +6113,6 @@ public protocol NodeObserver {
     /// - parameter updatedInfo: `AdapterDynamicInfo` The new adapter state.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func updateAdapter(node: Swift.String, updatedInfo: AdapterDynamicInfo, current: Ice.Current) async throws
 }
 
@@ -7948,8 +6162,6 @@ public protocol ApplicationObserver {
     /// - parameter applications: `ApplicationInfoSeq` The applications currently registered with the registry.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func applicationInit(serial: Swift.Int32, applications: ApplicationInfoSeq, current: Ice.Current) async throws
 
     /// The applicationAdded operation is called to notify an observer that an application was added.
@@ -7959,8 +6171,6 @@ public protocol ApplicationObserver {
     /// - parameter desc: `ApplicationInfo` The descriptor of the new application.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func applicationAdded(serial: Swift.Int32, desc: ApplicationInfo, current: Ice.Current) async throws
 
     /// The applicationRemoved operation is called to notify an observer that an application was
@@ -7971,8 +6181,6 @@ public protocol ApplicationObserver {
     /// - parameter name: `Swift.String` The name of the application that was removed.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func applicationRemoved(serial: Swift.Int32, name: Swift.String, current: Ice.Current) async throws
 
     /// The applicationUpdated operation is called to notify an observer that an application was
@@ -7983,8 +6191,6 @@ public protocol ApplicationObserver {
     /// - parameter desc: `ApplicationUpdateInfo` The descriptor of the update.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func applicationUpdated(serial: Swift.Int32, desc: ApplicationUpdateInfo, current: Ice.Current) async throws
 }
 
@@ -8030,8 +6236,6 @@ public protocol AdapterObserver {
     /// mechanism).
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func adapterInit(adpts: AdapterInfoSeq, current: Ice.Current) async throws
 
     /// The adapterAdded operation is called to notify an observer when a dynamically-registered
@@ -8040,8 +6244,6 @@ public protocol AdapterObserver {
     /// - parameter info: `AdapterInfo` The details of the new adapter.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func adapterAdded(info: AdapterInfo, current: Ice.Current) async throws
 
     /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
@@ -8050,8 +6252,6 @@ public protocol AdapterObserver {
     /// - parameter info: `AdapterInfo` The details of the updated adapter.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func adapterUpdated(info: AdapterInfo, current: Ice.Current) async throws
 
     /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
@@ -8060,8 +6260,6 @@ public protocol AdapterObserver {
     /// - parameter id: `Swift.String` The ID of the removed adapter.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func adapterRemoved(id: Swift.String, current: Ice.Current) async throws
 }
 
@@ -8108,8 +6306,6 @@ public protocol ObjectObserver {
     /// mechanism).
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func objectInit(objects: ObjectInfoSeq, current: Ice.Current) async throws
 
     /// The objectAdded operation is called to notify an observer when an object was added to the
@@ -8118,8 +6314,6 @@ public protocol ObjectObserver {
     /// - parameter info: `ObjectInfo` The details of the added object.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func objectAdded(info: ObjectInfo, current: Ice.Current) async throws
 
     /// objectUpdated is called to notify an observer when an object registered with the Admin
@@ -8128,8 +6322,6 @@ public protocol ObjectObserver {
     /// - parameter info: `ObjectInfo` The details of the updated object.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func objectUpdated(info: ObjectInfo, current: Ice.Current) async throws
 
     /// objectRemoved is called to notify an observer when an object registered with the Admin
@@ -8138,8 +6330,6 @@ public protocol ObjectObserver {
     /// - parameter id: `Ice.Identity` The identity of the removed object.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func objectRemoved(id: Ice.Identity, current: Ice.Current) async throws
 }
 
@@ -8209,15 +6399,13 @@ public protocol AdminSession: Glacier2.Session {
     /// need to call this operation and its implementation does nothing.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func keepAlive(current: Ice.Current) async throws
 
     /// Get the admin interface. The admin object returned by this operation can only be accessed by the session.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `AdminPrx?` - The result of the operation
+    /// - returns: `AdminPrx?` - The admin interface proxy. The returned proxy is never null.
     func getAdmin(current: Ice.Current) async throws -> AdminPrx?
 
     /// Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
@@ -8225,7 +6413,7 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    /// - returns: `Ice.ObjectPrx?` - A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
     func getAdminCallbackTemplate(current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Set the observer proxies that receive notifications when the state of the registry or nodes changes.
@@ -8242,7 +6430,9 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - ObserverAlreadyRegisteredException - Raised if an observer is already registered with this registry.
     func setObservers(registryObs: RegistryObserverPrx?, nodeObs: NodeObserverPrx?, appObs: ApplicationObserverPrx?, adptObs: AdapterObserverPrx?, objObs: ObjectObserverPrx?, current: Ice.Current) async throws
 
     /// Set the observer identities that receive notifications the state of the registry or nodes changes. This
@@ -8261,28 +6451,37 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - ObserverAlreadyRegisteredException - Raised if an observer is already registered with this registry.
     func setObserversByIdentity(registryObs: Ice.Identity, nodeObs: Ice.Identity, appObs: Ice.Identity, adptObs: Ice.Identity, objObs: Ice.Identity, current: Ice.Current) async throws
 
     /// Acquires an exclusive lock to start updating the registry applications.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The result of the operation
+    /// - returns: `Swift.Int32` - The current serial.
+    ///
+    /// - throws:
+    ///
+    ///   - AccessDeniedException - Raised if the exclusive lock can't be acquired. This might happen if the lock
+    ///     is currently acquired by another session.
     func startUpdate(current: Ice.Current) async throws -> Swift.Int32
 
     /// Finish updating the registry and release the exclusive lock.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock.
     func finishUpdate(current: Ice.Current) async throws
 
     /// Get the name of the registry replica hosting this session.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The result of the operation
+    /// - returns: `Swift.String` - The replica name of the registry.
     func getReplicaName(current: Ice.Current) async throws -> Swift.String
 
     /// Open the given server log file for reading. The file can be read with the returned file iterator.
@@ -8297,7 +6496,17 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `FileIteratorPrx?` - The result of the operation
+    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
+    ///
+    /// - throws:
+    ///
+    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
+    ///
+    ///   - FileNotAvailableException - Raised if the file can't be read.
+    ///
+    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    ///
+    ///   - ServerNotExistException - Raised if the server doesn't exist.
     func openServerLog(id: Swift.String, path: Swift.String, count: Swift.Int32, current: Ice.Current) async throws -> FileIteratorPrx?
 
     /// Open the given server stderr file for reading. The file can be read with the returned file iterator.
@@ -8309,7 +6518,17 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `FileIteratorPrx?` - The result of the operation
+    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
+    ///
+    /// - throws:
+    ///
+    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
+    ///
+    ///   - FileNotAvailableException - Raised if the file can't be read.
+    ///
+    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    ///
+    ///   - ServerNotExistException - Raised if the server doesn't exist.
     func openServerStdErr(id: Swift.String, count: Swift.Int32, current: Ice.Current) async throws -> FileIteratorPrx?
 
     /// Open the given server stdout file for reading. The file can be read with the returned file iterator.
@@ -8321,7 +6540,17 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `FileIteratorPrx?` - The result of the operation
+    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
+    ///
+    /// - throws:
+    ///
+    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
+    ///
+    ///   - FileNotAvailableException - Raised if the file can't be read.
+    ///
+    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    ///
+    ///   - ServerNotExistException - Raised if the server doesn't exist.
     func openServerStdOut(id: Swift.String, count: Swift.Int32, current: Ice.Current) async throws -> FileIteratorPrx?
 
     /// Open the given node stderr file for reading. The file can be read with the returned file iterator.
@@ -8333,7 +6562,15 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `FileIteratorPrx?` - The result of the operation
+    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
+    ///
+    /// - throws:
+    ///
+    ///   - FileNotAvailableException - Raised if the file can't be read.
+    ///
+    ///   - NodeNotExistException - Raised if the node doesn't exist.
+    ///
+    ///   - NodeUnreachableException - Raised if the node could not be reached.
     func openNodeStdErr(name: Swift.String, count: Swift.Int32, current: Ice.Current) async throws -> FileIteratorPrx?
 
     /// Open the given node stdout file for reading. The file can be read with the returned file iterator.
@@ -8345,7 +6582,15 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `FileIteratorPrx?` - The result of the operation
+    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
+    ///
+    /// - throws:
+    ///
+    ///   - FileNotAvailableException - Raised if the file can't be read.
+    ///
+    ///   - NodeNotExistException - Raised if the node doesn't exist.
+    ///
+    ///   - NodeUnreachableException - Raised if the node could not be reached.
     func openNodeStdOut(name: Swift.String, count: Swift.Int32, current: Ice.Current) async throws -> FileIteratorPrx?
 
     /// Open the given registry stderr file for reading. The file can be read with the returned file iterator.
@@ -8357,7 +6602,15 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `FileIteratorPrx?` - The result of the operation
+    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
+    ///
+    /// - throws:
+    ///
+    ///   - FileNotAvailableException - Raised if the file can't be read.
+    ///
+    ///   - RegistryNotExistException - Raised if the registry doesn't exist.
+    ///
+    ///   - RegistryUnreachableException - Raised if the registry could not be reached.
     func openRegistryStdErr(name: Swift.String, count: Swift.Int32, current: Ice.Current) async throws -> FileIteratorPrx?
 
     /// Open the given registry stdout file for reading. The file can be read with the returned file iterator.
@@ -8369,7 +6622,15 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `FileIteratorPrx?` - The result of the operation
+    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
+    ///
+    /// - throws:
+    ///
+    ///   - FileNotAvailableException - Raised if the file can't be read.
+    ///
+    ///   - RegistryNotExistException - Raised if the registry doesn't exist.
+    ///
+    ///   - RegistryUnreachableException - Raised if the registry could not be reached.
     func openRegistryStdOut(name: Swift.String, count: Swift.Int32, current: Ice.Current) async throws -> FileIteratorPrx?
 }
 

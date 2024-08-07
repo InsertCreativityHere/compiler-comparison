@@ -67,8 +67,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: SinglePrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> SinglePrx? {
-    return try SinglePrxI.checkedCast(prx: prx, facet: facet, context: context) as SinglePrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: SinglePrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> SinglePrx? {
+    return try await SinglePrxI.checkedCast(prx: prx, facet: facet, context: context) as SinglePrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -128,28 +128,13 @@ public extension SinglePrx {
     /// - parameter _: `Swift.Int32`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func event(_ iceP_i: Swift.Int32, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "event",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_i)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func eventAsync(_ iceP_i: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "event",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_i)
-                                            },
-                                            context: context)
+    func event(_ iceP_i: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "event",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_i)
+                                       },
+                                       context: context)
     }
 }
 
@@ -186,8 +171,6 @@ public protocol Single {
     /// - parameter i: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func event(i: Swift.Int32, current: Ice.Current) async throws
 }
 

@@ -233,8 +233,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: CommonTestCasePrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> CommonTestCasePrx? {
-    return try CommonTestCasePrxI.checkedCast(prx: prx, facet: facet, context: context) as CommonTestCasePrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: CommonTestCasePrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> CommonTestCasePrx? {
+    return try await CommonTestCasePrxI.checkedCast(prx: prx, facet: facet, context: context) as CommonTestCasePrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -308,52 +308,25 @@ public extension CommonTestCasePrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.String`
-    func startServerSide(_ iceP_config: CommonConfig?, context: Ice.Context? = nil) throws -> Swift.String {
-        return try _impl._invoke(operation: "startServerSide",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_config)
-                                     ostr.writePendingValues()
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.String = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as CommonTestCaseFailedException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `CommonConfig?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String` - The result of the operation
-    func startServerSideAsync(_ iceP_config: CommonConfig?, context: Ice.Context? = nil) async throws -> Swift.String {
-        return try await _impl._invokeAsync(operation: "startServerSide",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_config)
-                                                ostr.writePendingValues()
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.String = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as CommonTestCaseFailedException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func startServerSide(_ iceP_config: CommonConfig?, context: Ice.Context? = nil) async throws -> Swift.String {
+        return try await _impl._invoke(operation: "startServerSide",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_config)
+                                           ostr.writePendingValues()
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.String = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as CommonTestCaseFailedException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     ///
@@ -362,50 +335,24 @@ public extension CommonTestCasePrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.String`
-    func stopServerSide(_ iceP_success: Swift.Bool, context: Ice.Context? = nil) throws -> Swift.String {
-        return try _impl._invoke(operation: "stopServerSide",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_success)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.String = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as CommonTestCaseFailedException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String` - The result of the operation
-    func stopServerSideAsync(_ iceP_success: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.String {
-        return try await _impl._invokeAsync(operation: "stopServerSide",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_success)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.String = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as CommonTestCaseFailedException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func stopServerSide(_ iceP_success: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.String {
+        return try await _impl._invoke(operation: "stopServerSide",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_success)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.String = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as CommonTestCaseFailedException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     ///
@@ -416,74 +363,34 @@ public extension CommonTestCasePrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.String`
-    func runClientSide(host iceP_host: Swift.String, config iceP_config: CommonConfig?, context: Ice.Context? = nil) throws -> Swift.String {
-        return try _impl._invoke(operation: "runClientSide",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_host)
-                                     ostr.write(iceP_config)
-                                     ostr.writePendingValues()
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.String = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as CommonTestCaseFailedException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter host: `Swift.String`
-    ///
-    /// - parameter config: `CommonConfig?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String` - The result of the operation
-    func runClientSideAsync(host iceP_host: Swift.String, config iceP_config: CommonConfig?, context: Ice.Context? = nil) async throws -> Swift.String {
-        return try await _impl._invokeAsync(operation: "runClientSide",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_host)
-                                                ostr.write(iceP_config)
-                                                ostr.writePendingValues()
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.String = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as CommonTestCaseFailedException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func runClientSide(host iceP_host: Swift.String, config iceP_config: CommonConfig?, context: Ice.Context? = nil) async throws -> Swift.String {
+        return try await _impl._invoke(operation: "runClientSide",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_host)
+                                           ostr.write(iceP_config)
+                                           ostr.writePendingValues()
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.String = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as CommonTestCaseFailedException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func destroy(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "destroy",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func destroyAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "destroy",
-                                            mode: .Normal,
-                                            context: context)
+    func destroy(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "destroy",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -544,8 +451,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: CommonControllerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> CommonControllerPrx? {
-    return try CommonControllerPrxI.checkedCast(prx: prx, facet: facet, context: context) as CommonControllerPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: CommonControllerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> CommonControllerPrx? {
+    return try await CommonControllerPrxI.checkedCast(prx: prx, facet: facet, context: context) as CommonControllerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -625,94 +532,43 @@ public extension CommonControllerPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `CommonTestCasePrx?`
-    func runTestCase(mapping iceP_mapping: Swift.String, testsuite iceP_testsuite: Swift.String, testcase iceP_testcase: Swift.String, cross iceP_cross: Swift.String, context: Ice.Context? = nil) throws -> CommonTestCasePrx? {
-        return try _impl._invoke(operation: "runTestCase",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_mapping)
-                                     ostr.write(iceP_testsuite)
-                                     ostr.write(iceP_testcase)
-                                     ostr.write(iceP_cross)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: CommonTestCasePrx? = try istr.read(CommonTestCasePrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as CommonTestCaseNotExistException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter mapping: `Swift.String`
-    ///
-    /// - parameter testsuite: `Swift.String`
-    ///
-    /// - parameter testcase: `Swift.String`
-    ///
-    /// - parameter cross: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `CommonTestCasePrx?` - The result of the operation
-    func runTestCaseAsync(mapping iceP_mapping: Swift.String, testsuite iceP_testsuite: Swift.String, testcase iceP_testcase: Swift.String, cross iceP_cross: Swift.String, context: Ice.Context? = nil) async throws -> CommonTestCasePrx? {
-        return try await _impl._invokeAsync(operation: "runTestCase",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_mapping)
-                                                ostr.write(iceP_testsuite)
-                                                ostr.write(iceP_testcase)
-                                                ostr.write(iceP_cross)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: CommonTestCasePrx? = try istr.read(CommonTestCasePrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as CommonTestCaseNotExistException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func runTestCase(mapping iceP_mapping: Swift.String, testsuite iceP_testsuite: Swift.String, testcase iceP_testcase: Swift.String, cross iceP_cross: Swift.String, context: Ice.Context? = nil) async throws -> CommonTestCasePrx? {
+        return try await _impl._invoke(operation: "runTestCase",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_mapping)
+                                           ostr.write(iceP_testsuite)
+                                           ostr.write(iceP_testcase)
+                                           ostr.write(iceP_cross)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: CommonTestCasePrx? = try istr.read(CommonTestCasePrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as CommonTestCaseNotExistException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `CommonOptionOverrides?`
-    func getOptionOverrides(context: Ice.Context? = nil) throws -> CommonOptionOverrides? {
-        return try _impl._invoke(operation: "getOptionOverrides",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     var iceP_returnValue: CommonOptionOverrides?
-                                     try istr.read(CommonOptionOverrides.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `CommonOptionOverrides?` - The result of the operation
-    func getOptionOverridesAsync(context: Ice.Context? = nil) async throws -> CommonOptionOverrides? {
-        return try await _impl._invokeAsync(operation: "getOptionOverrides",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                var iceP_returnValue: CommonOptionOverrides?
-                                                try istr.read(CommonOptionOverrides.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getOptionOverrides(context: Ice.Context? = nil) async throws -> CommonOptionOverrides? {
+        return try await _impl._invoke(operation: "getOptionOverrides",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           var iceP_returnValue: CommonOptionOverrides?
+                                           try istr.read(CommonOptionOverrides.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
@@ -721,36 +577,17 @@ public extension CommonControllerPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `CommonStringSeq`
-    func getTestSuites(_ iceP_mapping: Swift.String, context: Ice.Context? = nil) throws -> CommonStringSeq {
-        return try _impl._invoke(operation: "getTestSuites",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_mapping)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: CommonStringSeq = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `CommonStringSeq` - The result of the operation
-    func getTestSuitesAsync(_ iceP_mapping: Swift.String, context: Ice.Context? = nil) async throws -> CommonStringSeq {
-        return try await _impl._invokeAsync(operation: "getTestSuites",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_mapping)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: CommonStringSeq = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getTestSuites(_ iceP_mapping: Swift.String, context: Ice.Context? = nil) async throws -> CommonStringSeq {
+        return try await _impl._invoke(operation: "getTestSuites",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_mapping)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: CommonStringSeq = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
@@ -761,40 +598,18 @@ public extension CommonControllerPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.String`
-    func getHost(protocol iceP_protocol: Swift.String, ipv6 iceP_ipv6: Swift.Bool, context: Ice.Context? = nil) throws -> Swift.String {
-        return try _impl._invoke(operation: "getHost",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_protocol)
-                                     ostr.write(iceP_ipv6)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.String = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter protocol: `Swift.String`
-    ///
-    /// - parameter ipv6: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String` - The result of the operation
-    func getHostAsync(protocol iceP_protocol: Swift.String, ipv6 iceP_ipv6: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.String {
-        return try await _impl._invokeAsync(operation: "getHost",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_protocol)
-                                                ostr.write(iceP_ipv6)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.String = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getHost(protocol iceP_protocol: Swift.String, ipv6 iceP_ipv6: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.String {
+        return try await _impl._invoke(operation: "getHost",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_protocol)
+                                           ostr.write(iceP_ipv6)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.String = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -851,8 +666,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: CommonProcessPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> CommonProcessPrx? {
-    return try CommonProcessPrxI.checkedCast(prx: prx, facet: facet, context: context) as CommonProcessPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: CommonProcessPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> CommonProcessPrx? {
+    return try await CommonProcessPrxI.checkedCast(prx: prx, facet: facet, context: context) as CommonProcessPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -920,42 +735,20 @@ public extension CommonProcessPrx {
     /// - parameter _: `Swift.Int32`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func waitReady(_ iceP_timeout: Swift.Int32, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "waitReady",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_timeout)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as CommonProcessFailedException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func waitReadyAsync(_ iceP_timeout: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "waitReady",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_timeout)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as CommonProcessFailedException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func waitReady(_ iceP_timeout: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "waitReady",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_timeout)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as CommonProcessFailedException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     ///
@@ -964,78 +757,38 @@ public extension CommonProcessPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Int32`
-    func waitSuccess(_ iceP_timeout: Swift.Int32, context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "waitSuccess",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_timeout)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as CommonProcessFailedException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The result of the operation
-    func waitSuccessAsync(_ iceP_timeout: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
-        return try await _impl._invokeAsync(operation: "waitSuccess",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_timeout)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Int32 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as CommonProcessFailedException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func waitSuccess(_ iceP_timeout: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invoke(operation: "waitSuccess",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_timeout)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Int32 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as CommonProcessFailedException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.String`
-    func terminate(context: Ice.Context? = nil) throws -> Swift.String {
-        return try _impl._invoke(operation: "terminate",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.String = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String` - The result of the operation
-    func terminateAsync(context: Ice.Context? = nil) async throws -> Swift.String {
-        return try await _impl._invokeAsync(operation: "terminate",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.String = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func terminate(context: Ice.Context? = nil) async throws -> Swift.String {
+        return try await _impl._invoke(operation: "terminate",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.String = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -1088,8 +841,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: CommonProcessControllerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> CommonProcessControllerPrx? {
-    return try CommonProcessControllerPrxI.checkedCast(prx: prx, facet: facet, context: context) as CommonProcessControllerPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: CommonProcessControllerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> CommonProcessControllerPrx? {
+    return try await CommonProcessControllerPrxI.checkedCast(prx: prx, facet: facet, context: context) as CommonProcessControllerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -1159,58 +912,26 @@ public extension CommonProcessControllerPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `CommonProcessPrx?`
-    func start(testsuite iceP_testsuite: Swift.String, exe iceP_exe: Swift.String, args iceP_args: CommonStringSeq, context: Ice.Context? = nil) throws -> CommonProcessPrx? {
-        return try _impl._invoke(operation: "start",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_testsuite)
-                                     ostr.write(iceP_exe)
-                                     ostr.write(iceP_args)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: CommonProcessPrx? = try istr.read(CommonProcessPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as CommonProcessFailedException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter testsuite: `Swift.String`
-    ///
-    /// - parameter exe: `Swift.String`
-    ///
-    /// - parameter args: `CommonStringSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `CommonProcessPrx?` - The result of the operation
-    func startAsync(testsuite iceP_testsuite: Swift.String, exe iceP_exe: Swift.String, args iceP_args: CommonStringSeq, context: Ice.Context? = nil) async throws -> CommonProcessPrx? {
-        return try await _impl._invokeAsync(operation: "start",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_testsuite)
-                                                ostr.write(iceP_exe)
-                                                ostr.write(iceP_args)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: CommonProcessPrx? = try istr.read(CommonProcessPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as CommonProcessFailedException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func start(testsuite iceP_testsuite: Swift.String, exe iceP_exe: Swift.String, args iceP_args: CommonStringSeq, context: Ice.Context? = nil) async throws -> CommonProcessPrx? {
+        return try await _impl._invoke(operation: "start",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_testsuite)
+                                           ostr.write(iceP_exe)
+                                           ostr.write(iceP_args)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: CommonProcessPrx? = try istr.read(CommonProcessPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as CommonProcessFailedException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1221,40 +942,18 @@ public extension CommonProcessControllerPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.String`
-    func getHost(protocol iceP_protocol: Swift.String, ipv6 iceP_ipv6: Swift.Bool, context: Ice.Context? = nil) throws -> Swift.String {
-        return try _impl._invoke(operation: "getHost",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_protocol)
-                                     ostr.write(iceP_ipv6)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.String = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter protocol: `Swift.String`
-    ///
-    /// - parameter ipv6: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String` - The result of the operation
-    func getHostAsync(protocol iceP_protocol: Swift.String, ipv6 iceP_ipv6: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.String {
-        return try await _impl._invokeAsync(operation: "getHost",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_protocol)
-                                                ostr.write(iceP_ipv6)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.String = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getHost(protocol iceP_protocol: Swift.String, ipv6 iceP_ipv6: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.String {
+        return try await _impl._invoke(operation: "getHost",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_protocol)
+                                           ostr.write(iceP_ipv6)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.String = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -1303,8 +1002,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: CommonBrowserProcessControllerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> CommonBrowserProcessControllerPrx? {
-    return try CommonBrowserProcessControllerPrxI.checkedCast(prx: prx, facet: facet, context: context) as CommonBrowserProcessControllerPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: CommonBrowserProcessControllerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> CommonBrowserProcessControllerPrx? {
+    return try await CommonBrowserProcessControllerPrxI.checkedCast(prx: prx, facet: facet, context: context) as CommonBrowserProcessControllerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -1364,28 +1063,13 @@ public extension CommonBrowserProcessControllerPrx {
     /// - parameter _: `Swift.String`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func redirect(_ iceP_url: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "redirect",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_url)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func redirectAsync(_ iceP_url: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "redirect",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_url)
-                                            },
-                                            context: context)
+    func redirect(_ iceP_url: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "redirect",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_url)
+                                       },
+                                       context: context)
     }
 }
 
@@ -1434,8 +1118,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: CommonProcessControllerRegistryPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> CommonProcessControllerRegistryPrx? {
-    return try CommonProcessControllerRegistryPrxI.checkedCast(prx: prx, facet: facet, context: context) as CommonProcessControllerRegistryPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: CommonProcessControllerRegistryPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> CommonProcessControllerRegistryPrx? {
+    return try await CommonProcessControllerRegistryPrxI.checkedCast(prx: prx, facet: facet, context: context) as CommonProcessControllerRegistryPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -1495,28 +1179,13 @@ public extension CommonProcessControllerRegistryPrx {
     /// - parameter _: `CommonProcessControllerPrx?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func setProcessController(_ iceP_controller: CommonProcessControllerPrx?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "setProcessController",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_controller)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `CommonProcessControllerPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func setProcessControllerAsync(_ iceP_controller: CommonProcessControllerPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "setProcessController",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_controller)
-                                            },
-                                            context: context)
+    func setProcessController(_ iceP_controller: CommonProcessControllerPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "setProcessController",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_controller)
+                                       },
+                                       context: context)
     }
 }
 
@@ -1680,7 +1349,7 @@ public protocol CommonTestCase {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The result of the operation
+    /// - returns: `Swift.String`
     func startServerSide(config: CommonConfig?, current: Ice.Current) async throws -> Swift.String
 
     ///
@@ -1688,7 +1357,7 @@ public protocol CommonTestCase {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The result of the operation
+    /// - returns: `Swift.String`
     func stopServerSide(success: Swift.Bool, current: Ice.Current) async throws -> Swift.String
 
     ///
@@ -1698,13 +1367,11 @@ public protocol CommonTestCase {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The result of the operation
+    /// - returns: `Swift.String`
     func runClientSide(host: Swift.String, config: CommonConfig?, current: Ice.Current) async throws -> Swift.String
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func destroy(current: Ice.Current) async throws
 }
 
@@ -1754,13 +1421,13 @@ public protocol CommonController {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `CommonTestCasePrx?` - The result of the operation
+    /// - returns: `CommonTestCasePrx?`
     func runTestCase(mapping: Swift.String, testsuite: Swift.String, testcase: Swift.String, cross: Swift.String, current: Ice.Current) async throws -> CommonTestCasePrx?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `CommonOptionOverrides?` - The result of the operation
+    /// - returns: `CommonOptionOverrides?`
     func getOptionOverrides(current: Ice.Current) async throws -> CommonOptionOverrides?
 
     ///
@@ -1768,7 +1435,7 @@ public protocol CommonController {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `CommonStringSeq` - The result of the operation
+    /// - returns: `CommonStringSeq`
     func getTestSuites(mapping: Swift.String, current: Ice.Current) async throws -> CommonStringSeq
 
     ///
@@ -1778,7 +1445,7 @@ public protocol CommonController {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The result of the operation
+    /// - returns: `Swift.String`
     func getHost(protocol: Swift.String, ipv6: Swift.Bool, current: Ice.Current) async throws -> Swift.String
 }
 
@@ -1819,8 +1486,6 @@ public protocol CommonProcess {
     /// - parameter timeout: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func waitReady(timeout: Swift.Int32, current: Ice.Current) async throws
 
     ///
@@ -1828,13 +1493,13 @@ public protocol CommonProcess {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The result of the operation
+    /// - returns: `Swift.Int32`
     func waitSuccess(timeout: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The result of the operation
+    /// - returns: `Swift.String`
     func terminate(current: Ice.Current) async throws -> Swift.String
 }
 
@@ -1878,7 +1543,7 @@ public protocol CommonProcessController {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `CommonProcessPrx?` - The result of the operation
+    /// - returns: `CommonProcessPrx?`
     func start(testsuite: Swift.String, exe: Swift.String, args: CommonStringSeq, current: Ice.Current) async throws -> CommonProcessPrx?
 
     ///
@@ -1888,7 +1553,7 @@ public protocol CommonProcessController {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The result of the operation
+    /// - returns: `Swift.String`
     func getHost(protocol: Swift.String, ipv6: Swift.Bool, current: Ice.Current) async throws -> Swift.String
 }
 
@@ -1929,8 +1594,6 @@ public protocol CommonBrowserProcessController: CommonProcessController {
     /// - parameter url: `Swift.String`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func redirect(url: Swift.String, current: Ice.Current) async throws
 }
 
@@ -1967,8 +1630,6 @@ public protocol CommonProcessControllerRegistry {
     /// - parameter controller: `CommonProcessControllerPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func setProcessController(controller: CommonProcessControllerPrx?, current: Ice.Current) async throws
 }
 

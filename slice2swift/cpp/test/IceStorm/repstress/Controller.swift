@@ -67,8 +67,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: ControllerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> ControllerPrx? {
-    return try ControllerPrxI.checkedCast(prx: prx, facet: facet, context: context) as ControllerPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: ControllerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> ControllerPrx? {
+    return try await ControllerPrxI.checkedCast(prx: prx, facet: facet, context: context) as ControllerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -126,20 +126,10 @@ public extension Ice.InputStream {
 public extension ControllerPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func stop(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "stop",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func stopAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "stop",
-                                            mode: .Normal,
-                                            context: context)
+    func stop(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "stop",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -174,8 +164,6 @@ public struct ControllerDisp: Ice.Dispatcher {
 public protocol Controller {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func stop(current: Ice.Current) async throws
 }
 

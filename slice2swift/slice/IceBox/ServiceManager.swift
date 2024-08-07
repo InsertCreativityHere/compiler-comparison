@@ -170,8 +170,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: ServiceObserverPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> ServiceObserverPrx? {
-    return try ServiceObserverPrxI.checkedCast(prx: prx, facet: facet, context: context) as ServiceObserverPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: ServiceObserverPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> ServiceObserverPrx? {
+    return try await ServiceObserverPrxI.checkedCast(prx: prx, facet: facet, context: context) as ServiceObserverPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -236,29 +236,13 @@ public extension ServiceObserverPrx {
     /// - parameter _: `Ice.StringSeq` The names of the services.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func servicesStarted(_ iceP_services: Ice.StringSeq, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "servicesStarted",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_services)
-                          },
-                          context: context)
-    }
-
-    /// Receives the names of the services that were started.
-    ///
-    /// - parameter _: `Ice.StringSeq` The names of the services.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func servicesStartedAsync(_ iceP_services: Ice.StringSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "servicesStarted",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_services)
-                                            },
-                                            context: context)
+    func servicesStarted(_ iceP_services: Ice.StringSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "servicesStarted",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_services)
+                                       },
+                                       context: context)
     }
 
     /// Receives the names of the services that were stopped.
@@ -266,29 +250,13 @@ public extension ServiceObserverPrx {
     /// - parameter _: `Ice.StringSeq` The names of the services.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func servicesStopped(_ iceP_services: Ice.StringSeq, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "servicesStopped",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_services)
-                          },
-                          context: context)
-    }
-
-    /// Receives the names of the services that were stopped.
-    ///
-    /// - parameter _: `Ice.StringSeq` The names of the services.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func servicesStoppedAsync(_ iceP_services: Ice.StringSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "servicesStopped",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_services)
-                                            },
-                                            context: context)
+    func servicesStopped(_ iceP_services: Ice.StringSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "servicesStopped",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_services)
+                                       },
+                                       context: context)
     }
 }
 
@@ -349,8 +317,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: ServiceManagerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> ServiceManagerPrx? {
-    return try ServiceManagerPrxI.checkedCast(prx: prx, facet: facet, context: context) as ServiceManagerPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: ServiceManagerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> ServiceManagerPrx? {
+    return try await ServiceManagerPrxI.checkedCast(prx: prx, facet: facet, context: context) as ServiceManagerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -429,47 +397,22 @@ public extension ServiceManagerPrx {
     ///   - AlreadyStartedException - If the service is already running.
     ///
     ///   - NoSuchServiceException - If no service could be found with the given name.
-    func startService(_ iceP_service: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "startService",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_service)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as AlreadyStartedException {
-                                  throw error
-                              } catch let error as NoSuchServiceException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Start an individual service.
-    ///
-    /// - parameter _: `Swift.String` The service name.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func startServiceAsync(_ iceP_service: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "startService",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_service)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as AlreadyStartedException {
-                                                    throw error
-                                                } catch let error as NoSuchServiceException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func startService(_ iceP_service: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "startService",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_service)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as AlreadyStartedException {
+                                               throw error
+                                           } catch let error as NoSuchServiceException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Stop an individual service.
@@ -483,47 +426,22 @@ public extension ServiceManagerPrx {
     ///   - AlreadyStoppedException - If the service is already stopped.
     ///
     ///   - NoSuchServiceException - If no service could be found with the given name.
-    func stopService(_ iceP_service: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "stopService",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_service)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as AlreadyStoppedException {
-                                  throw error
-                              } catch let error as NoSuchServiceException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Stop an individual service.
-    ///
-    /// - parameter _: `Swift.String` The service name.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func stopServiceAsync(_ iceP_service: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "stopService",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_service)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as AlreadyStoppedException {
-                                                    throw error
-                                                } catch let error as NoSuchServiceException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func stopService(_ iceP_service: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "stopService",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_service)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as AlreadyStoppedException {
+                                               throw error
+                                           } catch let error as NoSuchServiceException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Registers a new observer with the ServiceManager.
@@ -531,49 +449,22 @@ public extension ServiceManagerPrx {
     /// - parameter _: `ServiceObserverPrx?` The new observer
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func addObserver(_ iceP_observer: ServiceObserverPrx?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "addObserver",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_observer)
-                          },
-                          context: context)
-    }
-
-    /// Registers a new observer with the ServiceManager.
-    ///
-    /// - parameter _: `ServiceObserverPrx?` The new observer
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func addObserverAsync(_ iceP_observer: ServiceObserverPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "addObserver",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_observer)
-                                            },
-                                            context: context)
+    func addObserver(_ iceP_observer: ServiceObserverPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "addObserver",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_observer)
+                                       },
+                                       context: context)
     }
 
     /// Shut down all services. This causes stop to be invoked on all configured services.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    /// Shut down all services. This causes stop to be invoked on all configured services.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -614,8 +505,6 @@ public protocol ServiceObserver {
     /// - parameter services: `Ice.StringSeq` The names of the services.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func servicesStarted(services: Ice.StringSeq, current: Ice.Current) async throws
 
     /// Receives the names of the services that were stopped.
@@ -623,8 +512,6 @@ public protocol ServiceObserver {
     /// - parameter services: `Ice.StringSeq` The names of the services.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func servicesStopped(services: Ice.StringSeq, current: Ice.Current) async throws
 }
 
@@ -670,7 +557,11 @@ public protocol ServiceManager {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - AlreadyStartedException - If the service is already running.
+    ///
+    ///   - NoSuchServiceException - If no service could be found with the given name.
     func startService(service: Swift.String, current: Ice.Current) async throws
 
     /// Stop an individual service.
@@ -679,7 +570,11 @@ public protocol ServiceManager {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - AlreadyStoppedException - If the service is already stopped.
+    ///
+    ///   - NoSuchServiceException - If no service could be found with the given name.
     func stopService(service: Swift.String, current: Ice.Current) async throws
 
     /// Registers a new observer with the ServiceManager.
@@ -687,15 +582,11 @@ public protocol ServiceManager {
     /// - parameter observer: `ServiceObserverPrx?` The new observer
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func addObserver(observer: ServiceObserverPrx?, current: Ice.Current) async throws
 
     /// Shut down all services. This causes stop to be invoked on all configured services.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 

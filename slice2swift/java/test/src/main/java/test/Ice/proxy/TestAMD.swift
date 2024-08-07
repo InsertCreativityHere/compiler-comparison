@@ -89,8 +89,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: MyClassPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> MyClassPrx? {
-    return try MyClassPrxI.checkedCast(prx: prx, facet: facet, context: context) as MyClassPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: MyClassPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> MyClassPrx? {
+    return try await MyClassPrxI.checkedCast(prx: prx, facet: facet, context: context) as MyClassPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -152,48 +152,24 @@ public extension Ice.InputStream {
 public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Ice.Context`
-    func getContext(context: Ice.Context? = nil) throws -> Ice.Context {
-        return try _impl._invoke(operation: "getContext",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.Context = try Ice.ContextHelper.read(from: istr)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.Context` - The result of the operation
-    func getContextAsync(context: Ice.Context? = nil) async throws -> Ice.Context {
-        return try await _impl._invokeAsync(operation: "getContext",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.Context = try Ice.ContextHelper.read(from: istr)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getContext(context: Ice.Context? = nil) async throws -> Ice.Context {
+        return try await _impl._invoke(operation: "getContext",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.Context = try Ice.ContextHelper.read(from: istr)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -242,8 +218,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: MyDerivedClassPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> MyDerivedClassPrx? {
-    return try MyDerivedClassPrxI.checkedCast(prx: prx, facet: facet, context: context) as MyDerivedClassPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: MyDerivedClassPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> MyDerivedClassPrx? {
+    return try await MyDerivedClassPrxI.checkedCast(prx: prx, facet: facet, context: context) as MyDerivedClassPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -305,36 +281,17 @@ public extension MyDerivedClassPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Ice.ObjectPrx?`
-    func echo(_ iceP_obj: Ice.ObjectPrx?, context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
-        return try _impl._invoke(operation: "echo",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_obj)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `Ice.ObjectPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func echoAsync(_ iceP_obj: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
-        return try await _impl._invokeAsync(operation: "echo",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_obj)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func echo(_ iceP_obj: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
+        return try await _impl._invoke(operation: "echo",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_obj)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -377,8 +334,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: MyOtherDerivedClassPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> MyOtherDerivedClassPrx? {
-    return try MyOtherDerivedClassPrxI.checkedCast(prx: prx, facet: facet, context: context) as MyOtherDerivedClassPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: MyOtherDerivedClassPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> MyOtherDerivedClassPrx? {
+    return try await MyOtherDerivedClassPrxI.checkedCast(prx: prx, facet: facet, context: context) as MyOtherDerivedClassPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -468,8 +425,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: DiamondClassPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> DiamondClassPrx? {
-    return try DiamondClassPrxI.checkedCast(prx: prx, facet: facet, context: context) as DiamondClassPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: DiamondClassPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> DiamondClassPrx? {
+    return try await DiamondClassPrxI.checkedCast(prx: prx, facet: facet, context: context) as DiamondClassPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -553,14 +510,12 @@ public struct MyClassDisp: Ice.Dispatcher {
 public protocol MyClass {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.Context` - The result of the operation
+    /// - returns: `Ice.Context`
     func getContext(current: Ice.Current) async throws -> Ice.Context
 }
 
@@ -602,7 +557,7 @@ public protocol MyDerivedClass: MyClass {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    /// - returns: `Ice.ObjectPrx?`
     func echo(obj: Ice.ObjectPrx?, current: Ice.Current) async throws -> Ice.ObjectPrx?
 }
 

@@ -224,8 +224,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: BackendPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> BackendPrx? {
-    return try BackendPrxI.checkedCast(prx: prx, facet: facet, context: context) as BackendPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: BackendPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> BackendPrx? {
+    return try await BackendPrxI.checkedCast(prx: prx, facet: facet, context: context) as BackendPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -287,38 +287,18 @@ public extension Ice.InputStream {
 public extension BackendPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func check(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "check",
-                          mode: .Normal,
-                          context: context)
+    func check(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "check",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func checkAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "check",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -375,8 +355,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TestControllerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TestControllerPrx? {
-    return try TestControllerPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestControllerPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TestControllerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TestControllerPrx? {
+    return try await TestControllerPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestControllerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -448,58 +428,26 @@ public extension TestControllerPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `TestToken`
-    func step(currentSession iceP_currentSession: Glacier2.SessionPrx?, currentState iceP_currentState: TestToken, context: Ice.Context? = nil) throws -> TestToken {
-        return try _impl._invoke(operation: "step",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_currentSession)
-                                     ostr.write(iceP_currentState)
-                                 },
-                                 read: { istr in
-                                     let iceP_newState: TestToken = try istr.read()
-                                     return iceP_newState
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter currentSession: `Glacier2.SessionPrx?`
-    ///
-    /// - parameter currentState: `TestToken`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `TestToken` - The result of the operation
-    func stepAsync(currentSession iceP_currentSession: Glacier2.SessionPrx?, currentState iceP_currentState: TestToken, context: Ice.Context? = nil) async throws -> TestToken {
-        return try await _impl._invokeAsync(operation: "step",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_currentSession)
-                                                ostr.write(iceP_currentState)
-                                            },
-                                            read: { istr in
-                                                let iceP_newState: TestToken = try istr.read()
-                                                return iceP_newState
-                                            },
-                                            context: context)
+    func step(currentSession iceP_currentSession: Glacier2.SessionPrx?, currentState iceP_currentState: TestToken, context: Ice.Context? = nil) async throws -> TestToken {
+        return try await _impl._invoke(operation: "step",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_currentSession)
+                                           ostr.write(iceP_currentState)
+                                       },
+                                       read: { istr in
+                                           let iceP_newState: TestToken = try istr.read()
+                                           return iceP_newState
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -548,8 +496,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TestSessionPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TestSessionPrx? {
-    return try TestSessionPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestSessionPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TestSessionPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TestSessionPrx? {
+    return try await TestSessionPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestSessionPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -607,20 +555,10 @@ public extension Ice.InputStream {
 public extension TestSessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -657,14 +595,10 @@ public struct BackendDisp: Ice.Dispatcher {
 public protocol Backend {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func check(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -711,13 +645,11 @@ public protocol TestController {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `TestToken` - The result of the operation
+    /// - returns: `TestToken`
     func step(currentSession: Glacier2.SessionPrx?, currentState: TestToken, current: Ice.Current) async throws -> TestToken
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -754,8 +686,6 @@ public struct TestSessionDisp: Ice.Dispatcher {
 public protocol TestSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 

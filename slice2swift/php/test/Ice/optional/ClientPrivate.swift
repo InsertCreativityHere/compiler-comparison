@@ -71,8 +71,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: Initial2Prx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> Initial2Prx? {
-    return try Initial2PrxI.checkedCast(prx: prx, facet: facet, context: context) as Initial2PrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: Initial2Prx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> Initial2Prx? {
+    return try await Initial2PrxI.checkedCast(prx: prx, facet: facet, context: context) as Initial2PrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -138,34 +138,15 @@ public extension Initial2Prx {
     /// - parameter ovs: `VarStruct?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func opClassAndUnknownOptional(p iceP_p: A?, ovs iceP_ovs: VarStruct? = nil, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "opClassAndUnknownOptional",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_p)
-                              ostr.write(tag: 1, value: iceP_ovs)
-                              ostr.writePendingValues()
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter p: `A?`
-    ///
-    /// - parameter ovs: `VarStruct?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func opClassAndUnknownOptionalAsync(p iceP_p: A?, ovs iceP_ovs: VarStruct? = nil, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "opClassAndUnknownOptional",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_p)
-                                                ostr.write(tag: 1, value: iceP_ovs)
-                                                ostr.writePendingValues()
-                                            },
-                                            context: context)
+    func opClassAndUnknownOptional(p iceP_p: A?, ovs iceP_ovs: VarStruct? = nil, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "opClassAndUnknownOptional",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_p)
+                                           ostr.write(tag: 1, value: iceP_ovs)
+                                           ostr.writePendingValues()
+                                       },
+                                       context: context)
     }
 
     ///
@@ -174,32 +155,14 @@ public extension Initial2Prx {
     /// - parameter v: `Swift.String?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func opVoid(a iceP_a: Swift.Int32? = nil, v iceP_v: Swift.String? = nil, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "opVoid",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(tag: 1, value: iceP_a)
-                              ostr.write(tag: 2, value: iceP_v)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter a: `Swift.Int32?`
-    ///
-    /// - parameter v: `Swift.String?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func opVoidAsync(a iceP_a: Swift.Int32? = nil, v iceP_v: Swift.String? = nil, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "opVoid",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(tag: 1, value: iceP_a)
-                                                ostr.write(tag: 2, value: iceP_v)
-                                            },
-                                            context: context)
+    func opVoid(a iceP_a: Swift.Int32? = nil, v iceP_v: Swift.String? = nil, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "opVoid",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(tag: 1, value: iceP_a)
+                                           ostr.write(tag: 2, value: iceP_v)
+                                       },
+                                       context: context)
     }
 }
 
@@ -240,8 +203,6 @@ public protocol Initial2 {
     /// - parameter ovs: `VarStruct?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func opClassAndUnknownOptional(p: A?, ovs: VarStruct?, current: Ice.Current) async throws
 
     ///
@@ -250,8 +211,6 @@ public protocol Initial2 {
     /// - parameter v: `Swift.String?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func opVoid(a: Swift.Int32?, v: Swift.String?, current: Ice.Current) async throws
 }
 

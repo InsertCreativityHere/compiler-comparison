@@ -107,8 +107,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: MyInterfacePrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> MyInterfacePrx? {
-    return try MyInterfacePrxI.checkedCast(prx: prx, facet: facet, context: context) as MyInterfacePrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: MyInterfacePrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> MyInterfacePrx? {
+    return try await MyInterfacePrxI.checkedCast(prx: prx, facet: facet, context: context) as MyInterfacePrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -168,42 +168,20 @@ public extension MyInterfacePrx {
     /// - parameter _: `Swift.Bool`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func op(_ iceP_throwIt: Swift.Bool, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "op",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_throwIt)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as UserError {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func opAsync(_ iceP_throwIt: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "op",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_throwIt)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as UserError {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func op(_ iceP_throwIt: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "op",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_throwIt)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as UserError {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 }
 
@@ -240,8 +218,6 @@ public protocol MyInterface {
     /// - parameter throwIt: `Swift.Bool`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func op(throwIt: Swift.Bool, current: Ice.Current) async throws
 }
 

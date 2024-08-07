@@ -79,8 +79,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: RetryPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> RetryPrx? {
-    return try RetryPrxI.checkedCast(prx: prx, facet: facet, context: context) as RetryPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: RetryPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> RetryPrx? {
+    return try await RetryPrxI.checkedCast(prx: prx, facet: facet, context: context) as RetryPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -152,28 +152,13 @@ public extension RetryPrx {
     /// - parameter _: `Swift.Bool`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func op(_ iceP_kill: Swift.Bool, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "op",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_kill)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func opAsync(_ iceP_kill: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "op",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_kill)
-                                            },
-                                            context: context)
+    func op(_ iceP_kill: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "op",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_kill)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -182,72 +167,33 @@ public extension RetryPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Int32`
-    func opIdempotent(_ iceP_c: Swift.Int32, context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "opIdempotent",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_c)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The result of the operation
-    func opIdempotentAsync(_ iceP_c: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
-        return try await _impl._invokeAsync(operation: "opIdempotent",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_c)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Int32 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func opIdempotent(_ iceP_c: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invoke(operation: "opIdempotent",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_c)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Int32 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func opNotIdempotent(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "opNotIdempotent",
-                          mode: .Normal,
-                          context: context)
+    func opNotIdempotent(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "opNotIdempotent",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func opNotIdempotentAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "opNotIdempotent",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Idempotent,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Idempotent,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Idempotent,
+                                       context: context)
     }
 }
 
@@ -290,8 +236,6 @@ public protocol Retry {
     /// - parameter kill: `Swift.Bool`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func op(kill: Swift.Bool, current: Ice.Current) async throws
 
     ///
@@ -299,19 +243,15 @@ public protocol Retry {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The result of the operation
+    /// - returns: `Swift.Int32`
     func opIdempotent(c: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func opNotIdempotent(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 

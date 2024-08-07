@@ -73,8 +73,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: ObjectPrx, type: ProcessPrx.Protocol, facet: Swift.String? = nil, context: Context? = nil) throws -> ProcessPrx? {
-    return try ProcessPrxI.checkedCast(prx: prx, facet: facet, context: context) as ProcessPrxI?
+public func checkedCast(prx: ObjectPrx, type: ProcessPrx.Protocol, facet: Swift.String? = nil, context: Context? = nil) async throws -> ProcessPrx? {
+    return try await ProcessPrxI.checkedCast(prx: prx, facet: facet, context: context) as ProcessPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -140,21 +140,10 @@ public extension ProcessPrx {
     /// Initiate a graceful shut-down.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    /// Initiate a graceful shut-down.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     /// Write a message on the process' stdout or stderr.
@@ -164,33 +153,14 @@ public extension ProcessPrx {
     /// - parameter fd: `Swift.Int32` 1 for stdout, 2 for stderr.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func writeMessage(message iceP_message: Swift.String, fd iceP_fd: Swift.Int32, context: Context? = nil) throws {
-        try _impl._invoke(operation: "writeMessage",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_message)
-                              ostr.write(iceP_fd)
-                          },
-                          context: context)
-    }
-
-    /// Write a message on the process' stdout or stderr.
-    ///
-    /// - parameter message: `Swift.String` The message.
-    ///
-    /// - parameter fd: `Swift.Int32` 1 for stdout, 2 for stderr.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func writeMessageAsync(message iceP_message: Swift.String, fd iceP_fd: Swift.Int32, context: Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "writeMessage",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_message)
-                                                ostr.write(iceP_fd)
-                                            },
-                                            context: context)
+    func writeMessage(message iceP_message: Swift.String, fd iceP_fd: Swift.Int32, context: Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "writeMessage",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_message)
+                                           ostr.write(iceP_fd)
+                                       },
+                                       context: context)
     }
 }
 
@@ -232,8 +202,6 @@ public protocol Process {
     /// Initiate a graceful shut-down.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Current) async throws
 
     /// Write a message on the process' stdout or stderr.
@@ -243,8 +211,6 @@ public protocol Process {
     /// - parameter fd: `Swift.Int32` 1 for stdout, 2 for stderr.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func writeMessage(message: Swift.String, fd: Swift.Int32, current: Current) async throws
 }
 

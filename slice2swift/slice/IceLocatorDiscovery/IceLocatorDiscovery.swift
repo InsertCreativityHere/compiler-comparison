@@ -74,8 +74,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: LookupReplyPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> LookupReplyPrx? {
-    return try LookupReplyPrxI.checkedCast(prx: prx, facet: facet, context: context) as LookupReplyPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: LookupReplyPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> LookupReplyPrx? {
+    return try await LookupReplyPrxI.checkedCast(prx: prx, facet: facet, context: context) as LookupReplyPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -137,29 +137,13 @@ public extension LookupReplyPrx {
     /// - parameter _: `Ice.LocatorPrx?` The proxy of the locator.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func foundLocator(_ iceP_prx: Ice.LocatorPrx?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "foundLocator",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_prx)
-                          },
-                          context: context)
-    }
-
-    /// This method is called by the implementation of the Lookup interface to reply to a findLocator request.
-    ///
-    /// - parameter _: `Ice.LocatorPrx?` The proxy of the locator.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func foundLocatorAsync(_ iceP_prx: Ice.LocatorPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "foundLocator",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_prx)
-                                            },
-                                            context: context)
+    func foundLocator(_ iceP_prx: Ice.LocatorPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "foundLocator",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_prx)
+                                       },
+                                       context: context)
     }
 }
 
@@ -211,8 +195,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: LookupPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> LookupPrx? {
-    return try LookupPrxI.checkedCast(prx: prx, facet: facet, context: context) as LookupPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: LookupPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> LookupPrx? {
+    return try await LookupPrxI.checkedCast(prx: prx, facet: facet, context: context) as LookupPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -279,34 +263,14 @@ public extension LookupPrx {
     /// - parameter reply: `LookupReplyPrx?` The reply object to use to send the reply.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func findLocator(instanceName iceP_instanceName: Swift.String, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "findLocator",
-                          mode: .Idempotent,
-                          write: { ostr in
-                              ostr.write(iceP_instanceName)
-                              ostr.write(iceP_reply)
-                          },
-                          context: context)
-    }
-
-    /// Find a locator proxy with the given instance name.
-    ///
-    /// - parameter instanceName: `Swift.String` Restrict the search to Ice registries configured with the given instance name. If
-    /// empty, all the available registries will reply.
-    ///
-    /// - parameter reply: `LookupReplyPrx?` The reply object to use to send the reply.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func findLocatorAsync(instanceName iceP_instanceName: Swift.String, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "findLocator",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_instanceName)
-                                                ostr.write(iceP_reply)
-                                            },
-                                            context: context)
+    func findLocator(instanceName iceP_instanceName: Swift.String, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "findLocator",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_instanceName)
+                                           ostr.write(iceP_reply)
+                                       },
+                                       context: context)
     }
 }
 
@@ -346,8 +310,6 @@ public protocol LookupReply {
     /// - parameter prx: `Ice.LocatorPrx?` The proxy of the locator.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func foundLocator(prx: Ice.LocatorPrx?, current: Ice.Current) async throws
 }
 
@@ -392,8 +354,6 @@ public protocol Lookup {
     /// - parameter reply: `LookupReplyPrx?` The reply object to use to send the reply.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func findLocator(instanceName: Swift.String, reply: LookupReplyPrx?, current: Ice.Current) async throws
 }
 

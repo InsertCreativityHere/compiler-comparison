@@ -73,8 +73,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TestIntfPrx? {
-    return try TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TestIntfPrx? {
+    return try await TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -134,28 +134,14 @@ public extension TestIntfPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.String`
-    func getAdapterId(context: Ice.Context? = nil) throws -> Swift.String {
-        return try _impl._invoke(operation: "getAdapterId",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.String = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String` - The result of the operation
-    func getAdapterIdAsync(context: Ice.Context? = nil) async throws -> Swift.String {
-        return try await _impl._invokeAsync(operation: "getAdapterId",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.String = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getAdapterId(context: Ice.Context? = nil) async throws -> Swift.String {
+        return try await _impl._invoke(operation: "getAdapterId",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.String = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -220,8 +206,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: ControllerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> ControllerPrx? {
-    return try ControllerPrxI.checkedCast(prx: prx, facet: facet, context: context) as ControllerPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: ControllerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> ControllerPrx? {
+    return try await ControllerPrxI.checkedCast(prx: prx, facet: facet, context: context) as ControllerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -301,64 +287,28 @@ public extension ControllerPrx {
     /// - parameter replicaGroupId: `Swift.String`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func activateObjectAdapter(name iceP_name: Swift.String, adapterId iceP_adapterId: Swift.String, replicaGroupId iceP_replicaGroupId: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "activateObjectAdapter",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_name)
-                              ostr.write(iceP_adapterId)
-                              ostr.write(iceP_replicaGroupId)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter name: `Swift.String`
-    ///
-    /// - parameter adapterId: `Swift.String`
-    ///
-    /// - parameter replicaGroupId: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func activateObjectAdapterAsync(name iceP_name: Swift.String, adapterId iceP_adapterId: Swift.String, replicaGroupId iceP_replicaGroupId: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "activateObjectAdapter",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                                ostr.write(iceP_adapterId)
-                                                ostr.write(iceP_replicaGroupId)
-                                            },
-                                            context: context)
+    func activateObjectAdapter(name iceP_name: Swift.String, adapterId iceP_adapterId: Swift.String, replicaGroupId iceP_replicaGroupId: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "activateObjectAdapter",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                           ostr.write(iceP_adapterId)
+                                           ostr.write(iceP_replicaGroupId)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter _: `Swift.String`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func deactivateObjectAdapter(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "deactivateObjectAdapter",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_name)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func deactivateObjectAdapterAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "deactivateObjectAdapter",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                            },
-                                            context: context)
+    func deactivateObjectAdapter(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "deactivateObjectAdapter",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -367,14 +317,14 @@ public extension ControllerPrx {
     /// - parameter id: `Swift.String`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func addObject(oaName iceP_oaName: Swift.String, id iceP_id: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "addObject",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_oaName)
-                              ostr.write(iceP_id)
-                          },
-                          context: context)
+    func addObject(oaName iceP_oaName: Swift.String, id iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "addObject",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_oaName)
+                                           ostr.write(iceP_id)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -383,68 +333,22 @@ public extension ControllerPrx {
     /// - parameter id: `Swift.String`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func addObjectAsync(oaName iceP_oaName: Swift.String, id iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "addObject",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_oaName)
-                                                ostr.write(iceP_id)
-                                            },
-                                            context: context)
-    }
-
-    ///
-    /// - parameter oaName: `Swift.String`
-    ///
-    /// - parameter id: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func removeObject(oaName iceP_oaName: Swift.String, id iceP_id: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "removeObject",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_oaName)
-                              ostr.write(iceP_id)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter oaName: `Swift.String`
-    ///
-    /// - parameter id: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func removeObjectAsync(oaName iceP_oaName: Swift.String, id iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "removeObject",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_oaName)
-                                                ostr.write(iceP_id)
-                                            },
-                                            context: context)
+    func removeObject(oaName iceP_oaName: Swift.String, id iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "removeObject",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_oaName)
+                                           ostr.write(iceP_id)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -480,7 +384,7 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The result of the operation
+    /// - returns: `Swift.String`
     func getAdapterId(current: Ice.Current) async throws -> Swift.String
 }
 
@@ -529,16 +433,12 @@ public protocol Controller {
     /// - parameter replicaGroupId: `Swift.String`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func activateObjectAdapter(name: Swift.String, adapterId: Swift.String, replicaGroupId: Swift.String, current: Ice.Current) async throws
 
     ///
     /// - parameter name: `Swift.String`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func deactivateObjectAdapter(name: Swift.String, current: Ice.Current) async throws
 
     ///
@@ -547,8 +447,6 @@ public protocol Controller {
     /// - parameter id: `Swift.String`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func addObject(oaName: Swift.String, id: Swift.String, current: Ice.Current) async throws
 
     ///
@@ -557,14 +455,10 @@ public protocol Controller {
     /// - parameter id: `Swift.String`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func removeObject(oaName: Swift.String, id: Swift.String, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 

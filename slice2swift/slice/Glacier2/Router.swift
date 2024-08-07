@@ -123,8 +123,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: RouterPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> RouterPrx? {
-    return try RouterPrxI.checkedCast(prx: prx, facet: facet, context: context) as RouterPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: RouterPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> RouterPrx? {
+    return try await RouterPrxI.checkedCast(prx: prx, facet: facet, context: context) as RouterPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -211,31 +211,14 @@ public extension RouterPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.String` - The category.
-    func getCategoryForClient(context: Ice.Context? = nil) throws -> Swift.String {
-        return try _impl._invoke(operation: "getCategoryForClient",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.String = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// This category must be used in the identities of all of the client's callback objects. This is necessary in
-    /// order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
-    /// are not set, the returned category is an empty string.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String` - The result of the operation
-    func getCategoryForClientAsync(context: Ice.Context? = nil) async throws -> Swift.String {
-        return try await _impl._invokeAsync(operation: "getCategoryForClient",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.String = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getCategoryForClient(context: Ice.Context? = nil) async throws -> Swift.String {
+        return try await _impl._invoke(operation: "getCategoryForClient",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.String = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Create a per-client session with the router. If a SessionManager has been installed, a proxy to a
@@ -259,64 +242,27 @@ public extension RouterPrx {
     ///
     ///   - PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
     ///     user is not allowed access.
-    func createSession(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil) throws -> SessionPrx? {
-        return try _impl._invoke(operation: "createSession",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_userId)
-                                     ostr.write(iceP_password)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: SessionPrx? = try istr.read(SessionPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as CannotCreateSessionException {
-                                         throw error
-                                     } catch let error as PermissionDeniedException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Create a per-client session with the router. If a SessionManager has been installed, a proxy to a
-    /// Session object is returned to the client. Otherwise, null is returned and only an internal session
-    /// (i.e., not visible to the client) is created.
-    /// If a session proxy is returned, it must be configured to route through the router that created it. This will
-    /// happen automatically if the router is configured as the client's default router at the time the session
-    /// proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
-    ///
-    /// - parameter userId: `Swift.String` The user id for which to check the password.
-    ///
-    /// - parameter password: `Swift.String` The password for the given user id.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `SessionPrx?` - The result of the operation
-    func createSessionAsync(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil) async throws -> SessionPrx? {
-        return try await _impl._invokeAsync(operation: "createSession",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_userId)
-                                                ostr.write(iceP_password)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: SessionPrx? = try istr.read(SessionPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as CannotCreateSessionException {
-                                                    throw error
-                                                } catch let error as PermissionDeniedException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func createSession(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil) async throws -> SessionPrx? {
+        return try await _impl._invoke(operation: "createSession",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_userId)
+                                           ostr.write(iceP_password)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: SessionPrx? = try istr.read(SessionPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as CannotCreateSessionException {
+                                               throw error
+                                           } catch let error as PermissionDeniedException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
@@ -337,53 +283,23 @@ public extension RouterPrx {
     ///
     ///   - PermissionDeniedException - Raised if the user cannot be authenticated or if the user is not allowed
     ///     access.
-    func createSessionFromSecureConnection(context: Ice.Context? = nil) throws -> SessionPrx? {
-        return try _impl._invoke(operation: "createSessionFromSecureConnection",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: SessionPrx? = try istr.read(SessionPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as CannotCreateSessionException {
-                                         throw error
-                                     } catch let error as PermissionDeniedException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
-    /// have been associated with the connection. If a SessionManager has been installed, a proxy to a
-    /// Session object is returned to the client. Otherwise, null is returned and only an internal session
-    /// (i.e., not visible to the client) is created.
-    /// If a session proxy is returned, it must be configured to route through the router that created it. This will
-    /// happen automatically if the router is configured as the client's default router at the time the session
-    /// proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `SessionPrx?` - The result of the operation
-    func createSessionFromSecureConnectionAsync(context: Ice.Context? = nil) async throws -> SessionPrx? {
-        return try await _impl._invokeAsync(operation: "createSessionFromSecureConnection",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: SessionPrx? = try istr.read(SessionPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as CannotCreateSessionException {
-                                                    throw error
-                                                } catch let error as PermissionDeniedException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func createSessionFromSecureConnection(context: Ice.Context? = nil) async throws -> SessionPrx? {
+        return try await _impl._invoke(operation: "createSessionFromSecureConnection",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: SessionPrx? = try istr.read(SessionPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as CannotCreateSessionException {
+                                               throw error
+                                           } catch let error as PermissionDeniedException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
@@ -394,36 +310,17 @@ public extension RouterPrx {
     /// - throws:
     ///
     ///   - SessionNotExistException - Raised if no session exists for the caller (client).
-    func refreshSession(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "refreshSession",
-                          mode: .Normal,
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as SessionNotExistException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
-    /// and earlier and does nothing in newer versions of Glacier2.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func refreshSessionAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "refreshSession",
-                                            mode: .Normal,
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as SessionNotExistException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func refreshSession(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "refreshSession",
+                                       mode: .Normal,
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as SessionNotExistException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Destroy the calling client's session with this router.
@@ -433,35 +330,17 @@ public extension RouterPrx {
     /// - throws:
     ///
     ///   - SessionNotExistException - Raised if no session exists for the calling client.
-    func destroySession(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "destroySession",
-                          mode: .Normal,
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as SessionNotExistException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Destroy the calling client's session with this router.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func destroySessionAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "destroySession",
-                                            mode: .Normal,
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as SessionNotExistException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func destroySession(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "destroySession",
+                                       mode: .Normal,
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as SessionNotExistException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get the idle timeout used by the server-side of the connection.
@@ -469,29 +348,14 @@ public extension RouterPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Int64` - The idle timeout (in seconds).
-    func getSessionTimeout(context: Ice.Context? = nil) throws -> Swift.Int64 {
-        return try _impl._invoke(operation: "getSessionTimeout",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int64 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get the idle timeout used by the server-side of the connection.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int64` - The result of the operation
-    func getSessionTimeoutAsync(context: Ice.Context? = nil) async throws -> Swift.Int64 {
-        return try await _impl._invokeAsync(operation: "getSessionTimeout",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Int64 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getSessionTimeout(context: Ice.Context? = nil) async throws -> Swift.Int64 {
+        return try await _impl._invoke(operation: "getSessionTimeout",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Int64 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Get the idle timeout used by the server-side of the connection.
@@ -499,29 +363,14 @@ public extension RouterPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Int32` - The idle timeout (in seconds).
-    func getACMTimeout(context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "getACMTimeout",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get the idle timeout used by the server-side of the connection.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The result of the operation
-    func getACMTimeoutAsync(context: Ice.Context? = nil) async throws -> Swift.Int32 {
-        return try await _impl._invokeAsync(operation: "getACMTimeout",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Int32 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getACMTimeout(context: Ice.Context? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invoke(operation: "getACMTimeout",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Int32 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -579,7 +428,7 @@ public protocol Router: Ice.Router {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The result of the operation
+    /// - returns: `Swift.String` - The category.
     func getCategoryForClient(current: Ice.Current) async throws -> Swift.String
 
     /// Create a per-client session with the router. If a SessionManager has been installed, a proxy to a
@@ -595,7 +444,14 @@ public protocol Router: Ice.Router {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `SessionPrx?` - The result of the operation
+    /// - returns: `SessionPrx?` - A proxy for the newly created session, or null if no SessionManager has been installed.
+    ///
+    /// - throws:
+    ///
+    ///   - CannotCreateSessionException - Raised if the session cannot be created.
+    ///
+    ///   - PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
+    ///     user is not allowed access.
     func createSession(userId: Swift.String, password: Swift.String, current: Ice.Current) async throws -> SessionPrx?
 
     /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
@@ -608,7 +464,14 @@ public protocol Router: Ice.Router {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `SessionPrx?` - The result of the operation
+    /// - returns: `SessionPrx?` - A proxy for the newly created session, or null if no SessionManager has been installed.
+    ///
+    /// - throws:
+    ///
+    ///   - CannotCreateSessionException - Raised if the session cannot be created.
+    ///
+    ///   - PermissionDeniedException - Raised if the user cannot be authenticated or if the user is not allowed
+    ///     access.
     func createSessionFromSecureConnection(current: Ice.Current) async throws -> SessionPrx?
 
     /// Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
@@ -616,28 +479,32 @@ public protocol Router: Ice.Router {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - SessionNotExistException - Raised if no session exists for the caller (client).
     func refreshSession(current: Ice.Current) async throws
 
     /// Destroy the calling client's session with this router.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - SessionNotExistException - Raised if no session exists for the calling client.
     func destroySession(current: Ice.Current) async throws
 
     /// Get the idle timeout used by the server-side of the connection.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int64` - The result of the operation
+    /// - returns: `Swift.Int64` - The idle timeout (in seconds).
     func getSessionTimeout(current: Ice.Current) async throws -> Swift.Int64
 
     /// Get the idle timeout used by the server-side of the connection.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The result of the operation
+    /// - returns: `Swift.Int32` - The idle timeout (in seconds).
     func getACMTimeout(current: Ice.Current) async throws -> Swift.Int32
 }
 

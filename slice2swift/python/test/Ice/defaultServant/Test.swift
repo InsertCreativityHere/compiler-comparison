@@ -67,8 +67,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: MyObjectPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> MyObjectPrx? {
-    return try MyObjectPrxI.checkedCast(prx: prx, facet: facet, context: context) as MyObjectPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: MyObjectPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> MyObjectPrx? {
+    return try await MyObjectPrxI.checkedCast(prx: prx, facet: facet, context: context) as MyObjectPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -128,28 +128,14 @@ public extension MyObjectPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.String`
-    func getName(context: Ice.Context? = nil) throws -> Swift.String {
-        return try _impl._invoke(operation: "getName",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.String = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String` - The result of the operation
-    func getNameAsync(context: Ice.Context? = nil) async throws -> Swift.String {
-        return try await _impl._invokeAsync(operation: "getName",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.String = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getName(context: Ice.Context? = nil) async throws -> Swift.String {
+        return try await _impl._invoke(operation: "getName",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.String = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -185,7 +171,7 @@ public protocol MyObject {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The result of the operation
+    /// - returns: `Swift.String`
     func getName(current: Ice.Current) async throws -> Swift.String
 }
 

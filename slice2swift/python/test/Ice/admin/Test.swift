@@ -95,8 +95,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: RemoteCommunicatorPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> RemoteCommunicatorPrx? {
-    return try RemoteCommunicatorPrxI.checkedCast(prx: prx, facet: facet, context: context) as RemoteCommunicatorPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: RemoteCommunicatorPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> RemoteCommunicatorPrx? {
+    return try await RemoteCommunicatorPrxI.checkedCast(prx: prx, facet: facet, context: context) as RemoteCommunicatorPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -172,110 +172,52 @@ public extension RemoteCommunicatorPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Ice.ObjectPrx?`
-    func getAdmin(context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
-        return try _impl._invoke(operation: "getAdmin",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func getAdminAsync(context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
-        return try await _impl._invokeAsync(operation: "getAdmin",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getAdmin(context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
+        return try await _impl._invoke(operation: "getAdmin",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Ice.PropertyDict`
-    func getChanges(context: Ice.Context? = nil) throws -> Ice.PropertyDict {
-        return try _impl._invoke(operation: "getChanges",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.PropertyDict = try Ice.PropertyDictHelper.read(from: istr)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
+    func getChanges(context: Ice.Context? = nil) async throws -> Ice.PropertyDict {
+        return try await _impl._invoke(operation: "getChanges",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.PropertyDict = try Ice.PropertyDictHelper.read(from: istr)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.PropertyDict` - The result of the operation
-    func getChangesAsync(context: Ice.Context? = nil) async throws -> Ice.PropertyDict {
-        return try await _impl._invokeAsync(operation: "getChanges",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.PropertyDict = try Ice.PropertyDictHelper.read(from: istr)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
+    func waitForShutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "waitForShutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func waitForShutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "waitForShutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func waitForShutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "waitForShutdown",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func destroy(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "destroy",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func destroyAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "destroy",
-                                            mode: .Normal,
-                                            context: context)
+    func destroy(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "destroy",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -328,8 +270,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: RemoteCommunicatorFactoryPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> RemoteCommunicatorFactoryPrx? {
-    return try RemoteCommunicatorFactoryPrxI.checkedCast(prx: prx, facet: facet, context: context) as RemoteCommunicatorFactoryPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: RemoteCommunicatorFactoryPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> RemoteCommunicatorFactoryPrx? {
+    return try await RemoteCommunicatorFactoryPrxI.checkedCast(prx: prx, facet: facet, context: context) as RemoteCommunicatorFactoryPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -395,54 +337,25 @@ public extension RemoteCommunicatorFactoryPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `RemoteCommunicatorPrx?`
-    func createCommunicator(_ iceP_props: Ice.PropertyDict, context: Ice.Context? = nil) throws -> RemoteCommunicatorPrx? {
-        return try _impl._invoke(operation: "createCommunicator",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     Ice.PropertyDictHelper.write(to: ostr, value: iceP_props)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: RemoteCommunicatorPrx? = try istr.read(RemoteCommunicatorPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `Ice.PropertyDict`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `RemoteCommunicatorPrx?` - The result of the operation
-    func createCommunicatorAsync(_ iceP_props: Ice.PropertyDict, context: Ice.Context? = nil) async throws -> RemoteCommunicatorPrx? {
-        return try await _impl._invokeAsync(operation: "createCommunicator",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                Ice.PropertyDictHelper.write(to: ostr, value: iceP_props)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: RemoteCommunicatorPrx? = try istr.read(RemoteCommunicatorPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func createCommunicator(_ iceP_props: Ice.PropertyDict, context: Ice.Context? = nil) async throws -> RemoteCommunicatorPrx? {
+        return try await _impl._invoke(operation: "createCommunicator",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           Ice.PropertyDictHelper.write(to: ostr, value: iceP_props)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: RemoteCommunicatorPrx? = try istr.read(RemoteCommunicatorPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -491,8 +404,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TestFacetPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TestFacetPrx? {
-    return try TestFacetPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestFacetPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TestFacetPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TestFacetPrx? {
+    return try await TestFacetPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestFacetPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -550,20 +463,10 @@ public extension Ice.InputStream {
 public extension TestFacetPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func op(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "op",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func opAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "op",
-                                            mode: .Normal,
-                                            context: context)
+    func op(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "op",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -607,31 +510,25 @@ public protocol RemoteCommunicator {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    /// - returns: `Ice.ObjectPrx?`
     func getAdmin(current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.PropertyDict` - The result of the operation
+    /// - returns: `Ice.PropertyDict`
     func getChanges(current: Ice.Current) async throws -> Ice.PropertyDict
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func waitForShutdown(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func destroy(current: Ice.Current) async throws
 }
 
@@ -671,13 +568,11 @@ public protocol RemoteCommunicatorFactory {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `RemoteCommunicatorPrx?` - The result of the operation
+    /// - returns: `RemoteCommunicatorPrx?`
     func createCommunicator(props: Ice.PropertyDict, current: Ice.Current) async throws -> RemoteCommunicatorPrx?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -712,8 +607,6 @@ public struct TestFacetDisp: Ice.Dispatcher {
 public protocol TestFacet {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func op(current: Ice.Current) async throws
 }
 

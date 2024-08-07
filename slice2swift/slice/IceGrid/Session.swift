@@ -85,8 +85,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: SessionPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> SessionPrx? {
-    return try SessionPrxI.checkedCast(prx: prx, facet: facet, context: context) as SessionPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: SessionPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> SessionPrx? {
+    return try await SessionPrxI.checkedCast(prx: prx, facet: facet, context: context) as SessionPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -163,22 +163,10 @@ public extension SessionPrx {
     /// need to call this operation and its implementation does nothing.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func keepAlive(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "keepAlive",
-                          mode: .Idempotent,
-                          context: context)
-    }
-
-    /// Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
-    /// need to call this operation and its implementation does nothing.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func keepAliveAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "keepAlive",
-                                            mode: .Idempotent,
-                                            context: context)
+    func keepAlive(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "keepAlive",
+                                       mode: .Idempotent,
+                                       context: context)
     }
 
     /// Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
@@ -196,56 +184,26 @@ public extension SessionPrx {
     ///
     ///   - ObjectNotRegisteredException - Raised if the object with the given identity is not registered with
     ///     the registry.
-    func allocateObjectById(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
-        return try _impl._invoke(operation: "allocateObjectById",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_id)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as ObjectNotRegisteredException {
-                                         throw error
-                                     } catch let error as AllocationException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
-    /// available or until the timeout is reached.
-    ///
-    /// - parameter _: `Ice.Identity` The identity of the object to allocate.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func allocateObjectByIdAsync(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
-        return try await _impl._invokeAsync(operation: "allocateObjectById",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ObjectNotRegisteredException {
-                                                    throw error
-                                                } catch let error as AllocationException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func allocateObjectById(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
+        return try await _impl._invoke(operation: "allocateObjectById",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ObjectNotRegisteredException {
+                                               throw error
+                                           } catch let error as AllocationException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
@@ -260,52 +218,24 @@ public extension SessionPrx {
     /// - throws:
     ///
     ///   - AllocationException - Raised if the object could not be allocated.
-    func allocateObjectByType(_ iceP_type: Swift.String, context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
-        return try _impl._invoke(operation: "allocateObjectByType",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_type)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as AllocationException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
-    /// an object becomes available or until the timeout is reached.
-    ///
-    /// - parameter _: `Swift.String` The type of the object.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
-    func allocateObjectByTypeAsync(_ iceP_type: Swift.String, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
-        return try await _impl._invokeAsync(operation: "allocateObjectByType",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_type)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as AllocationException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func allocateObjectByType(_ iceP_type: Swift.String, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
+        return try await _impl._invoke(operation: "allocateObjectByType",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_type)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as AllocationException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Release an object that was allocated using allocateObjectById or
@@ -322,48 +252,22 @@ public extension SessionPrx {
     ///
     ///   - ObjectNotRegisteredException - Raised if the object with the given identity is not registered with
     ///     the registry.
-    func releaseObject(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "releaseObject",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_id)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ObjectNotRegisteredException {
-                                  throw error
-                              } catch let error as AllocationException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Release an object that was allocated using allocateObjectById or
-    /// allocateObjectByType.
-    ///
-    /// - parameter _: `Ice.Identity` The identity of the object to release.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func releaseObjectAsync(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "releaseObject",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ObjectNotRegisteredException {
-                                                    throw error
-                                                } catch let error as AllocationException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func releaseObject(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "releaseObject",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ObjectNotRegisteredException {
+                                               throw error
+                                           } catch let error as AllocationException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Set the allocation timeout. If no objects are available for an allocation request, a call to
@@ -373,31 +277,13 @@ public extension SessionPrx {
     /// - parameter _: `Swift.Int32` The timeout in milliseconds.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func setAllocationTimeout(_ iceP_timeout: Swift.Int32, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "setAllocationTimeout",
-                          mode: .Idempotent,
-                          write: { ostr in
-                              ostr.write(iceP_timeout)
-                          },
-                          context: context)
-    }
-
-    /// Set the allocation timeout. If no objects are available for an allocation request, a call to
-    /// allocateObjectById or allocateObjectByType will block for the duration of this
-    /// timeout.
-    ///
-    /// - parameter _: `Swift.Int32` The timeout in milliseconds.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func setAllocationTimeoutAsync(_ iceP_timeout: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "setAllocationTimeout",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_timeout)
-                                            },
-                                            context: context)
+    func setAllocationTimeout(_ iceP_timeout: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "setAllocationTimeout",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_timeout)
+                                       },
+                                       context: context)
     }
 }
 
@@ -446,8 +332,6 @@ public protocol Session: Glacier2.Session {
     /// need to call this operation and its implementation does nothing.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func keepAlive(current: Ice.Current) async throws
 
     /// Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
@@ -457,7 +341,14 @@ public protocol Session: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    /// - returns: `Ice.ObjectPrx?` - The proxy of the allocated object. The returned proxy is never null.
+    ///
+    /// - throws:
+    ///
+    ///   - AllocationException - Raised if the object can't be allocated.
+    ///
+    ///   - ObjectNotRegisteredException - Raised if the object with the given identity is not registered with
+    ///     the registry.
     func allocateObjectById(id: Ice.Identity, current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
@@ -467,7 +358,11 @@ public protocol Session: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The result of the operation
+    /// - returns: `Ice.ObjectPrx?` - The proxy of the allocated object. The returned proxy is never null.
+    ///
+    /// - throws:
+    ///
+    ///   - AllocationException - Raised if the object could not be allocated.
     func allocateObjectByType(type: Swift.String, current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Release an object that was allocated using allocateObjectById or
@@ -477,7 +372,13 @@ public protocol Session: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - AllocationException - Raised if the given object can't be released. This might happen if the object
+    ///     isn't allocatable or isn't allocated by the session.
+    ///
+    ///   - ObjectNotRegisteredException - Raised if the object with the given identity is not registered with
+    ///     the registry.
     func releaseObject(id: Ice.Identity, current: Ice.Current) async throws
 
     /// Set the allocation timeout. If no objects are available for an allocation request, a call to
@@ -487,8 +388,6 @@ public protocol Session: Glacier2.Session {
     /// - parameter timeout: `Swift.Int32` The timeout in milliseconds.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func setAllocationTimeout(timeout: Swift.Int32, current: Ice.Current) async throws
 }
 

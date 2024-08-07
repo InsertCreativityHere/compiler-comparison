@@ -497,8 +497,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: breakPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> breakPrx? {
-    return try breakPrxI.checkedCast(prx: prx, facet: facet, context: context) as breakPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: breakPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> breakPrx? {
+    return try await breakPrxI.checkedCast(prx: prx, facet: facet, context: context) as breakPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -560,36 +560,17 @@ public extension breakPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Int32`
-    func `case`(_ iceP_catch: Swift.Int32, context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "case",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_catch)
-                                 },
-                                 read: { istr in
-                                     let iceP_try: Swift.Int32 = try istr.read()
-                                     return iceP_try
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The result of the operation
-    func caseAsync(_ iceP_catch: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
-        return try await _impl._invokeAsync(operation: "case",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_catch)
-                                            },
-                                            read: { istr in
-                                                let iceP_try: Swift.Int32 = try istr.read()
-                                                return iceP_try
-                                            },
-                                            context: context)
+    func `case`(_ iceP_catch: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invoke(operation: "case",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_catch)
+                                       },
+                                       read: { istr in
+                                           let iceP_try: Swift.Int32 = try istr.read()
+                                           return iceP_try
+                                       },
+                                       context: context)
     }
 }
 
@@ -638,8 +619,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: funcPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> funcPrx? {
-    return try funcPrxI.checkedCast(prx: prx, facet: facet, context: context) as funcPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: funcPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> funcPrx? {
+    return try await funcPrxI.checkedCast(prx: prx, facet: facet, context: context) as funcPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -697,20 +678,10 @@ public extension Ice.InputStream {
 public extension funcPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func `public`(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "public",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func publicAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "public",
-                                            mode: .Normal,
-                                            context: context)
+    func `public`(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "public",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -753,8 +724,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: doPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> doPrx? {
-    return try doPrxI.checkedCast(prx: prx, facet: facet, context: context) as doPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: doPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> doPrx? {
+    return try await doPrxI.checkedCast(prx: prx, facet: facet, context: context) as doPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -887,7 +858,7 @@ public protocol `break` {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The result of the operation
+    /// - returns: `Swift.Int32`
     func `case`(catch: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 }
 
@@ -922,8 +893,6 @@ public struct funcDisp: Ice.Dispatcher {
 public protocol `func` {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func `public`(current: Ice.Current) async throws
 }
 

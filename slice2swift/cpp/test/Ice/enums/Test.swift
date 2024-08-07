@@ -669,8 +669,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TestIntfPrx? {
-    return try TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TestIntfPrx? {
+    return try await TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -768,38 +768,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `ByteEnum`
     ///
     ///   - b2: `ByteEnum`
-    func opByte(_ iceP_b1: ByteEnum, context: Ice.Context? = nil) throws -> (returnValue: ByteEnum, b2: ByteEnum) {
-        return try _impl._invoke(operation: "opByte",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_b1)
-                                 },
-                                 read: { istr in
-                                     let iceP_b2: ByteEnum = try istr.read()
-                                     let iceP_returnValue: ByteEnum = try istr.read()
-                                     return (iceP_returnValue, iceP_b2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `ByteEnum`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteEnum, b2: ByteEnum)` - The result of the operation
-    func opByteAsync(_ iceP_b1: ByteEnum, context: Ice.Context? = nil) async throws -> (returnValue: ByteEnum, b2: ByteEnum) {
-        return try await _impl._invokeAsync(operation: "opByte",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_b1)
-                                            },
-                                            read: { istr in
-                                                let iceP_b2: ByteEnum = try istr.read()
-                                                let iceP_returnValue: ByteEnum = try istr.read()
-                                                return (iceP_returnValue, iceP_b2)
-                                            },
-                                            context: context)
+    func opByte(_ iceP_b1: ByteEnum, context: Ice.Context? = nil) async throws -> (returnValue: ByteEnum, b2: ByteEnum) {
+        return try await _impl._invoke(operation: "opByte",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_b1)
+                                       },
+                                       read: { istr in
+                                           let iceP_b2: ByteEnum = try istr.read()
+                                           let iceP_returnValue: ByteEnum = try istr.read()
+                                           return (iceP_returnValue, iceP_b2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -812,38 +792,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `ShortEnum`
     ///
     ///   - s2: `ShortEnum`
-    func opShort(_ iceP_s1: ShortEnum, context: Ice.Context? = nil) throws -> (returnValue: ShortEnum, s2: ShortEnum) {
-        return try _impl._invoke(operation: "opShort",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_s1)
-                                 },
-                                 read: { istr in
-                                     let iceP_s2: ShortEnum = try istr.read()
-                                     let iceP_returnValue: ShortEnum = try istr.read()
-                                     return (iceP_returnValue, iceP_s2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `ShortEnum`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ShortEnum, s2: ShortEnum)` - The result of the operation
-    func opShortAsync(_ iceP_s1: ShortEnum, context: Ice.Context? = nil) async throws -> (returnValue: ShortEnum, s2: ShortEnum) {
-        return try await _impl._invokeAsync(operation: "opShort",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_s1)
-                                            },
-                                            read: { istr in
-                                                let iceP_s2: ShortEnum = try istr.read()
-                                                let iceP_returnValue: ShortEnum = try istr.read()
-                                                return (iceP_returnValue, iceP_s2)
-                                            },
-                                            context: context)
+    func opShort(_ iceP_s1: ShortEnum, context: Ice.Context? = nil) async throws -> (returnValue: ShortEnum, s2: ShortEnum) {
+        return try await _impl._invoke(operation: "opShort",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_s1)
+                                       },
+                                       read: { istr in
+                                           let iceP_s2: ShortEnum = try istr.read()
+                                           let iceP_returnValue: ShortEnum = try istr.read()
+                                           return (iceP_returnValue, iceP_s2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -856,38 +816,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `IntEnum`
     ///
     ///   - i2: `IntEnum`
-    func opInt(_ iceP_i1: IntEnum, context: Ice.Context? = nil) throws -> (returnValue: IntEnum, i2: IntEnum) {
-        return try _impl._invoke(operation: "opInt",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_i1)
-                                 },
-                                 read: { istr in
-                                     let iceP_i2: IntEnum = try istr.read()
-                                     let iceP_returnValue: IntEnum = try istr.read()
-                                     return (iceP_returnValue, iceP_i2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `IntEnum`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: IntEnum, i2: IntEnum)` - The result of the operation
-    func opIntAsync(_ iceP_i1: IntEnum, context: Ice.Context? = nil) async throws -> (returnValue: IntEnum, i2: IntEnum) {
-        return try await _impl._invokeAsync(operation: "opInt",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_i1)
-                                            },
-                                            read: { istr in
-                                                let iceP_i2: IntEnum = try istr.read()
-                                                let iceP_returnValue: IntEnum = try istr.read()
-                                                return (iceP_returnValue, iceP_i2)
-                                            },
-                                            context: context)
+    func opInt(_ iceP_i1: IntEnum, context: Ice.Context? = nil) async throws -> (returnValue: IntEnum, i2: IntEnum) {
+        return try await _impl._invoke(operation: "opInt",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_i1)
+                                       },
+                                       read: { istr in
+                                           let iceP_i2: IntEnum = try istr.read()
+                                           let iceP_returnValue: IntEnum = try istr.read()
+                                           return (iceP_returnValue, iceP_i2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -900,38 +840,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `SimpleEnum`
     ///
     ///   - s2: `SimpleEnum`
-    func opSimple(_ iceP_s1: SimpleEnum, context: Ice.Context? = nil) throws -> (returnValue: SimpleEnum, s2: SimpleEnum) {
-        return try _impl._invoke(operation: "opSimple",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_s1)
-                                 },
-                                 read: { istr in
-                                     let iceP_s2: SimpleEnum = try istr.read()
-                                     let iceP_returnValue: SimpleEnum = try istr.read()
-                                     return (iceP_returnValue, iceP_s2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `SimpleEnum`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SimpleEnum, s2: SimpleEnum)` - The result of the operation
-    func opSimpleAsync(_ iceP_s1: SimpleEnum, context: Ice.Context? = nil) async throws -> (returnValue: SimpleEnum, s2: SimpleEnum) {
-        return try await _impl._invokeAsync(operation: "opSimple",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_s1)
-                                            },
-                                            read: { istr in
-                                                let iceP_s2: SimpleEnum = try istr.read()
-                                                let iceP_returnValue: SimpleEnum = try istr.read()
-                                                return (iceP_returnValue, iceP_s2)
-                                            },
-                                            context: context)
+    func opSimple(_ iceP_s1: SimpleEnum, context: Ice.Context? = nil) async throws -> (returnValue: SimpleEnum, s2: SimpleEnum) {
+        return try await _impl._invoke(operation: "opSimple",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_s1)
+                                       },
+                                       read: { istr in
+                                           let iceP_s2: SimpleEnum = try istr.read()
+                                           let iceP_returnValue: SimpleEnum = try istr.read()
+                                           return (iceP_returnValue, iceP_s2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -944,38 +864,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `ByteEnumSeq`
     ///
     ///   - b2: `ByteEnumSeq`
-    func opByteSeq(_ iceP_b1: ByteEnumSeq, context: Ice.Context? = nil) throws -> (returnValue: ByteEnumSeq, b2: ByteEnumSeq) {
-        return try _impl._invoke(operation: "opByteSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ByteEnumSeqHelper.write(to: ostr, value: iceP_b1)
-                                 },
-                                 read: { istr in
-                                     let iceP_b2: ByteEnumSeq = try ByteEnumSeqHelper.read(from: istr)
-                                     let iceP_returnValue: ByteEnumSeq = try ByteEnumSeqHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_b2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `ByteEnumSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteEnumSeq, b2: ByteEnumSeq)` - The result of the operation
-    func opByteSeqAsync(_ iceP_b1: ByteEnumSeq, context: Ice.Context? = nil) async throws -> (returnValue: ByteEnumSeq, b2: ByteEnumSeq) {
-        return try await _impl._invokeAsync(operation: "opByteSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ByteEnumSeqHelper.write(to: ostr, value: iceP_b1)
-                                            },
-                                            read: { istr in
-                                                let iceP_b2: ByteEnumSeq = try ByteEnumSeqHelper.read(from: istr)
-                                                let iceP_returnValue: ByteEnumSeq = try ByteEnumSeqHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_b2)
-                                            },
-                                            context: context)
+    func opByteSeq(_ iceP_b1: ByteEnumSeq, context: Ice.Context? = nil) async throws -> (returnValue: ByteEnumSeq, b2: ByteEnumSeq) {
+        return try await _impl._invoke(operation: "opByteSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ByteEnumSeqHelper.write(to: ostr, value: iceP_b1)
+                                       },
+                                       read: { istr in
+                                           let iceP_b2: ByteEnumSeq = try ByteEnumSeqHelper.read(from: istr)
+                                           let iceP_returnValue: ByteEnumSeq = try ByteEnumSeqHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_b2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -988,38 +888,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `ShortEnumSeq`
     ///
     ///   - s2: `ShortEnumSeq`
-    func opShortSeq(_ iceP_s1: ShortEnumSeq, context: Ice.Context? = nil) throws -> (returnValue: ShortEnumSeq, s2: ShortEnumSeq) {
-        return try _impl._invoke(operation: "opShortSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ShortEnumSeqHelper.write(to: ostr, value: iceP_s1)
-                                 },
-                                 read: { istr in
-                                     let iceP_s2: ShortEnumSeq = try ShortEnumSeqHelper.read(from: istr)
-                                     let iceP_returnValue: ShortEnumSeq = try ShortEnumSeqHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_s2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `ShortEnumSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ShortEnumSeq, s2: ShortEnumSeq)` - The result of the operation
-    func opShortSeqAsync(_ iceP_s1: ShortEnumSeq, context: Ice.Context? = nil) async throws -> (returnValue: ShortEnumSeq, s2: ShortEnumSeq) {
-        return try await _impl._invokeAsync(operation: "opShortSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ShortEnumSeqHelper.write(to: ostr, value: iceP_s1)
-                                            },
-                                            read: { istr in
-                                                let iceP_s2: ShortEnumSeq = try ShortEnumSeqHelper.read(from: istr)
-                                                let iceP_returnValue: ShortEnumSeq = try ShortEnumSeqHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_s2)
-                                            },
-                                            context: context)
+    func opShortSeq(_ iceP_s1: ShortEnumSeq, context: Ice.Context? = nil) async throws -> (returnValue: ShortEnumSeq, s2: ShortEnumSeq) {
+        return try await _impl._invoke(operation: "opShortSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ShortEnumSeqHelper.write(to: ostr, value: iceP_s1)
+                                       },
+                                       read: { istr in
+                                           let iceP_s2: ShortEnumSeq = try ShortEnumSeqHelper.read(from: istr)
+                                           let iceP_returnValue: ShortEnumSeq = try ShortEnumSeqHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_s2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1032,38 +912,18 @@ public extension TestIntfPrx {
     ///   - returnValue: `IntEnumSeq`
     ///
     ///   - i2: `IntEnumSeq`
-    func opIntSeq(_ iceP_i1: IntEnumSeq, context: Ice.Context? = nil) throws -> (returnValue: IntEnumSeq, i2: IntEnumSeq) {
-        return try _impl._invoke(operation: "opIntSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     IntEnumSeqHelper.write(to: ostr, value: iceP_i1)
-                                 },
-                                 read: { istr in
-                                     let iceP_i2: IntEnumSeq = try IntEnumSeqHelper.read(from: istr)
-                                     let iceP_returnValue: IntEnumSeq = try IntEnumSeqHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_i2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `IntEnumSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: IntEnumSeq, i2: IntEnumSeq)` - The result of the operation
-    func opIntSeqAsync(_ iceP_i1: IntEnumSeq, context: Ice.Context? = nil) async throws -> (returnValue: IntEnumSeq, i2: IntEnumSeq) {
-        return try await _impl._invokeAsync(operation: "opIntSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                IntEnumSeqHelper.write(to: ostr, value: iceP_i1)
-                                            },
-                                            read: { istr in
-                                                let iceP_i2: IntEnumSeq = try IntEnumSeqHelper.read(from: istr)
-                                                let iceP_returnValue: IntEnumSeq = try IntEnumSeqHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_i2)
-                                            },
-                                            context: context)
+    func opIntSeq(_ iceP_i1: IntEnumSeq, context: Ice.Context? = nil) async throws -> (returnValue: IntEnumSeq, i2: IntEnumSeq) {
+        return try await _impl._invoke(operation: "opIntSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           IntEnumSeqHelper.write(to: ostr, value: iceP_i1)
+                                       },
+                                       read: { istr in
+                                           let iceP_i2: IntEnumSeq = try IntEnumSeqHelper.read(from: istr)
+                                           let iceP_returnValue: IntEnumSeq = try IntEnumSeqHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_i2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -1076,56 +936,26 @@ public extension TestIntfPrx {
     ///   - returnValue: `SimpleEnumSeq`
     ///
     ///   - s2: `SimpleEnumSeq`
-    func opSimpleSeq(_ iceP_s1: SimpleEnumSeq, context: Ice.Context? = nil) throws -> (returnValue: SimpleEnumSeq, s2: SimpleEnumSeq) {
-        return try _impl._invoke(operation: "opSimpleSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     SimpleEnumSeqHelper.write(to: ostr, value: iceP_s1)
-                                 },
-                                 read: { istr in
-                                     let iceP_s2: SimpleEnumSeq = try SimpleEnumSeqHelper.read(from: istr)
-                                     let iceP_returnValue: SimpleEnumSeq = try SimpleEnumSeqHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_s2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `SimpleEnumSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SimpleEnumSeq, s2: SimpleEnumSeq)` - The result of the operation
-    func opSimpleSeqAsync(_ iceP_s1: SimpleEnumSeq, context: Ice.Context? = nil) async throws -> (returnValue: SimpleEnumSeq, s2: SimpleEnumSeq) {
-        return try await _impl._invokeAsync(operation: "opSimpleSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                SimpleEnumSeqHelper.write(to: ostr, value: iceP_s1)
-                                            },
-                                            read: { istr in
-                                                let iceP_s2: SimpleEnumSeq = try SimpleEnumSeqHelper.read(from: istr)
-                                                let iceP_returnValue: SimpleEnumSeq = try SimpleEnumSeqHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_s2)
-                                            },
-                                            context: context)
+    func opSimpleSeq(_ iceP_s1: SimpleEnumSeq, context: Ice.Context? = nil) async throws -> (returnValue: SimpleEnumSeq, s2: SimpleEnumSeq) {
+        return try await _impl._invoke(operation: "opSimpleSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           SimpleEnumSeqHelper.write(to: ostr, value: iceP_s1)
+                                       },
+                                       read: { istr in
+                                           let iceP_s2: SimpleEnumSeq = try SimpleEnumSeqHelper.read(from: istr)
+                                           let iceP_returnValue: SimpleEnumSeq = try SimpleEnumSeqHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_s2)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -1179,7 +1009,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ByteEnum, b2: ByteEnum)` - The result of the operation
+    /// - returns: `(returnValue: ByteEnum, b2: ByteEnum)`:
+    ///
+    ///   - returnValue: `ByteEnum`
+    ///
+    ///   - b2: `ByteEnum`
     func opByte(b1: ByteEnum, current: Ice.Current) async throws -> (returnValue: ByteEnum, b2: ByteEnum)
 
     ///
@@ -1187,7 +1021,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ShortEnum, s2: ShortEnum)` - The result of the operation
+    /// - returns: `(returnValue: ShortEnum, s2: ShortEnum)`:
+    ///
+    ///   - returnValue: `ShortEnum`
+    ///
+    ///   - s2: `ShortEnum`
     func opShort(s1: ShortEnum, current: Ice.Current) async throws -> (returnValue: ShortEnum, s2: ShortEnum)
 
     ///
@@ -1195,7 +1033,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: IntEnum, i2: IntEnum)` - The result of the operation
+    /// - returns: `(returnValue: IntEnum, i2: IntEnum)`:
+    ///
+    ///   - returnValue: `IntEnum`
+    ///
+    ///   - i2: `IntEnum`
     func opInt(i1: IntEnum, current: Ice.Current) async throws -> (returnValue: IntEnum, i2: IntEnum)
 
     ///
@@ -1203,7 +1045,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: SimpleEnum, s2: SimpleEnum)` - The result of the operation
+    /// - returns: `(returnValue: SimpleEnum, s2: SimpleEnum)`:
+    ///
+    ///   - returnValue: `SimpleEnum`
+    ///
+    ///   - s2: `SimpleEnum`
     func opSimple(s1: SimpleEnum, current: Ice.Current) async throws -> (returnValue: SimpleEnum, s2: SimpleEnum)
 
     ///
@@ -1211,7 +1057,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ByteEnumSeq, b2: ByteEnumSeq)` - The result of the operation
+    /// - returns: `(returnValue: ByteEnumSeq, b2: ByteEnumSeq)`:
+    ///
+    ///   - returnValue: `ByteEnumSeq`
+    ///
+    ///   - b2: `ByteEnumSeq`
     func opByteSeq(b1: ByteEnumSeq, current: Ice.Current) async throws -> (returnValue: ByteEnumSeq, b2: ByteEnumSeq)
 
     ///
@@ -1219,7 +1069,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ShortEnumSeq, s2: ShortEnumSeq)` - The result of the operation
+    /// - returns: `(returnValue: ShortEnumSeq, s2: ShortEnumSeq)`:
+    ///
+    ///   - returnValue: `ShortEnumSeq`
+    ///
+    ///   - s2: `ShortEnumSeq`
     func opShortSeq(s1: ShortEnumSeq, current: Ice.Current) async throws -> (returnValue: ShortEnumSeq, s2: ShortEnumSeq)
 
     ///
@@ -1227,7 +1081,11 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: IntEnumSeq, i2: IntEnumSeq)` - The result of the operation
+    /// - returns: `(returnValue: IntEnumSeq, i2: IntEnumSeq)`:
+    ///
+    ///   - returnValue: `IntEnumSeq`
+    ///
+    ///   - i2: `IntEnumSeq`
     func opIntSeq(i1: IntEnumSeq, current: Ice.Current) async throws -> (returnValue: IntEnumSeq, i2: IntEnumSeq)
 
     ///
@@ -1235,13 +1093,15 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: SimpleEnumSeq, s2: SimpleEnumSeq)` - The result of the operation
+    /// - returns: `(returnValue: SimpleEnumSeq, s2: SimpleEnumSeq)`:
+    ///
+    ///   - returnValue: `SimpleEnumSeq`
+    ///
+    ///   - s2: `SimpleEnumSeq`
     func opSimpleSeq(s1: SimpleEnumSeq, current: Ice.Current) async throws -> (returnValue: SimpleEnumSeq, s2: SimpleEnumSeq)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 

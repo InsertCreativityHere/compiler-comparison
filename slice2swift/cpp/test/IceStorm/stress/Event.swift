@@ -67,8 +67,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: EventPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> EventPrx? {
-    return try EventPrxI.checkedCast(prx: prx, facet: facet, context: context) as EventPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: EventPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> EventPrx? {
+    return try await EventPrxI.checkedCast(prx: prx, facet: facet, context: context) as EventPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -128,28 +128,13 @@ public extension EventPrx {
     /// - parameter _: `Swift.Int32`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func pub(_ iceP_counter: Swift.Int32, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "pub",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_counter)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func pubAsync(_ iceP_counter: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "pub",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_counter)
-                                            },
-                                            context: context)
+    func pub(_ iceP_counter: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "pub",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_counter)
+                                       },
+                                       context: context)
     }
 }
 
@@ -186,8 +171,6 @@ public protocol Event {
     /// - parameter counter: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func pub(counter: Swift.Int32, current: Ice.Current) async throws
 }
 

@@ -133,8 +133,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: CallbackReceiverPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> CallbackReceiverPrx? {
-    return try CallbackReceiverPrxI.checkedCast(prx: prx, facet: facet, context: context) as CallbackReceiverPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: CallbackReceiverPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> CallbackReceiverPrx? {
+    return try await CallbackReceiverPrxI.checkedCast(prx: prx, facet: facet, context: context) as CallbackReceiverPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -208,52 +208,25 @@ public extension Ice.InputStream {
 public extension CallbackReceiverPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func callback(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "callback",
-                          mode: .Normal,
-                          context: context)
+    func callback(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "callback",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func callbackAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "callback",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func callbackEx(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "callbackEx",
-                          mode: .Normal,
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as CallbackException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func callbackExAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "callbackEx",
-                                            mode: .Normal,
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as CallbackException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func callbackEx(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "callbackEx",
+                                       mode: .Normal,
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as CallbackException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     ///
@@ -262,82 +235,38 @@ public extension CallbackReceiverPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Int32`
-    func concurrentCallback(_ iceP_number: Swift.Int32, context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "concurrentCallback",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_number)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The result of the operation
-    func concurrentCallbackAsync(_ iceP_number: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
-        return try await _impl._invokeAsync(operation: "concurrentCallback",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_number)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Int32 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func concurrentCallback(_ iceP_number: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invoke(operation: "concurrentCallback",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_number)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Int32 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func waitCallback(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "waitCallback",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func waitCallbackAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "waitCallback",
-                                            mode: .Normal,
-                                            context: context)
+    func waitCallback(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "waitCallback",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter _: `Ice.ByteSeq`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func callbackWithPayload(_ iceP_payload: Ice.ByteSeq, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "callbackWithPayload",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_payload)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Ice.ByteSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func callbackWithPayloadAsync(_ iceP_payload: Ice.ByteSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "callbackWithPayload",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_payload)
-                                            },
-                                            context: context)
+    func callbackWithPayload(_ iceP_payload: Ice.ByteSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "callbackWithPayload",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_payload)
+                                       },
+                                       context: context)
     }
 }
 
@@ -406,8 +335,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: CallbackPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> CallbackPrx? {
-    return try CallbackPrxI.checkedCast(prx: prx, facet: facet, context: context) as CallbackPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: CallbackPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> CallbackPrx? {
+    return try await CallbackPrxI.checkedCast(prx: prx, facet: facet, context: context) as CallbackPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -487,70 +416,33 @@ public extension CallbackPrx {
     /// - parameter _: `CallbackReceiverPrx?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func initiateCallback(_ iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "initiateCallback",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_proxy)
-                          },
-                          context: context)
+    func initiateCallback(_ iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "initiateCallback",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_proxy)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter _: `CallbackReceiverPrx?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func initiateCallbackAsync(_ iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "initiateCallback",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_proxy)
-                                            },
-                                            context: context)
-    }
-
-    ///
-    /// - parameter _: `CallbackReceiverPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func initiateCallbackEx(_ iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "initiateCallbackEx",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_proxy)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as CallbackException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `CallbackReceiverPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func initiateCallbackExAsync(_ iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "initiateCallbackEx",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_proxy)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as CallbackException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func initiateCallbackEx(_ iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "initiateCallbackEx",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_proxy)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as CallbackException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     ///
@@ -561,114 +453,52 @@ public extension CallbackPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Int32`
-    func initiateConcurrentCallback(number iceP_number: Swift.Int32, proxy iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "initiateConcurrentCallback",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_number)
-                                     ostr.write(iceP_proxy)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter number: `Swift.Int32`
-    ///
-    /// - parameter proxy: `CallbackReceiverPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The result of the operation
-    func initiateConcurrentCallbackAsync(number iceP_number: Swift.Int32, proxy iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil) async throws -> Swift.Int32 {
-        return try await _impl._invokeAsync(operation: "initiateConcurrentCallback",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_number)
-                                                ostr.write(iceP_proxy)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Int32 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func initiateConcurrentCallback(number iceP_number: Swift.Int32, proxy iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invoke(operation: "initiateConcurrentCallback",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_number)
+                                           ostr.write(iceP_proxy)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Int32 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter _: `CallbackReceiverPrx?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func initiateWaitCallback(_ iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "initiateWaitCallback",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_proxy)
-                          },
-                          context: context)
+    func initiateWaitCallback(_ iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "initiateWaitCallback",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_proxy)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter _: `CallbackReceiverPrx?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func initiateWaitCallbackAsync(_ iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "initiateWaitCallback",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_proxy)
-                                            },
-                                            context: context)
-    }
-
-    ///
-    /// - parameter _: `CallbackReceiverPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func initiateCallbackWithPayload(_ iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "initiateCallbackWithPayload",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_proxy)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `CallbackReceiverPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func initiateCallbackWithPayloadAsync(_ iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "initiateCallbackWithPayload",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_proxy)
-                                            },
-                                            context: context)
+    func initiateCallbackWithPayload(_ iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "initiateCallbackWithPayload",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_proxy)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -711,14 +541,10 @@ public struct CallbackReceiverDisp: Ice.Dispatcher {
 public protocol CallbackReceiver {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func callback(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func callbackEx(current: Ice.Current) async throws
 
     ///
@@ -726,21 +552,17 @@ public protocol CallbackReceiver {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The result of the operation
+    /// - returns: `Swift.Int32`
     func concurrentCallback(number: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func waitCallback(current: Ice.Current) async throws
 
     ///
     /// - parameter payload: `Ice.ByteSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func callbackWithPayload(payload: Ice.ByteSeq, current: Ice.Current) async throws
 }
 
@@ -787,16 +609,12 @@ public protocol Callback {
     /// - parameter proxy: `CallbackReceiverPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func initiateCallback(proxy: CallbackReceiverPrx?, current: Ice.Current) async throws
 
     ///
     /// - parameter proxy: `CallbackReceiverPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func initiateCallbackEx(proxy: CallbackReceiverPrx?, current: Ice.Current) async throws
 
     ///
@@ -806,29 +624,23 @@ public protocol Callback {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The result of the operation
+    /// - returns: `Swift.Int32`
     func initiateConcurrentCallback(number: Swift.Int32, proxy: CallbackReceiverPrx?, current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter proxy: `CallbackReceiverPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func initiateWaitCallback(proxy: CallbackReceiverPrx?, current: Ice.Current) async throws
 
     ///
     /// - parameter proxy: `CallbackReceiverPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func initiateCallbackWithPayload(proxy: CallbackReceiverPrx?, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 

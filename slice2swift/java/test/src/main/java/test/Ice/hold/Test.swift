@@ -83,8 +83,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: HoldPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> HoldPrx? {
-    return try HoldPrxI.checkedCast(prx: prx, facet: facet, context: context) as HoldPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: HoldPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> HoldPrx? {
+    return try await HoldPrxI.checkedCast(prx: prx, facet: facet, context: context) as HoldPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -160,46 +160,21 @@ public extension HoldPrx {
     /// - parameter _: `Swift.Int32`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func putOnHold(_ iceP_seconds: Swift.Int32, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "putOnHold",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_seconds)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func putOnHoldAsync(_ iceP_seconds: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "putOnHold",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_seconds)
-                                            },
-                                            context: context)
+    func putOnHold(_ iceP_seconds: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "putOnHold",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_seconds)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func waitForHold(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "waitForHold",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func waitForHoldAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "waitForHold",
-                                            mode: .Normal,
-                                            context: context)
+    func waitForHold(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "waitForHold",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
@@ -210,40 +185,18 @@ public extension HoldPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Int32`
-    func `set`(value iceP_value: Swift.Int32, delay iceP_delay: Swift.Int32, context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "set",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_value)
-                                     ostr.write(iceP_delay)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter value: `Swift.Int32`
-    ///
-    /// - parameter delay: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The result of the operation
-    func setAsync(value iceP_value: Swift.Int32, delay iceP_delay: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
-        return try await _impl._invokeAsync(operation: "set",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_value)
-                                                ostr.write(iceP_delay)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Int32 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func `set`(value iceP_value: Swift.Int32, delay iceP_delay: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invoke(operation: "set",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_value)
+                                           ostr.write(iceP_delay)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Int32 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
@@ -252,50 +205,22 @@ public extension HoldPrx {
     /// - parameter expected: `Swift.Int32`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func setOneway(value iceP_value: Swift.Int32, expected iceP_expected: Swift.Int32, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "setOneway",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_value)
-                              ostr.write(iceP_expected)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter value: `Swift.Int32`
-    ///
-    /// - parameter expected: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func setOnewayAsync(value iceP_value: Swift.Int32, expected iceP_expected: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "setOneway",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_value)
-                                                ostr.write(iceP_expected)
-                                            },
-                                            context: context)
+    func setOneway(value iceP_value: Swift.Int32, expected iceP_expected: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "setOneway",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_value)
+                                           ostr.write(iceP_expected)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -340,14 +265,10 @@ public protocol Hold {
     /// - parameter seconds: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func putOnHold(seconds: Swift.Int32, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func waitForHold(current: Ice.Current) async throws
 
     ///
@@ -357,7 +278,7 @@ public protocol Hold {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The result of the operation
+    /// - returns: `Swift.Int32`
     func `set`(value: Swift.Int32, delay: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 
     ///
@@ -366,14 +287,10 @@ public protocol Hold {
     /// - parameter expected: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func setOneway(value: Swift.Int32, expected: Swift.Int32, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 

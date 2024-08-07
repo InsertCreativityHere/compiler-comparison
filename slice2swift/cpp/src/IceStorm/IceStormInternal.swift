@@ -255,8 +255,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TopicLinkPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TopicLinkPrx? {
-    return try TopicLinkPrxI.checkedCast(prx: prx, facet: facet, context: context) as TopicLinkPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TopicLinkPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TopicLinkPrx? {
+    return try await TopicLinkPrxI.checkedCast(prx: prx, facet: facet, context: context) as TopicLinkPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -317,29 +317,13 @@ public extension TopicLinkPrx {
     /// - parameter _: `EventDataSeq` The events to forward.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func forward(_ iceP_events: EventDataSeq, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "forward",
-                          mode: .Normal,
-                          write: { ostr in
-                              EventDataSeqHelper.write(to: ostr, value: iceP_events)
-                          },
-                          context: context)
-    }
-
-    /// Forward a sequence of events.
-    ///
-    /// - parameter _: `EventDataSeq` The events to forward.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func forwardAsync(_ iceP_events: EventDataSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "forward",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                EventDataSeqHelper.write(to: ostr, value: iceP_events)
-                                            },
-                                            context: context)
+    func forward(_ iceP_events: EventDataSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "forward",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           EventDataSeqHelper.write(to: ostr, value: iceP_events)
+                                       },
+                                       context: context)
     }
 }
 
@@ -392,8 +376,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TopicInternalPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TopicInternalPrx? {
-    return try TopicInternalPrxI.checkedCast(prx: prx, facet: facet, context: context) as TopicInternalPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TopicInternalPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TopicInternalPrx? {
+    return try await TopicInternalPrxI.checkedCast(prx: prx, facet: facet, context: context) as TopicInternalPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -458,29 +442,14 @@ public extension TopicInternalPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `TopicLinkPrx?` - The TopicLink for the Topic.
-    func getLinkProxy(context: Ice.Context? = nil) throws -> TopicLinkPrx? {
-        return try _impl._invoke(operation: "getLinkProxy",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: TopicLinkPrx? = try istr.read(TopicLinkPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Retrieve a proxy to the TopicLink interface.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `TopicLinkPrx?` - The result of the operation
-    func getLinkProxyAsync(context: Ice.Context? = nil) async throws -> TopicLinkPrx? {
-        return try await _impl._invokeAsync(operation: "getLinkProxy",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: TopicLinkPrx? = try istr.read(TopicLinkPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getLinkProxy(context: Ice.Context? = nil) async throws -> TopicLinkPrx? {
+        return try await _impl._invoke(operation: "getLinkProxy",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: TopicLinkPrx? = try istr.read(TopicLinkPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Reap the given identities.
@@ -492,43 +461,20 @@ public extension TopicInternalPrx {
     /// - throws:
     ///
     ///   - ReapWouldBlock - Raised if the reap call would block.
-    func reap(_ iceP_id: Ice.IdentitySeq, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "reap",
-                          mode: .Normal,
-                          write: { ostr in
-                              Ice.IdentitySeqHelper.write(to: ostr, value: iceP_id)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ReapWouldBlock {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Reap the given identities.
-    ///
-    /// - parameter _: `Ice.IdentitySeq` The sequence of identities.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func reapAsync(_ iceP_id: Ice.IdentitySeq, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "reap",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                Ice.IdentitySeqHelper.write(to: ostr, value: iceP_id)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ReapWouldBlock {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func reap(_ iceP_id: Ice.IdentitySeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "reap",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           Ice.IdentitySeqHelper.write(to: ostr, value: iceP_id)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ReapWouldBlock {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 }
 
@@ -577,8 +523,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TopicManagerInternalPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TopicManagerInternalPrx? {
-    return try TopicManagerInternalPrxI.checkedCast(prx: prx, facet: facet, context: context) as TopicManagerInternalPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TopicManagerInternalPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TopicManagerInternalPrx? {
+    return try await TopicManagerInternalPrxI.checkedCast(prx: prx, facet: facet, context: context) as TopicManagerInternalPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -639,29 +585,14 @@ public extension TopicManagerInternalPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `IceStormElection.NodePrx?` - The replica proxy, or null if this instance is not replicated.
-    func getReplicaNode(context: Ice.Context? = nil) throws -> IceStormElection.NodePrx? {
-        return try _impl._invoke(operation: "getReplicaNode",
-                                 mode: .Idempotent,
-                                 read: { istr in
-                                     let iceP_returnValue: IceStormElection.NodePrx? = try istr.read(IceStormElection.NodePrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Return the replica node proxy for this topic manager.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `IceStormElection.NodePrx?` - The result of the operation
-    func getReplicaNodeAsync(context: Ice.Context? = nil) async throws -> IceStormElection.NodePrx? {
-        return try await _impl._invokeAsync(operation: "getReplicaNode",
-                                            mode: .Idempotent,
-                                            read: { istr in
-                                                let iceP_returnValue: IceStormElection.NodePrx? = try istr.read(IceStormElection.NodePrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getReplicaNode(context: Ice.Context? = nil) async throws -> IceStormElection.NodePrx? {
+        return try await _impl._invoke(operation: "getReplicaNode",
+                                       mode: .Idempotent,
+                                       read: { istr in
+                                           let iceP_returnValue: IceStormElection.NodePrx? = try istr.read(IceStormElection.NodePrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -700,8 +631,6 @@ public protocol TopicLink {
     /// - parameter events: `EventDataSeq` The events to forward.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func forward(events: EventDataSeq, current: Ice.Current) async throws
 }
 
@@ -761,7 +690,7 @@ public protocol TopicInternal: Topic {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `TopicLinkPrx?` - The result of the operation
+    /// - returns: `TopicLinkPrx?` - The TopicLink for the Topic.
     func getLinkProxy(current: Ice.Current) async throws -> TopicLinkPrx?
 
     /// Reap the given identities.
@@ -770,7 +699,9 @@ public protocol TopicInternal: Topic {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - ReapWouldBlock - Raised if the reap call would block.
     func reap(id: Ice.IdentitySeq, current: Ice.Current) async throws
 }
 
@@ -814,7 +745,7 @@ public protocol TopicManagerInternal: TopicManager {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `IceStormElection.NodePrx?` - The result of the operation
+    /// - returns: `IceStormElection.NodePrx?` - The replica proxy, or null if this instance is not replicated.
     func getReplicaNode(current: Ice.Current) async throws -> IceStormElection.NodePrx?
 }
 

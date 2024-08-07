@@ -165,8 +165,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: NumPyCustomPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> NumPyCustomPrx? {
-    return try NumPyCustomPrxI.checkedCast(prx: prx, facet: facet, context: context) as NumPyCustomPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: NumPyCustomPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> NumPyCustomPrx? {
+    return try await NumPyCustomPrxI.checkedCast(prx: prx, facet: facet, context: context) as NumPyCustomPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -300,38 +300,18 @@ public extension NumPyCustomPrx {
     ///   - returnValue: `NumPyBoolSeq1`
     ///
     ///   - v2: `NumPyBoolSeq2`
-    func opBoolSeq(_ iceP_v1: NumPyBoolSeq1, context: Ice.Context? = nil) throws -> (returnValue: NumPyBoolSeq1, v2: NumPyBoolSeq2) {
-        return try _impl._invoke(operation: "opBoolSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_v1)
-                                 },
-                                 read: { istr in
-                                     let iceP_v2: NumPyBoolSeq2 = try istr.read()
-                                     let iceP_returnValue: NumPyBoolSeq1 = try istr.read()
-                                     return (iceP_returnValue, iceP_v2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `NumPyBoolSeq1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: NumPyBoolSeq1, v2: NumPyBoolSeq2)` - The result of the operation
-    func opBoolSeqAsync(_ iceP_v1: NumPyBoolSeq1, context: Ice.Context? = nil) async throws -> (returnValue: NumPyBoolSeq1, v2: NumPyBoolSeq2) {
-        return try await _impl._invokeAsync(operation: "opBoolSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_v1)
-                                            },
-                                            read: { istr in
-                                                let iceP_v2: NumPyBoolSeq2 = try istr.read()
-                                                let iceP_returnValue: NumPyBoolSeq1 = try istr.read()
-                                                return (iceP_returnValue, iceP_v2)
-                                            },
-                                            context: context)
+    func opBoolSeq(_ iceP_v1: NumPyBoolSeq1, context: Ice.Context? = nil) async throws -> (returnValue: NumPyBoolSeq1, v2: NumPyBoolSeq2) {
+        return try await _impl._invoke(operation: "opBoolSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_v1)
+                                       },
+                                       read: { istr in
+                                           let iceP_v2: NumPyBoolSeq2 = try istr.read()
+                                           let iceP_returnValue: NumPyBoolSeq1 = try istr.read()
+                                           return (iceP_returnValue, iceP_v2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -344,38 +324,18 @@ public extension NumPyCustomPrx {
     ///   - returnValue: `NumPyByteSeq1`
     ///
     ///   - v2: `NumPyByteSeq2`
-    func opByteSeq(_ iceP_v1: NumPyByteSeq1, context: Ice.Context? = nil) throws -> (returnValue: NumPyByteSeq1, v2: NumPyByteSeq2) {
-        return try _impl._invoke(operation: "opByteSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_v1)
-                                 },
-                                 read: { istr in
-                                     let iceP_v2: NumPyByteSeq2 = try istr.read()
-                                     let iceP_returnValue: NumPyByteSeq1 = try istr.read()
-                                     return (iceP_returnValue, iceP_v2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `NumPyByteSeq1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: NumPyByteSeq1, v2: NumPyByteSeq2)` - The result of the operation
-    func opByteSeqAsync(_ iceP_v1: NumPyByteSeq1, context: Ice.Context? = nil) async throws -> (returnValue: NumPyByteSeq1, v2: NumPyByteSeq2) {
-        return try await _impl._invokeAsync(operation: "opByteSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_v1)
-                                            },
-                                            read: { istr in
-                                                let iceP_v2: NumPyByteSeq2 = try istr.read()
-                                                let iceP_returnValue: NumPyByteSeq1 = try istr.read()
-                                                return (iceP_returnValue, iceP_v2)
-                                            },
-                                            context: context)
+    func opByteSeq(_ iceP_v1: NumPyByteSeq1, context: Ice.Context? = nil) async throws -> (returnValue: NumPyByteSeq1, v2: NumPyByteSeq2) {
+        return try await _impl._invoke(operation: "opByteSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_v1)
+                                       },
+                                       read: { istr in
+                                           let iceP_v2: NumPyByteSeq2 = try istr.read()
+                                           let iceP_returnValue: NumPyByteSeq1 = try istr.read()
+                                           return (iceP_returnValue, iceP_v2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -388,38 +348,18 @@ public extension NumPyCustomPrx {
     ///   - returnValue: `NumPyShortSeq1`
     ///
     ///   - v2: `NumPyShortSeq2`
-    func opShortSeq(_ iceP_v1: NumPyShortSeq1, context: Ice.Context? = nil) throws -> (returnValue: NumPyShortSeq1, v2: NumPyShortSeq2) {
-        return try _impl._invoke(operation: "opShortSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_v1)
-                                 },
-                                 read: { istr in
-                                     let iceP_v2: NumPyShortSeq2 = try istr.read()
-                                     let iceP_returnValue: NumPyShortSeq1 = try istr.read()
-                                     return (iceP_returnValue, iceP_v2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `NumPyShortSeq1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: NumPyShortSeq1, v2: NumPyShortSeq2)` - The result of the operation
-    func opShortSeqAsync(_ iceP_v1: NumPyShortSeq1, context: Ice.Context? = nil) async throws -> (returnValue: NumPyShortSeq1, v2: NumPyShortSeq2) {
-        return try await _impl._invokeAsync(operation: "opShortSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_v1)
-                                            },
-                                            read: { istr in
-                                                let iceP_v2: NumPyShortSeq2 = try istr.read()
-                                                let iceP_returnValue: NumPyShortSeq1 = try istr.read()
-                                                return (iceP_returnValue, iceP_v2)
-                                            },
-                                            context: context)
+    func opShortSeq(_ iceP_v1: NumPyShortSeq1, context: Ice.Context? = nil) async throws -> (returnValue: NumPyShortSeq1, v2: NumPyShortSeq2) {
+        return try await _impl._invoke(operation: "opShortSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_v1)
+                                       },
+                                       read: { istr in
+                                           let iceP_v2: NumPyShortSeq2 = try istr.read()
+                                           let iceP_returnValue: NumPyShortSeq1 = try istr.read()
+                                           return (iceP_returnValue, iceP_v2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -432,38 +372,18 @@ public extension NumPyCustomPrx {
     ///   - returnValue: `NumPyIntSeq1`
     ///
     ///   - v2: `NumPyIntSeq2`
-    func opIntSeq(_ iceP_v1: NumPyIntSeq1, context: Ice.Context? = nil) throws -> (returnValue: NumPyIntSeq1, v2: NumPyIntSeq2) {
-        return try _impl._invoke(operation: "opIntSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_v1)
-                                 },
-                                 read: { istr in
-                                     let iceP_v2: NumPyIntSeq2 = try istr.read()
-                                     let iceP_returnValue: NumPyIntSeq1 = try istr.read()
-                                     return (iceP_returnValue, iceP_v2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `NumPyIntSeq1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: NumPyIntSeq1, v2: NumPyIntSeq2)` - The result of the operation
-    func opIntSeqAsync(_ iceP_v1: NumPyIntSeq1, context: Ice.Context? = nil) async throws -> (returnValue: NumPyIntSeq1, v2: NumPyIntSeq2) {
-        return try await _impl._invokeAsync(operation: "opIntSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_v1)
-                                            },
-                                            read: { istr in
-                                                let iceP_v2: NumPyIntSeq2 = try istr.read()
-                                                let iceP_returnValue: NumPyIntSeq1 = try istr.read()
-                                                return (iceP_returnValue, iceP_v2)
-                                            },
-                                            context: context)
+    func opIntSeq(_ iceP_v1: NumPyIntSeq1, context: Ice.Context? = nil) async throws -> (returnValue: NumPyIntSeq1, v2: NumPyIntSeq2) {
+        return try await _impl._invoke(operation: "opIntSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_v1)
+                                       },
+                                       read: { istr in
+                                           let iceP_v2: NumPyIntSeq2 = try istr.read()
+                                           let iceP_returnValue: NumPyIntSeq1 = try istr.read()
+                                           return (iceP_returnValue, iceP_v2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -476,38 +396,18 @@ public extension NumPyCustomPrx {
     ///   - returnValue: `NumPyLongSeq1`
     ///
     ///   - v2: `NumPyLongSeq2`
-    func opLongSeq(_ iceP_v1: NumPyLongSeq1, context: Ice.Context? = nil) throws -> (returnValue: NumPyLongSeq1, v2: NumPyLongSeq2) {
-        return try _impl._invoke(operation: "opLongSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_v1)
-                                 },
-                                 read: { istr in
-                                     let iceP_v2: NumPyLongSeq2 = try istr.read()
-                                     let iceP_returnValue: NumPyLongSeq1 = try istr.read()
-                                     return (iceP_returnValue, iceP_v2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `NumPyLongSeq1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: NumPyLongSeq1, v2: NumPyLongSeq2)` - The result of the operation
-    func opLongSeqAsync(_ iceP_v1: NumPyLongSeq1, context: Ice.Context? = nil) async throws -> (returnValue: NumPyLongSeq1, v2: NumPyLongSeq2) {
-        return try await _impl._invokeAsync(operation: "opLongSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_v1)
-                                            },
-                                            read: { istr in
-                                                let iceP_v2: NumPyLongSeq2 = try istr.read()
-                                                let iceP_returnValue: NumPyLongSeq1 = try istr.read()
-                                                return (iceP_returnValue, iceP_v2)
-                                            },
-                                            context: context)
+    func opLongSeq(_ iceP_v1: NumPyLongSeq1, context: Ice.Context? = nil) async throws -> (returnValue: NumPyLongSeq1, v2: NumPyLongSeq2) {
+        return try await _impl._invoke(operation: "opLongSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_v1)
+                                       },
+                                       read: { istr in
+                                           let iceP_v2: NumPyLongSeq2 = try istr.read()
+                                           let iceP_returnValue: NumPyLongSeq1 = try istr.read()
+                                           return (iceP_returnValue, iceP_v2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -520,38 +420,18 @@ public extension NumPyCustomPrx {
     ///   - returnValue: `NumPyFloatSeq1`
     ///
     ///   - v2: `NumPyFloatSeq2`
-    func opFloatSeq(_ iceP_v1: NumPyFloatSeq1, context: Ice.Context? = nil) throws -> (returnValue: NumPyFloatSeq1, v2: NumPyFloatSeq2) {
-        return try _impl._invoke(operation: "opFloatSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_v1)
-                                 },
-                                 read: { istr in
-                                     let iceP_v2: NumPyFloatSeq2 = try istr.read()
-                                     let iceP_returnValue: NumPyFloatSeq1 = try istr.read()
-                                     return (iceP_returnValue, iceP_v2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `NumPyFloatSeq1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: NumPyFloatSeq1, v2: NumPyFloatSeq2)` - The result of the operation
-    func opFloatSeqAsync(_ iceP_v1: NumPyFloatSeq1, context: Ice.Context? = nil) async throws -> (returnValue: NumPyFloatSeq1, v2: NumPyFloatSeq2) {
-        return try await _impl._invokeAsync(operation: "opFloatSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_v1)
-                                            },
-                                            read: { istr in
-                                                let iceP_v2: NumPyFloatSeq2 = try istr.read()
-                                                let iceP_returnValue: NumPyFloatSeq1 = try istr.read()
-                                                return (iceP_returnValue, iceP_v2)
-                                            },
-                                            context: context)
+    func opFloatSeq(_ iceP_v1: NumPyFloatSeq1, context: Ice.Context? = nil) async throws -> (returnValue: NumPyFloatSeq1, v2: NumPyFloatSeq2) {
+        return try await _impl._invoke(operation: "opFloatSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_v1)
+                                       },
+                                       read: { istr in
+                                           let iceP_v2: NumPyFloatSeq2 = try istr.read()
+                                           let iceP_returnValue: NumPyFloatSeq1 = try istr.read()
+                                           return (iceP_returnValue, iceP_v2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -564,38 +444,18 @@ public extension NumPyCustomPrx {
     ///   - returnValue: `NumPyDoubleSeq1`
     ///
     ///   - v2: `NumPyDoubleSeq2`
-    func opDoubleSeq(_ iceP_v1: NumPyDoubleSeq1, context: Ice.Context? = nil) throws -> (returnValue: NumPyDoubleSeq1, v2: NumPyDoubleSeq2) {
-        return try _impl._invoke(operation: "opDoubleSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_v1)
-                                 },
-                                 read: { istr in
-                                     let iceP_v2: NumPyDoubleSeq2 = try istr.read()
-                                     let iceP_returnValue: NumPyDoubleSeq1 = try istr.read()
-                                     return (iceP_returnValue, iceP_v2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `NumPyDoubleSeq1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: NumPyDoubleSeq1, v2: NumPyDoubleSeq2)` - The result of the operation
-    func opDoubleSeqAsync(_ iceP_v1: NumPyDoubleSeq1, context: Ice.Context? = nil) async throws -> (returnValue: NumPyDoubleSeq1, v2: NumPyDoubleSeq2) {
-        return try await _impl._invokeAsync(operation: "opDoubleSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_v1)
-                                            },
-                                            read: { istr in
-                                                let iceP_v2: NumPyDoubleSeq2 = try istr.read()
-                                                let iceP_returnValue: NumPyDoubleSeq1 = try istr.read()
-                                                return (iceP_returnValue, iceP_v2)
-                                            },
-                                            context: context)
+    func opDoubleSeq(_ iceP_v1: NumPyDoubleSeq1, context: Ice.Context? = nil) async throws -> (returnValue: NumPyDoubleSeq1, v2: NumPyDoubleSeq2) {
+        return try await _impl._invoke(operation: "opDoubleSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_v1)
+                                       },
+                                       read: { istr in
+                                           let iceP_v2: NumPyDoubleSeq2 = try istr.read()
+                                           let iceP_returnValue: NumPyDoubleSeq1 = try istr.read()
+                                           return (iceP_returnValue, iceP_v2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -604,260 +464,129 @@ public extension NumPyCustomPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `NumPyComplex128Seq`
-    func opComplex128Seq(_ iceP_v1: NumPyComplex128Seq, context: Ice.Context? = nil) throws -> NumPyComplex128Seq {
-        return try _impl._invoke(operation: "opComplex128Seq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_v1)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: NumPyComplex128Seq = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `NumPyComplex128Seq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `NumPyComplex128Seq` - The result of the operation
-    func opComplex128SeqAsync(_ iceP_v1: NumPyComplex128Seq, context: Ice.Context? = nil) async throws -> NumPyComplex128Seq {
-        return try await _impl._invokeAsync(operation: "opComplex128Seq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_v1)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: NumPyComplex128Seq = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func opComplex128Seq(_ iceP_v1: NumPyComplex128Seq, context: Ice.Context? = nil) async throws -> NumPyComplex128Seq {
+        return try await _impl._invoke(operation: "opComplex128Seq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_v1)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: NumPyComplex128Seq = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `NumPyBoolSeq1`
-    func opBoolMatrix(context: Ice.Context? = nil) throws -> NumPyBoolSeq1 {
-        return try _impl._invoke(operation: "opBoolMatrix",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: NumPyBoolSeq1 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `NumPyBoolSeq1` - The result of the operation
-    func opBoolMatrixAsync(context: Ice.Context? = nil) async throws -> NumPyBoolSeq1 {
-        return try await _impl._invokeAsync(operation: "opBoolMatrix",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: NumPyBoolSeq1 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func opBoolMatrix(context: Ice.Context? = nil) async throws -> NumPyBoolSeq1 {
+        return try await _impl._invoke(operation: "opBoolMatrix",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: NumPyBoolSeq1 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `NumPyByteSeq1`
-    func opByteMatrix(context: Ice.Context? = nil) throws -> NumPyByteSeq1 {
-        return try _impl._invoke(operation: "opByteMatrix",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: NumPyByteSeq1 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `NumPyByteSeq1` - The result of the operation
-    func opByteMatrixAsync(context: Ice.Context? = nil) async throws -> NumPyByteSeq1 {
-        return try await _impl._invokeAsync(operation: "opByteMatrix",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: NumPyByteSeq1 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func opByteMatrix(context: Ice.Context? = nil) async throws -> NumPyByteSeq1 {
+        return try await _impl._invoke(operation: "opByteMatrix",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: NumPyByteSeq1 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `NumPyShortSeq1`
-    func opShortMatrix(context: Ice.Context? = nil) throws -> NumPyShortSeq1 {
-        return try _impl._invoke(operation: "opShortMatrix",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: NumPyShortSeq1 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `NumPyShortSeq1` - The result of the operation
-    func opShortMatrixAsync(context: Ice.Context? = nil) async throws -> NumPyShortSeq1 {
-        return try await _impl._invokeAsync(operation: "opShortMatrix",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: NumPyShortSeq1 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func opShortMatrix(context: Ice.Context? = nil) async throws -> NumPyShortSeq1 {
+        return try await _impl._invoke(operation: "opShortMatrix",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: NumPyShortSeq1 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `NumPyIntSeq1`
-    func opIntMatrix(context: Ice.Context? = nil) throws -> NumPyIntSeq1 {
-        return try _impl._invoke(operation: "opIntMatrix",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: NumPyIntSeq1 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `NumPyIntSeq1` - The result of the operation
-    func opIntMatrixAsync(context: Ice.Context? = nil) async throws -> NumPyIntSeq1 {
-        return try await _impl._invokeAsync(operation: "opIntMatrix",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: NumPyIntSeq1 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func opIntMatrix(context: Ice.Context? = nil) async throws -> NumPyIntSeq1 {
+        return try await _impl._invoke(operation: "opIntMatrix",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: NumPyIntSeq1 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `NumPyLongSeq1`
-    func opLongMatrix(context: Ice.Context? = nil) throws -> NumPyLongSeq1 {
-        return try _impl._invoke(operation: "opLongMatrix",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: NumPyLongSeq1 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `NumPyLongSeq1` - The result of the operation
-    func opLongMatrixAsync(context: Ice.Context? = nil) async throws -> NumPyLongSeq1 {
-        return try await _impl._invokeAsync(operation: "opLongMatrix",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: NumPyLongSeq1 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func opLongMatrix(context: Ice.Context? = nil) async throws -> NumPyLongSeq1 {
+        return try await _impl._invoke(operation: "opLongMatrix",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: NumPyLongSeq1 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `NumPyFloatSeq1`
-    func opFloatMatrix(context: Ice.Context? = nil) throws -> NumPyFloatSeq1 {
-        return try _impl._invoke(operation: "opFloatMatrix",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: NumPyFloatSeq1 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `NumPyFloatSeq1` - The result of the operation
-    func opFloatMatrixAsync(context: Ice.Context? = nil) async throws -> NumPyFloatSeq1 {
-        return try await _impl._invokeAsync(operation: "opFloatMatrix",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: NumPyFloatSeq1 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func opFloatMatrix(context: Ice.Context? = nil) async throws -> NumPyFloatSeq1 {
+        return try await _impl._invoke(operation: "opFloatMatrix",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: NumPyFloatSeq1 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `NumPyDoubleSeq1`
-    func opDoubleMatrix(context: Ice.Context? = nil) throws -> NumPyDoubleSeq1 {
-        return try _impl._invoke(operation: "opDoubleMatrix",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: NumPyDoubleSeq1 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `NumPyDoubleSeq1` - The result of the operation
-    func opDoubleMatrixAsync(context: Ice.Context? = nil) async throws -> NumPyDoubleSeq1 {
-        return try await _impl._invokeAsync(operation: "opDoubleMatrix",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: NumPyDoubleSeq1 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func opDoubleMatrix(context: Ice.Context? = nil) async throws -> NumPyDoubleSeq1 {
+        return try await _impl._invoke(operation: "opDoubleMatrix",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: NumPyDoubleSeq1 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `NumPyBoolSeq1`
-    func opBogusNumpyArrayType(context: Ice.Context? = nil) throws -> NumPyBoolSeq1 {
-        return try _impl._invoke(operation: "opBogusNumpyArrayType",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: NumPyBoolSeq1 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `NumPyBoolSeq1` - The result of the operation
-    func opBogusNumpyArrayTypeAsync(context: Ice.Context? = nil) async throws -> NumPyBoolSeq1 {
-        return try await _impl._invokeAsync(operation: "opBogusNumpyArrayType",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: NumPyBoolSeq1 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func opBogusNumpyArrayType(context: Ice.Context? = nil) async throws -> NumPyBoolSeq1 {
+        return try await _impl._invoke(operation: "opBogusNumpyArrayType",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: NumPyBoolSeq1 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
@@ -866,60 +595,28 @@ public extension NumPyCustomPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `NumPyD?`
-    func opD(_ iceP_d: NumPyD?, context: Ice.Context? = nil) throws -> NumPyD? {
-        return try _impl._invoke(operation: "opD",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_d)
-                                     ostr.writePendingValues()
-                                 },
-                                 read: { istr in
-                                     var iceP_returnValue: NumPyD?
-                                     try istr.read(NumPyD.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `NumPyD?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `NumPyD?` - The result of the operation
-    func opDAsync(_ iceP_d: NumPyD?, context: Ice.Context? = nil) async throws -> NumPyD? {
-        return try await _impl._invokeAsync(operation: "opD",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_d)
-                                                ostr.writePendingValues()
-                                            },
-                                            read: { istr in
-                                                var iceP_returnValue: NumPyD?
-                                                try istr.read(NumPyD.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func opD(_ iceP_d: NumPyD?, context: Ice.Context? = nil) async throws -> NumPyD? {
+        return try await _impl._invoke(operation: "opD",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_d)
+                                           ostr.writePendingValues()
+                                       },
+                                       read: { istr in
+                                           var iceP_returnValue: NumPyD?
+                                           try istr.read(NumPyD.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -1055,7 +752,11 @@ public protocol NumPyCustom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: NumPyBoolSeq1, v2: NumPyBoolSeq2)` - The result of the operation
+    /// - returns: `(returnValue: NumPyBoolSeq1, v2: NumPyBoolSeq2)`:
+    ///
+    ///   - returnValue: `NumPyBoolSeq1`
+    ///
+    ///   - v2: `NumPyBoolSeq2`
     func opBoolSeq(v1: NumPyBoolSeq1, current: Ice.Current) async throws -> (returnValue: NumPyBoolSeq1, v2: NumPyBoolSeq2)
 
     ///
@@ -1063,7 +764,11 @@ public protocol NumPyCustom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: NumPyByteSeq1, v2: NumPyByteSeq2)` - The result of the operation
+    /// - returns: `(returnValue: NumPyByteSeq1, v2: NumPyByteSeq2)`:
+    ///
+    ///   - returnValue: `NumPyByteSeq1`
+    ///
+    ///   - v2: `NumPyByteSeq2`
     func opByteSeq(v1: NumPyByteSeq1, current: Ice.Current) async throws -> (returnValue: NumPyByteSeq1, v2: NumPyByteSeq2)
 
     ///
@@ -1071,7 +776,11 @@ public protocol NumPyCustom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: NumPyShortSeq1, v2: NumPyShortSeq2)` - The result of the operation
+    /// - returns: `(returnValue: NumPyShortSeq1, v2: NumPyShortSeq2)`:
+    ///
+    ///   - returnValue: `NumPyShortSeq1`
+    ///
+    ///   - v2: `NumPyShortSeq2`
     func opShortSeq(v1: NumPyShortSeq1, current: Ice.Current) async throws -> (returnValue: NumPyShortSeq1, v2: NumPyShortSeq2)
 
     ///
@@ -1079,7 +788,11 @@ public protocol NumPyCustom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: NumPyIntSeq1, v2: NumPyIntSeq2)` - The result of the operation
+    /// - returns: `(returnValue: NumPyIntSeq1, v2: NumPyIntSeq2)`:
+    ///
+    ///   - returnValue: `NumPyIntSeq1`
+    ///
+    ///   - v2: `NumPyIntSeq2`
     func opIntSeq(v1: NumPyIntSeq1, current: Ice.Current) async throws -> (returnValue: NumPyIntSeq1, v2: NumPyIntSeq2)
 
     ///
@@ -1087,7 +800,11 @@ public protocol NumPyCustom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: NumPyLongSeq1, v2: NumPyLongSeq2)` - The result of the operation
+    /// - returns: `(returnValue: NumPyLongSeq1, v2: NumPyLongSeq2)`:
+    ///
+    ///   - returnValue: `NumPyLongSeq1`
+    ///
+    ///   - v2: `NumPyLongSeq2`
     func opLongSeq(v1: NumPyLongSeq1, current: Ice.Current) async throws -> (returnValue: NumPyLongSeq1, v2: NumPyLongSeq2)
 
     ///
@@ -1095,7 +812,11 @@ public protocol NumPyCustom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: NumPyFloatSeq1, v2: NumPyFloatSeq2)` - The result of the operation
+    /// - returns: `(returnValue: NumPyFloatSeq1, v2: NumPyFloatSeq2)`:
+    ///
+    ///   - returnValue: `NumPyFloatSeq1`
+    ///
+    ///   - v2: `NumPyFloatSeq2`
     func opFloatSeq(v1: NumPyFloatSeq1, current: Ice.Current) async throws -> (returnValue: NumPyFloatSeq1, v2: NumPyFloatSeq2)
 
     ///
@@ -1103,7 +824,11 @@ public protocol NumPyCustom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: NumPyDoubleSeq1, v2: NumPyDoubleSeq2)` - The result of the operation
+    /// - returns: `(returnValue: NumPyDoubleSeq1, v2: NumPyDoubleSeq2)`:
+    ///
+    ///   - returnValue: `NumPyDoubleSeq1`
+    ///
+    ///   - v2: `NumPyDoubleSeq2`
     func opDoubleSeq(v1: NumPyDoubleSeq1, current: Ice.Current) async throws -> (returnValue: NumPyDoubleSeq1, v2: NumPyDoubleSeq2)
 
     ///
@@ -1111,55 +836,55 @@ public protocol NumPyCustom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NumPyComplex128Seq` - The result of the operation
+    /// - returns: `NumPyComplex128Seq`
     func opComplex128Seq(v1: NumPyComplex128Seq, current: Ice.Current) async throws -> NumPyComplex128Seq
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NumPyBoolSeq1` - The result of the operation
+    /// - returns: `NumPyBoolSeq1`
     func opBoolMatrix(current: Ice.Current) async throws -> NumPyBoolSeq1
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NumPyByteSeq1` - The result of the operation
+    /// - returns: `NumPyByteSeq1`
     func opByteMatrix(current: Ice.Current) async throws -> NumPyByteSeq1
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NumPyShortSeq1` - The result of the operation
+    /// - returns: `NumPyShortSeq1`
     func opShortMatrix(current: Ice.Current) async throws -> NumPyShortSeq1
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NumPyIntSeq1` - The result of the operation
+    /// - returns: `NumPyIntSeq1`
     func opIntMatrix(current: Ice.Current) async throws -> NumPyIntSeq1
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NumPyLongSeq1` - The result of the operation
+    /// - returns: `NumPyLongSeq1`
     func opLongMatrix(current: Ice.Current) async throws -> NumPyLongSeq1
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NumPyFloatSeq1` - The result of the operation
+    /// - returns: `NumPyFloatSeq1`
     func opFloatMatrix(current: Ice.Current) async throws -> NumPyFloatSeq1
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NumPyDoubleSeq1` - The result of the operation
+    /// - returns: `NumPyDoubleSeq1`
     func opDoubleMatrix(current: Ice.Current) async throws -> NumPyDoubleSeq1
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NumPyBoolSeq1` - The result of the operation
+    /// - returns: `NumPyBoolSeq1`
     func opBogusNumpyArrayType(current: Ice.Current) async throws -> NumPyBoolSeq1
 
     ///
@@ -1167,13 +892,11 @@ public protocol NumPyCustom {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NumPyD?` - The result of the operation
+    /// - returns: `NumPyD?`
     func opD(d: NumPyD?, current: Ice.Current) async throws -> NumPyD?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 

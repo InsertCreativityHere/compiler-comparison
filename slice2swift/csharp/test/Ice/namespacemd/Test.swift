@@ -105,8 +105,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: InitialPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> InitialPrx? {
-    return try InitialPrxI.checkedCast(prx: prx, facet: facet, context: context) as InitialPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: InitialPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> InitialPrx? {
+    return try await InitialPrxI.checkedCast(prx: prx, facet: facet, context: context) as InitialPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -202,306 +202,147 @@ public extension InitialPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `NoNamespace.C1?`
-    func getNoNamespaceC2AsC1(context: Ice.Context? = nil) throws -> NoNamespace.C1? {
-        return try _impl._invoke(operation: "getNoNamespaceC2AsC1",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     var iceP_returnValue: NoNamespace.C1?
-                                     try istr.read(NoNamespace.C1.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `NoNamespace.C1?` - The result of the operation
-    func getNoNamespaceC2AsC1Async(context: Ice.Context? = nil) async throws -> NoNamespace.C1? {
-        return try await _impl._invokeAsync(operation: "getNoNamespaceC2AsC1",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                var iceP_returnValue: NoNamespace.C1?
-                                                try istr.read(NoNamespace.C1.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getNoNamespaceC2AsC1(context: Ice.Context? = nil) async throws -> NoNamespace.C1? {
+        return try await _impl._invoke(operation: "getNoNamespaceC2AsC1",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           var iceP_returnValue: NoNamespace.C1?
+                                           try istr.read(NoNamespace.C1.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `NoNamespace.C2?`
-    func getNoNamespaceC2AsC2(context: Ice.Context? = nil) throws -> NoNamespace.C2? {
-        return try _impl._invoke(operation: "getNoNamespaceC2AsC2",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     var iceP_returnValue: NoNamespace.C2?
-                                     try istr.read(NoNamespace.C2.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
+    func getNoNamespaceC2AsC2(context: Ice.Context? = nil) async throws -> NoNamespace.C2? {
+        return try await _impl._invoke(operation: "getNoNamespaceC2AsC2",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           var iceP_returnValue: NoNamespace.C2?
+                                           try istr.read(NoNamespace.C2.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `NoNamespace.C2?` - The result of the operation
-    func getNoNamespaceC2AsC2Async(context: Ice.Context? = nil) async throws -> NoNamespace.C2? {
-        return try await _impl._invokeAsync(operation: "getNoNamespaceC2AsC2",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                var iceP_returnValue: NoNamespace.C2?
-                                                try istr.read(NoNamespace.C2.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func throwNoNamespaceE2AsE1(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "throwNoNamespaceE2AsE1",
+                                       mode: .Normal,
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as NoNamespace.E1 {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func throwNoNamespaceE2AsE1(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "throwNoNamespaceE2AsE1",
-                          mode: .Normal,
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as NoNamespace.E1 {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
+    func throwNoNamespaceE2AsE2(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "throwNoNamespaceE2AsE2",
+                                       mode: .Normal,
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as NoNamespace.E2 {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func throwNoNamespaceE2AsE1Async(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "throwNoNamespaceE2AsE1",
-                                            mode: .Normal,
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as NoNamespace.E1 {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func throwNoNamespaceE2AsE2(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "throwNoNamespaceE2AsE2",
-                          mode: .Normal,
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as NoNamespace.E2 {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func throwNoNamespaceE2AsE2Async(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "throwNoNamespaceE2AsE2",
-                                            mode: .Normal,
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as NoNamespace.E2 {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func throwNoNamespaceNotify(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "throwNoNamespaceNotify",
-                          mode: .Normal,
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as NoNamespace.notify {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func throwNoNamespaceNotifyAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "throwNoNamespaceNotify",
-                                            mode: .Normal,
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as NoNamespace.notify {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func throwNoNamespaceNotify(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "throwNoNamespaceNotify",
+                                       mode: .Normal,
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as NoNamespace.notify {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `WithNamespace.C1?`
-    func getWithNamespaceC2AsC1(context: Ice.Context? = nil) throws -> WithNamespace.C1? {
-        return try _impl._invoke(operation: "getWithNamespaceC2AsC1",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     var iceP_returnValue: WithNamespace.C1?
-                                     try istr.read(WithNamespace.C1.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `WithNamespace.C1?` - The result of the operation
-    func getWithNamespaceC2AsC1Async(context: Ice.Context? = nil) async throws -> WithNamespace.C1? {
-        return try await _impl._invokeAsync(operation: "getWithNamespaceC2AsC1",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                var iceP_returnValue: WithNamespace.C1?
-                                                try istr.read(WithNamespace.C1.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getWithNamespaceC2AsC1(context: Ice.Context? = nil) async throws -> WithNamespace.C1? {
+        return try await _impl._invoke(operation: "getWithNamespaceC2AsC1",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           var iceP_returnValue: WithNamespace.C1?
+                                           try istr.read(WithNamespace.C1.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `WithNamespace.C2?`
-    func getWithNamespaceC2AsC2(context: Ice.Context? = nil) throws -> WithNamespace.C2? {
-        return try _impl._invoke(operation: "getWithNamespaceC2AsC2",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     var iceP_returnValue: WithNamespace.C2?
-                                     try istr.read(WithNamespace.C2.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
+    func getWithNamespaceC2AsC2(context: Ice.Context? = nil) async throws -> WithNamespace.C2? {
+        return try await _impl._invoke(operation: "getWithNamespaceC2AsC2",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           var iceP_returnValue: WithNamespace.C2?
+                                           try istr.read(WithNamespace.C2.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `WithNamespace.C2?` - The result of the operation
-    func getWithNamespaceC2AsC2Async(context: Ice.Context? = nil) async throws -> WithNamespace.C2? {
-        return try await _impl._invokeAsync(operation: "getWithNamespaceC2AsC2",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                var iceP_returnValue: WithNamespace.C2?
-                                                try istr.read(WithNamespace.C2.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func throwWithNamespaceE2AsE1(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "throwWithNamespaceE2AsE1",
+                                       mode: .Normal,
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as WithNamespace.E1 {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func throwWithNamespaceE2AsE1(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "throwWithNamespaceE2AsE1",
-                          mode: .Normal,
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as WithNamespace.E1 {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
+    func throwWithNamespaceE2AsE2(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "throwWithNamespaceE2AsE2",
+                                       mode: .Normal,
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as WithNamespace.E2 {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func throwWithNamespaceE2AsE1Async(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "throwWithNamespaceE2AsE1",
-                                            mode: .Normal,
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as WithNamespace.E1 {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func throwWithNamespaceE2AsE2(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "throwWithNamespaceE2AsE2",
-                          mode: .Normal,
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as WithNamespace.E2 {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func throwWithNamespaceE2AsE2Async(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "throwWithNamespaceE2AsE2",
-                                            mode: .Normal,
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as WithNamespace.E2 {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -555,61 +396,49 @@ public protocol Initial {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NoNamespace.C1?` - The result of the operation
+    /// - returns: `NoNamespace.C1?`
     func getNoNamespaceC2AsC1(current: Ice.Current) async throws -> NoNamespace.C1?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NoNamespace.C2?` - The result of the operation
+    /// - returns: `NoNamespace.C2?`
     func getNoNamespaceC2AsC2(current: Ice.Current) async throws -> NoNamespace.C2?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func throwNoNamespaceE2AsE1(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func throwNoNamespaceE2AsE2(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func throwNoNamespaceNotify(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `WithNamespace.C1?` - The result of the operation
+    /// - returns: `WithNamespace.C1?`
     func getWithNamespaceC2AsC1(current: Ice.Current) async throws -> WithNamespace.C1?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `WithNamespace.C2?` - The result of the operation
+    /// - returns: `WithNamespace.C2?`
     func getWithNamespaceC2AsC2(current: Ice.Current) async throws -> WithNamespace.C2?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func throwWithNamespaceE2AsE1(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func throwWithNamespaceE2AsE2(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 

@@ -67,8 +67,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: RegistryPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> RegistryPrx? {
-    return try RegistryPrxI.checkedCast(prx: prx, facet: facet, context: context) as RegistryPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: RegistryPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> RegistryPrx? {
+    return try await RegistryPrxI.checkedCast(prx: prx, facet: facet, context: context) as RegistryPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -130,54 +130,26 @@ public extension RegistryPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `UserInfo?`
-    func getUserInfo(_ iceP_id: Swift.String, context: Ice.Context? = nil) throws -> UserInfo? {
-        return try _impl._invoke(operation: "getUserInfo",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_id)
-                                 },
-                                 read: { istr in
-                                     var iceP_returnValue: UserInfo?
-                                     try istr.read(UserInfo.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as Core.ArgumentException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `UserInfo?` - The result of the operation
-    func getUserInfoAsync(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> UserInfo? {
-        return try await _impl._invokeAsync(operation: "getUserInfo",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_id)
-                                            },
-                                            read: { istr in
-                                                var iceP_returnValue: UserInfo?
-                                                try istr.read(UserInfo.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as Core.ArgumentException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func getUserInfo(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> UserInfo? {
+        return try await _impl._invoke(operation: "getUserInfo",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_id)
+                                       },
+                                       read: { istr in
+                                           var iceP_returnValue: UserInfo?
+                                           try istr.read(UserInfo.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as Core.ArgumentException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 }
 
@@ -245,7 +217,7 @@ public protocol Registry {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `UserInfo?` - The result of the operation
+    /// - returns: `UserInfo?`
     func getUserInfo(id: Swift.String, current: Ice.Current) async throws -> UserInfo?
 }
 

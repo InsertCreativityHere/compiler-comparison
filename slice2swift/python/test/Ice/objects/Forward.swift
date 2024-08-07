@@ -67,8 +67,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: F2Prx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> F2Prx? {
-    return try F2PrxI.checkedCast(prx: prx, facet: facet, context: context) as F2PrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: F2Prx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> F2Prx? {
+    return try await F2PrxI.checkedCast(prx: prx, facet: facet, context: context) as F2PrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -126,20 +126,10 @@ public extension Ice.InputStream {
 public extension F2Prx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func op(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "op",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func opAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "op",
-                                            mode: .Normal,
-                                            context: context)
+    func op(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "op",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -214,8 +204,6 @@ public struct F2Disp: Ice.Dispatcher {
 public protocol F2 {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func op(current: Ice.Current) async throws
 }
 

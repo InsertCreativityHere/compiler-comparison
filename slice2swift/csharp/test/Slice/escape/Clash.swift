@@ -239,8 +239,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: IntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> IntfPrx? {
-    return try IntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as IntfPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: IntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> IntfPrx? {
+    return try await IntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as IntfPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -342,182 +342,82 @@ public extension Ice.InputStream {
 public extension IntfPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func context(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "context",
-                          mode: .Normal,
-                          context: context)
+    func context(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "context",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func contextAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "context",
-                                            mode: .Normal,
-                                            context: context)
+    func current(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "current",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func current(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "current",
-                          mode: .Normal,
-                          context: context)
+    func response(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "response",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func currentAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "current",
-                                            mode: .Normal,
-                                            context: context)
+    func typeId(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "typeId",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func response(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "response",
-                          mode: .Normal,
-                          context: context)
+    func del(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "del",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func responseAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "response",
-                                            mode: .Normal,
-                                            context: context)
+    func cookie(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "cookie",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func typeId(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "typeId",
-                          mode: .Normal,
-                          context: context)
+    func sync(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "sync",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func typeIdAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "typeId",
-                                            mode: .Normal,
-                                            context: context)
+    func inS(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "inS",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func del(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "del",
-                          mode: .Normal,
-                          context: context)
+    func istr(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "istr",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func delAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "del",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func cookie(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "cookie",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func cookieAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "cookie",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func sync(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "sync",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func syncAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "sync",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func inS(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "inS",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func inSAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "inS",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func istr(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "istr",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func istrAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "istr",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func obj(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "obj",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func objAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "obj",
-                                            mode: .Normal,
-                                            context: context)
+    func obj(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "obj",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
@@ -546,72 +446,24 @@ public extension IntfPrx {
     /// - parameter obj: `Swift.Int32?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func op(context iceP_context: Swift.String, current iceP_current: Swift.String, response iceP_response: Swift.String, ex iceP_ex: Swift.String, sent iceP_sent: Swift.String, cookie iceP_cookie: Swift.String, sync iceP_sync: Swift.String, result iceP_result: Swift.String, istr iceP_istr: Swift.String, ostr iceP_ostr: Swift.String, proxy iceP_proxy: Swift.String? = nil, obj iceP_obj: Swift.Int32? = nil, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "op",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_context)
-                              ostr.write(iceP_current)
-                              ostr.write(iceP_response)
-                              ostr.write(iceP_ex)
-                              ostr.write(iceP_sent)
-                              ostr.write(iceP_cookie)
-                              ostr.write(iceP_sync)
-                              ostr.write(iceP_result)
-                              ostr.write(iceP_istr)
-                              ostr.write(iceP_ostr)
-                              ostr.write(tag: 1, value: iceP_proxy)
-                              ostr.write(tag: 2, value: iceP_obj)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Swift.String`
-    ///
-    /// - parameter current: `Swift.String`
-    ///
-    /// - parameter response: `Swift.String`
-    ///
-    /// - parameter ex: `Swift.String`
-    ///
-    /// - parameter sent: `Swift.String`
-    ///
-    /// - parameter cookie: `Swift.String`
-    ///
-    /// - parameter sync: `Swift.String`
-    ///
-    /// - parameter result: `Swift.String`
-    ///
-    /// - parameter istr: `Swift.String`
-    ///
-    /// - parameter ostr: `Swift.String`
-    ///
-    /// - parameter proxy: `Swift.String?`
-    ///
-    /// - parameter obj: `Swift.Int32?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func opAsync(context iceP_context: Swift.String, current iceP_current: Swift.String, response iceP_response: Swift.String, ex iceP_ex: Swift.String, sent iceP_sent: Swift.String, cookie iceP_cookie: Swift.String, sync iceP_sync: Swift.String, result iceP_result: Swift.String, istr iceP_istr: Swift.String, ostr iceP_ostr: Swift.String, proxy iceP_proxy: Swift.String? = nil, obj iceP_obj: Swift.Int32? = nil, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "op",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_context)
-                                                ostr.write(iceP_current)
-                                                ostr.write(iceP_response)
-                                                ostr.write(iceP_ex)
-                                                ostr.write(iceP_sent)
-                                                ostr.write(iceP_cookie)
-                                                ostr.write(iceP_sync)
-                                                ostr.write(iceP_result)
-                                                ostr.write(iceP_istr)
-                                                ostr.write(iceP_ostr)
-                                                ostr.write(tag: 1, value: iceP_proxy)
-                                                ostr.write(tag: 2, value: iceP_obj)
-                                            },
-                                            context: context)
+    func op(context iceP_context: Swift.String, current iceP_current: Swift.String, response iceP_response: Swift.String, ex iceP_ex: Swift.String, sent iceP_sent: Swift.String, cookie iceP_cookie: Swift.String, sync iceP_sync: Swift.String, result iceP_result: Swift.String, istr iceP_istr: Swift.String, ostr iceP_ostr: Swift.String, proxy iceP_proxy: Swift.String? = nil, obj iceP_obj: Swift.Int32? = nil, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "op",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_context)
+                                           ostr.write(iceP_current)
+                                           ostr.write(iceP_response)
+                                           ostr.write(iceP_ex)
+                                           ostr.write(iceP_sent)
+                                           ostr.write(iceP_cookie)
+                                           ostr.write(iceP_sync)
+                                           ostr.write(iceP_result)
+                                           ostr.write(iceP_istr)
+                                           ostr.write(iceP_ostr)
+                                           ostr.write(tag: 1, value: iceP_proxy)
+                                           ostr.write(tag: 2, value: iceP_obj)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -642,50 +494,25 @@ public extension IntfPrx {
     ///   - proxy: `Swift.String?`
     ///
     ///   - obj: `Swift.Int32?`
-    func opOut(context: Ice.Context? = nil) throws -> (context: Swift.String, current: Swift.String, response: Swift.String, ex: Swift.String, sent: Swift.String, cookie: Swift.String, sync: Swift.String, result: Swift.String, istr: Swift.String, ostr: Swift.String, proxy: Swift.String?, obj: Swift.Int32?) {
-        return try _impl._invoke(operation: "opOut",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_context: Swift.String = try istr.read()
-                                     let iceP_current: Swift.String = try istr.read()
-                                     let iceP_response: Swift.String = try istr.read()
-                                     let iceP_ex: Swift.String = try istr.read()
-                                     let iceP_sent: Swift.String = try istr.read()
-                                     let iceP_cookie: Swift.String = try istr.read()
-                                     let iceP_sync: Swift.String = try istr.read()
-                                     let iceP_result: Swift.String = try istr.read()
-                                     let iceP_istr: Swift.String = try istr.read()
-                                     let iceP_ostr: Swift.String = try istr.read()
-                                     let iceP_proxy: Swift.String? = try istr.read(tag: 1)
-                                     let iceP_obj: Swift.Int32? = try istr.read(tag: 2)
-                                     return (iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, iceP_obj)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(context: Swift.String, current: Swift.String, response: Swift.String, ex: Swift.String, sent: Swift.String, cookie: Swift.String, sync: Swift.String, result: Swift.String, istr: Swift.String, ostr: Swift.String, proxy: Swift.String?, obj: Swift.Int32?)` - The result of the operation
-    func opOutAsync(context: Ice.Context? = nil) async throws -> (context: Swift.String, current: Swift.String, response: Swift.String, ex: Swift.String, sent: Swift.String, cookie: Swift.String, sync: Swift.String, result: Swift.String, istr: Swift.String, ostr: Swift.String, proxy: Swift.String?, obj: Swift.Int32?) {
-        return try await _impl._invokeAsync(operation: "opOut",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_context: Swift.String = try istr.read()
-                                                let iceP_current: Swift.String = try istr.read()
-                                                let iceP_response: Swift.String = try istr.read()
-                                                let iceP_ex: Swift.String = try istr.read()
-                                                let iceP_sent: Swift.String = try istr.read()
-                                                let iceP_cookie: Swift.String = try istr.read()
-                                                let iceP_sync: Swift.String = try istr.read()
-                                                let iceP_result: Swift.String = try istr.read()
-                                                let iceP_istr: Swift.String = try istr.read()
-                                                let iceP_ostr: Swift.String = try istr.read()
-                                                let iceP_proxy: Swift.String? = try istr.read(tag: 1)
-                                                let iceP_obj: Swift.Int32? = try istr.read(tag: 2)
-                                                return (iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, iceP_obj)
-                                            },
-                                            context: context)
+    func opOut(context: Ice.Context? = nil) async throws -> (context: Swift.String, current: Swift.String, response: Swift.String, ex: Swift.String, sent: Swift.String, cookie: Swift.String, sync: Swift.String, result: Swift.String, istr: Swift.String, ostr: Swift.String, proxy: Swift.String?, obj: Swift.Int32?) {
+        return try await _impl._invoke(operation: "opOut",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_context: Swift.String = try istr.read()
+                                           let iceP_current: Swift.String = try istr.read()
+                                           let iceP_response: Swift.String = try istr.read()
+                                           let iceP_ex: Swift.String = try istr.read()
+                                           let iceP_sent: Swift.String = try istr.read()
+                                           let iceP_cookie: Swift.String = try istr.read()
+                                           let iceP_sync: Swift.String = try istr.read()
+                                           let iceP_result: Swift.String = try istr.read()
+                                           let iceP_istr: Swift.String = try istr.read()
+                                           let iceP_ostr: Swift.String = try istr.read()
+                                           let iceP_proxy: Swift.String? = try istr.read(tag: 1)
+                                           let iceP_obj: Swift.Int32? = try istr.read(tag: 2)
+                                           return (iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, iceP_obj)
+                                       },
+                                       context: context)
     }
 }
 
@@ -846,62 +673,42 @@ public struct IntfDisp: Ice.Dispatcher {
 public protocol Intf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func context(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func current(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func response(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func typeId(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func del(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func cookie(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func sync(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func inS(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func istr(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func obj(current: Ice.Current) async throws
 
     ///
@@ -930,14 +737,36 @@ public protocol Intf {
     /// - parameter obj: `Swift.Int32?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func op(context: Swift.String, current: Swift.String, response: Swift.String, ex: Swift.String, sent: Swift.String, cookie: Swift.String, sync: Swift.String, result: Swift.String, istr: Swift.String, ostr: Swift.String, proxy: Swift.String?, obj: Swift.Int32?, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(context: Swift.String, current: Swift.String, response: Swift.String, ex: Swift.String, sent: Swift.String, cookie: Swift.String, sync: Swift.String, result: Swift.String, istr: Swift.String, ostr: Swift.String, proxy: Swift.String?, obj: Swift.Int32?)` - The result of the operation
+    /// - returns: `(context: Swift.String, current: Swift.String, response: Swift.String, ex: Swift.String, sent: Swift.String, cookie: Swift.String, sync: Swift.String, result: Swift.String, istr: Swift.String, ostr: Swift.String, proxy: Swift.String?, obj: Swift.Int32?)`:
+    ///
+    ///   - context: `Swift.String`
+    ///
+    ///   - current: `Swift.String`
+    ///
+    ///   - response: `Swift.String`
+    ///
+    ///   - ex: `Swift.String`
+    ///
+    ///   - sent: `Swift.String`
+    ///
+    ///   - cookie: `Swift.String`
+    ///
+    ///   - sync: `Swift.String`
+    ///
+    ///   - result: `Swift.String`
+    ///
+    ///   - istr: `Swift.String`
+    ///
+    ///   - ostr: `Swift.String`
+    ///
+    ///   - proxy: `Swift.String?`
+    ///
+    ///   - obj: `Swift.Int32?`
     func opOut(current: Ice.Current) async throws -> (context: Swift.String, current: Swift.String, response: Swift.String, ex: Swift.String, sent: Swift.String, cookie: Swift.String, sync: Swift.String, result: Swift.String, istr: Swift.String, ostr: Swift.String, proxy: Swift.String?, obj: Swift.Int32?)
 }
 

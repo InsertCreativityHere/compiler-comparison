@@ -105,8 +105,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: MyObjectPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> MyObjectPrx? {
-    return try MyObjectPrxI.checkedCast(prx: prx, facet: facet, context: context) as MyObjectPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: MyObjectPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> MyObjectPrx? {
+    return try await MyObjectPrxI.checkedCast(prx: prx, facet: facet, context: context) as MyObjectPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -176,50 +176,24 @@ public extension MyObjectPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.String`
-    func widen(_ iceP_msg: Swift.String, context: Ice.Context? = nil) throws -> Swift.String {
-        return try _impl._invoke(operation: "widen",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_msg)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.String = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as BadEncodingException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String` - The result of the operation
-    func widenAsync(_ iceP_msg: Swift.String, context: Ice.Context? = nil) async throws -> Swift.String {
-        return try await _impl._invokeAsync(operation: "widen",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_msg)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.String = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as BadEncodingException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func widen(_ iceP_msg: Swift.String, context: Ice.Context? = nil) async throws -> Swift.String {
+        return try await _impl._invoke(operation: "widen",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_msg)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.String = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as BadEncodingException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     ///
@@ -228,54 +202,25 @@ public extension MyObjectPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.String`
-    func narrow(_ iceP_wmsg: Swift.String, context: Ice.Context? = nil) throws -> Swift.String {
-        return try _impl._invoke(operation: "narrow",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_wmsg)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.String = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String` - The result of the operation
-    func narrowAsync(_ iceP_wmsg: Swift.String, context: Ice.Context? = nil) async throws -> Swift.String {
-        return try await _impl._invokeAsync(operation: "narrow",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_wmsg)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.String = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func narrow(_ iceP_wmsg: Swift.String, context: Ice.Context? = nil) async throws -> Swift.String {
+        return try await _impl._invoke(operation: "narrow",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_wmsg)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.String = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -317,7 +262,7 @@ public protocol MyObject {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The result of the operation
+    /// - returns: `Swift.String`
     func widen(msg: Swift.String, current: Ice.Current) async throws -> Swift.String
 
     ///
@@ -325,13 +270,11 @@ public protocol MyObject {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The result of the operation
+    /// - returns: `Swift.String`
     func narrow(wmsg: Swift.String, current: Ice.Current) async throws -> Swift.String
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 

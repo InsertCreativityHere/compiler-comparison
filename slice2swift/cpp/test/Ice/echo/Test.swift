@@ -79,8 +79,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: EchoPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> EchoPrx? {
-    return try EchoPrxI.checkedCast(prx: prx, facet: facet, context: context) as EchoPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: EchoPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> EchoPrx? {
+    return try await EchoPrxI.checkedCast(prx: prx, facet: facet, context: context) as EchoPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -150,74 +150,34 @@ public extension Ice.InputStream {
 public extension EchoPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func setConnection(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "setConnection",
-                          mode: .Normal,
-                          context: context)
+    func setConnection(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "setConnection",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func setConnectionAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "setConnection",
-                                            mode: .Normal,
-                                            context: context)
+    func startBatch(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "startBatch",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func startBatch(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "startBatch",
-                          mode: .Normal,
-                          context: context)
+    func flushBatch(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "flushBatch",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func startBatchAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "startBatch",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func flushBatch(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "flushBatch",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func flushBatchAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "flushBatch",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -258,26 +218,18 @@ public struct EchoDisp: Ice.Dispatcher {
 public protocol Echo {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func setConnection(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func startBatch(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func flushBatch(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 

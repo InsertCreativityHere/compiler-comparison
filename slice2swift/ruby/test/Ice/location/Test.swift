@@ -85,8 +85,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TestLocatorRegistryPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TestLocatorRegistryPrx? {
-    return try TestLocatorRegistryPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestLocatorRegistryPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TestLocatorRegistryPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TestLocatorRegistryPrx? {
+    return try await TestLocatorRegistryPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestLocatorRegistryPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -146,28 +146,13 @@ public extension TestLocatorRegistryPrx {
     /// - parameter _: `Ice.ObjectPrx?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func addObject(_ iceP_obj: Ice.ObjectPrx?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "addObject",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_obj)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Ice.ObjectPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func addObjectAsync(_ iceP_obj: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "addObject",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_obj)
-                                            },
-                                            context: context)
+    func addObject(_ iceP_obj: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "addObject",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_obj)
+                                       },
+                                       context: context)
     }
 }
 
@@ -220,8 +205,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: ServerManagerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> ServerManagerPrx? {
-    return try ServerManagerPrxI.checkedCast(prx: prx, facet: facet, context: context) as ServerManagerPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: ServerManagerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> ServerManagerPrx? {
+    return try await ServerManagerPrxI.checkedCast(prx: prx, facet: facet, context: context) as ServerManagerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -283,38 +268,18 @@ public extension Ice.InputStream {
 public extension ServerManagerPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func startServer(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "startServer",
-                          mode: .Normal,
-                          context: context)
+    func startServer(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "startServer",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func startServerAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "startServer",
-                                            mode: .Normal,
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -363,8 +328,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: HelloPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> HelloPrx? {
-    return try HelloPrxI.checkedCast(prx: prx, facet: facet, context: context) as HelloPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: HelloPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> HelloPrx? {
+    return try await HelloPrxI.checkedCast(prx: prx, facet: facet, context: context) as HelloPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -422,20 +387,10 @@ public extension Ice.InputStream {
 public extension HelloPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func sayHello(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "sayHello",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func sayHelloAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "sayHello",
-                                            mode: .Normal,
-                                            context: context)
+    func sayHello(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "sayHello",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -492,8 +447,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TestIntfPrx? {
-    return try TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TestIntfPrx? {
+    return try await TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -559,66 +514,32 @@ public extension Ice.InputStream {
 public extension TestIntfPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `HelloPrx?`
-    func getHello(context: Ice.Context? = nil) throws -> HelloPrx? {
-        return try _impl._invoke(operation: "getHello",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: HelloPrx? = try istr.read(HelloPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
+    func getHello(context: Ice.Context? = nil) async throws -> HelloPrx? {
+        return try await _impl._invoke(operation: "getHello",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: HelloPrx? = try istr.read(HelloPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `HelloPrx?` - The result of the operation
-    func getHelloAsync(context: Ice.Context? = nil) async throws -> HelloPrx? {
-        return try await _impl._invokeAsync(operation: "getHello",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: HelloPrx? = try istr.read(HelloPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func migrateHello(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "migrateHello",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func migrateHelloAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "migrateHello",
-                                            mode: .Normal,
-                                            context: context)
+    func migrateHello(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "migrateHello",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -661,8 +582,6 @@ public protocol TestLocatorRegistry: Ice.LocatorRegistry {
     /// - parameter obj: `Ice.ObjectPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func addObject(obj: Ice.ObjectPrx?, current: Ice.Current) async throws
 }
 
@@ -699,14 +618,10 @@ public struct ServerManagerDisp: Ice.Dispatcher {
 public protocol ServerManager {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func startServer(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -741,8 +656,6 @@ public struct HelloDisp: Ice.Dispatcher {
 public protocol Hello {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func sayHello(current: Ice.Current) async throws
 }
 
@@ -781,20 +694,16 @@ public struct TestIntfDisp: Ice.Dispatcher {
 public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `HelloPrx?` - The result of the operation
+    /// - returns: `HelloPrx?`
     func getHello(current: Ice.Current) async throws -> HelloPrx?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func migrateHello(current: Ice.Current) async throws
 }
 

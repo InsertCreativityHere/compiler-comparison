@@ -457,8 +457,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: ObjectPrx, type: MXMetricsAdminPrx.Protocol, facet: Swift.String? = nil, context: Context? = nil) throws -> MXMetricsAdminPrx? {
-    return try MXMetricsAdminPrxI.checkedCast(prx: prx, facet: facet, context: context) as MXMetricsAdminPrxI?
+public func checkedCast(prx: ObjectPrx, type: MXMetricsAdminPrx.Protocol, facet: Swift.String? = nil, context: Context? = nil) async throws -> MXMetricsAdminPrx? {
+    return try await MXMetricsAdminPrxI.checkedCast(prx: prx, facet: facet, context: context) as MXMetricsAdminPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -544,31 +544,15 @@ public extension MXMetricsAdminPrx {
     ///   - returnValue: `StringSeq` - The name of the enabled views.
     ///
     ///   - disabledViews: `StringSeq` - The names of the disabled views.
-    func getMetricsViewNames(context: Context? = nil) throws -> (returnValue: StringSeq, disabledViews: StringSeq) {
-        return try _impl._invoke(operation: "getMetricsViewNames",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_disabledViews: StringSeq = try istr.read()
-                                     let iceP_returnValue: StringSeq = try istr.read()
-                                     return (iceP_returnValue, iceP_disabledViews)
-                                 },
-                                 context: context)
-    }
-
-    /// Get the names of enabled and disabled metrics.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringSeq, disabledViews: StringSeq)` - The result of the operation
-    func getMetricsViewNamesAsync(context: Context? = nil) async throws -> (returnValue: StringSeq, disabledViews: StringSeq) {
-        return try await _impl._invokeAsync(operation: "getMetricsViewNames",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_disabledViews: StringSeq = try istr.read()
-                                                let iceP_returnValue: StringSeq = try istr.read()
-                                                return (iceP_returnValue, iceP_disabledViews)
-                                            },
-                                            context: context)
+    func getMetricsViewNames(context: Context? = nil) async throws -> (returnValue: StringSeq, disabledViews: StringSeq) {
+        return try await _impl._invoke(operation: "getMetricsViewNames",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_disabledViews: StringSeq = try istr.read()
+                                           let iceP_returnValue: StringSeq = try istr.read()
+                                           return (iceP_returnValue, iceP_disabledViews)
+                                       },
+                                       context: context)
     }
 
     /// Enables a metrics view.
@@ -580,43 +564,20 @@ public extension MXMetricsAdminPrx {
     /// - throws:
     ///
     ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
-    func enableMetricsView(_ iceP_name: Swift.String, context: Context? = nil) throws {
-        try _impl._invoke(operation: "enableMetricsView",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_name)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as MXUnknownMetricsView {
-                                  throw error
-                              } catch is UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Enables a metrics view.
-    ///
-    /// - parameter _: `Swift.String` The metrics view name.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func enableMetricsViewAsync(_ iceP_name: Swift.String, context: Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "enableMetricsView",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as MXUnknownMetricsView {
-                                                    throw error
-                                                } catch is UserException {}
-                                            },
-                                            context: context)
+    func enableMetricsView(_ iceP_name: Swift.String, context: Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "enableMetricsView",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as MXUnknownMetricsView {
+                                               throw error
+                                           } catch is UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Disable a metrics view.
@@ -628,43 +589,20 @@ public extension MXMetricsAdminPrx {
     /// - throws:
     ///
     ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
-    func disableMetricsView(_ iceP_name: Swift.String, context: Context? = nil) throws {
-        try _impl._invoke(operation: "disableMetricsView",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_name)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as MXUnknownMetricsView {
-                                  throw error
-                              } catch is UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Disable a metrics view.
-    ///
-    /// - parameter _: `Swift.String` The metrics view name.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func disableMetricsViewAsync(_ iceP_name: Swift.String, context: Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "disableMetricsView",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as MXUnknownMetricsView {
-                                                    throw error
-                                                } catch is UserException {}
-                                            },
-                                            context: context)
+    func disableMetricsView(_ iceP_name: Swift.String, context: Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "disableMetricsView",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as MXUnknownMetricsView {
+                                               throw error
+                                           } catch is UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
@@ -684,59 +622,27 @@ public extension MXMetricsAdminPrx {
     /// - throws:
     ///
     ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
-    func getMetricsView(_ iceP_view: Swift.String, context: Context? = nil) throws -> (returnValue: MXMetricsView, timestamp: Swift.Int64) {
-        return try _impl._invoke(operation: "getMetricsView",
-                                 mode: .Normal,
-                                 format: .SlicedFormat,
-                                 write: { ostr in
-                                     ostr.write(iceP_view)
-                                 },
-                                 read: { istr in
-                                     let iceP_timestamp: Swift.Int64 = try istr.read()
-                                     let iceP_returnValue: MXMetricsView = try MXMetricsViewHelper.read(from: istr)
-                                     try istr.readPendingValues()
-                                     return (iceP_returnValue, iceP_timestamp)
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as MXUnknownMetricsView {
-                                         throw error
-                                     } catch is UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
-    /// metrics class configured with the view. The timestamp allows the client to compute averages which are not
-    /// dependent of the invocation latency for this operation.
-    ///
-    /// - parameter _: `Swift.String` The name of the metrics view.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: MXMetricsView, timestamp: Swift.Int64)` - The result of the operation
-    func getMetricsViewAsync(_ iceP_view: Swift.String, context: Context? = nil) async throws -> (returnValue: MXMetricsView, timestamp: Swift.Int64) {
-        return try await _impl._invokeAsync(operation: "getMetricsView",
-                                            mode: .Normal,
-                                            format: .SlicedFormat,
-                                            write: { ostr in
-                                                ostr.write(iceP_view)
-                                            },
-                                            read: { istr in
-                                                let iceP_timestamp: Swift.Int64 = try istr.read()
-                                                let iceP_returnValue: MXMetricsView = try MXMetricsViewHelper.read(from: istr)
-                                                try istr.readPendingValues()
-                                                return (iceP_returnValue, iceP_timestamp)
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as MXUnknownMetricsView {
-                                                    throw error
-                                                } catch is UserException {}
-                                            },
-                                            context: context)
+    func getMetricsView(_ iceP_view: Swift.String, context: Context? = nil) async throws -> (returnValue: MXMetricsView, timestamp: Swift.Int64) {
+        return try await _impl._invoke(operation: "getMetricsView",
+                                       mode: .Normal,
+                                       format: .SlicedFormat,
+                                       write: { ostr in
+                                           ostr.write(iceP_view)
+                                       },
+                                       read: { istr in
+                                           let iceP_timestamp: Swift.Int64 = try istr.read()
+                                           let iceP_returnValue: MXMetricsView = try MXMetricsViewHelper.read(from: istr)
+                                           try istr.readPendingValues()
+                                           return (iceP_returnValue, iceP_timestamp)
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as MXUnknownMetricsView {
+                                               throw error
+                                           } catch is UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get the metrics failures associated with the given view and map.
@@ -752,55 +658,25 @@ public extension MXMetricsAdminPrx {
     /// - throws:
     ///
     ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
-    func getMapMetricsFailures(view iceP_view: Swift.String, map iceP_map: Swift.String, context: Context? = nil) throws -> MXMetricsFailuresSeq {
-        return try _impl._invoke(operation: "getMapMetricsFailures",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_view)
-                                     ostr.write(iceP_map)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: MXMetricsFailuresSeq = try MXMetricsFailuresSeqHelper.read(from: istr)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as MXUnknownMetricsView {
-                                         throw error
-                                     } catch is UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Get the metrics failures associated with the given view and map.
-    ///
-    /// - parameter view: `Swift.String` The name of the metrics view.
-    ///
-    /// - parameter map: `Swift.String` The name of the metrics map.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MXMetricsFailuresSeq` - The result of the operation
-    func getMapMetricsFailuresAsync(view iceP_view: Swift.String, map iceP_map: Swift.String, context: Context? = nil) async throws -> MXMetricsFailuresSeq {
-        return try await _impl._invokeAsync(operation: "getMapMetricsFailures",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_view)
-                                                ostr.write(iceP_map)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: MXMetricsFailuresSeq = try MXMetricsFailuresSeqHelper.read(from: istr)
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as MXUnknownMetricsView {
-                                                    throw error
-                                                } catch is UserException {}
-                                            },
-                                            context: context)
+    func getMapMetricsFailures(view iceP_view: Swift.String, map iceP_map: Swift.String, context: Context? = nil) async throws -> MXMetricsFailuresSeq {
+        return try await _impl._invoke(operation: "getMapMetricsFailures",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_view)
+                                           ostr.write(iceP_map)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: MXMetricsFailuresSeq = try MXMetricsFailuresSeqHelper.read(from: istr)
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as MXUnknownMetricsView {
+                                               throw error
+                                           } catch is UserException {}
+                                       },
+                                       context: context)
     }
 
     /// Get the metrics failure associated for the given metrics.
@@ -818,59 +694,26 @@ public extension MXMetricsAdminPrx {
     /// - throws:
     ///
     ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
-    func getMetricsFailures(view iceP_view: Swift.String, map iceP_map: Swift.String, id iceP_id: Swift.String, context: Context? = nil) throws -> MXMetricsFailures {
-        return try _impl._invoke(operation: "getMetricsFailures",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_view)
-                                     ostr.write(iceP_map)
-                                     ostr.write(iceP_id)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: MXMetricsFailures = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as MXUnknownMetricsView {
-                                         throw error
-                                     } catch is UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Get the metrics failure associated for the given metrics.
-    ///
-    /// - parameter view: `Swift.String` The name of the metrics view.
-    ///
-    /// - parameter map: `Swift.String` The name of the metrics map.
-    ///
-    /// - parameter id: `Swift.String` The ID of the metrics.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MXMetricsFailures` - The result of the operation
-    func getMetricsFailuresAsync(view iceP_view: Swift.String, map iceP_map: Swift.String, id iceP_id: Swift.String, context: Context? = nil) async throws -> MXMetricsFailures {
-        return try await _impl._invokeAsync(operation: "getMetricsFailures",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_view)
-                                                ostr.write(iceP_map)
-                                                ostr.write(iceP_id)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: MXMetricsFailures = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as MXUnknownMetricsView {
-                                                    throw error
-                                                } catch is UserException {}
-                                            },
-                                            context: context)
+    func getMetricsFailures(view iceP_view: Swift.String, map iceP_map: Swift.String, id iceP_id: Swift.String, context: Context? = nil) async throws -> MXMetricsFailures {
+        return try await _impl._invoke(operation: "getMetricsFailures",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_view)
+                                           ostr.write(iceP_map)
+                                           ostr.write(iceP_id)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: MXMetricsFailures = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as MXUnknownMetricsView {
+                                               throw error
+                                           } catch is UserException {}
+                                       },
+                                       context: context)
     }
 }
 
@@ -1336,7 +1179,11 @@ public protocol MXMetricsAdmin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: StringSeq, disabledViews: StringSeq)` - The result of the operation
+    /// - returns: `(returnValue: StringSeq, disabledViews: StringSeq)`:
+    ///
+    ///   - returnValue: `StringSeq` - The name of the enabled views.
+    ///
+    ///   - disabledViews: `StringSeq` - The names of the disabled views.
     func getMetricsViewNames(current: Current) async throws -> (returnValue: StringSeq, disabledViews: StringSeq)
 
     /// Enables a metrics view.
@@ -1345,7 +1192,9 @@ public protocol MXMetricsAdmin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
     func enableMetricsView(name: Swift.String, current: Current) async throws
 
     /// Disable a metrics view.
@@ -1354,7 +1203,9 @@ public protocol MXMetricsAdmin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `` - The result of the operation
+    /// - throws:
+    ///
+    ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
     func disableMetricsView(name: Swift.String, current: Current) async throws
 
     /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
@@ -1365,7 +1216,15 @@ public protocol MXMetricsAdmin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: MXMetricsView, timestamp: Swift.Int64)` - The result of the operation
+    /// - returns: `(returnValue: MXMetricsView, timestamp: Swift.Int64)`:
+    ///
+    ///   - returnValue: `MXMetricsView` - The metrics view data.
+    ///
+    ///   - timestamp: `Swift.Int64` - The local time of the process when the metrics object were retrieved.
+    ///
+    /// - throws:
+    ///
+    ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
     func getMetricsView(view: Swift.String, current: Current) async throws -> (returnValue: MXMetricsView, timestamp: Swift.Int64)
 
     /// Get the metrics failures associated with the given view and map.
@@ -1376,7 +1235,11 @@ public protocol MXMetricsAdmin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `MXMetricsFailuresSeq` - The result of the operation
+    /// - returns: `MXMetricsFailuresSeq` - The metrics failures associated with the map.
+    ///
+    /// - throws:
+    ///
+    ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
     func getMapMetricsFailures(view: Swift.String, map: Swift.String, current: Current) async throws -> MXMetricsFailuresSeq
 
     /// Get the metrics failure associated for the given metrics.
@@ -1389,7 +1252,11 @@ public protocol MXMetricsAdmin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `MXMetricsFailures` - The result of the operation
+    /// - returns: `MXMetricsFailures` - The metrics failures associated with the metrics.
+    ///
+    /// - throws:
+    ///
+    ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
     func getMetricsFailures(view: Swift.String, map: Swift.String, id: Swift.String, current: Current) async throws -> MXMetricsFailures
 }
 

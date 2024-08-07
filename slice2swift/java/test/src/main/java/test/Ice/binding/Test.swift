@@ -79,8 +79,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> TestIntfPrx? {
-    return try TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TestIntfPrx? {
+    return try await TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -140,28 +140,14 @@ public extension TestIntfPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.String`
-    func getAdapterName(context: Ice.Context? = nil) throws -> Swift.String {
-        return try _impl._invoke(operation: "getAdapterName",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.String = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String` - The result of the operation
-    func getAdapterNameAsync(context: Ice.Context? = nil) async throws -> Swift.String {
-        return try await _impl._invokeAsync(operation: "getAdapterName",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.String = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getAdapterName(context: Ice.Context? = nil) async throws -> Swift.String {
+        return try await _impl._invoke(operation: "getAdapterName",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.String = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 }
 
@@ -214,8 +200,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: RemoteObjectAdapterPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> RemoteObjectAdapterPrx? {
-    return try RemoteObjectAdapterPrxI.checkedCast(prx: prx, facet: facet, context: context) as RemoteObjectAdapterPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: RemoteObjectAdapterPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> RemoteObjectAdapterPrx? {
+    return try await RemoteObjectAdapterPrxI.checkedCast(prx: prx, facet: facet, context: context) as RemoteObjectAdapterPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -279,46 +265,22 @@ public extension RemoteObjectAdapterPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `TestIntfPrx?`
-    func getTestIntf(context: Ice.Context? = nil) throws -> TestIntfPrx? {
-        return try _impl._invoke(operation: "getTestIntf",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: TestIntfPrx? = try istr.read(TestIntfPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
+    func getTestIntf(context: Ice.Context? = nil) async throws -> TestIntfPrx? {
+        return try await _impl._invoke(operation: "getTestIntf",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: TestIntfPrx? = try istr.read(TestIntfPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `TestIntfPrx?` - The result of the operation
-    func getTestIntfAsync(context: Ice.Context? = nil) async throws -> TestIntfPrx? {
-        return try await _impl._invokeAsync(operation: "getTestIntf",
-                                            mode: .Normal,
-                                            read: { istr in
-                                                let iceP_returnValue: TestIntfPrx? = try istr.read(TestIntfPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func deactivate(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "deactivate",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func deactivateAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "deactivate",
-                                            mode: .Normal,
-                                            context: context)
+    func deactivate(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "deactivate",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -375,8 +337,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: RemoteCommunicatorPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> RemoteCommunicatorPrx? {
-    return try RemoteCommunicatorPrxI.checkedCast(prx: prx, facet: facet, context: context) as RemoteCommunicatorPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: RemoteCommunicatorPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> RemoteCommunicatorPrx? {
+    return try await RemoteCommunicatorPrxI.checkedCast(prx: prx, facet: facet, context: context) as RemoteCommunicatorPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -448,86 +410,39 @@ public extension RemoteCommunicatorPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `RemoteObjectAdapterPrx?`
-    func createObjectAdapter(name iceP_name: Swift.String, endpoints iceP_endpoints: Swift.String, context: Ice.Context? = nil) throws -> RemoteObjectAdapterPrx? {
-        return try _impl._invoke(operation: "createObjectAdapter",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_name)
-                                     ostr.write(iceP_endpoints)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: RemoteObjectAdapterPrx? = try istr.read(RemoteObjectAdapterPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter name: `Swift.String`
-    ///
-    /// - parameter endpoints: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `RemoteObjectAdapterPrx?` - The result of the operation
-    func createObjectAdapterAsync(name iceP_name: Swift.String, endpoints iceP_endpoints: Swift.String, context: Ice.Context? = nil) async throws -> RemoteObjectAdapterPrx? {
-        return try await _impl._invokeAsync(operation: "createObjectAdapter",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_name)
-                                                ostr.write(iceP_endpoints)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: RemoteObjectAdapterPrx? = try istr.read(RemoteObjectAdapterPrx.self)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func createObjectAdapter(name iceP_name: Swift.String, endpoints iceP_endpoints: Swift.String, context: Ice.Context? = nil) async throws -> RemoteObjectAdapterPrx? {
+        return try await _impl._invoke(operation: "createObjectAdapter",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_name)
+                                           ostr.write(iceP_endpoints)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: RemoteObjectAdapterPrx? = try istr.read(RemoteObjectAdapterPrx.self)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter _: `RemoteObjectAdapterPrx?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func deactivateObjectAdapter(_ iceP_adapter: RemoteObjectAdapterPrx?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "deactivateObjectAdapter",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_adapter)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `RemoteObjectAdapterPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func deactivateObjectAdapterAsync(_ iceP_adapter: RemoteObjectAdapterPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "deactivateObjectAdapter",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_adapter)
-                                            },
-                                            context: context)
+    func deactivateObjectAdapter(_ iceP_adapter: RemoteObjectAdapterPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "deactivateObjectAdapter",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_adapter)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -563,7 +478,7 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The result of the operation
+    /// - returns: `Swift.String`
     func getAdapterName(current: Ice.Current) async throws -> Swift.String
 }
 
@@ -601,13 +516,11 @@ public protocol RemoteObjectAdapter {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `TestIntfPrx?` - The result of the operation
+    /// - returns: `TestIntfPrx?`
     func getTestIntf(current: Ice.Current) async throws -> TestIntfPrx?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func deactivate(current: Ice.Current) async throws
 }
 
@@ -651,21 +564,17 @@ public protocol RemoteCommunicator {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `RemoteObjectAdapterPrx?` - The result of the operation
+    /// - returns: `RemoteObjectAdapterPrx?`
     func createObjectAdapter(name: Swift.String, endpoints: Swift.String, current: Ice.Current) async throws -> RemoteObjectAdapterPrx?
 
     ///
     /// - parameter adapter: `RemoteObjectAdapterPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func deactivateObjectAdapter(adapter: RemoteObjectAdapterPrx?, current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 

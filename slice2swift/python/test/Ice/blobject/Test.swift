@@ -109,8 +109,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: HelloPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> HelloPrx? {
-    return try HelloPrxI.checkedCast(prx: prx, facet: facet, context: context) as HelloPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: HelloPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> HelloPrx? {
+    return try await HelloPrxI.checkedCast(prx: prx, facet: facet, context: context) as HelloPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -182,28 +182,13 @@ public extension HelloPrx {
     /// - parameter _: `Swift.Int32`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func sayHello(_ iceP_delay: Swift.Int32, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "sayHello",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_delay)
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func sayHelloAsync(_ iceP_delay: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "sayHello",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_delay)
-                                            },
-                                            context: context)
+    func sayHello(_ iceP_delay: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "sayHello",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_delay)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -214,90 +199,41 @@ public extension HelloPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Int32`
-    func add(s1 iceP_s1: Swift.Int32, s2 iceP_s2: Swift.Int32, context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "add",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_s1)
-                                     ostr.write(iceP_s2)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Int32 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter s1: `Swift.Int32`
-    ///
-    /// - parameter s2: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The result of the operation
-    func addAsync(s1 iceP_s1: Swift.Int32, s2 iceP_s2: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
-        return try await _impl._invokeAsync(operation: "add",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_s1)
-                                                ostr.write(iceP_s2)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.Int32 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func add(s1 iceP_s1: Swift.Int32, s2 iceP_s2: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invoke(operation: "add",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_s1)
+                                           ostr.write(iceP_s2)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Int32 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func raiseUE(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "raiseUE",
-                          mode: .Normal,
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as UE {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
+    func raiseUE(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "raiseUE",
+                                       mode: .Normal,
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as UE {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func raiseUEAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "raiseUE",
-                                            mode: .Normal,
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as UE {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -340,8 +276,6 @@ public protocol Hello {
     /// - parameter delay: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func sayHello(delay: Swift.Int32, current: Ice.Current) async throws
 
     ///
@@ -351,19 +285,15 @@ public protocol Hello {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The result of the operation
+    /// - returns: `Swift.Int32`
     func add(s1: Swift.Int32, s2: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func raiseUE(current: Ice.Current) async throws
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 

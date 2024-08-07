@@ -446,8 +446,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: catchPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> catchPrx? {
-    return try catchPrxI.checkedCast(prx: prx, facet: facet, context: context) as catchPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: catchPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> catchPrx? {
+    return try await catchPrxI.checkedCast(prx: prx, facet: facet, context: context) as catchPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -509,36 +509,17 @@ public extension catchPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Int32`
-    func checkedCast(_ iceP_clone: Swift.Int32, context: Ice.Context? = nil) throws -> Swift.Int32 {
-        return try _impl._invoke(operation: "checkedCast",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_clone)
-                                 },
-                                 read: { istr in
-                                     let iceP_continue: Swift.Int32 = try istr.read()
-                                     return iceP_continue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The result of the operation
-    func checkedCastAsync(_ iceP_clone: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
-        return try await _impl._invokeAsync(operation: "checkedCast",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_clone)
-                                            },
-                                            read: { istr in
-                                                let iceP_continue: Swift.Int32 = try istr.read()
-                                                return iceP_continue
-                                            },
-                                            context: context)
+    func checkedCast(_ iceP_clone: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invoke(operation: "checkedCast",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_clone)
+                                       },
+                                       read: { istr in
+                                           let iceP_continue: Swift.Int32 = try istr.read()
+                                           return iceP_continue
+                                       },
+                                       context: context)
     }
 }
 
@@ -587,8 +568,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: defaultPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> defaultPrx? {
-    return try defaultPrxI.checkedCast(prx: prx, facet: facet, context: context) as defaultPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: defaultPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> defaultPrx? {
+    return try await defaultPrxI.checkedCast(prx: prx, facet: facet, context: context) as defaultPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -646,20 +627,10 @@ public extension Ice.InputStream {
 public extension defaultPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func `do`(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "do",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func doAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "do",
-                                            mode: .Normal,
-                                            context: context)
+    func `do`(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "do",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -702,8 +673,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: finalizePrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> finalizePrx? {
-    return try finalizePrxI.checkedCast(prx: prx, facet: facet, context: context) as finalizePrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: finalizePrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> finalizePrx? {
+    return try await finalizePrxI.checkedCast(prx: prx, facet: facet, context: context) as finalizePrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -799,8 +770,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: newPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> newPrx? {
-    return try newPrxI.checkedCast(prx: prx, facet: facet, context: context) as newPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: newPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> newPrx? {
+    return try await newPrxI.checkedCast(prx: prx, facet: facet, context: context) as newPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -876,84 +847,34 @@ public extension newPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `assert`
-    func notify(notifyAll iceP_notifyAll: `break`, null iceP_null: `else`?, package iceP_package: finalizePrx?, public iceP_public: catchPrx?, return iceP_return: defaultPrx?, static iceP_static: Swift.Int32, strictfp iceP_strictfp: Swift.Int32, super iceP_super: Swift.Int32, context: Ice.Context? = nil) throws -> assert {
-        return try _impl._invoke(operation: "notify",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_notifyAll)
-                                     ostr.write(iceP_null)
-                                     ostr.write(iceP_package)
-                                     ostr.write(iceP_public)
-                                     ostr.write(iceP_return)
-                                     ostr.write(iceP_static)
-                                     ostr.write(iceP_strictfp)
-                                     ostr.write(iceP_super)
-                                     ostr.writePendingValues()
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: assert = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as hashCode {
-                                         throw error
-                                     } catch let error as import {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter notifyAll: ``break``
-    ///
-    /// - parameter null: ``else`?`
-    ///
-    /// - parameter package: `finalizePrx?`
-    ///
-    /// - parameter public: `catchPrx?`
-    ///
-    /// - parameter return: `defaultPrx?`
-    ///
-    /// - parameter static: `Swift.Int32`
-    ///
-    /// - parameter strictfp: `Swift.Int32`
-    ///
-    /// - parameter super: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `assert` - The result of the operation
-    func notifyAsync(notifyAll iceP_notifyAll: `break`, null iceP_null: `else`?, package iceP_package: finalizePrx?, public iceP_public: catchPrx?, return iceP_return: defaultPrx?, static iceP_static: Swift.Int32, strictfp iceP_strictfp: Swift.Int32, super iceP_super: Swift.Int32, context: Ice.Context? = nil) async throws -> assert {
-        return try await _impl._invokeAsync(operation: "notify",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_notifyAll)
-                                                ostr.write(iceP_null)
-                                                ostr.write(iceP_package)
-                                                ostr.write(iceP_public)
-                                                ostr.write(iceP_return)
-                                                ostr.write(iceP_static)
-                                                ostr.write(iceP_strictfp)
-                                                ostr.write(iceP_super)
-                                                ostr.writePendingValues()
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: assert = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as hashCode {
-                                                    throw error
-                                                } catch let error as import {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func notify(notifyAll iceP_notifyAll: `break`, null iceP_null: `else`?, package iceP_package: finalizePrx?, public iceP_public: catchPrx?, return iceP_return: defaultPrx?, static iceP_static: Swift.Int32, strictfp iceP_strictfp: Swift.Int32, super iceP_super: Swift.Int32, context: Ice.Context? = nil) async throws -> assert {
+        return try await _impl._invoke(operation: "notify",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_notifyAll)
+                                           ostr.write(iceP_null)
+                                           ostr.write(iceP_package)
+                                           ostr.write(iceP_public)
+                                           ostr.write(iceP_return)
+                                           ostr.write(iceP_static)
+                                           ostr.write(iceP_strictfp)
+                                           ostr.write(iceP_super)
+                                           ostr.writePendingValues()
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: assert = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as hashCode {
+                                               throw error
+                                           } catch let error as import {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 }
 
@@ -1039,7 +960,7 @@ public protocol `catch` {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The result of the operation
+    /// - returns: `Swift.Int32`
     func checkedCast(clone: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 }
 
@@ -1074,8 +995,6 @@ public struct defaultDisp: Ice.Dispatcher {
 public protocol `default` {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func `do`(current: Ice.Current) async throws
 }
 
@@ -1159,7 +1078,7 @@ public protocol new {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `assert` - The result of the operation
+    /// - returns: `assert`
     func notify(notifyAll: `break`, null: `else`?, package: finalizePrx?, public: catchPrx?, return: defaultPrx?, static: Swift.Int32, strictfp: Swift.Int32, super: Swift.Int32, current: Ice.Current) async throws -> assert
 }
 

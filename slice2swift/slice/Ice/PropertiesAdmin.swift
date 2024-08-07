@@ -74,8 +74,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: ObjectPrx, type: PropertiesAdminPrx.Protocol, facet: Swift.String? = nil, context: Context? = nil) throws -> PropertiesAdminPrx? {
-    return try PropertiesAdminPrxI.checkedCast(prx: prx, facet: facet, context: context) as PropertiesAdminPrxI?
+public func checkedCast(prx: ObjectPrx, type: PropertiesAdminPrx.Protocol, facet: Swift.String? = nil, context: Context? = nil) async throws -> PropertiesAdminPrx? {
+    return try await PropertiesAdminPrxI.checkedCast(prx: prx, facet: facet, context: context) as PropertiesAdminPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -146,37 +146,17 @@ public extension PropertiesAdminPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.String` - The property value.
-    func getProperty(_ iceP_key: Swift.String, context: Context? = nil) throws -> Swift.String {
-        return try _impl._invoke(operation: "getProperty",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_key)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.String = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get a property by key. If the property is not set, an empty string is returned.
-    ///
-    /// - parameter _: `Swift.String` The property key.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String` - The result of the operation
-    func getPropertyAsync(_ iceP_key: Swift.String, context: Context? = nil) async throws -> Swift.String {
-        return try await _impl._invokeAsync(operation: "getProperty",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_key)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: Swift.String = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getProperty(_ iceP_key: Swift.String, context: Context? = nil) async throws -> Swift.String {
+        return try await _impl._invoke(operation: "getProperty",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_key)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.String = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Get all properties whose keys begin with prefix. If prefix is an empty string then all
@@ -187,38 +167,17 @@ public extension PropertiesAdminPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `PropertyDict` - The matching property set.
-    func getPropertiesForPrefix(_ iceP_prefix: Swift.String, context: Context? = nil) throws -> PropertyDict {
-        return try _impl._invoke(operation: "getPropertiesForPrefix",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_prefix)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: PropertyDict = try PropertyDictHelper.read(from: istr)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Get all properties whose keys begin with prefix. If prefix is an empty string then all
-    /// properties are returned.
-    ///
-    /// - parameter _: `Swift.String` The prefix to search for (empty string if none).
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `PropertyDict` - The result of the operation
-    func getPropertiesForPrefixAsync(_ iceP_prefix: Swift.String, context: Context? = nil) async throws -> PropertyDict {
-        return try await _impl._invokeAsync(operation: "getPropertiesForPrefix",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_prefix)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: PropertyDict = try PropertyDictHelper.read(from: istr)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func getPropertiesForPrefix(_ iceP_prefix: Swift.String, context: Context? = nil) async throws -> PropertyDict {
+        return try await _impl._invoke(operation: "getPropertiesForPrefix",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_prefix)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: PropertyDict = try PropertyDictHelper.read(from: istr)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     /// Update the communicator's properties with the given property set. If an entry in newProperties
@@ -229,32 +188,13 @@ public extension PropertiesAdminPrx {
     /// - parameter _: `PropertyDict` Properties to be added, changed, or removed.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func setProperties(_ iceP_newProperties: PropertyDict, context: Context? = nil) throws {
-        try _impl._invoke(operation: "setProperties",
-                          mode: .Normal,
-                          write: { ostr in
-                              PropertyDictHelper.write(to: ostr, value: iceP_newProperties)
-                          },
-                          context: context)
-    }
-
-    /// Update the communicator's properties with the given property set. If an entry in newProperties
-    /// matches the name of an existing property, that property's value is replaced with the new value. If the new
-    /// value is an empty string, the property is removed. Any existing properties that are not modified or removed
-    /// by the entries in newProperties are retained with their original values.
-    ///
-    /// - parameter _: `PropertyDict` Properties to be added, changed, or removed.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func setPropertiesAsync(_ iceP_newProperties: PropertyDict, context: Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "setProperties",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                PropertyDictHelper.write(to: ostr, value: iceP_newProperties)
-                                            },
-                                            context: context)
+    func setProperties(_ iceP_newProperties: PropertyDict, context: Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "setProperties",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           PropertyDictHelper.write(to: ostr, value: iceP_newProperties)
+                                       },
+                                       context: context)
     }
 }
 
@@ -298,7 +238,7 @@ public protocol PropertiesAdmin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The result of the operation
+    /// - returns: `Swift.String` - The property value.
     func getProperty(key: Swift.String, current: Current) async throws -> Swift.String
 
     /// Get all properties whose keys begin with prefix. If prefix is an empty string then all
@@ -308,7 +248,7 @@ public protocol PropertiesAdmin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PropertyDict` - The result of the operation
+    /// - returns: `PropertyDict` - The matching property set.
     func getPropertiesForPrefix(prefix: Swift.String, current: Current) async throws -> PropertyDict
 
     /// Update the communicator's properties with the given property set. If an entry in newProperties
@@ -319,8 +259,6 @@ public protocol PropertiesAdmin {
     /// - parameter newProperties: `PropertyDict` Properties to be added, changed, or removed.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func setProperties(newProperties: PropertyDict, current: Current) async throws
 }
 

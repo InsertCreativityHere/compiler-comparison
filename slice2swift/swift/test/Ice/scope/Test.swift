@@ -1856,8 +1856,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: IPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> IPrx? {
-    return try IPrxI.checkedCast(prx: prx, facet: facet, context: context) as IPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: IPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> IPrx? {
+    return try await IPrxI.checkedCast(prx: prx, facet: facet, context: context) as IPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -1967,38 +1967,18 @@ public extension IPrx {
     ///   - returnValue: `S`
     ///
     ///   - s2: `S`
-    func opS(_ iceP_s1: S, context: Ice.Context? = nil) throws -> (returnValue: S, s2: S) {
-        return try _impl._invoke(operation: "opS",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_s1)
-                                 },
-                                 read: { istr in
-                                     let iceP_s2: S = try istr.read()
-                                     let iceP_returnValue: S = try istr.read()
-                                     return (iceP_returnValue, iceP_s2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `S`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: S, s2: S)` - The result of the operation
-    func opSAsync(_ iceP_s1: S, context: Ice.Context? = nil) async throws -> (returnValue: S, s2: S) {
-        return try await _impl._invokeAsync(operation: "opS",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_s1)
-                                            },
-                                            read: { istr in
-                                                let iceP_s2: S = try istr.read()
-                                                let iceP_returnValue: S = try istr.read()
-                                                return (iceP_returnValue, iceP_s2)
-                                            },
-                                            context: context)
+    func opS(_ iceP_s1: S, context: Ice.Context? = nil) async throws -> (returnValue: S, s2: S) {
+        return try await _impl._invoke(operation: "opS",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_s1)
+                                       },
+                                       read: { istr in
+                                           let iceP_s2: S = try istr.read()
+                                           let iceP_returnValue: S = try istr.read()
+                                           return (iceP_returnValue, iceP_s2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2011,38 +1991,18 @@ public extension IPrx {
     ///   - returnValue: `SSeq`
     ///
     ///   - s2: `SSeq`
-    func opSSeq(_ iceP_s1: SSeq, context: Ice.Context? = nil) throws -> (returnValue: SSeq, s2: SSeq) {
-        return try _impl._invoke(operation: "opSSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     SSeqHelper.write(to: ostr, value: iceP_s1)
-                                 },
-                                 read: { istr in
-                                     let iceP_s2: SSeq = try SSeqHelper.read(from: istr)
-                                     let iceP_returnValue: SSeq = try SSeqHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_s2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `SSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SSeq, s2: SSeq)` - The result of the operation
-    func opSSeqAsync(_ iceP_s1: SSeq, context: Ice.Context? = nil) async throws -> (returnValue: SSeq, s2: SSeq) {
-        return try await _impl._invokeAsync(operation: "opSSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                SSeqHelper.write(to: ostr, value: iceP_s1)
-                                            },
-                                            read: { istr in
-                                                let iceP_s2: SSeq = try SSeqHelper.read(from: istr)
-                                                let iceP_returnValue: SSeq = try SSeqHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_s2)
-                                            },
-                                            context: context)
+    func opSSeq(_ iceP_s1: SSeq, context: Ice.Context? = nil) async throws -> (returnValue: SSeq, s2: SSeq) {
+        return try await _impl._invoke(operation: "opSSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           SSeqHelper.write(to: ostr, value: iceP_s1)
+                                       },
+                                       read: { istr in
+                                           let iceP_s2: SSeq = try SSeqHelper.read(from: istr)
+                                           let iceP_returnValue: SSeq = try SSeqHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_s2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2055,38 +2015,18 @@ public extension IPrx {
     ///   - returnValue: `SMap`
     ///
     ///   - s2: `SMap`
-    func opSMap(_ iceP_s1: SMap, context: Ice.Context? = nil) throws -> (returnValue: SMap, s2: SMap) {
-        return try _impl._invoke(operation: "opSMap",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     SMapHelper.write(to: ostr, value: iceP_s1)
-                                 },
-                                 read: { istr in
-                                     let iceP_s2: SMap = try SMapHelper.read(from: istr)
-                                     let iceP_returnValue: SMap = try SMapHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_s2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `SMap`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SMap, s2: SMap)` - The result of the operation
-    func opSMapAsync(_ iceP_s1: SMap, context: Ice.Context? = nil) async throws -> (returnValue: SMap, s2: SMap) {
-        return try await _impl._invokeAsync(operation: "opSMap",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                SMapHelper.write(to: ostr, value: iceP_s1)
-                                            },
-                                            read: { istr in
-                                                let iceP_s2: SMap = try SMapHelper.read(from: istr)
-                                                let iceP_returnValue: SMap = try SMapHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_s2)
-                                            },
-                                            context: context)
+    func opSMap(_ iceP_s1: SMap, context: Ice.Context? = nil) async throws -> (returnValue: SMap, s2: SMap) {
+        return try await _impl._invoke(operation: "opSMap",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           SMapHelper.write(to: ostr, value: iceP_s1)
+                                       },
+                                       read: { istr in
+                                           let iceP_s2: SMap = try SMapHelper.read(from: istr)
+                                           let iceP_returnValue: SMap = try SMapHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_s2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2099,46 +2039,22 @@ public extension IPrx {
     ///   - returnValue: `C?`
     ///
     ///   - c2: `C?`
-    func opC(_ iceP_c1: C?, context: Ice.Context? = nil) throws -> (returnValue: C?, c2: C?) {
-        return try _impl._invoke(operation: "opC",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_c1)
-                                     ostr.writePendingValues()
-                                 },
-                                 read: { istr in
-                                     var iceP_c2: C?
-                                     try istr.read(C.self) { iceP_c2 = $0 }
-                                     var iceP_returnValue: C?
-                                     try istr.read(C.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return (iceP_returnValue, iceP_c2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `C?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: C?, c2: C?)` - The result of the operation
-    func opCAsync(_ iceP_c1: C?, context: Ice.Context? = nil) async throws -> (returnValue: C?, c2: C?) {
-        return try await _impl._invokeAsync(operation: "opC",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_c1)
-                                                ostr.writePendingValues()
-                                            },
-                                            read: { istr in
-                                                var iceP_c2: C?
-                                                try istr.read(C.self) { iceP_c2 = $0 }
-                                                var iceP_returnValue: C?
-                                                try istr.read(C.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return (iceP_returnValue, iceP_c2)
-                                            },
-                                            context: context)
+    func opC(_ iceP_c1: C?, context: Ice.Context? = nil) async throws -> (returnValue: C?, c2: C?) {
+        return try await _impl._invoke(operation: "opC",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_c1)
+                                           ostr.writePendingValues()
+                                       },
+                                       read: { istr in
+                                           var iceP_c2: C?
+                                           try istr.read(C.self) { iceP_c2 = $0 }
+                                           var iceP_returnValue: C?
+                                           try istr.read(C.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return (iceP_returnValue, iceP_c2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2151,42 +2067,20 @@ public extension IPrx {
     ///   - returnValue: `CSeq`
     ///
     ///   - s2: `CSeq`
-    func opCSeq(_ iceP_s1: CSeq, context: Ice.Context? = nil) throws -> (returnValue: CSeq, s2: CSeq) {
-        return try _impl._invoke(operation: "opCSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     CSeqHelper.write(to: ostr, value: iceP_s1)
-                                     ostr.writePendingValues()
-                                 },
-                                 read: { istr in
-                                     let iceP_s2: CSeq = try CSeqHelper.read(from: istr)
-                                     let iceP_returnValue: CSeq = try CSeqHelper.read(from: istr)
-                                     try istr.readPendingValues()
-                                     return (iceP_returnValue, iceP_s2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `CSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: CSeq, s2: CSeq)` - The result of the operation
-    func opCSeqAsync(_ iceP_s1: CSeq, context: Ice.Context? = nil) async throws -> (returnValue: CSeq, s2: CSeq) {
-        return try await _impl._invokeAsync(operation: "opCSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                CSeqHelper.write(to: ostr, value: iceP_s1)
-                                                ostr.writePendingValues()
-                                            },
-                                            read: { istr in
-                                                let iceP_s2: CSeq = try CSeqHelper.read(from: istr)
-                                                let iceP_returnValue: CSeq = try CSeqHelper.read(from: istr)
-                                                try istr.readPendingValues()
-                                                return (iceP_returnValue, iceP_s2)
-                                            },
-                                            context: context)
+    func opCSeq(_ iceP_s1: CSeq, context: Ice.Context? = nil) async throws -> (returnValue: CSeq, s2: CSeq) {
+        return try await _impl._invoke(operation: "opCSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           CSeqHelper.write(to: ostr, value: iceP_s1)
+                                           ostr.writePendingValues()
+                                       },
+                                       read: { istr in
+                                           let iceP_s2: CSeq = try CSeqHelper.read(from: istr)
+                                           let iceP_returnValue: CSeq = try CSeqHelper.read(from: istr)
+                                           try istr.readPendingValues()
+                                           return (iceP_returnValue, iceP_s2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2199,42 +2093,20 @@ public extension IPrx {
     ///   - returnValue: `CMap`
     ///
     ///   - c2: `CMap`
-    func opCMap(_ iceP_c1: CMap, context: Ice.Context? = nil) throws -> (returnValue: CMap, c2: CMap) {
-        return try _impl._invoke(operation: "opCMap",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     CMapHelper.write(to: ostr, value: iceP_c1)
-                                     ostr.writePendingValues()
-                                 },
-                                 read: { istr in
-                                     let iceP_c2: CMap = try CMapHelper.read(from: istr)
-                                     let iceP_returnValue: CMap = try CMapHelper.read(from: istr)
-                                     try istr.readPendingValues()
-                                     return (iceP_returnValue, iceP_c2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `CMap`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: CMap, c2: CMap)` - The result of the operation
-    func opCMapAsync(_ iceP_c1: CMap, context: Ice.Context? = nil) async throws -> (returnValue: CMap, c2: CMap) {
-        return try await _impl._invokeAsync(operation: "opCMap",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                CMapHelper.write(to: ostr, value: iceP_c1)
-                                                ostr.writePendingValues()
-                                            },
-                                            read: { istr in
-                                                let iceP_c2: CMap = try CMapHelper.read(from: istr)
-                                                let iceP_returnValue: CMap = try CMapHelper.read(from: istr)
-                                                try istr.readPendingValues()
-                                                return (iceP_returnValue, iceP_c2)
-                                            },
-                                            context: context)
+    func opCMap(_ iceP_c1: CMap, context: Ice.Context? = nil) async throws -> (returnValue: CMap, c2: CMap) {
+        return try await _impl._invoke(operation: "opCMap",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           CMapHelper.write(to: ostr, value: iceP_c1)
+                                           ostr.writePendingValues()
+                                       },
+                                       read: { istr in
+                                           let iceP_c2: CMap = try CMapHelper.read(from: istr)
+                                           let iceP_returnValue: CMap = try CMapHelper.read(from: istr)
+                                           try istr.readPendingValues()
+                                           return (iceP_returnValue, iceP_c2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2243,36 +2115,17 @@ public extension IPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `E1`
-    func opE1(_ iceP_E1: E1, context: Ice.Context? = nil) throws -> E1 {
-        return try _impl._invoke(operation: "opE1",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_E1)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: E1 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `E1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `E1` - The result of the operation
-    func opE1Async(_ iceP_E1: E1, context: Ice.Context? = nil) async throws -> E1 {
-        return try await _impl._invokeAsync(operation: "opE1",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_E1)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: E1 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func opE1(_ iceP_E1: E1, context: Ice.Context? = nil) async throws -> E1 {
+        return try await _impl._invoke(operation: "opE1",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_E1)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: E1 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2281,36 +2134,17 @@ public extension IPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `S1`
-    func opS1(_ iceP_S1: S1, context: Ice.Context? = nil) throws -> S1 {
-        return try _impl._invoke(operation: "opS1",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_S1)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: S1 = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `S1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `S1` - The result of the operation
-    func opS1Async(_ iceP_S1: S1, context: Ice.Context? = nil) async throws -> S1 {
-        return try await _impl._invokeAsync(operation: "opS1",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_S1)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: S1 = try istr.read()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func opS1(_ iceP_S1: S1, context: Ice.Context? = nil) async throws -> S1 {
+        return try await _impl._invoke(operation: "opS1",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_S1)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: S1 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2319,42 +2153,20 @@ public extension IPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `C1?`
-    func opC1(_ iceP_C1: C1?, context: Ice.Context? = nil) throws -> C1? {
-        return try _impl._invoke(operation: "opC1",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_C1)
-                                     ostr.writePendingValues()
-                                 },
-                                 read: { istr in
-                                     var iceP_returnValue: C1?
-                                     try istr.read(C1.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `C1?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `C1?` - The result of the operation
-    func opC1Async(_ iceP_C1: C1?, context: Ice.Context? = nil) async throws -> C1? {
-        return try await _impl._invokeAsync(operation: "opC1",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_C1)
-                                                ostr.writePendingValues()
-                                            },
-                                            read: { istr in
-                                                var iceP_returnValue: C1?
-                                                try istr.read(C1.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func opC1(_ iceP_C1: C1?, context: Ice.Context? = nil) async throws -> C1? {
+        return try await _impl._invoke(operation: "opC1",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_C1)
+                                           ostr.writePendingValues()
+                                       },
+                                       read: { istr in
+                                           var iceP_returnValue: C1?
+                                           try istr.read(C1.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2363,36 +2175,17 @@ public extension IPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `S1Seq`
-    func opS1Seq(_ iceP_S1Seq: S1Seq, context: Ice.Context? = nil) throws -> S1Seq {
-        return try _impl._invoke(operation: "opS1Seq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     S1SeqHelper.write(to: ostr, value: iceP_S1Seq)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: S1Seq = try S1SeqHelper.read(from: istr)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `S1Seq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `S1Seq` - The result of the operation
-    func opS1SeqAsync(_ iceP_S1Seq: S1Seq, context: Ice.Context? = nil) async throws -> S1Seq {
-        return try await _impl._invokeAsync(operation: "opS1Seq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                S1SeqHelper.write(to: ostr, value: iceP_S1Seq)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: S1Seq = try S1SeqHelper.read(from: istr)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func opS1Seq(_ iceP_S1Seq: S1Seq, context: Ice.Context? = nil) async throws -> S1Seq {
+        return try await _impl._invoke(operation: "opS1Seq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           S1SeqHelper.write(to: ostr, value: iceP_S1Seq)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: S1Seq = try S1SeqHelper.read(from: istr)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2401,54 +2194,25 @@ public extension IPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `S1Map`
-    func opS1Map(_ iceP_S1Map: S1Map, context: Ice.Context? = nil) throws -> S1Map {
-        return try _impl._invoke(operation: "opS1Map",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     S1MapHelper.write(to: ostr, value: iceP_S1Map)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: S1Map = try S1MapHelper.read(from: istr)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `S1Map`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `S1Map` - The result of the operation
-    func opS1MapAsync(_ iceP_S1Map: S1Map, context: Ice.Context? = nil) async throws -> S1Map {
-        return try await _impl._invokeAsync(operation: "opS1Map",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                S1MapHelper.write(to: ostr, value: iceP_S1Map)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: S1Map = try S1MapHelper.read(from: istr)
-                                                return iceP_returnValue
-                                            },
-                                            context: context)
+    func opS1Map(_ iceP_S1Map: S1Map, context: Ice.Context? = nil) async throws -> S1Map {
+        return try await _impl._invoke(operation: "opS1Map",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           S1MapHelper.write(to: ostr, value: iceP_S1Map)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: S1Map = try S1MapHelper.read(from: istr)
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -2521,8 +2285,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: InnerInner2IPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> InnerInner2IPrx? {
-    return try InnerInner2IPrxI.checkedCast(prx: prx, facet: facet, context: context) as InnerInner2IPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: InnerInner2IPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> InnerInner2IPrx? {
+    return try await InnerInner2IPrxI.checkedCast(prx: prx, facet: facet, context: context) as InnerInner2IPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -2612,38 +2376,18 @@ public extension InnerInner2IPrx {
     ///   - returnValue: `InnerInner2S`
     ///
     ///   - s2: `InnerInner2S`
-    func opS(_ iceP_s1: InnerInner2S, context: Ice.Context? = nil) throws -> (returnValue: InnerInner2S, s2: InnerInner2S) {
-        return try _impl._invoke(operation: "opS",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_s1)
-                                 },
-                                 read: { istr in
-                                     let iceP_s2: InnerInner2S = try istr.read()
-                                     let iceP_returnValue: InnerInner2S = try istr.read()
-                                     return (iceP_returnValue, iceP_s2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `InnerInner2S`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: InnerInner2S, s2: InnerInner2S)` - The result of the operation
-    func opSAsync(_ iceP_s1: InnerInner2S, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2S, s2: InnerInner2S) {
-        return try await _impl._invokeAsync(operation: "opS",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_s1)
-                                            },
-                                            read: { istr in
-                                                let iceP_s2: InnerInner2S = try istr.read()
-                                                let iceP_returnValue: InnerInner2S = try istr.read()
-                                                return (iceP_returnValue, iceP_s2)
-                                            },
-                                            context: context)
+    func opS(_ iceP_s1: InnerInner2S, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2S, s2: InnerInner2S) {
+        return try await _impl._invoke(operation: "opS",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_s1)
+                                       },
+                                       read: { istr in
+                                           let iceP_s2: InnerInner2S = try istr.read()
+                                           let iceP_returnValue: InnerInner2S = try istr.read()
+                                           return (iceP_returnValue, iceP_s2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2656,38 +2400,18 @@ public extension InnerInner2IPrx {
     ///   - returnValue: `InnerInner2SSeq`
     ///
     ///   - s2: `InnerInner2SSeq`
-    func opSSeq(_ iceP_s1: InnerInner2SSeq, context: Ice.Context? = nil) throws -> (returnValue: InnerInner2SSeq, s2: InnerInner2SSeq) {
-        return try _impl._invoke(operation: "opSSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     InnerInner2SSeqHelper.write(to: ostr, value: iceP_s1)
-                                 },
-                                 read: { istr in
-                                     let iceP_s2: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
-                                     let iceP_returnValue: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_s2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `InnerInner2SSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)` - The result of the operation
-    func opSSeqAsync(_ iceP_s1: InnerInner2SSeq, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2SSeq, s2: InnerInner2SSeq) {
-        return try await _impl._invokeAsync(operation: "opSSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                InnerInner2SSeqHelper.write(to: ostr, value: iceP_s1)
-                                            },
-                                            read: { istr in
-                                                let iceP_s2: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
-                                                let iceP_returnValue: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_s2)
-                                            },
-                                            context: context)
+    func opSSeq(_ iceP_s1: InnerInner2SSeq, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2SSeq, s2: InnerInner2SSeq) {
+        return try await _impl._invoke(operation: "opSSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           InnerInner2SSeqHelper.write(to: ostr, value: iceP_s1)
+                                       },
+                                       read: { istr in
+                                           let iceP_s2: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
+                                           let iceP_returnValue: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_s2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2700,38 +2424,18 @@ public extension InnerInner2IPrx {
     ///   - returnValue: `InnerInner2SMap`
     ///
     ///   - s2: `InnerInner2SMap`
-    func opSMap(_ iceP_s1: InnerInner2SMap, context: Ice.Context? = nil) throws -> (returnValue: InnerInner2SMap, s2: InnerInner2SMap) {
-        return try _impl._invoke(operation: "opSMap",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     InnerInner2SMapHelper.write(to: ostr, value: iceP_s1)
-                                 },
-                                 read: { istr in
-                                     let iceP_s2: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
-                                     let iceP_returnValue: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_s2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `InnerInner2SMap`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: InnerInner2SMap, s2: InnerInner2SMap)` - The result of the operation
-    func opSMapAsync(_ iceP_s1: InnerInner2SMap, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2SMap, s2: InnerInner2SMap) {
-        return try await _impl._invokeAsync(operation: "opSMap",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                InnerInner2SMapHelper.write(to: ostr, value: iceP_s1)
-                                            },
-                                            read: { istr in
-                                                let iceP_s2: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
-                                                let iceP_returnValue: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_s2)
-                                            },
-                                            context: context)
+    func opSMap(_ iceP_s1: InnerInner2SMap, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2SMap, s2: InnerInner2SMap) {
+        return try await _impl._invoke(operation: "opSMap",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           InnerInner2SMapHelper.write(to: ostr, value: iceP_s1)
+                                       },
+                                       read: { istr in
+                                           let iceP_s2: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
+                                           let iceP_returnValue: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_s2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2744,46 +2448,22 @@ public extension InnerInner2IPrx {
     ///   - returnValue: `InnerInner2C?`
     ///
     ///   - c2: `InnerInner2C?`
-    func opC(_ iceP_c1: InnerInner2C?, context: Ice.Context? = nil) throws -> (returnValue: InnerInner2C?, c2: InnerInner2C?) {
-        return try _impl._invoke(operation: "opC",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_c1)
-                                     ostr.writePendingValues()
-                                 },
-                                 read: { istr in
-                                     var iceP_c2: InnerInner2C?
-                                     try istr.read(InnerInner2C.self) { iceP_c2 = $0 }
-                                     var iceP_returnValue: InnerInner2C?
-                                     try istr.read(InnerInner2C.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return (iceP_returnValue, iceP_c2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `InnerInner2C?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: InnerInner2C?, c2: InnerInner2C?)` - The result of the operation
-    func opCAsync(_ iceP_c1: InnerInner2C?, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2C?, c2: InnerInner2C?) {
-        return try await _impl._invokeAsync(operation: "opC",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_c1)
-                                                ostr.writePendingValues()
-                                            },
-                                            read: { istr in
-                                                var iceP_c2: InnerInner2C?
-                                                try istr.read(InnerInner2C.self) { iceP_c2 = $0 }
-                                                var iceP_returnValue: InnerInner2C?
-                                                try istr.read(InnerInner2C.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return (iceP_returnValue, iceP_c2)
-                                            },
-                                            context: context)
+    func opC(_ iceP_c1: InnerInner2C?, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2C?, c2: InnerInner2C?) {
+        return try await _impl._invoke(operation: "opC",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_c1)
+                                           ostr.writePendingValues()
+                                       },
+                                       read: { istr in
+                                           var iceP_c2: InnerInner2C?
+                                           try istr.read(InnerInner2C.self) { iceP_c2 = $0 }
+                                           var iceP_returnValue: InnerInner2C?
+                                           try istr.read(InnerInner2C.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return (iceP_returnValue, iceP_c2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2796,42 +2476,20 @@ public extension InnerInner2IPrx {
     ///   - returnValue: `InnerInner2CSeq`
     ///
     ///   - c2: `InnerInner2CSeq`
-    func opCSeq(_ iceP_c1: InnerInner2CSeq, context: Ice.Context? = nil) throws -> (returnValue: InnerInner2CSeq, c2: InnerInner2CSeq) {
-        return try _impl._invoke(operation: "opCSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     InnerInner2CSeqHelper.write(to: ostr, value: iceP_c1)
-                                     ostr.writePendingValues()
-                                 },
-                                 read: { istr in
-                                     let iceP_c2: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
-                                     let iceP_returnValue: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
-                                     try istr.readPendingValues()
-                                     return (iceP_returnValue, iceP_c2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `InnerInner2CSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)` - The result of the operation
-    func opCSeqAsync(_ iceP_c1: InnerInner2CSeq, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2CSeq, c2: InnerInner2CSeq) {
-        return try await _impl._invokeAsync(operation: "opCSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                InnerInner2CSeqHelper.write(to: ostr, value: iceP_c1)
-                                                ostr.writePendingValues()
-                                            },
-                                            read: { istr in
-                                                let iceP_c2: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
-                                                let iceP_returnValue: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
-                                                try istr.readPendingValues()
-                                                return (iceP_returnValue, iceP_c2)
-                                            },
-                                            context: context)
+    func opCSeq(_ iceP_c1: InnerInner2CSeq, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2CSeq, c2: InnerInner2CSeq) {
+        return try await _impl._invoke(operation: "opCSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           InnerInner2CSeqHelper.write(to: ostr, value: iceP_c1)
+                                           ostr.writePendingValues()
+                                       },
+                                       read: { istr in
+                                           let iceP_c2: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
+                                           let iceP_returnValue: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
+                                           try istr.readPendingValues()
+                                           return (iceP_returnValue, iceP_c2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -2844,60 +2502,28 @@ public extension InnerInner2IPrx {
     ///   - returnValue: `InnerInner2CMap`
     ///
     ///   - c2: `InnerInner2CMap`
-    func opCMap(_ iceP_c1: InnerInner2CMap, context: Ice.Context? = nil) throws -> (returnValue: InnerInner2CMap, c2: InnerInner2CMap) {
-        return try _impl._invoke(operation: "opCMap",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     InnerInner2CMapHelper.write(to: ostr, value: iceP_c1)
-                                     ostr.writePendingValues()
-                                 },
-                                 read: { istr in
-                                     let iceP_c2: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
-                                     let iceP_returnValue: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
-                                     try istr.readPendingValues()
-                                     return (iceP_returnValue, iceP_c2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `InnerInner2CMap`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: InnerInner2CMap, c2: InnerInner2CMap)` - The result of the operation
-    func opCMapAsync(_ iceP_c1: InnerInner2CMap, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2CMap, c2: InnerInner2CMap) {
-        return try await _impl._invokeAsync(operation: "opCMap",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                InnerInner2CMapHelper.write(to: ostr, value: iceP_c1)
-                                                ostr.writePendingValues()
-                                            },
-                                            read: { istr in
-                                                let iceP_c2: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
-                                                let iceP_returnValue: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
-                                                try istr.readPendingValues()
-                                                return (iceP_returnValue, iceP_c2)
-                                            },
-                                            context: context)
+    func opCMap(_ iceP_c1: InnerInner2CMap, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2CMap, c2: InnerInner2CMap) {
+        return try await _impl._invoke(operation: "opCMap",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           InnerInner2CMapHelper.write(to: ostr, value: iceP_c1)
+                                           ostr.writePendingValues()
+                                       },
+                                       read: { istr in
+                                           let iceP_c2: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
+                                           let iceP_returnValue: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
+                                           try istr.readPendingValues()
+                                           return (iceP_returnValue, iceP_c2)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -2970,8 +2596,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: InnerIPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> InnerIPrx? {
-    return try InnerIPrxI.checkedCast(prx: prx, facet: facet, context: context) as InnerIPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: InnerIPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> InnerIPrx? {
+    return try await InnerIPrxI.checkedCast(prx: prx, facet: facet, context: context) as InnerIPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -3061,38 +2687,18 @@ public extension InnerIPrx {
     ///   - returnValue: `InnerInner2S`
     ///
     ///   - s2: `InnerInner2S`
-    func opS(_ iceP_s1: InnerInner2S, context: Ice.Context? = nil) throws -> (returnValue: InnerInner2S, s2: InnerInner2S) {
-        return try _impl._invoke(operation: "opS",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_s1)
-                                 },
-                                 read: { istr in
-                                     let iceP_s2: InnerInner2S = try istr.read()
-                                     let iceP_returnValue: InnerInner2S = try istr.read()
-                                     return (iceP_returnValue, iceP_s2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `InnerInner2S`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: InnerInner2S, s2: InnerInner2S)` - The result of the operation
-    func opSAsync(_ iceP_s1: InnerInner2S, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2S, s2: InnerInner2S) {
-        return try await _impl._invokeAsync(operation: "opS",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_s1)
-                                            },
-                                            read: { istr in
-                                                let iceP_s2: InnerInner2S = try istr.read()
-                                                let iceP_returnValue: InnerInner2S = try istr.read()
-                                                return (iceP_returnValue, iceP_s2)
-                                            },
-                                            context: context)
+    func opS(_ iceP_s1: InnerInner2S, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2S, s2: InnerInner2S) {
+        return try await _impl._invoke(operation: "opS",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_s1)
+                                       },
+                                       read: { istr in
+                                           let iceP_s2: InnerInner2S = try istr.read()
+                                           let iceP_returnValue: InnerInner2S = try istr.read()
+                                           return (iceP_returnValue, iceP_s2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -3105,38 +2711,18 @@ public extension InnerIPrx {
     ///   - returnValue: `InnerInner2SSeq`
     ///
     ///   - s2: `InnerInner2SSeq`
-    func opSSeq(_ iceP_s1: InnerInner2SSeq, context: Ice.Context? = nil) throws -> (returnValue: InnerInner2SSeq, s2: InnerInner2SSeq) {
-        return try _impl._invoke(operation: "opSSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     InnerInner2SSeqHelper.write(to: ostr, value: iceP_s1)
-                                 },
-                                 read: { istr in
-                                     let iceP_s2: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
-                                     let iceP_returnValue: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_s2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `InnerInner2SSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)` - The result of the operation
-    func opSSeqAsync(_ iceP_s1: InnerInner2SSeq, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2SSeq, s2: InnerInner2SSeq) {
-        return try await _impl._invokeAsync(operation: "opSSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                InnerInner2SSeqHelper.write(to: ostr, value: iceP_s1)
-                                            },
-                                            read: { istr in
-                                                let iceP_s2: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
-                                                let iceP_returnValue: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_s2)
-                                            },
-                                            context: context)
+    func opSSeq(_ iceP_s1: InnerInner2SSeq, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2SSeq, s2: InnerInner2SSeq) {
+        return try await _impl._invoke(operation: "opSSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           InnerInner2SSeqHelper.write(to: ostr, value: iceP_s1)
+                                       },
+                                       read: { istr in
+                                           let iceP_s2: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
+                                           let iceP_returnValue: InnerInner2SSeq = try InnerInner2SSeqHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_s2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -3149,38 +2735,18 @@ public extension InnerIPrx {
     ///   - returnValue: `InnerInner2SMap`
     ///
     ///   - s2: `InnerInner2SMap`
-    func opSMap(_ iceP_s1: InnerInner2SMap, context: Ice.Context? = nil) throws -> (returnValue: InnerInner2SMap, s2: InnerInner2SMap) {
-        return try _impl._invoke(operation: "opSMap",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     InnerInner2SMapHelper.write(to: ostr, value: iceP_s1)
-                                 },
-                                 read: { istr in
-                                     let iceP_s2: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
-                                     let iceP_returnValue: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_s2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `InnerInner2SMap`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: InnerInner2SMap, s2: InnerInner2SMap)` - The result of the operation
-    func opSMapAsync(_ iceP_s1: InnerInner2SMap, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2SMap, s2: InnerInner2SMap) {
-        return try await _impl._invokeAsync(operation: "opSMap",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                InnerInner2SMapHelper.write(to: ostr, value: iceP_s1)
-                                            },
-                                            read: { istr in
-                                                let iceP_s2: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
-                                                let iceP_returnValue: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_s2)
-                                            },
-                                            context: context)
+    func opSMap(_ iceP_s1: InnerInner2SMap, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2SMap, s2: InnerInner2SMap) {
+        return try await _impl._invoke(operation: "opSMap",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           InnerInner2SMapHelper.write(to: ostr, value: iceP_s1)
+                                       },
+                                       read: { istr in
+                                           let iceP_s2: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
+                                           let iceP_returnValue: InnerInner2SMap = try InnerInner2SMapHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_s2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -3193,46 +2759,22 @@ public extension InnerIPrx {
     ///   - returnValue: `InnerInner2C?`
     ///
     ///   - c2: `InnerInner2C?`
-    func opC(_ iceP_c1: InnerInner2C?, context: Ice.Context? = nil) throws -> (returnValue: InnerInner2C?, c2: InnerInner2C?) {
-        return try _impl._invoke(operation: "opC",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_c1)
-                                     ostr.writePendingValues()
-                                 },
-                                 read: { istr in
-                                     var iceP_c2: InnerInner2C?
-                                     try istr.read(InnerInner2C.self) { iceP_c2 = $0 }
-                                     var iceP_returnValue: InnerInner2C?
-                                     try istr.read(InnerInner2C.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return (iceP_returnValue, iceP_c2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `InnerInner2C?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: InnerInner2C?, c2: InnerInner2C?)` - The result of the operation
-    func opCAsync(_ iceP_c1: InnerInner2C?, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2C?, c2: InnerInner2C?) {
-        return try await _impl._invokeAsync(operation: "opC",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_c1)
-                                                ostr.writePendingValues()
-                                            },
-                                            read: { istr in
-                                                var iceP_c2: InnerInner2C?
-                                                try istr.read(InnerInner2C.self) { iceP_c2 = $0 }
-                                                var iceP_returnValue: InnerInner2C?
-                                                try istr.read(InnerInner2C.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return (iceP_returnValue, iceP_c2)
-                                            },
-                                            context: context)
+    func opC(_ iceP_c1: InnerInner2C?, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2C?, c2: InnerInner2C?) {
+        return try await _impl._invoke(operation: "opC",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_c1)
+                                           ostr.writePendingValues()
+                                       },
+                                       read: { istr in
+                                           var iceP_c2: InnerInner2C?
+                                           try istr.read(InnerInner2C.self) { iceP_c2 = $0 }
+                                           var iceP_returnValue: InnerInner2C?
+                                           try istr.read(InnerInner2C.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return (iceP_returnValue, iceP_c2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -3245,42 +2787,20 @@ public extension InnerIPrx {
     ///   - returnValue: `InnerInner2CSeq`
     ///
     ///   - c2: `InnerInner2CSeq`
-    func opCSeq(_ iceP_c1: InnerInner2CSeq, context: Ice.Context? = nil) throws -> (returnValue: InnerInner2CSeq, c2: InnerInner2CSeq) {
-        return try _impl._invoke(operation: "opCSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     InnerInner2CSeqHelper.write(to: ostr, value: iceP_c1)
-                                     ostr.writePendingValues()
-                                 },
-                                 read: { istr in
-                                     let iceP_c2: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
-                                     let iceP_returnValue: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
-                                     try istr.readPendingValues()
-                                     return (iceP_returnValue, iceP_c2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `InnerInner2CSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)` - The result of the operation
-    func opCSeqAsync(_ iceP_c1: InnerInner2CSeq, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2CSeq, c2: InnerInner2CSeq) {
-        return try await _impl._invokeAsync(operation: "opCSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                InnerInner2CSeqHelper.write(to: ostr, value: iceP_c1)
-                                                ostr.writePendingValues()
-                                            },
-                                            read: { istr in
-                                                let iceP_c2: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
-                                                let iceP_returnValue: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
-                                                try istr.readPendingValues()
-                                                return (iceP_returnValue, iceP_c2)
-                                            },
-                                            context: context)
+    func opCSeq(_ iceP_c1: InnerInner2CSeq, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2CSeq, c2: InnerInner2CSeq) {
+        return try await _impl._invoke(operation: "opCSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           InnerInner2CSeqHelper.write(to: ostr, value: iceP_c1)
+                                           ostr.writePendingValues()
+                                       },
+                                       read: { istr in
+                                           let iceP_c2: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
+                                           let iceP_returnValue: InnerInner2CSeq = try InnerInner2CSeqHelper.read(from: istr)
+                                           try istr.readPendingValues()
+                                           return (iceP_returnValue, iceP_c2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -3293,60 +2813,28 @@ public extension InnerIPrx {
     ///   - returnValue: `InnerInner2CMap`
     ///
     ///   - c2: `InnerInner2CMap`
-    func opCMap(_ iceP_c1: InnerInner2CMap, context: Ice.Context? = nil) throws -> (returnValue: InnerInner2CMap, c2: InnerInner2CMap) {
-        return try _impl._invoke(operation: "opCMap",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     InnerInner2CMapHelper.write(to: ostr, value: iceP_c1)
-                                     ostr.writePendingValues()
-                                 },
-                                 read: { istr in
-                                     let iceP_c2: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
-                                     let iceP_returnValue: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
-                                     try istr.readPendingValues()
-                                     return (iceP_returnValue, iceP_c2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `InnerInner2CMap`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: InnerInner2CMap, c2: InnerInner2CMap)` - The result of the operation
-    func opCMapAsync(_ iceP_c1: InnerInner2CMap, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2CMap, c2: InnerInner2CMap) {
-        return try await _impl._invokeAsync(operation: "opCMap",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                InnerInner2CMapHelper.write(to: ostr, value: iceP_c1)
-                                                ostr.writePendingValues()
-                                            },
-                                            read: { istr in
-                                                let iceP_c2: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
-                                                let iceP_returnValue: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
-                                                try istr.readPendingValues()
-                                                return (iceP_returnValue, iceP_c2)
-                                            },
-                                            context: context)
+    func opCMap(_ iceP_c1: InnerInner2CMap, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2CMap, c2: InnerInner2CMap) {
+        return try await _impl._invoke(operation: "opCMap",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           InnerInner2CMapHelper.write(to: ostr, value: iceP_c1)
+                                           ostr.writePendingValues()
+                                       },
+                                       read: { istr in
+                                           let iceP_c2: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
+                                           let iceP_returnValue: InnerInner2CMap = try InnerInner2CMapHelper.read(from: istr)
+                                           try istr.readPendingValues()
+                                           return (iceP_returnValue, iceP_c2)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -3419,8 +2907,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: InnerTestInner2IPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> InnerTestInner2IPrx? {
-    return try InnerTestInner2IPrxI.checkedCast(prx: prx, facet: facet, context: context) as InnerTestInner2IPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: InnerTestInner2IPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> InnerTestInner2IPrx? {
+    return try await InnerTestInner2IPrxI.checkedCast(prx: prx, facet: facet, context: context) as InnerTestInner2IPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -3510,38 +2998,18 @@ public extension InnerTestInner2IPrx {
     ///   - returnValue: `S`
     ///
     ///   - s2: `S`
-    func opS(_ iceP_s1: S, context: Ice.Context? = nil) throws -> (returnValue: S, s2: S) {
-        return try _impl._invoke(operation: "opS",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_s1)
-                                 },
-                                 read: { istr in
-                                     let iceP_s2: S = try istr.read()
-                                     let iceP_returnValue: S = try istr.read()
-                                     return (iceP_returnValue, iceP_s2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `S`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: S, s2: S)` - The result of the operation
-    func opSAsync(_ iceP_s1: S, context: Ice.Context? = nil) async throws -> (returnValue: S, s2: S) {
-        return try await _impl._invokeAsync(operation: "opS",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_s1)
-                                            },
-                                            read: { istr in
-                                                let iceP_s2: S = try istr.read()
-                                                let iceP_returnValue: S = try istr.read()
-                                                return (iceP_returnValue, iceP_s2)
-                                            },
-                                            context: context)
+    func opS(_ iceP_s1: S, context: Ice.Context? = nil) async throws -> (returnValue: S, s2: S) {
+        return try await _impl._invoke(operation: "opS",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_s1)
+                                       },
+                                       read: { istr in
+                                           let iceP_s2: S = try istr.read()
+                                           let iceP_returnValue: S = try istr.read()
+                                           return (iceP_returnValue, iceP_s2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -3554,38 +3022,18 @@ public extension InnerTestInner2IPrx {
     ///   - returnValue: `SSeq`
     ///
     ///   - s2: `SSeq`
-    func opSSeq(_ iceP_s1: SSeq, context: Ice.Context? = nil) throws -> (returnValue: SSeq, s2: SSeq) {
-        return try _impl._invoke(operation: "opSSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     SSeqHelper.write(to: ostr, value: iceP_s1)
-                                 },
-                                 read: { istr in
-                                     let iceP_s2: SSeq = try SSeqHelper.read(from: istr)
-                                     let iceP_returnValue: SSeq = try SSeqHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_s2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `SSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SSeq, s2: SSeq)` - The result of the operation
-    func opSSeqAsync(_ iceP_s1: SSeq, context: Ice.Context? = nil) async throws -> (returnValue: SSeq, s2: SSeq) {
-        return try await _impl._invokeAsync(operation: "opSSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                SSeqHelper.write(to: ostr, value: iceP_s1)
-                                            },
-                                            read: { istr in
-                                                let iceP_s2: SSeq = try SSeqHelper.read(from: istr)
-                                                let iceP_returnValue: SSeq = try SSeqHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_s2)
-                                            },
-                                            context: context)
+    func opSSeq(_ iceP_s1: SSeq, context: Ice.Context? = nil) async throws -> (returnValue: SSeq, s2: SSeq) {
+        return try await _impl._invoke(operation: "opSSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           SSeqHelper.write(to: ostr, value: iceP_s1)
+                                       },
+                                       read: { istr in
+                                           let iceP_s2: SSeq = try SSeqHelper.read(from: istr)
+                                           let iceP_returnValue: SSeq = try SSeqHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_s2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -3598,38 +3046,18 @@ public extension InnerTestInner2IPrx {
     ///   - returnValue: `SMap`
     ///
     ///   - s2: `SMap`
-    func opSMap(_ iceP_s1: SMap, context: Ice.Context? = nil) throws -> (returnValue: SMap, s2: SMap) {
-        return try _impl._invoke(operation: "opSMap",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     SMapHelper.write(to: ostr, value: iceP_s1)
-                                 },
-                                 read: { istr in
-                                     let iceP_s2: SMap = try SMapHelper.read(from: istr)
-                                     let iceP_returnValue: SMap = try SMapHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_s2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `SMap`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SMap, s2: SMap)` - The result of the operation
-    func opSMapAsync(_ iceP_s1: SMap, context: Ice.Context? = nil) async throws -> (returnValue: SMap, s2: SMap) {
-        return try await _impl._invokeAsync(operation: "opSMap",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                SMapHelper.write(to: ostr, value: iceP_s1)
-                                            },
-                                            read: { istr in
-                                                let iceP_s2: SMap = try SMapHelper.read(from: istr)
-                                                let iceP_returnValue: SMap = try SMapHelper.read(from: istr)
-                                                return (iceP_returnValue, iceP_s2)
-                                            },
-                                            context: context)
+    func opSMap(_ iceP_s1: SMap, context: Ice.Context? = nil) async throws -> (returnValue: SMap, s2: SMap) {
+        return try await _impl._invoke(operation: "opSMap",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           SMapHelper.write(to: ostr, value: iceP_s1)
+                                       },
+                                       read: { istr in
+                                           let iceP_s2: SMap = try SMapHelper.read(from: istr)
+                                           let iceP_returnValue: SMap = try SMapHelper.read(from: istr)
+                                           return (iceP_returnValue, iceP_s2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -3642,46 +3070,22 @@ public extension InnerTestInner2IPrx {
     ///   - returnValue: `C?`
     ///
     ///   - c2: `C?`
-    func opC(_ iceP_c1: C?, context: Ice.Context? = nil) throws -> (returnValue: C?, c2: C?) {
-        return try _impl._invoke(operation: "opC",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_c1)
-                                     ostr.writePendingValues()
-                                 },
-                                 read: { istr in
-                                     var iceP_c2: C?
-                                     try istr.read(C.self) { iceP_c2 = $0 }
-                                     var iceP_returnValue: C?
-                                     try istr.read(C.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return (iceP_returnValue, iceP_c2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `C?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: C?, c2: C?)` - The result of the operation
-    func opCAsync(_ iceP_c1: C?, context: Ice.Context? = nil) async throws -> (returnValue: C?, c2: C?) {
-        return try await _impl._invokeAsync(operation: "opC",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                ostr.write(iceP_c1)
-                                                ostr.writePendingValues()
-                                            },
-                                            read: { istr in
-                                                var iceP_c2: C?
-                                                try istr.read(C.self) { iceP_c2 = $0 }
-                                                var iceP_returnValue: C?
-                                                try istr.read(C.self) { iceP_returnValue = $0 }
-                                                try istr.readPendingValues()
-                                                return (iceP_returnValue, iceP_c2)
-                                            },
-                                            context: context)
+    func opC(_ iceP_c1: C?, context: Ice.Context? = nil) async throws -> (returnValue: C?, c2: C?) {
+        return try await _impl._invoke(operation: "opC",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_c1)
+                                           ostr.writePendingValues()
+                                       },
+                                       read: { istr in
+                                           var iceP_c2: C?
+                                           try istr.read(C.self) { iceP_c2 = $0 }
+                                           var iceP_returnValue: C?
+                                           try istr.read(C.self) { iceP_returnValue = $0 }
+                                           try istr.readPendingValues()
+                                           return (iceP_returnValue, iceP_c2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -3694,42 +3098,20 @@ public extension InnerTestInner2IPrx {
     ///   - returnValue: `CSeq`
     ///
     ///   - c2: `CSeq`
-    func opCSeq(_ iceP_c1: CSeq, context: Ice.Context? = nil) throws -> (returnValue: CSeq, c2: CSeq) {
-        return try _impl._invoke(operation: "opCSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     CSeqHelper.write(to: ostr, value: iceP_c1)
-                                     ostr.writePendingValues()
-                                 },
-                                 read: { istr in
-                                     let iceP_c2: CSeq = try CSeqHelper.read(from: istr)
-                                     let iceP_returnValue: CSeq = try CSeqHelper.read(from: istr)
-                                     try istr.readPendingValues()
-                                     return (iceP_returnValue, iceP_c2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `CSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: CSeq, c2: CSeq)` - The result of the operation
-    func opCSeqAsync(_ iceP_c1: CSeq, context: Ice.Context? = nil) async throws -> (returnValue: CSeq, c2: CSeq) {
-        return try await _impl._invokeAsync(operation: "opCSeq",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                CSeqHelper.write(to: ostr, value: iceP_c1)
-                                                ostr.writePendingValues()
-                                            },
-                                            read: { istr in
-                                                let iceP_c2: CSeq = try CSeqHelper.read(from: istr)
-                                                let iceP_returnValue: CSeq = try CSeqHelper.read(from: istr)
-                                                try istr.readPendingValues()
-                                                return (iceP_returnValue, iceP_c2)
-                                            },
-                                            context: context)
+    func opCSeq(_ iceP_c1: CSeq, context: Ice.Context? = nil) async throws -> (returnValue: CSeq, c2: CSeq) {
+        return try await _impl._invoke(operation: "opCSeq",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           CSeqHelper.write(to: ostr, value: iceP_c1)
+                                           ostr.writePendingValues()
+                                       },
+                                       read: { istr in
+                                           let iceP_c2: CSeq = try CSeqHelper.read(from: istr)
+                                           let iceP_returnValue: CSeq = try CSeqHelper.read(from: istr)
+                                           try istr.readPendingValues()
+                                           return (iceP_returnValue, iceP_c2)
+                                       },
+                                       context: context)
     }
 
     ///
@@ -3742,60 +3124,28 @@ public extension InnerTestInner2IPrx {
     ///   - returnValue: `CMap`
     ///
     ///   - c2: `CMap`
-    func opCMap(_ iceP_c1: CMap, context: Ice.Context? = nil) throws -> (returnValue: CMap, c2: CMap) {
-        return try _impl._invoke(operation: "opCMap",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     CMapHelper.write(to: ostr, value: iceP_c1)
-                                     ostr.writePendingValues()
-                                 },
-                                 read: { istr in
-                                     let iceP_c2: CMap = try CMapHelper.read(from: istr)
-                                     let iceP_returnValue: CMap = try CMapHelper.read(from: istr)
-                                     try istr.readPendingValues()
-                                     return (iceP_returnValue, iceP_c2)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `CMap`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: CMap, c2: CMap)` - The result of the operation
-    func opCMapAsync(_ iceP_c1: CMap, context: Ice.Context? = nil) async throws -> (returnValue: CMap, c2: CMap) {
-        return try await _impl._invokeAsync(operation: "opCMap",
-                                            mode: .Normal,
-                                            write: { ostr in
-                                                CMapHelper.write(to: ostr, value: iceP_c1)
-                                                ostr.writePendingValues()
-                                            },
-                                            read: { istr in
-                                                let iceP_c2: CMap = try CMapHelper.read(from: istr)
-                                                let iceP_returnValue: CMap = try CMapHelper.read(from: istr)
-                                                try istr.readPendingValues()
-                                                return (iceP_returnValue, iceP_c2)
-                                            },
-                                            context: context)
+    func opCMap(_ iceP_c1: CMap, context: Ice.Context? = nil) async throws -> (returnValue: CMap, c2: CMap) {
+        return try await _impl._invoke(operation: "opCMap",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           CMapHelper.write(to: ostr, value: iceP_c1)
+                                           ostr.writePendingValues()
+                                       },
+                                       read: { istr in
+                                           let iceP_c2: CMap = try CMapHelper.read(from: istr)
+                                           let iceP_returnValue: CMap = try CMapHelper.read(from: istr)
+                                           try istr.readPendingValues()
+                                           return (iceP_returnValue, iceP_c2)
+                                       },
+                                       context: context)
     }
 
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func shutdown(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "shutdown",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `` - The result of the operation
-    func shutdownAsync(context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invokeAsync(operation: "shutdown",
-                                            mode: .Normal,
-                                            context: context)
+    func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "shutdown",
+                                       mode: .Normal,
+                                       context: context)
     }
 }
 
@@ -4075,7 +3425,11 @@ public protocol I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: S, s2: S)` - The result of the operation
+    /// - returns: `(returnValue: S, s2: S)`:
+    ///
+    ///   - returnValue: `S`
+    ///
+    ///   - s2: `S`
     func opS(s1: S, current: Ice.Current) async throws -> (returnValue: S, s2: S)
 
     ///
@@ -4083,7 +3437,11 @@ public protocol I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: SSeq, s2: SSeq)` - The result of the operation
+    /// - returns: `(returnValue: SSeq, s2: SSeq)`:
+    ///
+    ///   - returnValue: `SSeq`
+    ///
+    ///   - s2: `SSeq`
     func opSSeq(s1: SSeq, current: Ice.Current) async throws -> (returnValue: SSeq, s2: SSeq)
 
     ///
@@ -4091,7 +3449,11 @@ public protocol I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: SMap, s2: SMap)` - The result of the operation
+    /// - returns: `(returnValue: SMap, s2: SMap)`:
+    ///
+    ///   - returnValue: `SMap`
+    ///
+    ///   - s2: `SMap`
     func opSMap(s1: SMap, current: Ice.Current) async throws -> (returnValue: SMap, s2: SMap)
 
     ///
@@ -4099,7 +3461,11 @@ public protocol I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: C?, c2: C?)` - The result of the operation
+    /// - returns: `(returnValue: C?, c2: C?)`:
+    ///
+    ///   - returnValue: `C?`
+    ///
+    ///   - c2: `C?`
     func opC(c1: C?, current: Ice.Current) async throws -> (returnValue: C?, c2: C?)
 
     ///
@@ -4107,7 +3473,11 @@ public protocol I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: CSeq, s2: CSeq)` - The result of the operation
+    /// - returns: `(returnValue: CSeq, s2: CSeq)`:
+    ///
+    ///   - returnValue: `CSeq`
+    ///
+    ///   - s2: `CSeq`
     func opCSeq(s1: CSeq, current: Ice.Current) async throws -> (returnValue: CSeq, s2: CSeq)
 
     ///
@@ -4115,7 +3485,11 @@ public protocol I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: CMap, c2: CMap)` - The result of the operation
+    /// - returns: `(returnValue: CMap, c2: CMap)`:
+    ///
+    ///   - returnValue: `CMap`
+    ///
+    ///   - c2: `CMap`
     func opCMap(c1: CMap, current: Ice.Current) async throws -> (returnValue: CMap, c2: CMap)
 
     ///
@@ -4123,7 +3497,7 @@ public protocol I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `E1` - The result of the operation
+    /// - returns: `E1`
     func opE1(E1: E1, current: Ice.Current) async throws -> E1
 
     ///
@@ -4131,7 +3505,7 @@ public protocol I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `S1` - The result of the operation
+    /// - returns: `S1`
     func opS1(S1: S1, current: Ice.Current) async throws -> S1
 
     ///
@@ -4139,7 +3513,7 @@ public protocol I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `C1?` - The result of the operation
+    /// - returns: `C1?`
     func opC1(C1: C1?, current: Ice.Current) async throws -> C1?
 
     ///
@@ -4147,7 +3521,7 @@ public protocol I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `S1Seq` - The result of the operation
+    /// - returns: `S1Seq`
     func opS1Seq(S1Seq: S1Seq, current: Ice.Current) async throws -> S1Seq
 
     ///
@@ -4155,13 +3529,11 @@ public protocol I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `S1Map` - The result of the operation
+    /// - returns: `S1Map`
     func opS1Map(S1Map: S1Map, current: Ice.Current) async throws -> S1Map
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -4211,7 +3583,11 @@ public protocol InnerInner2I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: InnerInner2S, s2: InnerInner2S)` - The result of the operation
+    /// - returns: `(returnValue: InnerInner2S, s2: InnerInner2S)`:
+    ///
+    ///   - returnValue: `InnerInner2S`
+    ///
+    ///   - s2: `InnerInner2S`
     func opS(s1: InnerInner2S, current: Ice.Current) async throws -> (returnValue: InnerInner2S, s2: InnerInner2S)
 
     ///
@@ -4219,7 +3595,11 @@ public protocol InnerInner2I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)` - The result of the operation
+    /// - returns: `(returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)`:
+    ///
+    ///   - returnValue: `InnerInner2SSeq`
+    ///
+    ///   - s2: `InnerInner2SSeq`
     func opSSeq(s1: InnerInner2SSeq, current: Ice.Current) async throws -> (returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)
 
     ///
@@ -4227,7 +3607,11 @@ public protocol InnerInner2I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: InnerInner2SMap, s2: InnerInner2SMap)` - The result of the operation
+    /// - returns: `(returnValue: InnerInner2SMap, s2: InnerInner2SMap)`:
+    ///
+    ///   - returnValue: `InnerInner2SMap`
+    ///
+    ///   - s2: `InnerInner2SMap`
     func opSMap(s1: InnerInner2SMap, current: Ice.Current) async throws -> (returnValue: InnerInner2SMap, s2: InnerInner2SMap)
 
     ///
@@ -4235,7 +3619,11 @@ public protocol InnerInner2I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: InnerInner2C?, c2: InnerInner2C?)` - The result of the operation
+    /// - returns: `(returnValue: InnerInner2C?, c2: InnerInner2C?)`:
+    ///
+    ///   - returnValue: `InnerInner2C?`
+    ///
+    ///   - c2: `InnerInner2C?`
     func opC(c1: InnerInner2C?, current: Ice.Current) async throws -> (returnValue: InnerInner2C?, c2: InnerInner2C?)
 
     ///
@@ -4243,7 +3631,11 @@ public protocol InnerInner2I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)` - The result of the operation
+    /// - returns: `(returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)`:
+    ///
+    ///   - returnValue: `InnerInner2CSeq`
+    ///
+    ///   - c2: `InnerInner2CSeq`
     func opCSeq(c1: InnerInner2CSeq, current: Ice.Current) async throws -> (returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)
 
     ///
@@ -4251,13 +3643,15 @@ public protocol InnerInner2I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: InnerInner2CMap, c2: InnerInner2CMap)` - The result of the operation
+    /// - returns: `(returnValue: InnerInner2CMap, c2: InnerInner2CMap)`:
+    ///
+    ///   - returnValue: `InnerInner2CMap`
+    ///
+    ///   - c2: `InnerInner2CMap`
     func opCMap(c1: InnerInner2CMap, current: Ice.Current) async throws -> (returnValue: InnerInner2CMap, c2: InnerInner2CMap)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -4307,7 +3701,11 @@ public protocol InnerI {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: InnerInner2S, s2: InnerInner2S)` - The result of the operation
+    /// - returns: `(returnValue: InnerInner2S, s2: InnerInner2S)`:
+    ///
+    ///   - returnValue: `InnerInner2S`
+    ///
+    ///   - s2: `InnerInner2S`
     func opS(s1: InnerInner2S, current: Ice.Current) async throws -> (returnValue: InnerInner2S, s2: InnerInner2S)
 
     ///
@@ -4315,7 +3713,11 @@ public protocol InnerI {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)` - The result of the operation
+    /// - returns: `(returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)`:
+    ///
+    ///   - returnValue: `InnerInner2SSeq`
+    ///
+    ///   - s2: `InnerInner2SSeq`
     func opSSeq(s1: InnerInner2SSeq, current: Ice.Current) async throws -> (returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)
 
     ///
@@ -4323,7 +3725,11 @@ public protocol InnerI {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: InnerInner2SMap, s2: InnerInner2SMap)` - The result of the operation
+    /// - returns: `(returnValue: InnerInner2SMap, s2: InnerInner2SMap)`:
+    ///
+    ///   - returnValue: `InnerInner2SMap`
+    ///
+    ///   - s2: `InnerInner2SMap`
     func opSMap(s1: InnerInner2SMap, current: Ice.Current) async throws -> (returnValue: InnerInner2SMap, s2: InnerInner2SMap)
 
     ///
@@ -4331,7 +3737,11 @@ public protocol InnerI {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: InnerInner2C?, c2: InnerInner2C?)` - The result of the operation
+    /// - returns: `(returnValue: InnerInner2C?, c2: InnerInner2C?)`:
+    ///
+    ///   - returnValue: `InnerInner2C?`
+    ///
+    ///   - c2: `InnerInner2C?`
     func opC(c1: InnerInner2C?, current: Ice.Current) async throws -> (returnValue: InnerInner2C?, c2: InnerInner2C?)
 
     ///
@@ -4339,7 +3749,11 @@ public protocol InnerI {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)` - The result of the operation
+    /// - returns: `(returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)`:
+    ///
+    ///   - returnValue: `InnerInner2CSeq`
+    ///
+    ///   - c2: `InnerInner2CSeq`
     func opCSeq(c1: InnerInner2CSeq, current: Ice.Current) async throws -> (returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)
 
     ///
@@ -4347,13 +3761,15 @@ public protocol InnerI {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: InnerInner2CMap, c2: InnerInner2CMap)` - The result of the operation
+    /// - returns: `(returnValue: InnerInner2CMap, c2: InnerInner2CMap)`:
+    ///
+    ///   - returnValue: `InnerInner2CMap`
+    ///
+    ///   - c2: `InnerInner2CMap`
     func opCMap(c1: InnerInner2CMap, current: Ice.Current) async throws -> (returnValue: InnerInner2CMap, c2: InnerInner2CMap)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -4403,7 +3819,11 @@ public protocol InnerTestInner2I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: S, s2: S)` - The result of the operation
+    /// - returns: `(returnValue: S, s2: S)`:
+    ///
+    ///   - returnValue: `S`
+    ///
+    ///   - s2: `S`
     func opS(s1: S, current: Ice.Current) async throws -> (returnValue: S, s2: S)
 
     ///
@@ -4411,7 +3831,11 @@ public protocol InnerTestInner2I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: SSeq, s2: SSeq)` - The result of the operation
+    /// - returns: `(returnValue: SSeq, s2: SSeq)`:
+    ///
+    ///   - returnValue: `SSeq`
+    ///
+    ///   - s2: `SSeq`
     func opSSeq(s1: SSeq, current: Ice.Current) async throws -> (returnValue: SSeq, s2: SSeq)
 
     ///
@@ -4419,7 +3843,11 @@ public protocol InnerTestInner2I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: SMap, s2: SMap)` - The result of the operation
+    /// - returns: `(returnValue: SMap, s2: SMap)`:
+    ///
+    ///   - returnValue: `SMap`
+    ///
+    ///   - s2: `SMap`
     func opSMap(s1: SMap, current: Ice.Current) async throws -> (returnValue: SMap, s2: SMap)
 
     ///
@@ -4427,7 +3855,11 @@ public protocol InnerTestInner2I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: C?, c2: C?)` - The result of the operation
+    /// - returns: `(returnValue: C?, c2: C?)`:
+    ///
+    ///   - returnValue: `C?`
+    ///
+    ///   - c2: `C?`
     func opC(c1: C?, current: Ice.Current) async throws -> (returnValue: C?, c2: C?)
 
     ///
@@ -4435,7 +3867,11 @@ public protocol InnerTestInner2I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: CSeq, c2: CSeq)` - The result of the operation
+    /// - returns: `(returnValue: CSeq, c2: CSeq)`:
+    ///
+    ///   - returnValue: `CSeq`
+    ///
+    ///   - c2: `CSeq`
     func opCSeq(c1: CSeq, current: Ice.Current) async throws -> (returnValue: CSeq, c2: CSeq)
 
     ///
@@ -4443,13 +3879,15 @@ public protocol InnerTestInner2I {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: CMap, c2: CMap)` - The result of the operation
+    /// - returns: `(returnValue: CMap, c2: CMap)`:
+    ///
+    ///   - returnValue: `CMap`
+    ///
+    ///   - c2: `CMap`
     func opCMap(c1: CMap, current: Ice.Current) async throws -> (returnValue: CMap, c2: CMap)
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `` - The result of the operation
     func shutdown(current: Ice.Current) async throws
 }
 

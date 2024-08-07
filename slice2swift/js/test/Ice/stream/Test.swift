@@ -1391,8 +1391,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: MyInterfacePrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> MyInterfacePrx? {
-    return try MyInterfacePrxI.checkedCast(prx: prx, facet: facet, context: context) as MyInterfacePrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: MyInterfacePrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> MyInterfacePrx? {
+    return try await MyInterfacePrxI.checkedCast(prx: prx, facet: facet, context: context) as MyInterfacePrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.

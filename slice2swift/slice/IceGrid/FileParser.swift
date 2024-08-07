@@ -110,8 +110,8 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 ///   support this type.
 ///
 /// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: FileParserPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> FileParserPrx? {
-    return try FileParserPrxI.checkedCast(prx: prx, facet: facet, context: context) as FileParserPrxI?
+public func checkedCast(prx: Ice.ObjectPrx, type: FileParserPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> FileParserPrx? {
+    return try await FileParserPrxI.checkedCast(prx: prx, facet: facet, context: context) as FileParserPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
@@ -181,57 +181,26 @@ public extension FileParserPrx {
     /// - throws:
     ///
     ///   - ParseException - Raised if an error occurred during parsing.
-    func parse(xmlFile iceP_xmlFile: Swift.String, adminProxy iceP_adminProxy: AdminPrx?, context: Ice.Context? = nil) throws -> ApplicationDescriptor {
-        return try _impl._invoke(operation: "parse",
-                                 mode: .Idempotent,
-                                 write: { ostr in
-                                     ostr.write(iceP_xmlFile)
-                                     ostr.write(iceP_adminProxy)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: ApplicationDescriptor = try istr.read()
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as ParseException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Parse a file.
-    ///
-    /// - parameter xmlFile: `Swift.String` Full pathname to the file.
-    ///
-    /// - parameter adminProxy: `AdminPrx?` An Admin proxy, used only to retrieve default templates when needed. May be null.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ApplicationDescriptor` - The result of the operation
-    func parseAsync(xmlFile iceP_xmlFile: Swift.String, adminProxy iceP_adminProxy: AdminPrx?, context: Ice.Context? = nil) async throws -> ApplicationDescriptor {
-        return try await _impl._invokeAsync(operation: "parse",
-                                            mode: .Idempotent,
-                                            write: { ostr in
-                                                ostr.write(iceP_xmlFile)
-                                                ostr.write(iceP_adminProxy)
-                                            },
-                                            read: { istr in
-                                                let iceP_returnValue: ApplicationDescriptor = try istr.read()
-                                                try istr.readPendingValues()
-                                                return iceP_returnValue
-                                            },
-                                            userException:{ ex in
-                                                do  {
-                                                    throw ex
-                                                } catch let error as ParseException {
-                                                    throw error
-                                                } catch is Ice.UserException {}
-                                            },
-                                            context: context)
+    func parse(xmlFile iceP_xmlFile: Swift.String, adminProxy iceP_adminProxy: AdminPrx?, context: Ice.Context? = nil) async throws -> ApplicationDescriptor {
+        return try await _impl._invoke(operation: "parse",
+                                       mode: .Idempotent,
+                                       write: { ostr in
+                                           ostr.write(iceP_xmlFile)
+                                           ostr.write(iceP_adminProxy)
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: ApplicationDescriptor = try istr.read()
+                                           try istr.readPendingValues()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as ParseException {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
     }
 }
 
@@ -274,7 +243,11 @@ public protocol FileParser {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ApplicationDescriptor` - The result of the operation
+    /// - returns: `ApplicationDescriptor` - The application descriptor.
+    ///
+    /// - throws:
+    ///
+    ///   - ParseException - Raised if an error occurred during parsing.
     func parse(xmlFile: Swift.String, adminProxy: AdminPrx?, current: Ice.Current) async throws -> ApplicationDescriptor
 }
 
