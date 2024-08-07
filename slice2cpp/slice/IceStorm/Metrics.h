@@ -28,9 +28,7 @@
 #endif
 
 #ifndef ICESTORM_API
-#   if defined(ICE_STATIC_LIBS)
-#       define ICESTORM_API /**/
-#   elif defined(ICESTORM_API_EXPORTS)
+#   if defined(ICESTORM_API_EXPORTS)
 #       define ICESTORM_API ICE_DECLSPEC_EXPORT
 #   else
 #       define ICESTORM_API ICE_DECLSPEC_IMPORT

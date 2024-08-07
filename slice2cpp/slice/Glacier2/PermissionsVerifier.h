@@ -28,9 +28,7 @@
 #endif
 
 #ifndef GLACIER2_API
-#   if defined(ICE_STATIC_LIBS)
-#       define GLACIER2_API /**/
-#   elif defined(GLACIER2_API_EXPORTS)
+#   if defined(GLACIER2_API_EXPORTS)
 #       define GLACIER2_API ICE_DECLSPEC_EXPORT
 #   else
 #       define GLACIER2_API ICE_DECLSPEC_IMPORT

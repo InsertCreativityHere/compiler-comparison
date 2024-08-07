@@ -26,9 +26,7 @@
 #endif
 
 #ifndef LIBRARY_TEST_API
-#   if defined(ICE_STATIC_LIBS)
-#       define LIBRARY_TEST_API /**/
-#   elif defined(LIBRARY_TEST_API_EXPORTS)
+#   if defined(LIBRARY_TEST_API_EXPORTS)
 #       define LIBRARY_TEST_API ICE_DECLSPEC_EXPORT
 #   else
 #       define LIBRARY_TEST_API ICE_DECLSPEC_IMPORT

@@ -28,9 +28,7 @@
 #endif
 
 #ifndef ICEGRID_API
-#   if defined(ICE_STATIC_LIBS)
-#       define ICEGRID_API /**/
-#   elif defined(ICEGRID_API_EXPORTS)
+#   if defined(ICEGRID_API_EXPORTS)
 #       define ICEGRID_API ICE_DECLSPEC_EXPORT
 #   else
 #       define ICEGRID_API ICE_DECLSPEC_IMPORT
