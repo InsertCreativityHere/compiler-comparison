@@ -195,5 +195,5 @@ public class EventData implements java.lang.Cloneable,
     private static final EventData _nullMarshalValue = new EventData();
 
     /** @hidden */
-    private static final long serialVersionUID = 5025726928044582063L;
+    private static final long serialVersionUID = -5380410498872447921L;
 }

@@ -60,7 +60,7 @@ public interface ServiceManagerPrx extends com.zeroc.Ice.ObjectPrx
         }
         catch(com.zeroc.Ice.UserException ex)
         {
-            throw new com.zeroc.Ice.UnknownUserException(ex.ice_id(), ex);
+            throw com.zeroc.Ice.UnknownUserException.fromTypeId(ex.ice_id());
         }
     }
 
@@ -146,7 +146,7 @@ public interface ServiceManagerPrx extends com.zeroc.Ice.ObjectPrx
         }
         catch(com.zeroc.Ice.UserException ex)
         {
-            throw new com.zeroc.Ice.UnknownUserException(ex.ice_id(), ex);
+            throw com.zeroc.Ice.UnknownUserException.fromTypeId(ex.ice_id());
         }
     }
 

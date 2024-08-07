@@ -107,7 +107,7 @@ public interface TopicInternalPrx extends com.zeroc.IceStorm.TopicPrx
         }
         catch(com.zeroc.Ice.UserException ex)
         {
-            throw new com.zeroc.Ice.UnknownUserException(ex.ice_id(), ex);
+            throw com.zeroc.Ice.UnknownUserException.fromTypeId(ex.ice_id());
         }
     }
 
