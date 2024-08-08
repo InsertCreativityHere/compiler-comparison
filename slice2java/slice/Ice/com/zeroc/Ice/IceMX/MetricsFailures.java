@@ -165,5 +165,5 @@ public class MetricsFailures implements java.lang.Cloneable,
     private static final MetricsFailures _nullMarshalValue = new MetricsFailures();
 
     /** @hidden */
-    private static final long serialVersionUID = 3885991398402828765L;
+    private static final long serialVersionUID = 2154953508018725688L;
 }

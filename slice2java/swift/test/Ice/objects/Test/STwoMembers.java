@@ -155,5 +155,5 @@ public class STwoMembers implements java.lang.Cloneable,
     private static final STwoMembers _nullMarshalValue = new STwoMembers();
 
     /** @hidden */
-    private static final long serialVersionUID = 4727755419695422274L;
+    private static final long serialVersionUID = -5464048579675327358L;
 }

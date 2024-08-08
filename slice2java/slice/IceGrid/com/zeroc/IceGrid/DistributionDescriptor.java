@@ -185,5 +185,5 @@ public class DistributionDescriptor implements java.lang.Cloneable,
     private static final DistributionDescriptor _nullMarshalValue = new DistributionDescriptor();
 
     /** @hidden */
-    private static final long serialVersionUID = -748540727876979818L;
+    private static final long serialVersionUID = -901482872516900234L;
 }
