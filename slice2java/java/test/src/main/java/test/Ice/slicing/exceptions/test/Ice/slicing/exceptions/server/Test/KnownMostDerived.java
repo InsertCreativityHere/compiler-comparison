@@ -19,25 +19,12 @@ public class KnownMostDerived extends KnownIntermediate
 {
     public KnownMostDerived()
     {
-        super();
-        this.kmd = "";
-    }
-
-    public KnownMostDerived(Throwable cause)
-    {
-        super(cause);
         this.kmd = "";
     }
 
     public KnownMostDerived(String b, String ki, String kmd)
     {
         super(b, ki);
-        this.kmd = kmd;
-    }
-
-    public KnownMostDerived(String b, String ki, String kmd, Throwable cause)
-    {
-        super(b, ki, cause);
         this.kmd = kmd;
     }
 
@@ -69,5 +56,5 @@ public class KnownMostDerived extends KnownIntermediate
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -7384915001191491963L;
+    private static final long serialVersionUID = -7384916990056928608L;
 }

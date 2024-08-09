@@ -19,24 +19,11 @@ public class EDerived extends EBase
 {
     public EDerived()
     {
-        super();
-    }
-
-    public EDerived(Throwable cause)
-    {
-        super(cause);
     }
 
     public EDerived(A1 a1, A1 a2, A1 a3, A1 a4)
     {
         super(a1, a2);
-        this.a3 = a3;
-        this.a4 = a4;
-    }
-
-    public EDerived(A1 a1, A1 a2, A1 a3, A1 a4, Throwable cause)
-    {
-        super(a1, a2, cause);
         this.a3 = a3;
         this.a4 = a4;
     }
@@ -73,5 +60,5 @@ public class EDerived extends EBase
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -5287537311180786926L;
+    private static final long serialVersionUID = -6072194708345029038L;
 }

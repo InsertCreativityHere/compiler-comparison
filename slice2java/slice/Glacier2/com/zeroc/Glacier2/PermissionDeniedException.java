@@ -25,20 +25,8 @@ public class PermissionDeniedException extends com.zeroc.Ice.UserException
         this.reason = "";
     }
 
-    public PermissionDeniedException(Throwable cause)
-    {
-        super(cause);
-        this.reason = "";
-    }
-
     public PermissionDeniedException(String reason)
     {
-        this.reason = reason;
-    }
-
-    public PermissionDeniedException(String reason, Throwable cause)
-    {
-        super(cause);
         this.reason = reason;
     }
 
@@ -71,5 +59,5 @@ public class PermissionDeniedException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -5089370522445132271L;
+    private static final long serialVersionUID = -5089375215822431102L;
 }

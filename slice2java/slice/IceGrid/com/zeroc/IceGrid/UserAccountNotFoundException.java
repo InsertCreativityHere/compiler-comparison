@@ -24,11 +24,6 @@ public class UserAccountNotFoundException extends com.zeroc.Ice.UserException
     {
     }
 
-    public UserAccountNotFoundException(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::IceGrid::UserAccountNotFoundException";

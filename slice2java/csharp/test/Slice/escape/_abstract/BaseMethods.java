@@ -21,33 +21,8 @@ public class BaseMethods extends com.zeroc.Ice.UserException
     {
     }
 
-    public BaseMethods(Throwable cause)
-    {
-        super(cause);
-    }
-
     public BaseMethods(int Data, int HelpLink, int InnerException, int Message, int Source, int StackTrace, int TargetSite, int HResult, int Equals, int GetBaseException, int GetHashCode, int GetObjectData, int GetType, int ReferenceEquals, int ToString)
     {
-        this.Data = Data;
-        this.HelpLink = HelpLink;
-        this.InnerException = InnerException;
-        this.Message = Message;
-        this.Source = Source;
-        this.StackTrace = StackTrace;
-        this.TargetSite = TargetSite;
-        this.HResult = HResult;
-        this.Equals = Equals;
-        this.GetBaseException = GetBaseException;
-        this.GetHashCode = GetHashCode;
-        this.GetObjectData = GetObjectData;
-        this.GetType = GetType;
-        this.ReferenceEquals = ReferenceEquals;
-        this.ToString = ToString;
-    }
-
-    public BaseMethods(int Data, int HelpLink, int InnerException, int Message, int Source, int StackTrace, int TargetSite, int HResult, int Equals, int GetBaseException, int GetHashCode, int GetObjectData, int GetType, int ReferenceEquals, int ToString, Throwable cause)
-    {
-        super(cause);
         this.Data = Data;
         this.HelpLink = HelpLink;
         this.InnerException = InnerException;
@@ -147,5 +122,5 @@ public class BaseMethods extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 6919815404107410355L;
+    private static final long serialVersionUID = 8689966602615114432L;
 }

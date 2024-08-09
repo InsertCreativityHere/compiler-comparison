@@ -24,19 +24,8 @@ public class _notify extends com.zeroc.Ice.UserException
     {
     }
 
-    public _notify(Throwable cause)
-    {
-        super(cause);
-    }
-
     public _notify(int i)
     {
-        this.i = i;
-    }
-
-    public _notify(int i, Throwable cause)
-    {
-        super(cause);
         this.i = i;
     }
 
@@ -66,5 +55,5 @@ public class _notify extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 7599600968064480605L;
+    private static final long serialVersionUID = 7599594975640869974L;
 }

@@ -24,11 +24,6 @@ public class NoSuchServiceException extends com.zeroc.Ice.UserException
     {
     }
 
-    public NoSuchServiceException(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::IceBox::NoSuchServiceException";

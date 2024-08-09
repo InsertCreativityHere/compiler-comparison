@@ -25,20 +25,8 @@ public class ServerNotExistException extends com.zeroc.Ice.UserException
         this.id = "";
     }
 
-    public ServerNotExistException(Throwable cause)
-    {
-        super(cause);
-        this.id = "";
-    }
-
     public ServerNotExistException(String id)
     {
-        this.id = id;
-    }
-
-    public ServerNotExistException(String id, Throwable cause)
-    {
-        super(cause);
         this.id = id;
     }
 
@@ -71,5 +59,5 @@ public class ServerNotExistException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -2699419299706191714L;
+    private static final long serialVersionUID = -2699425972799385431L;
 }

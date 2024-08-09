@@ -21,11 +21,6 @@ public class UE extends com.zeroc.Ice.UserException
     {
     }
 
-    public UE(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::Test::UE";

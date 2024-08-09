@@ -19,23 +19,11 @@ public class C extends B
 {
     public C()
     {
-        super();
-    }
-
-    public C(Throwable cause)
-    {
-        super(cause);
     }
 
     public C(int aMem, int bMem, int cMem)
     {
         super(aMem, bMem);
-        this.cMem = cMem;
-    }
-
-    public C(int aMem, int bMem, int cMem, Throwable cause)
-    {
-        super(aMem, bMem, cause);
         this.cMem = cMem;
     }
 
@@ -67,5 +55,5 @@ public class C extends B
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 1080699155545664459L;
+    private static final long serialVersionUID = 1080695606526862734L;
 }

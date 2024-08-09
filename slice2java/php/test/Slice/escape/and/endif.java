@@ -21,19 +21,8 @@ public class endif extends com.zeroc.Ice.UserException
     {
     }
 
-    public endif(Throwable cause)
-    {
-        super(cause);
-    }
-
     public endif(int endswitch)
     {
-        this.endswitch = endswitch;
-    }
-
-    public endif(int endswitch, Throwable cause)
-    {
-        super(cause);
         this.endswitch = endswitch;
     }
 
@@ -63,5 +52,5 @@ public class endif extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -3766565622469356690L;
+    private static final long serialVersionUID = -3766558536118124784L;
 }

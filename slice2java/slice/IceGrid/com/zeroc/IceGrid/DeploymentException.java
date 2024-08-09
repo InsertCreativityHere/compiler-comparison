@@ -25,20 +25,8 @@ public class DeploymentException extends com.zeroc.Ice.UserException
         this.reason = "";
     }
 
-    public DeploymentException(Throwable cause)
-    {
-        super(cause);
-        this.reason = "";
-    }
-
     public DeploymentException(String reason)
     {
-        this.reason = reason;
-    }
-
-    public DeploymentException(String reason, Throwable cause)
-    {
-        super(cause);
         this.reason = reason;
     }
 
@@ -71,5 +59,5 @@ public class DeploymentException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -6801500543374903699L;
+    private static final long serialVersionUID = -6801510230764231590L;
 }

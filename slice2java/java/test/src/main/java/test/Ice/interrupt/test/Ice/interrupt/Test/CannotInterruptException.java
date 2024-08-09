@@ -21,11 +21,6 @@ public class CannotInterruptException extends com.zeroc.Ice.UserException
     {
     }
 
-    public CannotInterruptException(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::Test::CannotInterruptException";

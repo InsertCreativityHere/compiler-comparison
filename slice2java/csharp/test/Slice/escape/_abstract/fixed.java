@@ -21,19 +21,8 @@ public class fixed extends com.zeroc.Ice.UserException
     {
     }
 
-    public fixed(Throwable cause)
-    {
-        super(cause);
-    }
-
     public fixed(int _for)
     {
-        this._for = _for;
-    }
-
-    public fixed(int _for, Throwable cause)
-    {
-        super(cause);
         this._for = _for;
     }
 
@@ -63,5 +52,5 @@ public class fixed extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -8293824101019327224L;
+    private static final long serialVersionUID = -8293833663202585349L;
 }

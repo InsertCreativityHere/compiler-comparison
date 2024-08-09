@@ -19,15 +19,6 @@ public class DerivedException extends OptionalException
 {
     public DerivedException()
     {
-        super();
-        this.d1 = "";
-        setSs("test");
-        this.d2 = "";
-    }
-
-    public DerivedException(Throwable cause)
-    {
-        super(cause);
         this.d1 = "";
         setSs("test");
         this.d2 = "";
@@ -41,25 +32,9 @@ public class DerivedException extends OptionalException
         setSs("test");
     }
 
-    public DerivedException(boolean req, String d1, String d2, Throwable cause)
-    {
-        super(req, cause);
-        this.d1 = d1;
-        this.d2 = d2;
-        setSs("test");
-    }
-
     public DerivedException(boolean req, int a, String b, String d1, String ss, String d2)
     {
         super(req, a, b);
-        this.d1 = d1;
-        setSs(ss);
-        this.d2 = d2;
-    }
-
-    public DerivedException(boolean req, int a, String b, String d1, String ss, String d2, Throwable cause)
-    {
-        super(req, a, b, cause);
         this.d1 = d1;
         setSs(ss);
         this.d2 = d2;
@@ -158,5 +133,5 @@ public class DerivedException extends OptionalException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 7326883844064625927L;
+    private static final long serialVersionUID = 4776641842749665718L;
 }

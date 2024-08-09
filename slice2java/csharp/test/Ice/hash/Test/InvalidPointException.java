@@ -19,22 +19,10 @@ public class InvalidPointException extends BaseException
 {
     public InvalidPointException()
     {
-        super();
-    }
-
-    public InvalidPointException(Throwable cause)
-    {
-        super(cause);
     }
 
     public InvalidPointException(int index)
     {
-        this.index = index;
-    }
-
-    public InvalidPointException(int index, Throwable cause)
-    {
-        super(cause);
         this.index = index;
     }
 
@@ -66,5 +54,5 @@ public class InvalidPointException extends BaseException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -8727124453484629695L;
+    private static final long serialVersionUID = -8727118618779831387L;
 }

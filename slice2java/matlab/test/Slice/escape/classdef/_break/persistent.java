@@ -26,29 +26,8 @@ public class persistent extends com.zeroc.Ice.UserException
         this.type = "5";
     }
 
-    public persistent(Throwable cause)
-    {
-        super(cause);
-        this.identifier = "1";
-        this.message = "2";
-        this.stack = "3";
-        this.cause = "4";
-        this.type = "5";
-    }
-
     public persistent(String identifier, String message, String stack, String cause, String type, logical end)
     {
-        this.identifier = identifier;
-        this.message = message;
-        this.stack = stack;
-        this.cause = cause;
-        this.type = type;
-        this.end = end;
-    }
-
-    public persistent(String identifier, String message, String stack, String cause, String type, logical end, Throwable cause_)
-    {
-        super(cause_);
         this.identifier = identifier;
         this.message = message;
         this.stack = stack;
@@ -110,5 +89,5 @@ public class persistent extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 2513670892621876575L;
+    private static final long serialVersionUID = 7856589251998769455L;
 }

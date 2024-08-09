@@ -24,11 +24,6 @@ public class AdapterNotFoundException extends com.zeroc.Ice.UserException
     {
     }
 
-    public AdapterNotFoundException(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::Ice::AdapterNotFoundException";

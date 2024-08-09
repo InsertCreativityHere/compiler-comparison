@@ -21,22 +21,8 @@ public class OtherException extends com.zeroc.Ice.UserException
     {
     }
 
-    public OtherException(Throwable cause)
-    {
-        super(cause);
-    }
-
     public OtherException(int x, int y, int z, boolean b)
     {
-        this.x = x;
-        this.y = y;
-        this.z = z;
-        this.b = b;
-    }
-
-    public OtherException(int x, int y, int z, boolean b, Throwable cause)
-    {
-        super(cause);
         this.x = x;
         this.y = y;
         this.z = z;
@@ -81,5 +67,5 @@ public class OtherException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -5075565625192057160L;
+    private static final long serialVersionUID = -5998585410347940104L;
 }

@@ -19,22 +19,11 @@ public class DerivedEx extends BaseEx
 {
     public DerivedEx()
     {
-        super();
-    }
-
-    public DerivedEx(Throwable cause)
-    {
-        super(cause);
     }
 
     public DerivedEx(String reason)
     {
         super(reason);
-    }
-
-    public DerivedEx(String reason, Throwable cause)
-    {
-        super(reason, cause);
     }
 
     public String ice_id()

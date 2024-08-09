@@ -19,25 +19,12 @@ public class UnknownMostDerived1 extends KnownIntermediate
 {
     public UnknownMostDerived1()
     {
-        super();
-        this.umd1 = "";
-    }
-
-    public UnknownMostDerived1(Throwable cause)
-    {
-        super(cause);
         this.umd1 = "";
     }
 
     public UnknownMostDerived1(String b, String ki, String umd1)
     {
         super(b, ki);
-        this.umd1 = umd1;
-    }
-
-    public UnknownMostDerived1(String b, String ki, String umd1, Throwable cause)
-    {
-        super(b, ki, cause);
         this.umd1 = umd1;
     }
 
@@ -69,5 +56,5 @@ public class UnknownMostDerived1 extends KnownIntermediate
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -1126107808642249577L;
+    private static final long serialVersionUID = -1126109062581597814L;
 }

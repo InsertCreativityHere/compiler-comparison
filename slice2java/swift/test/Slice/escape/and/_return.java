@@ -21,19 +21,8 @@ public class _return extends com.zeroc.Ice.UserException
     {
     }
 
-    public _return(Throwable cause)
-    {
-        super(cause);
-    }
-
     public _return(int Int32)
     {
-        this.Int32 = Int32;
-    }
-
-    public _return(int Int32, Throwable cause)
-    {
-        super(cause);
         this.Int32 = Int32;
     }
 
@@ -63,5 +52,5 @@ public class _return extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -8206184826961711865L;
+    private static final long serialVersionUID = -8206184812674949773L;
 }

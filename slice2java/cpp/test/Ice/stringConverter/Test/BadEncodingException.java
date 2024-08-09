@@ -21,11 +21,6 @@ public class BadEncodingException extends com.zeroc.Ice.UserException
     {
     }
 
-    public BadEncodingException(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::Test::BadEncodingException";

@@ -24,14 +24,6 @@ public class OptionalException extends com.zeroc.Ice.UserException
         this.b = "";
     }
 
-    public OptionalException(Throwable cause)
-    {
-        super(cause);
-        this.req = false;
-        setA(5);
-        this.b = "";
-    }
-
     public OptionalException(boolean req)
     {
         this.req = req;
@@ -39,24 +31,8 @@ public class OptionalException extends com.zeroc.Ice.UserException
         this.b = "";
     }
 
-    public OptionalException(boolean req, Throwable cause)
-    {
-        super(cause);
-        this.req = req;
-        setA(5);
-        this.b = "";
-    }
-
     public OptionalException(boolean req, int a, String b)
     {
-        this.req = req;
-        setA(a);
-        setB(b);
-    }
-
-    public OptionalException(boolean req, int a, String b, Throwable cause)
-    {
-        super(cause);
         this.req = req;
         setA(a);
         setB(b);
@@ -210,5 +186,5 @@ public class OptionalException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 1679475617070884006L;
+    private static final long serialVersionUID = -4350467687225686714L;
 }

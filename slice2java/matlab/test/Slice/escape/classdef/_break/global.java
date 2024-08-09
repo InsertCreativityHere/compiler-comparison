@@ -19,25 +19,12 @@ public class global extends persistent
 {
     public global()
     {
-        super();
-        this.enumeration = 1;
-    }
-
-    public global(Throwable cause)
-    {
-        super(cause);
         this.enumeration = 1;
     }
 
     public global(String identifier, String message, String stack, String cause, String type, logical end, int enumeration)
     {
         super(identifier, message, stack, cause, type, end);
-        this.enumeration = enumeration;
-    }
-
-    public global(String identifier, String message, String stack, String cause, String type, logical end, int enumeration, Throwable cause_)
-    {
-        super(identifier, message, stack, cause, type, end, cause_);
         this.enumeration = enumeration;
     }
 
@@ -69,5 +56,5 @@ public class global extends persistent
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 2421492595989795310L;
+    private static final long serialVersionUID = 2421484451993081113L;
 }

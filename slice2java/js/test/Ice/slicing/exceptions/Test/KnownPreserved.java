@@ -19,25 +19,12 @@ public class KnownPreserved extends Base
 {
     public KnownPreserved()
     {
-        super();
-        this.kp = "";
-    }
-
-    public KnownPreserved(Throwable cause)
-    {
-        super(cause);
         this.kp = "";
     }
 
     public KnownPreserved(String b, String kp)
     {
         super(b);
-        this.kp = kp;
-    }
-
-    public KnownPreserved(String b, String kp, Throwable cause)
-    {
-        super(b, cause);
         this.kp = kp;
     }
 
@@ -69,5 +56,5 @@ public class KnownPreserved extends Base
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -2733707111463141777L;
+    private static final long serialVersionUID = -2733707219934594086L;
 }

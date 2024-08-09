@@ -19,24 +19,11 @@ public class not extends is
 {
     public not()
     {
-        super();
-    }
-
-    public not(Throwable cause)
-    {
-        super(cause);
     }
 
     public not(int lambda, int or, int pass)
     {
         super(lambda);
-        this.or = or;
-        this.pass = pass;
-    }
-
-    public not(int lambda, int or, int pass, Throwable cause)
-    {
-        super(lambda, cause);
         this.or = or;
         this.pass = pass;
     }
@@ -73,5 +60,5 @@ public class not extends is
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 3622167475961288185L;
+    private static final long serialVersionUID = -5113118833174750855L;
 }

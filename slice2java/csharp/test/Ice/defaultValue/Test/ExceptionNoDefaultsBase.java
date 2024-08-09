@@ -23,23 +23,8 @@ public class ExceptionNoDefaultsBase extends com.zeroc.Ice.UserException
         this.c1 = Color.red;
     }
 
-    public ExceptionNoDefaultsBase(Throwable cause)
-    {
-        super(cause);
-        this.str = "";
-        this.c1 = Color.red;
-    }
-
     public ExceptionNoDefaultsBase(String str, Color c1, byte[] bs)
     {
-        this.str = str;
-        this.c1 = c1;
-        this.bs = bs;
-    }
-
-    public ExceptionNoDefaultsBase(String str, Color c1, byte[] bs, Throwable cause)
-    {
-        super(cause);
         this.str = str;
         this.c1 = c1;
         this.bs = bs;
@@ -79,5 +64,5 @@ public class ExceptionNoDefaultsBase extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -6492898475406923653L;
+    private static final long serialVersionUID = -2585797214166881264L;
 }

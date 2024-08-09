@@ -37,50 +37,8 @@ public class BaseEx extends com.zeroc.Ice.UserException
         this.zeroDotD = 0;
     }
 
-    public BaseEx(Throwable cause)
-    {
-        super(cause);
-        this.boolFalse = false;
-        this.boolTrue = true;
-        this.b = 1;
-        this.s = 2;
-        this.i = 3;
-        this.l = 4L;
-        this.f = 5.1F;
-        this.d = 6.2;
-        this.str = "foo \\ \"bar\n \r\n\t\u000b\f\u0007\b? \u0007 \u0007";
-        this.noDefault = "";
-        this.zeroI = 0;
-        this.zeroL = 0L;
-        this.zeroF = 0F;
-        this.zeroDotF = 0F;
-        this.zeroD = 0;
-        this.zeroDotD = 0;
-    }
-
     public BaseEx(boolean boolFalse, boolean boolTrue, byte b, short s, int i, long l, float f, double d, String str, String noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD)
     {
-        this.boolFalse = boolFalse;
-        this.boolTrue = boolTrue;
-        this.b = b;
-        this.s = s;
-        this.i = i;
-        this.l = l;
-        this.f = f;
-        this.d = d;
-        this.str = str;
-        this.noDefault = noDefault;
-        this.zeroI = zeroI;
-        this.zeroL = zeroL;
-        this.zeroF = zeroF;
-        this.zeroDotF = zeroDotF;
-        this.zeroD = zeroD;
-        this.zeroDotD = zeroDotD;
-    }
-
-    public BaseEx(boolean boolFalse, boolean boolTrue, byte b, short s, int i, long l, float f, double d, String str, String noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Throwable cause)
-    {
-        super(cause);
         this.boolFalse = boolFalse;
         this.boolTrue = boolTrue;
         this.b = b;
@@ -185,5 +143,5 @@ public class BaseEx extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -2250546546085290668L;
+    private static final long serialVersionUID = 7733941485392500192L;
 }

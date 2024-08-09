@@ -22,21 +22,8 @@ public class Ex extends com.zeroc.Ice.UserException
         this.s = new Struct1();
     }
 
-    public Ex(Throwable cause)
-    {
-        super(cause);
-        this.s = new Struct1();
-    }
-
     public Ex(Struct1 s, Base b)
     {
-        this.s = s;
-        this.b = b;
-    }
-
-    public Ex(Struct1 s, Base b, Throwable cause)
-    {
-        super(cause);
         this.s = s;
         this.b = b;
     }

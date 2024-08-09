@@ -21,19 +21,8 @@ public class is extends com.zeroc.Ice.UserException
     {
     }
 
-    public is(Throwable cause)
-    {
-        super(cause);
-    }
-
     public is(int lambda)
     {
-        this.lambda = lambda;
-    }
-
-    public is(int lambda, Throwable cause)
-    {
-        super(cause);
         this.lambda = lambda;
     }
 
@@ -63,5 +52,5 @@ public class is extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -4585939091838524413L;
+    private static final long serialVersionUID = -4585938878823953428L;
 }

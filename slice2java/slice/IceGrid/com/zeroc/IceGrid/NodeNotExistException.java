@@ -25,20 +25,8 @@ public class NodeNotExistException extends com.zeroc.Ice.UserException
         this.name = "";
     }
 
-    public NodeNotExistException(Throwable cause)
-    {
-        super(cause);
-        this.name = "";
-    }
-
     public NodeNotExistException(String name)
     {
-        this.name = name;
-    }
-
-    public NodeNotExistException(String name, Throwable cause)
-    {
-        super(cause);
         this.name = name;
     }
 
@@ -71,5 +59,5 @@ public class NodeNotExistException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -5774528213366373327L;
+    private static final long serialVersionUID = -5774526864009281402L;
 }

@@ -21,19 +21,8 @@ public class EOneMember extends com.zeroc.Ice.UserException
     {
     }
 
-    public EOneMember(Throwable cause)
-    {
-        super(cause);
-    }
-
     public EOneMember(Empty e)
     {
-        this.e = e;
-    }
-
-    public EOneMember(Empty e, Throwable cause)
-    {
-        super(cause);
         this.e = e;
     }
 
@@ -70,5 +59,5 @@ public class EOneMember extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -6225291558654770550L;
+    private static final long serialVersionUID = -6225292202862389002L;
 }

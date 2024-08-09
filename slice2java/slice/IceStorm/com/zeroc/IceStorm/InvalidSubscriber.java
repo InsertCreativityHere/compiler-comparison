@@ -25,20 +25,8 @@ public class InvalidSubscriber extends com.zeroc.Ice.UserException
         this.reason = "";
     }
 
-    public InvalidSubscriber(Throwable cause)
-    {
-        super(cause);
-        this.reason = "";
-    }
-
     public InvalidSubscriber(String reason)
     {
-        this.reason = reason;
-    }
-
-    public InvalidSubscriber(String reason, Throwable cause)
-    {
-        super(cause);
         this.reason = reason;
     }
 
@@ -71,5 +59,5 @@ public class InvalidSubscriber extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -1090057002047538014L;
+    private static final long serialVersionUID = -1090059787660144234L;
 }

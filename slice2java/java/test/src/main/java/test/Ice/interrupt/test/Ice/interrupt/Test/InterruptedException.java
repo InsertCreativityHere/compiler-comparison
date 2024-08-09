@@ -21,11 +21,6 @@ public class InterruptedException extends com.zeroc.Ice.UserException
     {
     }
 
-    public InterruptedException(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::Test::InterruptedException";

@@ -24,11 +24,6 @@ public class InvalidReplicaGroupIdException extends com.zeroc.Ice.UserException
     {
     }
 
-    public InvalidReplicaGroupIdException(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::Ice::InvalidReplicaGroupIdException";

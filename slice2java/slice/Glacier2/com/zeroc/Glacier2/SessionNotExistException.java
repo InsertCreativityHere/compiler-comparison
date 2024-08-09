@@ -27,11 +27,6 @@ public class SessionNotExistException extends com.zeroc.Ice.UserException
     {
     }
 
-    public SessionNotExistException(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::Glacier2::SessionNotExistException";

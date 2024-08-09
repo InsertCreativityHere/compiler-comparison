@@ -21,19 +21,8 @@ public class _hashCode extends com.zeroc.Ice.UserException
     {
     }
 
-    public _hashCode(Throwable cause)
-    {
-        super(cause);
-    }
-
     public _hashCode(int _if)
     {
-        this._if = _if;
-    }
-
-    public _hashCode(int _if, Throwable cause)
-    {
-        super(cause);
         this._if = _if;
     }
 
@@ -63,5 +52,5 @@ public class _hashCode extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -2944657887004519510L;
+    private static final long serialVersionUID = -2944661957571901673L;
 }

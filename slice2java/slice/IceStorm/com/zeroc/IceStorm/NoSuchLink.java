@@ -25,20 +25,8 @@ public class NoSuchLink extends com.zeroc.Ice.UserException
         this.name = "";
     }
 
-    public NoSuchLink(Throwable cause)
-    {
-        super(cause);
-        this.name = "";
-    }
-
     public NoSuchLink(String name)
     {
-        this.name = name;
-    }
-
-    public NoSuchLink(String name, Throwable cause)
-    {
-        super(cause);
         this.name = name;
     }
 
@@ -71,5 +59,5 @@ public class NoSuchLink extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -8653877408772245018L;
+    private static final long serialVersionUID = -8653869129095917742L;
 }

@@ -22,20 +22,8 @@ public class TestCaseNotExistException extends com.zeroc.Ice.UserException
         this.reason = "";
     }
 
-    public TestCaseNotExistException(Throwable cause)
-    {
-        super(cause);
-        this.reason = "";
-    }
-
     public TestCaseNotExistException(String reason)
     {
-        this.reason = reason;
-    }
-
-    public TestCaseNotExistException(String reason, Throwable cause)
-    {
-        super(cause);
         this.reason = reason;
     }
 
@@ -65,5 +53,5 @@ public class TestCaseNotExistException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -8656783606313747404L;
+    private static final long serialVersionUID = -8656773555959204017L;
 }

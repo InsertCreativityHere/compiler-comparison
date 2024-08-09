@@ -19,23 +19,11 @@ public class Preserved2 extends Preserved1
 {
     public Preserved2()
     {
-        super();
-    }
-
-    public Preserved2(Throwable cause)
-    {
-        super(cause);
     }
 
     public Preserved2(String b, String kp, String kpd, BaseClass p1, BaseClass p2)
     {
         super(b, kp, kpd, p1);
-        this.p2 = p2;
-    }
-
-    public Preserved2(String b, String kp, String kpd, BaseClass p1, BaseClass p2, Throwable cause)
-    {
-        super(b, kp, kpd, p1, cause);
         this.p2 = p2;
     }
 
@@ -67,5 +55,5 @@ public class Preserved2 extends Preserved1
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 751740441526924425L;
+    private static final long serialVersionUID = 751748459116473929L;
 }

@@ -22,22 +22,11 @@ public class AllocationTimeoutException extends AllocationException
 {
     public AllocationTimeoutException()
     {
-        super();
-    }
-
-    public AllocationTimeoutException(Throwable cause)
-    {
-        super(cause);
     }
 
     public AllocationTimeoutException(String reason)
     {
         super(reason);
-    }
-
-    public AllocationTimeoutException(String reason, Throwable cause)
-    {
-        super(reason, cause);
     }
 
     public String ice_id()

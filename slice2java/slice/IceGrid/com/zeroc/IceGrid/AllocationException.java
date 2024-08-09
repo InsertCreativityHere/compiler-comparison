@@ -25,20 +25,8 @@ public class AllocationException extends com.zeroc.Ice.UserException
         this.reason = "";
     }
 
-    public AllocationException(Throwable cause)
-    {
-        super(cause);
-        this.reason = "";
-    }
-
     public AllocationException(String reason)
     {
-        this.reason = reason;
-    }
-
-    public AllocationException(String reason, Throwable cause)
-    {
-        super(cause);
         this.reason = reason;
     }
 
@@ -71,5 +59,5 @@ public class AllocationException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 4699860544758452708L;
+    private static final long serialVersionUID = 4699853745269230355L;
 }

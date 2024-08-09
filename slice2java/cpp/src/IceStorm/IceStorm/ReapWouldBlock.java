@@ -24,11 +24,6 @@ public class ReapWouldBlock extends com.zeroc.Ice.UserException
     {
     }
 
-    public ReapWouldBlock(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::IceStorm::ReapWouldBlock";

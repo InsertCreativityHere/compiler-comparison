@@ -21,20 +21,8 @@ public class Ex extends com.zeroc.Ice.UserException
     {
     }
 
-    public Ex(Throwable cause)
-    {
-        super(cause);
-    }
-
     public Ex(short istr, int ostr)
     {
-        this.istr = istr;
-        this.ostr = ostr;
-    }
-
-    public Ex(short istr, int ostr, Throwable cause)
-    {
-        super(cause);
         this.istr = istr;
         this.ostr = ostr;
     }
@@ -69,5 +57,5 @@ public class Ex extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 8390178811805679586L;
+    private static final long serialVersionUID = -6580833623462376090L;
 }

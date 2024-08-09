@@ -24,11 +24,6 @@ public class AdapterActiveException extends com.zeroc.Ice.UserException
     {
     }
 
-    public AdapterActiveException(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::IceGrid::AdapterActiveException";

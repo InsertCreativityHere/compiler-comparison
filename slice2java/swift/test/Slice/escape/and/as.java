@@ -19,24 +19,11 @@ public class as extends _return
 {
     public as()
     {
-        super();
-    }
-
-    public as(Throwable cause)
-    {
-        super(cause);
     }
 
     public as(int Int32, int _static, int _switch)
     {
         super(Int32);
-        this._static = _static;
-        this._switch = _switch;
-    }
-
-    public as(int Int32, int _static, int _switch, Throwable cause)
-    {
-        super(Int32, cause);
         this._static = _static;
         this._switch = _switch;
     }
@@ -73,5 +60,5 @@ public class as extends _return
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 1072152176707400696L;
+    private static final long serialVersionUID = -5701762558362999816L;
 }

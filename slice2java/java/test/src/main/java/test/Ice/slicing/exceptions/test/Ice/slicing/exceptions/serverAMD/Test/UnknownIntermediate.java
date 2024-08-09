@@ -19,25 +19,12 @@ public class UnknownIntermediate extends Base
 {
     public UnknownIntermediate()
     {
-        super();
-        this.ui = "";
-    }
-
-    public UnknownIntermediate(Throwable cause)
-    {
-        super(cause);
         this.ui = "";
     }
 
     public UnknownIntermediate(String b, String ui)
     {
         super(b);
-        this.ui = ui;
-    }
-
-    public UnknownIntermediate(String b, String ui, Throwable cause)
-    {
-        super(b, cause);
         this.ui = ui;
     }
 
@@ -69,5 +56,5 @@ public class UnknownIntermediate extends Base
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -1172601930489242736L;
+    private static final long serialVersionUID = -1172606645693783779L;
 }

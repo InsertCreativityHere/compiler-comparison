@@ -25,20 +25,8 @@ public class LinkExists extends com.zeroc.Ice.UserException
         this.name = "";
     }
 
-    public LinkExists(Throwable cause)
-    {
-        super(cause);
-        this.name = "";
-    }
-
     public LinkExists(String name)
     {
-        this.name = name;
-    }
-
-    public LinkExists(String name, Throwable cause)
-    {
-        super(cause);
         this.name = name;
     }
 
@@ -71,5 +59,5 @@ public class LinkExists extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 243154658968694218L;
+    private static final long serialVersionUID = 243151712896376766L;
 }

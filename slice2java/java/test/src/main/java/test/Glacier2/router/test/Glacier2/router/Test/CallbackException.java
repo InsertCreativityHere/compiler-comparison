@@ -22,21 +22,8 @@ public class CallbackException extends com.zeroc.Ice.UserException
         this.someString = "";
     }
 
-    public CallbackException(Throwable cause)
-    {
-        super(cause);
-        this.someString = "";
-    }
-
     public CallbackException(double someValue, String someString)
     {
-        this.someValue = someValue;
-        this.someString = someString;
-    }
-
-    public CallbackException(double someValue, String someString, Throwable cause)
-    {
-        super(cause);
         this.someValue = someValue;
         this.someString = someString;
     }
@@ -71,5 +58,5 @@ public class CallbackException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 6405434266036046689L;
+    private static final long serialVersionUID = 6850958073523598737L;
 }

@@ -25,20 +25,8 @@ public class TopicExists extends com.zeroc.Ice.UserException
         this.name = "";
     }
 
-    public TopicExists(Throwable cause)
-    {
-        super(cause);
-        this.name = "";
-    }
-
     public TopicExists(String name)
     {
-        this.name = name;
-    }
-
-    public TopicExists(String name, Throwable cause)
-    {
-        super(cause);
         this.name = name;
     }
 
@@ -71,5 +59,5 @@ public class TopicExists extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 3979364288941797291L;
+    private static final long serialVersionUID = 3979361260372067295L;
 }

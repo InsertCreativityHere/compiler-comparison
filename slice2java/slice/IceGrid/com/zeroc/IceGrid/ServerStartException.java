@@ -26,22 +26,8 @@ public class ServerStartException extends com.zeroc.Ice.UserException
         this.reason = "";
     }
 
-    public ServerStartException(Throwable cause)
-    {
-        super(cause);
-        this.id = "";
-        this.reason = "";
-    }
-
     public ServerStartException(String id, String reason)
     {
-        this.id = id;
-        this.reason = reason;
-    }
-
-    public ServerStartException(String id, String reason, Throwable cause)
-    {
-        super(cause);
         this.id = id;
         this.reason = reason;
     }
@@ -82,5 +68,5 @@ public class ServerStartException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 543686788143913863L;
+    private static final long serialVersionUID = 8060679180035269383L;
 }

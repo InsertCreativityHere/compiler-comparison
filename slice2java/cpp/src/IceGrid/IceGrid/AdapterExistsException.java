@@ -25,20 +25,8 @@ public class AdapterExistsException extends com.zeroc.Ice.UserException
         this.id = "";
     }
 
-    public AdapterExistsException(Throwable cause)
-    {
-        super(cause);
-        this.id = "";
-    }
-
     public AdapterExistsException(String id)
     {
-        this.id = id;
-    }
-
-    public AdapterExistsException(String id, Throwable cause)
-    {
-        super(cause);
         this.id = id;
     }
 
@@ -68,5 +56,5 @@ public class AdapterExistsException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 3774324962126420133L;
+    private static final long serialVersionUID = 3774325446283991664L;
 }

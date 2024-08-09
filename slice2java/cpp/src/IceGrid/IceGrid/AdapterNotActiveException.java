@@ -21,19 +21,8 @@ public class AdapterNotActiveException extends com.zeroc.Ice.UserException
     {
     }
 
-    public AdapterNotActiveException(Throwable cause)
-    {
-        super(cause);
-    }
-
     public AdapterNotActiveException(boolean activatable)
     {
-        this.activatable = activatable;
-    }
-
-    public AdapterNotActiveException(boolean activatable, Throwable cause)
-    {
-        super(cause);
         this.activatable = activatable;
     }
 
@@ -66,5 +55,5 @@ public class AdapterNotActiveException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 7872711263818520274L;
+    private static final long serialVersionUID = 7872706287661796084L;
 }

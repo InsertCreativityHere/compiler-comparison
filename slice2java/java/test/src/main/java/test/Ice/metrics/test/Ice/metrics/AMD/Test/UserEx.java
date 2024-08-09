@@ -21,11 +21,6 @@ public class UserEx extends com.zeroc.Ice.UserException
     {
     }
 
-    public UserEx(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::Test::UserEx";

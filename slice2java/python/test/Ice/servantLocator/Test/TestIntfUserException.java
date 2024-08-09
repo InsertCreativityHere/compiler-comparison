@@ -21,11 +21,6 @@ public class TestIntfUserException extends com.zeroc.Ice.UserException
     {
     }
 
-    public TestIntfUserException(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::Test::TestIntfUserException";

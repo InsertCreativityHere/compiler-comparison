@@ -19,25 +19,12 @@ public class KnownIntermediate extends Base
 {
     public KnownIntermediate()
     {
-        super();
-        this.ki = "";
-    }
-
-    public KnownIntermediate(Throwable cause)
-    {
-        super(cause);
         this.ki = "";
     }
 
     public KnownIntermediate(String b, String ki)
     {
         super(b);
-        this.ki = ki;
-    }
-
-    public KnownIntermediate(String b, String ki, Throwable cause)
-    {
-        super(b, cause);
         this.ki = ki;
     }
 
@@ -69,5 +56,5 @@ public class KnownIntermediate extends Base
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 1717373583300357209L;
+    private static final long serialVersionUID = 1717373582091582269L;
 }

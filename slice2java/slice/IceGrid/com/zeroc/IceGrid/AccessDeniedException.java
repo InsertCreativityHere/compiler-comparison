@@ -25,20 +25,8 @@ public class AccessDeniedException extends com.zeroc.Ice.UserException
         this.lockUserId = "";
     }
 
-    public AccessDeniedException(Throwable cause)
-    {
-        super(cause);
-        this.lockUserId = "";
-    }
-
     public AccessDeniedException(String lockUserId)
     {
-        this.lockUserId = lockUserId;
-    }
-
-    public AccessDeniedException(String lockUserId, Throwable cause)
-    {
-        super(cause);
         this.lockUserId = lockUserId;
     }
 
@@ -71,5 +59,5 @@ public class AccessDeniedException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 5447252800966493732L;
+    private static final long serialVersionUID = 5447245836173832147L;
 }

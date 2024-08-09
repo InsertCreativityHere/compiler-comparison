@@ -22,21 +22,8 @@ public class BaseException extends com.zeroc.Ice.UserException
         this.sbe = "";
     }
 
-    public BaseException(Throwable cause)
-    {
-        super(cause);
-        this.sbe = "";
-    }
-
     public BaseException(String sbe, B pb)
     {
-        this.sbe = sbe;
-        this.pb = pb;
-    }
-
-    public BaseException(String sbe, B pb, Throwable cause)
-    {
-        super(cause);
         this.sbe = sbe;
         this.pb = pb;
     }
@@ -78,5 +65,5 @@ public class BaseException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -1616833701317789288L;
+    private static final long serialVersionUID = 790458107201859608L;
 }

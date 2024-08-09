@@ -19,22 +19,10 @@ public class InvalidLengthException extends BaseException
 {
     public InvalidLengthException()
     {
-        super();
-    }
-
-    public InvalidLengthException(Throwable cause)
-    {
-        super(cause);
     }
 
     public InvalidLengthException(int length)
     {
-        this.length = length;
-    }
-
-    public InvalidLengthException(int length, Throwable cause)
-    {
-        super(cause);
         this.length = length;
     }
 
@@ -66,5 +54,5 @@ public class InvalidLengthException extends BaseException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -1224574435042447245L;
+    private static final long serialVersionUID = -1224575382828286633L;
 }

@@ -24,11 +24,6 @@ public class ServerNotFoundException extends com.zeroc.Ice.UserException
     {
     }
 
-    public ServerNotFoundException(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::Ice::ServerNotFoundException";

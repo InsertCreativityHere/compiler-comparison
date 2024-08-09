@@ -24,11 +24,6 @@ public class NodeActiveException extends com.zeroc.Ice.UserException
     {
     }
 
-    public NodeActiveException(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::IceGrid::NodeActiveException";

@@ -21,20 +21,8 @@ public class Bar extends com.zeroc.Ice.UserException
     {
     }
 
-    public Bar(Throwable cause)
-    {
-        super(cause);
-    }
-
     public Bar(test.Ice.seqMapping.Serialize.Large SLmem, test.Ice.seqMapping.Serialize.Large[] SLSmem)
     {
-        this.SLmem = SLmem;
-        this.SLSmem = SLSmem;
-    }
-
-    public Bar(test.Ice.seqMapping.Serialize.Large SLmem, test.Ice.seqMapping.Serialize.Large[] SLSmem, Throwable cause)
-    {
-        super(cause);
         this.SLmem = SLmem;
         this.SLSmem = SLSmem;
     }
@@ -69,5 +57,5 @@ public class Bar extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -6735547299920828447L;
+    private static final long serialVersionUID = -1954087452544703606L;
 }

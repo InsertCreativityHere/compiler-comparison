@@ -21,11 +21,6 @@ public class TestImpossibleException extends com.zeroc.Ice.UserException
     {
     }
 
-    public TestImpossibleException(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::Test::TestImpossibleException";

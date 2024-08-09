@@ -19,24 +19,11 @@ public class nil extends next
 {
     public nil()
     {
-        super();
-    }
-
-    public nil(Throwable cause)
-    {
-        super(cause);
     }
 
     public nil(int _new, int not, int or)
     {
         super(_new);
-        this.not = not;
-        this.or = or;
-    }
-
-    public nil(int _new, int not, int or, Throwable cause)
-    {
-        super(_new, cause);
         this.not = not;
         this.or = or;
     }
@@ -73,5 +60,5 @@ public class nil extends next
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -8244291158203910417L;
+    private static final long serialVersionUID = -1195753774030662033L;
 }

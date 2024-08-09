@@ -26,22 +26,8 @@ public class NodeUnreachableException extends com.zeroc.Ice.UserException
         this.reason = "";
     }
 
-    public NodeUnreachableException(Throwable cause)
-    {
-        super(cause);
-        this.name = "";
-        this.reason = "";
-    }
-
     public NodeUnreachableException(String name, String reason)
     {
-        this.name = name;
-        this.reason = reason;
-    }
-
-    public NodeUnreachableException(String name, String reason, Throwable cause)
-    {
-        super(cause);
         this.name = name;
         this.reason = reason;
     }
@@ -82,5 +68,5 @@ public class NodeUnreachableException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -4761073516169096540L;
+    private static final long serialVersionUID = -5013274842547639260L;
 }

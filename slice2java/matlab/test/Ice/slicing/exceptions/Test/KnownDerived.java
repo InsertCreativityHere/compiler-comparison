@@ -19,25 +19,12 @@ public class KnownDerived extends Base
 {
     public KnownDerived()
     {
-        super();
-        this.kd = "";
-    }
-
-    public KnownDerived(Throwable cause)
-    {
-        super(cause);
         this.kd = "";
     }
 
     public KnownDerived(String b, String kd)
     {
         super(b);
-        this.kd = kd;
-    }
-
-    public KnownDerived(String b, String kd, Throwable cause)
-    {
-        super(b, cause);
         this.kd = kd;
     }
 
@@ -69,5 +56,5 @@ public class KnownDerived extends Base
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 3485214337038099577L;
+    private static final long serialVersionUID = 3485211774765648953L;
 }

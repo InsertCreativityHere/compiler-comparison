@@ -19,24 +19,11 @@ public class endwhile extends endif
 {
     public endwhile()
     {
-        super();
-    }
-
-    public endwhile(Throwable cause)
-    {
-        super(cause);
     }
 
     public endwhile(int endswitch, int eval, int exit)
     {
         super(endswitch);
-        this.eval = eval;
-        this.exit = exit;
-    }
-
-    public endwhile(int endswitch, int eval, int exit, Throwable cause)
-    {
-        super(endswitch, cause);
         this.eval = eval;
         this.exit = exit;
     }
@@ -73,5 +60,5 @@ public class endwhile extends endif
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -7127606716961249362L;
+    private static final long serialVersionUID = 2471355362011294254L;
 }

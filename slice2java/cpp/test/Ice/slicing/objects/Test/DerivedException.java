@@ -19,26 +19,12 @@ public class DerivedException extends BaseException
 {
     public DerivedException()
     {
-        super();
-        this.sde = "";
-    }
-
-    public DerivedException(Throwable cause)
-    {
-        super(cause);
         this.sde = "";
     }
 
     public DerivedException(String sbe, B pb, String sde, D1 pd1)
     {
         super(sbe, pb);
-        this.sde = sde;
-        this.pd1 = pd1;
-    }
-
-    public DerivedException(String sbe, B pb, String sde, D1 pd1, Throwable cause)
-    {
-        super(sbe, pb, cause);
         this.sde = sde;
         this.pd1 = pd1;
     }
@@ -75,5 +61,5 @@ public class DerivedException extends BaseException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -8345067250040446003L;
+    private static final long serialVersionUID = -5122651689087734483L;
 }

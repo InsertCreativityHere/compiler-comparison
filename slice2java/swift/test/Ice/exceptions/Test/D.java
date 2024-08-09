@@ -21,19 +21,8 @@ public class D extends com.zeroc.Ice.UserException
     {
     }
 
-    public D(Throwable cause)
-    {
-        super(cause);
-    }
-
     public D(int dMem)
     {
-        this.dMem = dMem;
-    }
-
-    public D(int dMem, Throwable cause)
-    {
-        super(cause);
         this.dMem = dMem;
     }
 
@@ -63,5 +52,5 @@ public class D extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 4780381833781143819L;
+    private static final long serialVersionUID = 4780372664440939214L;
 }

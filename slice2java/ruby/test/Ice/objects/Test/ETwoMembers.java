@@ -21,20 +21,8 @@ public class ETwoMembers extends com.zeroc.Ice.UserException
     {
     }
 
-    public ETwoMembers(Throwable cause)
-    {
-        super(cause);
-    }
-
     public ETwoMembers(Empty e1, Empty e2)
     {
-        this.e1 = e1;
-        this.e2 = e2;
-    }
-
-    public ETwoMembers(Empty e1, Empty e2, Throwable cause)
-    {
-        super(cause);
         this.e1 = e1;
         this.e2 = e2;
     }
@@ -76,5 +64,5 @@ public class ETwoMembers extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 2134998704932996116L;
+    private static final long serialVersionUID = 3648194767855785236L;
 }

@@ -25,20 +25,8 @@ public class ApplicationNotExistException extends com.zeroc.Ice.UserException
         this.name = "";
     }
 
-    public ApplicationNotExistException(Throwable cause)
-    {
-        super(cause);
-        this.name = "";
-    }
-
     public ApplicationNotExistException(String name)
     {
-        this.name = name;
-    }
-
-    public ApplicationNotExistException(String name, Throwable cause)
-    {
-        super(cause);
         this.name = name;
     }
 
@@ -71,5 +59,5 @@ public class ApplicationNotExistException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -7270586157399834517L;
+    private static final long serialVersionUID = -7270579484472939812L;
 }

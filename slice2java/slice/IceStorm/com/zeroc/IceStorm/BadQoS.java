@@ -25,20 +25,8 @@ public class BadQoS extends com.zeroc.Ice.UserException
         this.reason = "";
     }
 
-    public BadQoS(Throwable cause)
-    {
-        super(cause);
-        this.reason = "";
-    }
-
     public BadQoS(String reason)
     {
-        this.reason = reason;
-    }
-
-    public BadQoS(String reason, Throwable cause)
-    {
-        super(cause);
         this.reason = reason;
     }
 
@@ -71,5 +59,5 @@ public class BadQoS extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 7896660948554122883L;
+    private static final long serialVersionUID = 7896657914823129399L;
 }

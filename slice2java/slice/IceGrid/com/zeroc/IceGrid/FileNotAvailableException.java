@@ -32,20 +32,8 @@ public class FileNotAvailableException extends com.zeroc.Ice.UserException
         this.reason = "";
     }
 
-    public FileNotAvailableException(Throwable cause)
-    {
-        super(cause);
-        this.reason = "";
-    }
-
     public FileNotAvailableException(String reason)
     {
-        this.reason = reason;
-    }
-
-    public FileNotAvailableException(String reason, Throwable cause)
-    {
-        super(cause);
         this.reason = reason;
     }
 
@@ -78,5 +66,5 @@ public class FileNotAvailableException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -8985147470821246498L;
+    private static final long serialVersionUID = -8985154309226800791L;
 }

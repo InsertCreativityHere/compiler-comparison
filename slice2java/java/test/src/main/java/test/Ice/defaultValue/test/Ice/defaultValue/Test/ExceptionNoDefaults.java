@@ -19,26 +19,12 @@ public class ExceptionNoDefaults extends ExceptionNoDefaultsBase
 {
     public ExceptionNoDefaults()
     {
-        super();
-        this.st = new InnerStruct();
-    }
-
-    public ExceptionNoDefaults(Throwable cause)
-    {
-        super(cause);
         this.st = new InnerStruct();
     }
 
     public ExceptionNoDefaults(String str, Color c1, byte[] bs, InnerStruct st, java.util.Map<java.lang.Integer, java.lang.String> dict)
     {
         super(str, c1, bs);
-        this.st = st;
-        this.dict = dict;
-    }
-
-    public ExceptionNoDefaults(String str, Color c1, byte[] bs, InnerStruct st, java.util.Map<java.lang.Integer, java.lang.String> dict, Throwable cause)
-    {
-        super(str, c1, bs, cause);
         this.st = st;
         this.dict = dict;
     }
@@ -75,5 +61,5 @@ public class ExceptionNoDefaults extends ExceptionNoDefaultsBase
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 6486704250098088183L;
+    private static final long serialVersionUID = -6172052365065706152L;
 }

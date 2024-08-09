@@ -25,20 +25,8 @@ public class ObjectExistsException extends com.zeroc.Ice.UserException
         this.id = new com.zeroc.Ice.Identity();
     }
 
-    public ObjectExistsException(Throwable cause)
-    {
-        super(cause);
-        this.id = new com.zeroc.Ice.Identity();
-    }
-
     public ObjectExistsException(com.zeroc.Ice.Identity id)
     {
-        this.id = id;
-    }
-
-    public ObjectExistsException(com.zeroc.Ice.Identity id, Throwable cause)
-    {
-        super(cause);
         this.id = id;
     }
 
@@ -71,5 +59,5 @@ public class ObjectExistsException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 6991428986293158127L;
+    private static final long serialVersionUID = 6991427647101992284L;
 }

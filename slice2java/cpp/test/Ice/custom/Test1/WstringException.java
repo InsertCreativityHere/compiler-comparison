@@ -22,20 +22,8 @@ public class WstringException extends com.zeroc.Ice.UserException
         this.reason = "";
     }
 
-    public WstringException(Throwable cause)
-    {
-        super(cause);
-        this.reason = "";
-    }
-
     public WstringException(String reason)
     {
-        this.reason = reason;
-    }
-
-    public WstringException(String reason, Throwable cause)
-    {
-        super(cause);
         this.reason = reason;
     }
 
@@ -65,5 +53,5 @@ public class WstringException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 1345707940240114210L;
+    private static final long serialVersionUID = 1345708480230258054L;
 }

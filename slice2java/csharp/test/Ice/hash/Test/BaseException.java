@@ -21,11 +21,6 @@ public class BaseException extends com.zeroc.Ice.UserException
     {
     }
 
-    public BaseException(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::Test::BaseException";

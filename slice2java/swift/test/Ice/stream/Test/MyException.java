@@ -21,19 +21,8 @@ public class MyException extends com.zeroc.Ice.UserException
     {
     }
 
-    public MyException(Throwable cause)
-    {
-        super(cause);
-    }
-
     public MyException(MyClass c)
     {
-        this.c = c;
-    }
-
-    public MyException(MyClass c, Throwable cause)
-    {
-        super(cause);
         this.c = c;
     }
 
@@ -70,5 +59,5 @@ public class MyException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 5734226419209239956L;
+    private static final long serialVersionUID = 5734225856181731917L;
 }

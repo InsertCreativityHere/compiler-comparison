@@ -19,23 +19,11 @@ public class Preserved1 extends KnownPreservedDerived
 {
     public Preserved1()
     {
-        super();
-    }
-
-    public Preserved1(Throwable cause)
-    {
-        super(cause);
     }
 
     public Preserved1(String b, String kp, String kpd, BaseClass p1)
     {
         super(b, kp, kpd);
-        this.p1 = p1;
-    }
-
-    public Preserved1(String b, String kp, String kpd, BaseClass p1, Throwable cause)
-    {
-        super(b, kp, kpd, cause);
         this.p1 = p1;
     }
 
@@ -74,5 +62,5 @@ public class Preserved1 extends KnownPreservedDerived
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 6137358218106772585L;
+    private static final long serialVersionUID = 6137366235696321833L;
 }

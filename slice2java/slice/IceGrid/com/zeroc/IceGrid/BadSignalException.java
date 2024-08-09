@@ -25,20 +25,8 @@ public class BadSignalException extends com.zeroc.Ice.UserException
         this.reason = "";
     }
 
-    public BadSignalException(Throwable cause)
-    {
-        super(cause);
-        this.reason = "";
-    }
-
     public BadSignalException(String reason)
     {
-        this.reason = reason;
-    }
-
-    public BadSignalException(String reason, Throwable cause)
-    {
-        super(cause);
         this.reason = reason;
     }
 
@@ -71,5 +59,5 @@ public class BadSignalException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 4463365338714958541L;
+    private static final long serialVersionUID = 4463361432244459834L;
 }

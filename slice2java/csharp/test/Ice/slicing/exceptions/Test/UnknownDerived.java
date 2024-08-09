@@ -19,25 +19,12 @@ public class UnknownDerived extends Base
 {
     public UnknownDerived()
     {
-        super();
-        this.ud = "";
-    }
-
-    public UnknownDerived(Throwable cause)
-    {
-        super(cause);
         this.ud = "";
     }
 
     public UnknownDerived(String b, String ud)
     {
         super(b);
-        this.ud = ud;
-    }
-
-    public UnknownDerived(String b, String ud, Throwable cause)
-    {
-        super(b, cause);
         this.ud = ud;
     }
 
@@ -69,5 +56,5 @@ public class UnknownDerived extends Base
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 3424367550338196671L;
+    private static final long serialVersionUID = 3424371558903224453L;
 }

@@ -19,26 +19,12 @@ public class UnknownDerivedException extends BaseException
 {
     public UnknownDerivedException()
     {
-        super();
-        this.sude = "";
-    }
-
-    public UnknownDerivedException(Throwable cause)
-    {
-        super(cause);
         this.sude = "";
     }
 
     public UnknownDerivedException(String sbe, B pb, String sude, D2 pd2)
     {
         super(sbe, pb);
-        this.sude = sude;
-        this.pd2 = pd2;
-    }
-
-    public UnknownDerivedException(String sbe, B pb, String sude, D2 pd2, Throwable cause)
-    {
-        super(sbe, pb, cause);
         this.sude = sude;
         this.pd2 = pd2;
     }
@@ -75,5 +61,5 @@ public class UnknownDerivedException extends BaseException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 8919939103239495299L;
+    private static final long serialVersionUID = -7123171381964487864L;
 }

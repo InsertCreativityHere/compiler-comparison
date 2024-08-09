@@ -25,20 +25,8 @@ public class CannotCreateSessionException extends com.zeroc.Ice.UserException
         this.reason = "";
     }
 
-    public CannotCreateSessionException(Throwable cause)
-    {
-        super(cause);
-        this.reason = "";
-    }
-
     public CannotCreateSessionException(String reason)
     {
-        this.reason = reason;
-    }
-
-    public CannotCreateSessionException(String reason, Throwable cause)
-    {
-        super(cause);
         this.reason = reason;
     }
 
@@ -71,5 +59,5 @@ public class CannotCreateSessionException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 8990432090141998718L;
+    private static final long serialVersionUID = 8990440192807399068L;
 }

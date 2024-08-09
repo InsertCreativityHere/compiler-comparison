@@ -21,11 +21,6 @@ public class ArgumentException extends com.zeroc.Ice.UserException
     {
     }
 
-    public ArgumentException(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::Core::ArgumentException";

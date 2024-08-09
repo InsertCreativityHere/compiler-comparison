@@ -19,24 +19,11 @@ public class _import extends _hashCode
 {
     public _import()
     {
-        super();
-    }
-
-    public _import(Throwable cause)
-    {
-        super(cause);
     }
 
     public _import(int _if, int _instanceof, int _native)
     {
         super(_if);
-        this._instanceof = _instanceof;
-        this._native = _native;
-    }
-
-    public _import(int _if, int _instanceof, int _native, Throwable cause)
-    {
-        super(_if, cause);
         this._instanceof = _instanceof;
         this._native = _native;
     }
@@ -73,5 +60,5 @@ public class _import extends _hashCode
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -1730054169983909385L;
+    private static final long serialVersionUID = 48530846662569399L;
 }

@@ -24,11 +24,6 @@ public class UnknownMetricsView extends com.zeroc.Ice.UserException
     {
     }
 
-    public UnknownMetricsView(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::IceMX::UnknownMetricsView";

@@ -25,20 +25,8 @@ public class ParseException extends com.zeroc.Ice.UserException
         this.reason = "";
     }
 
-    public ParseException(Throwable cause)
-    {
-        super(cause);
-        this.reason = "";
-    }
-
     public ParseException(String reason)
     {
-        this.reason = reason;
-    }
-
-    public ParseException(String reason, Throwable cause)
-    {
-        super(cause);
         this.reason = reason;
     }
 
@@ -71,5 +59,5 @@ public class ParseException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -5694234760105951301L;
+    private static final long serialVersionUID = -5694243843026948165L;
 }

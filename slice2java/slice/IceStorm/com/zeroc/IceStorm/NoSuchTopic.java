@@ -25,20 +25,8 @@ public class NoSuchTopic extends com.zeroc.Ice.UserException
         this.name = "";
     }
 
-    public NoSuchTopic(Throwable cause)
-    {
-        super(cause);
-        this.name = "";
-    }
-
     public NoSuchTopic(String name)
     {
-        this.name = name;
-    }
-
-    public NoSuchTopic(String name, Throwable cause)
-    {
-        super(cause);
         this.name = name;
     }
 
@@ -71,5 +59,5 @@ public class NoSuchTopic extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -6283743452898839609L;
+    private static final long serialVersionUID = -6283735421331699725L;
 }

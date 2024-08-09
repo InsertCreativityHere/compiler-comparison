@@ -24,11 +24,6 @@ public class AlreadyStartedException extends com.zeroc.Ice.UserException
     {
     }
 
-    public AlreadyStartedException(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::IceBox::AlreadyStartedException";

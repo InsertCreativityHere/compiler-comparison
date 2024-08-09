@@ -24,11 +24,6 @@ public class AlreadySubscribed extends com.zeroc.Ice.UserException
     {
     }
 
-    public AlreadySubscribed(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::IceStorm::AlreadySubscribed";

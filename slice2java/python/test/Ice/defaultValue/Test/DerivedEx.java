@@ -19,18 +19,6 @@ public class DerivedEx extends BaseEx
 {
     public DerivedEx()
     {
-        super();
-        this.c1 = ConstColor1.value;
-        this.c2 = ConstColor2.value;
-        this.c3 = ConstColor3.value;
-        this.nc1 = ConstNestedColor1.value;
-        this.nc2 = ConstNestedColor2.value;
-        this.nc3 = ConstNestedColor3.value;
-    }
-
-    public DerivedEx(Throwable cause)
-    {
-        super(cause);
         this.c1 = ConstColor1.value;
         this.c2 = ConstColor2.value;
         this.c3 = ConstColor3.value;
@@ -42,17 +30,6 @@ public class DerivedEx extends BaseEx
     public DerivedEx(boolean boolFalse, boolean boolTrue, byte b, short s, int i, long l, float f, double d, String str, String noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, Test.Nested.Color nc1, Test.Nested.Color nc2, Test.Nested.Color nc3)
     {
         super(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
-        this.c1 = c1;
-        this.c2 = c2;
-        this.c3 = c3;
-        this.nc1 = nc1;
-        this.nc2 = nc2;
-        this.nc3 = nc3;
-    }
-
-    public DerivedEx(boolean boolFalse, boolean boolTrue, byte b, short s, int i, long l, float f, double d, String str, String noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, Test.Nested.Color nc1, Test.Nested.Color nc2, Test.Nested.Color nc3, Throwable cause)
-    {
-        super(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, cause);
         this.c1 = c1;
         this.c2 = c2;
         this.c3 = c3;
@@ -109,5 +86,5 @@ public class DerivedEx extends BaseEx
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 53365236468326529L;
+    private static final long serialVersionUID = 6842210656110286273L;
 }

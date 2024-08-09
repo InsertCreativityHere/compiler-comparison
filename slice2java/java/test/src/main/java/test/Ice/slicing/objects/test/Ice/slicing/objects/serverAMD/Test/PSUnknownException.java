@@ -19,22 +19,10 @@ public class PSUnknownException extends PreservedException
 {
     public PSUnknownException()
     {
-        super();
-    }
-
-    public PSUnknownException(Throwable cause)
-    {
-        super(cause);
     }
 
     public PSUnknownException(PSUnknown2 p)
     {
-        this.p = p;
-    }
-
-    public PSUnknownException(PSUnknown2 p, Throwable cause)
-    {
-        super(cause);
         this.p = p;
     }
 
@@ -73,5 +61,5 @@ public class PSUnknownException extends PreservedException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 4410691238350176024L;
+    private static final long serialVersionUID = 4410695354030826634L;
 }

@@ -24,11 +24,6 @@ public class ReplicaActiveException extends com.zeroc.Ice.UserException
     {
     }
 
-    public ReplicaActiveException(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::IceGrid::ReplicaActiveException";

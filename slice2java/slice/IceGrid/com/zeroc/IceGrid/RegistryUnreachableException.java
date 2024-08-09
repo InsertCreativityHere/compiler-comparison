@@ -26,22 +26,8 @@ public class RegistryUnreachableException extends com.zeroc.Ice.UserException
         this.reason = "";
     }
 
-    public RegistryUnreachableException(Throwable cause)
-    {
-        super(cause);
-        this.name = "";
-        this.reason = "";
-    }
-
     public RegistryUnreachableException(String name, String reason)
     {
-        this.name = name;
-        this.reason = reason;
-    }
-
-    public RegistryUnreachableException(String name, String reason, Throwable cause)
-    {
-        super(cause);
         this.name = name;
         this.reason = reason;
     }
@@ -82,5 +68,5 @@ public class RegistryUnreachableException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 8491310460732758897L;
+    private static final long serialVersionUID = 8566775954648367601L;
 }

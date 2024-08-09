@@ -21,19 +21,8 @@ public class next extends com.zeroc.Ice.UserException
     {
     }
 
-    public next(Throwable cause)
-    {
-        super(cause);
-    }
-
     public next(int _new)
     {
-        this._new = _new;
-    }
-
-    public next(int _new, Throwable cause)
-    {
-        super(cause);
         this._new = _new;
     }
 
@@ -63,5 +52,5 @@ public class next extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 3375554822577532001L;
+    private static final long serialVersionUID = 3375555227030134392L;
 }

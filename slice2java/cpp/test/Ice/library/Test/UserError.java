@@ -22,20 +22,8 @@ public class UserError extends com.zeroc.Ice.UserException
         this.message = "";
     }
 
-    public UserError(Throwable cause)
-    {
-        super(cause);
-        this.message = "";
-    }
-
     public UserError(String message)
     {
-        this.message = message;
-    }
-
-    public UserError(String message, Throwable cause)
-    {
-        super(cause);
         this.message = message;
     }
 
@@ -65,5 +53,5 @@ public class UserError extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -1126954076099976862L;
+    private static final long serialVersionUID = -1126964628739306743L;
 }

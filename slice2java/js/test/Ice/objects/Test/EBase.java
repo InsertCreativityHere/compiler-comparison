@@ -21,20 +21,8 @@ public class EBase extends com.zeroc.Ice.UserException
     {
     }
 
-    public EBase(Throwable cause)
-    {
-        super(cause);
-    }
-
     public EBase(A1 a1, A1 a2)
     {
-        this.a1 = a1;
-        this.a2 = a2;
-    }
-
-    public EBase(A1 a1, A1 a2, Throwable cause)
-    {
-        super(cause);
         this.a1 = a1;
         this.a2 = a2;
     }
@@ -76,5 +64,5 @@ public class EBase extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -6992675573412104114L;
+    private static final long serialVersionUID = -2917389525140174898L;
 }

@@ -22,20 +22,8 @@ public class ProcessFailedException extends com.zeroc.Ice.UserException
         this.reason = "";
     }
 
-    public ProcessFailedException(Throwable cause)
-    {
-        super(cause);
-        this.reason = "";
-    }
-
     public ProcessFailedException(String reason)
     {
-        this.reason = reason;
-    }
-
-    public ProcessFailedException(String reason, Throwable cause)
-    {
-        super(cause);
         this.reason = reason;
     }
 
@@ -65,5 +53,5 @@ public class ProcessFailedException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 5103745190154222776L;
+    private static final long serialVersionUID = 5103745012082417859L;
 }

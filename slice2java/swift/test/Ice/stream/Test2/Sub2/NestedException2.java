@@ -22,20 +22,8 @@ public class NestedException2 extends com.zeroc.Ice.UserException
         this.str = "";
     }
 
-    public NestedException2(Throwable cause)
-    {
-        super(cause);
-        this.str = "";
-    }
-
     public NestedException2(String str)
     {
-        this.str = str;
-    }
-
-    public NestedException2(String str, Throwable cause)
-    {
-        super(cause);
         this.str = str;
     }
 
@@ -65,5 +53,5 @@ public class NestedException2 extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -8562125292169420649L;
+    private static final long serialVersionUID = -8562124574011878193L;
 }

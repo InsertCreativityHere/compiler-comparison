@@ -26,22 +26,8 @@ public class ServerUnreachableException extends com.zeroc.Ice.UserException
         this.reason = "";
     }
 
-    public ServerUnreachableException(Throwable cause)
-    {
-        super(cause);
-        this.name = "";
-        this.reason = "";
-    }
-
     public ServerUnreachableException(String name, String reason)
     {
-        this.name = name;
-        this.reason = reason;
-    }
-
-    public ServerUnreachableException(String name, String reason, Throwable cause)
-    {
-        super(cause);
         this.name = name;
         this.reason = reason;
     }
@@ -82,5 +68,5 @@ public class ServerUnreachableException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 7315609018708318689L;
+    private static final long serialVersionUID = -3742924106551162783L;
 }

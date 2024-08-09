@@ -37,50 +37,8 @@ public class ExceptionProperty extends com.zeroc.Ice.UserException
         this.zeroDotD = 0;
     }
 
-    public ExceptionProperty(Throwable cause)
-    {
-        super(cause);
-        this.boolFalse = false;
-        this.boolTrue = true;
-        this.b = 1;
-        this.s = 2;
-        this.i = 3;
-        this.l = 4L;
-        this.f = 5.1F;
-        this.d = 6.2;
-        this.str = "foo bar";
-        this.noDefault = "";
-        this.zeroI = 0;
-        this.zeroL = 0L;
-        this.zeroF = 0F;
-        this.zeroDotF = 0F;
-        this.zeroD = 0;
-        this.zeroDotD = 0;
-    }
-
     public ExceptionProperty(boolean boolFalse, boolean boolTrue, byte b, short s, int i, long l, float f, double d, String str, String noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD)
     {
-        this.boolFalse = boolFalse;
-        this.boolTrue = boolTrue;
-        this.b = b;
-        this.s = s;
-        this.i = i;
-        this.l = l;
-        this.f = f;
-        this.d = d;
-        this.str = str;
-        this.noDefault = noDefault;
-        this.zeroI = zeroI;
-        this.zeroL = zeroL;
-        this.zeroF = zeroF;
-        this.zeroDotF = zeroDotF;
-        this.zeroD = zeroD;
-        this.zeroDotD = zeroDotD;
-    }
-
-    public ExceptionProperty(boolean boolFalse, boolean boolTrue, byte b, short s, int i, long l, float f, double d, String str, String noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Throwable cause)
-    {
-        super(cause);
         this.boolFalse = boolFalse;
         this.boolTrue = boolTrue;
         this.b = b;
@@ -185,5 +143,5 @@ public class ExceptionProperty extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 353231605100982010L;
+    private static final long serialVersionUID = -7232234156002522304L;
 }

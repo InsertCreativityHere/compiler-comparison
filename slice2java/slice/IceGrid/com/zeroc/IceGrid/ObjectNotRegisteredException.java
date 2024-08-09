@@ -25,20 +25,8 @@ public class ObjectNotRegisteredException extends com.zeroc.Ice.UserException
         this.id = new com.zeroc.Ice.Identity();
     }
 
-    public ObjectNotRegisteredException(Throwable cause)
-    {
-        super(cause);
-        this.id = new com.zeroc.Ice.Identity();
-    }
-
     public ObjectNotRegisteredException(com.zeroc.Ice.Identity id)
     {
-        this.id = id;
-    }
-
-    public ObjectNotRegisteredException(com.zeroc.Ice.Identity id, Throwable cause)
-    {
-        super(cause);
         this.id = id;
     }
 
@@ -71,5 +59,5 @@ public class ObjectNotRegisteredException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 7672378676763989362L;
+    private static final long serialVersionUID = 7672374566112115073L;
 }

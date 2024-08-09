@@ -24,11 +24,6 @@ public class ObjectNotFoundException extends com.zeroc.Ice.UserException
     {
     }
 
-    public ObjectNotFoundException(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::Ice::ObjectNotFoundException";

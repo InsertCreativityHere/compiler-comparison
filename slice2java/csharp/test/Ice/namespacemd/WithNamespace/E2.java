@@ -19,23 +19,11 @@ public class E2 extends E1
 {
     public E2()
     {
-        super();
-    }
-
-    public E2(Throwable cause)
-    {
-        super(cause);
     }
 
     public E2(int i, long l)
     {
         super(i);
-        this.l = l;
-    }
-
-    public E2(int i, long l, Throwable cause)
-    {
-        super(i, cause);
         this.l = l;
     }
 
@@ -67,5 +55,5 @@ public class E2 extends E1
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 2279090554185665302L;
+    private static final long serialVersionUID = 2279074967385157171L;
 }

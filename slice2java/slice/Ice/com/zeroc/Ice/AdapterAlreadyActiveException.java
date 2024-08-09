@@ -24,11 +24,6 @@ public class AdapterAlreadyActiveException extends com.zeroc.Ice.UserException
     {
     }
 
-    public AdapterAlreadyActiveException(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::Ice::AdapterAlreadyActiveException";

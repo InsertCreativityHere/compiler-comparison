@@ -19,24 +19,11 @@ public class foreach extends fixed
 {
     public foreach()
     {
-        super();
-    }
-
-    public foreach(Throwable cause)
-    {
-        super(cause);
     }
 
     public foreach(int _for, int _goto, int _if)
     {
         super(_for);
-        this._goto = _goto;
-        this._if = _if;
-    }
-
-    public foreach(int _for, int _goto, int _if, Throwable cause)
-    {
-        super(_for, cause);
         this._goto = _goto;
         this._if = _if;
     }
@@ -73,5 +60,5 @@ public class foreach extends fixed
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -7019026408124877047L;
+    private static final long serialVersionUID = -1690863786373388151L;
 }

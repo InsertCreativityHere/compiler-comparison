@@ -24,19 +24,8 @@ public class def extends com.zeroc.Ice.UserException
     {
     }
 
-    public def(Throwable cause)
-    {
-        super(cause);
-    }
-
     public def(int i)
     {
-        this.i = i;
-    }
-
-    public def(int i, Throwable cause)
-    {
-        super(cause);
         this.i = i;
     }
 
@@ -66,5 +55,5 @@ public class def extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 7298393612640519923L;
+    private static final long serialVersionUID = 7298391327979269146L;
 }

@@ -19,23 +19,11 @@ public class A extends Test.A
 {
     public A()
     {
-        super();
-    }
-
-    public A(Throwable cause)
-    {
-        super(cause);
     }
 
     public A(int aMem, int a2Mem)
     {
         super(aMem);
-        this.a2Mem = a2Mem;
-    }
-
-    public A(int aMem, int a2Mem, Throwable cause)
-    {
-        super(aMem, cause);
         this.a2Mem = a2Mem;
     }
 
@@ -67,5 +55,5 @@ public class A extends Test.A
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -4641415525465194594L;
+    private static final long serialVersionUID = -4641408786737273922L;
 }

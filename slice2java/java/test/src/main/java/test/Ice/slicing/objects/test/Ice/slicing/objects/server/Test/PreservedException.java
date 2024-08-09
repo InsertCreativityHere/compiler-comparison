@@ -21,11 +21,6 @@ public class PreservedException extends com.zeroc.Ice.UserException
     {
     }
 
-    public PreservedException(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::Test::PreservedException";

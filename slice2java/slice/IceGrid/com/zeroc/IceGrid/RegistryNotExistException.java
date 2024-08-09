@@ -25,20 +25,8 @@ public class RegistryNotExistException extends com.zeroc.Ice.UserException
         this.name = "";
     }
 
-    public RegistryNotExistException(Throwable cause)
-    {
-        super(cause);
-        this.name = "";
-    }
-
     public RegistryNotExistException(String name)
     {
-        this.name = name;
-    }
-
-    public RegistryNotExistException(String name, Throwable cause)
-    {
-        super(cause);
         this.name = name;
     }
 
@@ -71,5 +59,5 @@ public class RegistryNotExistException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 8544200176467414084L;
+    private static final long serialVersionUID = 8544187926983079539L;
 }

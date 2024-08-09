@@ -22,20 +22,8 @@ public class TestCaseFailedException extends com.zeroc.Ice.UserException
         this.output = "";
     }
 
-    public TestCaseFailedException(Throwable cause)
-    {
-        super(cause);
-        this.output = "";
-    }
-
     public TestCaseFailedException(String output)
     {
-        this.output = output;
-    }
-
-    public TestCaseFailedException(String output, Throwable cause)
-    {
-        super(cause);
         this.output = output;
     }
 
@@ -65,5 +53,5 @@ public class TestCaseFailedException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 7577600468940861738L;
+    private static final long serialVersionUID = 7577590503970398161L;
 }

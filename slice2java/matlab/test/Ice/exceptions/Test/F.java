@@ -22,20 +22,8 @@ public class F extends com.zeroc.Ice.UserException
         this.data = "";
     }
 
-    public F(Throwable cause)
-    {
-        super(cause);
-        this.data = "";
-    }
-
     public F(String data)
     {
-        this.data = data;
-    }
-
-    public F(String data, Throwable cause)
-    {
-        super(cause);
         this.data = data;
     }
 
@@ -65,5 +53,5 @@ public class F extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 733469313188920104L;
+    private static final long serialVersionUID = 733476909617736110L;
 }

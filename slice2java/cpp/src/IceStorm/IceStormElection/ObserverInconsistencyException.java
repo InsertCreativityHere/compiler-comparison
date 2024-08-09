@@ -25,20 +25,8 @@ public class ObserverInconsistencyException extends com.zeroc.Ice.UserException
         this.reason = "";
     }
 
-    public ObserverInconsistencyException(Throwable cause)
-    {
-        super(cause);
-        this.reason = "";
-    }
-
     public ObserverInconsistencyException(String reason)
     {
-        this.reason = reason;
-    }
-
-    public ObserverInconsistencyException(String reason, Throwable cause)
-    {
-        super(cause);
         this.reason = reason;
     }
 
@@ -71,5 +59,5 @@ public class ObserverInconsistencyException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 938911842188858636L;
+    private static final long serialVersionUID = 938914306214859616L;
 }

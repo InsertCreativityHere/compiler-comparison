@@ -24,11 +24,6 @@ public class RemoteLoggerAlreadyAttachedException extends com.zeroc.Ice.UserExce
     {
     }
 
-    public RemoteLoggerAlreadyAttachedException(Throwable cause)
-    {
-        super(cause);
-    }
-
     public String ice_id()
     {
         return "::Ice::RemoteLoggerAlreadyAttachedException";

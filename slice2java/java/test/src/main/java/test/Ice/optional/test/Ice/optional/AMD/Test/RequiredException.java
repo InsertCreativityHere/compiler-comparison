@@ -19,13 +19,6 @@ public class RequiredException extends OptionalException
 {
     public RequiredException()
     {
-        super();
-        this.ss = "test";
-    }
-
-    public RequiredException(Throwable cause)
-    {
-        super(cause);
         this.ss = "test";
     }
 
@@ -35,21 +28,9 @@ public class RequiredException extends OptionalException
         this.ss = ss;
     }
 
-    public RequiredException(boolean req, String ss, Throwable cause)
-    {
-        super(req, cause);
-        this.ss = ss;
-    }
-
     public RequiredException(boolean req, int a, String b, String ss)
     {
         super(req, a, b);
-        this.ss = ss;
-    }
-
-    public RequiredException(boolean req, int a, String b, String ss, Throwable cause)
-    {
-        super(req, a, b, cause);
         this.ss = ss;
     }
 
@@ -81,5 +62,5 @@ public class RequiredException extends OptionalException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 2894241416426423319L;
+    private static final long serialVersionUID = 2894244793475218763L;
 }

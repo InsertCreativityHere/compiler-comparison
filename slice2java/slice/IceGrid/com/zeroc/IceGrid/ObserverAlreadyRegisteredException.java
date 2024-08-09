@@ -28,20 +28,8 @@ public class ObserverAlreadyRegisteredException extends com.zeroc.Ice.UserExcept
         this.id = new com.zeroc.Ice.Identity();
     }
 
-    public ObserverAlreadyRegisteredException(Throwable cause)
-    {
-        super(cause);
-        this.id = new com.zeroc.Ice.Identity();
-    }
-
     public ObserverAlreadyRegisteredException(com.zeroc.Ice.Identity id)
     {
-        this.id = id;
-    }
-
-    public ObserverAlreadyRegisteredException(com.zeroc.Ice.Identity id, Throwable cause)
-    {
-        super(cause);
         this.id = id;
     }
 
@@ -74,5 +62,5 @@ public class ObserverAlreadyRegisteredException extends com.zeroc.Ice.UserExcept
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 2733089513021715388L;
+    private static final long serialVersionUID = 2733101927970284751L;
 }
