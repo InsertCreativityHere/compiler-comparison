@@ -59,5 +59,5 @@ public class BadQoS extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 7896654088297761502L;
+    private static final long serialVersionUID = 7896656613032472251L;
 }
