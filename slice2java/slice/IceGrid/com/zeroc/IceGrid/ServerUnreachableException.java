@@ -68,5 +68,5 @@ public class ServerUnreachableException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -8942740103054192799L;
+    private static final long serialVersionUID = -5599340319220429599L;
 }
