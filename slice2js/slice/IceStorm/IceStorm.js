@@ -54,7 +54,7 @@ const IceMX = {
 export const IceStorm = {};
 
 /**
- *   Information on the topic links.
+ * Information on the topic links.
  **/
 IceStorm.LinkInfo = class
 {
@@ -92,7 +92,7 @@ IceStorm.LinkInfoSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceStorm.LinkIn
 [IceStorm.QoS, IceStorm.QoSHelper] = Ice.defineDictionary(Ice.StringHelper, Ice.StringHelper, false, undefined);
 
 /**
- *  This exception indicates that an attempt was made to create a link that already exists.
+ * This exception indicates that an attempt was made to create a link that already exists.
  **/
 IceStorm.LinkExists = class extends Ice.UserException
 {
@@ -132,7 +132,7 @@ Ice.TypeRegistry.declareUserExceptionType(
     IceStorm.LinkExists);
 
 /**
- *  This exception indicates that an attempt was made to remove a link that does not exist.
+ * This exception indicates that an attempt was made to remove a link that does not exist.
  **/
 IceStorm.NoSuchLink = class extends Ice.UserException
 {
@@ -172,7 +172,7 @@ Ice.TypeRegistry.declareUserExceptionType(
     IceStorm.NoSuchLink);
 
 /**
- *   This exception indicates that an attempt was made to subscribe a proxy for which a subscription already exists.
+ * This exception indicates that an attempt was made to subscribe a proxy for which a subscription already exists.
  **/
 IceStorm.AlreadySubscribed = class extends Ice.UserException
 {
@@ -201,7 +201,7 @@ Ice.TypeRegistry.declareUserExceptionType(
     IceStorm.AlreadySubscribed);
 
 /**
- *  This exception indicates that an attempt was made to subscribe a proxy that is null.
+ * This exception indicates that an attempt was made to subscribe a proxy that is null.
  **/
 IceStorm.InvalidSubscriber = class extends Ice.UserException
 {
@@ -241,7 +241,7 @@ Ice.TypeRegistry.declareUserExceptionType(
     IceStorm.InvalidSubscriber);
 
 /**
- *  This exception indicates that a subscription failed due to an invalid QoS.
+ * This exception indicates that a subscription failed due to an invalid QoS.
  **/
 IceStorm.BadQoS = class extends Ice.UserException
 {
@@ -286,8 +286,8 @@ const iceC_IceStorm_Topic_ids = [
 ];
 
 /**
- *  Publishers publish information on a particular topic. A topic logically represents a type. A
- *  @see TopicManager
+ * Publishers publish information on a particular topic. A topic logically represents a type. A
+ * @see TopicManager
  **/
 IceStorm.Topic = class extends Ice.Object
 {
@@ -330,7 +330,7 @@ Ice.defineOperations(
 [IceStorm.TopicDict, IceStorm.TopicDictHelper] = Ice.defineDictionary(Ice.StringHelper, IceStorm.TopicPrx, false, undefined);
 
 /**
- *  This exception indicates that an attempt was made to create a topic that already exists.
+ * This exception indicates that an attempt was made to create a topic that already exists.
  **/
 IceStorm.TopicExists = class extends Ice.UserException
 {
@@ -370,7 +370,7 @@ Ice.TypeRegistry.declareUserExceptionType(
     IceStorm.TopicExists);
 
 /**
- *  This exception indicates that an attempt was made to retrieve a topic that does not exist.
+ * This exception indicates that an attempt was made to retrieve a topic that does not exist.
  **/
 IceStorm.NoSuchTopic = class extends Ice.UserException
 {
@@ -415,8 +415,8 @@ const iceC_IceStorm_TopicManager_ids = [
 ];
 
 /**
- *  A topic manager manages topics, and subscribers to topics.
- *  @see Topic
+ * A topic manager manages topics, and subscribers to topics.
+ * @see Topic
  **/
 IceStorm.TopicManager = class extends Ice.Object
 {
@@ -450,8 +450,8 @@ const iceC_IceStorm_Finder_ids = [
 ];
 
 /**
- *  This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
- *  This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
+ * This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
+ * This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
  **/
 IceStorm.Finder = class extends Ice.Object
 {

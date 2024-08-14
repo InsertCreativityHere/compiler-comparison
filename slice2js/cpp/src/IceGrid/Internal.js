@@ -156,7 +156,7 @@ Ice.defineValue(IceGrid.InternalServerDescriptor, "::IceGrid::InternalServerDesc
 Ice.TypeRegistry.declareValueType("IceGrid.InternalServerDescriptor", IceGrid.InternalServerDescriptor);
 
 /**
- *  This exception is raised if an adapter is active.
+ * This exception is raised if an adapter is active.
  **/
 IceGrid.AdapterActiveException = class extends Ice.UserException
 {
@@ -253,7 +253,7 @@ Ice.defineOperations(
     });
 
 /**
- *  This exception is raised if an adapter with the same name already exists.
+ * This exception is raised if an adapter with the same name already exists.
  **/
 IceGrid.AdapterExistsException = class extends Ice.UserException
 {
@@ -469,7 +469,7 @@ Ice.defineOperations(
 IceGrid.NodePrxSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceGrid.NodePrx, false);
 
 /**
- *  This exception is raised if a node is already registered and active.
+ * This exception is raised if a node is already registered and active.
  **/
 IceGrid.NodeActiveException = class extends Ice.UserException
 {
@@ -528,7 +528,7 @@ Ice.defineOperations(
     });
 
 /**
- *  This exception is raised if a replica is already registered and active.
+ * This exception is raised if a replica is already registered and active.
  **/
 IceGrid.ReplicaActiveException = class extends Ice.UserException
 {
@@ -630,15 +630,15 @@ Ice.defineOperations(
         "registerWellKnownObjects": [, 2, , , [[IceGrid.ObjectInfoSeqHelper]], , , , ],
         "setAdapterDirectProxy": [, 2, , , [[7], [7], [9]], ,
         [
-            IceGrid.AdapterNotExistException,
-            IceGrid.AdapterExistsException
+            IceGrid.AdapterExistsException,
+            IceGrid.AdapterNotExistException
         ], , ],
         "receivedUpdate": [, , , , [[IceGrid.TopicName._helper], [3], [7]], , , , ],
         "destroy": [, , , , , , , , ]
     });
 
 /**
- *  Information about an IceGrid node.
+ * Information about an IceGrid node.
  **/
 IceGrid.InternalNodeInfo = class extends Ice.Value
 {
@@ -684,7 +684,7 @@ Ice.defineValue(IceGrid.InternalNodeInfo, "::IceGrid::InternalNodeInfo");
 Ice.TypeRegistry.declareValueType("IceGrid.InternalNodeInfo", IceGrid.InternalNodeInfo);
 
 /**
- *  Information about an IceGrid registry replica.
+ * Information about an IceGrid registry replica.
  **/
 IceGrid.InternalReplicaInfo = class extends Ice.Value
 {
@@ -745,8 +745,8 @@ Ice.defineOperations(
     {
         "registerNode": [, , , ["IceGrid.NodeSessionPrx"], [["IceGrid.InternalNodeInfo", true], ["IceGrid.NodePrx"], [IceGrid.LoadInfo]], ,
         [
-            IceGrid.PermissionDeniedException,
-            IceGrid.NodeActiveException
+            IceGrid.NodeActiveException,
+            IceGrid.PermissionDeniedException
         ], true, ],
         "registerReplica": [, , , ["IceGrid.ReplicaSessionPrx"], [["IceGrid.InternalReplicaInfo", true], ["IceGrid.InternalRegistryPrx"]], ,
         [

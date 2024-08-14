@@ -48,7 +48,7 @@ export const IceGrid = {};
 [IceGrid.StringStringDict, IceGrid.StringStringDictHelper] = Ice.defineDictionary(Ice.StringHelper, Ice.StringHelper, false, undefined);
 
 /**
- *  Property descriptor.
+ * Property descriptor.
  **/
 IceGrid.PropertyDescriptor = class
 {
@@ -81,7 +81,7 @@ Ice.defineStruct(IceGrid.PropertyDescriptor, true, true);
 IceGrid.PropertyDescriptorSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceGrid.PropertyDescriptor, false);
 
 /**
- *  A property set descriptor.
+ * A property set descriptor.
  **/
 IceGrid.PropertySetDescriptor = class
 {
@@ -114,7 +114,7 @@ Ice.defineStruct(IceGrid.PropertySetDescriptor, false, true);
 [IceGrid.PropertySetDescriptorDict, IceGrid.PropertySetDescriptorDictHelper] = Ice.defineDictionary(Ice.StringHelper, IceGrid.PropertySetDescriptor, false, undefined);
 
 /**
- *  An Ice object descriptor.
+ * An Ice object descriptor.
  **/
 IceGrid.ObjectDescriptor = class
 {
@@ -150,7 +150,7 @@ Ice.defineStruct(IceGrid.ObjectDescriptor, true, true);
 IceGrid.ObjectDescriptorSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceGrid.ObjectDescriptor, false);
 
 /**
- *  An Ice object adapter descriptor.
+ * An Ice object adapter descriptor.
  **/
 IceGrid.AdapterDescriptor = class
 {
@@ -204,7 +204,7 @@ Ice.defineStruct(IceGrid.AdapterDescriptor, false, true);
 IceGrid.AdapterDescriptorSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceGrid.AdapterDescriptor, false);
 
 /**
- *  A communicator descriptor.
+ * A communicator descriptor.
  **/
 IceGrid.CommunicatorDescriptor = class extends Ice.Value
 {
@@ -238,9 +238,9 @@ Ice.defineValue(IceGrid.CommunicatorDescriptor, "::IceGrid::CommunicatorDescript
 Ice.TypeRegistry.declareValueType("IceGrid.CommunicatorDescriptor", IceGrid.CommunicatorDescriptor);
 
 /**
- *  A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
- *  This descriptor is no longer used. It's provided only for schema compatibility with Ice 3.7 and earlier
- *  releases.
+ * A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
+ * This descriptor is no longer used. It's provided only for schema compatibility with Ice 3.7 and earlier
+ * releases.
  **/
 IceGrid.DistributionDescriptor = class
 {
@@ -271,7 +271,7 @@ IceGrid.DistributionDescriptor = class
 Ice.defineStruct(IceGrid.DistributionDescriptor, false, true);
 
 /**
- *  An Ice server descriptor.
+ * An Ice server descriptor.
  **/
 IceGrid.ServerDescriptor = class extends IceGrid.CommunicatorDescriptor
 {
@@ -334,7 +334,7 @@ Ice.TypeRegistry.declareValueType("IceGrid.ServerDescriptor", IceGrid.ServerDesc
 IceGrid.ServerDescriptorSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ObjectHelper, false, "IceGrid.ServerDescriptor");
 
 /**
- *  An IceBox service descriptor.
+ * An IceBox service descriptor.
  **/
 IceGrid.ServiceDescriptor = class extends IceGrid.CommunicatorDescriptor
 {
@@ -364,7 +364,7 @@ Ice.TypeRegistry.declareValueType("IceGrid.ServiceDescriptor", IceGrid.ServiceDe
 IceGrid.ServiceDescriptorSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ObjectHelper, false, "IceGrid.ServiceDescriptor");
 
 /**
- *  A server template instance descriptor.
+ * A server template instance descriptor.
  **/
 IceGrid.ServerInstanceDescriptor = class
 {
@@ -403,7 +403,7 @@ Ice.defineStruct(IceGrid.ServerInstanceDescriptor, false, true);
 IceGrid.ServerInstanceDescriptorSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceGrid.ServerInstanceDescriptor, false);
 
 /**
- *  A template descriptor for server or service templates.
+ * A template descriptor for server or service templates.
  **/
 IceGrid.TemplateDescriptor = class
 {
@@ -439,7 +439,7 @@ Ice.defineStruct(IceGrid.TemplateDescriptor, false, true);
 [IceGrid.TemplateDescriptorDict, IceGrid.TemplateDescriptorDictHelper] = Ice.defineDictionary(Ice.StringHelper, IceGrid.TemplateDescriptor, false, undefined);
 
 /**
- *  A service template instance descriptor.
+ * A service template instance descriptor.
  **/
 IceGrid.ServiceInstanceDescriptor = class
 {
@@ -478,7 +478,7 @@ Ice.defineStruct(IceGrid.ServiceInstanceDescriptor, false, true);
 IceGrid.ServiceInstanceDescriptorSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceGrid.ServiceInstanceDescriptor, false);
 
 /**
- *  An IceBox server descriptor.
+ * An IceBox server descriptor.
  **/
 IceGrid.IceBoxDescriptor = class extends IceGrid.ServerDescriptor
 {
@@ -503,7 +503,7 @@ Ice.defineValue(IceGrid.IceBoxDescriptor, "::IceGrid::IceBoxDescriptor");
 Ice.TypeRegistry.declareValueType("IceGrid.IceBoxDescriptor", IceGrid.IceBoxDescriptor);
 
 /**
- *  A node descriptor.
+ * A node descriptor.
  **/
 IceGrid.NodeDescriptor = class
 {
@@ -548,7 +548,7 @@ Ice.defineStruct(IceGrid.NodeDescriptor, false, true);
 [IceGrid.NodeDescriptorDict, IceGrid.NodeDescriptorDictHelper] = Ice.defineDictionary(Ice.StringHelper, IceGrid.NodeDescriptor, false, undefined);
 
 /**
- *  A base class for load balancing policies.
+ * A base class for load balancing policies.
  **/
 IceGrid.LoadBalancingPolicy = class extends Ice.Value
 {
@@ -573,7 +573,7 @@ Ice.defineValue(IceGrid.LoadBalancingPolicy, "::IceGrid::LoadBalancingPolicy");
 Ice.TypeRegistry.declareValueType("IceGrid.LoadBalancingPolicy", IceGrid.LoadBalancingPolicy);
 
 /**
- *  Random load balancing policy.
+ * Random load balancing policy.
  **/
 IceGrid.RandomLoadBalancingPolicy = class extends IceGrid.LoadBalancingPolicy
 {
@@ -587,7 +587,7 @@ Ice.defineValue(IceGrid.RandomLoadBalancingPolicy, "::IceGrid::RandomLoadBalanci
 Ice.TypeRegistry.declareValueType("IceGrid.RandomLoadBalancingPolicy", IceGrid.RandomLoadBalancingPolicy);
 
 /**
- *  Ordered load balancing policy.
+ * Ordered load balancing policy.
  **/
 IceGrid.OrderedLoadBalancingPolicy = class extends IceGrid.LoadBalancingPolicy
 {
@@ -601,7 +601,7 @@ Ice.defineValue(IceGrid.OrderedLoadBalancingPolicy, "::IceGrid::OrderedLoadBalan
 Ice.TypeRegistry.declareValueType("IceGrid.OrderedLoadBalancingPolicy", IceGrid.OrderedLoadBalancingPolicy);
 
 /**
- *  Round robin load balancing policy.
+ * Round robin load balancing policy.
  **/
 IceGrid.RoundRobinLoadBalancingPolicy = class extends IceGrid.LoadBalancingPolicy
 {
@@ -615,7 +615,7 @@ Ice.defineValue(IceGrid.RoundRobinLoadBalancingPolicy, "::IceGrid::RoundRobinLoa
 Ice.TypeRegistry.declareValueType("IceGrid.RoundRobinLoadBalancingPolicy", IceGrid.RoundRobinLoadBalancingPolicy);
 
 /**
- *  Adaptive load balancing policy.
+ * Adaptive load balancing policy.
  **/
 IceGrid.AdaptiveLoadBalancingPolicy = class extends IceGrid.LoadBalancingPolicy
 {
@@ -640,7 +640,7 @@ Ice.defineValue(IceGrid.AdaptiveLoadBalancingPolicy, "::IceGrid::AdaptiveLoadBal
 Ice.TypeRegistry.declareValueType("IceGrid.AdaptiveLoadBalancingPolicy", IceGrid.AdaptiveLoadBalancingPolicy);
 
 /**
- *  A replica group descriptor.
+ * A replica group descriptor.
  **/
 IceGrid.ReplicaGroupDescriptor = class
 {
@@ -685,7 +685,7 @@ Ice.defineStruct(IceGrid.ReplicaGroupDescriptor, false, true);
 IceGrid.ReplicaGroupDescriptorSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceGrid.ReplicaGroupDescriptor, false);
 
 /**
- *  An application descriptor.
+ * An application descriptor.
  **/
 IceGrid.ApplicationDescriptor = class
 {
@@ -739,7 +739,7 @@ Ice.defineStruct(IceGrid.ApplicationDescriptor, false, true);
 IceGrid.ApplicationDescriptorSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceGrid.ApplicationDescriptor, false);
 
 /**
- *  A "boxed" string.
+ * A "boxed" string.
  **/
 IceGrid.BoxedString = class extends Ice.Value
 {
@@ -764,7 +764,7 @@ Ice.defineValue(IceGrid.BoxedString, "::IceGrid::BoxedString");
 Ice.TypeRegistry.declareValueType("IceGrid.BoxedString", IceGrid.BoxedString);
 
 /**
- *  A node update descriptor to describe the updates to apply to a node of a deployed application.
+ * A node update descriptor to describe the updates to apply to a node of a deployed application.
  **/
 IceGrid.NodeUpdateDescriptor = class
 {
@@ -821,7 +821,7 @@ Ice.defineStruct(IceGrid.NodeUpdateDescriptor, false, true);
 IceGrid.NodeUpdateDescriptorSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceGrid.NodeUpdateDescriptor, false);
 
 /**
- *  A "boxed" distribution descriptor.
+ * A "boxed" distribution descriptor.
  **/
 IceGrid.BoxedDistributionDescriptor = class extends Ice.Value
 {
@@ -846,7 +846,7 @@ Ice.defineValue(IceGrid.BoxedDistributionDescriptor, "::IceGrid::BoxedDistributi
 Ice.TypeRegistry.declareValueType("IceGrid.BoxedDistributionDescriptor", IceGrid.BoxedDistributionDescriptor);
 
 /**
- *  An application update descriptor to describe the updates to apply to a deployed application.
+ * An application update descriptor to describe the updates to apply to a deployed application.
  **/
 IceGrid.ApplicationUpdateDescriptor = class
 {

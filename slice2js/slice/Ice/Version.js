@@ -30,7 +30,7 @@ const Ice = {
 export { Ice };
 
 /**
- *  A version structure for the protocol version.
+ * A version structure for the protocol version.
  **/
 Ice.ProtocolVersion = class
 {
@@ -61,7 +61,7 @@ Ice.ProtocolVersion = class
 Ice.defineStruct(Ice.ProtocolVersion, true, false);
 
 /**
- *  A version structure for the encoding version.
+ * A version structure for the encoding version.
  **/
 Ice.EncodingVersion = class
 {

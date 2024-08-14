@@ -30,7 +30,7 @@ const Ice = {
 export { Ice };
 
 /**
- *  Determines the retry behavior an invocation in case of a (potentially) recoverable error.
+ * Determines the retry behavior an invocation in case of a (potentially) recoverable error.
  **/
 Ice.OperationMode = Ice.defineEnum([
     ['Normal', 0], ['Nonmutating', 1], ['Idempotent', 2]]);

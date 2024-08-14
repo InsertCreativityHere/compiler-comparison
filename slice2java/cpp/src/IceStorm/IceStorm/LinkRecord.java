@@ -177,5 +177,5 @@ public class LinkRecord implements java.lang.Cloneable,
     private static final LinkRecord _nullMarshalValue = new LinkRecord();
 
     /** @hidden */
-    private static final long serialVersionUID = -7807970955351081206L;
+    private static final long serialVersionUID = -9114085385993515104L;
 }

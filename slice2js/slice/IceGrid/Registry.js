@@ -54,7 +54,7 @@ const IceGrid = {
 export { IceGrid };
 
 /**
- *  Determines which load sampling interval to use.
+ * Determines which load sampling interval to use.
  **/
 IceGrid.LoadSample = Ice.defineEnum([
     ['LoadSample1', 0], ['LoadSample5', 1], ['LoadSample15', 2]]);
@@ -65,8 +65,8 @@ const iceC_IceGrid_Query_ids = [
 ];
 
 /**
- *  The IceGrid query interface. This interface is accessible to Ice clients who wish to look up well-known
- *  objects.
+ * The IceGrid query interface. This interface is accessible to Ice clients who wish to look up well-known
+ * objects.
  **/
 IceGrid.Query = class extends Ice.Object
 {
@@ -96,9 +96,9 @@ const iceC_IceGrid_Registry_ids = [
 ];
 
 /**
- *  The IceGrid registry allows clients create sessions directly with the registry.
- *  @see Session
- *  @see AdminSession
+ * The IceGrid registry allows clients create sessions directly with the registry.
+ * @see Session
+ * @see AdminSession
  **/
 IceGrid.Registry = class extends Ice.Object
 {
@@ -142,10 +142,10 @@ const iceC_IceGrid_Locator_ids = [
 ];
 
 /**
- *  The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
- *  registry.
- *  @see Query
- *  @see Registry
+ * The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
+ * registry.
+ * @see Query
+ * @see Registry
  **/
 IceGrid.Locator = class extends Ice.Object
 {

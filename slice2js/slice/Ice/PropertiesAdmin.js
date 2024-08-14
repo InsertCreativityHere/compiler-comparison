@@ -45,7 +45,7 @@ const iceC_Ice_PropertiesAdmin_ids = [
 ];
 
 /**
- *  The PropertiesAdmin interface provides remote access to the properties of a communicator.
+ * The PropertiesAdmin interface provides remote access to the properties of a communicator.
  **/
 Ice.PropertiesAdmin = class extends Ice.Object
 {

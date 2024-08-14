@@ -50,8 +50,8 @@ export const IceMX = {};
 [IceMX.StringIntDict, IceMX.StringIntDictHelper] = Ice.defineDictionary(Ice.StringHelper, Ice.IntHelper, false, undefined);
 
 /**
- *  The base class for metrics. A metrics object represents a collection of measurements associated to a given a
- *  system.
+ * The base class for metrics. A metrics object represents a collection of measurements associated to a given a
+ * system.
  **/
 IceMX.Metrics = class extends Ice.Value
 {
@@ -88,7 +88,7 @@ Ice.defineValue(IceMX.Metrics, "::IceMX::Metrics");
 Ice.TypeRegistry.declareValueType("IceMX.Metrics", IceMX.Metrics);
 
 /**
- *  A structure to keep track of failures associated with a given metrics.
+ * A structure to keep track of failures associated with a given metrics.
  **/
 IceMX.MetricsFailures = class
 {
@@ -125,7 +125,7 @@ IceMX.MetricsMapHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ObjectHelper, f
 [IceMX.MetricsView, IceMX.MetricsViewHelper] = Ice.defineDictionary(Ice.StringHelper, IceMX.MetricsMapHelper, false, undefined);
 
 /**
- *  Raised if a metrics view cannot be found.
+ * Raised if a metrics view cannot be found.
  **/
 IceMX.UnknownMetricsView = class extends Ice.UserException
 {
@@ -159,8 +159,8 @@ const iceC_IceMX_MetricsAdmin_ids = [
 ];
 
 /**
- *  The metrics administrative facet interface. This interface allows remote administrative clients to access
- *  metrics of an application that enabled the Ice administrative facility and configured some metrics views.
+ * The metrics administrative facet interface. This interface allows remote administrative clients to access
+ * metrics of an application that enabled the Ice administrative facility and configured some metrics views.
  **/
 IceMX.MetricsAdmin = class extends Ice.Object
 {
@@ -201,7 +201,7 @@ Ice.defineOperations(
     });
 
 /**
- *  Provides information on the number of threads currently in use and their activity.
+ * Provides information on the number of threads currently in use and their activity.
  **/
 IceMX.ThreadMetrics = class extends IceMX.Metrics
 {
@@ -232,7 +232,7 @@ Ice.defineValue(IceMX.ThreadMetrics, "::IceMX::ThreadMetrics");
 Ice.TypeRegistry.declareValueType("IceMX.ThreadMetrics", IceMX.ThreadMetrics);
 
 /**
- *  Provides information on servant dispatch.
+ * Provides information on servant dispatch.
  **/
 IceMX.DispatchMetrics = class extends IceMX.Metrics
 {
@@ -263,9 +263,9 @@ Ice.defineValue(IceMX.DispatchMetrics, "::IceMX::DispatchMetrics");
 Ice.TypeRegistry.declareValueType("IceMX.DispatchMetrics", IceMX.DispatchMetrics);
 
 /**
- *  Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
- *  collocated. An invocation can have multiple child invocation if it is retried. Child invocation metrics are
- *  embedded within {@link InvocationMetrics}.
+ * Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
+ * collocated. An invocation can have multiple child invocation if it is retried. Child invocation metrics are
+ * embedded within {@link InvocationMetrics}.
  **/
 IceMX.ChildInvocationMetrics = class extends IceMX.Metrics
 {
@@ -293,8 +293,8 @@ Ice.defineValue(IceMX.ChildInvocationMetrics, "::IceMX::ChildInvocationMetrics")
 Ice.TypeRegistry.declareValueType("IceMX.ChildInvocationMetrics", IceMX.ChildInvocationMetrics);
 
 /**
- *  Provides information on invocations that are collocated. Collocated metrics are embedded within
- *  {@link InvocationMetrics}.
+ * Provides information on invocations that are collocated. Collocated metrics are embedded within
+ * {@link InvocationMetrics}.
  **/
 IceMX.CollocatedMetrics = class extends IceMX.ChildInvocationMetrics
 {
@@ -308,8 +308,8 @@ Ice.defineValue(IceMX.CollocatedMetrics, "::IceMX::CollocatedMetrics");
 Ice.TypeRegistry.declareValueType("IceMX.CollocatedMetrics", IceMX.CollocatedMetrics);
 
 /**
- *  Provides information on invocations that are specifically sent over Ice connections. Remote metrics are embedded
- *  within {@link InvocationMetrics}.
+ * Provides information on invocations that are specifically sent over Ice connections. Remote metrics are embedded
+ * within {@link InvocationMetrics}.
  **/
 IceMX.RemoteMetrics = class extends IceMX.ChildInvocationMetrics
 {
@@ -323,7 +323,7 @@ Ice.defineValue(IceMX.RemoteMetrics, "::IceMX::RemoteMetrics");
 Ice.TypeRegistry.declareValueType("IceMX.RemoteMetrics", IceMX.RemoteMetrics);
 
 /**
- *  Provide measurements for proxy invocations. Proxy invocations can either be sent over the wire or be collocated.
+ * Provide measurements for proxy invocations. Proxy invocations can either be sent over the wire or be collocated.
  **/
 IceMX.InvocationMetrics = class extends IceMX.Metrics
 {
@@ -357,7 +357,7 @@ Ice.defineValue(IceMX.InvocationMetrics, "::IceMX::InvocationMetrics");
 Ice.TypeRegistry.declareValueType("IceMX.InvocationMetrics", IceMX.InvocationMetrics);
 
 /**
- *  Provides information on the data sent and received over Ice connections.
+ * Provides information on the data sent and received over Ice connections.
  **/
 IceMX.ConnectionMetrics = class extends IceMX.Metrics
 {

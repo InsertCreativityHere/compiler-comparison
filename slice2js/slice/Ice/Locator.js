@@ -42,7 +42,7 @@ const Ice = {
 export { Ice };
 
 /**
- *   This exception is raised if an adapter cannot be found.
+ * This exception is raised if an adapter cannot be found.
  **/
 Ice.AdapterNotFoundException = class extends Ice.UserException
 {
@@ -71,7 +71,7 @@ Ice.TypeRegistry.declareUserExceptionType(
     Ice.AdapterNotFoundException);
 
 /**
- *  This exception is raised if the replica group provided by the server is invalid.
+ * This exception is raised if the replica group provided by the server is invalid.
  **/
 Ice.InvalidReplicaGroupIdException = class extends Ice.UserException
 {
@@ -100,7 +100,7 @@ Ice.TypeRegistry.declareUserExceptionType(
     Ice.InvalidReplicaGroupIdException);
 
 /**
- *  This exception is raised if a server tries to set endpoints for an adapter that is already active.
+ * This exception is raised if a server tries to set endpoints for an adapter that is already active.
  **/
 Ice.AdapterAlreadyActiveException = class extends Ice.UserException
 {
@@ -129,7 +129,7 @@ Ice.TypeRegistry.declareUserExceptionType(
     Ice.AdapterAlreadyActiveException);
 
 /**
- *  This exception is raised if an object cannot be found.
+ * This exception is raised if an object cannot be found.
  **/
 Ice.ObjectNotFoundException = class extends Ice.UserException
 {
@@ -158,7 +158,7 @@ Ice.TypeRegistry.declareUserExceptionType(
     Ice.ObjectNotFoundException);
 
 /**
- *  This exception is raised if a server cannot be found.
+ * This exception is raised if a server cannot be found.
  **/
 Ice.ServerNotFoundException = class extends Ice.UserException
 {
@@ -192,10 +192,10 @@ const iceC_Ice_Locator_ids = [
 ];
 
 /**
- *  The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
- *  servers to get the locator registry proxy. <p class="Note">The {@link Locator} interface is intended to be used
- *  by Ice internals and by locator implementations. Regular user code should not attempt to use any functionality
- *  of this interface directly.
+ * The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
+ * servers to get the locator registry proxy. <p class="Note">The {@link Locator} interface is intended to be used
+ * by Ice internals and by locator implementations. Regular user code should not attempt to use any functionality
+ * of this interface directly.
  **/
 Ice.Locator = class extends Ice.Object
 {
@@ -229,10 +229,10 @@ const iceC_Ice_LocatorRegistry_ids = [
 ];
 
 /**
- *  The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
- *  locator. <p class="Note"> The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
- *  locator implementations. Regular user code should not attempt to use any functionality of this interface
- *  directly.
+ * The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
+ * locator. <p class="Note"> The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
+ * locator implementations. Regular user code should not attempt to use any functionality of this interface
+ * directly.
  **/
 Ice.LocatorRegistry = class extends Ice.Object
 {
@@ -272,9 +272,9 @@ const iceC_Ice_LocatorFinder_ids = [
 ];
 
 /**
- *  This interface should be implemented by services implementing the <code>Ice::Locator interface</code>. It should
- *  be advertised through an Ice object with the identity <code>`Ice/LocatorFinder'</code>. This allows clients to
- *  retrieve the locator proxy with just the endpoint information of the service.
+ * This interface should be implemented by services implementing the <code>Ice::Locator interface</code>. It should
+ * be advertised through an Ice object with the identity <code>`Ice/LocatorFinder'</code>. This allows clients to
+ * retrieve the locator proxy with just the endpoint information of the service.
  **/
 Ice.LocatorFinder = class extends Ice.Object
 {

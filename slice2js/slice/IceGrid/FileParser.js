@@ -46,7 +46,7 @@ const IceGrid = {
 export { IceGrid };
 
 /**
- *  This exception is raised if an error occurs during parsing.
+ * This exception is raised if an error occurs during parsing.
  **/
 IceGrid.ParseException = class extends Ice.UserException
 {
@@ -91,8 +91,8 @@ const iceC_IceGrid_FileParser_ids = [
 ];
 
 /**
- *  <code>icegridadmin</code> provides a {@link FileParser} object to transform XML files into
- *  {@link ApplicationDescriptor} objects.
+ * <code>icegridadmin</code> provides a {@link FileParser} object to transform XML files into
+ * {@link ApplicationDescriptor} objects.
  **/
 IceGrid.FileParser = class extends Ice.Object
 {

@@ -51,9 +51,9 @@ const Glacier2 = {
 export { Glacier2 };
 
 /**
- *  This exception is raised if a client tries to destroy a session with a router, but no session exists for the
- *  client.
- *  @see Router#destroySession
+ * This exception is raised if a client tries to destroy a session with a router, but no session exists for the
+ * client.
+ * @see Router#destroySession
  **/
 Glacier2.SessionNotExistException = class extends Ice.UserException
 {
@@ -88,7 +88,7 @@ const iceC_Glacier2_Router_ids = [
 ];
 
 /**
- *  The Glacier2 specialization of the <code>Ice::Router</code> interface.
+ * The Glacier2 specialization of the <code>Ice::Router</code> interface.
  **/
 Glacier2.Router = class extends Ice.Object
 {

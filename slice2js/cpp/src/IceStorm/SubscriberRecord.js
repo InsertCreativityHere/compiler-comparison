@@ -23,9 +23,9 @@ import { IceStorm } from "ice";
 export const IceStorm = {};
 
 /**
- *  The key for persistent subscribers, or topics.
- *  If the subscriber identity is empty then the record is used as a place holder for the creation of a topic,
- *  otherwise the record holds a subscription record.
+ * The key for persistent subscribers, or topics.
+ * If the subscriber identity is empty then the record is used as a place holder for the creation of a topic,
+ * otherwise the record holds a subscription record.
  **/
 IceStorm.SubscriberRecordKey = class
 {
@@ -56,7 +56,7 @@ IceStorm.SubscriberRecordKey = class
 Ice.defineStruct(IceStorm.SubscriberRecordKey, true, true);
 
 /**
- *  Used to store persistent information for persistent subscribers.
+ * Used to store persistent information for persistent subscribers.
  **/
 IceStorm.SubscriberRecord = class
 {

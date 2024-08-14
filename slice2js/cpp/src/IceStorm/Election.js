@@ -34,7 +34,7 @@ const IceStormElection = {
 export { IceStormElection };
 
 /**
- *  The contents of topic.
+ * The contents of topic.
  **/
 IceStormElection.TopicContent = class
 {
@@ -67,7 +67,7 @@ Ice.defineStruct(IceStormElection.TopicContent, false, true);
 IceStormElection.TopicContentSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceStormElection.TopicContent, false);
 
 /**
- *  Thrown if an observer detects an inconsistency.
+ * Thrown if an observer detects an inconsistency.
  **/
 IceStormElection.ObserverInconsistencyException = class extends Ice.UserException
 {
@@ -112,7 +112,7 @@ const iceC_IceStormElection_ReplicaObserver_ids = [
 ];
 
 /**
- *  The replica observer.
+ * The replica observer.
  **/
 IceStormElection.ReplicaObserver = class extends Ice.Object
 {
@@ -157,7 +157,7 @@ const iceC_IceStormElection_TopicManagerSync_ids = [
 ];
 
 /**
- *  Interface used to sync topics.
+ * Interface used to sync topics.
  **/
 IceStormElection.TopicManagerSync = class extends Ice.Object
 {
@@ -178,13 +178,13 @@ Ice.defineOperations(
     });
 
 /**
- *  The node state.
+ * The node state.
  **/
 IceStormElection.NodeState = Ice.defineEnum([
     ['NodeStateInactive', 0], ['NodeStateElection', 1], ['NodeStateReorganization', 2], ['NodeStateNormal', 3]]);
 
 /**
- *  All nodes in the replication group.
+ * All nodes in the replication group.
  **/
 IceStormElection.NodeInfo = class
 {
@@ -217,7 +217,7 @@ Ice.defineStruct(IceStormElection.NodeInfo, false, true);
 IceStormElection.NodeInfoSeqHelper = Ice.StreamHelpers.generateSeqHelper(IceStormElection.NodeInfo, false);
 
 /**
- *  The group info.
+ * The group info.
  **/
 IceStormElection.GroupInfo = class
 {
@@ -298,7 +298,7 @@ const iceC_IceStormElection_Node_ids = [
 ];
 
 /**
- *  A replica node.
+ * A replica node.
  **/
 IceStormElection.Node = class extends Ice.Object
 {

@@ -28,7 +28,7 @@ const IceStorm = {
 export { IceStorm };
 
 /**
- *  Used to store persistent information for Topic federation.
+ * Used to store persistent information for Topic federation.
  **/
 IceStorm.LinkRecord = class
 {

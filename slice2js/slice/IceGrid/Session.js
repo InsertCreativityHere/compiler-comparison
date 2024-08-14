@@ -56,9 +56,9 @@ const iceC_IceGrid_Session_ids = [
 ];
 
 /**
- *  A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
- *  via the {@link Registry} object or via the registry client <code>SessionManager</code> object.
- *  @see Registry
+ * A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
+ * via the {@link Registry} object or via the registry client <code>SessionManager</code> object.
+ * @see Registry
  **/
 IceGrid.Session = class extends Ice.Object
 {

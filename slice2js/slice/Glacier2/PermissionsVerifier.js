@@ -46,7 +46,7 @@ const Glacier2 = {
 export { Glacier2 };
 
 /**
- *  This exception is raised if a client is denied the ability to create a session with the router.
+ * This exception is raised if a client is denied the ability to create a session with the router.
  **/
 Glacier2.PermissionDeniedException = class extends Ice.UserException
 {
@@ -91,8 +91,8 @@ const iceC_Glacier2_PermissionsVerifier_ids = [
 ];
 
 /**
- *  The Glacier2 permissions verifier. This is called through the process of establishing a session.
- *  @see Router
+ * The Glacier2 permissions verifier. This is called through the process of establishing a session.
+ * @see Router
  **/
 Glacier2.PermissionsVerifier = class extends Ice.Object
 {
@@ -121,8 +121,8 @@ const iceC_Glacier2_SSLPermissionsVerifier_ids = [
 ];
 
 /**
- *  The SSL Glacier2 permissions verifier. This is called through the process of establishing a session.
- *  @see Router
+ * The SSL Glacier2 permissions verifier. This is called through the process of establishing a session.
+ * @see Router
  **/
 Glacier2.SSLPermissionsVerifier = class extends Ice.Object
 {

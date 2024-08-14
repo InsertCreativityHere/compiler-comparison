@@ -45,7 +45,7 @@ const iceC_IceDiscovery_LookupReply_ids = [
 ];
 
 /**
- *  The LookupReply interface is used by IceDiscovery clients to answer requests received on the Lookup interface.
+ * The LookupReply interface is used by IceDiscovery clients to answer requests received on the Lookup interface.
  **/
 IceDiscovery.LookupReply = class extends Ice.Object
 {
@@ -72,7 +72,7 @@ const iceC_IceDiscovery_Lookup_ids = [
 ];
 
 /**
- *  The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
+ * The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
  **/
 IceDiscovery.Lookup = class extends Ice.Object
 {

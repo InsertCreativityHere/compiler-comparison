@@ -40,7 +40,7 @@ const Ice = {
 export const IceGrid = {};
 
 /**
- *  This exception is raised if a user account for a given session identifier can't be found.
+ * This exception is raised if a user account for a given session identifier can't be found.
  **/
 IceGrid.UserAccountNotFoundException = class extends Ice.UserException
 {
@@ -74,7 +74,7 @@ const iceC_IceGrid_UserAccountMapper_ids = [
 ];
 
 /**
- *  A user account mapper object is used by IceGrid nodes to map session identifiers to user accounts.
+ * A user account mapper object is used by IceGrid nodes to map session identifiers to user accounts.
  **/
 IceGrid.UserAccountMapper = class extends Ice.Object
 {

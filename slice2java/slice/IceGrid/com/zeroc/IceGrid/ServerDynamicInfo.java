@@ -192,5 +192,5 @@ public class ServerDynamicInfo implements java.lang.Cloneable,
     private static final ServerDynamicInfo _nullMarshalValue = new ServerDynamicInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = 4844638805214665454L;
+    private static final long serialVersionUID = -3105627670753819538L;
 }

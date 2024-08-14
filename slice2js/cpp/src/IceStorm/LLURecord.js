@@ -22,7 +22,7 @@ import { Ice } from "ice";
 export const IceStormElection = {};
 
 /**
- *  A struct used for marking the last log update.
+ * A struct used for marking the last log update.
  **/
 IceStormElection.LogUpdate = class
 {

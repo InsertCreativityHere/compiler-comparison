@@ -42,7 +42,7 @@ const IceMX = {
 export { IceMX };
 
 /**
- *  Provides information on IceStorm topics.
+ * Provides information on IceStorm topics.
  **/
 IceMX.TopicMetrics = class extends IceMX.Metrics
 {
@@ -70,7 +70,7 @@ Ice.defineValue(IceMX.TopicMetrics, "::IceMX::TopicMetrics");
 Ice.TypeRegistry.declareValueType("IceMX.TopicMetrics", IceMX.TopicMetrics);
 
 /**
- *  Provides information on IceStorm subscribers.
+ * Provides information on IceStorm subscribers.
  **/
 IceMX.SubscriberMetrics = class extends IceMX.Metrics
 {

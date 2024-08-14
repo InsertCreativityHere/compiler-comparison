@@ -165,5 +165,5 @@ public class AdapterDynamicInfo implements java.lang.Cloneable,
     private static final AdapterDynamicInfo _nullMarshalValue = new AdapterDynamicInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = -8056593860590137009L;
+    private static final long serialVersionUID = 3512994869169060399L;
 }

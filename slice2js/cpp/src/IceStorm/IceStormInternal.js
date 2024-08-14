@@ -29,7 +29,7 @@ const IceStormElection = {
 export const IceStorm = {};
 
 /**
- *  The event data.
+ * The event data.
  **/
 IceStorm.EventData = class
 {
@@ -73,8 +73,8 @@ const iceC_IceStorm_TopicLink_ids = [
 ];
 
 /**
- *  The TopicLink interface. This is used to forward events between federated Topic instances.
- *  @see TopicInternal
+ * The TopicLink interface. This is used to forward events between federated Topic instances.
+ * @see TopicInternal
  **/
 IceStorm.TopicLink = class extends Ice.Object
 {
@@ -95,7 +95,7 @@ Ice.defineOperations(
     });
 
 /**
- *  Thrown if the reap call would block.
+ * Thrown if the reap call would block.
  **/
 IceStorm.ReapWouldBlock = class extends Ice.UserException
 {
@@ -130,8 +130,8 @@ const iceC_IceStorm_TopicInternal_ids = [
 ];
 
 /**
- *  Internal operations for a topic.
- *  @see Topic
+ * Internal operations for a topic.
+ * @see Topic
  **/
 IceStorm.TopicInternal = class extends Ice.Object
 {
@@ -173,8 +173,8 @@ const iceC_IceStorm_TopicManagerInternal_ids = [
 ];
 
 /**
- *  Internal operations for a topic manager.
- *  @see TopicManager
+ * Internal operations for a topic manager.
+ * @see TopicManager
  **/
 IceStorm.TopicManagerInternal = class extends Ice.Object
 {
