@@ -17,62 +17,37 @@
 
 [assembly:Ice.Slice("Test.ice")]
 
-#pragma warning disable 1591
+#pragma warning disable CS1591 // Missing XML Comment
+#pragma warning disable CS1573 // Parameter has no matching param tag in the XML comment
+#pragma warning disable CS0612 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0619 // Type or member is obsolete
 
 namespace Test
 {
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Test::TestIntf")]
     public partial interface TestIntf : Ice.Object
     {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         string getAdapterId(Ice.Current current);
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Test::Controller")]
     public partial interface Controller : Ice.Object
     {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void activateObjectAdapter(string name, string adapterId, string replicaGroupId, Ice.Current current);
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void deactivateObjectAdapter(string name, Ice.Current current);
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void addObject(string oaName, string id, Ice.Current current);
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void removeObject(string oaName, string id, Ice.Current current);
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void shutdown(Ice.Current current);
     }
 }
 
 namespace Test
 {
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface TestIntfPrx : Ice.ObjectPrx
     {
         string getAdapterId(global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -80,7 +55,6 @@ namespace Test
         global::System.Threading.Tasks.Task<string> getAdapterIdAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface ControllerPrx : Ice.ObjectPrx
     {
         void activateObjectAdapter(string name, string adapterId, string replicaGroupId, global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -107,8 +81,6 @@ namespace Test
 
 namespace Test
 {
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class TestIntfPrxHelper : Ice.ObjectPrxHelperBase, TestIntfPrx
     {
         public string getAdapterId(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -203,8 +175,6 @@ namespace Test
         }
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ControllerPrxHelper : Ice.ObjectPrxHelperBase, ControllerPrx
     {
         public void activateObjectAdapter(string name, string adapterId, string replicaGroupId, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -463,8 +433,6 @@ namespace Test
 
 namespace Test
 {
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class TestIntfDisp_ : Ice.ObjectImpl, TestIntf
     {
         public abstract string getAdapterId(Ice.Current current);
@@ -485,8 +453,6 @@ namespace Test
             };
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class ControllerDisp_ : Ice.ObjectImpl, Controller
     {
         public abstract void activateObjectAdapter(string name, string adapterId, string replicaGroupId, Ice.Current current);

@@ -17,7 +17,11 @@
 
 [assembly:Ice.Slice("PropertyDict.ice")]
 
-#pragma warning disable 1591
+#pragma warning disable CS1591 // Missing XML Comment
+#pragma warning disable CS1573 // Parameter has no matching param tag in the XML comment
+#pragma warning disable CS0612 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0619 // Type or member is obsolete
 
 namespace Ice
 {
@@ -25,7 +29,6 @@ namespace Ice
 
 namespace Ice
 {
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class PropertyDictHelper
     {
         public static void write(Ice.OutputStream ostr,

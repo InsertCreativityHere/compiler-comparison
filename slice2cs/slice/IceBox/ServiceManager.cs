@@ -17,7 +17,11 @@
 
 [assembly:Ice.Slice("ServiceManager.ice")]
 
-#pragma warning disable 1591
+#pragma warning disable CS1591 // Missing XML Comment
+#pragma warning disable CS1573 // Parameter has no matching param tag in the XML comment
+#pragma warning disable CS0612 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0619 // Type or member is obsolete
 
 namespace IceBox
 {
@@ -25,32 +29,17 @@ namespace IceBox
     /// This exception is thrown if an attempt is made to start an already-started service.
     /// </summary>
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1032")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceBox::AlreadyStartedException")]
     public partial class AlreadyStartedException : Ice.UserException
     {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override string ice_id() => "::IceBox::AlreadyStartedException";
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice("::IceBox::AlreadyStartedException", -1, true);
             ostr_.endSlice();
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
@@ -62,32 +51,17 @@ namespace IceBox
     /// This exception is thrown if an attempt is made to stop an already-stopped service.
     /// </summary>
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1032")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceBox::AlreadyStoppedException")]
     public partial class AlreadyStoppedException : Ice.UserException
     {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override string ice_id() => "::IceBox::AlreadyStoppedException";
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice("::IceBox::AlreadyStoppedException", -1, true);
             ostr_.endSlice();
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
@@ -99,32 +73,17 @@ namespace IceBox
     /// This exception is thrown if a service name does not refer to an existing service.
     /// </summary>
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1032")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceBox::NoSuchServiceException")]
     public partial class NoSuchServiceException : Ice.UserException
     {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override string ice_id() => "::IceBox::NoSuchServiceException";
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice("::IceBox::NoSuchServiceException", -1, true);
             ostr_.endSlice();
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
@@ -132,17 +91,6 @@ namespace IceBox
         }
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceBox::ServiceObserver")]
     public partial interface ServiceObserver : Ice.Object
     {
@@ -152,7 +100,6 @@ namespace IceBox
         /// <param name="services">The names of the services.</param>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void servicesStarted(string[] services, Ice.Current current);
 
         /// <summary>
@@ -161,21 +108,9 @@ namespace IceBox
         /// <param name="services">The names of the services.</param>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void servicesStopped(string[] services, Ice.Current current);
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceBox::ServiceManager")]
     public partial interface ServiceManager : Ice.Object
     {
@@ -189,7 +124,6 @@ namespace IceBox
         /// <exception name="NoSuchServiceException">If no service could be found with the given name.</exception>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void startService(string service, Ice.Current current);
 
         /// <summary>
@@ -202,7 +136,6 @@ namespace IceBox
         /// <exception name="NoSuchServiceException">If no service could be found with the given name.</exception>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void stopService(string service, Ice.Current current);
 
         /// <summary>
@@ -211,7 +144,6 @@ namespace IceBox
         /// <param name="observer">The new observer</param>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void addObserver(ServiceObserverPrx? observer, Ice.Current current);
 
         /// <summary>
@@ -220,7 +152,6 @@ namespace IceBox
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void shutdown(Ice.Current current);
     }
 }
@@ -231,7 +162,6 @@ namespace IceBox
     /// An Observer interface implemented by admin clients interested in the status of services.
     /// </summary>
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface ServiceObserverPrx : Ice.ObjectPrx
     {
         /// <summary>
@@ -275,7 +205,6 @@ namespace IceBox
     /// Administers a set of IceBox Service instances.
     /// </summary>
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface ServiceManagerPrx : Ice.ObjectPrx
     {
         /// <summary>
@@ -364,8 +293,6 @@ namespace IceBox
 
 namespace IceBox
 {
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ServiceObserverPrxHelper : Ice.ObjectPrxHelperBase, ServiceObserverPrx
     {
         public void servicesStarted(string[] services, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -498,8 +425,6 @@ namespace IceBox
         }
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ServiceManagerPrxHelper : Ice.ObjectPrxHelperBase, ServiceManagerPrx
     {
         public void startService(string service, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -751,8 +676,6 @@ namespace IceBox
 
 namespace IceBox
 {
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class ServiceObserverDisp_ : Ice.ObjectImpl, ServiceObserver
     {
         public abstract void servicesStarted(string[] services, Ice.Current current);
@@ -776,8 +699,6 @@ namespace IceBox
             };
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class ServiceManagerDisp_ : Ice.ObjectImpl, ServiceManager
     {
         public abstract void startService(string service, Ice.Current current);

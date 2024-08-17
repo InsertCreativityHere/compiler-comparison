@@ -17,50 +17,35 @@
 
 [assembly:Ice.Slice("TestNumPy.ice")]
 
-#pragma warning disable 1591
+#pragma warning disable CS1591 // Missing XML Comment
+#pragma warning disable CS1573 // Parameter has no matching param tag in the XML comment
+#pragma warning disable CS0612 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0619 // Type or member is obsolete
 
 namespace Test
 {
     namespace NumPy
     {
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::NumPy::D")]
         public partial class D : Ice.Value
         {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public bool[]? boolSeq;
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public byte[]? byteSeq;
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public short[]? shortSeq;
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public int[]? intSeq;
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public long[]? longSeq;
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public float[]? floatSeq;
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public double[]? doubleSeq;
 
             partial void ice_initialize();
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public D(bool[]? boolSeq, byte[]? byteSeq, short[]? shortSeq, int[]? intSeq, long[]? longSeq, float[]? floatSeq, double[]? doubleSeq)
             {
                 this.boolSeq = boolSeq;
@@ -73,18 +58,14 @@ namespace Test
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public D()
             {
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static new string ice_staticId() => "::Test::NumPy::D";
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override string ice_id() => ice_staticId();
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice(ice_staticId(), -1, true);
@@ -98,7 +79,6 @@ namespace Test
                 ostr_.endSlice();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
@@ -181,72 +161,43 @@ namespace Test
             }
         }
 
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::NumPy::Custom")]
         public partial interface Custom : Ice.Object
         {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             bool[] opBoolSeq(bool[] v1, out bool[] v2, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             byte[] opByteSeq(byte[] v1, out byte[] v2, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             short[] opShortSeq(short[] v1, out short[] v2, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             int[] opIntSeq(int[] v1, out int[] v2, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             long[] opLongSeq(long[] v1, out long[] v2, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             float[] opFloatSeq(float[] v1, out float[] v2, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             double[] opDoubleSeq(double[] v1, out double[] v2, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             byte[] opComplex128Seq(byte[] v1, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             bool[] opBoolMatrix(Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             byte[] opByteMatrix(Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             short[] opShortMatrix(Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             int[] opIntMatrix(Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             long[] opLongMatrix(Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             float[] opFloatMatrix(Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             double[] opDoubleMatrix(Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             bool[] opBogusNumpyArrayType(Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             D? opD(D? d, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             void shutdown(Ice.Current current);
         }
     }
@@ -276,7 +227,6 @@ namespace Test
 {
     namespace NumPy
     {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface CustomPrx : Ice.ObjectPrx
         {
             bool[] opBoolSeq(bool[] v1, out bool[] v2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -358,7 +308,6 @@ namespace Test
 {
     namespace NumPy
     {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class BoolSeq1Helper
         {
             public static void write(Ice.OutputStream ostr, bool[] v)
@@ -374,7 +323,6 @@ namespace Test
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class BoolSeq2Helper
         {
             public static void write(Ice.OutputStream ostr, bool[] v)
@@ -390,7 +338,6 @@ namespace Test
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class ByteSeq1Helper
         {
             public static void write(Ice.OutputStream ostr, byte[] v)
@@ -406,7 +353,6 @@ namespace Test
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class ByteSeq2Helper
         {
             public static void write(Ice.OutputStream ostr, byte[] v)
@@ -422,7 +368,6 @@ namespace Test
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class ShortSeq1Helper
         {
             public static void write(Ice.OutputStream ostr, short[] v)
@@ -438,7 +383,6 @@ namespace Test
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class ShortSeq2Helper
         {
             public static void write(Ice.OutputStream ostr, short[] v)
@@ -454,7 +398,6 @@ namespace Test
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class IntSeq1Helper
         {
             public static void write(Ice.OutputStream ostr, int[] v)
@@ -470,7 +413,6 @@ namespace Test
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class IntSeq2Helper
         {
             public static void write(Ice.OutputStream ostr, int[] v)
@@ -486,7 +428,6 @@ namespace Test
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LongSeq1Helper
         {
             public static void write(Ice.OutputStream ostr, long[] v)
@@ -502,7 +443,6 @@ namespace Test
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LongSeq2Helper
         {
             public static void write(Ice.OutputStream ostr, long[] v)
@@ -518,7 +458,6 @@ namespace Test
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class FloatSeq1Helper
         {
             public static void write(Ice.OutputStream ostr, float[] v)
@@ -534,7 +473,6 @@ namespace Test
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class FloatSeq2Helper
         {
             public static void write(Ice.OutputStream ostr, float[] v)
@@ -550,7 +488,6 @@ namespace Test
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class DoubleSeq1Helper
         {
             public static void write(Ice.OutputStream ostr, double[] v)
@@ -566,7 +503,6 @@ namespace Test
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class DoubleSeq2Helper
         {
             public static void write(Ice.OutputStream ostr, double[] v)
@@ -582,7 +518,6 @@ namespace Test
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class Complex128SeqHelper
         {
             public static void write(Ice.OutputStream ostr, byte[] v)
@@ -598,8 +533,6 @@ namespace Test
             }
         }
 
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CustomPrxHelper : Ice.ObjectPrxHelperBase, CustomPrx
         {
             public bool[] opBoolSeq(bool[] v1, out bool[] v2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -1500,8 +1433,6 @@ namespace Test
 {
     namespace NumPy
     {
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public abstract class CustomDisp_ : Ice.ObjectImpl, Custom
         {
             public abstract bool[] opBoolSeq(bool[] v1, out bool[] v2, Ice.Current current);

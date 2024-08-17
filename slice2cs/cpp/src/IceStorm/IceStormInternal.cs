@@ -17,37 +17,26 @@
 
 [assembly:Ice.Slice("IceStormInternal.ice")]
 
-#pragma warning disable 1591
+#pragma warning disable CS1591 // Missing XML Comment
+#pragma warning disable CS1573 // Parameter has no matching param tag in the XML comment
+#pragma warning disable CS0612 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0619 // Type or member is obsolete
 
 namespace IceStorm
 {
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public sealed partial record class EventData
     {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string op = "";
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::Ice.OperationMode mode;
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public byte[] data;
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public global::System.Collections.Generic.Dictionary<string, string> context;
 
         partial void ice_initialize();
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public EventData(byte[] data, global::System.Collections.Generic.Dictionary<string, string> context)
         {
             global::System.ArgumentNullException.ThrowIfNull(data);
@@ -57,7 +46,6 @@ namespace IceStorm
             ice_initialize();
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public EventData(string op, global::Ice.OperationMode mode, byte[] data, global::System.Collections.Generic.Dictionary<string, string> context)
         {
             global::System.ArgumentNullException.ThrowIfNull(op);
@@ -70,7 +58,6 @@ namespace IceStorm
             ice_initialize();
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public EventData(Ice.InputStream istr)
         {
             this.op = istr.readString();
@@ -80,7 +67,6 @@ namespace IceStorm
             ice_initialize();
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeString(this.op);
@@ -89,27 +75,14 @@ namespace IceStorm
             global::Ice.ContextHelper.write(ostr, this.context);
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static void ice_write(Ice.OutputStream ostr, EventData v)
         {
             v.ice_writeMembers(ostr);
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static EventData ice_read(Ice.InputStream istr) => new(istr);
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceStorm::TopicLink")]
     public partial interface TopicLink : Ice.Object
     {
@@ -119,7 +92,6 @@ namespace IceStorm
         /// <param name="events">The events to forward.</param>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void forward(EventData[] events, Ice.Current current);
     }
 
@@ -127,32 +99,17 @@ namespace IceStorm
     /// Thrown if the reap call would block.
     /// </summary>
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1032")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceStorm::ReapWouldBlock")]
     public partial class ReapWouldBlock : Ice.UserException
     {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public override string ice_id() => "::IceStorm::ReapWouldBlock";
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
             ostr_.startSlice("::IceStorm::ReapWouldBlock", -1, true);
             ostr_.endSlice();
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
@@ -160,17 +117,6 @@ namespace IceStorm
         }
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceStorm::TopicInternal")]
     public partial interface TopicInternal : Topic
     {
@@ -180,7 +126,6 @@ namespace IceStorm
         /// <returns>The TopicLink for the Topic.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         TopicLinkPrx? getLinkProxy(Ice.Current current);
 
         /// <summary>
@@ -191,21 +136,9 @@ namespace IceStorm
         /// <exception name="ReapWouldBlock">Raised if the reap call would block.</exception>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void reap(global::Ice.Identity[] id, Ice.Current current);
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceStorm::TopicManagerInternal")]
     public partial interface TopicManagerInternal : TopicManager
     {
@@ -215,7 +148,6 @@ namespace IceStorm
         /// <returns>The replica proxy, or null if this instance is not replicated.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::IceStormElection.NodePrx? getReplicaNode(Ice.Current current);
     }
 }
@@ -227,7 +159,6 @@ namespace IceStorm
     /// This is used to forward events between federated Topic instances.
     /// </summary>
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface TopicLinkPrx : Ice.ObjectPrx
     {
         /// <summary>
@@ -253,7 +184,6 @@ namespace IceStorm
     /// Internal operations for a topic.
     /// </summary>
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface TopicInternalPrx : TopicPrx
     {
         /// <summary>
@@ -299,7 +229,6 @@ namespace IceStorm
     /// Internal operations for a topic manager.
     /// </summary>
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface TopicManagerInternalPrx : TopicManagerPrx
     {
         /// <summary>
@@ -323,7 +252,6 @@ namespace IceStorm
 
 namespace IceStorm
 {
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class EventDataSeqHelper
     {
         public static void write(Ice.OutputStream ostr, EventData[] v)
@@ -357,8 +285,6 @@ namespace IceStorm
         }
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class TopicLinkPrxHelper : Ice.ObjectPrxHelperBase, TopicLinkPrx
     {
         public void forward(EventData[] events, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -450,8 +376,6 @@ namespace IceStorm
         }
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class TopicInternalPrxHelper : Ice.ObjectPrxHelperBase, TopicInternalPrx
     {
         public string getName(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -1085,8 +1009,6 @@ namespace IceStorm
         }
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class TopicManagerInternalPrxHelper : Ice.ObjectPrxHelperBase, TopicManagerInternalPrx
     {
         public TopicPrx? create(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -1353,8 +1275,6 @@ namespace IceStorm
 
 namespace IceStorm
 {
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class TopicLinkDisp_ : Ice.ObjectImpl, TopicLink
     {
         public abstract void forward(EventData[] events, Ice.Current current);
@@ -1375,8 +1295,6 @@ namespace IceStorm
             };
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class TopicInternalDisp_ : Ice.ObjectImpl, TopicInternal
     {
         public abstract TopicLinkPrx? getLinkProxy(Ice.Current current);
@@ -1430,8 +1348,6 @@ namespace IceStorm
             };
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class TopicManagerInternalDisp_ : Ice.ObjectImpl, TopicManagerInternal
     {
         public abstract global::IceStormElection.NodePrx? getReplicaNode(Ice.Current current);

@@ -17,7 +17,11 @@
 
 [assembly:Ice.Slice("Test.ice")]
 
-#pragma warning disable 1591
+#pragma warning disable CS1591 // Missing XML Comment
+#pragma warning disable CS1573 // Parameter has no matching param tag in the XML comment
+#pragma warning disable CS0612 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0619 // Type or member is obsolete
 
 namespace Ice.inheritance
 {
@@ -25,112 +29,48 @@ namespace Ice.inheritance
     {
         namespace MA
         {
-            [global::System.Runtime.InteropServices.ComVisible(false)]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
             [Ice.SliceTypeId("::Test::MA::IA")]
             public partial interface IA : Ice.Object
             {
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 IAPrx? iaop(IAPrx? p, Ice.Current current);
             }
         }
 
         namespace MB
         {
-            [global::System.Runtime.InteropServices.ComVisible(false)]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
             [Ice.SliceTypeId("::Test::MB::IB1")]
             public partial interface IB1 : global::Ice.inheritance.Test.MA.IA
             {
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 IB1Prx? ib1op(IB1Prx? p, Ice.Current current);
             }
 
-            [global::System.Runtime.InteropServices.ComVisible(false)]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
             [Ice.SliceTypeId("::Test::MB::IB2")]
             public partial interface IB2 : global::Ice.inheritance.Test.MA.IA
             {
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 IB2Prx? ib2op(IB2Prx? p, Ice.Current current);
             }
         }
 
         namespace MA
         {
-            [global::System.Runtime.InteropServices.ComVisible(false)]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
             [Ice.SliceTypeId("::Test::MA::IC")]
             public partial interface IC : global::Ice.inheritance.Test.MB.IB1, global::Ice.inheritance.Test.MB.IB2
             {
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 ICPrx? icop(ICPrx? p, Ice.Current current);
             }
         }
 
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::Initial")]
         public partial interface Initial : Ice.Object
         {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             void shutdown(Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::Ice.inheritance.Test.MA.IAPrx? iaop(Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::Ice.inheritance.Test.MB.IB1Prx? ib1op(Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::Ice.inheritance.Test.MB.IB2Prx? ib2op(Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::Ice.inheritance.Test.MA.ICPrx? icop(Ice.Current current);
         }
     }
@@ -142,7 +82,6 @@ namespace Ice.inheritance
     {
         namespace MA
         {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public interface IAPrx : Ice.ObjectPrx
             {
                 IAPrx? iaop(IAPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -153,7 +92,6 @@ namespace Ice.inheritance
 
         namespace MB
         {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public interface IB1Prx : global::Ice.inheritance.Test.MA.IAPrx
             {
                 IB1Prx? ib1op(IB1Prx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -161,7 +99,6 @@ namespace Ice.inheritance
                 global::System.Threading.Tasks.Task<IB1Prx?> ib1opAsync(IB1Prx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public interface IB2Prx : global::Ice.inheritance.Test.MA.IAPrx
             {
                 IB2Prx? ib2op(IB2Prx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -172,7 +109,6 @@ namespace Ice.inheritance
 
         namespace MA
         {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public interface ICPrx : global::Ice.inheritance.Test.MB.IB1Prx, global::Ice.inheritance.Test.MB.IB2Prx
             {
                 ICPrx? icop(ICPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -181,7 +117,6 @@ namespace Ice.inheritance
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface InitialPrx : Ice.ObjectPrx
         {
             void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -213,8 +148,6 @@ namespace Ice.inheritance
     {
         namespace MA
         {
-            [global::System.Runtime.InteropServices.ComVisible(false)]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public sealed class IAPrxHelper : Ice.ObjectPrxHelperBase, IAPrx
             {
                 public IAPrx? iaop(IAPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -316,8 +249,6 @@ namespace Ice.inheritance
 
         namespace MB
         {
-            [global::System.Runtime.InteropServices.ComVisible(false)]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public sealed class IB1PrxHelper : Ice.ObjectPrxHelperBase, IB1Prx
             {
                 public global::Ice.inheritance.Test.MA.IAPrx? iaop(global::Ice.inheritance.Test.MA.IAPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -465,8 +396,6 @@ namespace Ice.inheritance
                 }
             }
 
-            [global::System.Runtime.InteropServices.ComVisible(false)]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public sealed class IB2PrxHelper : Ice.ObjectPrxHelperBase, IB2Prx
             {
                 public global::Ice.inheritance.Test.MA.IAPrx? iaop(global::Ice.inheritance.Test.MA.IAPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -617,8 +546,6 @@ namespace Ice.inheritance
 
         namespace MA
         {
-            [global::System.Runtime.InteropServices.ComVisible(false)]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public sealed class ICPrxHelper : Ice.ObjectPrxHelperBase, ICPrx
             {
                 public IAPrx? iaop(IAPrx? p, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -865,8 +792,6 @@ namespace Ice.inheritance
             }
         }
 
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class InitialPrxHelper : Ice.ObjectPrxHelperBase, InitialPrx
         {
             public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -1138,8 +1063,6 @@ namespace Ice.inheritance
     {
         namespace MA
         {
-            [global::System.Runtime.InteropServices.ComVisible(false)]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public abstract class IADisp_ : Ice.ObjectImpl, IA
             {
                 public abstract IAPrx? iaop(IAPrx? p, Ice.Current current);
@@ -1163,8 +1086,6 @@ namespace Ice.inheritance
 
         namespace MB
         {
-            [global::System.Runtime.InteropServices.ComVisible(false)]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public abstract class IB1Disp_ : Ice.ObjectImpl, IB1
             {
                 public abstract IB1Prx? ib1op(IB1Prx? p, Ice.Current current);
@@ -1188,8 +1109,6 @@ namespace Ice.inheritance
                     };
             }
 
-            [global::System.Runtime.InteropServices.ComVisible(false)]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public abstract class IB2Disp_ : Ice.ObjectImpl, IB2
             {
                 public abstract IB2Prx? ib2op(IB2Prx? p, Ice.Current current);
@@ -1216,8 +1135,6 @@ namespace Ice.inheritance
 
         namespace MA
         {
-            [global::System.Runtime.InteropServices.ComVisible(false)]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public abstract class ICDisp_ : Ice.ObjectImpl, IC
             {
                 public abstract ICPrx? icop(ICPrx? p, Ice.Current current);
@@ -1248,8 +1165,6 @@ namespace Ice.inheritance
             }
         }
 
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public abstract class InitialDisp_ : Ice.ObjectImpl, Initial
         {
             public abstract void shutdown(Ice.Current current);

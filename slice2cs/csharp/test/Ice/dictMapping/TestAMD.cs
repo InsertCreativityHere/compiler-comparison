@@ -17,51 +17,35 @@
 
 [assembly:Ice.Slice("TestAMD.ice")]
 
-#pragma warning disable 1591
+#pragma warning disable CS1591 // Missing XML Comment
+#pragma warning disable CS1573 // Parameter has no matching param tag in the XML comment
+#pragma warning disable CS0612 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0619 // Type or member is obsolete
 
 namespace Ice.dictMapping.AMD
 {
     namespace Test
     {
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::MyClass")]
         public partial interface MyClass : Ice.Object
         {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Threading.Tasks.Task shutdownAsync(Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Threading.Tasks.Task<MyClass_OpNVResult> opNVAsync(global::System.Collections.Generic.Dictionary<int, int> i, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Threading.Tasks.Task<MyClass_OpNRResult> opNRAsync(global::System.Collections.Generic.Dictionary<string, string> i, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Threading.Tasks.Task<MyClass_OpNDVResult> opNDVAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> i, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Threading.Tasks.Task<MyClass_OpNDRResult> opNDRAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> i, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Threading.Tasks.Task<MyClass_OpNDAISResult> opNDAISAsync(global::System.Collections.Generic.Dictionary<string, int[]> i, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Threading.Tasks.Task<MyClass_OpNDGISResult> opNDGISAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> i, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Threading.Tasks.Task<MyClass_OpNDASSResult> opNDASSAsync(global::System.Collections.Generic.Dictionary<string, string[]> i, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Threading.Tasks.Task<MyClass_OpNDGSSResult> opNDGSSAsync(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> i, Ice.Current current);
         }
     }
@@ -93,7 +77,6 @@ namespace Ice.dictMapping.AMD
 {
     namespace Test
     {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface MyClassPrx : Ice.ObjectPrx
         {
             void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -139,7 +122,6 @@ namespace Ice.dictMapping.AMD
 {
     namespace Test
     {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class NVHelper
         {
             public static void write(Ice.OutputStream ostr,
@@ -176,7 +158,6 @@ namespace Ice.dictMapping.AMD
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class NRHelper
         {
             public static void write(Ice.OutputStream ostr,
@@ -213,7 +194,6 @@ namespace Ice.dictMapping.AMD
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class NDVHelper
         {
             public static void write(Ice.OutputStream ostr,
@@ -250,7 +230,6 @@ namespace Ice.dictMapping.AMD
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class NDRHelper
         {
             public static void write(Ice.OutputStream ostr,
@@ -287,7 +266,6 @@ namespace Ice.dictMapping.AMD
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class AISHelper
         {
             public static void write(Ice.OutputStream ostr, int[] v)
@@ -303,7 +281,6 @@ namespace Ice.dictMapping.AMD
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class GISHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<int> v)
@@ -319,7 +296,6 @@ namespace Ice.dictMapping.AMD
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class ASSHelper
         {
             public static void write(Ice.OutputStream ostr, string[] v)
@@ -335,7 +311,6 @@ namespace Ice.dictMapping.AMD
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class GSSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<string> v)
@@ -351,7 +326,6 @@ namespace Ice.dictMapping.AMD
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class NDAISHelper
         {
             public static void write(Ice.OutputStream ostr,
@@ -388,7 +362,6 @@ namespace Ice.dictMapping.AMD
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class NDGISHelper
         {
             public static void write(Ice.OutputStream ostr,
@@ -425,7 +398,6 @@ namespace Ice.dictMapping.AMD
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class NDASSHelper
         {
             public static void write(Ice.OutputStream ostr,
@@ -462,7 +434,6 @@ namespace Ice.dictMapping.AMD
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class NDGSSHelper
         {
             public static void write(Ice.OutputStream ostr,
@@ -499,8 +470,6 @@ namespace Ice.dictMapping.AMD
             }
         }
 
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class MyClassPrxHelper : Ice.ObjectPrxHelperBase, MyClassPrx
         {
             public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -1002,8 +971,6 @@ namespace Ice.dictMapping.AMD
 {
     namespace Test
     {
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public abstract class MyClassDisp_ : Ice.ObjectImpl, MyClass
         {
             public abstract global::System.Threading.Tasks.Task shutdownAsync(Ice.Current current);

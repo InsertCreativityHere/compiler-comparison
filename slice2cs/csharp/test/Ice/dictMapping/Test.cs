@@ -17,33 +17,24 @@
 
 [assembly:Ice.Slice("Test.ice")]
 
-#pragma warning disable 1591
+#pragma warning disable CS1591 // Missing XML Comment
+#pragma warning disable CS1573 // Parameter has no matching param tag in the XML comment
+#pragma warning disable CS0612 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0619 // Type or member is obsolete
 
 namespace Ice.dictMapping
 {
     namespace Test
     {
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         public sealed partial record class TEstNv
         {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public global::System.Collections.Generic.Dictionary<int, int> d;
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public int[] s;
 
             partial void ice_initialize();
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public TEstNv(global::System.Collections.Generic.Dictionary<int, int> d, int[] s)
             {
                 global::System.ArgumentNullException.ThrowIfNull(d);
@@ -53,7 +44,6 @@ namespace Ice.dictMapping
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public TEstNv(Ice.InputStream istr)
             {
                 this.d = NVHelper.read(istr);
@@ -61,62 +51,39 @@ namespace Ice.dictMapping
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public void ice_writeMembers(Ice.OutputStream ostr)
             {
                 NVHelper.write(ostr, this.d);
                 IntSeqHelper.write(ostr, this.s);
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(Ice.OutputStream ostr, TEstNv v)
             {
                 v.ice_writeMembers(ostr);
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static TEstNv ice_read(Ice.InputStream istr) => new(istr);
         }
 
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::MyClass")]
         public partial interface MyClass : Ice.Object
         {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             void shutdown(Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Dictionary<int, int> opNV(global::System.Collections.Generic.Dictionary<int, int> i, out global::System.Collections.Generic.Dictionary<int, int> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Dictionary<string, string> opNR(global::System.Collections.Generic.Dictionary<string, string> i, out global::System.Collections.Generic.Dictionary<string, string> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> opNDV(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<int, int>> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> opNDR(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, string>> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Dictionary<string, int[]> opNDAIS(global::System.Collections.Generic.Dictionary<string, int[]> i, out global::System.Collections.Generic.Dictionary<string, int[]> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> opNDGIS(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<int>> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Dictionary<string, string[]> opNDASS(global::System.Collections.Generic.Dictionary<string, string[]> i, out global::System.Collections.Generic.Dictionary<string, string[]> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> opNDGSS(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> i, out global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>> o, Ice.Current current);
         }
     }
@@ -148,7 +115,6 @@ namespace Ice.dictMapping
 {
     namespace Test
     {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface MyClassPrx : Ice.ObjectPrx
         {
             void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -194,7 +160,6 @@ namespace Ice.dictMapping
 {
     namespace Test
     {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class NVHelper
         {
             public static void write(Ice.OutputStream ostr,
@@ -231,7 +196,6 @@ namespace Ice.dictMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class NRHelper
         {
             public static void write(Ice.OutputStream ostr,
@@ -268,7 +232,6 @@ namespace Ice.dictMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class NDVHelper
         {
             public static void write(Ice.OutputStream ostr,
@@ -305,7 +268,6 @@ namespace Ice.dictMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class NDRHelper
         {
             public static void write(Ice.OutputStream ostr,
@@ -342,7 +304,6 @@ namespace Ice.dictMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class IntSeqHelper
         {
             public static void write(Ice.OutputStream ostr, int[] v)
@@ -358,7 +319,6 @@ namespace Ice.dictMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class AISHelper
         {
             public static void write(Ice.OutputStream ostr, int[] v)
@@ -374,7 +334,6 @@ namespace Ice.dictMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class GISHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<int> v)
@@ -390,7 +349,6 @@ namespace Ice.dictMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class ASSHelper
         {
             public static void write(Ice.OutputStream ostr, string[] v)
@@ -406,7 +364,6 @@ namespace Ice.dictMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class GSSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<string> v)
@@ -422,7 +379,6 @@ namespace Ice.dictMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class NDAISHelper
         {
             public static void write(Ice.OutputStream ostr,
@@ -459,7 +415,6 @@ namespace Ice.dictMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class NDGISHelper
         {
             public static void write(Ice.OutputStream ostr,
@@ -496,7 +451,6 @@ namespace Ice.dictMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class NDASSHelper
         {
             public static void write(Ice.OutputStream ostr,
@@ -533,7 +487,6 @@ namespace Ice.dictMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class NDGSSHelper
         {
             public static void write(Ice.OutputStream ostr,
@@ -570,8 +523,6 @@ namespace Ice.dictMapping
             }
         }
 
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class MyClassPrxHelper : Ice.ObjectPrxHelperBase, MyClassPrx
         {
             public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -1073,8 +1024,6 @@ namespace Ice.dictMapping
 {
     namespace Test
     {
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public abstract class MyClassDisp_ : Ice.ObjectImpl, MyClass
         {
             public abstract void shutdown(Ice.Current current);

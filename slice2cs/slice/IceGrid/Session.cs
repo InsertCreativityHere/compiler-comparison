@@ -17,21 +17,14 @@
 
 [assembly:Ice.Slice("Session.ice")]
 
-#pragma warning disable 1591
+#pragma warning disable CS1591 // Missing XML Comment
+#pragma warning disable CS1573 // Parameter has no matching param tag in the XML comment
+#pragma warning disable CS0612 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0619 // Type or member is obsolete
 
 namespace IceGrid
 {
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::Session")]
     public partial interface Session : global::Glacier2.Session
     {
@@ -42,7 +35,6 @@ namespace IceGrid
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void keepAlive(Ice.Current current);
 
         /// <summary>
@@ -53,7 +45,6 @@ namespace IceGrid
         ///  </param>
         /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> allocateObjectByIdAsync(global::Ice.Identity id, Ice.Current current);
 
         /// <summary>
@@ -64,7 +55,6 @@ namespace IceGrid
         ///  </param>
         /// <param name="current">The Current object for the dispatch.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> allocateObjectByTypeAsync(string type, Ice.Current current);
 
         /// <summary>
@@ -80,7 +70,6 @@ namespace IceGrid
         ///  isn't allocatable or isn't allocated by the session.</exception>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void releaseObject(global::Ice.Identity id, Ice.Current current);
 
         /// <summary>
@@ -92,7 +81,6 @@ namespace IceGrid
         ///  <param name="timeout">The timeout in milliseconds.</param>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void setAllocationTimeout(int timeout, Ice.Current current);
     }
 }
@@ -105,7 +93,6 @@ namespace IceGrid
     ///  via the Registry object or via the registry client SessionManager object.
     /// </summary>
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface SessionPrx : global::Glacier2.SessionPrx
     {
         /// <summary>
@@ -237,8 +224,6 @@ namespace IceGrid
 
 namespace IceGrid
 {
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class SessionPrxHelper : Ice.ObjectPrxHelperBase, SessionPrx
     {
         public void destroy(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -596,8 +581,6 @@ namespace IceGrid
 
 namespace IceGrid
 {
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class SessionDisp_ : Ice.ObjectImpl, Session
     {
         public abstract void keepAlive(Ice.Current current);

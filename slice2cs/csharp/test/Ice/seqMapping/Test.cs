@@ -17,150 +17,104 @@
 
 [assembly:Ice.Slice("Test.ice")]
 
-#pragma warning disable 1591
+#pragma warning disable CS1591 // Missing XML Comment
+#pragma warning disable CS1573 // Parameter has no matching param tag in the XML comment
+#pragma warning disable CS0612 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0619 // Type or member is obsolete
 
 namespace Ice.seqMapping
 {
     namespace Test
     {
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         public partial record struct S
         {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public int i;
 
             partial void ice_initialize();
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public S(int i)
             {
                 this.i = i;
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public S(Ice.InputStream istr)
             {
                 this.i = istr.readInt();
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public void ice_writeMembers(Ice.OutputStream ostr)
             {
                 ostr.writeInt(this.i);
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(Ice.OutputStream ostr, S v)
             {
                 v.ice_writeMembers(ostr);
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static S ice_read(Ice.InputStream istr) => new(istr);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         public sealed partial record class SD
         {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public int i = 1;
 
             partial void ice_initialize();
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public SD()
             {
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public SD(int i)
             {
                 this.i = i;
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public SD(Ice.InputStream istr)
             {
                 this.i = istr.readInt();
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public void ice_writeMembers(Ice.OutputStream ostr)
             {
                 ostr.writeInt(this.i);
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(Ice.OutputStream ostr, SD v)
             {
                 v.ice_writeMembers(ostr);
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static SD ice_read(Ice.InputStream istr) => new(istr);
         }
 
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::CV")]
         public partial class CV : Ice.Value
         {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public int i;
 
             partial void ice_initialize();
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public CV(int i)
             {
                 this.i = i;
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public CV()
             {
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static new string ice_staticId() => "::Test::CV";
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override string ice_id() => ice_staticId();
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice(ice_staticId(), -1, true);
@@ -168,7 +122,6 @@ namespace Ice.seqMapping
                 ostr_.endSlice();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
@@ -177,60 +130,32 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::I")]
         public partial interface I : Ice.Object
         {
         }
 
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::CR")]
         public partial class CR : Ice.Value
         {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public CV? v;
 
             partial void ice_initialize();
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public CR(CV? v)
             {
                 this.v = v;
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public CR()
             {
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static new string ice_staticId() => "::Test::CR";
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override string ice_id() => ice_staticId();
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice(ice_staticId(), -1, true);
@@ -238,7 +163,6 @@ namespace Ice.seqMapping
                 ostr_.endSlice();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
@@ -247,7 +171,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public enum En
         {
             A,
@@ -255,7 +178,6 @@ namespace Ice.seqMapping
             C
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class EnHelper
         {
             public static void write(Ice.OutputStream ostr, En v)
@@ -263,7 +185,6 @@ namespace Ice.seqMapping
                 ostr.writeEnum((int)v, 2);
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static En read(Ice.InputStream istr)
             {
                 En v;
@@ -272,246 +193,159 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::MyClass")]
         public partial interface MyClass : Ice.Object
         {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             void shutdown(Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             byte[] opAByteS(byte[] i, out byte[] o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.List<byte> opLByteS(global::System.Collections.Generic.List<byte> i, out global::System.Collections.Generic.List<byte> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.LinkedList<byte> opKByteS(global::System.Collections.Generic.LinkedList<byte> i, out global::System.Collections.Generic.LinkedList<byte> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Queue<byte> opQByteS(global::System.Collections.Generic.Queue<byte> i, out global::System.Collections.Generic.Queue<byte> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Stack<byte> opSByteS(global::System.Collections.Generic.Stack<byte> i, out global::System.Collections.Generic.Stack<byte> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             bool[] opABoolS(bool[] i, out bool[] o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.List<bool> opLBoolS(global::System.Collections.Generic.List<bool> i, out global::System.Collections.Generic.List<bool> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.LinkedList<bool> opKBoolS(global::System.Collections.Generic.LinkedList<bool> i, out global::System.Collections.Generic.LinkedList<bool> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Queue<bool> opQBoolS(global::System.Collections.Generic.Queue<bool> i, out global::System.Collections.Generic.Queue<bool> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Stack<bool> opSBoolS(global::System.Collections.Generic.Stack<bool> i, out global::System.Collections.Generic.Stack<bool> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             short[] opAShortS(short[] i, out short[] o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.List<short> opLShortS(global::System.Collections.Generic.List<short> i, out global::System.Collections.Generic.List<short> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.LinkedList<short> opKShortS(global::System.Collections.Generic.LinkedList<short> i, out global::System.Collections.Generic.LinkedList<short> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Queue<short> opQShortS(global::System.Collections.Generic.Queue<short> i, out global::System.Collections.Generic.Queue<short> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Stack<short> opSShortS(global::System.Collections.Generic.Stack<short> i, out global::System.Collections.Generic.Stack<short> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             int[] opAIntS(int[] i, out int[] o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.List<int> opLIntS(global::System.Collections.Generic.List<int> i, out global::System.Collections.Generic.List<int> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.LinkedList<int> opKIntS(global::System.Collections.Generic.LinkedList<int> i, out global::System.Collections.Generic.LinkedList<int> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Queue<int> opQIntS(global::System.Collections.Generic.Queue<int> i, out global::System.Collections.Generic.Queue<int> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Stack<int> opSIntS(global::System.Collections.Generic.Stack<int> i, out global::System.Collections.Generic.Stack<int> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             long[] opALongS(long[] i, out long[] o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.List<long> opLLongS(global::System.Collections.Generic.List<long> i, out global::System.Collections.Generic.List<long> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.LinkedList<long> opKLongS(global::System.Collections.Generic.LinkedList<long> i, out global::System.Collections.Generic.LinkedList<long> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Queue<long> opQLongS(global::System.Collections.Generic.Queue<long> i, out global::System.Collections.Generic.Queue<long> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Stack<long> opSLongS(global::System.Collections.Generic.Stack<long> i, out global::System.Collections.Generic.Stack<long> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             float[] opAFloatS(float[] i, out float[] o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.List<float> opLFloatS(global::System.Collections.Generic.List<float> i, out global::System.Collections.Generic.List<float> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.LinkedList<float> opKFloatS(global::System.Collections.Generic.LinkedList<float> i, out global::System.Collections.Generic.LinkedList<float> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Queue<float> opQFloatS(global::System.Collections.Generic.Queue<float> i, out global::System.Collections.Generic.Queue<float> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Stack<float> opSFloatS(global::System.Collections.Generic.Stack<float> i, out global::System.Collections.Generic.Stack<float> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             double[] opADoubleS(double[] i, out double[] o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.List<double> opLDoubleS(global::System.Collections.Generic.List<double> i, out global::System.Collections.Generic.List<double> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.LinkedList<double> opKDoubleS(global::System.Collections.Generic.LinkedList<double> i, out global::System.Collections.Generic.LinkedList<double> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Queue<double> opQDoubleS(global::System.Collections.Generic.Queue<double> i, out global::System.Collections.Generic.Queue<double> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Stack<double> opSDoubleS(global::System.Collections.Generic.Stack<double> i, out global::System.Collections.Generic.Stack<double> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             string[] opAStringS(string[] i, out string[] o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.List<string> opLStringS(global::System.Collections.Generic.List<string> i, out global::System.Collections.Generic.List<string> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.LinkedList<string> opKStringS(global::System.Collections.Generic.LinkedList<string> i, out global::System.Collections.Generic.LinkedList<string> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Queue<string> opQStringS(global::System.Collections.Generic.Queue<string> i, out global::System.Collections.Generic.Queue<string> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Stack<string> opSStringS(global::System.Collections.Generic.Stack<string> i, out global::System.Collections.Generic.Stack<string> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::Ice.Value?[] opAObjectS(global::Ice.Value?[] i, out global::Ice.Value?[] o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.List<global::Ice.Value?> opLObjectS(global::System.Collections.Generic.List<global::Ice.Value?> i, out global::System.Collections.Generic.List<global::Ice.Value?> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::Ice.ObjectPrx?[] opAObjectPrxS(global::Ice.ObjectPrx?[] i, out global::Ice.ObjectPrx?[] o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.List<global::Ice.ObjectPrx?> opLObjectPrxS(global::System.Collections.Generic.List<global::Ice.ObjectPrx?> i, out global::System.Collections.Generic.List<global::Ice.ObjectPrx?> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> opKObjectPrxS(global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> i, out global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> opQObjectPrxS(global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> i, out global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> opSObjectPrxS(global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> i, out global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             S[] opAStructS(S[] i, out S[] o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.List<S> opLStructS(global::System.Collections.Generic.List<S> i, out global::System.Collections.Generic.List<S> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.LinkedList<S> opKStructS(global::System.Collections.Generic.LinkedList<S> i, out global::System.Collections.Generic.LinkedList<S> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Queue<S> opQStructS(global::System.Collections.Generic.Queue<S> i, out global::System.Collections.Generic.Queue<S> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Stack<S> opSStructS(global::System.Collections.Generic.Stack<S> i, out global::System.Collections.Generic.Stack<S> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             SD[] opAStructSD(SD[] i, out SD[] o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.List<SD> opLStructSD(global::System.Collections.Generic.List<SD> i, out global::System.Collections.Generic.List<SD> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.LinkedList<SD> opKStructSD(global::System.Collections.Generic.LinkedList<SD> i, out global::System.Collections.Generic.LinkedList<SD> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Queue<SD> opQStructSD(global::System.Collections.Generic.Queue<SD> i, out global::System.Collections.Generic.Queue<SD> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Stack<SD> opSStructSD(global::System.Collections.Generic.Stack<SD> i, out global::System.Collections.Generic.Stack<SD> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             CV?[] opACVS(CV?[] i, out CV?[] o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.List<CV?> opLCVS(global::System.Collections.Generic.List<CV?> i, out global::System.Collections.Generic.List<CV?> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             CR?[] opACRS(CR?[] i, out CR?[] o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.List<CR?> opLCRS(global::System.Collections.Generic.List<CR?> i, out global::System.Collections.Generic.List<CR?> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             En[] opAEnS(En[] i, out En[] o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.List<En> opLEnS(global::System.Collections.Generic.List<En> i, out global::System.Collections.Generic.List<En> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.LinkedList<En> opKEnS(global::System.Collections.Generic.LinkedList<En> i, out global::System.Collections.Generic.LinkedList<En> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Queue<En> opQEnS(global::System.Collections.Generic.Queue<En> i, out global::System.Collections.Generic.Queue<En> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Stack<En> opSEnS(global::System.Collections.Generic.Stack<En> i, out global::System.Collections.Generic.Stack<En> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             IPrx?[] opAIPrxS(IPrx?[] i, out IPrx?[] o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.List<IPrx?> opLIPrxS(global::System.Collections.Generic.List<IPrx?> i, out global::System.Collections.Generic.List<IPrx?> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.LinkedList<IPrx?> opKIPrxS(global::System.Collections.Generic.LinkedList<IPrx?> i, out global::System.Collections.Generic.LinkedList<IPrx?> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Queue<IPrx?> opQIPrxS(global::System.Collections.Generic.Queue<IPrx?> i, out global::System.Collections.Generic.Queue<IPrx?> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Stack<IPrx?> opSIPrxS(global::System.Collections.Generic.Stack<IPrx?> i, out global::System.Collections.Generic.Stack<IPrx?> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::Ice.seqMapping.Custom<int> opCustomIntS(global::Ice.seqMapping.Custom<int> i, out global::Ice.seqMapping.Custom<int> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::Ice.seqMapping.Custom<CV?> opCustomCVS(global::Ice.seqMapping.Custom<CV?> i, out global::Ice.seqMapping.Custom<CV?> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> opCustomIntSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> i, out global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> o, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> opCustomCVSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> i, out global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> o, Ice.Current current);
         }
     }
@@ -677,12 +511,10 @@ namespace Ice.seqMapping
 {
     namespace Test
     {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface IPrx : Ice.ObjectPrx
         {
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface MyClassPrx : Ice.ObjectPrx
         {
             void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -996,7 +828,6 @@ namespace Ice.seqMapping
 {
     namespace Test
     {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class AByteSHelper
         {
             public static void write(Ice.OutputStream ostr, byte[] v)
@@ -1012,7 +843,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LByteSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<byte> v)
@@ -1028,7 +858,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KByteSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<byte> v)
@@ -1044,7 +873,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QByteSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<byte> v)
@@ -1060,7 +888,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SByteSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<byte> v)
@@ -1076,7 +903,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CByteSHelper
         {
             public static void write(Ice.OutputStream ostr, global::Ice.seqMapping.Custom<byte> v)
@@ -1099,7 +925,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class ABoolSHelper
         {
             public static void write(Ice.OutputStream ostr, bool[] v)
@@ -1115,7 +940,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LBoolSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<bool> v)
@@ -1131,7 +955,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KBoolSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<bool> v)
@@ -1147,7 +970,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QBoolSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<bool> v)
@@ -1163,7 +985,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SBoolSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<bool> v)
@@ -1179,7 +1000,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CBoolSHelper
         {
             public static void write(Ice.OutputStream ostr, global::Ice.seqMapping.Custom<bool> v)
@@ -1202,7 +1022,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class AShortSHelper
         {
             public static void write(Ice.OutputStream ostr, short[] v)
@@ -1218,7 +1037,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LShortSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<short> v)
@@ -1234,7 +1052,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KShortSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<short> v)
@@ -1250,7 +1067,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QShortSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<short> v)
@@ -1266,7 +1082,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SShortSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<short> v)
@@ -1282,7 +1097,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CShortSHelper
         {
             public static void write(Ice.OutputStream ostr, global::Ice.seqMapping.Custom<short> v)
@@ -1305,7 +1119,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class AIntSHelper
         {
             public static void write(Ice.OutputStream ostr, int[] v)
@@ -1321,7 +1134,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LIntSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<int> v)
@@ -1337,7 +1149,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KIntSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<int> v)
@@ -1353,7 +1164,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QIntSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<int> v)
@@ -1369,7 +1179,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SIntSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<int> v)
@@ -1385,7 +1194,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CIntSHelper
         {
             public static void write(Ice.OutputStream ostr, global::Ice.seqMapping.Custom<int> v)
@@ -1408,7 +1216,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class ALongSHelper
         {
             public static void write(Ice.OutputStream ostr, long[] v)
@@ -1424,7 +1231,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LLongSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<long> v)
@@ -1440,7 +1246,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KLongSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<long> v)
@@ -1456,7 +1261,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QLongSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<long> v)
@@ -1472,7 +1276,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SLongSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<long> v)
@@ -1488,7 +1291,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CLongSHelper
         {
             public static void write(Ice.OutputStream ostr, global::Ice.seqMapping.Custom<long> v)
@@ -1511,7 +1313,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class AFloatSHelper
         {
             public static void write(Ice.OutputStream ostr, float[] v)
@@ -1527,7 +1328,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LFloatSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<float> v)
@@ -1543,7 +1343,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KFloatSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<float> v)
@@ -1559,7 +1358,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QFloatSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<float> v)
@@ -1575,7 +1373,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SFloatSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<float> v)
@@ -1591,7 +1388,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CFloatSHelper
         {
             public static void write(Ice.OutputStream ostr, global::Ice.seqMapping.Custom<float> v)
@@ -1614,7 +1410,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class ADoubleSHelper
         {
             public static void write(Ice.OutputStream ostr, double[] v)
@@ -1630,7 +1425,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LDoubleSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<double> v)
@@ -1646,7 +1440,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KDoubleSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<double> v)
@@ -1662,7 +1455,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QDoubleSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<double> v)
@@ -1678,7 +1470,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SDoubleSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<double> v)
@@ -1694,7 +1485,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CDoubleSHelper
         {
             public static void write(Ice.OutputStream ostr, global::Ice.seqMapping.Custom<double> v)
@@ -1717,7 +1507,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class AStringSHelper
         {
             public static void write(Ice.OutputStream ostr, string[] v)
@@ -1733,7 +1522,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LStringSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<string> v)
@@ -1749,7 +1537,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KStringSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<string> v)
@@ -1765,7 +1552,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QStringSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<string> v)
@@ -1781,7 +1567,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SStringSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<string> v)
@@ -1797,7 +1582,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CStringSHelper
         {
             public static void write(Ice.OutputStream ostr, global::Ice.seqMapping.Custom<string> v)
@@ -1820,7 +1604,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class AObjectSHelper
         {
             public static void write(Ice.OutputStream ostr, global::Ice.Value?[] v)
@@ -1852,7 +1635,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LObjectSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<global::Ice.Value?> v)
@@ -1884,7 +1666,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CObjectSHelper
         {
             public static void write(Ice.OutputStream ostr, global::Ice.seqMapping.Custom<global::Ice.Value?> v)
@@ -1917,7 +1698,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public class CObjectS_Tester
         {
             CObjectS_Tester()
@@ -1927,7 +1707,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class AObjectPrxSHelper
         {
             public static void write(Ice.OutputStream ostr, global::Ice.ObjectPrx?[] v)
@@ -1959,7 +1738,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LObjectPrxSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<global::Ice.ObjectPrx?> v)
@@ -1992,7 +1770,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KObjectPrxSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<global::Ice.ObjectPrx?> v)
@@ -2026,7 +1803,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QObjectPrxSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<global::Ice.ObjectPrx?> v)
@@ -2060,7 +1836,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SObjectPrxSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<global::Ice.ObjectPrx?> v)
@@ -2095,7 +1870,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CObjectPrxSHelper
         {
             public static void write(Ice.OutputStream ostr, global::Ice.seqMapping.Custom<global::Ice.ObjectPrx?> v)
@@ -2129,7 +1903,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class AStructSHelper
         {
             public static void write(Ice.OutputStream ostr, S[] v)
@@ -2163,7 +1936,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LStructSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<S> v)
@@ -2198,7 +1970,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KStructSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<S> v)
@@ -2234,7 +2005,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QStructSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<S> v)
@@ -2270,7 +2040,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SStructSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<S> v)
@@ -2307,7 +2076,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CStructSHelper
         {
             public static void write(Ice.OutputStream ostr, global::Ice.seqMapping.Custom<S> v)
@@ -2343,7 +2111,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class AStructSDHelper
         {
             public static void write(Ice.OutputStream ostr, SD[] v)
@@ -2377,7 +2144,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LStructSDHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<SD> v)
@@ -2412,7 +2178,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KStructSDHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<SD> v)
@@ -2448,7 +2213,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QStructSDHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<SD> v)
@@ -2484,7 +2248,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SStructSDHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<SD> v)
@@ -2521,7 +2284,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CStructSDHelper
         {
             public static void write(Ice.OutputStream ostr, global::Ice.seqMapping.Custom<SD> v)
@@ -2557,7 +2319,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class ACVSHelper
         {
             public static void write(Ice.OutputStream ostr, CV?[] v)
@@ -2591,7 +2352,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LCVSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<CV?> v)
@@ -2625,8 +2385,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class IPrxHelper : Ice.ObjectPrxHelperBase, IPrx
         {
             public static IPrx createProxy(Ice.Communicator communicator, string proxyString) =>
@@ -2677,7 +2435,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class AIPrxSHelper
         {
             public static void write(Ice.OutputStream ostr, IPrx?[] v)
@@ -2711,7 +2468,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LIPrxSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<IPrx?> v)
@@ -2745,7 +2501,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KIPrxSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<IPrx?> v)
@@ -2780,7 +2535,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QIPrxSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<IPrx?> v)
@@ -2815,7 +2569,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SIPrxSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<IPrx?> v)
@@ -2852,7 +2605,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CIPrxSHelper
         {
             public static void write(Ice.OutputStream ostr, global::Ice.seqMapping.Custom<IPrx?> v)
@@ -2887,7 +2639,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class ACRSHelper
         {
             public static void write(Ice.OutputStream ostr, CR?[] v)
@@ -2921,7 +2672,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LCRSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<CR?> v)
@@ -2955,7 +2705,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CCRSHelper
         {
             public static void write(Ice.OutputStream ostr, global::Ice.seqMapping.Custom<CR?> v)
@@ -2990,7 +2739,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public class CCRS_Tester
         {
             CCRS_Tester()
@@ -3000,7 +2748,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class AEnSHelper
         {
             public static void write(Ice.OutputStream ostr, En[] v)
@@ -3034,7 +2781,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class LEnSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<En> v)
@@ -3068,7 +2814,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class KEnSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.LinkedList<En> v)
@@ -3103,7 +2848,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class QEnSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Queue<En> v)
@@ -3138,7 +2882,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SEnSHelper
         {
             public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.Stack<En> v)
@@ -3175,7 +2918,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CEnSHelper
         {
             public static void write(Ice.OutputStream ostr, global::Ice.seqMapping.Custom<En> v)
@@ -3210,7 +2952,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CustomIntSHelper
         {
             public static void write(Ice.OutputStream ostr, global::Ice.seqMapping.Custom<int> v)
@@ -3233,7 +2974,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CustomCVSHelper
         {
             public static void write(Ice.OutputStream ostr, global::Ice.seqMapping.Custom<CV?> v)
@@ -3268,7 +3008,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public class CustomCVS_Tester
         {
             CustomCVS_Tester()
@@ -3278,7 +3017,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CustomIntSSHelper
         {
             public static void write(Ice.OutputStream ostr, global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> v)
@@ -3313,7 +3051,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CustomCVSSHelper
         {
             public static void write(Ice.OutputStream ostr, global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV?>> v)
@@ -3348,8 +3085,6 @@ namespace Ice.seqMapping
             }
         }
 
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class MyClassPrxHelper : Ice.ObjectPrxHelperBase, MyClassPrx
         {
             public void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -7284,8 +7019,6 @@ namespace Ice.seqMapping
 {
     namespace Test
     {
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public abstract class IDisp_ : Ice.ObjectImpl, I
         {
             public override string ice_id(Ice.Current current) => ice_staticId();
@@ -7293,8 +7026,6 @@ namespace Ice.seqMapping
             public static new string ice_staticId() => "::Test::I";
         }
 
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public abstract class MyClassDisp_ : Ice.ObjectImpl, MyClass
         {
             public abstract void shutdown(Ice.Current current);

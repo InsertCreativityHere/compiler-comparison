@@ -17,21 +17,14 @@
 
 [assembly:Ice.Slice("PropertiesAdmin.ice")]
 
-#pragma warning disable 1591
+#pragma warning disable CS1591 // Missing XML Comment
+#pragma warning disable CS1573 // Parameter has no matching param tag in the XML comment
+#pragma warning disable CS0612 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0619 // Type or member is obsolete
 
 namespace Ice
 {
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::Ice::PropertiesAdmin")]
     public partial interface PropertiesAdmin : Ice.Object
     {
@@ -44,7 +37,6 @@ namespace Ice
         /// <returns>The property value.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         string getProperty(string key, Ice.Current current);
 
         /// <summary>
@@ -57,7 +49,6 @@ namespace Ice
         /// <returns>The matching property set.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::System.Collections.Generic.Dictionary<string, string> getPropertiesForPrefix(string prefix, Ice.Current current);
 
         /// <summary>
@@ -70,7 +61,6 @@ namespace Ice
         ///  <param name="newProperties">Properties to be added, changed, or removed.</param>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, Ice.Current current);
     }
 }
@@ -81,7 +71,6 @@ namespace Ice
     /// The PropertiesAdmin interface provides remote access to the properties of a communicator.
     /// </summary>
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface PropertiesAdminPrx : Ice.ObjectPrx
     {
         /// <summary>
@@ -158,8 +147,6 @@ namespace Ice
 
 namespace Ice
 {
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class PropertiesAdminPrxHelper : Ice.ObjectPrxHelperBase, PropertiesAdminPrx
     {
         public string getProperty(string key, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -350,8 +337,6 @@ namespace Ice
 
 namespace Ice
 {
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class PropertiesAdminDisp_ : Ice.ObjectImpl, PropertiesAdmin
     {
         public abstract string getProperty(string key, Ice.Current current);

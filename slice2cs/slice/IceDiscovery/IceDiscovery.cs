@@ -17,21 +17,14 @@
 
 [assembly:Ice.Slice("IceDiscovery.ice")]
 
-#pragma warning disable 1591
+#pragma warning disable CS1591 // Missing XML Comment
+#pragma warning disable CS1573 // Parameter has no matching param tag in the XML comment
+#pragma warning disable CS0612 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0619 // Type or member is obsolete
 
 namespace IceDiscovery
 {
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceDiscovery::LookupReply")]
     public partial interface LookupReply : Ice.Object
     {
@@ -43,7 +36,6 @@ namespace IceDiscovery
         /// <param name="prx">The proxy of the object. This proxy is never null.</param>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void foundObjectById(global::Ice.Identity id, global::Ice.ObjectPrx? prx, Ice.Current current);
 
         /// <summary>
@@ -57,21 +49,9 @@ namespace IceDiscovery
         /// <param name="isReplicaGroup">True if the adapter is also a member of a replica group.</param>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void foundAdapterById(string id, global::Ice.ObjectPrx? prx, bool isReplicaGroup, Ice.Current current);
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceDiscovery::Lookup")]
     public partial interface Lookup : Ice.Object
     {
@@ -87,7 +67,6 @@ namespace IceDiscovery
         ///  object is found. The reply proxy is never null.</param>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx? reply, Ice.Current current);
 
         /// <summary>
@@ -102,7 +81,6 @@ namespace IceDiscovery
         ///  adapter is found. The reply proxy is never null.</param>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void findAdapterById(string domainId, string id, LookupReplyPrx? reply, Ice.Current current);
     }
 }
@@ -113,7 +91,6 @@ namespace IceDiscovery
     /// The LookupReply interface is used by IceDiscovery clients to answer requests received on the Lookup interface.
     /// </summary>
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface LookupReplyPrx : Ice.ObjectPrx
     {
         /// <summary>
@@ -171,7 +148,6 @@ namespace IceDiscovery
     /// The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
     /// </summary>
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface LookupPrx : Ice.ObjectPrx
     {
         /// <summary>
@@ -238,8 +214,6 @@ namespace IceDiscovery
 
 namespace IceDiscovery
 {
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class LookupReplyPrxHelper : Ice.ObjectPrxHelperBase, LookupReplyPrx
     {
         public void foundObjectById(global::Ice.Identity id, global::Ice.ObjectPrx? prx, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -375,8 +349,6 @@ namespace IceDiscovery
         }
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class LookupPrxHelper : Ice.ObjectPrxHelperBase, LookupPrx
     {
         public void findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -516,8 +488,6 @@ namespace IceDiscovery
 
 namespace IceDiscovery
 {
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class LookupReplyDisp_ : Ice.ObjectImpl, LookupReply
     {
         public abstract void foundObjectById(global::Ice.Identity id, global::Ice.ObjectPrx? prx, Ice.Current current);
@@ -541,8 +511,6 @@ namespace IceDiscovery
             };
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class LookupDisp_ : Ice.ObjectImpl, Lookup
     {
         public abstract void findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx? reply, Ice.Current current);

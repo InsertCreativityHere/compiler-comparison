@@ -750,8 +750,8 @@ Ice.defineOperations(
         ], true, ],
         "registerReplica": [, , , ["IceGrid.ReplicaSessionPrx"], [["IceGrid.InternalReplicaInfo", true], ["IceGrid.InternalRegistryPrx"]], ,
         [
-            IceGrid.ReplicaActiveException,
-            IceGrid.PermissionDeniedException
+            IceGrid.PermissionDeniedException,
+            IceGrid.ReplicaActiveException
         ], true, ],
         "registerWithReplica": [, , , , [["IceGrid.InternalRegistryPrx"]], , , , ],
         "getNodes": [, 2, , [IceGrid.NodePrxSeqHelper], , , , , ],

@@ -17,7 +17,11 @@
 
 [assembly:Ice.Slice("Test1.ice")]
 
-#pragma warning disable 1591
+#pragma warning disable CS1591 // Missing XML Comment
+#pragma warning disable CS1573 // Parameter has no matching param tag in the XML comment
+#pragma warning disable CS0612 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0619 // Type or member is obsolete
 
 namespace Test
 {
@@ -25,7 +29,6 @@ namespace Test
     {
         namespace SubSubA1
         {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public abstract class Value1
             {
                 public const int value = 10;
@@ -37,7 +40,6 @@ namespace Test
     {
         namespace SubSubB1
         {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public abstract class Value1
             {
                 public const int value = 20;

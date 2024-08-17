@@ -17,97 +17,68 @@
 
 [assembly:Ice.Slice("Test.ice")]
 
-#pragma warning disable 1591
+#pragma warning disable CS1591 // Missing XML Comment
+#pragma warning disable CS1573 // Parameter has no matching param tag in the XML comment
+#pragma warning disable CS0612 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0619 // Type or member is obsolete
 
 namespace Ice.scope
 {
     namespace Test
     {
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         public partial record struct S
         {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public int v;
 
             partial void ice_initialize();
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public S(int v)
             {
                 this.v = v;
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public S(Ice.InputStream istr)
             {
                 this.v = istr.readInt();
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public void ice_writeMembers(Ice.OutputStream ostr)
             {
                 ostr.writeInt(this.v);
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(Ice.OutputStream ostr, S v)
             {
                 v.ice_writeMembers(ostr);
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static S ice_read(Ice.InputStream istr) => new(istr);
         }
 
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::C")]
         public partial class C : Ice.Value
         {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public S s;
 
             partial void ice_initialize();
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public C(S s)
             {
                 this.s = s;
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public C()
             {
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static new string ice_staticId() => "::Test::C";
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override string ice_id() => ice_staticId();
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice(ice_staticId(), -1, true);
@@ -115,7 +86,6 @@ namespace Ice.scope
                 ostr_.endSlice();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
@@ -124,7 +94,6 @@ namespace Ice.scope
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public enum E1
         {
             v1,
@@ -132,7 +101,6 @@ namespace Ice.scope
             v3
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class E1Helper
         {
             public static void write(Ice.OutputStream ostr, E1 v)
@@ -140,7 +108,6 @@ namespace Ice.scope
                 ostr.writeEnum((int)v, 2);
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static E1 read(Ice.InputStream istr)
             {
                 E1 v;
@@ -149,30 +116,17 @@ namespace Ice.scope
             }
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         public sealed partial record class S1
         {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public string s = "";
 
             partial void ice_initialize();
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public S1()
             {
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public S1(string s)
             {
                 global::System.ArgumentNullException.ThrowIfNull(s);
@@ -180,49 +134,32 @@ namespace Ice.scope
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public S1(Ice.InputStream istr)
             {
                 this.s = istr.readString();
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public void ice_writeMembers(Ice.OutputStream ostr)
             {
                 ostr.writeString(this.s);
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(Ice.OutputStream ostr, S1 v)
             {
                 v.ice_writeMembers(ostr);
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static S1 ice_read(Ice.InputStream istr) => new(istr);
         }
 
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::C1")]
         public partial class C1 : Ice.Value
         {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public string s = "";
 
             partial void ice_initialize();
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public C1(string s)
             {
                 global::System.ArgumentNullException.ThrowIfNull(s);
@@ -230,18 +167,14 @@ namespace Ice.scope
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public C1()
             {
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static new string ice_staticId() => "::Test::C1";
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override string ice_id() => ice_staticId();
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice(ice_staticId(), -1, true);
@@ -249,7 +182,6 @@ namespace Ice.scope
                 ostr_.endSlice();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
@@ -258,30 +190,16 @@ namespace Ice.scope
             }
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         public sealed partial record class S2
         {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public E1 E1;
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public S1 S1;
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public C1? C1;
 
             partial void ice_initialize();
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public S2(S1 S1)
             {
                 global::System.ArgumentNullException.ThrowIfNull(S1);
@@ -289,7 +207,6 @@ namespace Ice.scope
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public S2(E1 E1, S1 S1, C1? C1)
             {
                 this.E1 = E1;
@@ -299,7 +216,6 @@ namespace Ice.scope
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public S2(Ice.InputStream istr)
             {
                 this.E1 = (E1)istr.readEnum(2);
@@ -308,7 +224,6 @@ namespace Ice.scope
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public void ice_writeMembers(Ice.OutputStream ostr)
             {
                 ostr.writeEnum((int)this.E1, 2);
@@ -316,42 +231,25 @@ namespace Ice.scope
                 ostr.writeValue(this.C1);
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static void ice_write(Ice.OutputStream ostr, S2 v)
             {
                 v.ice_writeMembers(ostr);
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static S2 ice_read(Ice.InputStream istr) => new(istr);
         }
 
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::C2")]
         public partial class C2 : Ice.Value
         {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public E1 E1;
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public S1 S1;
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public C1? C1;
 
             partial void ice_initialize();
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public C2(E1 E1, S1 S1, C1? C1)
             {
                 this.E1 = E1;
@@ -361,7 +259,6 @@ namespace Ice.scope
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public C2(S1 S1)
             {
                 global::System.ArgumentNullException.ThrowIfNull(S1);
@@ -369,7 +266,6 @@ namespace Ice.scope
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
             public C2()
             {
@@ -377,12 +273,9 @@ namespace Ice.scope
                 ice_initialize();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public static new string ice_staticId() => "::Test::C2";
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public override string ice_id() => ice_staticId();
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             protected override void iceWriteImpl(Ice.OutputStream ostr_)
             {
                 ostr_.startSlice(ice_staticId(), -1, true);
@@ -392,7 +285,6 @@ namespace Ice.scope
                 ostr_.endSlice();
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
@@ -403,187 +295,117 @@ namespace Ice.scope
             }
         }
 
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [Ice.SliceTypeId("::Test::I")]
         public partial interface I : Ice.Object
         {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             S opS(S s1, out S s2, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             S[] opSSeq(S[] s1, out S[] s2, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Dictionary<string, S> opSMap(global::System.Collections.Generic.Dictionary<string, S> s1, out global::System.Collections.Generic.Dictionary<string, S> s2, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             C? opC(C? c1, out C? c2, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             C?[] opCSeq(C?[] c1, out C?[] c2, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Collections.Generic.Dictionary<string, C?> opCMap(global::System.Collections.Generic.Dictionary<string, C?> c1, out global::System.Collections.Generic.Dictionary<string, C?> c2, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             E1 opE1(E1 E1, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             S1 opS1(S1 S1, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             C1? opC1(C1? C1, Ice.Current current);
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             void shutdown(Ice.Current current);
         }
 
         namespace Inner
         {
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
             public partial record struct S
             {
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 public int v;
 
                 partial void ice_initialize();
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 public S(int v)
                 {
                     this.v = v;
                     ice_initialize();
                 }
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 public S(Ice.InputStream istr)
                 {
                     this.v = istr.readInt();
                     ice_initialize();
                 }
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 public void ice_writeMembers(Ice.OutputStream ostr)
                 {
                     ostr.writeInt(this.v);
                 }
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 public static void ice_write(Ice.OutputStream ostr, S v)
                 {
                     v.ice_writeMembers(ostr);
                 }
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 public static S ice_read(Ice.InputStream istr) => new(istr);
             }
 
             namespace Inner2
             {
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
                 public partial record struct S
                 {
-                    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                     public int v;
 
                     partial void ice_initialize();
 
-                    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                     public S(int v)
                     {
                         this.v = v;
                         ice_initialize();
                     }
 
-                    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                     public S(Ice.InputStream istr)
                     {
                         this.v = istr.readInt();
                         ice_initialize();
                     }
 
-                    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                     public void ice_writeMembers(Ice.OutputStream ostr)
                     {
                         ostr.writeInt(this.v);
                     }
 
-                    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                     public static void ice_write(Ice.OutputStream ostr, S v)
                     {
                         v.ice_writeMembers(ostr);
                     }
 
-                    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                     public static S ice_read(Ice.InputStream istr) => new(istr);
                 }
 
-                [global::System.Runtime.InteropServices.ComVisible(false)]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
                 [Ice.SliceTypeId("::Test::Inner::Inner2::C")]
                 public partial class C : Ice.Value
                 {
-                    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                     public S s;
 
                     partial void ice_initialize();
 
-                    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                     public C(S s)
                     {
                         this.s = s;
                         ice_initialize();
                     }
 
-                    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                     public C()
                     {
                         ice_initialize();
                     }
 
-                    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                     public static new string ice_staticId() => "::Test::Inner::Inner2::C";
-                    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                     public override string ice_id() => ice_staticId();
 
-                    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                     protected override void iceWriteImpl(Ice.OutputStream ostr_)
                     {
                         ostr_.startSlice(ice_staticId(), -1, true);
@@ -591,7 +413,6 @@ namespace Ice.scope
                         ostr_.endSlice();
                     }
 
-                    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                     protected override void iceReadImpl(Ice.InputStream istr_)
                     {
                         istr_.startSlice();
@@ -600,81 +421,46 @@ namespace Ice.scope
                     }
                 }
 
-                [global::System.Runtime.InteropServices.ComVisible(false)]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-                [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
                 [Ice.SliceTypeId("::Test::Inner::Inner2::I")]
                 public partial interface I : Ice.Object
                 {
-                    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                     S opS(S s1, out S s2, Ice.Current current);
 
-                    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                     S[] opSSeq(S[] s1, out S[] s2, Ice.Current current);
 
-                    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                     global::System.Collections.Generic.Dictionary<string, S> opSMap(global::System.Collections.Generic.Dictionary<string, S> s1, out global::System.Collections.Generic.Dictionary<string, S> s2, Ice.Current current);
 
-                    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                     C? opC(C? c1, out C? c2, Ice.Current current);
 
-                    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                     C?[] opCSeq(C?[] c1, out C?[] c2, Ice.Current current);
 
-                    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                     global::System.Collections.Generic.Dictionary<string, C?> opCMap(global::System.Collections.Generic.Dictionary<string, C?> c1, out global::System.Collections.Generic.Dictionary<string, C?> c2, Ice.Current current);
 
-                    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                     void shutdown(Ice.Current current);
                 }
             }
 
-            [global::System.Runtime.InteropServices.ComVisible(false)]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
             [Ice.SliceTypeId("::Test::Inner::C")]
             public partial class C : Ice.Value
             {
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 public S s;
 
                 partial void ice_initialize();
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 public C(S s)
                 {
                     this.s = s;
                     ice_initialize();
                 }
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 public C()
                 {
                     ice_initialize();
                 }
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 public static new string ice_staticId() => "::Test::Inner::C";
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 public override string ice_id() => ice_staticId();
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 protected override void iceWriteImpl(Ice.OutputStream ostr_)
                 {
                     ostr_.startSlice(ice_staticId(), -1, true);
@@ -682,7 +468,6 @@ namespace Ice.scope
                     ostr_.endSlice();
                 }
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 protected override void iceReadImpl(Ice.InputStream istr_)
                 {
                     istr_.startSlice();
@@ -691,39 +476,21 @@ namespace Ice.scope
                 }
             }
 
-            [global::System.Runtime.InteropServices.ComVisible(false)]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
             [Ice.SliceTypeId("::Test::Inner::I")]
             public partial interface I : Ice.Object
             {
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 global::Ice.scope.Test.Inner.Inner2.S opS(global::Ice.scope.Test.Inner.Inner2.S s1, out global::Ice.scope.Test.Inner.Inner2.S s2, Ice.Current current);
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 global::Ice.scope.Test.Inner.Inner2.S[] opSSeq(global::Ice.scope.Test.Inner.Inner2.S[] s1, out global::Ice.scope.Test.Inner.Inner2.S[] s2, Ice.Current current);
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> opSMap(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> s1, out global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.S> s2, Ice.Current current);
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 global::Ice.scope.Test.Inner.Inner2.C? opC(global::Ice.scope.Test.Inner.Inner2.C? c1, out global::Ice.scope.Test.Inner.Inner2.C? c2, Ice.Current current);
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 global::Ice.scope.Test.Inner.Inner2.C?[] opCSeq(global::Ice.scope.Test.Inner.Inner2.C?[] c1, out global::Ice.scope.Test.Inner.Inner2.C?[] c2, Ice.Current current);
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> opCMap(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> c1, out global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.Inner.Inner2.C?> c2, Ice.Current current);
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 void shutdown(Ice.Current current);
             }
         }
@@ -736,39 +503,21 @@ namespace Inner
     {
         namespace Inner2
         {
-            [global::System.Runtime.InteropServices.ComVisible(false)]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
             [Ice.SliceTypeId("::Inner::Test::Inner2::I")]
             public partial interface I : Ice.Object
             {
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 global::Ice.scope.Test.S opS(global::Ice.scope.Test.S s1, out global::Ice.scope.Test.S s2, Ice.Current current);
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 global::Ice.scope.Test.S[] opSSeq(global::Ice.scope.Test.S[] s1, out global::Ice.scope.Test.S[] s2, Ice.Current current);
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> opSMap(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> s1, out global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.S> s2, Ice.Current current);
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 global::Ice.scope.Test.C? opC(global::Ice.scope.Test.C? c1, out global::Ice.scope.Test.C? c2, Ice.Current current);
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 global::Ice.scope.Test.C?[] opCSeq(global::Ice.scope.Test.C?[] c1, out global::Ice.scope.Test.C?[] c2, Ice.Current current);
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> opCMap(global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> c1, out global::System.Collections.Generic.Dictionary<string, global::Ice.scope.Test.C?> c2, Ice.Current current);
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 void shutdown(Ice.Current current);
             }
         }
@@ -848,7 +597,6 @@ namespace Ice.scope
 {
     namespace Test
     {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public interface IPrx : Ice.ObjectPrx
         {
             S opS(S s1, out S s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -896,7 +644,6 @@ namespace Ice.scope
         {
             namespace Inner2
             {
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 public interface IPrx : Ice.ObjectPrx
                 {
                     S opS(S s1, out S s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -929,7 +676,6 @@ namespace Ice.scope
                 }
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public interface IPrx : Ice.ObjectPrx
             {
                 global::Ice.scope.Test.Inner.Inner2.S opS(global::Ice.scope.Test.Inner.Inner2.S s1, out global::Ice.scope.Test.Inner.Inner2.S s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -970,7 +716,6 @@ namespace Inner
     {
         namespace Inner2
         {
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public interface IPrx : Ice.ObjectPrx
             {
                 global::Ice.scope.Test.S opS(global::Ice.scope.Test.S s1, out global::Ice.scope.Test.S s2, global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -1009,7 +754,6 @@ namespace Ice.scope
 {
     namespace Test
     {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SMapHelper
         {
             public static void write(Ice.OutputStream ostr,
@@ -1046,7 +790,6 @@ namespace Ice.scope
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class SSeqHelper
         {
             public static void write(Ice.OutputStream ostr, S[] v)
@@ -1080,7 +823,6 @@ namespace Ice.scope
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CMapHelper
         {
             public static void write(Ice.OutputStream ostr,
@@ -1115,7 +857,6 @@ namespace Ice.scope
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class CSeqHelper
         {
             public static void write(Ice.OutputStream ostr, C?[] v)
@@ -1149,8 +890,6 @@ namespace Ice.scope
             }
         }
 
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class IPrxHelper : Ice.ObjectPrxHelperBase, IPrx
         {
             public S opS(S s1, out S s2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -1696,7 +1435,6 @@ namespace Ice.scope
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class IMapHelper
         {
             public static void write(Ice.OutputStream ostr,
@@ -1733,7 +1471,6 @@ namespace Ice.scope
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public sealed class ISeqHelper
         {
             public static void write(Ice.OutputStream ostr, IPrx?[] v)
@@ -1771,7 +1508,6 @@ namespace Ice.scope
         {
             namespace Inner2
             {
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 public sealed class SMapHelper
                 {
                     public static void write(Ice.OutputStream ostr,
@@ -1808,7 +1544,6 @@ namespace Ice.scope
                     }
                 }
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 public sealed class SSeqHelper
                 {
                     public static void write(Ice.OutputStream ostr, S[] v)
@@ -1842,7 +1577,6 @@ namespace Ice.scope
                     }
                 }
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 public sealed class CMapHelper
                 {
                     public static void write(Ice.OutputStream ostr,
@@ -1877,7 +1611,6 @@ namespace Ice.scope
                     }
                 }
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 public sealed class CSeqHelper
                 {
                     public static void write(Ice.OutputStream ostr, C?[] v)
@@ -1911,8 +1644,6 @@ namespace Ice.scope
                     }
                 }
 
-                [global::System.Runtime.InteropServices.ComVisible(false)]
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 public sealed class IPrxHelper : Ice.ObjectPrxHelperBase, IPrx
                 {
                     public S opS(S s1, out S s2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -2312,7 +2043,6 @@ namespace Ice.scope
                     }
                 }
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 public sealed class IMapHelper
                 {
                     public static void write(Ice.OutputStream ostr,
@@ -2349,7 +2079,6 @@ namespace Ice.scope
                     }
                 }
 
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 public sealed class ISeqHelper
                 {
                     public static void write(Ice.OutputStream ostr, IPrx?[] v)
@@ -2384,7 +2113,6 @@ namespace Ice.scope
                 }
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public sealed class SSeqHelper
             {
                 public static void write(Ice.OutputStream ostr, global::Ice.scope.Test.Inner.Inner2.S[] v)
@@ -2418,7 +2146,6 @@ namespace Ice.scope
                 }
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public sealed class SMapHelper
             {
                 public static void write(Ice.OutputStream ostr,
@@ -2455,7 +2182,6 @@ namespace Ice.scope
                 }
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public sealed class CMapHelper
             {
                 public static void write(Ice.OutputStream ostr,
@@ -2490,7 +2216,6 @@ namespace Ice.scope
                 }
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public sealed class CSeqHelper
             {
                 public static void write(Ice.OutputStream ostr, global::Ice.scope.Test.Inner.Inner2.C?[] v)
@@ -2524,8 +2249,6 @@ namespace Ice.scope
                 }
             }
 
-            [global::System.Runtime.InteropServices.ComVisible(false)]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public sealed class IPrxHelper : Ice.ObjectPrxHelperBase, IPrx
             {
                 public global::Ice.scope.Test.Inner.Inner2.S opS(global::Ice.scope.Test.Inner.Inner2.S s1, out global::Ice.scope.Test.Inner.Inner2.S s2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -2925,7 +2648,6 @@ namespace Ice.scope
                 }
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public sealed class IMapHelper
             {
                 public static void write(Ice.OutputStream ostr,
@@ -2962,7 +2684,6 @@ namespace Ice.scope
                 }
             }
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public sealed class ISeqHelper
             {
                 public static void write(Ice.OutputStream ostr, IPrx?[] v)
@@ -3005,8 +2726,6 @@ namespace Inner
     {
         namespace Inner2
         {
-            [global::System.Runtime.InteropServices.ComVisible(false)]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public sealed class IPrxHelper : Ice.ObjectPrxHelperBase, IPrx
             {
                 public global::Ice.scope.Test.S opS(global::Ice.scope.Test.S s1, out global::Ice.scope.Test.S s2, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -3413,8 +3132,6 @@ namespace Ice.scope
 {
     namespace Test
     {
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public abstract class IDisp_ : Ice.ObjectImpl, I
         {
             public abstract S opS(S s1, out S s2, Ice.Current current);
@@ -3466,8 +3183,6 @@ namespace Ice.scope
         {
             namespace Inner2
             {
-                [global::System.Runtime.InteropServices.ComVisible(false)]
-                [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
                 public abstract class IDisp_ : Ice.ObjectImpl, I
                 {
                     public abstract S opS(S s1, out S s2, Ice.Current current);
@@ -3507,8 +3222,6 @@ namespace Ice.scope
                 }
             }
 
-            [global::System.Runtime.InteropServices.ComVisible(false)]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public abstract class IDisp_ : Ice.ObjectImpl, I
             {
                 public abstract global::Ice.scope.Test.Inner.Inner2.S opS(global::Ice.scope.Test.Inner.Inner2.S s1, out global::Ice.scope.Test.Inner.Inner2.S s2, Ice.Current current);
@@ -3556,8 +3269,6 @@ namespace Inner
     {
         namespace Inner2
         {
-            [global::System.Runtime.InteropServices.ComVisible(false)]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             public abstract class IDisp_ : Ice.ObjectImpl, I
             {
                 public abstract global::Ice.scope.Test.S opS(global::Ice.scope.Test.S s1, out global::Ice.scope.Test.S s2, Ice.Current current);

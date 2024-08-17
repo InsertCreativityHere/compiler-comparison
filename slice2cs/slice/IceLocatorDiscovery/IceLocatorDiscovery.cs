@@ -17,21 +17,14 @@
 
 [assembly:Ice.Slice("IceLocatorDiscovery.ice")]
 
-#pragma warning disable 1591
+#pragma warning disable CS1591 // Missing XML Comment
+#pragma warning disable CS1573 // Parameter has no matching param tag in the XML comment
+#pragma warning disable CS0612 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0619 // Type or member is obsolete
 
 namespace IceLocatorDiscovery
 {
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceLocatorDiscovery::LookupReply")]
     public partial interface LookupReply : Ice.Object
     {
@@ -41,21 +34,9 @@ namespace IceLocatorDiscovery
         /// <param name="prx">The proxy of the locator.</param>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void foundLocator(global::Ice.LocatorPrx? prx, Ice.Current current);
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceLocatorDiscovery::Lookup")]
     public partial interface Lookup : Ice.Object
     {
@@ -68,7 +49,6 @@ namespace IceLocatorDiscovery
         /// <param name="reply">The reply object to use to send the reply.</param>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void findLocator(string instanceName, LookupReplyPrx? reply, Ice.Current current);
     }
 }
@@ -81,7 +61,6 @@ namespace IceLocatorDiscovery
     ///  implementations invoke on this interface to provide their locator proxy.
     /// </summary>
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface LookupReplyPrx : Ice.ObjectPrx
     {
         /// <summary>
@@ -110,7 +89,6 @@ namespace IceLocatorDiscovery
     ///  Clients typically make a multicast findLocator request to find the locator proxy.
     /// </summary>
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface LookupPrx : Ice.ObjectPrx
     {
         /// <summary>
@@ -141,8 +119,6 @@ namespace IceLocatorDiscovery
 
 namespace IceLocatorDiscovery
 {
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class LookupReplyPrxHelper : Ice.ObjectPrxHelperBase, LookupReplyPrx
     {
         public void foundLocator(global::Ice.LocatorPrx? prx, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -234,8 +210,6 @@ namespace IceLocatorDiscovery
         }
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class LookupPrxHelper : Ice.ObjectPrxHelperBase, LookupPrx
     {
         public void findLocator(string instanceName, LookupReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -331,8 +305,6 @@ namespace IceLocatorDiscovery
 
 namespace IceLocatorDiscovery
 {
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class LookupReplyDisp_ : Ice.ObjectImpl, LookupReply
     {
         public abstract void foundLocator(global::Ice.LocatorPrx? prx, Ice.Current current);
@@ -353,8 +325,6 @@ namespace IceLocatorDiscovery
             };
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class LookupDisp_ : Ice.ObjectImpl, Lookup
     {
         public abstract void findLocator(string instanceName, LookupReplyPrx? reply, Ice.Current current);

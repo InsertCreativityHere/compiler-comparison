@@ -17,7 +17,11 @@
 
 [assembly:Ice.Slice("Registry.ice")]
 
-#pragma warning disable 1591
+#pragma warning disable CS1591 // Missing XML Comment
+#pragma warning disable CS1573 // Parameter has no matching param tag in the XML comment
+#pragma warning disable CS0612 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0619 // Type or member is obsolete
 
 namespace IceGrid
 {
@@ -25,7 +29,6 @@ namespace IceGrid
     /// Determines which load sampling interval to use.
     /// </summary>
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public enum LoadSample
     {
         /// <summary>
@@ -45,7 +48,6 @@ namespace IceGrid
         LoadSample15
     }
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class LoadSampleHelper
     {
         public static void write(Ice.OutputStream ostr, LoadSample v)
@@ -53,7 +55,6 @@ namespace IceGrid
             ostr.writeEnum((int)v, 2);
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public static LoadSample read(Ice.InputStream istr)
         {
             LoadSample v;
@@ -62,17 +63,6 @@ namespace IceGrid
         }
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::Query")]
     public partial interface Query : Ice.Object
     {
@@ -84,7 +74,6 @@ namespace IceGrid
         /// <returns>The proxy or null if no such object has been found.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::Ice.ObjectPrx? findObjectById(global::Ice.Identity id, Ice.Current current);
 
         /// <summary>
@@ -97,7 +86,6 @@ namespace IceGrid
         /// <returns>The proxy or null, if no such object has been found.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::Ice.ObjectPrx? findObjectByType(string type, Ice.Current current);
 
         /// <summary>
@@ -113,7 +101,6 @@ namespace IceGrid
         /// <returns>The proxy or null, if no such object has been found.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::Ice.ObjectPrx? findObjectByTypeOnLeastLoadedNode(string type, LoadSample sample, Ice.Current current);
 
         /// <summary>
@@ -124,7 +111,6 @@ namespace IceGrid
         /// <returns>The proxies or an empty sequence, if no such objects have been found.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::Ice.ObjectPrx?[] findAllObjectsByType(string type, Ice.Current current);
 
         /// <summary>
@@ -138,21 +124,9 @@ namespace IceGrid
         ///  group.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::Ice.ObjectPrx?[] findAllReplicas(global::Ice.ObjectPrx? proxy, Ice.Current current);
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::Registry")]
     public partial interface Registry : Ice.Object
     {
@@ -169,7 +143,6 @@ namespace IceGrid
         ///  user is not allowed access.</exception>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         SessionPrx? createSession(string userId, string password, Ice.Current current);
 
         /// <summary>
@@ -185,7 +158,6 @@ namespace IceGrid
         ///  user is not allowed access.</exception>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         AdminSessionPrx? createAdminSession(string userId, string password, Ice.Current current);
 
         /// <summary>
@@ -197,7 +169,6 @@ namespace IceGrid
         ///  user is not allowed access.</exception>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         SessionPrx? createSessionFromSecureConnection(Ice.Current current);
 
         /// <summary>
@@ -209,7 +180,6 @@ namespace IceGrid
         ///  user is not allowed access.</exception>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         AdminSessionPrx? createAdminSessionFromSecureConnection(Ice.Current current);
 
         /// <summary>
@@ -218,7 +188,6 @@ namespace IceGrid
         /// <returns>The idle timeout (in seconds).</returns>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         int getSessionTimeout(Ice.Current current);
 
         /// <summary>
@@ -227,21 +196,9 @@ namespace IceGrid
         /// <returns>The idle timeout (in seconds).</returns>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         int getACMTimeout(Ice.Current current);
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     [Ice.SliceTypeId("::IceGrid::Locator")]
     public partial interface Locator : global::Ice.Locator
     {
@@ -251,7 +208,6 @@ namespace IceGrid
         /// <returns>The proxy of the registry object. The returned proxy is never null.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         RegistryPrx? getLocalRegistry(Ice.Current current);
 
         /// <summary>
@@ -260,7 +216,6 @@ namespace IceGrid
         /// <returns>The proxy of the query object. The returned proxy is never null.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         QueryPrx? getLocalQuery(Ice.Current current);
     }
 }
@@ -273,7 +228,6 @@ namespace IceGrid
     ///  objects.
     /// </summary>
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface QueryPrx : Ice.ObjectPrx
     {
         /// <summary>
@@ -401,7 +355,6 @@ namespace IceGrid
     /// The IceGrid registry allows clients create sessions directly with the registry.
     /// </summary>
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface RegistryPrx : Ice.ObjectPrx
     {
         /// <summary>
@@ -540,7 +493,6 @@ namespace IceGrid
     ///  registry.
     /// </summary>
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface LocatorPrx : global::Ice.LocatorPrx
     {
         /// <summary>
@@ -581,8 +533,6 @@ namespace IceGrid
 
 namespace IceGrid
 {
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class QueryPrxHelper : Ice.ObjectPrxHelperBase, QueryPrx
     {
         public global::Ice.ObjectPrx? findObjectById(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -874,8 +824,6 @@ namespace IceGrid
         }
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class RegistryPrxHelper : Ice.ObjectPrxHelperBase, RegistryPrx
     {
         public SessionPrx? createSession(string userId, string password, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -1256,8 +1204,6 @@ namespace IceGrid
         }
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class LocatorPrxHelper : Ice.ObjectPrxHelperBase, LocatorPrx
     {
         public global::Ice.ObjectPrx? findObjectById(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string>? context = null)
@@ -1568,8 +1514,6 @@ namespace IceGrid
 
 namespace IceGrid
 {
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class QueryDisp_ : Ice.ObjectImpl, Query
     {
         public abstract global::Ice.ObjectPrx? findObjectById(global::Ice.Identity id, Ice.Current current);
@@ -1602,8 +1546,6 @@ namespace IceGrid
             };
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class RegistryDisp_ : Ice.ObjectImpl, Registry
     {
         public abstract SessionPrx? createSession(string userId, string password, Ice.Current current);
@@ -1639,8 +1581,6 @@ namespace IceGrid
             };
     }
 
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class LocatorDisp_ : Ice.ObjectImpl, Locator
     {
         public abstract RegistryPrx? getLocalRegistry(Ice.Current current);

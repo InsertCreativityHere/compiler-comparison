@@ -17,7 +17,11 @@
 
 [assembly:Ice.Slice("BuiltinSequences.ice")]
 
-#pragma warning disable 1591
+#pragma warning disable CS1591 // Missing XML Comment
+#pragma warning disable CS1573 // Parameter has no matching param tag in the XML comment
+#pragma warning disable CS0612 // Type or member is obsolete
+#pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning disable CS0619 // Type or member is obsolete
 
 namespace Ice
 {
@@ -25,7 +29,6 @@ namespace Ice
 
 namespace Ice
 {
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class BoolSeqHelper
     {
         public static void write(Ice.OutputStream ostr, bool[] v)
@@ -41,7 +44,6 @@ namespace Ice
         }
     }
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ByteSeqHelper
     {
         public static void write(Ice.OutputStream ostr, byte[] v)
@@ -57,7 +59,6 @@ namespace Ice
         }
     }
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ShortSeqHelper
     {
         public static void write(Ice.OutputStream ostr, short[] v)
@@ -73,7 +74,6 @@ namespace Ice
         }
     }
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class IntSeqHelper
     {
         public static void write(Ice.OutputStream ostr, int[] v)
@@ -89,7 +89,6 @@ namespace Ice
         }
     }
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class LongSeqHelper
     {
         public static void write(Ice.OutputStream ostr, long[] v)
@@ -105,7 +104,6 @@ namespace Ice
         }
     }
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class FloatSeqHelper
     {
         public static void write(Ice.OutputStream ostr, float[] v)
@@ -121,7 +119,6 @@ namespace Ice
         }
     }
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class DoubleSeqHelper
     {
         public static void write(Ice.OutputStream ostr, double[] v)
@@ -137,7 +134,6 @@ namespace Ice
         }
     }
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class StringSeqHelper
     {
         public static void write(Ice.OutputStream ostr, string[] v)
@@ -153,7 +149,6 @@ namespace Ice
         }
     }
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ObjectSeqHelper
     {
         public static void write(Ice.OutputStream ostr, Value?[] v)
@@ -185,7 +180,6 @@ namespace Ice
         }
     }
 
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class ObjectProxySeqHelper
     {
         public static void write(Ice.OutputStream ostr, ObjectPrx?[] v)
