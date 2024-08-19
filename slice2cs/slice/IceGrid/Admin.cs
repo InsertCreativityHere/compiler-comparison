@@ -4581,11 +4581,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(AccessDeniedException)
+                    catch(DeploymentException)
                     {
                         throw;
                     }
-                    catch(DeploymentException)
+                    catch(AccessDeniedException)
                     {
                         throw;
                     }
@@ -4630,15 +4630,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(AccessDeniedException)
-                    {
-                        throw;
-                    }
                     catch(ApplicationNotExistException)
                     {
                         throw;
                     }
                     catch(DeploymentException)
+                    {
+                        throw;
+                    }
+                    catch(AccessDeniedException)
                     {
                         throw;
                     }
@@ -4683,15 +4683,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(AccessDeniedException)
-                    {
-                        throw;
-                    }
                     catch(ApplicationNotExistException)
                     {
                         throw;
                     }
                     catch(DeploymentException)
+                    {
+                        throw;
+                    }
+                    catch(AccessDeniedException)
                     {
                         throw;
                     }
@@ -4736,15 +4736,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(AccessDeniedException)
-                    {
-                        throw;
-                    }
                     catch(ApplicationNotExistException)
                     {
                         throw;
                     }
                     catch(DeploymentException)
+                    {
+                        throw;
+                    }
+                    catch(AccessDeniedException)
                     {
                         throw;
                     }
@@ -4789,15 +4789,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(AccessDeniedException)
-                    {
-                        throw;
-                    }
                     catch(ApplicationNotExistException)
                     {
                         throw;
                     }
                     catch(DeploymentException)
+                    {
+                        throw;
+                    }
+                    catch(AccessDeniedException)
                     {
                         throw;
                     }
@@ -4841,15 +4841,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(AccessDeniedException)
-                    {
-                        throw;
-                    }
                     catch(ApplicationNotExistException)
                     {
                         throw;
                     }
                     catch(DeploymentException)
+                    {
+                        throw;
+                    }
+                    catch(AccessDeniedException)
                     {
                         throw;
                     }
@@ -4895,15 +4895,15 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(AccessDeniedException)
-                    {
-                        throw;
-                    }
                     catch(ApplicationNotExistException)
                     {
                         throw;
                     }
                     catch(DeploymentException)
+                    {
+                        throw;
+                    }
+                    catch(AccessDeniedException)
                     {
                         throw;
                     }

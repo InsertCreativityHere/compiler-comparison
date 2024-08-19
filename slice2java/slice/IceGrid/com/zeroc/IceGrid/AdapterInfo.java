@@ -182,5 +182,5 @@ public class AdapterInfo implements java.lang.Cloneable,
     private static final AdapterInfo _nullMarshalValue = new AdapterInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = -4725027842570880702L;
+    private static final long serialVersionUID = 5955480676669004895L;
 }
