@@ -824,9 +824,9 @@ namespace and
 
     public abstract class ifDisp_ : Ice.ObjectImpl, @if
     {
-        public abstract void @finally(Ice.Current current);
-
         public abstract global::System.Threading.Tasks.Task<int> elifAsync(int @else, Ice.Current current);
+
+        public abstract void @finally(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
