@@ -186,5 +186,5 @@ public class OptionalException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -2526924242190261229L;
+    private static final long serialVersionUID = -6276146566253059012L;
 }
