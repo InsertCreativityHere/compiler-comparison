@@ -280,7 +280,7 @@ classdef ReplicaSessionPrx < Ice.ObjectPrx
         end
     end
     properties(Constant,Access=private)
-        setDatabaseObserver_ex_ = { 'IceGrid.DeploymentException', 'IceGrid.ObserverAlreadyRegisteredException' }
+        setDatabaseObserver_ex_ = { 'IceGrid.ObserverAlreadyRegisteredException', 'IceGrid.DeploymentException' }
         setAdapterDirectProxy_ex_ = { 'IceGrid.AdapterNotExistException', 'IceGrid.AdapterExistsException' }
     end
 end

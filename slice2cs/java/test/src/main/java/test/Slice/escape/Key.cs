@@ -865,9 +865,9 @@ namespace @abstract
 
     public abstract class finalizeDisp_ : Ice.ObjectImpl, finalize
     {
-        public abstract global::System.Threading.Tasks.Task<int> checkedCastAsync(int clone, Ice.Current current);
-
         public abstract void @do(Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<int> checkedCastAsync(int clone, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
