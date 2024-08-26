@@ -47,7 +47,7 @@ public class C2 extends C1
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 2892578762326036208L;
+    private static final long serialVersionUID = 2892578423967903267L;
 
     /** @hidden */
     @Override
