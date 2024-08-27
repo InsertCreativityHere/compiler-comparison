@@ -45,7 +45,7 @@ public class PNode extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -2438003632416568492L;
+    private static final long serialVersionUID = -2438004652691988013L;
 
     /** @hidden */
     @Override
