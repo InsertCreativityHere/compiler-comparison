@@ -45,7 +45,7 @@ public class SS2 extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 7620286031523136738L;
+    private static final long serialVersionUID = 7620290716925262710L;
 
     /** @hidden */
     @Override
