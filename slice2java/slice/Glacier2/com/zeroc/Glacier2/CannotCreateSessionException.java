@@ -59,5 +59,5 @@ public class CannotCreateSessionException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 8990439230421998776L;
+    private static final long serialVersionUID = 8990430546695154750L;
 }
