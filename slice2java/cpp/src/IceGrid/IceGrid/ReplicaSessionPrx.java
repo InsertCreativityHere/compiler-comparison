@@ -123,8 +123,8 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
      * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      **/
     default void setDatabaseObserver(DatabaseObserverPrx dbObs, java.util.Map<java.lang.String, java.lang.Long> serials)
-        throws com.zeroc.IceGrid.ObserverAlreadyRegisteredException,
-               com.zeroc.IceGrid.DeploymentException
+        throws com.zeroc.IceGrid.DeploymentException,
+               com.zeroc.IceGrid.ObserverAlreadyRegisteredException
     {
         setDatabaseObserver(dbObs, serials, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -134,18 +134,18 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
      * @param context The Context map to send with the invocation.
      **/
     default void setDatabaseObserver(DatabaseObserverPrx dbObs, java.util.Map<java.lang.String, java.lang.Long> serials, java.util.Map<String, String> context)
-        throws com.zeroc.IceGrid.ObserverAlreadyRegisteredException,
-               com.zeroc.IceGrid.DeploymentException
+        throws com.zeroc.IceGrid.DeploymentException,
+               com.zeroc.IceGrid.ObserverAlreadyRegisteredException
     {
         try
         {
             _iceI_setDatabaseObserverAsync(dbObs, serials, context, true).waitForResponseOrUserEx();
         }
-        catch(com.zeroc.IceGrid.ObserverAlreadyRegisteredException ex)
+        catch(com.zeroc.IceGrid.DeploymentException ex)
         {
             throw ex;
         }
-        catch(com.zeroc.IceGrid.DeploymentException ex)
+        catch(com.zeroc.IceGrid.ObserverAlreadyRegisteredException ex)
         {
             throw ex;
         }
@@ -159,8 +159,8 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
      * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      **/
     default void setDatabaseObserver(DatabaseObserverPrx dbObs, java.util.Optional<java.util.Map<java.lang.String, java.lang.Long>> serials)
-        throws com.zeroc.IceGrid.ObserverAlreadyRegisteredException,
-               com.zeroc.IceGrid.DeploymentException
+        throws com.zeroc.IceGrid.DeploymentException,
+               com.zeroc.IceGrid.ObserverAlreadyRegisteredException
     {
         setDatabaseObserver(dbObs, serials, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -170,18 +170,18 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
      * @param context The Context map to send with the invocation.
      **/
     default void setDatabaseObserver(DatabaseObserverPrx dbObs, java.util.Optional<java.util.Map<java.lang.String, java.lang.Long>> serials, java.util.Map<String, String> context)
-        throws com.zeroc.IceGrid.ObserverAlreadyRegisteredException,
-               com.zeroc.IceGrid.DeploymentException
+        throws com.zeroc.IceGrid.DeploymentException,
+               com.zeroc.IceGrid.ObserverAlreadyRegisteredException
     {
         try
         {
             _iceI_setDatabaseObserverAsync(dbObs, serials, context, true).waitForResponseOrUserEx();
         }
-        catch(com.zeroc.IceGrid.ObserverAlreadyRegisteredException ex)
+        catch(com.zeroc.IceGrid.DeploymentException ex)
         {
             throw ex;
         }
-        catch(com.zeroc.IceGrid.DeploymentException ex)
+        catch(com.zeroc.IceGrid.ObserverAlreadyRegisteredException ex)
         {
             throw ex;
         }
@@ -231,8 +231,8 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_setDatabaseObserver =
     {
-        com.zeroc.IceGrid.ObserverAlreadyRegisteredException.class,
-        com.zeroc.IceGrid.DeploymentException.class
+        com.zeroc.IceGrid.DeploymentException.class,
+        com.zeroc.IceGrid.ObserverAlreadyRegisteredException.class
     };
 
     /**
