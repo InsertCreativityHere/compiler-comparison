@@ -13606,10 +13606,6 @@ namespace Test
 
         public abstract MyStruct1 opMyStruct1(MyStruct1 opMyStruct1, Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(Ice.Current current);
-
-        public abstract void opDoubleMarshaling(double p1, double[] p2, Ice.Current current);
-
         public abstract void shutdown(Ice.Current current);
 
         public abstract bool supportsCompress(Ice.Current current);
@@ -13705,6 +13701,10 @@ namespace Test
         public abstract void opByteSOneway(byte[] s, Ice.Current current);
 
         public abstract int opByteSOnewayCallCount(Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(Ice.Current current);
+
+        public abstract void opDoubleMarshaling(double p1, double[] p2, Ice.Current current);
 
         public abstract void opIdempotent(Ice.Current current);
 
@@ -13839,10 +13839,6 @@ namespace Test2
 {
     public abstract class MyDerivedClassDisp_ : Ice.ObjectImpl, MyDerivedClass
     {
-        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(Ice.Current current);
-
-        public abstract void opDoubleMarshaling(double p1, double[] p2, Ice.Current current);
-
         public abstract void shutdown(Ice.Current current);
 
         public abstract bool supportsCompress(Ice.Current current);
@@ -13938,6 +13934,10 @@ namespace Test2
         public abstract void opByteSOneway(byte[] s, Ice.Current current);
 
         public abstract int opByteSOnewayCallCount(Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(Ice.Current current);
+
+        public abstract void opDoubleMarshaling(double p1, double[] p2, Ice.Current current);
 
         public abstract void opIdempotent(Ice.Current current);
 
