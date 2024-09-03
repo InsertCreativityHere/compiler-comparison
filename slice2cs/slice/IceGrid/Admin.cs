@@ -5501,11 +5501,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(ServerNotExistException)
+                    catch(ServerStopException)
                     {
                         throw;
                     }
-                    catch(ServerStopException)
+                    catch(ServerNotExistException)
                     {
                         throw;
                     }
