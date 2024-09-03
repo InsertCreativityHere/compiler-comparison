@@ -9854,6 +9854,10 @@ namespace Test
 
         public abstract global::System.Threading.Tasks.Task<MyStruct1> opMyStruct1Async(MyStruct1 opMyStruct1, Ice.Current current);
 
+        public abstract global::System.Threading.Tasks.Task shutdownAsync(Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<bool> supportsCompressAsync(Ice.Current current);
+
         public abstract global::System.Threading.Tasks.Task opVoidAsync(Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpByteResult> opByteAsync(byte p1, byte p2, Ice.Current current);
@@ -9935,10 +9939,6 @@ namespace Test
         public abstract global::System.Threading.Tasks.Task<MyClass_OpStringFloatSDResult> opStringFloatSDAsync(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpStringDoubleSDResult> opStringDoubleSDAsync(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task shutdownAsync(Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<bool> supportsCompressAsync(Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpStringStringSDResult> opStringStringSDAsync(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, Ice.Current current);
 
