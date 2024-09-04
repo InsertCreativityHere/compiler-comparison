@@ -9854,8 +9854,6 @@ namespace Test
 
         public abstract global::System.Threading.Tasks.Task<MyStruct1> opMyStruct1Async(MyStruct1 opMyStruct1, Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task opIdempotentAsync(Ice.Current current);
-
         public abstract global::System.Threading.Tasks.Task shutdownAsync(Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<bool> supportsCompressAsync(Ice.Current current);
@@ -9885,16 +9883,6 @@ namespace Test
         public abstract global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSResult> opShortIntLongSAsync(short[] p1, int[] p2, long[] p3, Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSResult> opFloatDoubleSAsync(float[] p1, double[] p2, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringSResult> opStringSAsync(string[] p1, string[] p2, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpByteSSResult> opByteSSAsync(byte[][] p1, byte[][] p2, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpBoolSSResult> opBoolSSAsync(bool[][] p1, bool[][] p2, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSSResult> opShortIntLongSSAsync(short[][] p1, int[][] p2, long[][] p3, Ice.Current current);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSSResult> opFloatDoubleSSAsync(float[][] p1, double[][] p2, Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpStringSSResult> opStringSSAsync(string[][] p1, string[][] p2, Ice.Current current);
 
@@ -9956,6 +9944,8 @@ namespace Test
 
         public abstract global::System.Threading.Tasks.Task opDoubleMarshalingAsync(double p1, double[] p2, Ice.Current current);
 
+        public abstract global::System.Threading.Tasks.Task opIdempotentAsync(Ice.Current current);
+
         public abstract global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<short> opShort1Async(short opShort1, Ice.Current current);
@@ -9993,6 +9983,16 @@ namespace Test
         public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict1MarshaledResult> opMDict1Async(Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict2MarshaledResult> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringSResult> opStringSAsync(string[] p1, string[] p2, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpByteSSResult> opByteSSAsync(byte[][] p1, byte[][] p2, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpBoolSSResult> opBoolSSAsync(bool[][] p1, bool[][] p2, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSSResult> opShortIntLongSSAsync(short[][] p1, int[][] p2, long[][] p3, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSSResult> opFloatDoubleSSAsync(float[][] p1, double[][] p2, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 

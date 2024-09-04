@@ -251,14 +251,14 @@ Ice.defineOperations(
     {
         "setAdapterDirectProxy": [, 2, , , [[7], [9]], ,
         [
-            Ice.AdapterAlreadyActiveException,
-            Ice.AdapterNotFoundException
+            Ice.AdapterNotFoundException,
+            Ice.AdapterAlreadyActiveException
         ], , ],
         "setReplicatedAdapterDirectProxy": [, 2, , , [[7], [7], [9]], ,
         [
+            Ice.AdapterNotFoundException,
             Ice.InvalidReplicaGroupIdException,
-            Ice.AdapterAlreadyActiveException,
-            Ice.AdapterNotFoundException
+            Ice.AdapterAlreadyActiveException
         ], , ],
         "setServerProcessProxy": [, 2, , , [[7], ["Ice.ProcessPrx"]], ,
         [
