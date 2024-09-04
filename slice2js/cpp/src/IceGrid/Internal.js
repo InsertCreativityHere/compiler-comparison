@@ -623,8 +623,8 @@ Ice.defineOperations(
         "getTimeout": [, 2, , [3], , , , , ],
         "setDatabaseObserver": [, 2, , , [["IceGrid.DatabaseObserverPrx"], [IceGrid.StringLongDictHelper, , 1]], ,
         [
-            IceGrid.DeploymentException,
-            IceGrid.ObserverAlreadyRegisteredException
+            IceGrid.ObserverAlreadyRegisteredException,
+            IceGrid.DeploymentException
         ], , ],
         "setEndpoints": [, 2, , , [[IceGrid.StringObjectProxyDictHelper]], , , , ],
         "registerWellKnownObjects": [, 2, , , [[IceGrid.ObjectInfoSeqHelper]], , , , ],
@@ -750,8 +750,8 @@ Ice.defineOperations(
         ], true, ],
         "registerReplica": [, , , ["IceGrid.ReplicaSessionPrx"], [["IceGrid.InternalReplicaInfo", true], ["IceGrid.InternalRegistryPrx"]], ,
         [
-            IceGrid.ReplicaActiveException,
-            IceGrid.PermissionDeniedException
+            IceGrid.PermissionDeniedException,
+            IceGrid.ReplicaActiveException
         ], true, ],
         "registerWithReplica": [, , , , [["IceGrid.InternalRegistryPrx"]], , , , ],
         "getNodes": [, 2, , [IceGrid.NodePrxSeqHelper], , , , , ],
