@@ -388,33 +388,58 @@ Test::TestIntfPrx::_iceI_waitForBatch(const ::std::shared_ptr<::IceInternal::Out
 }
 
 void
-Test::TestIntfPrx::close(CloseMode iceP_mode, const ::Ice::Context& context) const
+Test::TestIntfPrx::closeConnection(const ::Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_close, iceP_mode, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_closeConnection, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::closeAsync(CloseMode iceP_mode, const ::Ice::Context& context) const
+Test::TestIntfPrx::closeConnectionAsync(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_close, iceP_mode, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_closeConnection, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::closeAsync(CloseMode iceP_mode, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::closeConnectionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_close, iceP_mode, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_closeConnection, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_close(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, CloseMode iceP_mode, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_closeConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "close";
+    static constexpr ::std::string_view operationName = "closeConnection";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_mode);
-        },
+        nullptr,
+        nullptr);
+}
+
+void
+Test::TestIntfPrx::abortConnection(const ::Ice::Context& context) const
+{
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_abortConnection, context).get();
+}
+
+::std::future<void>
+Test::TestIntfPrx::abortConnectionAsync(const ::Ice::Context& context) const
+{
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_abortConnection, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::abortConnectionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+{
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_abortConnection, context);
+}
+
+void
+Test::TestIntfPrx::_iceI_abortConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+{
+    static constexpr ::std::string_view operationName = "abortConnection";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+        nullptr,
         nullptr);
 }
 
@@ -1011,15 +1036,22 @@ Test::TestIntf::_iceD_waitForBatch(::Ice::IncomingRequest& request, ::std::funct
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_close(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_closeConnection(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
-    auto istr = &request.inputStream();
-    istr->startEncapsulation();
-    CloseMode iceP_mode;
-    istr->readAll(iceP_mode);
-    istr->endEncapsulation();
-    this->close(iceP_mode, request.current());
+    request.inputStream().skipEmptyEncapsulation();
+    this->closeConnection(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+}
+/// \endcond
+
+/// \cond INTERNAL
+void
+Test::TestIntf::_iceD_abortConnection(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+{
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->abortConnection(request.current());
     sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
@@ -1128,10 +1160,10 @@ Test::TestIntf::_iceD_pingBiDir(::Ice::IncomingRequest& request, ::std::function
 void
 Test::TestIntf::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"close", "finishDispatch", "ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opBatch", "opBatchCount", "opWithArgs", "opWithPayload", "opWithResult", "opWithResultAndUE", "opWithUE", "pingBiDir", "shutdown", "sleep", "startDispatch", "supportsAMD", "supportsFunctionalTests", "waitForBatch"};
+    static constexpr ::std::string_view allOperations[] = {"abortConnection", "closeConnection", "finishDispatch", "ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opBatch", "opBatchCount", "opWithArgs", "opWithPayload", "opWithResult", "opWithResultAndUE", "opWithUE", "pingBiDir", "shutdown", "sleep", "startDispatch", "supportsAMD", "supportsFunctionalTests", "waitForBatch"};
 
     const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 21, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 22, current.operation);
     if(r.first == r.second)
     {
         sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
@@ -1142,105 +1174,110 @@ Test::TestIntf::dispatch(::Ice::IncomingRequest& request, ::std::function<void(:
     {
         case 0:
         {
-            _iceD_close(request, ::std::move(sendResponse));
+            _iceD_abortConnection(request, ::std::move(sendResponse));
             break;
         }
         case 1:
         {
-            _iceD_finishDispatch(request, ::std::move(sendResponse));
+            _iceD_closeConnection(request, ::std::move(sendResponse));
             break;
         }
         case 2:
         {
-            _iceD_ice_id(request, ::std::move(sendResponse));
+            _iceD_finishDispatch(request, ::std::move(sendResponse));
             break;
         }
         case 3:
         {
-            _iceD_ice_ids(request, ::std::move(sendResponse));
+            _iceD_ice_id(request, ::std::move(sendResponse));
             break;
         }
         case 4:
         {
-            _iceD_ice_isA(request, ::std::move(sendResponse));
+            _iceD_ice_ids(request, ::std::move(sendResponse));
             break;
         }
         case 5:
         {
-            _iceD_ice_ping(request, ::std::move(sendResponse));
+            _iceD_ice_isA(request, ::std::move(sendResponse));
             break;
         }
         case 6:
         {
-            _iceD_op(request, ::std::move(sendResponse));
+            _iceD_ice_ping(request, ::std::move(sendResponse));
             break;
         }
         case 7:
         {
-            _iceD_opBatch(request, ::std::move(sendResponse));
+            _iceD_op(request, ::std::move(sendResponse));
             break;
         }
         case 8:
         {
-            _iceD_opBatchCount(request, ::std::move(sendResponse));
+            _iceD_opBatch(request, ::std::move(sendResponse));
             break;
         }
         case 9:
         {
-            _iceD_opWithArgs(request, ::std::move(sendResponse));
+            _iceD_opBatchCount(request, ::std::move(sendResponse));
             break;
         }
         case 10:
         {
-            _iceD_opWithPayload(request, ::std::move(sendResponse));
+            _iceD_opWithArgs(request, ::std::move(sendResponse));
             break;
         }
         case 11:
         {
-            _iceD_opWithResult(request, ::std::move(sendResponse));
+            _iceD_opWithPayload(request, ::std::move(sendResponse));
             break;
         }
         case 12:
         {
-            _iceD_opWithResultAndUE(request, ::std::move(sendResponse));
+            _iceD_opWithResult(request, ::std::move(sendResponse));
             break;
         }
         case 13:
         {
-            _iceD_opWithUE(request, ::std::move(sendResponse));
+            _iceD_opWithResultAndUE(request, ::std::move(sendResponse));
             break;
         }
         case 14:
         {
-            _iceD_pingBiDir(request, ::std::move(sendResponse));
+            _iceD_opWithUE(request, ::std::move(sendResponse));
             break;
         }
         case 15:
         {
-            _iceD_shutdown(request, ::std::move(sendResponse));
+            _iceD_pingBiDir(request, ::std::move(sendResponse));
             break;
         }
         case 16:
         {
-            _iceD_sleep(request, ::std::move(sendResponse));
+            _iceD_shutdown(request, ::std::move(sendResponse));
             break;
         }
         case 17:
         {
-            _iceD_startDispatch(request, ::std::move(sendResponse));
+            _iceD_sleep(request, ::std::move(sendResponse));
             break;
         }
         case 18:
         {
-            _iceD_supportsAMD(request, ::std::move(sendResponse));
+            _iceD_startDispatch(request, ::std::move(sendResponse));
             break;
         }
         case 19:
         {
-            _iceD_supportsFunctionalTests(request, ::std::move(sendResponse));
+            _iceD_supportsAMD(request, ::std::move(sendResponse));
             break;
         }
         case 20:
+        {
+            _iceD_supportsFunctionalTests(request, ::std::move(sendResponse));
+            break;
+        }
+        case 21:
         {
             _iceD_waitForBatch(request, ::std::move(sendResponse));
             break;

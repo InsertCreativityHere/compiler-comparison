@@ -29,13 +29,6 @@
 
 namespace Test
 {
-    enum class CloseMode : ::std::uint8_t
-    {
-        Forcefully,
-        Gracefully,
-        GracefullyWithWait
-    };
-
     class PingReplyPrx;
 
     class TestIntfPrx;
@@ -196,15 +189,26 @@ public:
     void _iceI_waitForBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    void close(CloseMode mode, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void closeConnection(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> closeAsync(CloseMode mode, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> closeConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    closeAsync(CloseMode mode, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    closeConnectionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_close(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, CloseMode, const ::Ice::Context&) const;
+    void _iceI_closeConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
+    /// \endcond
+
+    void abortConnection(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::future<void> abortConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::function<void()>
+    abortConnectionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    /// \cond INTERNAL
+    void _iceI_abortConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
     void sleep(::std::int32_t ms, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -669,9 +673,14 @@ public:
     void _iceD_waitForBatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void close(CloseMode mode, const ::Ice::Current& current) = 0;
+    virtual void closeConnection(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_close(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_closeConnection(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    /// \endcond
+
+    virtual void abortConnection(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    void _iceD_abortConnection(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void sleep(::std::int32_t ms, const ::Ice::Current& current) = 0;
@@ -847,16 +856,6 @@ using TestIntfPtr = ::std::shared_ptr<TestIntf>;
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamableTraits< ::Test::CloseMode>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryEnum;
-    static const int minValue = 0;
-    static const int maxValue = 2;
-    static const int minWireSize = 1;
-    static const bool fixedLength = false;
-};
 
 }
 /// \endcond

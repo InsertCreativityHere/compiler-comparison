@@ -378,39 +378,69 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default void close(CloseMode mode)
+    default void closeConnection()
     {
-        close(mode, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        closeConnection(com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void close(CloseMode mode, java.util.Map<String, String> context)
+    default void closeConnection(java.util.Map<String, String> context)
     {
-        _iceI_closeAsync(mode, context, true).waitForResponse();
+        _iceI_closeConnectionAsync(context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> closeAsync(CloseMode mode)
+    default java.util.concurrent.CompletableFuture<Void> closeConnectionAsync()
     {
-        return _iceI_closeAsync(mode, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_closeConnectionAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> closeAsync(CloseMode mode, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> closeConnectionAsync(java.util.Map<String, String> context)
     {
-        return _iceI_closeAsync(mode, context, false);
+        return _iceI_closeConnectionAsync(context, false);
     }
 
     /**
      * @hidden
-     * @param iceP_mode -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_closeAsync(CloseMode iceP_mode, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_closeConnectionAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "close", null, sync, null);
-        f.invoke(false, context, null, ostr -> {
-                     CloseMode.ice_write(ostr, iceP_mode);
-                 }, null);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "closeConnection", null, sync, null);
+        f.invoke(false, context, null, null, null);
+        return f;
+    }
+
+    default void abortConnection()
+    {
+        abortConnection(com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default void abortConnection(java.util.Map<String, String> context)
+    {
+        _iceI_abortConnectionAsync(context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> abortConnectionAsync()
+    {
+        return _iceI_abortConnectionAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> abortConnectionAsync(java.util.Map<String, String> context)
+    {
+        return _iceI_abortConnectionAsync(context, false);
+    }
+
+    /**
+     * @hidden
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_abortConnectionAsync(java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "abortConnection", null, sync, null);
+        f.invoke(false, context, null, null, null);
         return f;
     }
 

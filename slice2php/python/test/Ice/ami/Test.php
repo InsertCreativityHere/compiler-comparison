@@ -43,19 +43,6 @@ namespace Test
 
 namespace Test
 {
-    global $Test__t_CloseMode;
-    class CloseMode
-    {
-        const Forcefully = 0;
-        const Gracefully = 1;
-        const GracefullyWithWait = 2;
-    }
-
-    $Test__t_CloseMode = IcePHP_defineEnum('::Test::CloseMode', array('Forcefully', 0, 'Gracefully', 1, 'GracefullyWithWait', 2));
-}
-
-namespace Test
-{
     global $Test__t_PingReply;
     global $Test__t_PingReplyPrx;
 
@@ -122,7 +109,6 @@ namespace Test
     global $Ice__t_ByteSeq;
     global $IcePHP__t_int;
     global $IcePHP__t_bool;
-    global $Test__t_CloseMode;
     global $Test__t_PingReplyPrx;
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'op', 0, -1, null, null, null, null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opWithPayload', 0, -1, array(array($Ice__t_ByteSeq)), null, null, null);
@@ -131,7 +117,8 @@ namespace Test
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opBatch', 0, -1, null, null, null, null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opBatchCount', 0, -1, null, null, array($IcePHP__t_int), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'waitForBatch', 0, -1, array(array($IcePHP__t_int)), null, array($IcePHP__t_bool), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'close', 0, -1, array(array($Test__t_CloseMode)), null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'closeConnection', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'abortConnection', 0, -1, null, null, null, null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'sleep', 0, -1, array(array($IcePHP__t_int)), null, null, null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'startDispatch', 0, -1, null, null, null, null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'finishDispatch', 0, -1, null, null, null, null);

@@ -30,56 +30,6 @@ module ::Test
         T_TestIntfException = ::Ice::__defineException('::Test::TestIntfException', TestIntfException, nil, [])
     end
 
-    if not defined?(::Test::CloseMode)
-        class CloseMode
-            include Comparable
-
-            def initialize(name, value)
-                @name = name
-                @value = value
-            end
-
-            def CloseMode.from_int(val)
-                @@_enumerators[val]
-            end
-
-            def to_s
-                @name
-            end
-
-            def to_i
-                @value
-            end
-
-            def <=>(other)
-                other.is_a?(CloseMode) or raise ArgumentError, "value must be a CloseMode"
-                @value <=> other.to_i
-            end
-
-            def hash
-                @value.hash
-            end
-
-            def CloseMode.each(&block)
-                @@_enumerators.each_value(&block)
-            end
-
-            Forcefully = CloseMode.new("Forcefully", 0)
-            Gracefully = CloseMode.new("Gracefully", 1)
-            GracefullyWithWait = CloseMode.new("GracefullyWithWait", 2)
-
-            @@_enumerators = {0=>Forcefully, 1=>Gracefully, 2=>GracefullyWithWait}
-
-            def CloseMode._enumerators
-                @@_enumerators
-            end
-
-            private_class_method :new
-        end
-
-        T_CloseMode = ::Ice::__defineEnum('::Test::CloseMode', CloseMode, CloseMode::_enumerators)
-    end
-
     if not defined?(::Test::PingReplyPrx)
         module PingReplyPrx_mixin
 
@@ -133,8 +83,12 @@ module ::Test
                 TestIntfPrx_mixin::OP_waitForBatch.invoke(self, [count], context)
             end
 
-            def close(mode, context=nil)
-                TestIntfPrx_mixin::OP_close.invoke(self, [mode], context)
+            def closeConnection(context=nil)
+                TestIntfPrx_mixin::OP_closeConnection.invoke(self, [], context)
+            end
+
+            def abortConnection(context=nil)
+                TestIntfPrx_mixin::OP_abortConnection.invoke(self, [], context)
             end
 
             def sleep(ms, context=nil)
@@ -184,7 +138,8 @@ module ::Test
         TestIntfPrx_mixin::OP_opBatch = ::Ice::__defineOperation('opBatch', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         TestIntfPrx_mixin::OP_opBatchCount = ::Ice::__defineOperation('opBatchCount', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
         TestIntfPrx_mixin::OP_waitForBatch = ::Ice::__defineOperation('waitForBatch', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], [::Ice::T_bool, false, 0], [])
-        TestIntfPrx_mixin::OP_close = ::Ice::__defineOperation('close', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_CloseMode, false, 0]], [], nil, [])
+        TestIntfPrx_mixin::OP_closeConnection = ::Ice::__defineOperation('closeConnection', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_abortConnection = ::Ice::__defineOperation('abortConnection', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         TestIntfPrx_mixin::OP_sleep = ::Ice::__defineOperation('sleep', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])
         TestIntfPrx_mixin::OP_startDispatch = ::Ice::__defineOperation('startDispatch', ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
         TestIntfPrx_mixin::OP_finishDispatch = ::Ice::__defineOperation('finishDispatch', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])

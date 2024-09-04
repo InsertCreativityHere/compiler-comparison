@@ -43,28 +43,6 @@ namespace Test
         }
     }
 
-    public enum CloseMode
-    {
-        Forcefully,
-        Gracefully,
-        GracefullyWithWait
-    }
-
-    public sealed class CloseModeHelper
-    {
-        public static void write(Ice.OutputStream ostr, CloseMode v)
-        {
-            ostr.writeEnum((int)v, 2);
-        }
-
-        public static CloseMode read(Ice.InputStream istr)
-        {
-            CloseMode v;
-            v = (CloseMode)istr.readEnum(2);
-            return v;
-        }
-    }
-
     [Ice.SliceTypeId("::Test::PingReply")]
     public partial interface PingReply : Ice.Object
     {
@@ -88,7 +66,9 @@ namespace Test
 
         bool waitForBatch(int count, Ice.Current current);
 
-        void close(CloseMode mode, Ice.Current current);
+        void closeConnection(Ice.Current current);
+
+        void abortConnection(Ice.Current current);
 
         void sleep(int ms, Ice.Current current);
 
@@ -176,9 +156,13 @@ namespace Test
 
         global::System.Threading.Tasks.Task<bool> waitForBatchAsync(int count, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void close(CloseMode mode, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void closeConnection(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task closeAsync(CloseMode mode, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task closeConnectionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        void abortConnection(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task abortConnectionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         void sleep(int ms, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -409,11 +393,23 @@ namespace Test
             }
         }
 
-        public void close(CloseMode mode, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void closeConnection(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_closeAsync(mode, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_closeConnectionAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
+            }
+            catch (global::System.AggregateException ex_)
+            {
+                throw ex_.InnerException!;
+            }
+        }
+
+        public void abortConnection(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        {
+            try
+            {
+                _iceI_abortConnectionAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -724,33 +720,54 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task closeAsync(CloseMode mode, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task closeConnectionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_closeAsync(mode, context, progress, cancel, false);
+            return _iceI_closeConnectionAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_closeAsync(CloseMode iceP_mode, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_closeConnectionAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_close(iceP_mode, context, synchronous, completed);
+            _iceI_closeConnection(context, synchronous, completed);
             return completed.Task;
         }
 
-        private const string _close_name = "close";
+        private const string _closeConnection_name = "closeConnection";
 
-        private void _iceI_close(CloseMode iceP_mode, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_closeConnection(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
-                _close_name,
+                _closeConnection_name,
                 Ice.OperationMode.Normal,
                 null,
                 context,
-                synchronous,
-                write: (Ice.OutputStream ostr) =>
-                {
-                    ostr.writeEnum((int)iceP_mode, 2);
-                });
+                synchronous);
+        }
+
+        public global::System.Threading.Tasks.Task abortConnectionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        {
+            return _iceI_abortConnectionAsync(context, progress, cancel, false);
+        }
+
+        private global::System.Threading.Tasks.Task _iceI_abortConnectionAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        {
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+            _iceI_abortConnection(context, synchronous, completed);
+            return completed.Task;
+        }
+
+        private const string _abortConnection_name = "abortConnection";
+
+        private void _iceI_abortConnection(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        {
+            var outAsync = getOutgoingAsync<object>(completed);
+            outAsync.invoke(
+                _abortConnection_name,
+                Ice.OperationMode.Normal,
+                null,
+                context,
+                synchronous);
         }
 
         public global::System.Threading.Tasks.Task sleepAsync(int ms, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
@@ -1268,7 +1285,9 @@ namespace Test
 
         public abstract bool waitForBatch(int count, Ice.Current current);
 
-        public abstract void close(CloseMode mode, Ice.Current current);
+        public abstract void closeConnection(Ice.Current current);
+
+        public abstract void abortConnection(Ice.Current current);
 
         public abstract void sleep(int ms, Ice.Current current);
 
@@ -1298,7 +1317,8 @@ namespace Test
                 "opBatch" => TestIntf.iceD_opBatchAsync(this, request),
                 "opBatchCount" => TestIntf.iceD_opBatchCountAsync(this, request),
                 "waitForBatch" => TestIntf.iceD_waitForBatchAsync(this, request),
-                "close" => TestIntf.iceD_closeAsync(this, request),
+                "closeConnection" => TestIntf.iceD_closeConnectionAsync(this, request),
+                "abortConnection" => TestIntf.iceD_abortConnectionAsync(this, request),
                 "sleep" => TestIntf.iceD_sleepAsync(this, request),
                 "startDispatch" => TestIntf.iceD_startDispatchAsync(this, request),
                 "finishDispatch" => TestIntf.iceD_finishDispatchAsync(this, request),
@@ -1471,17 +1491,23 @@ namespace Test
             return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_closeAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_closeConnectionAsync(
             TestIntf obj,
             Ice.IncomingRequest request)
         {
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            CloseMode iceP_mode;
-            iceP_mode = (CloseMode)istr.readEnum(2);
-            istr.endEncapsulation();
-            obj.close(iceP_mode, request.current);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.closeConnection(request.current);
+            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_abortConnectionAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            obj.abortConnection(request.current);
             return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 

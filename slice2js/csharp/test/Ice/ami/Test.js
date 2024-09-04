@@ -51,9 +51,6 @@ Ice.TypeRegistry.declareUserExceptionType(
     "Test.TestIntfException",
     Test.TestIntfException);
 
-Test.CloseMode = Ice.defineEnum([
-    ['Forcefully', 0], ['Gracefully', 1], ['GracefullyWithWait', 2]]);
-
 const iceC_Test_PingReply_ids = [
     "::Ice::Object",
     "::Test::PingReply"
@@ -107,7 +104,8 @@ Ice.defineOperations(
         "opBatch": [, , , , , , , , ],
         "opBatchCount": [, , , [3], , , , , ],
         "waitForBatch": [, , , [1], [[3]], , , , ],
-        "close": [, , , , [[Test.CloseMode._helper]], , , , ],
+        "closeConnection": [, , , , , , , , ],
+        "abortConnection": [, , , , , , , , ],
         "sleep": [, , , , [[3]], , , , ],
         "startDispatch": [, , , , , , , , ],
         "finishDispatch": [, , , , , , , , ],

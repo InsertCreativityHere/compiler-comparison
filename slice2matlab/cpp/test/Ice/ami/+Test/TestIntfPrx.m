@@ -19,8 +19,10 @@
 %   opBatchCountAsync
 %   waitForBatch
 %   waitForBatchAsync
-%   close
-%   closeAsync
+%   closeConnection
+%   closeConnectionAsync
+%   abortConnection
+%   abortConnectionAsync
 %   sleep
 %   sleepAsync
 %   startDispatch
@@ -317,31 +319,41 @@ classdef TestIntfPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('waitForBatch', 0, true, os_, 1, @unmarshal, {}, varargin{:});
         end
-        function close(obj, mode, varargin)
-            % close
+        function closeConnection(obj, varargin)
+            % closeConnection
             %
             % Parameters:
-            %   mode (Test.CloseMode)
             %   context (containers.Map) - Optional request context.
             
-            os_ = obj.iceStartWriteParams([]);
-            Test.CloseMode.ice_write(os_, mode);
-            obj.iceEndWriteParams(os_);
-            obj.iceInvoke('close', 0, false, os_, false, {}, varargin{:});
+            obj.iceInvoke('closeConnection', 0, false, [], false, {}, varargin{:});
         end
-        function r_ = closeAsync(obj, mode, varargin)
-            % closeAsync
+        function r_ = closeConnectionAsync(obj, varargin)
+            % closeConnectionAsync
             %
             % Parameters:
-            %   mode (Test.CloseMode)
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
-            os_ = obj.iceStartWriteParams([]);
-            Test.CloseMode.ice_write(os_, mode);
-            obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('close', 0, false, os_, 0, [], {}, varargin{:});
+            r_ = obj.iceInvokeAsync('closeConnection', 0, false, [], 0, [], {}, varargin{:});
+        end
+        function abortConnection(obj, varargin)
+            % abortConnection
+            %
+            % Parameters:
+            %   context (containers.Map) - Optional request context.
+            
+            obj.iceInvoke('abortConnection', 0, false, [], false, {}, varargin{:});
+        end
+        function r_ = abortConnectionAsync(obj, varargin)
+            % abortConnectionAsync
+            %
+            % Parameters:
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            
+            r_ = obj.iceInvokeAsync('abortConnection', 0, false, [], 0, [], {}, varargin{:});
         end
         function sleep(obj, ms, varargin)
             % sleep

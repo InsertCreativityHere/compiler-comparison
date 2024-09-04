@@ -32,7 +32,9 @@ public interface TestIntf extends com.zeroc.Ice.Object
 
     boolean waitForBatch(int count, com.zeroc.Ice.Current current);
 
-    void close(CloseMode mode, com.zeroc.Ice.Current current);
+    void closeConnection(com.zeroc.Ice.Current current);
+
+    void abortConnection(com.zeroc.Ice.Current current);
 
     void sleep(int ms, com.zeroc.Ice.Current current);
 
@@ -164,15 +166,20 @@ public interface TestIntf extends com.zeroc.Ice.Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_close(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_closeConnection(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
-        com.zeroc.Ice.InputStream istr = request.inputStream;
-        istr.startEncapsulation();
-        CloseMode iceP_mode;
-        iceP_mode = CloseMode.ice_read(istr);
-        istr.endEncapsulation();
-        obj.close(iceP_mode, request.current);
+        request.inputStream.skipEmptyEncapsulation();
+        obj.closeConnection(request.current);
+        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
+    }
+
+    /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_abortConnection(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        obj.abortConnection(request.current);
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
@@ -302,7 +309,8 @@ public interface TestIntf extends com.zeroc.Ice.Object
             case "opBatch" -> TestIntf._iceD_opBatch(this, request);
             case "opBatchCount" -> TestIntf._iceD_opBatchCount(this, request);
             case "waitForBatch" -> TestIntf._iceD_waitForBatch(this, request);
-            case "close" -> TestIntf._iceD_close(this, request);
+            case "closeConnection" -> TestIntf._iceD_closeConnection(this, request);
+            case "abortConnection" -> TestIntf._iceD_abortConnection(this, request);
             case "sleep" -> TestIntf._iceD_sleep(this, request);
             case "startDispatch" -> TestIntf._iceD_startDispatch(this, request);
             case "finishDispatch" -> TestIntf._iceD_finishDispatch(this, request);

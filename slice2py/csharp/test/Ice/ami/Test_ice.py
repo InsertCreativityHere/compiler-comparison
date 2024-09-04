@@ -46,29 +46,6 @@ if 'TestIntfException' not in _M_Test.__dict__:
     _M_Test.TestIntfException = TestIntfException
     del TestIntfException
 
-if 'CloseMode' not in _M_Test.__dict__:
-    _M_Test.CloseMode = None
-    class CloseMode(Ice.EnumBase):
-
-        def __init__(self, _n, _v):
-            Ice.EnumBase.__init__(self, _n, _v)
-
-        def valueOf(self, _n):
-            if _n in self._enumerators:
-                return self._enumerators[_n]
-            return None
-        valueOf = classmethod(valueOf)
-
-    CloseMode.Forcefully = CloseMode("Forcefully", 0)
-    CloseMode.Gracefully = CloseMode("Gracefully", 1)
-    CloseMode.GracefullyWithWait = CloseMode("GracefullyWithWait", 2)
-    CloseMode._enumerators = { 0:CloseMode.Forcefully, 1:CloseMode.Gracefully, 2:CloseMode.GracefullyWithWait }
-
-    _M_Test._t_CloseMode = IcePy.defineEnum('::Test::CloseMode', CloseMode, (), CloseMode._enumerators)
-
-    _M_Test.CloseMode = CloseMode
-    del CloseMode
-
 if 'PingReplyPrx' not in _M_Test.__dict__:
     _M_Test.PingReplyPrx = None
     class PingReplyPrx(Ice.ObjectPrx):
@@ -206,11 +183,17 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def waitForBatchAsync(self, count, context=None):
             return _M_Test.TestIntf._op_waitForBatch.invokeAsync(self, ((count, ), context))
 
-        def close(self, mode, context=None):
-            return _M_Test.TestIntf._op_close.invoke(self, ((mode, ), context))
+        def closeConnection(self, context=None):
+            return _M_Test.TestIntf._op_closeConnection.invoke(self, ((), context))
 
-        def closeAsync(self, mode, context=None):
-            return _M_Test.TestIntf._op_close.invokeAsync(self, ((mode, ), context))
+        def closeConnectionAsync(self, context=None):
+            return _M_Test.TestIntf._op_closeConnection.invokeAsync(self, ((), context))
+
+        def abortConnection(self, context=None):
+            return _M_Test.TestIntf._op_abortConnection.invoke(self, ((), context))
+
+        def abortConnectionAsync(self, context=None):
+            return _M_Test.TestIntf._op_abortConnection.invokeAsync(self, ((), context))
 
         def sleep(self, ms, context=None):
             return _M_Test.TestIntf._op_sleep.invoke(self, ((ms, ), context))
@@ -322,8 +305,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def waitForBatch(self, count, current=None):
             raise NotImplementedError("servant method 'waitForBatch' not implemented")
 
-        def close(self, mode, current=None):
-            raise NotImplementedError("servant method 'close' not implemented")
+        def closeConnection(self, current=None):
+            raise NotImplementedError("servant method 'closeConnection' not implemented")
+
+        def abortConnection(self, current=None):
+            raise NotImplementedError("servant method 'abortConnection' not implemented")
 
         def sleep(self, ms, current=None):
             raise NotImplementedError("servant method 'sleep' not implemented")
@@ -370,7 +356,8 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     TestIntf._op_opBatch = IcePy.Operation('opBatch', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     TestIntf._op_opBatchCount = IcePy.Operation('opBatchCount', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
     TestIntf._op_waitForBatch = IcePy.Operation('waitForBatch', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), ((), IcePy._t_bool, False, 0), ())
-    TestIntf._op_close = IcePy.Operation('close', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CloseMode, False, 0),), (), None, ())
+    TestIntf._op_closeConnection = IcePy.Operation('closeConnection', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    TestIntf._op_abortConnection = IcePy.Operation('abortConnection', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     TestIntf._op_sleep = IcePy.Operation('sleep', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
     TestIntf._op_startDispatch = IcePy.Operation('startDispatch', Ice.OperationMode.Normal, True, None, (), (), (), None, ())
     TestIntf._op_finishDispatch = IcePy.Operation('finishDispatch', Ice.OperationMode.Normal, False, None, (), (), (), None, ())

@@ -46,66 +46,6 @@ open class TestIntfException: Ice.UserException {
     }
 }
 
-public enum CloseMode: Swift.UInt8 {
-    /// Forcefully
-    case Forcefully = 0
-    /// Gracefully
-    case Gracefully = 1
-    /// GracefullyWithWait
-    case GracefullyWithWait = 2
-    public init() {
-        self = .Forcefully
-    }
-}
-
-/// An `Ice.InputStream` extension to read `CloseMode` enumerated values from the stream.
-public extension Ice.InputStream {
-    /// Read an enumerated value.
-    ///
-    /// - returns: `CloseMode` - The enumarated value.
-    func read() throws -> CloseMode {
-        let rawValue: Swift.UInt8 = try read(enumMaxValue: 2)
-        guard let val = CloseMode(rawValue: rawValue) else {
-            throw Ice.MarshalException("invalid enum value")
-        }
-        return val
-    }
-
-    /// Read an optional enumerated value from the stream.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `CloseMode` - The enumerated value.
-    func read(tag: Swift.Int32) throws -> CloseMode? {
-        guard try readOptional(tag: tag, expectedFormat: .Size) else {
-            return nil
-        }
-        return try read() as CloseMode
-    }
-}
-
-/// An `Ice.OutputStream` extension to write `CloseMode` enumerated values to the stream.
-public extension Ice.OutputStream {
-    /// Writes an enumerated value to the stream.
-    ///
-    /// parameter _: `CloseMode` - The enumerator to write.
-    func write(_ v: CloseMode) {
-        write(enum: v.rawValue, maxValue: 2)
-    }
-
-    /// Writes an optional enumerated value to the stream.
-    ///
-    /// parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// parameter _: `CloseMode` - The enumerator to write.
-    func write(tag: Swift.Int32, value: CloseMode?) {
-        guard let v = value else {
-            return
-        }
-        write(tag: tag, val: v.rawValue, maxValue: 2)
-    }
-}
-
 /// Traits for Slice interface`PingReply`.
 public struct PingReplyTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::PingReply"]
@@ -273,9 +213,13 @@ public extension PingReplyPrx {
 ///
 ///  - waitForBatchAsync: 
 ///
-///  - close: 
+///  - closeConnection: 
 ///
-///  - closeAsync: 
+///  - closeConnectionAsync: 
+///
+///  - abortConnection: 
+///
+///  - abortConnectionAsync: 
 ///
 ///  - sleep: 
 ///
@@ -435,9 +379,13 @@ public extension Ice.InputStream {
 ///
 ///  - waitForBatchAsync: 
 ///
-///  - close: 
+///  - closeConnection: 
 ///
-///  - closeAsync: 
+///  - closeConnectionAsync: 
+///
+///  - abortConnection: 
+///
+///  - abortConnectionAsync: 
 ///
 ///  - sleep: 
 ///
@@ -571,15 +519,18 @@ public extension TestIntfPrx {
     }
 
     ///
-    /// - parameter _: `CloseMode`
+    /// - parameter context: `Ice.Context` - Optional request context.
+    func closeConnection(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "closeConnection",
+                                       mode: .Normal,
+                                       context: context)
+    }
+
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func close(_ iceP_mode: CloseMode, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invoke(operation: "close",
+    func abortConnection(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "abortConnection",
                                        mode: .Normal,
-                                       write: { ostr in
-                                           ostr.write(iceP_mode)
-                                       },
                                        context: context)
     }
 
@@ -999,8 +950,10 @@ public struct TestIntfDisp: Ice.Dispatcher {
 
     public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         switch request.current.operation {
-        case "close":
-            try await servant._iceD_close(request)
+        case "abortConnection":
+            try await servant._iceD_abortConnection(request)
+        case "closeConnection":
+            try await servant._iceD_closeConnection(request)
         case "finishDispatch":
             try await servant._iceD_finishDispatch(request)
         case "ice_id":
@@ -1089,10 +1042,12 @@ public protocol TestIntf {
     func waitForBatch(count: Swift.Int32, current: Ice.Current) async throws -> Swift.Bool
 
     ///
-    /// - parameter mode: `CloseMode`
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    func closeConnection(current: Ice.Current) async throws
+
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func close(mode: CloseMode, current: Ice.Current) async throws
+    func abortConnection(current: Ice.Current) async throws
 
     ///
     /// - parameter ms: `Swift.Int32`
@@ -1259,7 +1214,9 @@ extension PingReply {
 ///
 ///  - waitForBatch: 
 ///
-///  - close: 
+///  - closeConnection: 
+///
+///  - abortConnection: 
 ///
 ///  - sleep: 
 ///
@@ -1343,12 +1300,17 @@ extension TestIntf {
         }
     }
 
-    public func _iceD_close(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+    public func _iceD_closeConnection(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
-        let istr = request.inputStream
-        _ = try istr.startEncapsulation()
-        let iceP_mode: CloseMode = try istr.read()
-        try await self.close(mode: iceP_mode, current: request.current)
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        try await self.closeConnection(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
+    }
+
+    public func _iceD_abortConnection(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        try await self.abortConnection(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
