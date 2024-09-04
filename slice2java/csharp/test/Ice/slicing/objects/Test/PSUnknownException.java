@@ -61,5 +61,5 @@ public class PSUnknownException extends PreservedException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 4410706967064645254L;
+    private static final long serialVersionUID = 4410703370224642517L;
 }
