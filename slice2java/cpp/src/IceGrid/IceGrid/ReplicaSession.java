@@ -34,8 +34,8 @@ public interface ReplicaSession extends com.zeroc.Ice.Object
      * @param current The Current object for the invocation.
      **/
     void setDatabaseObserver(DatabaseObserverPrx dbObs, java.util.Optional<java.util.Map<java.lang.String, java.lang.Long>> serials, com.zeroc.Ice.Current current)
-        throws com.zeroc.IceGrid.ObserverAlreadyRegisteredException,
-               com.zeroc.IceGrid.DeploymentException;
+        throws com.zeroc.IceGrid.DeploymentException,
+               com.zeroc.IceGrid.ObserverAlreadyRegisteredException;
 
     /**
      * This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
@@ -56,8 +56,8 @@ public interface ReplicaSession extends com.zeroc.Ice.Object
      * @param current The Current object for the invocation.
      **/
     void setAdapterDirectProxy(String adapterId, String replicaGroupId, com.zeroc.Ice.ObjectPrx proxy, com.zeroc.Ice.Current current)
-        throws AdapterExistsException,
-               com.zeroc.IceGrid.AdapterNotExistException;
+        throws com.zeroc.IceGrid.AdapterNotExistException,
+               AdapterExistsException;
 
     /**
      * Notify the master that an update was received. The master might wait for replication updates to be received by
