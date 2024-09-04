@@ -585,11 +585,11 @@ namespace Glacier2
                     {
                         throw ex;
                     }
-                    catch(PermissionDeniedException)
+                    catch(CannotCreateSessionException)
                     {
                         throw;
                     }
-                    catch(CannotCreateSessionException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
@@ -635,11 +635,11 @@ namespace Glacier2
                     {
                         throw ex;
                     }
-                    catch(PermissionDeniedException)
+                    catch(CannotCreateSessionException)
                     {
                         throw;
                     }
-                    catch(CannotCreateSessionException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
@@ -867,11 +867,11 @@ namespace Glacier2
 
         public abstract int getACMTimeout(Ice.Current current);
 
+        public abstract global::Ice.ObjectPrx? getClientProxy(out bool? hasRoutingTable, Ice.Current current);
+
         public abstract global::Ice.ObjectPrx? getServerProxy(Ice.Current current);
 
         public abstract global::Ice.ObjectPrx?[] addProxies(global::Ice.ObjectPrx?[] proxies, Ice.Current current);
-
-        public abstract global::Ice.ObjectPrx? getClientProxy(out bool? hasRoutingTable, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 

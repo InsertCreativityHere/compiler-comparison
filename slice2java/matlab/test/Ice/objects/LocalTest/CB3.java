@@ -45,7 +45,7 @@ public class CB3 extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 5383244553722461462L;
+    private static final long serialVersionUID = 5383240924785430938L;
 
     /** @hidden */
     @Override
