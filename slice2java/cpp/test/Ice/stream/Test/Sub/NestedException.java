@@ -53,5 +53,5 @@ public class NestedException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -1404705149991994687L;
+    private static final long serialVersionUID = -1404700459382701008L;
 }
