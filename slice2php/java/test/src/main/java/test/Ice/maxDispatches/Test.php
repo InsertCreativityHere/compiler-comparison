@@ -51,4 +51,41 @@ namespace Test
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'resetMaxConcurrentDispatches', 0, -1, null, null, array($IcePHP__t_int), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, -1, null, null, null, null);
 }
+
+namespace Test
+{
+    global $Test__t_Responder;
+    global $Test__t_ResponderPrx;
+
+    class ResponderPrxHelper
+    {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::Test::Responder');
+        }
+
+        public static function checkedCast($proxy, ...$args)
+        {
+            return $proxy->ice_checkedCast('::Test::Responder', ...$args);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::Test::Responder', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::Test::Responder';
+        }
+    }
+
+    global $Ice__t_ObjectPrx;
+    $Test__t_ResponderPrx = IcePHP_defineProxy('::Test::Responder', $Ice__t_ObjectPrx, null);
+
+    global $IcePHP__t_int;
+    IcePHP_defineOperation($Test__t_ResponderPrx, 'start', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_ResponderPrx, 'stop', 0, -1, null, null, null, null);
+    IcePHP_defineOperation($Test__t_ResponderPrx, 'pendingResponseCount', 0, -1, null, null, array($IcePHP__t_int), null);
+}
 ?>

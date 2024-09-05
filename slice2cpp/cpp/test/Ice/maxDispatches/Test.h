@@ -29,6 +29,8 @@ namespace Test
 {
     class TestIntfPrx;
 
+    class ResponderPrx;
+
 }
 
 namespace Test
@@ -114,6 +116,86 @@ protected:
     /// \endcond
 };
 
+class ResponderPrx : public ::Ice::Proxy<ResponderPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    void start(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::future<void> startAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::function<void()>
+    startAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    /// \cond INTERNAL
+    void _iceI_start(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
+    /// \endcond
+
+    void stop(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::future<void> stopAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::function<void()>
+    stopAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    /// \cond INTERNAL
+    void _iceI_stop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
+    /// \endcond
+
+    ::std::int32_t pendingResponseCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::future<::std::int32_t> pendingResponseCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::function<void()>
+    pendingResponseCountAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    /// \cond INTERNAL
+    void _iceI_pendingResponseCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const char* ice_staticId() noexcept;
+    ResponderPrx(const ResponderPrx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    ResponderPrx(ResponderPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    ResponderPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    ResponderPrx& operator=(const ResponderPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    ResponderPrx& operator=(ResponderPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static ResponderPrx _fromReference(::IceInternal::ReferencePtr ref) { return ResponderPrx(::std::move(ref)); }
+
+protected:
+
+    ResponderPrx() = default;
+
+    explicit ResponderPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
+    /// \endcond
+};
+
 }
 
 namespace Test
@@ -166,6 +248,54 @@ public:
 };
 
 using TestIntfPtr = ::std::shared_ptr<TestIntf>;
+
+class Responder : public virtual ::Ice::Object
+{
+public:
+
+    using ProxyType = ResponderPrx;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this interface.
+     * @return A fully-scoped type ID.
+     */
+    static const char* ice_staticId() noexcept;
+
+    virtual void start(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    void _iceD_start(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    /// \endcond
+
+    virtual void stop(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    void _iceD_stop(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    /// \endcond
+
+    virtual ::std::int32_t pendingResponseCount(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    void _iceD_pendingResponseCount(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    /// \endcond
+
+    /// \cond INTERNAL
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
+    /// \endcond
+};
+
+using ResponderPtr = ::std::shared_ptr<Responder>;
 
 }
 

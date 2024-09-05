@@ -115,4 +115,97 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntf = TestIntf
     del TestIntf
 
+if 'ResponderPrx' not in _M_Test.__dict__:
+    _M_Test.ResponderPrx = None
+    class ResponderPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new ResponderPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
+        def start(self, context=None):
+            return _M_Test.Responder._op_start.invoke(self, ((), context))
+
+        def startAsync(self, context=None):
+            return _M_Test.Responder._op_start.invokeAsync(self, ((), context))
+
+        def stop(self, context=None):
+            return _M_Test.Responder._op_stop.invoke(self, ((), context))
+
+        def stopAsync(self, context=None):
+            return _M_Test.Responder._op_stop.invokeAsync(self, ((), context))
+
+        def pendingResponseCount(self, context=None):
+            return _M_Test.Responder._op_pendingResponseCount.invoke(self, ((), context))
+
+        def pendingResponseCountAsync(self, context=None):
+            return _M_Test.Responder._op_pendingResponseCount.invokeAsync(self, ((), context))
+
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.ResponderPrx.ice_checkedCast(proxy, '::Test::Responder', facetOrContext, context)
+
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.ResponderPrx.ice_uncheckedCast(proxy, facet)
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Responder'
+    _M_Test._t_ResponderPrx = IcePy.defineProxy('::Test::Responder', ResponderPrx)
+
+    _M_Test.ResponderPrx = ResponderPrx
+    del ResponderPrx
+
+    _M_Test.Responder = None
+    class Responder(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::Responder')
+
+        def ice_id(self, current=None):
+            return '::Test::Responder'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Responder'
+
+        def start(self, current=None):
+            raise NotImplementedError("servant method 'start' not implemented")
+
+        def stop(self, current=None):
+            raise NotImplementedError("servant method 'stop' not implemented")
+
+        def pendingResponseCount(self, current=None):
+            raise NotImplementedError("servant method 'pendingResponseCount' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_ResponderDisp)
+
+        __repr__ = __str__
+
+    _M_Test._t_ResponderDisp = IcePy.defineClass('::Test::Responder', Responder, (), None, ())
+    Responder._ice_type = _M_Test._t_ResponderDisp
+
+    Responder._op_start = IcePy.Operation('start', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Responder._op_stop = IcePy.Operation('stop', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Responder._op_pendingResponseCount = IcePy.Operation('pendingResponseCount', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+
+    _M_Test.Responder = Responder
+    del Responder
+
 # End of module Test

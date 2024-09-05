@@ -45,3 +45,28 @@ Ice.defineOperations(
         "resetMaxConcurrentDispatches": [, , , [3], , , , , ],
         "shutdown": [, , , , , , , , ]
     });
+
+const iceC_Test_Responder_ids = [
+    "::Ice::Object",
+    "::Test::Responder"
+];
+
+Test.Responder = class extends Ice.Object
+{
+};
+
+Test.ResponderPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("Test.ResponderPrx", Test.ResponderPrx);
+
+Ice.defineOperations(
+    Test.Responder,
+    Test.ResponderPrx,
+    iceC_Test_Responder_ids,
+    "::Test::Responder",
+    {
+        "start": [, , , , , , , , ],
+        "stop": [, , , , , , , , ],
+        "pendingResponseCount": [, , , [3], , , , , ]
+    });

@@ -36,6 +36,16 @@ namespace Ice.maxDispatches
 
             void shutdown(Ice.Current current);
         }
+
+        [Ice.SliceTypeId("::Test::Responder")]
+        public partial interface Responder : Ice.Object
+        {
+            void start(Ice.Current current);
+
+            void stop(Ice.Current current);
+
+            int pendingResponseCount(Ice.Current current);
+        }
     }
 }
 
@@ -56,6 +66,21 @@ namespace Ice.maxDispatches
             void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
             global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        }
+
+        public interface ResponderPrx : Ice.ObjectPrx
+        {
+            void start(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task startAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            void stop(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task stopAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            int pendingResponseCount(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<int> pendingResponseCountAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
     }
 }
@@ -231,6 +256,174 @@ namespace Ice.maxDispatches
             {
             }
         }
+
+        public sealed class ResponderPrxHelper : Ice.ObjectPrxHelperBase, ResponderPrx
+        {
+            public void start(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+            {
+                try
+                {
+                    _iceI_startAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                }
+                catch (global::System.AggregateException ex_)
+                {
+                    throw ex_.InnerException!;
+                }
+            }
+
+            public void stop(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+            {
+                try
+                {
+                    _iceI_stopAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                }
+                catch (global::System.AggregateException ex_)
+                {
+                    throw ex_.InnerException!;
+                }
+            }
+
+            public int pendingResponseCount(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+            {
+                try
+                {
+                    return _iceI_pendingResponseCountAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
+                }
+                catch (global::System.AggregateException ex_)
+                {
+                    throw ex_.InnerException!;
+                }
+            }
+
+            public global::System.Threading.Tasks.Task startAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+            {
+                return _iceI_startAsync(context, progress, cancel, false);
+            }
+
+            private global::System.Threading.Tasks.Task _iceI_startAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            {
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                _iceI_start(context, synchronous, completed);
+                return completed.Task;
+            }
+
+            private const string _start_name = "start";
+
+            private void _iceI_start(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            {
+                var outAsync = getOutgoingAsync<object>(completed);
+                outAsync.invoke(
+                    _start_name,
+                    Ice.OperationMode.Normal,
+                    null,
+                    context,
+                    synchronous);
+            }
+
+            public global::System.Threading.Tasks.Task stopAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+            {
+                return _iceI_stopAsync(context, progress, cancel, false);
+            }
+
+            private global::System.Threading.Tasks.Task _iceI_stopAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            {
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                _iceI_stop(context, synchronous, completed);
+                return completed.Task;
+            }
+
+            private const string _stop_name = "stop";
+
+            private void _iceI_stop(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            {
+                var outAsync = getOutgoingAsync<object>(completed);
+                outAsync.invoke(
+                    _stop_name,
+                    Ice.OperationMode.Normal,
+                    null,
+                    context,
+                    synchronous);
+            }
+
+            public global::System.Threading.Tasks.Task<int> pendingResponseCountAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+            {
+                return _iceI_pendingResponseCountAsync(context, progress, cancel, false);
+            }
+
+            private global::System.Threading.Tasks.Task<int> _iceI_pendingResponseCountAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            {
+                iceCheckTwowayOnly(_pendingResponseCount_name);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
+                _iceI_pendingResponseCount(context, synchronous, completed);
+                return completed.Task;
+            }
+
+            private const string _pendingResponseCount_name = "pendingResponseCount";
+
+            private void _iceI_pendingResponseCount(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            {
+                var outAsync = getOutgoingAsync<int>(completed);
+                outAsync.invoke(
+                    _pendingResponseCount_name,
+                    Ice.OperationMode.Normal,
+                    null,
+                    context,
+                    synchronous,
+                    read: (Ice.InputStream istr) =>
+                    {
+                        int ret;
+                        ret = istr.readInt();
+                        return ret;
+                    });
+            }
+
+            public static ResponderPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+                new ResponderPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+
+            public static ResponderPrx? checkedCast(Ice.ObjectPrx? b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+                b is not null && b.ice_isA(ice_staticId(), ctx) ? new ResponderPrxHelper(b) : null;
+
+            public static ResponderPrx? checkedCast(Ice.ObjectPrx? b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+                checkedCast(b?.ice_facet(f), ctx);
+
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static ResponderPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+                b is not null ? new ResponderPrxHelper(b) : null;
+
+            [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+            public static ResponderPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+                uncheckedCast(b?.ice_facet(f));
+
+            private static readonly string[] _ids =
+            {
+                "::Ice::Object",
+                "::Test::Responder"
+            };
+
+            public static string ice_staticId() => "::Test::Responder";
+
+            public static void write(Ice.OutputStream ostr, ResponderPrx? v)
+            {
+                ostr.writeProxy(v);
+            }
+
+            public static ResponderPrx? read(Ice.InputStream istr) =>
+                istr.readProxy() is Ice.ObjectPrx proxy ? new ResponderPrxHelper(proxy) : null;
+
+            protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new ResponderPrxHelper(reference);
+
+            private ResponderPrxHelper(Ice.ObjectPrx proxy)
+                : base(proxy)
+            {
+            }
+
+            private ResponderPrxHelper(Ice.Internal.Reference reference)
+                : base(reference)
+            {
+            }
+        }
     }
 }
 
@@ -256,6 +449,32 @@ namespace Ice.maxDispatches
                     "op" => TestIntf.iceD_opAsync(this, request),
                     "resetMaxConcurrentDispatches" => TestIntf.iceD_resetMaxConcurrentDispatchesAsync(this, request),
                     "shutdown" => TestIntf.iceD_shutdownAsync(this, request),
+                    "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                    "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                    "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                    "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                    _ => throw new Ice.OperationNotExistException()
+                };
+        }
+
+        public abstract class ResponderDisp_ : Ice.ObjectImpl, Responder
+        {
+            public abstract void start(Ice.Current current);
+
+            public abstract void stop(Ice.Current current);
+
+            public abstract int pendingResponseCount(Ice.Current current);
+
+            public override string ice_id(Ice.Current current) => ice_staticId();
+
+            public static new string ice_staticId() => "::Test::Responder";
+
+            public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
+                request.current.operation switch
+                {
+                    "start" => Responder.iceD_startAsync(this, request),
+                    "stop" => Responder.iceD_stopAsync(this, request),
+                    "pendingResponseCount" => Responder.iceD_pendingResponseCountAsync(this, request),
                     "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
                     "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
                     "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
@@ -304,6 +523,43 @@ namespace Ice.maxDispatches
                 request.inputStream.skipEmptyEncapsulation();
                 obj.shutdown(request.current);
                 return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+        }
+
+        public partial interface Responder
+        {
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_startAsync(
+                Responder obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.start(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_stopAsync(
+                Responder obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                obj.stop(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_pendingResponseCountAsync(
+                Responder obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                var ret = obj.pendingResponseCount(request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                ostr.writeInt(ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
             }
         }
     }

@@ -127,6 +127,97 @@ Test::TestIntfPrx::ice_staticId() noexcept
     return "::Test::TestIntf";
 }
 
+void
+Test::ResponderPrx::start(const ::Ice::Context& context) const
+{
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &ResponderPrx::_iceI_start, context).get();
+}
+
+::std::future<void>
+Test::ResponderPrx::startAsync(const ::Ice::Context& context) const
+{
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &ResponderPrx::_iceI_start, context);
+}
+
+::std::function<void()>
+Test::ResponderPrx::startAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+{
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::ResponderPrx::_iceI_start, context);
+}
+
+void
+Test::ResponderPrx::_iceI_start(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+{
+    static constexpr ::std::string_view operationName = "start";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+        nullptr,
+        nullptr);
+}
+
+void
+Test::ResponderPrx::stop(const ::Ice::Context& context) const
+{
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &ResponderPrx::_iceI_stop, context).get();
+}
+
+::std::future<void>
+Test::ResponderPrx::stopAsync(const ::Ice::Context& context) const
+{
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &ResponderPrx::_iceI_stop, context);
+}
+
+::std::function<void()>
+Test::ResponderPrx::stopAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+{
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::ResponderPrx::_iceI_stop, context);
+}
+
+void
+Test::ResponderPrx::_iceI_stop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+{
+    static constexpr ::std::string_view operationName = "stop";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+        nullptr,
+        nullptr);
+}
+
+::std::int32_t
+Test::ResponderPrx::pendingResponseCount(const ::Ice::Context& context) const
+{
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &ResponderPrx::_iceI_pendingResponseCount, context).get();
+}
+
+::std::future<::std::int32_t>
+Test::ResponderPrx::pendingResponseCountAsync(const ::Ice::Context& context) const
+{
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &ResponderPrx::_iceI_pendingResponseCount, context);
+}
+
+::std::function<void()>
+Test::ResponderPrx::pendingResponseCountAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+{
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::ResponderPrx::_iceI_pendingResponseCount, context);
+}
+
+void
+Test::ResponderPrx::_iceI_pendingResponseCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
+{
+    static constexpr ::std::string_view operationName = "pendingResponseCount";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+        nullptr,
+        nullptr);
+}
+
+const char*
+Test::ResponderPrx::ice_staticId() noexcept
+{
+    return "::Test::Responder";
+}
+
 ::std::vector<::std::string>
 Test::TestIntf::ice_ids(const ::Ice::Current&) const
 {
@@ -239,6 +330,122 @@ Test::TestIntf::dispatch(::Ice::IncomingRequest& request, ::std::function<void(:
         case 6:
         {
             _iceD_shutdown(request, ::std::move(sendResponse));
+            break;
+        }
+        default:
+        {
+            assert(false);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        }
+    }
+}
+/// \endcond
+
+::std::vector<::std::string>
+Test::Responder::ice_ids(const ::Ice::Current&) const
+{
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Responder"};
+    return allTypeIds;
+}
+
+::std::string
+Test::Responder::ice_id(const ::Ice::Current&) const
+{
+    return ::std::string{ice_staticId()};
+}
+
+const char*
+Test::Responder::ice_staticId() noexcept
+{
+    return "::Test::Responder";
+}
+
+/// \cond INTERNAL
+void
+Test::Responder::_iceD_start(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+{
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->start(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+}
+/// \endcond
+
+/// \cond INTERNAL
+void
+Test::Responder::_iceD_stop(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+{
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->stop(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+}
+/// \endcond
+
+/// \cond INTERNAL
+void
+Test::Responder::_iceD_pendingResponseCount(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+{
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    const ::std::int32_t ret = this->pendingResponseCount(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
+}
+/// \endcond
+
+/// \cond INTERNAL
+void
+Test::Responder::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+{
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "pendingResponseCount", "start", "stop"};
+
+    const ::Ice::Current& current = request.current();
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
+    if(r.first == r.second)
+    {
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
+    }
+
+    switch(r.first - allOperations)
+    {
+        case 0:
+        {
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
+        }
+        case 1:
+        {
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
+        }
+        case 2:
+        {
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
+        }
+        case 3:
+        {
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
+        }
+        case 4:
+        {
+            _iceD_pendingResponseCount(request, ::std::move(sendResponse));
+            break;
+        }
+        case 5:
+        {
+            _iceD_start(request, ::std::move(sendResponse));
+            break;
+        }
+        case 6:
+        {
+            _iceD_stop(request, ::std::move(sendResponse));
             break;
         }
         default:

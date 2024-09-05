@@ -22,6 +22,12 @@ public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticId = "::Test::TestIntf"
 }
 
+/// Traits for Slice interface`Responder`.
+public struct ResponderTraits: Ice.SliceTraits {
+    public static let staticIds = ["::Ice::Object", "::Test::Responder"]
+    public static let staticId = "::Test::Responder"
+}
+
 /// TestIntfPrx overview.
 ///
 /// TestIntfPrx Methods:
@@ -171,6 +177,155 @@ public extension TestIntfPrx {
     }
 }
 
+/// ResponderPrx overview.
+///
+/// ResponderPrx Methods:
+///
+///  - start: 
+///
+///  - startAsync: 
+///
+///  - stop: 
+///
+///  - stopAsync: 
+///
+///  - pendingResponseCount: 
+///
+///  - pendingResponseCountAsync: 
+public protocol ResponderPrx: Ice.ObjectPrx {}
+
+private final class ResponderPrxI: Ice.ObjectPrxI, ResponderPrx {
+    public override class func ice_staticId() -> Swift.String {
+        return ResponderTraits.staticId
+    }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: ResponderPrx.Protocol) throws -> ResponderPrx {
+    try communicator.makeProxyImpl(proxyString) as ResponderPrxI
+}
+
+/// Casts a proxy to the requested type. This call contacts the server and verifies that the object
+/// implements this type.
+///
+/// It will throw a local exception if a communication error occurs. You can optionally supply a
+/// facet name and a context map.
+///
+/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+///
+/// - parameter type: `ResponderPrx.Protocol` - The proxy type to cast to.
+///
+/// - parameter facet: `String` - The optional name of the desired facet.
+///
+/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
+///
+/// - returns: `ResponderPrx` - A proxy with the requested type or nil if the objet does not
+///   support this type.
+///
+/// - throws: `Ice.LocalException` if a communication error occurs.
+public func checkedCast(prx: Ice.ObjectPrx, type: ResponderPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> ResponderPrx? {
+    return try await ResponderPrxI.checkedCast(prx: prx, facet: facet, context: context) as ResponderPrxI?
+}
+
+/// Downcasts the given proxy to this type without contacting the remote server.
+///
+/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+///
+/// - parameter type: `ResponderPrx.Protocol` - The proxy type to cast to.
+///
+/// - parameter facet: `String` - The optional name of the desired facet
+///
+/// - returns: `ResponderPrx` - A proxy with the requested type
+public func uncheckedCast(prx: Ice.ObjectPrx, type: ResponderPrx.Protocol, facet: Swift.String? = nil) -> ResponderPrx {
+    return ResponderPrxI.uncheckedCast(prx: prx, facet: facet) as ResponderPrxI
+}
+
+/// Returns the Slice type id of the interface associated with this proxy type.
+///
+/// parameter type: `ResponderPrx.Protocol` -  The proxy type to retrieve the type id.
+///
+/// returns: `String` - The type id of the interface associated with this proxy type.
+public func ice_staticId(_ type: ResponderPrx.Protocol) -> Swift.String {
+    return ResponderTraits.staticId
+}
+
+/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// `ResponderPrx`.
+public extension Ice.InputStream {
+    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
+    ///
+    /// - parameter type: `ResponderPrx.Protocol` - The type of the proxy to be extracted.
+    ///
+    /// - returns: `ResponderPrx?` - The extracted proxy
+    func read(_ type: ResponderPrx.Protocol) throws -> ResponderPrx? {
+        return try read() as ResponderPrxI?
+    }
+    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
+    ///
+    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    ///
+    /// - parameter type: `ResponderPrx.Protocol` - The type of the proxy to be extracted.
+    ///
+    /// - returns: `ResponderPrx` - The extracted proxy.
+    func read(tag: Swift.Int32, type: ResponderPrx.Protocol) throws -> ResponderPrx? {
+        return try read(tag: tag) as ResponderPrxI?
+    }
+}
+
+/// ResponderPrx overview.
+///
+/// ResponderPrx Methods:
+///
+///  - start: 
+///
+///  - startAsync: 
+///
+///  - stop: 
+///
+///  - stopAsync: 
+///
+///  - pendingResponseCount: 
+///
+///  - pendingResponseCountAsync: 
+public extension ResponderPrx {
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    func start(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "start",
+                                       mode: .Normal,
+                                       context: context)
+    }
+
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    func stop(context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "stop",
+                                       mode: .Normal,
+                                       context: context)
+    }
+
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    ///
+    /// - returns: `Swift.Int32`
+    func pendingResponseCount(context: Ice.Context? = nil) async throws -> Swift.Int32 {
+        return try await _impl._invoke(operation: "pendingResponseCount",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Int32 = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
+    }
+}
+
 
 /// Dispatcher for `TestIntf` servants.
 public struct TestIntfDisp: Ice.Dispatcher {
@@ -219,6 +374,54 @@ public protocol TestIntf {
     func shutdown(current: Ice.Current) async throws
 }
 
+
+/// Dispatcher for `Responder` servants.
+public struct ResponderDisp: Ice.Dispatcher {
+    public let servant: Responder
+    private static let defaultObject = Ice.ObjectI<ResponderTraits>()
+
+    public init(_ servant: Responder) {
+        self.servant = servant
+    }
+
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        switch request.current.operation {
+        case "ice_id":
+            try await (servant as? Ice.Object ?? ResponderDisp.defaultObject)._iceD_ice_id(request)
+        case "ice_ids":
+            try await (servant as? Ice.Object ?? ResponderDisp.defaultObject)._iceD_ice_ids(request)
+        case "ice_isA":
+            try await (servant as? Ice.Object ?? ResponderDisp.defaultObject)._iceD_ice_isA(request)
+        case "ice_ping":
+            try await (servant as? Ice.Object ?? ResponderDisp.defaultObject)._iceD_ice_ping(request)
+        case "pendingResponseCount":
+            try await servant._iceD_pendingResponseCount(request)
+        case "start":
+            try await servant._iceD_start(request)
+        case "stop":
+            try await servant._iceD_stop(request)
+        default:
+            throw Ice.OperationNotExistException()
+        }
+    }
+}
+
+public protocol Responder {
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    func start(current: Ice.Current) async throws
+
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    func stop(current: Ice.Current) async throws
+
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `Swift.Int32`
+    func pendingResponseCount(current: Ice.Current) async throws -> Swift.Int32
+}
+
 /// TestIntf overview.
 ///
 /// TestIntf Methods:
@@ -251,5 +454,40 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
+    }
+}
+
+/// Responder overview.
+///
+/// Responder Methods:
+///
+///  - start: 
+///
+///  - stop: 
+///
+///  - pendingResponseCount: 
+extension Responder {
+    public func _iceD_start(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        try await self.start(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
+    }
+
+    public func _iceD_stop(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        try await self.stop(current: request.current)
+        return request.current.makeEmptyOutgoingResponse()
+    }
+
+    public func _iceD_pendingResponseCount(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.pendingResponseCount(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
     }
 }

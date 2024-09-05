@@ -49,4 +49,36 @@ module ::Test
         TestIntfPrx_mixin::OP_resetMaxConcurrentDispatches = ::Ice::__defineOperation('resetMaxConcurrentDispatches', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
+
+    if not defined?(::Test::ResponderPrx)
+        module ResponderPrx_mixin
+
+            def start(context=nil)
+                ResponderPrx_mixin::OP_start.invoke(self, [], context)
+            end
+
+            def stop(context=nil)
+                ResponderPrx_mixin::OP_stop.invoke(self, [], context)
+            end
+
+            def pendingResponseCount(context=nil)
+                ResponderPrx_mixin::OP_pendingResponseCount.invoke(self, [], context)
+            end
+        end
+
+        class ResponderPrx < ::Ice::ObjectPrx
+            include ::Ice::Proxy_mixin
+            include ResponderPrx_mixin
+        end
+
+        if not defined?(::Test::T_ResponderPrx)
+            T_ResponderPrx = ::Ice::__declareProxy('::Test::Responder')
+        end
+
+        T_ResponderPrx.defineProxy(ResponderPrx, nil, [])
+
+        ResponderPrx_mixin::OP_start = ::Ice::__defineOperation('start', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        ResponderPrx_mixin::OP_stop = ::Ice::__defineOperation('stop', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        ResponderPrx_mixin::OP_pendingResponseCount = ::Ice::__defineOperation('pendingResponseCount', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
+    end
 end
