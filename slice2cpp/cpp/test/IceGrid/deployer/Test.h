@@ -40,7 +40,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -51,7 +51,7 @@ public:
 
     ::std::string getProperty(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> getPropertyAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::string> getPropertyAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getPropertyAsync(::std::string_view name, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

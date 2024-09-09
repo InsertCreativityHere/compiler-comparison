@@ -113,7 +113,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<::Ice::ObjectPrx>> activateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<::Ice::ObjectPrx>> activateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
@@ -146,7 +146,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<::Ice::ObjectPrx>> getDirectProxyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<::Ice::ObjectPrx>> getDirectProxyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
@@ -177,7 +177,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setDirectProxyAsync(const ::std::optional<::Ice::ObjectPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> setDirectProxyAsync(const ::std::optional<::Ice::ObjectPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Set the direct proxy for this adapter.
@@ -252,7 +252,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::int64_t> getOffsetFromEndAsync(::std::string_view filename, ::std::int32_t lines, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::int64_t> getOffsetFromEndAsync(::std::string_view filename, ::std::int32_t lines, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Count the number of given lines from the end of the file and return the file offset.
@@ -280,7 +280,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<bool, ::std::int64_t, ::Ice::StringSeq>> readAsync(::std::string_view filename, ::std::int64_t pos, ::std::int32_t size, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<bool, ::std::int64_t, ::Ice::StringSeq>> readAsync(::std::string_view filename, ::std::int64_t pos, ::std::int32_t size, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Read lines (or size bytes) at the specified position from the given file.
@@ -355,7 +355,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> startAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> startAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Start the server.
@@ -385,7 +385,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> stopAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> stopAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
@@ -416,7 +416,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<bool> checkUpdateAsync(const InternalServerDescriptorPtr& svr, bool noRestart, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<bool> checkUpdateAsync(const InternalServerDescriptorPtr& svr, bool noRestart, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Check if the given server can be loaded on this node.
@@ -444,7 +444,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setEnabledAsync(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> setEnabledAsync(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Enable or disable the server.
@@ -472,7 +472,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<bool> isEnabledAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<bool> isEnabledAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Check if the server is enabled.
@@ -500,7 +500,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> sendSignalAsync(::std::string_view signal, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> sendSignalAsync(::std::string_view signal, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Send signal to the server
@@ -528,7 +528,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> writeMessageAsync(::std::string_view message, ::std::int32_t fd, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> writeMessageAsync(::std::string_view message, ::std::int32_t fd, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Write message on servers' stdout or stderr.
@@ -559,7 +559,7 @@ public:
      * @return The future object for the invocation.
      * @see ServerState
      */
-    ::std::future<ServerState> getStateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<ServerState> getStateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Return the server state.
@@ -590,7 +590,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::int32_t> getPidAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::int32_t> getPidAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
@@ -619,7 +619,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setProcessAsync(const ::std::optional<::Ice::ProcessPrx>& proc, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> setProcessAsync(const ::std::optional<::Ice::ProcessPrx>& proc, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Set the process proxy.
@@ -703,7 +703,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> replicaInitAsync(const InternalRegistryPrxSeq& replicas, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> replicaInitAsync(const InternalRegistryPrxSeq& replicas, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Initialization of the replica observer.
@@ -731,7 +731,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> replicaAddedAsync(const ::std::optional<InternalRegistryPrx>& replica, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> replicaAddedAsync(const ::std::optional<InternalRegistryPrx>& replica, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Notification that a replica has been added. The node should establish a session with this new replica.
@@ -759,7 +759,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> replicaRemovedAsync(const ::std::optional<InternalRegistryPrx>& replica, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> replicaRemovedAsync(const ::std::optional<InternalRegistryPrx>& replica, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Notification that a replica has been removed. The node should destroy the session to this replica.
@@ -836,7 +836,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>> loadServerAsync(const InternalServerDescriptorPtr& svr, ::std::string_view replicaName, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>> loadServerAsync(const InternalServerDescriptorPtr& svr, ::std::string_view replicaName, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Load the given server. If the server resources weren't already created (database environment directories,
@@ -869,7 +869,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>> loadServerWithoutRestartAsync(const InternalServerDescriptorPtr& svr, ::std::string_view replicaName, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>> loadServerWithoutRestartAsync(const InternalServerDescriptorPtr& svr, ::std::string_view replicaName, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
@@ -899,7 +899,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> destroyServerAsync(::std::string_view name, ::std::string_view uuid, ::std::int32_t revision, ::std::string_view replicaName, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> destroyServerAsync(::std::string_view name, ::std::string_view uuid, ::std::int32_t revision, ::std::string_view replicaName, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Destroy the given server.
@@ -927,7 +927,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> destroyServerWithoutRestartAsync(::std::string_view name, ::std::string_view uuid, ::std::int32_t revision, ::std::string_view replicaName, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> destroyServerWithoutRestartAsync(::std::string_view name, ::std::string_view uuid, ::std::int32_t revision, ::std::string_view replicaName, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Destroy the server if it's not active.
@@ -957,7 +957,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> registerWithReplicaAsync(const ::std::optional<InternalRegistryPrx>& replica, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> registerWithReplicaAsync(const ::std::optional<InternalRegistryPrx>& replica, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Establish a session to the given replica, this method only returns once the registration was attempted (unlike
@@ -986,7 +986,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::string> getNameAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::string> getNameAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the node name.
@@ -1014,7 +1014,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::string> getHostnameAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::string> getHostnameAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the node hostname.
@@ -1042,7 +1042,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<LoadInfo> getLoadAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<LoadInfo> getLoadAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the node load.
@@ -1070,7 +1070,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::int32_t> getProcessorSocketCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::int32_t> getProcessorSocketCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the number of processor sockets for the machine where this node is running.
@@ -1098,7 +1098,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Shutdown the node.
@@ -1182,7 +1182,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> keepAliveAsync(const LoadInfo& load, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> keepAliveAsync(const LoadInfo& load, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The node call this method to keep the session alive.
@@ -1212,7 +1212,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setReplicaObserverAsync(const ::std::optional<ReplicaObserverPrx>& observer, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> setReplicaObserverAsync(const ::std::optional<ReplicaObserverPrx>& observer, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
@@ -1241,7 +1241,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::int32_t> getTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::int32_t> getTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Return the node session timeout.
@@ -1269,7 +1269,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<NodeObserverPrx>> getObserverAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<NodeObserverPrx>> getObserverAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Return the node observer.
@@ -1297,7 +1297,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> loadServersAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> loadServersAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Ask the registry to load the servers on the node.
@@ -1325,7 +1325,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::Ice::StringSeq> getServersAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::Ice::StringSeq> getServersAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the name of the servers deployed on the node.
@@ -1357,7 +1357,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> waitForApplicationUpdateAsync(::std::string_view application, ::std::int32_t revision, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> waitForApplicationUpdateAsync(::std::string_view application, ::std::int32_t revision, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Wait for the application update to complete (the application is completely updated once all the registry
@@ -1387,7 +1387,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Destroy the session.
@@ -1518,7 +1518,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> keepAliveAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> keepAliveAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The replica call this method to keep the session alive.
@@ -1546,7 +1546,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::int32_t> getTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::int32_t> getTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Return the replica session timeout.
@@ -1574,7 +1574,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setDatabaseObserverAsync(const ::std::optional<DatabaseObserverPrx>& dbObs, const ::std::optional<StringLongDict>& serials, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> setDatabaseObserverAsync(const ::std::optional<DatabaseObserverPrx>& dbObs, const ::std::optional<StringLongDict>& serials, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
@@ -1604,7 +1604,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setEndpointsAsync(const StringObjectProxyDict& endpoints, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> setEndpointsAsync(const StringObjectProxyDict& endpoints, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
@@ -1633,7 +1633,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> registerWellKnownObjectsAsync(const ObjectInfoSeq& objects, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> registerWellKnownObjectsAsync(const ObjectInfoSeq& objects, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Registers the replica well-known objects with the master.
@@ -1663,7 +1663,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setAdapterDirectProxyAsync(::std::string_view adapterId, ::std::string_view replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> setAdapterDirectProxyAsync(::std::string_view adapterId, ::std::string_view replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
@@ -1694,7 +1694,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> receivedUpdateAsync(TopicName name, ::std::int32_t serial, ::std::string_view failure, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> receivedUpdateAsync(TopicName name, ::std::int32_t serial, ::std::string_view failure, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Notify the master that an update was received. The master might wait for replication updates to be received by
@@ -1723,7 +1723,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Destroy the session.
@@ -1810,7 +1810,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<NodeSessionPrx>> registerNodeAsync(const InternalNodeInfoPtr& info, const ::std::optional<NodePrx>& prx, const LoadInfo& loadInf, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<NodeSessionPrx>> registerNodeAsync(const InternalNodeInfoPtr& info, const ::std::optional<NodePrx>& prx, const LoadInfo& loadInf, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Register a node with the registry. If a node with the same name is already registered,
@@ -1853,7 +1853,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<ReplicaSessionPrx>> registerReplicaAsync(const InternalReplicaInfoPtr& info, const ::std::optional<InternalRegistryPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<ReplicaSessionPrx>> registerReplicaAsync(const InternalReplicaInfoPtr& info, const ::std::optional<InternalRegistryPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Register a replica with the registry. If a replica with the same name is already registered,
@@ -1887,7 +1887,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> registerWithReplicaAsync(const ::std::optional<InternalRegistryPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> registerWithReplicaAsync(const ::std::optional<InternalRegistryPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create a session with the given registry replica. This method returns only once the session creation has been
@@ -1916,7 +1916,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<NodePrxSeq> getNodesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<NodePrxSeq> getNodesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Return the proxies of all the nodes known by this registry.
@@ -1944,7 +1944,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<InternalRegistryPrxSeq> getReplicasAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<InternalRegistryPrxSeq> getReplicasAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Return the proxies of all the registry replicas known by this registry.
@@ -1972,7 +1972,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<ApplicationInfoSeq, ::std::int64_t>> getApplicationsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<ApplicationInfoSeq, ::std::int64_t>> getApplicationsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Return applications, adapters, objects from this replica.
@@ -1991,7 +1991,7 @@ public:
 
     AdapterInfoSeq getAdapters(::std::int64_t& serial, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<AdapterInfoSeq, ::std::int64_t>> getAdaptersAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<AdapterInfoSeq, ::std::int64_t>> getAdaptersAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getAdaptersAsync(::std::function<void(::IceGrid::AdapterInfoSeq, ::std::int64_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -2002,7 +2002,7 @@ public:
 
     ObjectInfoSeq getObjects(::std::int64_t& serial, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ObjectInfoSeq, ::std::int64_t>> getObjectsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<ObjectInfoSeq, ::std::int64_t>> getObjectsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getObjectsAsync(::std::function<void(::IceGrid::ObjectInfoSeq, ::std::int64_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -2022,7 +2022,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Shutdown this registry.

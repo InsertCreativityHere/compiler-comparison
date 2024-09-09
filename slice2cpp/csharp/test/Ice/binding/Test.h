@@ -44,7 +44,7 @@ public:
 
     ::std::string getAdapterName(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> getAdapterNameAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::string> getAdapterNameAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getAdapterNameAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -102,7 +102,7 @@ public:
 
     ::std::optional<TestIntfPrx> getTestIntf(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<TestIntfPrx>> getTestIntfAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<TestIntfPrx>> getTestIntfAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getTestIntfAsync(::std::function<void(::std::optional<::Test::TestIntfPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -113,7 +113,7 @@ public:
 
     void deactivate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> deactivateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> deactivateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     deactivateAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -171,7 +171,7 @@ public:
 
     ::std::optional<RemoteObjectAdapterPrx> createObjectAdapter(::std::string_view name, ::std::string_view endpoints, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<RemoteObjectAdapterPrx>> createObjectAdapterAsync(::std::string_view name, ::std::string_view endpoints, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<RemoteObjectAdapterPrx>> createObjectAdapterAsync(::std::string_view name, ::std::string_view endpoints, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     createObjectAdapterAsync(::std::string_view name, ::std::string_view endpoints, ::std::function<void(::std::optional<::Test::RemoteObjectAdapterPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -182,7 +182,7 @@ public:
 
     void deactivateObjectAdapter(const ::std::optional<RemoteObjectAdapterPrx>& adapter, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> deactivateObjectAdapterAsync(const ::std::optional<RemoteObjectAdapterPrx>& adapter, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> deactivateObjectAdapterAsync(const ::std::optional<RemoteObjectAdapterPrx>& adapter, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     deactivateObjectAdapterAsync(const ::std::optional<RemoteObjectAdapterPrx>& adapter, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -193,7 +193,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

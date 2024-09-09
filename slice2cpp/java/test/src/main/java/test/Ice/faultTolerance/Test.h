@@ -40,7 +40,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -51,7 +51,7 @@ public:
 
     void abort(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> abortAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> abortAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     abortAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -62,7 +62,7 @@ public:
 
     void idempotentAbort(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> idempotentAbortAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> idempotentAbortAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     idempotentAbortAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -73,7 +73,7 @@ public:
 
     ::std::int32_t pid(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> pidAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::int32_t> pidAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     pidAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

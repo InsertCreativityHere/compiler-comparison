@@ -46,7 +46,7 @@ public:
 
     void noCert(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> noCertAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> noCertAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     noCertAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -57,7 +57,7 @@ public:
 
     void checkCert(::std::string_view subjectDN, ::std::string_view issuerDN, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> checkCertAsync(::std::string_view subjectDN, ::std::string_view issuerDN, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> checkCertAsync(::std::string_view subjectDN, ::std::string_view issuerDN, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     checkCertAsync(::std::string_view subjectDN, ::std::string_view issuerDN, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -68,7 +68,7 @@ public:
 
     void checkCipher(::std::string_view cipher, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> checkCipherAsync(::std::string_view cipher, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> checkCipherAsync(::std::string_view cipher, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     checkCipherAsync(::std::string_view cipher, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -126,7 +126,7 @@ public:
 
     ::std::optional<ServerPrx> createServer(const Properties& props, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<ServerPrx>> createServerAsync(const Properties& props, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<ServerPrx>> createServerAsync(const Properties& props, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     createServerAsync(const Properties& props, ::std::function<void(::std::optional<::Test::ServerPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -137,7 +137,7 @@ public:
 
     void destroyServer(const ::std::optional<ServerPrx>& srv, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> destroyServerAsync(const ::std::optional<ServerPrx>& srv, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> destroyServerAsync(const ::std::optional<ServerPrx>& srv, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     destroyServerAsync(const ::std::optional<ServerPrx>& srv, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -148,7 +148,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -206,7 +206,7 @@ public:
 
     void ping(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> pingAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> pingAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     pingAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

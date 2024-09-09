@@ -40,7 +40,7 @@ public:
 
     void opOneway(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opOnewayAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> opOnewayAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOnewayAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -51,7 +51,7 @@ public:
 
     ::std::string opString(::std::string_view s1, ::std::string& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::string, ::std::string>> opStringAsync(::std::string_view s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::string, ::std::string>> opStringAsync(::std::string_view s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringAsync(::std::string_view s1, ::std::function<void(::std::string, ::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -62,7 +62,7 @@ public:
 
     void opException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> opExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -73,7 +73,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

@@ -151,7 +151,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -162,7 +162,7 @@ public:
 
     BPtr getB1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BPtr> getB1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<BPtr> getB1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getB1Async(::std::function<void(::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -173,7 +173,7 @@ public:
 
     BPtr getB2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BPtr> getB2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<BPtr> getB2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getB2Async(::std::function<void(::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -184,7 +184,7 @@ public:
 
     CPtr getC(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<CPtr> getCAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<CPtr> getCAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getCAsync(::std::function<void(::Test::CPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -195,7 +195,7 @@ public:
 
     DPtr getD(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<DPtr> getDAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<DPtr> getDAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getDAsync(::std::function<void(::Test::DPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -206,7 +206,7 @@ public:
 
     EPtr getE(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<EPtr> getEAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<EPtr> getEAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getEAsync(::std::function<void(::Test::EPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -217,7 +217,7 @@ public:
 
     FPtr getF(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<FPtr> getFAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<FPtr> getFAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getFAsync(::std::function<void(::Test::FPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -228,7 +228,7 @@ public:
 
     void setRecursive(const RecursivePtr& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> setRecursiveAsync(const RecursivePtr& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> setRecursiveAsync(const RecursivePtr& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     setRecursiveAsync(const RecursivePtr& p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -239,7 +239,7 @@ public:
 
     void setCycle(const RecursivePtr& r, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> setCycleAsync(const RecursivePtr& r, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> setCycleAsync(const RecursivePtr& r, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     setCycleAsync(const RecursivePtr& r, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -250,7 +250,7 @@ public:
 
     bool acceptsClassCycles(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<bool> acceptsClassCyclesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<bool> acceptsClassCyclesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     acceptsClassCyclesAsync(::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -261,7 +261,7 @@ public:
 
     BPtr getMB(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BPtr> getMBAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<BPtr> getMBAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getMBAsync(::std::function<void(::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -272,7 +272,7 @@ public:
 
     BPtr getAMDMB(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BPtr> getAMDMBAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<BPtr> getAMDMBAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getAMDMBAsync(::std::function<void(::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -283,7 +283,7 @@ public:
 
     void getAll(BPtr& b1, BPtr& b2, CPtr& theC, DPtr& theD, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BPtr, BPtr, CPtr, DPtr>> getAllAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<BPtr, BPtr, CPtr, DPtr>> getAllAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getAllAsync(::std::function<void(::Test::BPtr, ::Test::BPtr, ::Test::CPtr, ::Test::DPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -294,7 +294,7 @@ public:
 
     KPtr getK(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<KPtr> getKAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<KPtr> getKAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getKAsync(::std::function<void(::Test::KPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -305,7 +305,7 @@ public:
 
     ::Ice::ValuePtr opValue(const ::Ice::ValuePtr& v1, ::Ice::ValuePtr& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Ice::ValuePtr, ::Ice::ValuePtr>> opValueAsync(const ::Ice::ValuePtr& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::Ice::ValuePtr, ::Ice::ValuePtr>> opValueAsync(const ::Ice::ValuePtr& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opValueAsync(const ::Ice::ValuePtr& v1, ::std::function<void(::Ice::ValuePtr, ::Ice::ValuePtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -316,7 +316,7 @@ public:
 
     ValueSeq opValueSeq(const ValueSeq& v1, ValueSeq& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ValueSeq, ValueSeq>> opValueSeqAsync(const ValueSeq& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<ValueSeq, ValueSeq>> opValueSeqAsync(const ValueSeq& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opValueSeqAsync(const ValueSeq& v1, ::std::function<void(::Test::ValueSeq, ::Test::ValueSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -327,7 +327,7 @@ public:
 
     ValueMap opValueMap(const ValueMap& v1, ValueMap& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ValueMap, ValueMap>> opValueMapAsync(const ValueMap& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<ValueMap, ValueMap>> opValueMapAsync(const ValueMap& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opValueMapAsync(const ValueMap& v1, ::std::function<void(::Test::ValueMap, ::Test::ValueMap)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -338,7 +338,7 @@ public:
 
     D1Ptr getD1(const D1Ptr& d1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<D1Ptr> getD1Async(const D1Ptr& d1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<D1Ptr> getD1Async(const D1Ptr& d1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getD1Async(const D1Ptr& d1, ::std::function<void(::Test::D1Ptr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -349,7 +349,7 @@ public:
 
     void throwEDerived(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwEDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> throwEDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwEDerivedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -360,7 +360,7 @@ public:
 
     void setG(const GPtr& theG, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> setGAsync(const GPtr& theG, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> setGAsync(const GPtr& theG, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     setGAsync(const GPtr& theG, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -371,7 +371,7 @@ public:
 
     BaseSeq opBaseSeq(const BaseSeq& inSeq, BaseSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BaseSeq, BaseSeq>> opBaseSeqAsync(const BaseSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<BaseSeq, BaseSeq>> opBaseSeqAsync(const BaseSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBaseSeqAsync(const BaseSeq& inSeq, ::std::function<void(::Test::BaseSeq, ::Test::BaseSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -382,7 +382,7 @@ public:
 
     CompactPtr getCompact(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<CompactPtr> getCompactAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<CompactPtr> getCompactAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getCompactAsync(::std::function<void(::Test::CompactPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -393,7 +393,7 @@ public:
 
     ::Test::Inner::APtr getInnerA(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::Test::Inner::APtr> getInnerAAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::Test::Inner::APtr> getInnerAAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getInnerAAsync(::std::function<void(::Test::Inner::APtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -404,7 +404,7 @@ public:
 
     ::Test::Inner::Sub::APtr getInnerSubA(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::Test::Inner::Sub::APtr> getInnerSubAAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::Test::Inner::Sub::APtr> getInnerSubAAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getInnerSubAAsync(::std::function<void(::Test::Inner::Sub::APtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -415,7 +415,7 @@ public:
 
     void throwInnerEx(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwInnerExAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> throwInnerExAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwInnerExAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -426,7 +426,7 @@ public:
 
     void throwInnerSubEx(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwInnerSubExAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> throwInnerSubExAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwInnerSubExAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -437,7 +437,7 @@ public:
 
     MPtr opM(const MPtr& v1, MPtr& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<MPtr, MPtr>> opMAsync(const MPtr& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<MPtr, MPtr>> opMAsync(const MPtr& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opMAsync(const MPtr& v1, ::std::function<void(::Test::MPtr, ::Test::MPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -448,7 +448,7 @@ public:
 
     F1Ptr opF1(const F1Ptr& f11, F1Ptr& f12, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<F1Ptr, F1Ptr>> opF1Async(const F1Ptr& f11, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<F1Ptr, F1Ptr>> opF1Async(const F1Ptr& f11, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opF1Async(const F1Ptr& f11, ::std::function<void(::Test::F1Ptr, ::Test::F1Ptr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -459,7 +459,7 @@ public:
 
     ::std::optional<F2Prx> opF2(const ::std::optional<F2Prx>& f21, ::std::optional<F2Prx>& f22, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<F2Prx>, ::std::optional<F2Prx>>> opF2Async(const ::std::optional<F2Prx>& f21, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<F2Prx>, ::std::optional<F2Prx>>> opF2Async(const ::std::optional<F2Prx>& f21, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opF2Async(const ::std::optional<F2Prx>& f21, ::std::function<void(::std::optional<::Test::F2Prx>, ::std::optional<::Test::F2Prx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -470,7 +470,7 @@ public:
 
     F3Ptr opF3(const F3Ptr& f31, F3Ptr& f32, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<F3Ptr, F3Ptr>> opF3Async(const F3Ptr& f31, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<F3Ptr, F3Ptr>> opF3Async(const F3Ptr& f31, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opF3Async(const F3Ptr& f31, ::std::function<void(::Test::F3Ptr, ::Test::F3Ptr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -481,7 +481,7 @@ public:
 
     bool hasF3(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<bool> hasF3Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<bool> hasF3Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     hasF3Async(::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -539,7 +539,7 @@ public:
 
     BasePtr opDerived(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BasePtr> opDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<BasePtr> opDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opDerivedAsync(::std::function<void(::Test::BasePtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -550,7 +550,7 @@ public:
 
     void throwDerived(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> throwDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwDerivedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -608,7 +608,7 @@ public:
 
     EmptyPtr op(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<EmptyPtr> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<EmptyPtr> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAsync(::std::function<void(::Test::EmptyPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

@@ -40,7 +40,7 @@ public:
 
     void tick(::std::string_view time, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> tickAsync(::std::string_view time, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> tickAsync(::std::string_view time, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     tickAsync(::std::string_view time, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

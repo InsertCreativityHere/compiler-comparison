@@ -79,7 +79,7 @@ public:
 
     void _cpp_catch(::std::int32_t checked, ::std::int32_t& _cpp_continue, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> catchAsync(::std::int32_t checked, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::int32_t> catchAsync(::std::int32_t checked, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     catchAsync(::std::int32_t checked, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -137,7 +137,7 @@ public:
 
     void _cpp_default(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> defaultAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> defaultAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     defaultAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -251,7 +251,7 @@ public:
 
     ::std::optional<_cpp_break> _cpp_for(::std::optional<as> _cpp_goto, const ::std::optional<explicitPrx>& _cpp_if, const ::std::optional<_cpp_while>& internal, ::std::optional<::std::string_view> _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<_cpp_break>> forAsync(::std::optional<as> _cpp_goto, const ::std::optional<explicitPrx>& _cpp_if, const ::std::optional<_cpp_while>& internal, ::std::optional<::std::string_view> _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<_cpp_break>> forAsync(::std::optional<as> _cpp_goto, const ::std::optional<explicitPrx>& _cpp_if, const ::std::optional<_cpp_while>& internal, ::std::optional<::std::string_view> _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     forAsync(::std::optional<as> _cpp_goto, const ::std::optional<explicitPrx>& _cpp_if, const ::std::optional<_cpp_while>& internal, ::std::optional<::std::string_view> _cpp_namespace, ::std::function<void(::std::optional<::abstract::_cpp_break>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -262,7 +262,7 @@ public:
 
     ::std::optional<_cpp_break> _cpp_continue(::std::optional<as> _cpp_goto, const ::std::optional<explicitPrx>& _cpp_if, const ::std::optional<_cpp_while>& internal, ::std::optional<::std::string_view> _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<_cpp_break>> continueAsync(::std::optional<as> _cpp_goto, const ::std::optional<explicitPrx>& _cpp_if, const ::std::optional<_cpp_while>& internal, ::std::optional<::std::string_view> _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<_cpp_break>> continueAsync(::std::optional<as> _cpp_goto, const ::std::optional<explicitPrx>& _cpp_if, const ::std::optional<_cpp_while>& internal, ::std::optional<::std::string_view> _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     continueAsync(::std::optional<as> _cpp_goto, const ::std::optional<explicitPrx>& _cpp_if, const ::std::optional<_cpp_while>& internal, ::std::optional<::std::string_view> _cpp_namespace, ::std::function<void(::std::optional<::abstract::_cpp_break>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -273,7 +273,7 @@ public:
 
     ::std::optional<_cpp_break> in(::std::optional<as>& _cpp_goto, ::std::optional<explicitPrx>& _cpp_if, ::std::optional<_cpp_while>& internal, ::std::optional<::std::string>& _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<_cpp_break>, ::std::optional<as>, ::std::optional<explicitPrx>, ::std::optional<_cpp_while>, ::std::optional<::std::string>>> inAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<_cpp_break>, ::std::optional<as>, ::std::optional<explicitPrx>, ::std::optional<_cpp_while>, ::std::optional<::std::string>>> inAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     inAsync(::std::function<void(::std::optional<::abstract::_cpp_break>, ::std::optional<::abstract::as>, ::std::optional<::abstract::explicitPrx>, ::std::optional<::abstract::_cpp_while>, ::std::optional<::std::string>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -284,7 +284,7 @@ public:
 
     ::std::optional<_cpp_break> foreach(::std::optional<as>& _cpp_goto, ::std::optional<explicitPrx>& _cpp_if, ::std::optional<_cpp_while>& internal, ::std::optional<::std::string>& _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<_cpp_break>, ::std::optional<as>, ::std::optional<explicitPrx>, ::std::optional<_cpp_while>, ::std::optional<::std::string>>> foreachAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<_cpp_break>, ::std::optional<as>, ::std::optional<explicitPrx>, ::std::optional<_cpp_while>, ::std::optional<::std::string>>> foreachAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     foreachAsync(::std::function<void(::std::optional<::abstract::_cpp_break>, ::std::optional<::abstract::as>, ::std::optional<::abstract::explicitPrx>, ::std::optional<::abstract::_cpp_while>, ::std::optional<::std::string>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -342,7 +342,7 @@ public:
 
     as in(const _cpp_break& internal, const delegatePtr& is, const ::std::optional<explicitPrx>& lock, const ::std::optional<casePrx>& _cpp_namespace, const ::std::optional<decimalPrx>& _cpp_new, const delegatePtr& null, ::std::int32_t override, ::std::int32_t params, ::std::int32_t _cpp_private, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<as> inAsync(const _cpp_break& internal, const delegatePtr& is, const ::std::optional<explicitPrx>& lock, const ::std::optional<casePrx>& _cpp_namespace, const ::std::optional<decimalPrx>& _cpp_new, const delegatePtr& null, ::std::int32_t override, ::std::int32_t params, ::std::int32_t _cpp_private, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<as> inAsync(const _cpp_break& internal, const delegatePtr& is, const ::std::optional<explicitPrx>& lock, const ::std::optional<casePrx>& _cpp_namespace, const ::std::optional<decimalPrx>& _cpp_new, const delegatePtr& null, ::std::int32_t override, ::std::int32_t params, ::std::int32_t _cpp_private, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     inAsync(const _cpp_break& internal, const delegatePtr& is, const ::std::optional<explicitPrx>& lock, const ::std::optional<casePrx>& _cpp_namespace, const ::std::optional<decimalPrx>& _cpp_new, const delegatePtr& null, ::std::int32_t override, ::std::int32_t params, ::std::int32_t _cpp_private, ::std::function<void(::abstract::as)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -403,7 +403,7 @@ public:
 
     void op(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -468,7 +468,7 @@ public:
 
     void op(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

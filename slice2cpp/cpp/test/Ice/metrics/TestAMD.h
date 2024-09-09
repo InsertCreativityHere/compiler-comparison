@@ -44,7 +44,7 @@ public:
 
     void op(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -55,7 +55,7 @@ public:
 
     void fail(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> failAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> failAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     failAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -66,7 +66,7 @@ public:
 
     void opWithUserException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opWithUserExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> opWithUserExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opWithUserExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -77,7 +77,7 @@ public:
 
     void opWithRequestFailedException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opWithRequestFailedExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> opWithRequestFailedExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opWithRequestFailedExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -88,7 +88,7 @@ public:
 
     void opWithLocalException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opWithLocalExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> opWithLocalExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opWithLocalExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -99,7 +99,7 @@ public:
 
     void opWithUnknownException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opWithUnknownExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> opWithUnknownExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opWithUnknownExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -110,7 +110,7 @@ public:
 
     void opByteS(const ByteSeq& bs, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opByteSAsync(const ByteSeq& bs, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> opByteSAsync(const ByteSeq& bs, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteSAsync(const ByteSeq& bs, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -121,7 +121,7 @@ public:
 
     ::std::optional<::Ice::ObjectPrx> getAdmin(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<::Ice::ObjectPrx>> getAdminAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<::Ice::ObjectPrx>> getAdminAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getAdminAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -132,7 +132,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -190,7 +190,7 @@ public:
 
     void hold(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> holdAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> holdAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     holdAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -201,7 +201,7 @@ public:
 
     void resume(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> resumeAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> resumeAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     resumeAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

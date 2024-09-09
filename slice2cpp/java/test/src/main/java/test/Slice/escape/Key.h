@@ -84,7 +84,7 @@ public:
 
     void checkedCast(::std::int32_t clone, ::std::int32_t& _cpp_continue, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> checkedCastAsync(::std::int32_t clone, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::int32_t> checkedCastAsync(::std::int32_t clone, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     checkedCastAsync(::std::int32_t clone, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -142,7 +142,7 @@ public:
 
     void _cpp_do(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> doAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> doAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     doAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -256,7 +256,7 @@ public:
 
     assert notify(const _cpp_break& notifyAll, const elsePtr& null, const ::std::optional<finalizePrx>& package, const ::std::optional<catchPrx>& _cpp_public, const ::std::optional<defaultPrx>& _cpp_return, ::std::int32_t _cpp_static, ::std::int32_t strictfp, ::std::int32_t super, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<assert> notifyAsync(const _cpp_break& notifyAll, const elsePtr& null, const ::std::optional<finalizePrx>& package, const ::std::optional<catchPrx>& _cpp_public, const ::std::optional<defaultPrx>& _cpp_return, ::std::int32_t _cpp_static, ::std::int32_t strictfp, ::std::int32_t super, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<assert> notifyAsync(const _cpp_break& notifyAll, const elsePtr& null, const ::std::optional<finalizePrx>& package, const ::std::optional<catchPrx>& _cpp_public, const ::std::optional<defaultPrx>& _cpp_return, ::std::int32_t _cpp_static, ::std::int32_t strictfp, ::std::int32_t super, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     notifyAsync(const _cpp_break& notifyAll, const elsePtr& null, const ::std::optional<finalizePrx>& package, const ::std::optional<catchPrx>& _cpp_public, const ::std::optional<defaultPrx>& _cpp_return, ::std::int32_t _cpp_static, ::std::int32_t strictfp, ::std::int32_t super, ::std::function<void(::abstract::assert)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

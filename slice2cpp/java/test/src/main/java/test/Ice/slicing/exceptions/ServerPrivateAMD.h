@@ -40,7 +40,7 @@ public:
 
     void baseAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> baseAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> baseAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     baseAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -51,7 +51,7 @@ public:
 
     void unknownDerivedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> unknownDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     unknownDerivedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -62,7 +62,7 @@ public:
 
     void knownDerivedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> knownDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     knownDerivedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -73,7 +73,7 @@ public:
 
     void knownDerivedAsKnownDerived(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownDerivedAsKnownDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> knownDerivedAsKnownDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     knownDerivedAsKnownDerivedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -84,7 +84,7 @@ public:
 
     void unknownIntermediateAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownIntermediateAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> unknownIntermediateAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     unknownIntermediateAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -95,7 +95,7 @@ public:
 
     void knownIntermediateAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownIntermediateAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> knownIntermediateAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     knownIntermediateAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -106,7 +106,7 @@ public:
 
     void knownMostDerivedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownMostDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> knownMostDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     knownMostDerivedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -117,7 +117,7 @@ public:
 
     void knownIntermediateAsKnownIntermediate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownIntermediateAsKnownIntermediateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> knownIntermediateAsKnownIntermediateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     knownIntermediateAsKnownIntermediateAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -128,7 +128,7 @@ public:
 
     void knownMostDerivedAsKnownIntermediate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownMostDerivedAsKnownIntermediateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> knownMostDerivedAsKnownIntermediateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     knownMostDerivedAsKnownIntermediateAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -139,7 +139,7 @@ public:
 
     void knownMostDerivedAsKnownMostDerived(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> knownMostDerivedAsKnownMostDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> knownMostDerivedAsKnownMostDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     knownMostDerivedAsKnownMostDerivedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -150,7 +150,7 @@ public:
 
     void unknownMostDerived1AsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownMostDerived1AsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> unknownMostDerived1AsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     unknownMostDerived1AsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -161,7 +161,7 @@ public:
 
     void unknownMostDerived1AsKnownIntermediate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownMostDerived1AsKnownIntermediateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> unknownMostDerived1AsKnownIntermediateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     unknownMostDerived1AsKnownIntermediateAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -172,7 +172,7 @@ public:
 
     void unknownMostDerived2AsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> unknownMostDerived2AsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> unknownMostDerived2AsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     unknownMostDerived2AsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -183,7 +183,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

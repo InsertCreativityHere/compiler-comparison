@@ -84,7 +84,7 @@ public:
 
     void _cpp_case(::std::int32_t _cpp_catch, ::std::int32_t& _cpp_try, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> caseAsync(::std::int32_t _cpp_catch, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::int32_t> caseAsync(::std::int32_t _cpp_catch, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     caseAsync(::std::int32_t _cpp_catch, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -142,7 +142,7 @@ public:
 
     void _cpp_public(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> publicAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> publicAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     publicAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

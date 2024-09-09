@@ -46,7 +46,7 @@ public:
 
     ByteSeq opByteSpan(std::span<const std::byte> dataIn, ByteSeq& dataOut, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteSeq, ByteSeq>> opByteSpanAsync(std::span<const std::byte> dataIn, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<ByteSeq, ByteSeq>> opByteSpanAsync(std::span<const std::byte> dataIn, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteSpanAsync(std::span<const std::byte> dataIn, ::std::function<void(::Test::ByteSeq, ::Test::ByteSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -57,7 +57,7 @@ public:
 
     ShortSeq opShortSpan(std::span<const std::int16_t> dataIn, ShortSeq& dataOut, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ShortSeq, ShortSeq>> opShortSpanAsync(std::span<const std::int16_t> dataIn, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<ShortSeq, ShortSeq>> opShortSpanAsync(std::span<const std::int16_t> dataIn, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opShortSpanAsync(std::span<const std::int16_t> dataIn, ::std::function<void(::Test::ShortSeq, ::Test::ShortSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -68,7 +68,7 @@ public:
 
     StringSeq opStringSpan(std::span<std::string> dataIn, StringSeq& dataOut, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringSeq, StringSeq>> opStringSpanAsync(std::span<std::string> dataIn, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<StringSeq, StringSeq>> opStringSpanAsync(std::span<std::string> dataIn, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringSpanAsync(std::span<std::string> dataIn, ::std::function<void(::Test::StringSeq, ::Test::StringSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -79,7 +79,7 @@ public:
 
     ::std::optional<ByteSeq> opOptionalByteSpan(::std::optional<std::span<const std::byte>> dataIn, ::std::optional<ByteSeq>& dataOut, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>> opOptionalByteSpanAsync(::std::optional<std::span<const std::byte>> dataIn, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>> opOptionalByteSpanAsync(::std::optional<std::span<const std::byte>> dataIn, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptionalByteSpanAsync(::std::optional<std::span<const std::byte>> dataIn, ::std::function<void(::std::optional<::Test::ByteSeq>, ::std::optional<::Test::ByteSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -90,7 +90,7 @@ public:
 
     ::std::optional<ShortSeq> opOptionalShortSpan(::std::optional<std::span<const std::int16_t>> dataIn, ::std::optional<ShortSeq>& dataOut, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>> opOptionalShortSpanAsync(::std::optional<std::span<const std::int16_t>> dataIn, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>> opOptionalShortSpanAsync(::std::optional<std::span<const std::int16_t>> dataIn, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptionalShortSpanAsync(::std::optional<std::span<const std::int16_t>> dataIn, ::std::function<void(::std::optional<::Test::ShortSeq>, ::std::optional<::Test::ShortSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -101,7 +101,7 @@ public:
 
     ::std::optional<StringSeq> opOptionalStringSpan(::std::optional<std::span<std::string>> dataIn, ::std::optional<StringSeq>& dataOut, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<StringSeq>, ::std::optional<StringSeq>>> opOptionalStringSpanAsync(::std::optional<std::span<std::string>> dataIn, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<StringSeq>, ::std::optional<StringSeq>>> opOptionalStringSpanAsync(::std::optional<std::span<std::string>> dataIn, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptionalStringSpanAsync(::std::optional<std::span<std::string>> dataIn, ::std::function<void(::std::optional<::Test::StringSeq>, ::std::optional<::Test::StringSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -112,7 +112,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

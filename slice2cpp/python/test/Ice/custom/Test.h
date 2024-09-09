@@ -90,7 +90,7 @@ public:
 
     ByteString opByteString1(const ByteString& b1, ByteString& b2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteString, ByteString>> opByteString1Async(const ByteString& b1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<ByteString, ByteString>> opByteString1Async(const ByteString& b1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteString1Async(const ByteString& b1, ::std::function<void(::Test::ByteString, ::Test::ByteString)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -101,7 +101,7 @@ public:
 
     ByteString opByteString2(const ByteString& b1, ByteString& b2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteString, ByteString>> opByteString2Async(const ByteString& b1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<ByteString, ByteString>> opByteString2Async(const ByteString& b1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteString2Async(const ByteString& b1, ::std::function<void(::Test::ByteString, ::Test::ByteString)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -112,7 +112,7 @@ public:
 
     ByteList opByteList1(const ByteList& b1, ByteList& b2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteList, ByteList>> opByteList1Async(const ByteList& b1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<ByteList, ByteList>> opByteList1Async(const ByteList& b1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteList1Async(const ByteList& b1, ::std::function<void(::Test::ByteList, ::Test::ByteList)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -123,7 +123,7 @@ public:
 
     ByteList opByteList2(const ByteList& b1, ByteList& b2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteList, ByteList>> opByteList2Async(const ByteList& b1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<ByteList, ByteList>> opByteList2Async(const ByteList& b1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteList2Async(const ByteList& b1, ::std::function<void(::Test::ByteList, ::Test::ByteList)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -134,7 +134,7 @@ public:
 
     StringList opStringList1(const StringList& s1, StringList& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringList, StringList>> opStringList1Async(const StringList& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<StringList, StringList>> opStringList1Async(const StringList& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringList1Async(const StringList& s1, ::std::function<void(::Test::StringList, ::Test::StringList)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -145,7 +145,7 @@ public:
 
     StringList opStringList2(const StringList& s1, StringList& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringList, StringList>> opStringList2Async(const StringList& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<StringList, StringList>> opStringList2Async(const StringList& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringList2Async(const StringList& s1, ::std::function<void(::Test::StringList, ::Test::StringList)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -156,7 +156,7 @@ public:
 
     StringTuple opStringTuple1(const StringTuple& s1, StringTuple& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringTuple, StringTuple>> opStringTuple1Async(const StringTuple& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<StringTuple, StringTuple>> opStringTuple1Async(const StringTuple& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringTuple1Async(const StringTuple& s1, ::std::function<void(::Test::StringTuple, ::Test::StringTuple)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -167,7 +167,7 @@ public:
 
     StringTuple opStringTuple2(const StringTuple& s1, StringTuple& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringTuple, StringTuple>> opStringTuple2Async(const StringTuple& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<StringTuple, StringTuple>> opStringTuple2Async(const StringTuple& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringTuple2Async(const StringTuple& s1, ::std::function<void(::Test::StringTuple, ::Test::StringTuple)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -178,7 +178,7 @@ public:
 
     void sendS(const S& val, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sendSAsync(const S& val, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> sendSAsync(const S& val, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     sendSAsync(const S& val, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -189,7 +189,7 @@ public:
 
     void sendC(const CPtr& val, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sendCAsync(const CPtr& val, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> sendCAsync(const CPtr& val, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     sendCAsync(const CPtr& val, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -200,7 +200,7 @@ public:
 
     BoolSeq1 opBoolSeq(const BoolSeq1& v1, BoolSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BoolSeq1, BoolSeq2>> opBoolSeqAsync(const BoolSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<BoolSeq1, BoolSeq2>> opBoolSeqAsync(const BoolSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBoolSeqAsync(const BoolSeq1& v1, ::std::function<void(::Test::BoolSeq1, ::Test::BoolSeq2)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -211,7 +211,7 @@ public:
 
     ByteSeq1 opByteSeq(const ByteSeq1& v1, ByteSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteSeq1, ByteSeq2>> opByteSeqAsync(const ByteSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<ByteSeq1, ByteSeq2>> opByteSeqAsync(const ByteSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteSeqAsync(const ByteSeq1& v1, ::std::function<void(::Test::ByteSeq1, ::Test::ByteSeq2)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -222,7 +222,7 @@ public:
 
     ShortSeq1 opShortSeq(const ShortSeq1& v1, ShortSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ShortSeq1, ShortSeq2>> opShortSeqAsync(const ShortSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<ShortSeq1, ShortSeq2>> opShortSeqAsync(const ShortSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opShortSeqAsync(const ShortSeq1& v1, ::std::function<void(::Test::ShortSeq1, ::Test::ShortSeq2)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -233,7 +233,7 @@ public:
 
     IntSeq1 opIntSeq(const IntSeq1& v1, IntSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<IntSeq1, IntSeq2>> opIntSeqAsync(const IntSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<IntSeq1, IntSeq2>> opIntSeqAsync(const IntSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opIntSeqAsync(const IntSeq1& v1, ::std::function<void(::Test::IntSeq1, ::Test::IntSeq2)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -244,7 +244,7 @@ public:
 
     LongSeq1 opLongSeq(const LongSeq1& v1, LongSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LongSeq1, LongSeq2>> opLongSeqAsync(const LongSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<LongSeq1, LongSeq2>> opLongSeqAsync(const LongSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLongSeqAsync(const LongSeq1& v1, ::std::function<void(::Test::LongSeq1, ::Test::LongSeq2)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -255,7 +255,7 @@ public:
 
     FloatSeq1 opFloatSeq(const FloatSeq1& v1, FloatSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<FloatSeq1, FloatSeq2>> opFloatSeqAsync(const FloatSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<FloatSeq1, FloatSeq2>> opFloatSeqAsync(const FloatSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opFloatSeqAsync(const FloatSeq1& v1, ::std::function<void(::Test::FloatSeq1, ::Test::FloatSeq2)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -266,7 +266,7 @@ public:
 
     DoubleSeq1 opDoubleSeq(const DoubleSeq1& v1, DoubleSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<DoubleSeq1, DoubleSeq2>> opDoubleSeqAsync(const DoubleSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<DoubleSeq1, DoubleSeq2>> opDoubleSeqAsync(const DoubleSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opDoubleSeqAsync(const DoubleSeq1& v1, ::std::function<void(::Test::DoubleSeq1, ::Test::DoubleSeq2)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -277,7 +277,7 @@ public:
 
     BoolSeq1 opBogusArrayNotExistsFactory(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BoolSeq1> opBogusArrayNotExistsFactoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<BoolSeq1> opBogusArrayNotExistsFactoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBogusArrayNotExistsFactoryAsync(::std::function<void(::Test::BoolSeq1)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -288,7 +288,7 @@ public:
 
     BoolSeq1 opBogusArrayThrowFactory(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BoolSeq1> opBogusArrayThrowFactoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<BoolSeq1> opBogusArrayThrowFactoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBogusArrayThrowFactoryAsync(::std::function<void(::Test::BoolSeq1)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -299,7 +299,7 @@ public:
 
     BoolSeq1 opBogusArrayType(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BoolSeq1> opBogusArrayTypeAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<BoolSeq1> opBogusArrayTypeAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBogusArrayTypeAsync(::std::function<void(::Test::BoolSeq1)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -310,7 +310,7 @@ public:
 
     BoolSeq1 opBogusArrayNoneFactory(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BoolSeq1> opBogusArrayNoneFactoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<BoolSeq1> opBogusArrayNoneFactoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBogusArrayNoneFactoryAsync(::std::function<void(::Test::BoolSeq1)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -321,7 +321,7 @@ public:
 
     BoolSeq1 opBogusArraySignatureFactory(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BoolSeq1> opBogusArraySignatureFactoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<BoolSeq1> opBogusArraySignatureFactoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBogusArraySignatureFactoryAsync(::std::function<void(::Test::BoolSeq1)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -332,7 +332,7 @@ public:
 
     BoolSeq1 opBogusArrayNoCallableFactory(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BoolSeq1> opBogusArrayNoCallableFactoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<BoolSeq1> opBogusArrayNoCallableFactoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBogusArrayNoCallableFactoryAsync(::std::function<void(::Test::BoolSeq1)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -343,7 +343,7 @@ public:
 
     DPtr opD(const DPtr& d, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<DPtr> opDAsync(const DPtr& d, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<DPtr> opDAsync(const DPtr& d, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opDAsync(const DPtr& d, ::std::function<void(::Test::DPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -354,7 +354,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

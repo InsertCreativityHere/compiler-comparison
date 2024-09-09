@@ -71,7 +71,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> forwardAsync(const EventDataSeq& events, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> forwardAsync(const EventDataSeq& events, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Forward a sequence of events.
@@ -152,7 +152,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<TopicLinkPrx>> getLinkProxyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<TopicLinkPrx>> getLinkProxyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Retrieve a proxy to the TopicLink interface.
@@ -183,7 +183,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> reapAsync(const ::Ice::IdentitySeq& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> reapAsync(const ::Ice::IdentitySeq& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Reap the given identities.
@@ -273,7 +273,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<::IceStormElection::NodePrx>> getReplicaNodeAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<::IceStormElection::NodePrx>> getReplicaNodeAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Return the replica node proxy for this topic manager.

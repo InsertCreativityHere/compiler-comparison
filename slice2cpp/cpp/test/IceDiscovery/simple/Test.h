@@ -42,7 +42,7 @@ public:
 
     ::std::string getAdapterId(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> getAdapterIdAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::string> getAdapterIdAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getAdapterIdAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -100,7 +100,7 @@ public:
 
     void activateObjectAdapter(::std::string_view name, ::std::string_view adapterId, ::std::string_view replicaGroupId, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> activateObjectAdapterAsync(::std::string_view name, ::std::string_view adapterId, ::std::string_view replicaGroupId, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> activateObjectAdapterAsync(::std::string_view name, ::std::string_view adapterId, ::std::string_view replicaGroupId, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     activateObjectAdapterAsync(::std::string_view name, ::std::string_view adapterId, ::std::string_view replicaGroupId, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -111,7 +111,7 @@ public:
 
     void deactivateObjectAdapter(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> deactivateObjectAdapterAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> deactivateObjectAdapterAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     deactivateObjectAdapterAsync(::std::string_view name, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -122,7 +122,7 @@ public:
 
     void addObject(::std::string_view oaName, ::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> addObjectAsync(::std::string_view oaName, ::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> addObjectAsync(::std::string_view oaName, ::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     addObjectAsync(::std::string_view oaName, ::std::string_view id, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -133,7 +133,7 @@ public:
 
     void removeObject(::std::string_view oaName, ::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> removeObjectAsync(::std::string_view oaName, ::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> removeObjectAsync(::std::string_view oaName, ::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     removeObjectAsync(::std::string_view oaName, ::std::string_view id, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -144,7 +144,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

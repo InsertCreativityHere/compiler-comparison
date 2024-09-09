@@ -60,7 +60,7 @@ public:
 
     AlsoEmptyPtr op(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<AlsoEmptyPtr> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<AlsoEmptyPtr> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAsync(::std::function<void(::Test::AlsoEmptyPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

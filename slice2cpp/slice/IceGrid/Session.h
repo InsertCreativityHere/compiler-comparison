@@ -67,7 +67,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> keepAliveAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> keepAliveAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
@@ -108,7 +108,7 @@ public:
      * @see #setAllocationTimeout
      * @see #releaseObject
      */
-    ::std::future<::std::optional<::Ice::ObjectPrx>> allocateObjectByIdAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<::Ice::ObjectPrx>> allocateObjectByIdAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
@@ -150,7 +150,7 @@ public:
      * @see #setAllocationTimeout
      * @see #releaseObject
      */
-    ::std::future<::std::optional<::Ice::ObjectPrx>> allocateObjectByTypeAsync(::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<::Ice::ObjectPrx>> allocateObjectByTypeAsync(::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
@@ -190,7 +190,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> releaseObjectAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> releaseObjectAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Release an object that was allocated using <code>allocateObjectById</code> or
@@ -226,7 +226,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setAllocationTimeoutAsync(::std::int32_t timeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> setAllocationTimeoutAsync(::std::int32_t timeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Set the allocation timeout. If no objects are available for an allocation request, a call to

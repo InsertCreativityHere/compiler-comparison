@@ -134,7 +134,7 @@ public:
 
     S opS(const S& s1, S& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<S, S>> opSAsync(const S& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<S, S>> opSAsync(const S& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSAsync(const S& s1, ::std::function<void(::Test::S, ::Test::S)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -145,7 +145,7 @@ public:
 
     SSeq opSSeq(const SSeq& s1, SSeq& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SSeq, SSeq>> opSSeqAsync(const SSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<SSeq, SSeq>> opSSeqAsync(const SSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSSeqAsync(const SSeq& s1, ::std::function<void(::Test::SSeq, ::Test::SSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -156,7 +156,7 @@ public:
 
     SMap opSMap(const SMap& s1, SMap& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SMap, SMap>> opSMapAsync(const SMap& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<SMap, SMap>> opSMapAsync(const SMap& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSMapAsync(const SMap& s1, ::std::function<void(::Test::SMap, ::Test::SMap)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -167,7 +167,7 @@ public:
 
     CPtr opC(const CPtr& c1, CPtr& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<CPtr, CPtr>> opCAsync(const CPtr& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<CPtr, CPtr>> opCAsync(const CPtr& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCAsync(const CPtr& c1, ::std::function<void(::Test::CPtr, ::Test::CPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -178,7 +178,7 @@ public:
 
     CSeq opCSeq(const CSeq& c1, CSeq& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<CSeq, CSeq>> opCSeqAsync(const CSeq& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<CSeq, CSeq>> opCSeqAsync(const CSeq& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCSeqAsync(const CSeq& c1, ::std::function<void(::Test::CSeq, ::Test::CSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -189,7 +189,7 @@ public:
 
     CMap opCMap(const CMap& c1, CMap& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<CMap, CMap>> opCMapAsync(const CMap& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<CMap, CMap>> opCMapAsync(const CMap& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCMapAsync(const CMap& c1, ::std::function<void(::Test::CMap, ::Test::CMap)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -200,7 +200,7 @@ public:
 
     E1 opE1(E1 E1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<E1> opE1Async(E1 E1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<E1> opE1Async(E1 E1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opE1Async(E1 E1, ::std::function<void(::Test::E1)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -211,7 +211,7 @@ public:
 
     S1 opS1(const S1& S1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<S1> opS1Async(const S1& S1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<S1> opS1Async(const S1& S1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opS1Async(const S1& S1, ::std::function<void(::Test::S1)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -222,7 +222,7 @@ public:
 
     C1Ptr opC1(const C1Ptr& C1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<C1Ptr> opC1Async(const C1Ptr& C1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<C1Ptr> opC1Async(const C1Ptr& C1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opC1Async(const C1Ptr& C1, ::std::function<void(::Test::C1Ptr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -233,7 +233,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -297,7 +297,7 @@ public:
 
     S opS(const S& s1, S& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<S, S>> opSAsync(const S& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<S, S>> opSAsync(const S& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSAsync(const S& s1, ::std::function<void(::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -308,7 +308,7 @@ public:
 
     SSeq opSSeq(const SSeq& s1, SSeq& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SSeq, SSeq>> opSSeqAsync(const SSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<SSeq, SSeq>> opSSeqAsync(const SSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSSeqAsync(const SSeq& s1, ::std::function<void(::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -319,7 +319,7 @@ public:
 
     SMap opSMap(const SMap& s1, SMap& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SMap, SMap>> opSMapAsync(const SMap& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<SMap, SMap>> opSMapAsync(const SMap& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSMapAsync(const SMap& s1, ::std::function<void(::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -330,7 +330,7 @@ public:
 
     CPtr opC(const CPtr& c1, CPtr& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<CPtr, CPtr>> opCAsync(const CPtr& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<CPtr, CPtr>> opCAsync(const CPtr& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCAsync(const CPtr& c1, ::std::function<void(::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -341,7 +341,7 @@ public:
 
     CSeq opCSeq(const CSeq& c1, CSeq& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<CSeq, CSeq>> opCSeqAsync(const CSeq& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<CSeq, CSeq>> opCSeqAsync(const CSeq& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCSeqAsync(const CSeq& c1, ::std::function<void(::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -352,7 +352,7 @@ public:
 
     CMap opCMap(const CMap& c1, CMap& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<CMap, CMap>> opCMapAsync(const CMap& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<CMap, CMap>> opCMapAsync(const CMap& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCMapAsync(const CMap& c1, ::std::function<void(::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -363,7 +363,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -423,7 +423,7 @@ public:
 
     ::Test::Inner::Inner2::S opS(const ::Test::Inner::Inner2::S& s1, ::Test::Inner::Inner2::S& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S>> opSAsync(const ::Test::Inner::Inner2::S& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S>> opSAsync(const ::Test::Inner::Inner2::S& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSAsync(const ::Test::Inner::Inner2::S& s1, ::std::function<void(::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -434,7 +434,7 @@ public:
 
     ::Test::Inner::Inner2::SSeq opSSeq(const ::Test::Inner::Inner2::SSeq& s1, ::Test::Inner::Inner2::SSeq& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq>> opSSeqAsync(const ::Test::Inner::Inner2::SSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq>> opSSeqAsync(const ::Test::Inner::Inner2::SSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSSeqAsync(const ::Test::Inner::Inner2::SSeq& s1, ::std::function<void(::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -445,7 +445,7 @@ public:
 
     ::Test::Inner::Inner2::SMap opSMap(const ::Test::Inner::Inner2::SMap& s1, ::Test::Inner::Inner2::SMap& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap>> opSMapAsync(const ::Test::Inner::Inner2::SMap& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap>> opSMapAsync(const ::Test::Inner::Inner2::SMap& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSMapAsync(const ::Test::Inner::Inner2::SMap& s1, ::std::function<void(::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -456,7 +456,7 @@ public:
 
     ::Test::Inner::Inner2::CPtr opC(const ::Test::Inner::Inner2::CPtr& c1, ::Test::Inner::Inner2::CPtr& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr>> opCAsync(const ::Test::Inner::Inner2::CPtr& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr>> opCAsync(const ::Test::Inner::Inner2::CPtr& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCAsync(const ::Test::Inner::Inner2::CPtr& c1, ::std::function<void(::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -467,7 +467,7 @@ public:
 
     ::Test::Inner::Inner2::CSeq opCSeq(const ::Test::Inner::Inner2::CSeq& c1, ::Test::Inner::Inner2::CSeq& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq>> opCSeqAsync(const ::Test::Inner::Inner2::CSeq& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq>> opCSeqAsync(const ::Test::Inner::Inner2::CSeq& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCSeqAsync(const ::Test::Inner::Inner2::CSeq& c1, ::std::function<void(::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -478,7 +478,7 @@ public:
 
     ::Test::Inner::Inner2::CMap opCMap(const ::Test::Inner::Inner2::CMap& c1, ::Test::Inner::Inner2::CMap& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap>> opCMapAsync(const ::Test::Inner::Inner2::CMap& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap>> opCMapAsync(const ::Test::Inner::Inner2::CMap& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCMapAsync(const ::Test::Inner::Inner2::CMap& c1, ::std::function<void(::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -489,7 +489,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -560,7 +560,7 @@ public:
 
     ::Test::S opS(const ::Test::S& s1, ::Test::S& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::S, ::Test::S>> opSAsync(const ::Test::S& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::Test::S, ::Test::S>> opSAsync(const ::Test::S& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSAsync(const ::Test::S& s1, ::std::function<void(::Test::S, ::Test::S)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -571,7 +571,7 @@ public:
 
     ::Test::SSeq opSSeq(const ::Test::SSeq& s1, ::Test::SSeq& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::SSeq, ::Test::SSeq>> opSSeqAsync(const ::Test::SSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::Test::SSeq, ::Test::SSeq>> opSSeqAsync(const ::Test::SSeq& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSSeqAsync(const ::Test::SSeq& s1, ::std::function<void(::Test::SSeq, ::Test::SSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -582,7 +582,7 @@ public:
 
     ::Test::SMap opSMap(const ::Test::SMap& s1, ::Test::SMap& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::SMap, ::Test::SMap>> opSMapAsync(const ::Test::SMap& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::Test::SMap, ::Test::SMap>> opSMapAsync(const ::Test::SMap& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSMapAsync(const ::Test::SMap& s1, ::std::function<void(::Test::SMap, ::Test::SMap)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -593,7 +593,7 @@ public:
 
     ::Test::CPtr opC(const ::Test::CPtr& c1, ::Test::CPtr& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::CPtr, ::Test::CPtr>> opCAsync(const ::Test::CPtr& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::Test::CPtr, ::Test::CPtr>> opCAsync(const ::Test::CPtr& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCAsync(const ::Test::CPtr& c1, ::std::function<void(::Test::CPtr, ::Test::CPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -604,7 +604,7 @@ public:
 
     ::Test::CSeq opCSeq(const ::Test::CSeq& c1, ::Test::CSeq& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::CSeq, ::Test::CSeq>> opCSeqAsync(const ::Test::CSeq& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::Test::CSeq, ::Test::CSeq>> opCSeqAsync(const ::Test::CSeq& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCSeqAsync(const ::Test::CSeq& c1, ::std::function<void(::Test::CSeq, ::Test::CSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -615,7 +615,7 @@ public:
 
     ::Test::CMap opCMap(const ::Test::CMap& c1, ::Test::CMap& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::CMap, ::Test::CMap>> opCMapAsync(const ::Test::CMap& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::Test::CMap, ::Test::CMap>> opCMapAsync(const ::Test::CMap& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opCMapAsync(const ::Test::CMap& c1, ::std::function<void(::Test::CMap, ::Test::CMap)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -626,7 +626,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

@@ -12238,10 +12238,6 @@ namespace Test
 
         public abstract MyEnum opMyEnum(MyEnum p1, out MyEnum p2, Ice.Current current);
 
-        public abstract MyClassPrx? opMyClass(MyClassPrx? p1, out MyClassPrx? p2, out MyClassPrx? p3, Ice.Current current);
-
-        public abstract Structure opStruct(Structure p1, Structure p2, out Structure p3, Ice.Current current);
-
         public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, Ice.Current current);
 
         public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, Ice.Current current);
@@ -12345,6 +12341,10 @@ namespace Test
         public abstract MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
 
         public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
+
+        public abstract MyClassPrx? opMyClass(MyClassPrx? p1, out MyClassPrx? p2, out MyClassPrx? p3, Ice.Current current);
+
+        public abstract Structure opStruct(Structure p1, Structure p2, out Structure p3, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -12450,10 +12450,6 @@ namespace Test2
 
         public abstract global::Test.MyEnum opMyEnum(global::Test.MyEnum p1, out global::Test.MyEnum p2, Ice.Current current);
 
-        public abstract global::Test.MyClassPrx? opMyClass(global::Test.MyClassPrx? p1, out global::Test.MyClassPrx? p2, out global::Test.MyClassPrx? p3, Ice.Current current);
-
-        public abstract global::Test.Structure opStruct(global::Test.Structure p1, global::Test.Structure p2, out global::Test.Structure p3, Ice.Current current);
-
         public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, Ice.Current current);
 
         public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, Ice.Current current);
@@ -12557,6 +12553,10 @@ namespace Test2
         public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
 
         public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
+
+        public abstract global::Test.MyClassPrx? opMyClass(global::Test.MyClassPrx? p1, out global::Test.MyClassPrx? p2, out global::Test.MyClassPrx? p3, Ice.Current current);
+
+        public abstract global::Test.Structure opStruct(global::Test.Structure p1, global::Test.Structure p2, out global::Test.Structure p3, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 

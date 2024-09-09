@@ -45,7 +45,7 @@ public:
 
     void reply(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> replyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> replyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     replyAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -103,7 +103,7 @@ public:
 
     void ping(const ::std::optional<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> pingAsync(const ::std::optional<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> pingAsync(const ::std::optional<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     pingAsync(const ::std::optional<PingReplyPrx>& reply, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -114,7 +114,7 @@ public:
 
     void sendByteSeq(const ByteSeq& seq, const ::std::optional<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sendByteSeqAsync(const ByteSeq& seq, const ::std::optional<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> sendByteSeqAsync(const ByteSeq& seq, const ::std::optional<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     sendByteSeqAsync(const ByteSeq& seq, const ::std::optional<PingReplyPrx>& reply, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -125,7 +125,7 @@ public:
 
     void pingBiDir(const ::Ice::Identity& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> pingBiDirAsync(const ::Ice::Identity& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> pingBiDirAsync(const ::Ice::Identity& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     pingBiDirAsync(const ::Ice::Identity& reply, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -136,7 +136,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

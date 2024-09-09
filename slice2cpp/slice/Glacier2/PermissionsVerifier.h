@@ -73,7 +73,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<bool, ::std::string>> checkPermissionsAsync(::std::string_view userId, ::std::string_view password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<bool, ::std::string>> checkPermissionsAsync(::std::string_view userId, ::std::string_view password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Check whether a user has permission to access the router.
@@ -162,7 +162,7 @@ public:
      * @return The future object for the invocation.
      * @see SSLInfo
      */
-    ::std::future<::std::tuple<bool, ::std::string>> authorizeAsync(const SSLInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<bool, ::std::string>> authorizeAsync(const SSLInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Check whether a user has permission to access the router.

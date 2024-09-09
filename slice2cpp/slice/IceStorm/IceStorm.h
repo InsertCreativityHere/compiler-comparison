@@ -89,7 +89,7 @@ public:
      * @return The future object for the invocation.
      * @see TopicManager#create
      */
-    ::std::future<::std::string> getNameAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::string> getNameAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the name of this topic.
@@ -123,7 +123,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<::Ice::ObjectPrx>> getPublisherAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<::Ice::ObjectPrx>> getPublisherAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
@@ -158,7 +158,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<::Ice::ObjectPrx>> getNonReplicatedPublisherAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<::Ice::ObjectPrx>> getNonReplicatedPublisherAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
@@ -198,7 +198,7 @@ public:
      * @return The future object for the invocation.
      * @see #unsubscribe
      */
-    ::std::future<::std::optional<::Ice::ObjectPrx>> subscribeAndGetPublisherAsync(const QoS& theQoS, const ::std::optional<::Ice::ObjectPrx>& subscriber, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<::Ice::ObjectPrx>> subscribeAndGetPublisherAsync(const QoS& theQoS, const ::std::optional<::Ice::ObjectPrx>& subscriber, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
@@ -233,7 +233,7 @@ public:
      * @return The future object for the invocation.
      * @see #subscribeAndGetPublisher
      */
-    ::std::future<void> unsubscribeAsync(const ::std::optional<::Ice::ObjectPrx>& subscriber, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> unsubscribeAsync(const ::std::optional<::Ice::ObjectPrx>& subscriber, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Unsubscribe the given <code>subscriber</code>.
@@ -270,7 +270,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> linkAsync(const ::std::optional<TopicPrx>& linkTo, ::std::int32_t cost, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> linkAsync(const ::std::optional<TopicPrx>& linkTo, ::std::int32_t cost, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create a link to the given topic. All events originating on this topic will also be sent to
@@ -304,7 +304,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> unlinkAsync(const ::std::optional<TopicPrx>& linkTo, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> unlinkAsync(const ::std::optional<TopicPrx>& linkTo, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Destroy the link from this topic to the given topic <code>linkTo</code>.
@@ -334,7 +334,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<LinkInfoSeq> getLinkInfoSeqAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<LinkInfoSeq> getLinkInfoSeqAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Retrieve information on the current links.
@@ -363,7 +363,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::Ice::IdentitySeq> getSubscribersAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::Ice::IdentitySeq> getSubscribersAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Retrieve the list of subscribers for this topic.
@@ -391,7 +391,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Destroy the topic.
@@ -474,7 +474,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<TopicPrx>> createAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<TopicPrx>> createAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create a new topic. The topic name must be unique.
@@ -507,7 +507,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<TopicPrx>> retrieveAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<TopicPrx>> retrieveAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Retrieve a topic by name.
@@ -537,7 +537,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<TopicDict> retrieveAllAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<TopicDict> retrieveAllAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Retrieve all topics managed by this topic manager.
@@ -617,7 +617,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<TopicManagerPrx>> getTopicManagerAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<TopicManagerPrx>> getTopicManagerAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the topic manager proxy. The proxy might point to several replicas.

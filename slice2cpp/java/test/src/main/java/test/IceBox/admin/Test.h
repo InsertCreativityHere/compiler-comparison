@@ -41,7 +41,7 @@ public:
 
     ::Ice::PropertyDict getChanges(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::Ice::PropertyDict> getChangesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::Ice::PropertyDict> getChangesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getChangesAsync(::std::function<void(::Ice::PropertyDict)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

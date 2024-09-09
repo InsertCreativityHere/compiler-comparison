@@ -96,7 +96,7 @@ public:
 
     ASeq opASeq(const ASeq& inSeq, ASeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ASeq, ASeq>> opASeqAsync(const ASeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<ASeq, ASeq>> opASeqAsync(const ASeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opASeqAsync(const ASeq& inSeq, ::std::function<void(::Test::ASeq, ::Test::ASeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -107,7 +107,7 @@ public:
 
     AArray opAArray(const AArray& inSeq, AArray& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<AArray, AArray>> opAArrayAsync(const AArray& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<AArray, AArray>> opAArrayAsync(const AArray& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAArrayAsync(const AArray& inSeq, ::std::function<void(::Test::AArray, ::Test::AArray)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -118,7 +118,7 @@ public:
 
     AList opAList(const AList& inSeq, AList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<AList, AList>> opAListAsync(const AList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<AList, AList>> opAListAsync(const AList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAListAsync(const AList& inSeq, ::std::function<void(::Test::AList, ::Test::AList)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -129,7 +129,7 @@ public:
 
     BoolSeq opBoolSeq(const BoolSeq& inSeq, BoolSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BoolSeq, BoolSeq>> opBoolSeqAsync(const BoolSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<BoolSeq, BoolSeq>> opBoolSeqAsync(const BoolSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBoolSeqAsync(const BoolSeq& inSeq, ::std::function<void(::Test::BoolSeq, ::Test::BoolSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -140,7 +140,7 @@ public:
 
     ByteSeq opByteSeq(const ByteSeq& inSeq, ByteSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteSeq, ByteSeq>> opByteSeqAsync(const ByteSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<ByteSeq, ByteSeq>> opByteSeqAsync(const ByteSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteSeqAsync(const ByteSeq& inSeq, ::std::function<void(::Test::ByteSeq, ::Test::ByteSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -151,7 +151,7 @@ public:
 
     ShortSeq opShortSeq(const ShortSeq& inSeq, ShortSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ShortSeq, ShortSeq>> opShortSeqAsync(const ShortSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<ShortSeq, ShortSeq>> opShortSeqAsync(const ShortSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opShortSeqAsync(const ShortSeq& inSeq, ::std::function<void(::Test::ShortSeq, ::Test::ShortSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -162,7 +162,7 @@ public:
 
     IntSeq opIntSeq(const IntSeq& inSeq, IntSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<IntSeq, IntSeq>> opIntSeqAsync(const IntSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<IntSeq, IntSeq>> opIntSeqAsync(const IntSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opIntSeqAsync(const IntSeq& inSeq, ::std::function<void(::Test::IntSeq, ::Test::IntSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -173,7 +173,7 @@ public:
 
     LongSeq opLongSeq(const LongSeq& inSeq, LongSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LongSeq, LongSeq>> opLongSeqAsync(const LongSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<LongSeq, LongSeq>> opLongSeqAsync(const LongSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLongSeqAsync(const LongSeq& inSeq, ::std::function<void(::Test::LongSeq, ::Test::LongSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -184,7 +184,7 @@ public:
 
     FloatSeq opFloatSeq(const FloatSeq& inSeq, FloatSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<FloatSeq, FloatSeq>> opFloatSeqAsync(const FloatSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<FloatSeq, FloatSeq>> opFloatSeqAsync(const FloatSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opFloatSeqAsync(const FloatSeq& inSeq, ::std::function<void(::Test::FloatSeq, ::Test::FloatSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -195,7 +195,7 @@ public:
 
     DoubleSeq opDoubleSeq(const DoubleSeq& inSeq, DoubleSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<DoubleSeq, DoubleSeq>> opDoubleSeqAsync(const DoubleSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<DoubleSeq, DoubleSeq>> opDoubleSeqAsync(const DoubleSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opDoubleSeqAsync(const DoubleSeq& inSeq, ::std::function<void(::Test::DoubleSeq, ::Test::DoubleSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -206,7 +206,7 @@ public:
 
     StringSeq opStringSeq(const StringSeq& inSeq, StringSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringSeq, StringSeq>> opStringSeqAsync(const StringSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<StringSeq, StringSeq>> opStringSeqAsync(const StringSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringSeqAsync(const StringSeq& inSeq, ::std::function<void(::Test::StringSeq, ::Test::StringSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -217,7 +217,7 @@ public:
 
     ESeq opESeq(const ESeq& inSeq, ESeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ESeq, ESeq>> opESeqAsync(const ESeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<ESeq, ESeq>> opESeqAsync(const ESeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opESeqAsync(const ESeq& inSeq, ::std::function<void(::Test::ESeq, ::Test::ESeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -228,7 +228,7 @@ public:
 
     SSeq opSSeq(const SSeq& inSeq, SSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SSeq, SSeq>> opSSeqAsync(const SSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<SSeq, SSeq>> opSSeqAsync(const SSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSSeqAsync(const SSeq& inSeq, ::std::function<void(::Test::SSeq, ::Test::SSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -239,7 +239,7 @@ public:
 
     DSeq opDSeq(const DSeq& inSeq, DSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<DSeq, DSeq>> opDSeqAsync(const DSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<DSeq, DSeq>> opDSeqAsync(const DSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opDSeqAsync(const DSeq& inSeq, ::std::function<void(::Test::DSeq, ::Test::DSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -250,7 +250,7 @@ public:
 
     StringSeqSeq opStringSeqSeq(const StringSeqSeq& inSeq, StringSeqSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<StringSeqSeq, StringSeqSeq>> opStringSeqSeqAsync(const StringSeqSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<StringSeqSeq, StringSeqSeq>> opStringSeqSeqAsync(const StringSeqSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringSeqSeqAsync(const StringSeqSeq& inSeq, ::std::function<void(::Test::StringSeqSeq, ::Test::StringSeqSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -261,7 +261,7 @@ public:
 
     ByteBuffer opByteBufferSeq(const ByteBuffer& inSeq, ByteBuffer& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteBuffer, ByteBuffer>> opByteBufferSeqAsync(const ByteBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<ByteBuffer, ByteBuffer>> opByteBufferSeqAsync(const ByteBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteBufferSeqAsync(const ByteBuffer& inSeq, ::std::function<void(::Test::ByteBuffer, ::Test::ByteBuffer)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -272,7 +272,7 @@ public:
 
     ShortBuffer opShortBufferSeq(const ShortBuffer& inSeq, ShortBuffer& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ShortBuffer, ShortBuffer>> opShortBufferSeqAsync(const ShortBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<ShortBuffer, ShortBuffer>> opShortBufferSeqAsync(const ShortBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opShortBufferSeqAsync(const ShortBuffer& inSeq, ::std::function<void(::Test::ShortBuffer, ::Test::ShortBuffer)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -283,7 +283,7 @@ public:
 
     IntBuffer opIntBufferSeq(const IntBuffer& inSeq, IntBuffer& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<IntBuffer, IntBuffer>> opIntBufferSeqAsync(const IntBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<IntBuffer, IntBuffer>> opIntBufferSeqAsync(const IntBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opIntBufferSeqAsync(const IntBuffer& inSeq, ::std::function<void(::Test::IntBuffer, ::Test::IntBuffer)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -294,7 +294,7 @@ public:
 
     LongBuffer opLongBufferSeq(const LongBuffer& inSeq, LongBuffer& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<LongBuffer, LongBuffer>> opLongBufferSeqAsync(const LongBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<LongBuffer, LongBuffer>> opLongBufferSeqAsync(const LongBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opLongBufferSeqAsync(const LongBuffer& inSeq, ::std::function<void(::Test::LongBuffer, ::Test::LongBuffer)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -305,7 +305,7 @@ public:
 
     FloatBuffer opFloatBufferSeq(const FloatBuffer& inSeq, FloatBuffer& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<FloatBuffer, FloatBuffer>> opFloatBufferSeqAsync(const FloatBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<FloatBuffer, FloatBuffer>> opFloatBufferSeqAsync(const FloatBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opFloatBufferSeqAsync(const FloatBuffer& inSeq, ::std::function<void(::Test::FloatBuffer, ::Test::FloatBuffer)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -316,7 +316,7 @@ public:
 
     DoubleBuffer opDoubleBufferSeq(const DoubleBuffer& inSeq, DoubleBuffer& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<DoubleBuffer, DoubleBuffer>> opDoubleBufferSeqAsync(const DoubleBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<DoubleBuffer, DoubleBuffer>> opDoubleBufferSeqAsync(const DoubleBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opDoubleBufferSeqAsync(const DoubleBuffer& inSeq, ::std::function<void(::Test::DoubleBuffer, ::Test::DoubleBuffer)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -327,7 +327,7 @@ public:
 
     ::std::optional<ASeq> opOptASeq(const ::std::optional<ASeq>& inSeq, ::std::optional<ASeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<ASeq>, ::std::optional<ASeq>>> opOptASeqAsync(const ::std::optional<ASeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<ASeq>, ::std::optional<ASeq>>> opOptASeqAsync(const ::std::optional<ASeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptASeqAsync(const ::std::optional<ASeq>& inSeq, ::std::function<void(::std::optional<::Test::ASeq>, ::std::optional<::Test::ASeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -338,7 +338,7 @@ public:
 
     ::std::optional<AArray> opOptAArray(const ::std::optional<AArray>& inSeq, ::std::optional<AArray>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<AArray>, ::std::optional<AArray>>> opOptAArrayAsync(const ::std::optional<AArray>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<AArray>, ::std::optional<AArray>>> opOptAArrayAsync(const ::std::optional<AArray>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptAArrayAsync(const ::std::optional<AArray>& inSeq, ::std::function<void(::std::optional<::Test::AArray>, ::std::optional<::Test::AArray>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -349,7 +349,7 @@ public:
 
     ::std::optional<AList> opOptAList(const ::std::optional<AList>& inSeq, ::std::optional<AList>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<AList>, ::std::optional<AList>>> opOptAListAsync(const ::std::optional<AList>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<AList>, ::std::optional<AList>>> opOptAListAsync(const ::std::optional<AList>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptAListAsync(const ::std::optional<AList>& inSeq, ::std::function<void(::std::optional<::Test::AList>, ::std::optional<::Test::AList>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -360,7 +360,7 @@ public:
 
     ::std::optional<BoolSeq> opOptBoolSeq(const ::std::optional<BoolSeq>& inSeq, ::std::optional<BoolSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<BoolSeq>, ::std::optional<BoolSeq>>> opOptBoolSeqAsync(const ::std::optional<BoolSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<BoolSeq>, ::std::optional<BoolSeq>>> opOptBoolSeqAsync(const ::std::optional<BoolSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptBoolSeqAsync(const ::std::optional<BoolSeq>& inSeq, ::std::function<void(::std::optional<::Test::BoolSeq>, ::std::optional<::Test::BoolSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -371,7 +371,7 @@ public:
 
     ::std::optional<ByteSeq> opOptByteSeq(const ::std::optional<ByteSeq>& inSeq, ::std::optional<ByteSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>> opOptByteSeqAsync(const ::std::optional<ByteSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>> opOptByteSeqAsync(const ::std::optional<ByteSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptByteSeqAsync(const ::std::optional<ByteSeq>& inSeq, ::std::function<void(::std::optional<::Test::ByteSeq>, ::std::optional<::Test::ByteSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -382,7 +382,7 @@ public:
 
     ::std::optional<ShortSeq> opOptShortSeq(const ::std::optional<ShortSeq>& inSeq, ::std::optional<ShortSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>> opOptShortSeqAsync(const ::std::optional<ShortSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>> opOptShortSeqAsync(const ::std::optional<ShortSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptShortSeqAsync(const ::std::optional<ShortSeq>& inSeq, ::std::function<void(::std::optional<::Test::ShortSeq>, ::std::optional<::Test::ShortSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -393,7 +393,7 @@ public:
 
     ::std::optional<IntSeq> opOptIntSeq(const ::std::optional<IntSeq>& inSeq, ::std::optional<IntSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<IntSeq>, ::std::optional<IntSeq>>> opOptIntSeqAsync(const ::std::optional<IntSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<IntSeq>, ::std::optional<IntSeq>>> opOptIntSeqAsync(const ::std::optional<IntSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptIntSeqAsync(const ::std::optional<IntSeq>& inSeq, ::std::function<void(::std::optional<::Test::IntSeq>, ::std::optional<::Test::IntSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -404,7 +404,7 @@ public:
 
     ::std::optional<LongSeq> opOptLongSeq(const ::std::optional<LongSeq>& inSeq, ::std::optional<LongSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<LongSeq>, ::std::optional<LongSeq>>> opOptLongSeqAsync(const ::std::optional<LongSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<LongSeq>, ::std::optional<LongSeq>>> opOptLongSeqAsync(const ::std::optional<LongSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptLongSeqAsync(const ::std::optional<LongSeq>& inSeq, ::std::function<void(::std::optional<::Test::LongSeq>, ::std::optional<::Test::LongSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -415,7 +415,7 @@ public:
 
     ::std::optional<FloatSeq> opOptFloatSeq(const ::std::optional<FloatSeq>& inSeq, ::std::optional<FloatSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<FloatSeq>, ::std::optional<FloatSeq>>> opOptFloatSeqAsync(const ::std::optional<FloatSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<FloatSeq>, ::std::optional<FloatSeq>>> opOptFloatSeqAsync(const ::std::optional<FloatSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptFloatSeqAsync(const ::std::optional<FloatSeq>& inSeq, ::std::function<void(::std::optional<::Test::FloatSeq>, ::std::optional<::Test::FloatSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -426,7 +426,7 @@ public:
 
     ::std::optional<DoubleSeq> opOptDoubleSeq(const ::std::optional<DoubleSeq>& inSeq, ::std::optional<DoubleSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<DoubleSeq>, ::std::optional<DoubleSeq>>> opOptDoubleSeqAsync(const ::std::optional<DoubleSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<DoubleSeq>, ::std::optional<DoubleSeq>>> opOptDoubleSeqAsync(const ::std::optional<DoubleSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptDoubleSeqAsync(const ::std::optional<DoubleSeq>& inSeq, ::std::function<void(::std::optional<::Test::DoubleSeq>, ::std::optional<::Test::DoubleSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -437,7 +437,7 @@ public:
 
     ::std::optional<StringSeq> opOptStringSeq(const ::std::optional<StringSeq>& inSeq, ::std::optional<StringSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<StringSeq>, ::std::optional<StringSeq>>> opOptStringSeqAsync(const ::std::optional<StringSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<StringSeq>, ::std::optional<StringSeq>>> opOptStringSeqAsync(const ::std::optional<StringSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptStringSeqAsync(const ::std::optional<StringSeq>& inSeq, ::std::function<void(::std::optional<::Test::StringSeq>, ::std::optional<::Test::StringSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -448,7 +448,7 @@ public:
 
     ::std::optional<ESeq> opOptESeq(const ::std::optional<ESeq>& inSeq, ::std::optional<ESeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<ESeq>, ::std::optional<ESeq>>> opOptESeqAsync(const ::std::optional<ESeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<ESeq>, ::std::optional<ESeq>>> opOptESeqAsync(const ::std::optional<ESeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptESeqAsync(const ::std::optional<ESeq>& inSeq, ::std::function<void(::std::optional<::Test::ESeq>, ::std::optional<::Test::ESeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -459,7 +459,7 @@ public:
 
     ::std::optional<SSeq> opOptSSeq(const ::std::optional<SSeq>& inSeq, ::std::optional<SSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<SSeq>, ::std::optional<SSeq>>> opOptSSeqAsync(const ::std::optional<SSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<SSeq>, ::std::optional<SSeq>>> opOptSSeqAsync(const ::std::optional<SSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptSSeqAsync(const ::std::optional<SSeq>& inSeq, ::std::function<void(::std::optional<::Test::SSeq>, ::std::optional<::Test::SSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -470,7 +470,7 @@ public:
 
     ::std::optional<DSeq> opOptDSeq(const ::std::optional<DSeq>& inSeq, ::std::optional<DSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<DSeq>, ::std::optional<DSeq>>> opOptDSeqAsync(const ::std::optional<DSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<DSeq>, ::std::optional<DSeq>>> opOptDSeqAsync(const ::std::optional<DSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptDSeqAsync(const ::std::optional<DSeq>& inSeq, ::std::function<void(::std::optional<::Test::DSeq>, ::std::optional<::Test::DSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -481,7 +481,7 @@ public:
 
     ::std::optional<StringSeqSeq> opOptStringSeqSeq(const ::std::optional<StringSeqSeq>& inSeq, ::std::optional<StringSeqSeq>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<StringSeqSeq>, ::std::optional<StringSeqSeq>>> opOptStringSeqSeqAsync(const ::std::optional<StringSeqSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<StringSeqSeq>, ::std::optional<StringSeqSeq>>> opOptStringSeqSeqAsync(const ::std::optional<StringSeqSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptStringSeqSeqAsync(const ::std::optional<StringSeqSeq>& inSeq, ::std::function<void(::std::optional<::Test::StringSeqSeq>, ::std::optional<::Test::StringSeqSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -492,7 +492,7 @@ public:
 
     ::std::optional<ByteBuffer> opOptByteBufferSeq(const ::std::optional<ByteBuffer>& inSeq, ::std::optional<ByteBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<ByteBuffer>, ::std::optional<ByteBuffer>>> opOptByteBufferSeqAsync(const ::std::optional<ByteBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<ByteBuffer>, ::std::optional<ByteBuffer>>> opOptByteBufferSeqAsync(const ::std::optional<ByteBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptByteBufferSeqAsync(const ::std::optional<ByteBuffer>& inSeq, ::std::function<void(::std::optional<::Test::ByteBuffer>, ::std::optional<::Test::ByteBuffer>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -503,7 +503,7 @@ public:
 
     ::std::optional<ShortBuffer> opOptShortBufferSeq(const ::std::optional<ShortBuffer>& inSeq, ::std::optional<ShortBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<ShortBuffer>, ::std::optional<ShortBuffer>>> opOptShortBufferSeqAsync(const ::std::optional<ShortBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<ShortBuffer>, ::std::optional<ShortBuffer>>> opOptShortBufferSeqAsync(const ::std::optional<ShortBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptShortBufferSeqAsync(const ::std::optional<ShortBuffer>& inSeq, ::std::function<void(::std::optional<::Test::ShortBuffer>, ::std::optional<::Test::ShortBuffer>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -514,7 +514,7 @@ public:
 
     ::std::optional<IntBuffer> opOptIntBufferSeq(const ::std::optional<IntBuffer>& inSeq, ::std::optional<IntBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<IntBuffer>, ::std::optional<IntBuffer>>> opOptIntBufferSeqAsync(const ::std::optional<IntBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<IntBuffer>, ::std::optional<IntBuffer>>> opOptIntBufferSeqAsync(const ::std::optional<IntBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptIntBufferSeqAsync(const ::std::optional<IntBuffer>& inSeq, ::std::function<void(::std::optional<::Test::IntBuffer>, ::std::optional<::Test::IntBuffer>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -525,7 +525,7 @@ public:
 
     ::std::optional<LongBuffer> opOptLongBufferSeq(const ::std::optional<LongBuffer>& inSeq, ::std::optional<LongBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<LongBuffer>, ::std::optional<LongBuffer>>> opOptLongBufferSeqAsync(const ::std::optional<LongBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<LongBuffer>, ::std::optional<LongBuffer>>> opOptLongBufferSeqAsync(const ::std::optional<LongBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptLongBufferSeqAsync(const ::std::optional<LongBuffer>& inSeq, ::std::function<void(::std::optional<::Test::LongBuffer>, ::std::optional<::Test::LongBuffer>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -536,7 +536,7 @@ public:
 
     ::std::optional<FloatBuffer> opOptFloatBufferSeq(const ::std::optional<FloatBuffer>& inSeq, ::std::optional<FloatBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<FloatBuffer>, ::std::optional<FloatBuffer>>> opOptFloatBufferSeqAsync(const ::std::optional<FloatBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<FloatBuffer>, ::std::optional<FloatBuffer>>> opOptFloatBufferSeqAsync(const ::std::optional<FloatBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptFloatBufferSeqAsync(const ::std::optional<FloatBuffer>& inSeq, ::std::function<void(::std::optional<::Test::FloatBuffer>, ::std::optional<::Test::FloatBuffer>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -547,7 +547,7 @@ public:
 
     ::std::optional<DoubleBuffer> opOptDoubleBufferSeq(const ::std::optional<DoubleBuffer>& inSeq, ::std::optional<DoubleBuffer>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<DoubleBuffer>, ::std::optional<DoubleBuffer>>> opOptDoubleBufferSeqAsync(const ::std::optional<DoubleBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<DoubleBuffer>, ::std::optional<DoubleBuffer>>> opOptDoubleBufferSeqAsync(const ::std::optional<DoubleBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOptDoubleBufferSeqAsync(const ::std::optional<DoubleBuffer>& inSeq, ::std::function<void(::std::optional<::Test::DoubleBuffer>, ::std::optional<::Test::DoubleBuffer>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -558,7 +558,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

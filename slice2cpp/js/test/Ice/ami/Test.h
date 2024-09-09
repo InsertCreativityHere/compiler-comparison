@@ -46,7 +46,7 @@ public:
 
     void reply(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> replyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> replyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     replyAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -104,7 +104,7 @@ public:
 
     void op(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -115,7 +115,7 @@ public:
 
     void opWithPayload(const ::Ice::ByteSeq& seq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opWithPayloadAsync(const ::Ice::ByteSeq& seq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> opWithPayloadAsync(const ::Ice::ByteSeq& seq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opWithPayloadAsync(const ::Ice::ByteSeq& seq, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -126,7 +126,7 @@ public:
 
     ::std::int32_t opWithResult(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> opWithResultAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::int32_t> opWithResultAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opWithResultAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -137,7 +137,7 @@ public:
 
     void opWithUE(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opWithUEAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> opWithUEAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opWithUEAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -148,7 +148,7 @@ public:
 
     void opBatch(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opBatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> opBatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBatchAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -159,7 +159,7 @@ public:
 
     ::std::int32_t opBatchCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> opBatchCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::int32_t> opBatchCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opBatchCountAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -170,7 +170,7 @@ public:
 
     bool waitForBatch(::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<bool> waitForBatchAsync(::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<bool> waitForBatchAsync(::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     waitForBatchAsync(::std::int32_t count, ::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -181,7 +181,7 @@ public:
 
     void closeConnection(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> closeConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> closeConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     closeConnectionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -192,7 +192,7 @@ public:
 
     void abortConnection(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> abortConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> abortConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     abortConnectionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -203,7 +203,7 @@ public:
 
     void sleep(::std::int32_t ms, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sleepAsync(::std::int32_t ms, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> sleepAsync(::std::int32_t ms, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     sleepAsync(::std::int32_t ms, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -214,7 +214,7 @@ public:
 
     void startDispatch(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> startDispatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> startDispatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     startDispatchAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -225,7 +225,7 @@ public:
 
     void finishDispatch(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> finishDispatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> finishDispatchAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     finishDispatchAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -236,7 +236,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -247,7 +247,7 @@ public:
 
     bool supportsAMD(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<bool> supportsAMDAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<bool> supportsAMDAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     supportsAMDAsync(::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -258,7 +258,7 @@ public:
 
     bool supportsFunctionalTests(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<bool> supportsFunctionalTestsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<bool> supportsFunctionalTestsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     supportsFunctionalTestsAsync(::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -269,7 +269,7 @@ public:
 
     void pingBidDir(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> pingBidDirAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> pingBidDirAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     pingBidDirAsync(const ::Ice::Identity& id, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -327,7 +327,7 @@ public:
 
     void holdAdapter(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> holdAdapterAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> holdAdapterAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     holdAdapterAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -338,7 +338,7 @@ public:
 
     void resumeAdapter(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> resumeAdapterAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> resumeAdapterAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     resumeAdapterAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

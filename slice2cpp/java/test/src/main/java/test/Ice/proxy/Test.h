@@ -47,7 +47,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -58,7 +58,7 @@ public:
 
     ::Ice::Context getContext(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::Ice::Context> getContextAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::Ice::Context> getContextAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getContextAsync(::std::function<void(::Ice::Context)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -116,7 +116,7 @@ public:
 
     ::std::optional<::Ice::ObjectPrx> echo(const ::std::optional<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<::Ice::ObjectPrx>> echoAsync(const ::std::optional<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<::Ice::ObjectPrx>> echoAsync(const ::std::optional<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     echoAsync(const ::std::optional<::Ice::ObjectPrx>& obj, ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

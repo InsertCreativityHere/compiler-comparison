@@ -76,7 +76,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Destroy the session. This is called automatically when the router is destroyed.
@@ -161,7 +161,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> addAsync(const ::Ice::StringSeq& additions, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> addAsync(const ::Ice::StringSeq& additions, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
@@ -193,7 +193,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> removeAsync(const ::Ice::StringSeq& deletions, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> removeAsync(const ::Ice::StringSeq& deletions, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
@@ -223,7 +223,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::Ice::StringSeq> getAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::Ice::StringSeq> getAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Returns a sequence of strings describing the constraints in this set.
@@ -307,7 +307,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> addAsync(const ::Ice::IdentitySeq& additions, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> addAsync(const ::Ice::IdentitySeq& additions, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
@@ -341,7 +341,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> removeAsync(const ::Ice::IdentitySeq& deletions, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> removeAsync(const ::Ice::IdentitySeq& deletions, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
@@ -372,7 +372,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::Ice::IdentitySeq> getAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::Ice::IdentitySeq> getAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Returns a sequence of identities describing the constraints in this set.
@@ -452,7 +452,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<StringSetPrx>> categoriesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<StringSetPrx>> categoriesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Access the object that manages the allowable categories for object identities for this session.
@@ -481,7 +481,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<StringSetPrx>> adapterIdsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<StringSetPrx>> adapterIdsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Access the object that manages the allowable adapter identities for objects for this session.
@@ -510,7 +510,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<IdentitySetPrx>> identitiesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<IdentitySetPrx>> identitiesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Access the object that manages the allowable object identities for this session.
@@ -539,7 +539,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::int32_t> getSessionTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::int32_t> getSessionTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the session timeout.
@@ -567,7 +567,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Destroy the associated session.
@@ -660,7 +660,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<SessionPrx>> createAsync(::std::string_view userId, const ::std::optional<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<SessionPrx>> createAsync(::std::string_view userId, const ::std::optional<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create a new session. The implementation must return a non-null proxy or raise
@@ -752,7 +752,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<SessionPrx>> createAsync(const SSLInfo& info, const ::std::optional<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<SessionPrx>> createAsync(const SSLInfo& info, const ::std::optional<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create a new session.

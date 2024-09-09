@@ -40,7 +40,7 @@ public:
 
     void putOnHold(::std::int32_t seconds, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> putOnHoldAsync(::std::int32_t seconds, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> putOnHoldAsync(::std::int32_t seconds, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     putOnHoldAsync(::std::int32_t seconds, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -51,7 +51,7 @@ public:
 
     void waitForHold(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> waitForHoldAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> waitForHoldAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     waitForHoldAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -62,7 +62,7 @@ public:
 
     void setOneway(::std::int32_t value, ::std::int32_t expected, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> setOnewayAsync(::std::int32_t value, ::std::int32_t expected, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> setOnewayAsync(::std::int32_t value, ::std::int32_t expected, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     setOnewayAsync(::std::int32_t value, ::std::int32_t expected, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -73,7 +73,7 @@ public:
 
     ::std::int32_t set(::std::int32_t value, ::std::int32_t delay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> setAsync(::std::int32_t value, ::std::int32_t delay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::int32_t> setAsync(::std::int32_t value, ::std::int32_t delay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     setAsync(::std::int32_t value, ::std::int32_t delay, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -84,7 +84,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

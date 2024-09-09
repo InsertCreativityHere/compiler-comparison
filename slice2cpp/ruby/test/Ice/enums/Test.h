@@ -109,7 +109,7 @@ public:
 
     ByteEnum opByte(ByteEnum b1, ByteEnum& b2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteEnum, ByteEnum>> opByteAsync(ByteEnum b1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<ByteEnum, ByteEnum>> opByteAsync(ByteEnum b1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opByteAsync(ByteEnum b1, ::std::function<void(::Test::ByteEnum, ::Test::ByteEnum)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -120,7 +120,7 @@ public:
 
     ShortEnum opShort(ShortEnum s1, ShortEnum& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ShortEnum, ShortEnum>> opShortAsync(ShortEnum s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<ShortEnum, ShortEnum>> opShortAsync(ShortEnum s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opShortAsync(ShortEnum s1, ::std::function<void(::Test::ShortEnum, ::Test::ShortEnum)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -131,7 +131,7 @@ public:
 
     IntEnum opInt(IntEnum i1, IntEnum& i2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<IntEnum, IntEnum>> opIntAsync(IntEnum i1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<IntEnum, IntEnum>> opIntAsync(IntEnum i1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opIntAsync(IntEnum i1, ::std::function<void(::Test::IntEnum, ::Test::IntEnum)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -142,7 +142,7 @@ public:
 
     SimpleEnum opSimple(SimpleEnum s1, SimpleEnum& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SimpleEnum, SimpleEnum>> opSimpleAsync(SimpleEnum s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<SimpleEnum, SimpleEnum>> opSimpleAsync(SimpleEnum s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSimpleAsync(SimpleEnum s1, ::std::function<void(::Test::SimpleEnum, ::Test::SimpleEnum)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -153,7 +153,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

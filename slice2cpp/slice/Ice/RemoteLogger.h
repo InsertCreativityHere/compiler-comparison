@@ -96,7 +96,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> initAsync(::std::string_view prefix, const LogMessageSeq& logMessages, const Context& context = noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> initAsync(::std::string_view prefix, const LogMessageSeq& logMessages, const Context& context = noExplicitContext) const;
 
     /**
      * init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
@@ -128,7 +128,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> logAsync(const LogMessage& message, const Context& context = noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> logAsync(const LogMessage& message, const Context& context = noExplicitContext) const;
 
     /**
      * Log a LogMessage. Note that log may be called by LoggerAdmin before init.
@@ -228,7 +228,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> attachRemoteLoggerAsync(const ::std::optional<RemoteLoggerPrx>& prx, const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, ::std::int32_t messageMax, const Context& context = noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> attachRemoteLoggerAsync(const ::std::optional<RemoteLoggerPrx>& prx, const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, ::std::int32_t messageMax, const Context& context = noExplicitContext) const;
 
     /**
      * Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
@@ -268,7 +268,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<bool> detachRemoteLoggerAsync(const ::std::optional<RemoteLoggerPrx>& prx, const Context& context = noExplicitContext) const;
+    [[nodiscard]] ::std::future<bool> detachRemoteLoggerAsync(const ::std::optional<RemoteLoggerPrx>& prx, const Context& context = noExplicitContext) const;
 
     /**
      * Detaches a RemoteLogger object from the local logger.
@@ -313,7 +313,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<LogMessageSeq, ::std::string>> getLogAsync(const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, ::std::int32_t messageMax, const Context& context = noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<LogMessageSeq, ::std::string>> getLogAsync(const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, ::std::int32_t messageMax, const Context& context = noExplicitContext) const;
 
     /**
      * Retrieves log messages recently logged.

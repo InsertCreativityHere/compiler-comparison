@@ -104,7 +104,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<::Ice::StringSeq, ::Ice::StringSeq>> getMetricsViewNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::Ice::StringSeq, ::Ice::StringSeq>> getMetricsViewNamesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the names of enabled and disabled metrics.
@@ -135,7 +135,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> enableMetricsViewAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> enableMetricsViewAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Enables a metrics view.
@@ -167,7 +167,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> disableMetricsViewAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> disableMetricsViewAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Disable a metrics view.
@@ -205,7 +205,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<MetricsView, ::std::int64_t>> getMetricsViewAsync(::std::string_view view, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<MetricsView, ::std::int64_t>> getMetricsViewAsync(::std::string_view view, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
@@ -242,7 +242,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<MetricsFailuresSeq> getMapMetricsFailuresAsync(::std::string_view view, ::std::string_view map, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<MetricsFailuresSeq> getMapMetricsFailuresAsync(::std::string_view view, ::std::string_view map, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the metrics failures associated with the given view and map.
@@ -280,7 +280,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<MetricsFailures> getMetricsFailuresAsync(::std::string_view view, ::std::string_view map, ::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<MetricsFailures> getMetricsFailuresAsync(::std::string_view view, ::std::string_view map, ::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the metrics failure associated for the given metrics.

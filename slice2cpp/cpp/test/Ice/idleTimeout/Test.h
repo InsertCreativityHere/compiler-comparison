@@ -44,7 +44,7 @@ public:
 
     void sleep(::std::int32_t ms, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sleepAsync(::std::int32_t ms, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> sleepAsync(::std::int32_t ms, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     sleepAsync(::std::int32_t ms, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -102,7 +102,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -169,7 +169,7 @@ public:
 
     void makeSleep(bool aborted, ::std::int32_t ms, const ::std::optional<DelayedTestIntfPrx>& target, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> makeSleepAsync(bool aborted, ::std::int32_t ms, const ::std::optional<DelayedTestIntfPrx>& target, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> makeSleepAsync(bool aborted, ::std::int32_t ms, const ::std::optional<DelayedTestIntfPrx>& target, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     makeSleepAsync(bool aborted, ::std::int32_t ms, const ::std::optional<DelayedTestIntfPrx>& target, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

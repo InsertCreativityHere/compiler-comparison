@@ -40,7 +40,7 @@ public:
 
     void pub(::std::int32_t counter, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> pubAsync(::std::int32_t counter, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> pubAsync(::std::int32_t counter, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     pubAsync(::std::int32_t counter, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

@@ -67,7 +67,7 @@ public:
 
     void elif(::std::int32_t _cpp_else, ::std::int32_t& except, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> elifAsync(::std::int32_t _cpp_else, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::int32_t> elifAsync(::std::int32_t _cpp_else, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     elifAsync(::std::int32_t _cpp_else, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -125,7 +125,7 @@ public:
 
     void finally(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> finallyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> finallyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     finallyAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -239,7 +239,7 @@ public:
 
     assert raise(const _cpp_continue& _cpp_else, const ::and::forPtr& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, ::std::int32_t global, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<assert> raiseAsync(const _cpp_continue& _cpp_else, const ::and::forPtr& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, ::std::int32_t global, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<assert> raiseAsync(const _cpp_continue& _cpp_else, const ::and::forPtr& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, ::std::int32_t global, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     raiseAsync(const _cpp_continue& _cpp_else, const ::and::forPtr& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, ::std::int32_t global, ::std::function<void(::_cpp_and::assert)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

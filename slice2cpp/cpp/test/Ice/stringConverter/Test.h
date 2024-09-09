@@ -40,7 +40,7 @@ public:
 
     ::std::wstring widen(::std::string_view msg, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::wstring> widenAsync(::std::string_view msg, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::wstring> widenAsync(::std::string_view msg, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     widenAsync(::std::string_view msg, ::std::function<void(::std::wstring)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -51,7 +51,7 @@ public:
 
     ::std::string narrow(::std::wstring_view wmsg, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> narrowAsync(::std::wstring_view wmsg, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::string> narrowAsync(::std::wstring_view wmsg, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     narrowAsync(::std::wstring_view wmsg, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -62,7 +62,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

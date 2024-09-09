@@ -59,7 +59,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> foundObjectByIdAsync(const ::Ice::Identity& id, const ::std::optional<::Ice::ObjectPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> foundObjectByIdAsync(const ::Ice::Identity& id, const ::std::optional<::Ice::ObjectPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Reply to the findObjectById request.
@@ -97,7 +97,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> foundAdapterByIdAsync(::std::string_view id, const ::std::optional<::Ice::ObjectPrx>& prx, bool isReplicaGroup, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> foundAdapterByIdAsync(::std::string_view id, const ::std::optional<::Ice::ObjectPrx>& prx, bool isReplicaGroup, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Reply to the findAdpaterById request.
@@ -189,7 +189,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> findObjectByIdAsync(::std::string_view domainId, const ::Ice::Identity& id, const ::std::optional<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> findObjectByIdAsync(::std::string_view domainId, const ::Ice::Identity& id, const ::std::optional<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Request to find an Ice object
@@ -232,7 +232,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> findAdapterByIdAsync(::std::string_view domainId, ::std::string_view id, const ::std::optional<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> findAdapterByIdAsync(::std::string_view domainId, ::std::string_view id, const ::std::optional<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Request to find an object adapter

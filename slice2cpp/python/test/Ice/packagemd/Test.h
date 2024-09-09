@@ -42,7 +42,7 @@ public:
 
     ::Test1::C1Ptr getTest1C2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::Test1::C1Ptr> getTest1C2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::Test1::C1Ptr> getTest1C2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getTest1C2AsC1Async(::std::function<void(::Test1::C1Ptr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -53,7 +53,7 @@ public:
 
     ::Test1::C2Ptr getTest1C2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::Test1::C2Ptr> getTest1C2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::Test1::C2Ptr> getTest1C2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getTest1C2AsC2Async(::std::function<void(::Test1::C2Ptr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -64,7 +64,7 @@ public:
 
     void throwTest1E2AsE1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwTest1E2AsE1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> throwTest1E2AsE1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwTest1E2AsE1Async(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -75,7 +75,7 @@ public:
 
     void throwTest1E2AsE2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwTest1E2AsE2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> throwTest1E2AsE2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwTest1E2AsE2Async(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -86,7 +86,7 @@ public:
 
     void throwTest1Def(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwTest1DefAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> throwTest1DefAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwTest1DefAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -97,7 +97,7 @@ public:
 
     ::Test2::C1Ptr getTest2C2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::Test2::C1Ptr> getTest2C2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::Test2::C1Ptr> getTest2C2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getTest2C2AsC1Async(::std::function<void(::Test2::C1Ptr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -108,7 +108,7 @@ public:
 
     ::Test2::C2Ptr getTest2C2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::Test2::C2Ptr> getTest2C2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::Test2::C2Ptr> getTest2C2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getTest2C2AsC2Async(::std::function<void(::Test2::C2Ptr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -119,7 +119,7 @@ public:
 
     void throwTest2E2AsE1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwTest2E2AsE1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> throwTest2E2AsE1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwTest2E2AsE1Async(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -130,7 +130,7 @@ public:
 
     void throwTest2E2AsE2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwTest2E2AsE2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> throwTest2E2AsE2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwTest2E2AsE2Async(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -141,7 +141,7 @@ public:
 
     ::Test3::C1Ptr getTest3C2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::Test3::C1Ptr> getTest3C2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::Test3::C1Ptr> getTest3C2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getTest3C2AsC1Async(::std::function<void(::Test3::C1Ptr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -152,7 +152,7 @@ public:
 
     ::Test3::C2Ptr getTest3C2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::Test3::C2Ptr> getTest3C2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::Test3::C2Ptr> getTest3C2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getTest3C2AsC2Async(::std::function<void(::Test3::C2Ptr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -163,7 +163,7 @@ public:
 
     void throwTest3E2AsE1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwTest3E2AsE1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> throwTest3E2AsE1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwTest3E2AsE1Async(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -174,7 +174,7 @@ public:
 
     void throwTest3E2AsE2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwTest3E2AsE2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> throwTest3E2AsE2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwTest3E2AsE2Async(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -185,7 +185,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

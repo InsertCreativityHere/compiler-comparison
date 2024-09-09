@@ -44,7 +44,7 @@ public:
 
     UserInfoPtr getUserInfo(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<UserInfoPtr> getUserInfoAsync(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<UserInfoPtr> getUserInfoAsync(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getUserInfoAsync(::std::string_view id, ::std::function<void(::User::UserInfoPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

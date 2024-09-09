@@ -58,7 +58,7 @@ public:
 
     ::std::wstring opString(::std::wstring_view s1, ::std::wstring& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::wstring, ::std::wstring>> opStringAsync(::std::wstring_view s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::wstring, ::std::wstring>> opStringAsync(::std::wstring_view s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringAsync(::std::wstring_view s1, ::std::function<void(::std::wstring, ::std::wstring)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -69,7 +69,7 @@ public:
 
     WstringStruct opStruct(const WstringStruct& s1, WstringStruct& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<WstringStruct, WstringStruct>> opStructAsync(const WstringStruct& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<WstringStruct, WstringStruct>> opStructAsync(const WstringStruct& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStructAsync(const WstringStruct& s1, ::std::function<void(::Test1::WstringStruct, ::Test1::WstringStruct)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -80,7 +80,7 @@ public:
 
     void throwExcept(::std::wstring_view reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwExceptAsync(::std::wstring_view reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> throwExceptAsync(::std::wstring_view reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwExceptAsync(::std::wstring_view reason, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -143,7 +143,7 @@ public:
 
     ::std::wstring opString(::std::wstring_view s1, ::std::wstring& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::wstring, ::std::wstring>> opStringAsync(::std::wstring_view s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::wstring, ::std::wstring>> opStringAsync(::std::wstring_view s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStringAsync(::std::wstring_view s1, ::std::function<void(::std::wstring, ::std::wstring)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -154,7 +154,7 @@ public:
 
     WstringStruct opStruct(const WstringStruct& s1, WstringStruct& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<WstringStruct, WstringStruct>> opStructAsync(const WstringStruct& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<WstringStruct, WstringStruct>> opStructAsync(const WstringStruct& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opStructAsync(const WstringStruct& s1, ::std::function<void(::Test2::WstringStruct, ::Test2::WstringStruct)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -165,7 +165,7 @@ public:
 
     void throwExcept(::std::wstring_view reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwExceptAsync(::std::wstring_view reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> throwExceptAsync(::std::wstring_view reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwExceptAsync(::std::wstring_view reason, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

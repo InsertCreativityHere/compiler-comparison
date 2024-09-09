@@ -40,7 +40,7 @@ public:
 
     ::std::int32_t op(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::int32_t> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -51,7 +51,7 @@ public:
 
     ::std::int32_t callOpOn(const ::std::optional<TestIntfPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::int32_t> callOpOnAsync(const ::std::optional<TestIntfPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::int32_t> callOpOnAsync(const ::std::optional<TestIntfPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     callOpOnAsync(const ::std::optional<TestIntfPrx>& proxy, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -62,7 +62,7 @@ public:
 
     void throwUserException1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwUserException1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> throwUserException1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwUserException1Async(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -73,7 +73,7 @@ public:
 
     void throwUserException2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwUserException2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> throwUserException2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwUserException2Async(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -84,7 +84,7 @@ public:
 
     void throwUnhandledException1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwUnhandledException1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> throwUnhandledException1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwUnhandledException1Async(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -95,7 +95,7 @@ public:
 
     void throwUnhandledException2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwUnhandledException2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> throwUnhandledException2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwUnhandledException2Async(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -106,7 +106,7 @@ public:
 
     void sleep(::std::int32_t ms, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sleepAsync(::std::int32_t ms, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> sleepAsync(::std::int32_t ms, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     sleepAsync(::std::int32_t ms, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -117,7 +117,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

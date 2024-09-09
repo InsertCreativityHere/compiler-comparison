@@ -71,7 +71,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::string> getUserAccountAsync(::std::string_view user, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::string> getUserAccountAsync(::std::string_view user, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user

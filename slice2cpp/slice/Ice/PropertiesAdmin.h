@@ -56,7 +56,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::string> getPropertyAsync(::std::string_view key, const Context& context = noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::string> getPropertyAsync(::std::string_view key, const Context& context = noExplicitContext) const;
 
     /**
      * Get a property by key. If the property is not set, an empty string is returned.
@@ -90,7 +90,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<PropertyDict> getPropertiesForPrefixAsync(::std::string_view prefix, const Context& context = noExplicitContext) const;
+    [[nodiscard]] ::std::future<PropertyDict> getPropertiesForPrefixAsync(::std::string_view prefix, const Context& context = noExplicitContext) const;
 
     /**
      * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
@@ -128,7 +128,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setPropertiesAsync(const PropertyDict& newProperties, const Context& context = noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> setPropertiesAsync(const PropertyDict& newProperties, const Context& context = noExplicitContext) const;
 
     /**
      * Update the communicator's properties with the given property set. If an entry in <em>newProperties</em>

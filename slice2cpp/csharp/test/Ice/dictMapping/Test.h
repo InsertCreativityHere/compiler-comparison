@@ -68,7 +68,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -79,7 +79,7 @@ public:
 
     NV opNV(const NV& i, NV& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<NV, NV>> opNVAsync(const NV& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<NV, NV>> opNVAsync(const NV& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opNVAsync(const NV& i, ::std::function<void(::Test::NV, ::Test::NV)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -90,7 +90,7 @@ public:
 
     NR opNR(const NR& i, NR& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<NR, NR>> opNRAsync(const NR& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<NR, NR>> opNRAsync(const NR& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opNRAsync(const NR& i, ::std::function<void(::Test::NR, ::Test::NR)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -101,7 +101,7 @@ public:
 
     NDV opNDV(const NDV& i, NDV& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<NDV, NDV>> opNDVAsync(const NDV& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<NDV, NDV>> opNDVAsync(const NDV& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opNDVAsync(const NDV& i, ::std::function<void(::Test::NDV, ::Test::NDV)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -112,7 +112,7 @@ public:
 
     NDR opNDR(const NDR& i, NDR& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<NDR, NDR>> opNDRAsync(const NDR& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<NDR, NDR>> opNDRAsync(const NDR& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opNDRAsync(const NDR& i, ::std::function<void(::Test::NDR, ::Test::NDR)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -123,7 +123,7 @@ public:
 
     NDAIS opNDAIS(const NDAIS& i, NDAIS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<NDAIS, NDAIS>> opNDAISAsync(const NDAIS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<NDAIS, NDAIS>> opNDAISAsync(const NDAIS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opNDAISAsync(const NDAIS& i, ::std::function<void(::Test::NDAIS, ::Test::NDAIS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -134,7 +134,7 @@ public:
 
     NDGIS opNDGIS(const NDGIS& i, NDGIS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<NDGIS, NDGIS>> opNDGISAsync(const NDGIS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<NDGIS, NDGIS>> opNDGISAsync(const NDGIS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opNDGISAsync(const NDGIS& i, ::std::function<void(::Test::NDGIS, ::Test::NDGIS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -145,7 +145,7 @@ public:
 
     NDASS opNDASS(const NDASS& i, NDASS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<NDASS, NDASS>> opNDASSAsync(const NDASS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<NDASS, NDASS>> opNDASSAsync(const NDASS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opNDASSAsync(const NDASS& i, ::std::function<void(::Test::NDASS, ::Test::NDASS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -156,7 +156,7 @@ public:
 
     NDGSS opNDGSS(const NDGSS& i, NDGSS& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<NDGSS, NDGSS>> opNDGSSAsync(const NDGSS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<NDGSS, NDGSS>> opNDGSSAsync(const NDGSS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opNDGSSAsync(const NDGSS& i, ::std::function<void(::Test::NDGSS, ::Test::NDGSS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

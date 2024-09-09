@@ -45,7 +45,7 @@ public:
 
     ::std::optional<::Ice::ObjectPrx> getAdmin(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<::Ice::ObjectPrx>> getAdminAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<::Ice::ObjectPrx>> getAdminAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getAdminAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -56,7 +56,7 @@ public:
 
     ::Ice::PropertyDict getChanges(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::Ice::PropertyDict> getChangesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::Ice::PropertyDict> getChangesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getChangesAsync(::std::function<void(::Ice::PropertyDict)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -67,7 +67,7 @@ public:
 
     void addUpdateCallback(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> addUpdateCallbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> addUpdateCallbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     addUpdateCallbackAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -78,7 +78,7 @@ public:
 
     void removeUpdateCallback(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> removeUpdateCallbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> removeUpdateCallbackAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     removeUpdateCallbackAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -89,7 +89,7 @@ public:
 
     void print(::std::string_view message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> printAsync(::std::string_view message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> printAsync(::std::string_view message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     printAsync(::std::string_view message, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -100,7 +100,7 @@ public:
 
     void trace(::std::string_view category, ::std::string_view message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> traceAsync(::std::string_view category, ::std::string_view message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> traceAsync(::std::string_view category, ::std::string_view message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     traceAsync(::std::string_view category, ::std::string_view message, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -111,7 +111,7 @@ public:
 
     void warning(::std::string_view message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> warningAsync(::std::string_view message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> warningAsync(::std::string_view message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     warningAsync(::std::string_view message, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -122,7 +122,7 @@ public:
 
     void error(::std::string_view message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> errorAsync(::std::string_view message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> errorAsync(::std::string_view message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     errorAsync(::std::string_view message, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -133,7 +133,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -144,7 +144,7 @@ public:
 
     void waitForShutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> waitForShutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> waitForShutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     waitForShutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -155,7 +155,7 @@ public:
 
     void destroy(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     destroyAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -213,7 +213,7 @@ public:
 
     ::std::optional<RemoteCommunicatorPrx> createCommunicator(const ::Ice::PropertyDict& props, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<RemoteCommunicatorPrx>> createCommunicatorAsync(const ::Ice::PropertyDict& props, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<RemoteCommunicatorPrx>> createCommunicatorAsync(const ::Ice::PropertyDict& props, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     createCommunicatorAsync(const ::Ice::PropertyDict& props, ::std::function<void(::std::optional<::Test::RemoteCommunicatorPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -224,7 +224,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -282,7 +282,7 @@ public:
 
     void op(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

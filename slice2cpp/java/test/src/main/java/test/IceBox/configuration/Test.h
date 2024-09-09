@@ -41,7 +41,7 @@ public:
 
     ::std::string getProperty(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> getPropertyAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::string> getPropertyAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getPropertyAsync(::std::string_view name, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -52,7 +52,7 @@ public:
 
     ::Ice::StringSeq getArgs(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::Ice::StringSeq> getArgsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::Ice::StringSeq> getArgsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     getArgsAsync(::std::function<void(::Ice::StringSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

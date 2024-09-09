@@ -45,7 +45,7 @@ public:
 
     void context(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> contextAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> contextAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     contextAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -56,7 +56,7 @@ public:
 
     void current(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> currentAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> currentAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     currentAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -67,7 +67,7 @@ public:
 
     void response(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> responseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> responseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     responseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -78,7 +78,7 @@ public:
 
     void typeId(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> typeIdAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> typeIdAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     typeIdAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -89,7 +89,7 @@ public:
 
     void del(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> delAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> delAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     delAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -100,7 +100,7 @@ public:
 
     void cookie(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> cookieAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> cookieAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     cookieAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -111,7 +111,7 @@ public:
 
     void sync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> syncAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> syncAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     syncAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -122,7 +122,7 @@ public:
 
     void inS(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> inSAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> inSAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     inSAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -133,7 +133,7 @@ public:
 
     void istr(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> istrAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> istrAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     istrAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -144,7 +144,7 @@ public:
 
     void obj(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> objAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> objAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     objAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -155,7 +155,7 @@ public:
 
     void op(::std::string_view context, ::std::string_view current, ::std::string_view response, ::std::string_view ex, ::std::string_view sent, ::std::string_view cookie, ::std::string_view sync, ::std::string_view result, ::std::string_view istr, ::std::string_view ostr, ::std::optional<::std::string_view> proxy, ::std::optional<::std::int32_t> obj, const ::Ice::Context& context_ = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opAsync(::std::string_view context, ::std::string_view current, ::std::string_view response, ::std::string_view ex, ::std::string_view sent, ::std::string_view cookie, ::std::string_view sync, ::std::string_view result, ::std::string_view istr, ::std::string_view ostr, ::std::optional<::std::string_view> proxy, ::std::optional<::std::int32_t> obj, const ::Ice::Context& context_ = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> opAsync(::std::string_view context, ::std::string_view current, ::std::string_view response, ::std::string_view ex, ::std::string_view sent, ::std::string_view cookie, ::std::string_view sync, ::std::string_view result, ::std::string_view istr, ::std::string_view ostr, ::std::optional<::std::string_view> proxy, ::std::optional<::std::int32_t> obj, const ::Ice::Context& context_ = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opAsync(::std::string_view context, ::std::string_view current, ::std::string_view response, ::std::string_view ex, ::std::string_view sent, ::std::string_view cookie, ::std::string_view sync, ::std::string_view result, ::std::string_view istr, ::std::string_view ostr, ::std::optional<::std::string_view> proxy, ::std::optional<::std::int32_t> obj, ::std::function<void()> response_, ::std::function<void(::std::exception_ptr)> ex_ = nullptr, ::std::function<void(bool)> sent_ = nullptr, const ::Ice::Context& context_ = ::Ice::noExplicitContext) const;
@@ -166,7 +166,7 @@ public:
 
     void opOut(::std::string& context, ::std::string& current, ::std::string& response, ::std::string& ex, ::std::string& sent, ::std::string& cookie, ::std::string& sync, ::std::string& result, ::std::string& istr, ::std::string& ostr, ::std::optional<::std::string>& proxy, ::std::optional<::std::int32_t>& obj, const ::Ice::Context& context_ = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>, ::std::optional<::std::int32_t>>> opOutAsync(const ::Ice::Context& context_ = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>, ::std::optional<::std::int32_t>>> opOutAsync(const ::Ice::Context& context_ = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opOutAsync(::std::function<void(::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>, ::std::optional<::std::int32_t>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context_ = ::Ice::noExplicitContext) const;

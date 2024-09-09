@@ -87,7 +87,7 @@ public:
 
     ::Ice::ValuePtr SBaseAsObject(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::Ice::ValuePtr> SBaseAsObjectAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::Ice::ValuePtr> SBaseAsObjectAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     SBaseAsObjectAsync(::std::function<void(::Ice::ValuePtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -98,7 +98,7 @@ public:
 
     SBasePtr SBaseAsSBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<SBasePtr> SBaseAsSBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<SBasePtr> SBaseAsSBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     SBaseAsSBaseAsync(::std::function<void(::Test::SBasePtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -109,7 +109,7 @@ public:
 
     SBasePtr SBSKnownDerivedAsSBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<SBasePtr> SBSKnownDerivedAsSBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<SBasePtr> SBSKnownDerivedAsSBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     SBSKnownDerivedAsSBaseAsync(::std::function<void(::Test::SBasePtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -120,7 +120,7 @@ public:
 
     SBSKnownDerivedPtr SBSKnownDerivedAsSBSKnownDerived(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<SBSKnownDerivedPtr> SBSKnownDerivedAsSBSKnownDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<SBSKnownDerivedPtr> SBSKnownDerivedAsSBSKnownDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     SBSKnownDerivedAsSBSKnownDerivedAsync(::std::function<void(::Test::SBSKnownDerivedPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -131,7 +131,7 @@ public:
 
     SBasePtr SBSUnknownDerivedAsSBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<SBasePtr> SBSUnknownDerivedAsSBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<SBasePtr> SBSUnknownDerivedAsSBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     SBSUnknownDerivedAsSBaseAsync(::std::function<void(::Test::SBasePtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -142,7 +142,7 @@ public:
 
     SBasePtr SBSUnknownDerivedAsSBaseCompact(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<SBasePtr> SBSUnknownDerivedAsSBaseCompactAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<SBasePtr> SBSUnknownDerivedAsSBaseCompactAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     SBSUnknownDerivedAsSBaseCompactAsync(::std::function<void(::Test::SBasePtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -153,7 +153,7 @@ public:
 
     ::Ice::ValuePtr SUnknownAsObject(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::Ice::ValuePtr> SUnknownAsObjectAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::Ice::ValuePtr> SUnknownAsObjectAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     SUnknownAsObjectAsync(::std::function<void(::Ice::ValuePtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -164,7 +164,7 @@ public:
 
     void checkSUnknown(const ::Ice::ValuePtr& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> checkSUnknownAsync(const ::Ice::ValuePtr& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> checkSUnknownAsync(const ::Ice::ValuePtr& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     checkSUnknownAsync(const ::Ice::ValuePtr& o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -175,7 +175,7 @@ public:
 
     BPtr oneElementCycle(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BPtr> oneElementCycleAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<BPtr> oneElementCycleAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     oneElementCycleAsync(::std::function<void(::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -186,7 +186,7 @@ public:
 
     BPtr twoElementCycle(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BPtr> twoElementCycleAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<BPtr> twoElementCycleAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     twoElementCycleAsync(::std::function<void(::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -197,7 +197,7 @@ public:
 
     BPtr D1AsB(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BPtr> D1AsBAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<BPtr> D1AsBAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     D1AsBAsync(::std::function<void(::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -208,7 +208,7 @@ public:
 
     D1Ptr D1AsD1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<D1Ptr> D1AsD1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<D1Ptr> D1AsD1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     D1AsD1Async(::std::function<void(::Test::D1Ptr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -219,7 +219,7 @@ public:
 
     BPtr D2AsB(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BPtr> D2AsBAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<BPtr> D2AsBAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     D2AsBAsync(::std::function<void(::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -230,7 +230,7 @@ public:
 
     void paramTest1(BPtr& p1, BPtr& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BPtr, BPtr>> paramTest1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<BPtr, BPtr>> paramTest1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     paramTest1Async(::std::function<void(::Test::BPtr, ::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -241,7 +241,7 @@ public:
 
     void paramTest2(BPtr& p2, BPtr& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BPtr, BPtr>> paramTest2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<BPtr, BPtr>> paramTest2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     paramTest2Async(::std::function<void(::Test::BPtr, ::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -252,7 +252,7 @@ public:
 
     BPtr paramTest3(BPtr& p1, BPtr& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BPtr, BPtr, BPtr>> paramTest3Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<BPtr, BPtr, BPtr>> paramTest3Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     paramTest3Async(::std::function<void(::Test::BPtr, ::Test::BPtr, ::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -263,7 +263,7 @@ public:
 
     BPtr paramTest4(BPtr& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BPtr, BPtr>> paramTest4Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<BPtr, BPtr>> paramTest4Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     paramTest4Async(::std::function<void(::Test::BPtr, ::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -274,7 +274,7 @@ public:
 
     BPtr returnTest1(BPtr& p1, BPtr& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BPtr, BPtr, BPtr>> returnTest1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<BPtr, BPtr, BPtr>> returnTest1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     returnTest1Async(::std::function<void(::Test::BPtr, ::Test::BPtr, ::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -285,7 +285,7 @@ public:
 
     BPtr returnTest2(BPtr& p2, BPtr& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BPtr, BPtr, BPtr>> returnTest2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<BPtr, BPtr, BPtr>> returnTest2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     returnTest2Async(::std::function<void(::Test::BPtr, ::Test::BPtr, ::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -296,7 +296,7 @@ public:
 
     BPtr returnTest3(const BPtr& p1, const BPtr& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<BPtr> returnTest3Async(const BPtr& p1, const BPtr& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<BPtr> returnTest3Async(const BPtr& p1, const BPtr& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     returnTest3Async(const BPtr& p1, const BPtr& p2, ::std::function<void(::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -307,7 +307,7 @@ public:
 
     SS3 sequenceTest(const SS1Ptr& p1, const SS2Ptr& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<SS3> sequenceTestAsync(const SS1Ptr& p1, const SS2Ptr& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<SS3> sequenceTestAsync(const SS1Ptr& p1, const SS2Ptr& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     sequenceTestAsync(const SS1Ptr& p1, const SS2Ptr& p2, ::std::function<void(::Test::SS3)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -318,7 +318,7 @@ public:
 
     BDict dictionaryTest(const BDict& bin, BDict& bout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BDict, BDict>> dictionaryTestAsync(const BDict& bin, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<BDict, BDict>> dictionaryTestAsync(const BDict& bin, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     dictionaryTestAsync(const BDict& bin, ::std::function<void(::Test::BDict, ::Test::BDict)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -329,7 +329,7 @@ public:
 
     PBasePtr exchangePBase(const PBasePtr& pb, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<PBasePtr> exchangePBaseAsync(const PBasePtr& pb, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<PBasePtr> exchangePBaseAsync(const PBasePtr& pb, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     exchangePBaseAsync(const PBasePtr& pb, ::std::function<void(::Test::PBasePtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -340,7 +340,7 @@ public:
 
     PreservedPtr PBSUnknownAsPreserved(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<PreservedPtr> PBSUnknownAsPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<PreservedPtr> PBSUnknownAsPreservedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     PBSUnknownAsPreservedAsync(::std::function<void(::Test::PreservedPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -351,7 +351,7 @@ public:
 
     void checkPBSUnknown(const PreservedPtr& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> checkPBSUnknownAsync(const PreservedPtr& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> checkPBSUnknownAsync(const PreservedPtr& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     checkPBSUnknownAsync(const PreservedPtr& p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -362,7 +362,7 @@ public:
 
     PreservedPtr PBSUnknownAsPreservedWithGraph(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<PreservedPtr> PBSUnknownAsPreservedWithGraphAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<PreservedPtr> PBSUnknownAsPreservedWithGraphAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     PBSUnknownAsPreservedWithGraphAsync(::std::function<void(::Test::PreservedPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -373,7 +373,7 @@ public:
 
     void checkPBSUnknownWithGraph(const PreservedPtr& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> checkPBSUnknownWithGraphAsync(const PreservedPtr& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> checkPBSUnknownWithGraphAsync(const PreservedPtr& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     checkPBSUnknownWithGraphAsync(const PreservedPtr& p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -384,7 +384,7 @@ public:
 
     PreservedPtr PBSUnknown2AsPreservedWithGraph(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<PreservedPtr> PBSUnknown2AsPreservedWithGraphAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<PreservedPtr> PBSUnknown2AsPreservedWithGraphAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     PBSUnknown2AsPreservedWithGraphAsync(::std::function<void(::Test::PreservedPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -395,7 +395,7 @@ public:
 
     void checkPBSUnknown2WithGraph(const PreservedPtr& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> checkPBSUnknown2WithGraphAsync(const PreservedPtr& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> checkPBSUnknown2WithGraphAsync(const PreservedPtr& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     checkPBSUnknown2WithGraphAsync(const PreservedPtr& p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -406,7 +406,7 @@ public:
 
     PNodePtr exchangePNode(const PNodePtr& pn, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<PNodePtr> exchangePNodeAsync(const PNodePtr& pn, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<PNodePtr> exchangePNodeAsync(const PNodePtr& pn, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     exchangePNodeAsync(const PNodePtr& pn, ::std::function<void(::Test::PNodePtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -417,7 +417,7 @@ public:
 
     void throwBaseAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwBaseAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> throwBaseAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwBaseAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -428,7 +428,7 @@ public:
 
     void throwDerivedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> throwDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwDerivedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -439,7 +439,7 @@ public:
 
     void throwDerivedAsDerived(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwDerivedAsDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> throwDerivedAsDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwDerivedAsDerivedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -450,7 +450,7 @@ public:
 
     void throwUnknownDerivedAsBase(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwUnknownDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> throwUnknownDerivedAsBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     throwUnknownDerivedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -470,7 +470,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ForwardPtr> useForwardAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<ForwardPtr> useForwardAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Use of forward-declared class to verify that code is generated correctly.
@@ -489,7 +489,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

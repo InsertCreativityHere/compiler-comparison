@@ -59,7 +59,7 @@ public:
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -70,7 +70,7 @@ public:
 
     SerialSmall opSerialSmallJava(const SerialSmall& i, SerialSmall& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SerialSmall, SerialSmall>> opSerialSmallJavaAsync(const SerialSmall& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<SerialSmall, SerialSmall>> opSerialSmallJavaAsync(const SerialSmall& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSerialSmallJavaAsync(const SerialSmall& i, ::std::function<void(::Test::SerialSmall, ::Test::SerialSmall)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -81,7 +81,7 @@ public:
 
     SerialLarge opSerialLargeJava(const SerialLarge& i, SerialLarge& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SerialLarge, SerialLarge>> opSerialLargeJavaAsync(const SerialLarge& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<SerialLarge, SerialLarge>> opSerialLargeJavaAsync(const SerialLarge& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSerialLargeJavaAsync(const SerialLarge& i, ::std::function<void(::Test::SerialLarge, ::Test::SerialLarge)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -92,7 +92,7 @@ public:
 
     SerialStruct opSerialStructJava(const SerialStruct& i, SerialStruct& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<SerialStruct, SerialStruct>> opSerialStructJavaAsync(const SerialStruct& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<SerialStruct, SerialStruct>> opSerialStructJavaAsync(const SerialStruct& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     opSerialStructJavaAsync(const SerialStruct& i, ::std::function<void(::Test::SerialStruct, ::Test::SerialStruct)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

@@ -60,7 +60,7 @@ public:
 
     void _cpp_case(::std::int32_t clone, ::std::int32_t def, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> caseAsync(::std::int32_t clone, ::std::int32_t def, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> caseAsync(::std::int32_t clone, ::std::int32_t def, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     caseAsync(::std::int32_t clone, ::std::int32_t def, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -71,7 +71,7 @@ public:
 
     void to_a(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> to_aAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> to_aAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     to_aAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -82,7 +82,7 @@ public:
 
     void instance_variable_set(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> instance_variable_setAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> instance_variable_setAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     instance_variable_setAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -93,7 +93,7 @@ public:
 
     void instance_variables(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> instance_variablesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> instance_variablesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     instance_variablesAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -207,7 +207,7 @@ public:
 
     END _cpp_for(const displayPtr& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& _cpp_if, const displayPtr& inspect, const ::std::optional<elsifPrx>& method, ::std::int32_t methods, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<END> forAsync(const displayPtr& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& _cpp_if, const displayPtr& inspect, const ::std::optional<elsifPrx>& method, ::std::int32_t methods, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<END> forAsync(const displayPtr& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& _cpp_if, const displayPtr& inspect, const ::std::optional<elsifPrx>& method, ::std::int32_t methods, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
     forAsync(const displayPtr& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& _cpp_if, const displayPtr& inspect, const ::std::optional<elsifPrx>& method, ::std::int32_t methods, ::std::function<void(::BEGIN::END)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
