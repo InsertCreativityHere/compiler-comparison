@@ -60,28 +60,6 @@ public:
     void _iceI_waitForHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void setOneway(::std::int32_t value, ::std::int32_t expected, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<void> setOnewayAsync(::std::int32_t value, ::std::int32_t expected, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    setOnewayAsync(::std::int32_t value, ::std::int32_t expected, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_setOneway(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
-    /// \endcond
-
-    ::std::int32_t set(::std::int32_t value, ::std::int32_t delay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::int32_t> setAsync(::std::int32_t value, ::std::int32_t delay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    setAsync(::std::int32_t value, ::std::int32_t delay, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_set(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
-    /// \endcond
-
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -175,16 +153,6 @@ public:
     virtual void waitForHold(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_waitForHold(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
-    /// \endcond
-
-    virtual void setOneway(::std::int32_t value, ::std::int32_t expected, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_setOneway(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
-    /// \endcond
-
-    virtual ::std::int32_t set(::std::int32_t value, ::std::int32_t delay, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_set(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;

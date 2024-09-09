@@ -5,10 +5,6 @@
 %   putOnHoldAsync
 %   waitForHold
 %   waitForHoldAsync
-%   setOneway
-%   setOnewayAsync
-%   set
-%   setAsync
 %   shutdown
 %   shutdownAsync
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
@@ -62,77 +58,6 @@ classdef HoldPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
             r_ = obj.iceInvokeAsync('waitForHold', 0, false, [], 0, [], {}, varargin{:});
-        end
-        function setOneway(obj, value, expected, varargin)
-            % setOneway
-            %
-            % Parameters:
-            %   value (int32)
-            %   expected (int32)
-            %   context (containers.Map) - Optional request context.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeInt(value);
-            os_.writeInt(expected);
-            obj.iceEndWriteParams(os_);
-            obj.iceInvoke('setOneway', 0, false, os_, false, {}, varargin{:});
-        end
-        function r_ = setOnewayAsync(obj, value, expected, varargin)
-            % setOnewayAsync
-            %
-            % Parameters:
-            %   value (int32)
-            %   expected (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeInt(value);
-            os_.writeInt(expected);
-            obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('setOneway', 0, false, os_, 0, [], {}, varargin{:});
-        end
-        function result = set(obj, value, delay, varargin)
-            % set
-            %
-            % Parameters:
-            %   value (int32)
-            %   delay (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (int32)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeInt(value);
-            os_.writeInt(delay);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('set', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readInt();
-            is_.endEncapsulation();
-        end
-        function r_ = setAsync(obj, value, delay, varargin)
-            % setAsync
-            %
-            % Parameters:
-            %   value (int32)
-            %   delay (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeInt(value);
-            os_.writeInt(delay);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readInt();
-                is_.endEncapsulation();
-                varargout{1} = result;
-            end
-            r_ = obj.iceInvokeAsync('set', 0, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function shutdown(obj, varargin)
             % shutdown

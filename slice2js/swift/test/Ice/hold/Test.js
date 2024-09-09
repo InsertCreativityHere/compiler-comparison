@@ -43,7 +43,5 @@ Ice.defineOperations(
     {
         "putOnHold": [, , , , [[3]], , , , ],
         "waitForHold": [, , , , , , , , ],
-        "setOneway": [, , , , [[3], [3]], , , , ],
-        "set": [, , , [3], [[3], [3]], , , , ],
         "shutdown": [, , , , , , , , ]
     });

@@ -21,10 +21,6 @@ public interface Hold extends com.zeroc.Ice.Object
 
     void waitForHold(com.zeroc.Ice.Current current);
 
-    void setOneway(int value, int expected, com.zeroc.Ice.Current current);
-
-    int set(int value, int delay, com.zeroc.Ice.Current current);
-
     void shutdown(com.zeroc.Ice.Current current);
 
     /** @hidden */
@@ -74,40 +70,6 @@ public interface Hold extends com.zeroc.Ice.Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_setOneway(Hold obj, com.zeroc.Ice.IncomingRequest request)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
-        com.zeroc.Ice.InputStream istr = request.inputStream;
-        istr.startEncapsulation();
-        int iceP_value;
-        int iceP_expected;
-        iceP_value = istr.readInt();
-        iceP_expected = istr.readInt();
-        istr.endEncapsulation();
-        obj.setOneway(iceP_value, iceP_expected, request.current);
-        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
-    }
-
-    /** @hidden */
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_set(Hold obj, com.zeroc.Ice.IncomingRequest request)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
-        com.zeroc.Ice.InputStream istr = request.inputStream;
-        istr.startEncapsulation();
-        int iceP_value;
-        int iceP_delay;
-        iceP_value = istr.readInt();
-        iceP_delay = istr.readInt();
-        istr.endEncapsulation();
-        int ret = obj.set(iceP_value, iceP_delay, request.current);
-        var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, null);
-        ostr.writeInt(ret);
-        ostr.endEncapsulation();
-        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
-    }
-
-    /** @hidden */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_shutdown(Hold obj, com.zeroc.Ice.IncomingRequest request)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
@@ -124,8 +86,6 @@ public interface Hold extends com.zeroc.Ice.Object
         {
             case "putOnHold" -> Hold._iceD_putOnHold(this, request);
             case "waitForHold" -> Hold._iceD_waitForHold(this, request);
-            case "setOneway" -> Hold._iceD_setOneway(this, request);
-            case "set" -> Hold._iceD_set(this, request);
             case "shutdown" -> Hold._iceD_shutdown(this, request);
             case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
             case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);

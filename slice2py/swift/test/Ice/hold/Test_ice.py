@@ -56,18 +56,6 @@ if 'HoldPrx' not in _M_Test.__dict__:
         def waitForHoldAsync(self, context=None):
             return _M_Test.Hold._op_waitForHold.invokeAsync(self, ((), context))
 
-        def setOneway(self, value, expected, context=None):
-            return _M_Test.Hold._op_setOneway.invoke(self, ((value, expected), context))
-
-        def setOnewayAsync(self, value, expected, context=None):
-            return _M_Test.Hold._op_setOneway.invokeAsync(self, ((value, expected), context))
-
-        def set(self, value, delay, context=None):
-            return _M_Test.Hold._op_set.invoke(self, ((value, delay), context))
-
-        def setAsync(self, value, delay, context=None):
-            return _M_Test.Hold._op_set.invokeAsync(self, ((value, delay), context))
-
         def shutdown(self, context=None):
             return _M_Test.Hold._op_shutdown.invoke(self, ((), context))
 
@@ -109,12 +97,6 @@ if 'HoldPrx' not in _M_Test.__dict__:
         def waitForHold(self, current=None):
             raise NotImplementedError("servant method 'waitForHold' not implemented")
 
-        def setOneway(self, value, expected, current=None):
-            raise NotImplementedError("servant method 'setOneway' not implemented")
-
-        def set(self, value, delay, current=None):
-            raise NotImplementedError("servant method 'set' not implemented")
-
         def shutdown(self, current=None):
             raise NotImplementedError("servant method 'shutdown' not implemented")
 
@@ -128,8 +110,6 @@ if 'HoldPrx' not in _M_Test.__dict__:
 
     Hold._op_putOnHold = IcePy.Operation('putOnHold', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
     Hold._op_waitForHold = IcePy.Operation('waitForHold', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Hold._op_setOneway = IcePy.Operation('setOneway', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
-    Hold._op_set = IcePy.Operation('set', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_int, False, 0), ())
     Hold._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.Hold = Hold

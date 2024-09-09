@@ -32,10 +32,6 @@ namespace Test
 
         void waitForHold(Ice.Current current);
 
-        void setOneway(int value, int expected, Ice.Current current);
-
-        int set(int value, int delay, Ice.Current current);
-
         void shutdown(Ice.Current current);
     }
 }
@@ -51,14 +47,6 @@ namespace Test
         void waitForHold(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task waitForHoldAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        void setOneway(int value, int expected, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task setOnewayAsync(int value, int expected, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        int set(int value, int delay, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<int> setAsync(int value, int delay, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -87,30 +75,6 @@ namespace Test
             try
             {
                 _iceI_waitForHoldAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
-            }
-            catch (global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException!;
-            }
-        }
-
-        public void setOneway(int value, int expected, global::System.Collections.Generic.Dictionary<string, string>? context = null)
-        {
-            try
-            {
-                _iceI_setOnewayAsync(value, expected, context, null, global::System.Threading.CancellationToken.None, true).Wait();
-            }
-            catch (global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException!;
-            }
-        }
-
-        public int set(int value, int delay, global::System.Collections.Generic.Dictionary<string, string>? context = null)
-        {
-            try
-            {
-                return _iceI_setAsync(value, delay, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch (global::System.AggregateException ex_)
             {
@@ -182,73 +146,6 @@ namespace Test
                 null,
                 context,
                 synchronous);
-        }
-
-        public global::System.Threading.Tasks.Task setOnewayAsync(int value, int expected, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
-        {
-            return _iceI_setOnewayAsync(value, expected, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task _iceI_setOnewayAsync(int iceP_value, int iceP_expected, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_setOneway(iceP_value, iceP_expected, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _setOneway_name = "setOneway";
-
-        private void _iceI_setOneway(int iceP_value, int iceP_expected, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<object>(completed);
-            outAsync.invoke(
-                _setOneway_name,
-                Ice.OperationMode.Normal,
-                null,
-                context,
-                synchronous,
-                write: (Ice.OutputStream ostr) =>
-                {
-                    ostr.writeInt(iceP_value);
-                    ostr.writeInt(iceP_expected);
-                });
-        }
-
-        public global::System.Threading.Tasks.Task<int> setAsync(int value, int delay, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
-        {
-            return _iceI_setAsync(value, delay, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<int> _iceI_setAsync(int iceP_value, int iceP_delay, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_set_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
-            _iceI_set(iceP_value, iceP_delay, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _set_name = "set";
-
-        private void _iceI_set(int iceP_value, int iceP_delay, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<int>(completed);
-            outAsync.invoke(
-                _set_name,
-                Ice.OperationMode.Normal,
-                null,
-                context,
-                synchronous,
-                write: (Ice.OutputStream ostr) =>
-                {
-                    ostr.writeInt(iceP_value);
-                    ostr.writeInt(iceP_delay);
-                },
-                read: (Ice.InputStream istr) =>
-                {
-                    int ret;
-                    ret = istr.readInt();
-                    return ret;
-                });
         }
 
         public global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
@@ -333,10 +230,6 @@ namespace Test
 
         public abstract void waitForHold(Ice.Current current);
 
-        public abstract void setOneway(int value, int expected, Ice.Current current);
-
-        public abstract int set(int value, int delay, Ice.Current current);
-
         public abstract void shutdown(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
@@ -348,8 +241,6 @@ namespace Test
             {
                 "putOnHold" => Hold.iceD_putOnHoldAsync(this, request),
                 "waitForHold" => Hold.iceD_waitForHoldAsync(this, request),
-                "setOneway" => Hold.iceD_setOnewayAsync(this, request),
-                "set" => Hold.iceD_setAsync(this, request),
                 "shutdown" => Hold.iceD_shutdownAsync(this, request),
                 "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
                 "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
@@ -386,42 +277,6 @@ namespace Test
             request.inputStream.skipEmptyEncapsulation();
             obj.waitForHold(request.current);
             return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setOnewayAsync(
-            Hold obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            int iceP_value;
-            int iceP_expected;
-            iceP_value = istr.readInt();
-            iceP_expected = istr.readInt();
-            istr.endEncapsulation();
-            obj.setOneway(iceP_value, iceP_expected, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setAsync(
-            Hold obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            var istr = request.inputStream;
-            istr.startEncapsulation();
-            int iceP_value;
-            int iceP_delay;
-            iceP_value = istr.readInt();
-            iceP_delay = istr.readInt();
-            istr.endEncapsulation();
-            var ret = obj.set(iceP_value, iceP_delay, request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeInt(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
         }
 
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(
