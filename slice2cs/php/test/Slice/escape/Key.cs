@@ -983,9 +983,9 @@ namespace and
 
     public abstract class enddeclareDisp_ : Ice.ObjectImpl, enddeclare
     {
-        public abstract void @continue(int declare, int @default, Ice.Current current);
-
         public abstract void @do(Ice.Current current);
+
+        public abstract void @continue(int declare, int @default, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
