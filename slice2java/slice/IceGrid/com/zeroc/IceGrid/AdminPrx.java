@@ -120,9 +120,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws DeploymentException Raised if application deployment failed.
      **/
     default void syncApplication(ApplicationDescriptor descriptor)
-        throws DeploymentException,
-               AccessDeniedException,
-               ApplicationNotExistException
+        throws ApplicationNotExistException,
+               DeploymentException,
+               AccessDeniedException
     {
         syncApplication(descriptor, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -138,23 +138,23 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws DeploymentException Raised if application deployment failed.
      **/
     default void syncApplication(ApplicationDescriptor descriptor, java.util.Map<String, String> context)
-        throws DeploymentException,
-               AccessDeniedException,
-               ApplicationNotExistException
+        throws ApplicationNotExistException,
+               DeploymentException,
+               AccessDeniedException
     {
         try
         {
             _iceI_syncApplicationAsync(descriptor, context, true).waitForResponseOrUserEx();
+        }
+        catch(ApplicationNotExistException ex)
+        {
+            throw ex;
         }
         catch(DeploymentException ex)
         {
             throw ex;
         }
         catch(AccessDeniedException ex)
-        {
-            throw ex;
-        }
-        catch(ApplicationNotExistException ex)
         {
             throw ex;
         }
@@ -207,9 +207,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_syncApplication =
     {
+        ApplicationNotExistException.class,
         DeploymentException.class,
-        AccessDeniedException.class,
-        ApplicationNotExistException.class
+        AccessDeniedException.class
     };
 
     /**
@@ -221,9 +221,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws DeploymentException Raised if application deployment failed.
      **/
     default void updateApplication(ApplicationUpdateDescriptor descriptor)
-        throws DeploymentException,
-               AccessDeniedException,
-               ApplicationNotExistException
+        throws ApplicationNotExistException,
+               DeploymentException,
+               AccessDeniedException
     {
         updateApplication(descriptor, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -238,23 +238,23 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws DeploymentException Raised if application deployment failed.
      **/
     default void updateApplication(ApplicationUpdateDescriptor descriptor, java.util.Map<String, String> context)
-        throws DeploymentException,
-               AccessDeniedException,
-               ApplicationNotExistException
+        throws ApplicationNotExistException,
+               DeploymentException,
+               AccessDeniedException
     {
         try
         {
             _iceI_updateApplicationAsync(descriptor, context, true).waitForResponseOrUserEx();
+        }
+        catch(ApplicationNotExistException ex)
+        {
+            throw ex;
         }
         catch(DeploymentException ex)
         {
             throw ex;
         }
         catch(AccessDeniedException ex)
-        {
-            throw ex;
-        }
-        catch(ApplicationNotExistException ex)
         {
             throw ex;
         }
@@ -305,9 +305,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_updateApplication =
     {
+        ApplicationNotExistException.class,
         DeploymentException.class,
-        AccessDeniedException.class,
-        ApplicationNotExistException.class
+        AccessDeniedException.class
     };
 
     /**
@@ -322,9 +322,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws DeploymentException Raised if application deployment failed.
      **/
     default void syncApplicationWithoutRestart(ApplicationDescriptor descriptor)
-        throws DeploymentException,
-               AccessDeniedException,
-               ApplicationNotExistException
+        throws ApplicationNotExistException,
+               DeploymentException,
+               AccessDeniedException
     {
         syncApplicationWithoutRestart(descriptor, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -342,23 +342,23 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws DeploymentException Raised if application deployment failed.
      **/
     default void syncApplicationWithoutRestart(ApplicationDescriptor descriptor, java.util.Map<String, String> context)
-        throws DeploymentException,
-               AccessDeniedException,
-               ApplicationNotExistException
+        throws ApplicationNotExistException,
+               DeploymentException,
+               AccessDeniedException
     {
         try
         {
             _iceI_syncApplicationWithoutRestartAsync(descriptor, context, true).waitForResponseOrUserEx();
+        }
+        catch(ApplicationNotExistException ex)
+        {
+            throw ex;
         }
         catch(DeploymentException ex)
         {
             throw ex;
         }
         catch(AccessDeniedException ex)
-        {
-            throw ex;
-        }
-        catch(ApplicationNotExistException ex)
         {
             throw ex;
         }
@@ -415,9 +415,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_syncApplicationWithoutRestart =
     {
+        ApplicationNotExistException.class,
         DeploymentException.class,
-        AccessDeniedException.class,
-        ApplicationNotExistException.class
+        AccessDeniedException.class
     };
 
     /**
@@ -431,9 +431,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws DeploymentException Raised if application deployment failed.
      **/
     default void updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor)
-        throws DeploymentException,
-               AccessDeniedException,
-               ApplicationNotExistException
+        throws ApplicationNotExistException,
+               DeploymentException,
+               AccessDeniedException
     {
         updateApplicationWithoutRestart(descriptor, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -450,23 +450,23 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws DeploymentException Raised if application deployment failed.
      **/
     default void updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor, java.util.Map<String, String> context)
-        throws DeploymentException,
-               AccessDeniedException,
-               ApplicationNotExistException
+        throws ApplicationNotExistException,
+               DeploymentException,
+               AccessDeniedException
     {
         try
         {
             _iceI_updateApplicationWithoutRestartAsync(descriptor, context, true).waitForResponseOrUserEx();
+        }
+        catch(ApplicationNotExistException ex)
+        {
+            throw ex;
         }
         catch(DeploymentException ex)
         {
             throw ex;
         }
         catch(AccessDeniedException ex)
-        {
-            throw ex;
-        }
-        catch(ApplicationNotExistException ex)
         {
             throw ex;
         }
@@ -521,9 +521,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_updateApplicationWithoutRestart =
     {
+        ApplicationNotExistException.class,
         DeploymentException.class,
-        AccessDeniedException.class,
-        ApplicationNotExistException.class
+        AccessDeniedException.class
     };
 
     /**
@@ -535,9 +535,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws DeploymentException Raised if application deployment failed.
      **/
     default void removeApplication(String name)
-        throws DeploymentException,
-               AccessDeniedException,
-               ApplicationNotExistException
+        throws ApplicationNotExistException,
+               DeploymentException,
+               AccessDeniedException
     {
         removeApplication(name, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -552,23 +552,23 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws DeploymentException Raised if application deployment failed.
      **/
     default void removeApplication(String name, java.util.Map<String, String> context)
-        throws DeploymentException,
-               AccessDeniedException,
-               ApplicationNotExistException
+        throws ApplicationNotExistException,
+               DeploymentException,
+               AccessDeniedException
     {
         try
         {
             _iceI_removeApplicationAsync(name, context, true).waitForResponseOrUserEx();
+        }
+        catch(ApplicationNotExistException ex)
+        {
+            throw ex;
         }
         catch(DeploymentException ex)
         {
             throw ex;
         }
         catch(AccessDeniedException ex)
-        {
-            throw ex;
-        }
-        catch(ApplicationNotExistException ex)
         {
             throw ex;
         }
@@ -618,9 +618,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_removeApplication =
     {
+        ApplicationNotExistException.class,
         DeploymentException.class,
-        AccessDeniedException.class,
-        ApplicationNotExistException.class
+        AccessDeniedException.class
     };
 
     /**
@@ -634,9 +634,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws DeploymentException Raised if server instantiation failed.
      **/
     default void instantiateServer(String application, String node, ServerInstanceDescriptor desc)
-        throws DeploymentException,
-               AccessDeniedException,
-               ApplicationNotExistException
+        throws ApplicationNotExistException,
+               DeploymentException,
+               AccessDeniedException
     {
         instantiateServer(application, node, desc, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -653,23 +653,23 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws DeploymentException Raised if server instantiation failed.
      **/
     default void instantiateServer(String application, String node, ServerInstanceDescriptor desc, java.util.Map<String, String> context)
-        throws DeploymentException,
-               AccessDeniedException,
-               ApplicationNotExistException
+        throws ApplicationNotExistException,
+               DeploymentException,
+               AccessDeniedException
     {
         try
         {
             _iceI_instantiateServerAsync(application, node, desc, context, true).waitForResponseOrUserEx();
+        }
+        catch(ApplicationNotExistException ex)
+        {
+            throw ex;
         }
         catch(DeploymentException ex)
         {
             throw ex;
         }
         catch(AccessDeniedException ex)
-        {
-            throw ex;
-        }
-        catch(ApplicationNotExistException ex)
         {
             throw ex;
         }
@@ -727,9 +727,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_instantiateServer =
     {
+        ApplicationNotExistException.class,
         DeploymentException.class,
-        AccessDeniedException.class,
-        ApplicationNotExistException.class
+        AccessDeniedException.class
     };
 
     /**
@@ -1041,9 +1041,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default ServerState getServerState(String id)
-        throws DeploymentException,
-               NodeUnreachableException,
-               ServerNotExistException
+        throws ServerNotExistException,
+               DeploymentException,
+               NodeUnreachableException
     {
         return getServerState(id, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -1058,23 +1058,23 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default ServerState getServerState(String id, java.util.Map<String, String> context)
-        throws DeploymentException,
-               NodeUnreachableException,
-               ServerNotExistException
+        throws ServerNotExistException,
+               DeploymentException,
+               NodeUnreachableException
     {
         try
         {
             return _iceI_getServerStateAsync(id, context, true).waitForResponseOrUserEx();
+        }
+        catch(ServerNotExistException ex)
+        {
+            throw ex;
         }
         catch(DeploymentException ex)
         {
             throw ex;
         }
         catch(NodeUnreachableException ex)
-        {
-            throw ex;
-        }
-        catch(ServerNotExistException ex)
         {
             throw ex;
         }
@@ -1128,9 +1128,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_getServerState =
     {
+        ServerNotExistException.class,
         DeploymentException.class,
-        NodeUnreachableException.class,
-        ServerNotExistException.class
+        NodeUnreachableException.class
     };
 
     /**
@@ -1142,9 +1142,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default int getServerPid(String id)
-        throws DeploymentException,
-               NodeUnreachableException,
-               ServerNotExistException
+        throws ServerNotExistException,
+               DeploymentException,
+               NodeUnreachableException
     {
         return getServerPid(id, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -1159,23 +1159,23 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default int getServerPid(String id, java.util.Map<String, String> context)
-        throws DeploymentException,
-               NodeUnreachableException,
-               ServerNotExistException
+        throws ServerNotExistException,
+               DeploymentException,
+               NodeUnreachableException
     {
         try
         {
             return _iceI_getServerPidAsync(id, context, true).waitForResponseOrUserEx();
+        }
+        catch(ServerNotExistException ex)
+        {
+            throw ex;
         }
         catch(DeploymentException ex)
         {
             throw ex;
         }
         catch(NodeUnreachableException ex)
-        {
-            throw ex;
-        }
-        catch(ServerNotExistException ex)
         {
             throw ex;
         }
@@ -1229,9 +1229,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_getServerPid =
     {
+        ServerNotExistException.class,
         DeploymentException.class,
-        NodeUnreachableException.class,
-        ServerNotExistException.class
+        NodeUnreachableException.class
     };
 
     /**
@@ -1302,9 +1302,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default com.zeroc.Ice.ObjectPrx getServerAdmin(String id)
-        throws DeploymentException,
-               NodeUnreachableException,
-               ServerNotExistException
+        throws ServerNotExistException,
+               DeploymentException,
+               NodeUnreachableException
     {
         return getServerAdmin(id, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -1319,23 +1319,23 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default com.zeroc.Ice.ObjectPrx getServerAdmin(String id, java.util.Map<String, String> context)
-        throws DeploymentException,
-               NodeUnreachableException,
-               ServerNotExistException
+        throws ServerNotExistException,
+               DeploymentException,
+               NodeUnreachableException
     {
         try
         {
             return _iceI_getServerAdminAsync(id, context, true).waitForResponseOrUserEx();
+        }
+        catch(ServerNotExistException ex)
+        {
+            throw ex;
         }
         catch(DeploymentException ex)
         {
             throw ex;
         }
         catch(NodeUnreachableException ex)
-        {
-            throw ex;
-        }
-        catch(ServerNotExistException ex)
         {
             throw ex;
         }
@@ -1389,9 +1389,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_getServerAdmin =
     {
+        ServerNotExistException.class,
         DeploymentException.class,
-        NodeUnreachableException.class,
-        ServerNotExistException.class
+        NodeUnreachableException.class
     };
 
     /**
@@ -1405,9 +1405,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default void enableServer(String id, boolean enabled)
-        throws DeploymentException,
-               NodeUnreachableException,
-               ServerNotExistException
+        throws ServerNotExistException,
+               DeploymentException,
+               NodeUnreachableException
     {
         enableServer(id, enabled, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -1424,23 +1424,23 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default void enableServer(String id, boolean enabled, java.util.Map<String, String> context)
-        throws DeploymentException,
-               NodeUnreachableException,
-               ServerNotExistException
+        throws ServerNotExistException,
+               DeploymentException,
+               NodeUnreachableException
     {
         try
         {
             _iceI_enableServerAsync(id, enabled, context, true).waitForResponseOrUserEx();
+        }
+        catch(ServerNotExistException ex)
+        {
+            throw ex;
         }
         catch(DeploymentException ex)
         {
             throw ex;
         }
         catch(NodeUnreachableException ex)
-        {
-            throw ex;
-        }
-        catch(ServerNotExistException ex)
         {
             throw ex;
         }
@@ -1498,9 +1498,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_enableServer =
     {
+        ServerNotExistException.class,
         DeploymentException.class,
-        NodeUnreachableException.class,
-        ServerNotExistException.class
+        NodeUnreachableException.class
     };
 
     /**
@@ -1512,9 +1512,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default boolean isServerEnabled(String id)
-        throws DeploymentException,
-               NodeUnreachableException,
-               ServerNotExistException
+        throws ServerNotExistException,
+               DeploymentException,
+               NodeUnreachableException
     {
         return isServerEnabled(id, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -1529,23 +1529,23 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default boolean isServerEnabled(String id, java.util.Map<String, String> context)
-        throws DeploymentException,
-               NodeUnreachableException,
-               ServerNotExistException
+        throws ServerNotExistException,
+               DeploymentException,
+               NodeUnreachableException
     {
         try
         {
             return _iceI_isServerEnabledAsync(id, context, true).waitForResponseOrUserEx();
+        }
+        catch(ServerNotExistException ex)
+        {
+            throw ex;
         }
         catch(DeploymentException ex)
         {
             throw ex;
         }
         catch(NodeUnreachableException ex)
-        {
-            throw ex;
-        }
-        catch(ServerNotExistException ex)
         {
             throw ex;
         }
@@ -1599,9 +1599,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_isServerEnabled =
     {
+        ServerNotExistException.class,
         DeploymentException.class,
-        NodeUnreachableException.class,
-        ServerNotExistException.class
+        NodeUnreachableException.class
     };
 
     /**
@@ -1613,10 +1613,10 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws ServerStartException Raised if the server couldn't be started.
      **/
     default void startServer(String id)
-        throws DeploymentException,
-               NodeUnreachableException,
-               ServerNotExistException,
-               ServerStartException
+        throws ServerNotExistException,
+               ServerStartException,
+               DeploymentException,
+               NodeUnreachableException
     {
         startServer(id, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -1631,28 +1631,28 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws ServerStartException Raised if the server couldn't be started.
      **/
     default void startServer(String id, java.util.Map<String, String> context)
-        throws DeploymentException,
-               NodeUnreachableException,
-               ServerNotExistException,
-               ServerStartException
+        throws ServerNotExistException,
+               ServerStartException,
+               DeploymentException,
+               NodeUnreachableException
     {
         try
         {
             _iceI_startServerAsync(id, context, true).waitForResponseOrUserEx();
-        }
-        catch(DeploymentException ex)
-        {
-            throw ex;
-        }
-        catch(NodeUnreachableException ex)
-        {
-            throw ex;
         }
         catch(ServerNotExistException ex)
         {
             throw ex;
         }
         catch(ServerStartException ex)
+        {
+            throw ex;
+        }
+        catch(DeploymentException ex)
+        {
+            throw ex;
+        }
+        catch(NodeUnreachableException ex)
         {
             throw ex;
         }
@@ -1702,10 +1702,10 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_startServer =
     {
-        DeploymentException.class,
-        NodeUnreachableException.class,
         ServerNotExistException.class,
-        ServerStartException.class
+        ServerStartException.class,
+        DeploymentException.class,
+        NodeUnreachableException.class
     };
 
     /**
@@ -1717,10 +1717,10 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws ServerStopException Raised if the server couldn't be stopped.
      **/
     default void stopServer(String id)
-        throws DeploymentException,
-               NodeUnreachableException,
-               ServerNotExistException,
-               ServerStopException
+        throws ServerNotExistException,
+               ServerStopException,
+               DeploymentException,
+               NodeUnreachableException
     {
         stopServer(id, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -1735,28 +1735,28 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws ServerStopException Raised if the server couldn't be stopped.
      **/
     default void stopServer(String id, java.util.Map<String, String> context)
-        throws DeploymentException,
-               NodeUnreachableException,
-               ServerNotExistException,
-               ServerStopException
+        throws ServerNotExistException,
+               ServerStopException,
+               DeploymentException,
+               NodeUnreachableException
     {
         try
         {
             _iceI_stopServerAsync(id, context, true).waitForResponseOrUserEx();
-        }
-        catch(DeploymentException ex)
-        {
-            throw ex;
-        }
-        catch(NodeUnreachableException ex)
-        {
-            throw ex;
         }
         catch(ServerNotExistException ex)
         {
             throw ex;
         }
         catch(ServerStopException ex)
+        {
+            throw ex;
+        }
+        catch(DeploymentException ex)
+        {
+            throw ex;
+        }
+        catch(NodeUnreachableException ex)
         {
             throw ex;
         }
@@ -1806,10 +1806,10 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_stopServer =
     {
-        DeploymentException.class,
-        NodeUnreachableException.class,
         ServerNotExistException.class,
-        ServerStopException.class
+        ServerStopException.class,
+        DeploymentException.class,
+        NodeUnreachableException.class
     };
 
     /**
@@ -1822,10 +1822,10 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default void sendSignal(String id, String signal)
-        throws DeploymentException,
+        throws ServerNotExistException,
+               DeploymentException,
                NodeUnreachableException,
-               BadSignalException,
-               ServerNotExistException
+               BadSignalException
     {
         sendSignal(id, signal, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -1841,14 +1841,18 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default void sendSignal(String id, String signal, java.util.Map<String, String> context)
-        throws DeploymentException,
+        throws ServerNotExistException,
+               DeploymentException,
                NodeUnreachableException,
-               BadSignalException,
-               ServerNotExistException
+               BadSignalException
     {
         try
         {
             _iceI_sendSignalAsync(id, signal, context, true).waitForResponseOrUserEx();
+        }
+        catch(ServerNotExistException ex)
+        {
+            throw ex;
         }
         catch(DeploymentException ex)
         {
@@ -1859,10 +1863,6 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
             throw ex;
         }
         catch(BadSignalException ex)
-        {
-            throw ex;
-        }
-        catch(ServerNotExistException ex)
         {
             throw ex;
         }
@@ -1916,10 +1916,10 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_sendSignal =
     {
+        ServerNotExistException.class,
         DeploymentException.class,
         NodeUnreachableException.class,
-        BadSignalException.class,
-        ServerNotExistException.class
+        BadSignalException.class
     };
 
     /**
@@ -2075,8 +2075,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws DeploymentException Raised if application deployment failed.
      **/
     default void removeAdapter(String id)
-        throws DeploymentException,
-               AdapterNotExistException
+        throws AdapterNotExistException,
+               DeploymentException
     {
         removeAdapter(id, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -2089,18 +2089,18 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws DeploymentException Raised if application deployment failed.
      **/
     default void removeAdapter(String id, java.util.Map<String, String> context)
-        throws DeploymentException,
-               AdapterNotExistException
+        throws AdapterNotExistException,
+               DeploymentException
     {
         try
         {
             _iceI_removeAdapterAsync(id, context, true).waitForResponseOrUserEx();
         }
-        catch(DeploymentException ex)
+        catch(AdapterNotExistException ex)
         {
             throw ex;
         }
-        catch(AdapterNotExistException ex)
+        catch(DeploymentException ex)
         {
             throw ex;
         }
@@ -2150,8 +2150,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_removeAdapter =
     {
-        DeploymentException.class,
-        AdapterNotExistException.class
+        AdapterNotExistException.class,
+        DeploymentException.class
     };
 
     /**

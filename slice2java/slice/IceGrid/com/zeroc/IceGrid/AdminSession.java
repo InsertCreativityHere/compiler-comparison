@@ -114,10 +114,10 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     FileIteratorPrx openServerLog(String id, String path, int count, com.zeroc.Ice.Current current)
-        throws DeploymentException,
+        throws ServerNotExistException,
+               DeploymentException,
                NodeUnreachableException,
-               FileNotAvailableException,
-               ServerNotExistException;
+               FileNotAvailableException;
 
     /**
      * Open the given server stderr file for reading. The file can be read with the returned file iterator.
@@ -132,10 +132,10 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     FileIteratorPrx openServerStdErr(String id, int count, com.zeroc.Ice.Current current)
-        throws DeploymentException,
+        throws ServerNotExistException,
+               DeploymentException,
                NodeUnreachableException,
-               FileNotAvailableException,
-               ServerNotExistException;
+               FileNotAvailableException;
 
     /**
      * Open the given server stdout file for reading. The file can be read with the returned file iterator.
@@ -150,10 +150,10 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     FileIteratorPrx openServerStdOut(String id, int count, com.zeroc.Ice.Current current)
-        throws DeploymentException,
+        throws ServerNotExistException,
+               DeploymentException,
                NodeUnreachableException,
-               FileNotAvailableException,
-               ServerNotExistException;
+               FileNotAvailableException;
 
     /**
      * Open the given node stderr file for reading. The file can be read with the returned file iterator.
