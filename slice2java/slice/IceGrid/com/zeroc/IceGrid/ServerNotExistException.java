@@ -59,5 +59,5 @@ public class ServerNotExistException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -2699425293339838988L;
+    private static final long serialVersionUID = -2699426056661016580L;
 }
