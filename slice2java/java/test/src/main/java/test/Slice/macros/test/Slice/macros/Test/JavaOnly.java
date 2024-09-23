@@ -50,7 +50,7 @@ public class JavaOnly extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -206560188944597298L;
+    private static final long serialVersionUID = -6499845806045294930L;
 
     /** @hidden */
     @Override
