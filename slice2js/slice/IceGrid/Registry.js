@@ -131,8 +131,7 @@ Ice.defineOperations(
         [
             IceGrid.PermissionDeniedException
         ], , ],
-        "getSessionTimeout": [, 2, , [3], , , , , ],
-        "getACMTimeout": [, 2, , [3], , , , , ]
+        "getSessionTimeout": [, 2, , [3], , , , , ]
     });
 
 const iceC_IceGrid_Locator_ids = [

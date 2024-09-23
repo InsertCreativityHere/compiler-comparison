@@ -360,13 +360,9 @@ public extension QueryPrx {
 ///
 ///  - createAdminSessionFromSecureConnectionAsync: Create an administrative session from a secure connection.
 ///
-///  - getSessionTimeout: Get the idle timeout used by IceGrid for its side of the connection.
+///  - getSessionTimeout: TODO: update description or remove operation
 ///
-///  - getSessionTimeoutAsync: Get the idle timeout used by IceGrid for its side of the connection.
-///
-///  - getACMTimeout: Get the idle timeout used by IceGrid for its side of the connection.
-///
-///  - getACMTimeoutAsync: Get the idle timeout used by IceGrid for its side of the connection.
+///  - getSessionTimeoutAsync: TODO: update description or remove operation
 public protocol RegistryPrx: Ice.ObjectPrx {}
 
 private final class RegistryPrxI: Ice.ObjectPrxI, RegistryPrx {
@@ -474,13 +470,9 @@ public extension Ice.InputStream {
 ///
 ///  - createAdminSessionFromSecureConnectionAsync: Create an administrative session from a secure connection.
 ///
-///  - getSessionTimeout: Get the idle timeout used by IceGrid for its side of the connection.
+///  - getSessionTimeout: TODO: update description or remove operation
 ///
-///  - getSessionTimeoutAsync: Get the idle timeout used by IceGrid for its side of the connection.
-///
-///  - getACMTimeout: Get the idle timeout used by IceGrid for its side of the connection.
-///
-///  - getACMTimeoutAsync: Get the idle timeout used by IceGrid for its side of the connection.
+///  - getSessionTimeoutAsync: TODO: update description or remove operation
 public extension RegistryPrx {
     /// Create a client session.
     ///
@@ -606,28 +598,13 @@ public extension RegistryPrx {
                                        context: context)
     }
 
-    /// Get the idle timeout used by IceGrid for its side of the connection.
+    /// TODO: update description or remove operation
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `Swift.Int32` - The idle timeout (in seconds).
+    /// - returns: `Swift.Int32` - The session timeout (in seconds).
     func getSessionTimeout(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "getSessionTimeout",
-                                       mode: .Idempotent,
-                                       read: { istr in
-                                           let iceP_returnValue: Swift.Int32 = try istr.read()
-                                           return iceP_returnValue
-                                       },
-                                       context: context)
-    }
-
-    /// Get the idle timeout used by IceGrid for its side of the connection.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The idle timeout (in seconds).
-    func getACMTimeout(context: Ice.Context? = nil) async throws -> Swift.Int32 {
-        return try await _impl._invoke(operation: "getACMTimeout",
                                        mode: .Idempotent,
                                        read: { istr in
                                            let iceP_returnValue: Swift.Int32 = try istr.read()
@@ -892,8 +869,6 @@ public struct RegistryDisp: Ice.Dispatcher {
             try await servant._iceD_createSession(request)
         case "createSessionFromSecureConnection":
             try await servant._iceD_createSessionFromSecureConnection(request)
-        case "getACMTimeout":
-            try await servant._iceD_getACMTimeout(request)
         case "getSessionTimeout":
             try await servant._iceD_getSessionTimeout(request)
         case "ice_id":
@@ -968,19 +943,12 @@ public protocol Registry {
     ///     user is not allowed access.
     func createAdminSessionFromSecureConnection(current: Ice.Current) async throws -> AdminSessionPrx?
 
-    /// Get the idle timeout used by IceGrid for its side of the connection.
+    /// TODO: update description or remove operation
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The idle timeout (in seconds).
+    /// - returns: `Swift.Int32` - The session timeout (in seconds).
     func getSessionTimeout(current: Ice.Current) async throws -> Swift.Int32
-
-    /// Get the idle timeout used by IceGrid for its side of the connection.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32` - The idle timeout (in seconds).
-    func getACMTimeout(current: Ice.Current) async throws -> Swift.Int32
 }
 
 
@@ -1126,9 +1094,7 @@ extension Query {
 ///
 ///  - createAdminSessionFromSecureConnection: Create an administrative session from a secure connection.
 ///
-///  - getSessionTimeout: Get the idle timeout used by IceGrid for its side of the connection.
-///
-///  - getACMTimeout: Get the idle timeout used by IceGrid for its side of the connection.
+///  - getSessionTimeout: TODO: update description or remove operation
 extension Registry {
     public func _iceD_createSession(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1180,16 +1146,6 @@ extension Registry {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.getSessionTimeout(current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
-            let iceP_returnValue = value
-            ostr.write(iceP_returnValue)
-        }
-    }
-
-    public func _iceD_getACMTimeout(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
-        
-        _ = try request.inputStream.skipEmptyEncapsulation()
-        let result = try await self.getACMTimeout(current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)

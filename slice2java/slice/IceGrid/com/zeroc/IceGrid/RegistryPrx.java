@@ -362,8 +362,8 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     };
 
     /**
-     * Get the idle timeout used by IceGrid for its side of the connection.
-     * @return The idle timeout (in seconds).
+     * TODO: update description or remove operation
+     * @return The session timeout (in seconds).
      **/
     default int getSessionTimeout()
     {
@@ -371,9 +371,9 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the idle timeout used by IceGrid for its side of the connection.
+     * TODO: update description or remove operation
      * @param context The Context map to send with the invocation.
-     * @return The idle timeout (in seconds).
+     * @return The session timeout (in seconds).
      **/
     default int getSessionTimeout(java.util.Map<String, String> context)
     {
@@ -381,8 +381,8 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the idle timeout used by IceGrid for its side of the connection.
-     * @return The idle timeout (in seconds).
+     * TODO: update description or remove operation
+     * @return The session timeout (in seconds).
      **/
     default java.util.concurrent.CompletableFuture<java.lang.Integer> getSessionTimeoutAsync()
     {
@@ -390,9 +390,9 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the idle timeout used by IceGrid for its side of the connection.
+     * TODO: update description or remove operation
      * @param context The Context map to send with the invocation.
-     * @return The idle timeout (in seconds).
+     * @return The session timeout (in seconds).
      **/
     default java.util.concurrent.CompletableFuture<java.lang.Integer> getSessionTimeoutAsync(java.util.Map<String, String> context)
     {
@@ -408,61 +408,6 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_getSessionTimeoutAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getSessionTimeout", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
-        f.invoke(true, context, null, null, istr -> {
-                     int ret;
-                     ret = istr.readInt();
-                     return ret;
-                 });
-        return f;
-    }
-
-    /**
-     * Get the idle timeout used by IceGrid for its side of the connection.
-     * @return The idle timeout (in seconds).
-     **/
-    default int getACMTimeout()
-    {
-        return getACMTimeout(com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    /**
-     * Get the idle timeout used by IceGrid for its side of the connection.
-     * @param context The Context map to send with the invocation.
-     * @return The idle timeout (in seconds).
-     **/
-    default int getACMTimeout(java.util.Map<String, String> context)
-    {
-        return _iceI_getACMTimeoutAsync(context, true).waitForResponse();
-    }
-
-    /**
-     * Get the idle timeout used by IceGrid for its side of the connection.
-     * @return The idle timeout (in seconds).
-     **/
-    default java.util.concurrent.CompletableFuture<java.lang.Integer> getACMTimeoutAsync()
-    {
-        return _iceI_getACMTimeoutAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    /**
-     * Get the idle timeout used by IceGrid for its side of the connection.
-     * @param context The Context map to send with the invocation.
-     * @return The idle timeout (in seconds).
-     **/
-    default java.util.concurrent.CompletableFuture<java.lang.Integer> getACMTimeoutAsync(java.util.Map<String, String> context)
-    {
-        return _iceI_getACMTimeoutAsync(context, false);
-    }
-
-    /**
-     * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_getACMTimeoutAsync(java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getACMTimeout", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      int ret;
                      ret = istr.readInt();

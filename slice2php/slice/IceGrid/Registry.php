@@ -119,7 +119,6 @@ namespace IceGrid
     IcePHP_defineOperation($IceGrid__t_RegistryPrx, 'createSessionFromSecureConnection', 0, -1, null, null, array($IceGrid__t_SessionPrx), array($IceGrid__t_PermissionDeniedException));
     IcePHP_defineOperation($IceGrid__t_RegistryPrx, 'createAdminSessionFromSecureConnection', 0, -1, null, null, array($IceGrid__t_AdminSessionPrx), array($IceGrid__t_PermissionDeniedException));
     IcePHP_defineOperation($IceGrid__t_RegistryPrx, 'getSessionTimeout', 2, -1, null, null, array($IcePHP__t_int), null);
-    IcePHP_defineOperation($IceGrid__t_RegistryPrx, 'getACMTimeout', 2, -1, null, null, array($IcePHP__t_int), null);
 }
 
 namespace IceGrid

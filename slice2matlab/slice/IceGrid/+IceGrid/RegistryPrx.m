@@ -11,10 +11,8 @@
 %   createSessionFromSecureConnectionAsync - Create a client session from a secure connection.
 %   createAdminSessionFromSecureConnection - Create an administrative session from a secure connection.
 %   createAdminSessionFromSecureConnectionAsync - Create an administrative session from a secure connection.
-%   getSessionTimeout - Get the idle timeout used by IceGrid for its side of the connection.
-%   getSessionTimeoutAsync - Get the idle timeout used by IceGrid for its side of the connection.
-%   getACMTimeout - Get the idle timeout used by IceGrid for its side of the connection.
-%   getACMTimeoutAsync - Get the idle timeout used by IceGrid for its side of the connection.
+%   getSessionTimeout - TODO: update description or remove operation
+%   getSessionTimeoutAsync - TODO: update description or remove operation
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
 %   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 %
@@ -198,12 +196,12 @@ classdef RegistryPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('createAdminSessionFromSecureConnection', 0, true, [], 1, @unmarshal, IceGrid.RegistryPrx.createAdminSessionFromSecureConnection_ex_, varargin{:});
         end
         function result = getSessionTimeout(obj, varargin)
-            % getSessionTimeout   Get the idle timeout used by IceGrid for its side of the connection.
+            % getSessionTimeout   TODO: update description or remove operation
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (int32) - The idle timeout (in seconds).
+            % Returns (int32) - The session timeout (in seconds).
             
             is_ = obj.iceInvoke('getSessionTimeout', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
@@ -211,7 +209,7 @@ classdef RegistryPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getSessionTimeoutAsync(obj, varargin)
-            % getSessionTimeoutAsync   Get the idle timeout used by IceGrid for its side of the connection.
+            % getSessionTimeoutAsync   TODO: update description or remove operation
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -225,35 +223,6 @@ classdef RegistryPrx < Ice.ObjectPrx
                 varargout{1} = result;
             end
             r_ = obj.iceInvokeAsync('getSessionTimeout', 2, true, [], 1, @unmarshal, {}, varargin{:});
-        end
-        function result = getACMTimeout(obj, varargin)
-            % getACMTimeout   Get the idle timeout used by IceGrid for its side of the connection.
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (int32) - The idle timeout (in seconds).
-            
-            is_ = obj.iceInvoke('getACMTimeout', 2, true, [], true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readInt();
-            is_.endEncapsulation();
-        end
-        function r_ = getACMTimeoutAsync(obj, varargin)
-            % getACMTimeoutAsync   Get the idle timeout used by IceGrid for its side of the connection.
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readInt();
-                is_.endEncapsulation();
-                varargout{1} = result;
-            end
-            r_ = obj.iceInvokeAsync('getACMTimeout', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
     end
     methods(Static)

@@ -443,21 +443,21 @@ public:
     /// \endcond
 
     /**
-     * Get the idle timeout used by IceGrid for its side of the connection.
+     * TODO: update description or remove operation
      * @param context The Context map to send with the invocation.
-     * @return The idle timeout (in seconds).
+     * @return The session timeout (in seconds).
      */
     ::std::int32_t getSessionTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Get the idle timeout used by IceGrid for its side of the connection.
+     * TODO: update description or remove operation
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
     [[nodiscard]] ::std::future<::std::int32_t> getSessionTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Get the idle timeout used by IceGrid for its side of the connection.
+     * TODO: update description or remove operation
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -469,35 +469,6 @@ public:
 
     /// \cond INTERNAL
     void _iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
-    /// \endcond
-
-    /**
-     * Get the idle timeout used by IceGrid for its side of the connection.
-     * @param context The Context map to send with the invocation.
-     * @return The idle timeout (in seconds).
-     */
-    ::std::int32_t getACMTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /**
-     * Get the idle timeout used by IceGrid for its side of the connection.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    [[nodiscard]] ::std::future<::std::int32_t> getACMTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /**
-     * Get the idle timeout used by IceGrid for its side of the connection.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getACMTimeoutAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -850,23 +821,13 @@ public:
     /// \endcond
 
     /**
-     * Get the idle timeout used by IceGrid for its side of the connection.
+     * TODO: update description or remove operation
      * @param current The Current object for the invocation.
-     * @return The idle timeout (in seconds).
+     * @return The session timeout (in seconds).
      */
     virtual ::std::int32_t getSessionTimeout(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getSessionTimeout(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
-    /// \endcond
-
-    /**
-     * Get the idle timeout used by IceGrid for its side of the connection.
-     * @param current The Current object for the invocation.
-     * @return The idle timeout (in seconds).
-     */
-    virtual ::std::int32_t getACMTimeout(const ::Ice::Current& current) const = 0;
-    /// \cond INTERNAL
-    void _iceD_getACMTimeout(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /// \cond INTERNAL

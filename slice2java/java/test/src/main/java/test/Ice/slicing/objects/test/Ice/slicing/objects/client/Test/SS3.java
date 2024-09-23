@@ -155,5 +155,5 @@ public class SS3 implements java.lang.Cloneable,
     private static final SS3 _nullMarshalValue = new SS3();
 
     /** @hidden */
-    private static final long serialVersionUID = 5433219043259839197L;
+    private static final long serialVersionUID = 1674497958726757533L;
 }

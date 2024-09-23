@@ -412,35 +412,6 @@ IceGrid::RegistryPrx::_iceI_getSessionTimeout(const ::std::shared_ptr<::IceInter
         nullptr);
 }
 
-::std::int32_t
-IceGrid::RegistryPrx::getACMTimeout(const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &RegistryPrx::_iceI_getACMTimeout, context).get();
-}
-
-::std::future<::std::int32_t>
-IceGrid::RegistryPrx::getACMTimeoutAsync(const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &RegistryPrx::_iceI_getACMTimeout, context);
-}
-
-::std::function<void()>
-IceGrid::RegistryPrx::getACMTimeoutAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::RegistryPrx::_iceI_getACMTimeout, context);
-}
-
-void
-IceGrid::RegistryPrx::_iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "getACMTimeout";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::std::nullopt, context,
-        nullptr,
-        nullptr);
-}
-
 const char*
 IceGrid::RegistryPrx::ice_staticId() noexcept
 {
@@ -802,27 +773,12 @@ IceGrid::Registry::_iceD_getSessionTimeout(::Ice::IncomingRequest& request, ::st
 
 /// \cond INTERNAL
 void
-IceGrid::Registry::_iceD_getACMTimeout(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
-{
-    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
-    request.inputStream().skipEmptyEncapsulation();
-    const ::std::int32_t ret = this->getACMTimeout(request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(ret);
-        },
-        request.current()));
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
 IceGrid::Registry::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"createAdminSession", "createAdminSessionFromSecureConnection", "createSession", "createSessionFromSecureConnection", "getACMTimeout", "getSessionTimeout", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
+    static constexpr ::std::string_view allOperations[] = {"createAdminSession", "createAdminSessionFromSecureConnection", "createSession", "createSessionFromSecureConnection", "getSessionTimeout", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 10, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
     if(r.first == r.second)
     {
         sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
@@ -853,30 +809,25 @@ IceGrid::Registry::dispatch(::Ice::IncomingRequest& request, ::std::function<voi
         }
         case 4:
         {
-            _iceD_getACMTimeout(request, ::std::move(sendResponse));
+            _iceD_getSessionTimeout(request, ::std::move(sendResponse));
             break;
         }
         case 5:
         {
-            _iceD_getSessionTimeout(request, ::std::move(sendResponse));
+            _iceD_ice_id(request, ::std::move(sendResponse));
             break;
         }
         case 6:
         {
-            _iceD_ice_id(request, ::std::move(sendResponse));
+            _iceD_ice_ids(request, ::std::move(sendResponse));
             break;
         }
         case 7:
         {
-            _iceD_ice_ids(request, ::std::move(sendResponse));
-            break;
-        }
-        case 8:
-        {
             _iceD_ice_isA(request, ::std::move(sendResponse));
             break;
         }
-        case 9:
+        case 8:
         {
             _iceD_ice_ping(request, ::std::move(sendResponse));
             break;

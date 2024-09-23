@@ -68,18 +68,11 @@ public interface Registry extends com.zeroc.Ice.Object
         throws PermissionDeniedException;
 
     /**
-     * Get the idle timeout used by IceGrid for its side of the connection.
+     * TODO: update description or remove operation
      * @param current The Current object for the invocation.
-     * @return The idle timeout (in seconds).
+     * @return The session timeout (in seconds).
      **/
     int getSessionTimeout(com.zeroc.Ice.Current current);
-
-    /**
-     * Get the idle timeout used by IceGrid for its side of the connection.
-     * @param current The Current object for the invocation.
-     * @return The idle timeout (in seconds).
-     **/
-    int getACMTimeout(com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -186,19 +179,6 @@ public interface Registry extends com.zeroc.Ice.Object
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }
 
-    /** @hidden */
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getACMTimeout(Registry obj, com.zeroc.Ice.IncomingRequest request)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, request.current.mode);
-        request.inputStream.skipEmptyEncapsulation();
-        int ret = obj.getACMTimeout(request.current);
-        var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, null);
-        ostr.writeInt(ret);
-        ostr.endEncapsulation();
-        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
-    }
-
     @Override
     default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
@@ -210,7 +190,6 @@ public interface Registry extends com.zeroc.Ice.Object
             case "createSessionFromSecureConnection" -> Registry._iceD_createSessionFromSecureConnection(this, request);
             case "createAdminSessionFromSecureConnection" -> Registry._iceD_createAdminSessionFromSecureConnection(this, request);
             case "getSessionTimeout" -> Registry._iceD_getSessionTimeout(this, request);
-            case "getACMTimeout" -> Registry._iceD_getACMTimeout(this, request);
             case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
             case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
             case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);

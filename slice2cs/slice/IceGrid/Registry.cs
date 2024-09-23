@@ -183,20 +183,12 @@ namespace IceGrid
         AdminSessionPrx? createAdminSessionFromSecureConnection(Ice.Current current);
 
         /// <summary>
-        /// Get the idle timeout used by IceGrid for its side of the connection.
+        /// TODO: update description or remove operation
         /// </summary>
-        /// <returns>The idle timeout (in seconds).</returns>
+        /// <returns>The session timeout (in seconds).</returns>
         /// <param name="current">The Current object for the dispatch.</param>
 
         int getSessionTimeout(Ice.Current current);
-
-        /// <summary>
-        /// Get the idle timeout used by IceGrid for its side of the connection.
-        /// </summary>
-        /// <returns>The idle timeout (in seconds).</returns>
-        /// <param name="current">The Current object for the dispatch.</param>
-
-        int getACMTimeout(Ice.Current current);
     }
 
     [Ice.SliceTypeId("::IceGrid::Locator")]
@@ -454,38 +446,21 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<AdminSessionPrx?> createAdminSessionFromSecureConnectionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Get the idle timeout used by IceGrid for its side of the connection.
+        /// TODO: update description or remove operation
         /// </summary>
-        /// <returns>The idle timeout (in seconds).</returns>
+        /// <returns>The session timeout (in seconds).</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         int getSessionTimeout(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Get the idle timeout used by IceGrid for its side of the connection.
+        /// TODO: update description or remove operation
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<int> getSessionTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        /// <summary>
-        /// Get the idle timeout used by IceGrid for its side of the connection.
-        /// </summary>
-        /// <returns>The idle timeout (in seconds).</returns>
-        /// <param name="context">The Context map to send with the invocation.</param>
-
-        int getACMTimeout(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        /// <summary>
-        /// Get the idle timeout used by IceGrid for its side of the connection.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<int> getACMTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
@@ -886,18 +861,6 @@ namespace IceGrid
             }
         }
 
-        public int getACMTimeout(global::System.Collections.Generic.Dictionary<string, string>? context = null)
-        {
-            try
-            {
-                return _iceI_getACMTimeoutAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
-            }
-            catch (global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException!;
-            }
-        }
-
         public global::System.Threading.Tasks.Task<SessionPrx?> createSessionAsync(string userId, string password, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_createSessionAsync(userId, password, context, progress, cancel, false);
@@ -1112,38 +1075,6 @@ namespace IceGrid
             var outAsync = getOutgoingAsync<int>(completed);
             outAsync.invoke(
                 _getSessionTimeout_name,
-                Ice.OperationMode.Idempotent,
-                null,
-                context,
-                synchronous,
-                read: (Ice.InputStream istr) =>
-                {
-                    int ret;
-                    ret = istr.readInt();
-                    return ret;
-                });
-        }
-
-        public global::System.Threading.Tasks.Task<int> getACMTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
-        {
-            return _iceI_getACMTimeoutAsync(context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<int> _iceI_getACMTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_getACMTimeout_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<int>(progress, cancel);
-            _iceI_getACMTimeout(context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _getACMTimeout_name = "getACMTimeout";
-
-        private void _iceI_getACMTimeout(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<int>(completed);
-            outAsync.invoke(
-                _getACMTimeout_name,
                 Ice.OperationMode.Idempotent,
                 null,
                 context,
@@ -1558,8 +1489,6 @@ namespace IceGrid
 
         public abstract int getSessionTimeout(Ice.Current current);
 
-        public abstract int getACMTimeout(Ice.Current current);
-
         public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::IceGrid::Registry";
@@ -1572,7 +1501,6 @@ namespace IceGrid
                 "createSessionFromSecureConnection" => Registry.iceD_createSessionFromSecureConnectionAsync(this, request),
                 "createAdminSessionFromSecureConnection" => Registry.iceD_createAdminSessionFromSecureConnectionAsync(this, request),
                 "getSessionTimeout" => Registry.iceD_getSessionTimeoutAsync(this, request),
-                "getACMTimeout" => Registry.iceD_getACMTimeoutAsync(this, request),
                 "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
                 "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
                 "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
@@ -1788,20 +1716,6 @@ namespace IceGrid
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getSessionTimeout(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeInt(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getACMTimeoutAsync(
-            Registry obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getACMTimeout(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
             ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeInt(ret);

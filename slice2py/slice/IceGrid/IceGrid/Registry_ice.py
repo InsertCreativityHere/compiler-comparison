@@ -612,7 +612,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
 
         def getSessionTimeout(self, context=None):
             """
-            Get the idle timeout used by IceGrid for its side of the connection.
+            TODO: update description or remove operation
             
             Parameters
             ----------
@@ -622,13 +622,13 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             Returns
             -------
             int
-                The idle timeout (in seconds).
+                The session timeout (in seconds).
             """
             return _M_IceGrid.Registry._op_getSessionTimeout.invoke(self, ((), context))
 
         def getSessionTimeoutAsync(self, context=None):
             """
-            Get the idle timeout used by IceGrid for its side of the connection.
+            TODO: update description or remove operation
             
             Parameters
             ----------
@@ -641,38 +641,6 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
                 A future object that is completed with the result of the invocation.
             """
             return _M_IceGrid.Registry._op_getSessionTimeout.invokeAsync(self, ((), context))
-
-        def getACMTimeout(self, context=None):
-            """
-            Get the idle timeout used by IceGrid for its side of the connection.
-            
-            Parameters
-            ----------
-            context : Ice.Context
-                The request context for the invocation.
-            
-            Returns
-            -------
-            int
-                The idle timeout (in seconds).
-            """
-            return _M_IceGrid.Registry._op_getACMTimeout.invoke(self, ((), context))
-
-        def getACMTimeoutAsync(self, context=None):
-            """
-            Get the idle timeout used by IceGrid for its side of the connection.
-            
-            Parameters
-            ----------
-            context : Ice.Context
-                The request context for the invocation.
-            
-            Returns
-            -------
-            Ice.Future
-                A future object that is completed with the result of the invocation.
-            """
-            return _M_IceGrid.Registry._op_getACMTimeout.invokeAsync(self, ((), context))
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -801,7 +769,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
 
         def getSessionTimeout(self, current=None):
             """
-            Get the idle timeout used by IceGrid for its side of the connection.
+            TODO: update description or remove operation
             
             Parameters
             ----------
@@ -814,22 +782,6 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
                 A future object that is completed with the result of the dispatch.
             """
             raise NotImplementedError("servant method 'getSessionTimeout' not implemented")
-
-        def getACMTimeout(self, current=None):
-            """
-            Get the idle timeout used by IceGrid for its side of the connection.
-            
-            Parameters
-            ----------
-            current : Ice.Current
-                The Current object for the dispatch.
-            
-            Returns
-            -------
-            Ice.Future
-                A future object that is completed with the result of the dispatch.
-            """
-            raise NotImplementedError("servant method 'getACMTimeout' not implemented")
 
         def __str__(self):
             return IcePy.stringify(self, _M_IceGrid._t_RegistryDisp)
@@ -844,7 +796,6 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
     Registry._op_createSessionFromSecureConnection = IcePy.Operation('createSessionFromSecureConnection', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_IceGrid._t_SessionPrx, False, 0), (_M_IceGrid._t_PermissionDeniedException,))
     Registry._op_createAdminSessionFromSecureConnection = IcePy.Operation('createAdminSessionFromSecureConnection', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_IceGrid._t_AdminSessionPrx, False, 0), (_M_IceGrid._t_PermissionDeniedException,))
     Registry._op_getSessionTimeout = IcePy.Operation('getSessionTimeout', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
-    Registry._op_getACMTimeout = IcePy.Operation('getACMTimeout', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
 
     _M_IceGrid.Registry = Registry
     del Registry
