@@ -197,9 +197,9 @@ public extension SessionPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
-                                           } catch let error as AllocationException {
-                                               throw error
                                            } catch let error as ObjectNotRegisteredException {
+                                               throw error
+                                           } catch let error as AllocationException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
@@ -261,9 +261,9 @@ public extension SessionPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
-                                           } catch let error as AllocationException {
-                                               throw error
                                            } catch let error as ObjectNotRegisteredException {
+                                               throw error
+                                           } catch let error as AllocationException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
