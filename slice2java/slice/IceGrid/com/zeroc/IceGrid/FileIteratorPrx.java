@@ -88,9 +88,9 @@ public interface FileIteratorPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<FileIterator.ReadResult> _iceI_readAsync(int iceP_size, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<FileIterator.ReadResult> _iceI_readAsync(int iceP_size, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<FileIterator.ReadResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "read", null, sync, _iceE_read);
+        com.zeroc.Ice.OutgoingAsync<FileIterator.ReadResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "read", null, sync, _iceE_read);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeInt(iceP_size);
                  }, istr -> {
@@ -149,9 +149,9 @@ public interface FileIteratorPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_destroyAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_destroyAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "destroy", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "destroy", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -308,7 +308,7 @@ public interface FileIteratorPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default FileIteratorPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default FileIteratorPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _FileIteratorPrxI(ref);
     }

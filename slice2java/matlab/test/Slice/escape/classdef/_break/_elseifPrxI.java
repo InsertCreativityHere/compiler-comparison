@@ -18,7 +18,7 @@ package classdef._break;
 /** @hidden */
 public class _elseifPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<elseifPrx> implements elseifPrx
 {
-    _elseifPrxI(com.zeroc.IceInternal.Reference ref)
+    _elseifPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

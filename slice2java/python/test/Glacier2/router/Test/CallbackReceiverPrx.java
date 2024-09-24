@@ -43,9 +43,9 @@ public interface CallbackReceiverPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_callbackAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_callbackAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "callback", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "callback", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -89,9 +89,9 @@ public interface CallbackReceiverPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_callbackExAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_callbackExAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "callbackEx", null, sync, _iceE_callbackEx);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "callbackEx", null, sync, _iceE_callbackEx);
         f.invoke(true, context, null, null, null);
         return f;
     }
@@ -254,7 +254,7 @@ public interface CallbackReceiverPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default CallbackReceiverPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default CallbackReceiverPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _CallbackReceiverPrxI(ref);
     }

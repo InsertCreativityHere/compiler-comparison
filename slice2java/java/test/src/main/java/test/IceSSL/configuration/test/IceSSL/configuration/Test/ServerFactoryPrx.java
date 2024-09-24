@@ -44,9 +44,9 @@ public interface ServerFactoryPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<ServerPrx> _iceI_createServerAsync(java.util.Map<java.lang.String, java.lang.String> iceP_props, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<ServerPrx> _iceI_createServerAsync(java.util.Map<java.lang.String, java.lang.String> iceP_props, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<ServerPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "createServer", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<ServerPrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "createServer", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      PropertiesHelper.write(ostr, iceP_props);
                  }, istr -> {
@@ -84,9 +84,9 @@ public interface ServerFactoryPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_destroyServerAsync(ServerPrx iceP_srv, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_destroyServerAsync(ServerPrx iceP_srv, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "destroyServer", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "destroyServer", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeProxy(iceP_srv);
                  }, null);
@@ -119,9 +119,9 @@ public interface ServerFactoryPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "shutdown", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -278,7 +278,7 @@ public interface ServerFactoryPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default ServerFactoryPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default ServerFactoryPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _ServerFactoryPrxI(ref);
     }

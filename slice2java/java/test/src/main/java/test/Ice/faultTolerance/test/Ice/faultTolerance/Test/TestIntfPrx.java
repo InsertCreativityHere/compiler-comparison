@@ -43,9 +43,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "shutdown", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -76,9 +76,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_abortAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_abortAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "abort", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "abort", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -109,9 +109,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_idempotentAbortAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_idempotentAbortAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "idempotentAbort", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "idempotentAbort", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -142,9 +142,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_pidAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_pidAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "pid", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<java.lang.Integer> f = new com.zeroc.Ice.OutgoingAsync<>(this, "pid", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      int ret;
                      ret = istr.readInt();
@@ -305,7 +305,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default TestIntfPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default TestIntfPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _TestIntfPrxI(ref);
     }

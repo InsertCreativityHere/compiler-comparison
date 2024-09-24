@@ -18,7 +18,7 @@ package IceGrid;
 /** @hidden */
 public class _ReplicaObserverPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ReplicaObserverPrx> implements ReplicaObserverPrx
 {
-    _ReplicaObserverPrxI(com.zeroc.IceInternal.Reference ref)
+    _ReplicaObserverPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

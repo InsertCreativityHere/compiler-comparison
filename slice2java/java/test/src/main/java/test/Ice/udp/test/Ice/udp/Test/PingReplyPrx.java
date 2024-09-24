@@ -43,9 +43,9 @@ public interface PingReplyPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_replyAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_replyAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "reply", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "reply", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -202,7 +202,7 @@ public interface PingReplyPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default PingReplyPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default PingReplyPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _PingReplyPrxI(ref);
     }

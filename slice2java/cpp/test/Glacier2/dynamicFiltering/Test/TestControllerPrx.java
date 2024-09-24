@@ -52,9 +52,9 @@ public interface TestControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestToken> _iceI_stepAsync(com.zeroc.Glacier2.SessionPrx iceP_currentSession, TestToken iceP_currentState, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<TestToken> _iceI_stepAsync(com.zeroc.Glacier2.SessionPrx iceP_currentSession, TestToken iceP_currentState, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TestToken> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "step", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<TestToken> f = new com.zeroc.Ice.OutgoingAsync<>(this, "step", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeProxy(iceP_currentSession);
                      TestToken.ice_write(ostr, iceP_currentState);
@@ -92,9 +92,9 @@ public interface TestControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "shutdown", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -251,7 +251,7 @@ public interface TestControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default TestControllerPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default TestControllerPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _TestControllerPrxI(ref);
     }

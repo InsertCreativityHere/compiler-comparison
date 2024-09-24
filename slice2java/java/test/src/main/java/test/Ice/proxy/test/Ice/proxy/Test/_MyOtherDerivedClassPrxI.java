@@ -18,7 +18,7 @@ package test.Ice.proxy.Test;
 /** @hidden */
 public class _MyOtherDerivedClassPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<MyOtherDerivedClassPrx> implements MyOtherDerivedClassPrx
 {
-    _MyOtherDerivedClassPrxI(com.zeroc.IceInternal.Reference ref)
+    _MyOtherDerivedClassPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

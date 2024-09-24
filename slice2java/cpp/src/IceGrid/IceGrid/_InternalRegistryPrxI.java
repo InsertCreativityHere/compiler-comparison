@@ -18,7 +18,7 @@ package IceGrid;
 /** @hidden */
 public class _InternalRegistryPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<InternalRegistryPrx> implements InternalRegistryPrx
 {
-    _InternalRegistryPrxI(com.zeroc.IceInternal.Reference ref)
+    _InternalRegistryPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

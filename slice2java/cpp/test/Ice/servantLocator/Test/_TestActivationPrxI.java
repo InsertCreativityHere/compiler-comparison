@@ -18,7 +18,7 @@ package Test;
 /** @hidden */
 public class _TestActivationPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TestActivationPrx> implements TestActivationPrx
 {
-    _TestActivationPrxI(com.zeroc.IceInternal.Reference ref)
+    _TestActivationPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

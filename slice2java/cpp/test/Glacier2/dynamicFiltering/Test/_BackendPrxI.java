@@ -18,7 +18,7 @@ package Test;
 /** @hidden */
 public class _BackendPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<BackendPrx> implements BackendPrx
 {
-    _BackendPrxI(com.zeroc.IceInternal.Reference ref)
+    _BackendPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

@@ -172,16 +172,16 @@ public class AdapterDescriptor implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceGrid::AdapterDescriptor");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, name);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, description);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, id);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, replicaGroupId);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, priority);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, registerProcess);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, serverLifetime);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, objects);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, allocatables);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceGrid::AdapterDescriptor");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, name);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, description);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, id);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, replicaGroupId);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, priority);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, registerProcess);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, serverLifetime);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, objects);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, allocatables);
         return h_;
     }
 
@@ -278,5 +278,5 @@ public class AdapterDescriptor implements java.lang.Cloneable,
     private static final AdapterDescriptor _nullMarshalValue = new AdapterDescriptor();
 
     /** @hidden */
-    private static final long serialVersionUID = 8905816845076823402L;
+    private static final long serialVersionUID = -1040667694307453510L;
 }

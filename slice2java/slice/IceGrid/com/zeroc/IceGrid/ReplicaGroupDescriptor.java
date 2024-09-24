@@ -135,13 +135,13 @@ public class ReplicaGroupDescriptor implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceGrid::ReplicaGroupDescriptor");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, id);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, loadBalancing);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, proxyOptions);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, objects);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, description);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, filter);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceGrid::ReplicaGroupDescriptor");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, id);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, loadBalancing);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, proxyOptions);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, objects);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, description);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, filter);
         return h_;
     }
 
@@ -232,5 +232,5 @@ public class ReplicaGroupDescriptor implements java.lang.Cloneable,
     private static final ReplicaGroupDescriptor _nullMarshalValue = new ReplicaGroupDescriptor();
 
     /** @hidden */
-    private static final long serialVersionUID = 2983231612800374157L;
+    private static final long serialVersionUID = 8532909392067548429L;
 }

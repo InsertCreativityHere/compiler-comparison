@@ -70,9 +70,9 @@ public class AllData implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceStorm::AllData");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, llus);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, subscribers);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceStorm::AllData");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, llus);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, subscribers);
         return h_;
     }
 
@@ -155,5 +155,5 @@ public class AllData implements java.lang.Cloneable,
     private static final AllData _nullMarshalValue = new AllData();
 
     /** @hidden */
-    private static final long serialVersionUID = -7931026977999941708L;
+    private static final long serialVersionUID = -394192064213622623L;
 }

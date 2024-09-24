@@ -67,9 +67,9 @@ public class Foo implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::Foo");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, SLmem);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, SLSmem);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::Foo");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, SLmem);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, SLSmem);
         return h_;
     }
 
@@ -152,5 +152,5 @@ public class Foo implements java.lang.Cloneable,
     private static final Foo _nullMarshalValue = new Foo();
 
     /** @hidden */
-    private static final long serialVersionUID = -463282645670166976L;
+    private static final long serialVersionUID = 3298006270825640256L;
 }

@@ -61,8 +61,8 @@ public class SC1 implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::SC1");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, id);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::SC1");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, id);
         return h_;
     }
 
@@ -143,5 +143,5 @@ public class SC1 implements java.lang.Cloneable,
     private static final SC1 _nullMarshalValue = new SC1();
 
     /** @hidden */
-    private static final long serialVersionUID = 186202482001138127L;
+    private static final long serialVersionUID = 186200296680518505L;
 }

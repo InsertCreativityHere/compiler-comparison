@@ -18,7 +18,7 @@ package IceStorm;
 /** @hidden */
 public class _TopicManagerInternalPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TopicManagerInternalPrx> implements TopicManagerInternalPrx
 {
-    _TopicManagerInternalPrxI(com.zeroc.IceInternal.Reference ref)
+    _TopicManagerInternalPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

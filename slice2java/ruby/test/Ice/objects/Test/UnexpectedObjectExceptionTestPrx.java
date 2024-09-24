@@ -43,11 +43,11 @@ public interface UnexpectedObjectExceptionTestPrx extends com.zeroc.Ice.ObjectPr
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Empty> _iceI_opAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Empty> _iceI_opAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Empty> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "op", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Empty> f = new com.zeroc.Ice.OutgoingAsync<>(this, "op", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<Empty> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<Empty> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, Empty.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -207,7 +207,7 @@ public interface UnexpectedObjectExceptionTestPrx extends com.zeroc.Ice.ObjectPr
      * @hidden
      **/
     @Override
-    default UnexpectedObjectExceptionTestPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default UnexpectedObjectExceptionTestPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _UnexpectedObjectExceptionTestPrxI(ref);
     }

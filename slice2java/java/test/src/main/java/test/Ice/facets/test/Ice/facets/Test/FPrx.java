@@ -43,9 +43,9 @@ public interface FPrx extends EPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.String> _iceI_callFAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.lang.String> _iceI_callFAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "callF", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<java.lang.String> f = new com.zeroc.Ice.OutgoingAsync<>(this, "callF", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      String ret;
                      ret = istr.readString();
@@ -206,7 +206,7 @@ public interface FPrx extends EPrx
      * @hidden
      **/
     @Override
-    default FPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default FPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _FPrxI(ref);
     }

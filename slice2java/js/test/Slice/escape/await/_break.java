@@ -101,12 +101,12 @@ public class _break implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::await::break");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, _while);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, _clone);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, _equals);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, _hashCode);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, constructor);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::await::break");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, _while);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, _clone);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, _equals);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, _hashCode);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, constructor);
         return h_;
     }
 
@@ -195,5 +195,5 @@ public class _break implements java.lang.Cloneable,
     private static final _break _nullMarshalValue = new _break();
 
     /** @hidden */
-    private static final long serialVersionUID = 293379656785439897L;
+    private static final long serialVersionUID = 4428065128794983363L;
 }

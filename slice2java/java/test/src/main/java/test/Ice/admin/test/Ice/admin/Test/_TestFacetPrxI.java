@@ -18,7 +18,7 @@ package test.Ice.admin.Test;
 /** @hidden */
 public class _TestFacetPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TestFacetPrx> implements TestFacetPrx
 {
-    _TestFacetPrxI(com.zeroc.IceInternal.Reference ref)
+    _TestFacetPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

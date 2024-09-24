@@ -18,7 +18,7 @@ package test.Ice.udp.Test;
 /** @hidden */
 public class _PingReplyPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<PingReplyPrx> implements PingReplyPrx
 {
-    _PingReplyPrxI(com.zeroc.IceInternal.Reference ref)
+    _PingReplyPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

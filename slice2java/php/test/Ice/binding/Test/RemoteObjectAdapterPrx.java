@@ -43,9 +43,9 @@ public interface RemoteObjectAdapterPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestIntfPrx> _iceI_getTestIntfAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<TestIntfPrx> _iceI_getTestIntfAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TestIntfPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getTestIntf", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<TestIntfPrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getTestIntf", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      TestIntfPrx ret;
                      ret = TestIntfPrx.uncheckedCast(istr.readProxy());
@@ -80,9 +80,9 @@ public interface RemoteObjectAdapterPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_deactivateAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_deactivateAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "deactivate", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "deactivate", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -239,7 +239,7 @@ public interface RemoteObjectAdapterPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default RemoteObjectAdapterPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default RemoteObjectAdapterPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _RemoteObjectAdapterPrxI(ref);
     }

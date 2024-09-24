@@ -57,9 +57,9 @@ public interface ProcessPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_waitReadyAsync(int iceP_timeout, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_waitReadyAsync(int iceP_timeout, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "waitReady", null, sync, _iceE_waitReady);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "waitReady", null, sync, _iceE_waitReady);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeInt(iceP_timeout);
                  }, null);
@@ -112,9 +112,9 @@ public interface ProcessPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_waitSuccessAsync(int iceP_timeout, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_waitSuccessAsync(int iceP_timeout, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "waitSuccess", null, sync, _iceE_waitSuccess);
+        com.zeroc.Ice.OutgoingAsync<java.lang.Integer> f = new com.zeroc.Ice.OutgoingAsync<>(this, "waitSuccess", null, sync, _iceE_waitSuccess);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeInt(iceP_timeout);
                  }, istr -> {
@@ -157,9 +157,9 @@ public interface ProcessPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.String> _iceI_terminateAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.lang.String> _iceI_terminateAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "terminate", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<java.lang.String> f = new com.zeroc.Ice.OutgoingAsync<>(this, "terminate", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      String ret;
                      ret = istr.readString();
@@ -320,7 +320,7 @@ public interface ProcessPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default ProcessPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default ProcessPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _ProcessPrxI(ref);
     }

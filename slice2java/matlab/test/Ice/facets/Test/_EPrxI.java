@@ -18,7 +18,7 @@ package Test;
 /** @hidden */
 public class _EPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<EPrx> implements EPrx
 {
-    _EPrxI(com.zeroc.IceInternal.Reference ref)
+    _EPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

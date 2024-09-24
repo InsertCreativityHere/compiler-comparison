@@ -82,10 +82,10 @@ public class S2 implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::S2");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, E1);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, S1);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, C1);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::S2");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, E1);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, S1);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, C1);
         return h_;
     }
 
@@ -170,5 +170,5 @@ public class S2 implements java.lang.Cloneable,
     private static final S2 _nullMarshalValue = new S2();
 
     /** @hidden */
-    private static final long serialVersionUID = 8647849428827944089L;
+    private static final long serialVersionUID = -8716763742091679135L;
 }

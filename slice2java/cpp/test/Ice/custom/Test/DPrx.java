@@ -169,7 +169,7 @@ public interface DPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default DPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default DPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _DPrxI(ref);
     }

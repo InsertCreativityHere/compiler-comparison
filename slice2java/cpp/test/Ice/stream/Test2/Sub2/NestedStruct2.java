@@ -121,16 +121,16 @@ public class NestedStruct2 implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test2::Sub2::NestedStruct2");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, bo);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, by);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, sh);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, i);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, l);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, f);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, d);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, str);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, e);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test2::Sub2::NestedStruct2");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, bo);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, by);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, sh);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, i);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, l);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, f);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, d);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, str);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, e);
         return h_;
     }
 
@@ -227,5 +227,5 @@ public class NestedStruct2 implements java.lang.Cloneable,
     private static final NestedStruct2 _nullMarshalValue = new NestedStruct2();
 
     /** @hidden */
-    private static final long serialVersionUID = -8456790439151170640L;
+    private static final long serialVersionUID = 6991063824931080595L;
 }

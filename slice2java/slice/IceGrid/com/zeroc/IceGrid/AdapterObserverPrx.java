@@ -71,9 +71,9 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_adapterInitAsync(AdapterInfo[] iceP_adpts, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_adapterInitAsync(AdapterInfo[] iceP_adpts, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "adapterInit", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "adapterInit", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      AdapterInfoSeqHelper.write(ostr, iceP_adpts);
                  }, null);
@@ -131,9 +131,9 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_adapterAddedAsync(AdapterInfo iceP_info, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_adapterAddedAsync(AdapterInfo iceP_info, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "adapterAdded", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "adapterAdded", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      AdapterInfo.ice_write(ostr, iceP_info);
                  }, null);
@@ -191,9 +191,9 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_adapterUpdatedAsync(AdapterInfo iceP_info, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_adapterUpdatedAsync(AdapterInfo iceP_info, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "adapterUpdated", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "adapterUpdated", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      AdapterInfo.ice_write(ostr, iceP_info);
                  }, null);
@@ -251,9 +251,9 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_adapterRemovedAsync(String iceP_id, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_adapterRemovedAsync(String iceP_id, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "adapterRemoved", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "adapterRemoved", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_id);
                  }, null);
@@ -412,7 +412,7 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default AdapterObserverPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default AdapterObserverPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _AdapterObserverPrxI(ref);
     }

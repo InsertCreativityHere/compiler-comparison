@@ -18,7 +18,7 @@ package await;
 /** @hidden */
 public class _implicitPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<implicitPrx> implements implicitPrx
 {
-    _implicitPrxI(com.zeroc.IceInternal.Reference ref)
+    _implicitPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

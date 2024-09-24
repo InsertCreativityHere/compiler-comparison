@@ -18,7 +18,7 @@ package com.zeroc.Glacier2;
 /** @hidden */
 public class _RouterPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<RouterPrx> implements RouterPrx
 {
-    _RouterPrxI(com.zeroc.IceInternal.Reference ref)
+    _RouterPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

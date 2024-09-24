@@ -18,7 +18,7 @@ package IceGrid;
 /** @hidden */
 public class _NodePrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<NodePrx> implements NodePrx
 {
-    _NodePrxI(com.zeroc.IceInternal.Reference ref)
+    _NodePrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

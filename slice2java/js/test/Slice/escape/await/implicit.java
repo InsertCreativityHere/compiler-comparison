@@ -53,11 +53,11 @@ public interface implicit extends com.zeroc.Ice.Object
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
         _break iceP_internal;
-        final com.zeroc.IceInternal.Holder<delete> icePP_is = new com.zeroc.IceInternal.Holder<>();
+        final com.zeroc.Ice.Holder<delete> icePP_is = new com.zeroc.Ice.Holder<>();
         explicitPrx iceP_lock;
         casePrx iceP_namespace;
         typeofPrx iceP_new;
-        final com.zeroc.IceInternal.Holder<delete> icePP_null = new com.zeroc.IceInternal.Holder<>();
+        final com.zeroc.Ice.Holder<delete> icePP_null = new com.zeroc.Ice.Holder<>();
         explicitPrx iceP_operator;
         int iceP_override;
         int iceP_params;

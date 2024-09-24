@@ -43,9 +43,9 @@ public interface ServerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_noCertAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_noCertAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "noCert", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "noCert", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -78,9 +78,9 @@ public interface ServerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_checkCertAsync(String iceP_subjectDN, String iceP_issuerDN, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_checkCertAsync(String iceP_subjectDN, String iceP_issuerDN, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "checkCert", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "checkCert", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_subjectDN);
                      ostr.writeString(iceP_issuerDN);
@@ -115,9 +115,9 @@ public interface ServerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_checkCipherAsync(String iceP_cipher, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_checkCipherAsync(String iceP_cipher, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "checkCipher", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "checkCipher", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_cipher);
                  }, null);
@@ -276,7 +276,7 @@ public interface ServerPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default ServerPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default ServerPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _ServerPrxI(ref);
     }

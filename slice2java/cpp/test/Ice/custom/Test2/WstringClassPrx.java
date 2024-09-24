@@ -44,9 +44,9 @@ public interface WstringClassPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<WstringClass.OpStringResult> _iceI_opStringAsync(String iceP_s1, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<WstringClass.OpStringResult> _iceI_opStringAsync(String iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<WstringClass.OpStringResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opString", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<WstringClass.OpStringResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opString", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_s1);
                  }, istr -> {
@@ -84,9 +84,9 @@ public interface WstringClassPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<WstringClass.OpStructResult> _iceI_opStructAsync(WstringStruct iceP_s1, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<WstringClass.OpStructResult> _iceI_opStructAsync(WstringStruct iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<WstringClass.OpStructResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opStruct", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<WstringClass.OpStructResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opStruct", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      WstringStruct.ice_write(ostr, iceP_s1);
                  }, istr -> {
@@ -137,9 +137,9 @@ public interface WstringClassPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_throwExceptAsync(String iceP_reason, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwExceptAsync(String iceP_reason, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwExcept", null, sync, _iceE_throwExcept);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "throwExcept", null, sync, _iceE_throwExcept);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_reason);
                  }, null);
@@ -304,7 +304,7 @@ public interface WstringClassPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default WstringClassPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default WstringClassPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _WstringClassPrxI(ref);
     }

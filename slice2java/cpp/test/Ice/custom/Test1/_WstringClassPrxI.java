@@ -18,7 +18,7 @@ package Test1;
 /** @hidden */
 public class _WstringClassPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<WstringClassPrx> implements WstringClassPrx
 {
-    _WstringClassPrxI(com.zeroc.IceInternal.Reference ref)
+    _WstringClassPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

@@ -18,7 +18,7 @@ package Test;
 /** @hidden */
 public class _MyInterfacePrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<MyInterfacePrx> implements MyInterfacePrx
 {
-    _MyInterfacePrxI(com.zeroc.IceInternal.Reference ref)
+    _MyInterfacePrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

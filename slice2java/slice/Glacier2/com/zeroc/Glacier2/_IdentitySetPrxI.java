@@ -18,7 +18,7 @@ package com.zeroc.Glacier2;
 /** @hidden */
 public class _IdentitySetPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<IdentitySetPrx> implements IdentitySetPrx
 {
-    _IdentitySetPrxI(com.zeroc.IceInternal.Reference ref)
+    _IdentitySetPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

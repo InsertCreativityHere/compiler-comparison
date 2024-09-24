@@ -18,7 +18,7 @@ package com.zeroc.IceGrid;
 /** @hidden */
 public class _FileParserPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<FileParserPrx> implements FileParserPrx
 {
-    _FileParserPrxI(com.zeroc.IceInternal.Reference ref)
+    _FileParserPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

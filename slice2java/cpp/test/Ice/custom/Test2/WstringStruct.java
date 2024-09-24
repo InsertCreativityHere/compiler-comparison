@@ -61,8 +61,8 @@ public class WstringStruct implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test2::WstringStruct");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, s);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test2::WstringStruct");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, s);
         return h_;
     }
 
@@ -143,5 +143,5 @@ public class WstringStruct implements java.lang.Cloneable,
     private static final WstringStruct _nullMarshalValue = new WstringStruct();
 
     /** @hidden */
-    private static final long serialVersionUID = 5997322077638334403L;
+    private static final long serialVersionUID = 5997333563959474703L;
 }

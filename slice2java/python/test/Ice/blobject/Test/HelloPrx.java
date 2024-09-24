@@ -44,9 +44,9 @@ public interface HelloPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_sayHelloAsync(int iceP_delay, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_sayHelloAsync(int iceP_delay, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "sayHello", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "sayHello", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeInt(iceP_delay);
                  }, null);
@@ -81,9 +81,9 @@ public interface HelloPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_addAsync(int iceP_s1, int iceP_s2, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_addAsync(int iceP_s1, int iceP_s2, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "add", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<java.lang.Integer> f = new com.zeroc.Ice.OutgoingAsync<>(this, "add", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeInt(iceP_s1);
                      ostr.writeInt(iceP_s2);
@@ -134,9 +134,9 @@ public interface HelloPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_raiseUEAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_raiseUEAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "raiseUE", null, sync, _iceE_raiseUE);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "raiseUE", null, sync, _iceE_raiseUE);
         f.invoke(true, context, null, null, null);
         return f;
     }
@@ -173,9 +173,9 @@ public interface HelloPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "shutdown", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -332,7 +332,7 @@ public interface HelloPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default HelloPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default HelloPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _HelloPrxI(ref);
     }

@@ -69,9 +69,9 @@ public interface RouterPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Router.GetClientProxyResult> _iceI_getClientProxyAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Router.GetClientProxyResult> _iceI_getClientProxyAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Router.GetClientProxyResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getClientProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Router.GetClientProxyResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getClientProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      Router.GetClientProxyResult ret = new Router.GetClientProxyResult();
                      ret.read(istr);
@@ -124,9 +124,9 @@ public interface RouterPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_getServerProxyAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_getServerProxyAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getServerProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getServerProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      ObjectPrx ret;
                      ret = istr.readProxy();
@@ -184,9 +184,9 @@ public interface RouterPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<ObjectPrx[]> _iceI_addProxiesAsync(ObjectPrx[] iceP_proxies, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<ObjectPrx[]> _iceI_addProxiesAsync(ObjectPrx[] iceP_proxies, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<ObjectPrx[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "addProxies", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<ObjectPrx[]> f = new com.zeroc.Ice.OutgoingAsync<>(this, "addProxies", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ObjectProxySeqHelper.write(ostr, iceP_proxies);
                  }, istr -> {
@@ -349,7 +349,7 @@ public interface RouterPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default RouterPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default RouterPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _RouterPrxI(ref);
     }

@@ -92,10 +92,10 @@ public class TemplateDescriptor implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceGrid::TemplateDescriptor");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, descriptor);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, parameters);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, parameterDefaults);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceGrid::TemplateDescriptor");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, descriptor);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, parameters);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, parameterDefaults);
         return h_;
     }
 
@@ -198,5 +198,5 @@ public class TemplateDescriptor implements java.lang.Cloneable,
     private static final TemplateDescriptor _nullMarshalValue = new TemplateDescriptor();
 
     /** @hidden */
-    private static final long serialVersionUID = 5166662922555835168L;
+    private static final long serialVersionUID = 1897221688381407856L;
 }

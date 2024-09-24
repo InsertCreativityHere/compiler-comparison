@@ -43,11 +43,11 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.Value> _iceI_SBaseAsObjectAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.Value> _iceI_SBaseAsObjectAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.Value> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "SBaseAsObject", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.Value> f = new com.zeroc.Ice.OutgoingAsync<>(this, "SBaseAsObject", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<com.zeroc.Ice.Value> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<com.zeroc.Ice.Value> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, com.zeroc.Ice.Value.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -81,11 +81,11 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<SBase> _iceI_SBaseAsSBaseAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<SBase> _iceI_SBaseAsSBaseAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<SBase> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "SBaseAsSBase", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<SBase> f = new com.zeroc.Ice.OutgoingAsync<>(this, "SBaseAsSBase", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<SBase> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<SBase> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, SBase.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -119,11 +119,11 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<SBase> _iceI_SBSKnownDerivedAsSBaseAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<SBase> _iceI_SBSKnownDerivedAsSBaseAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<SBase> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "SBSKnownDerivedAsSBase", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<SBase> f = new com.zeroc.Ice.OutgoingAsync<>(this, "SBSKnownDerivedAsSBase", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<SBase> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<SBase> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, SBase.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -157,11 +157,11 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<SBSKnownDerived> _iceI_SBSKnownDerivedAsSBSKnownDerivedAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<SBSKnownDerived> _iceI_SBSKnownDerivedAsSBSKnownDerivedAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<SBSKnownDerived> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "SBSKnownDerivedAsSBSKnownDerived", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<SBSKnownDerived> f = new com.zeroc.Ice.OutgoingAsync<>(this, "SBSKnownDerivedAsSBSKnownDerived", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<SBSKnownDerived> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<SBSKnownDerived> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, SBSKnownDerived.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -195,11 +195,11 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<SBase> _iceI_SBSUnknownDerivedAsSBaseAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<SBase> _iceI_SBSUnknownDerivedAsSBaseAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<SBase> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "SBSUnknownDerivedAsSBase", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<SBase> f = new com.zeroc.Ice.OutgoingAsync<>(this, "SBSUnknownDerivedAsSBase", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<SBase> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<SBase> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, SBase.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -233,11 +233,11 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<SBase> _iceI_SBSUnknownDerivedAsSBaseCompactAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<SBase> _iceI_SBSUnknownDerivedAsSBaseCompactAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<SBase> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "SBSUnknownDerivedAsSBaseCompact", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<SBase> f = new com.zeroc.Ice.OutgoingAsync<>(this, "SBSUnknownDerivedAsSBaseCompact", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.CompactFormat, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<SBase> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<SBase> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, SBase.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -271,11 +271,11 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.Value> _iceI_SUnknownAsObjectAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.Value> _iceI_SUnknownAsObjectAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.Value> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "SUnknownAsObject", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.Value> f = new com.zeroc.Ice.OutgoingAsync<>(this, "SUnknownAsObject", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<com.zeroc.Ice.Value> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<com.zeroc.Ice.Value> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, com.zeroc.Ice.Value.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -310,9 +310,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_checkSUnknownAsync(com.zeroc.Ice.Value iceP_o, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_checkSUnknownAsync(com.zeroc.Ice.Value iceP_o, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "checkSUnknown", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "checkSUnknown", null, sync, null);
         f.invoke(false, context, com.zeroc.Ice.FormatType.SlicedFormat, ostr -> {
                      ostr.writeValue(iceP_o);
                      ostr.writePendingValues();
@@ -346,11 +346,11 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<B> _iceI_oneElementCycleAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<B> _iceI_oneElementCycleAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<B> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "oneElementCycle", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<B> f = new com.zeroc.Ice.OutgoingAsync<>(this, "oneElementCycle", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<B> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<B> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, B.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -384,11 +384,11 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<B> _iceI_twoElementCycleAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<B> _iceI_twoElementCycleAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<B> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "twoElementCycle", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<B> f = new com.zeroc.Ice.OutgoingAsync<>(this, "twoElementCycle", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<B> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<B> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, B.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -422,11 +422,11 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<B> _iceI_D1AsBAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<B> _iceI_D1AsBAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<B> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "D1AsB", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<B> f = new com.zeroc.Ice.OutgoingAsync<>(this, "D1AsB", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<B> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<B> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, B.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -460,11 +460,11 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<D1> _iceI_D1AsD1Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<D1> _iceI_D1AsD1Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<D1> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "D1AsD1", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<D1> f = new com.zeroc.Ice.OutgoingAsync<>(this, "D1AsD1", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<D1> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<D1> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, D1.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -498,11 +498,11 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<B> _iceI_D2AsBAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<B> _iceI_D2AsBAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<B> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "D2AsB", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<B> f = new com.zeroc.Ice.OutgoingAsync<>(this, "D2AsB", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<B> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<B> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, B.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -536,9 +536,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.ParamTest1Result> _iceI_paramTest1Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<TestIntf.ParamTest1Result> _iceI_paramTest1Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TestIntf.ParamTest1Result> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "paramTest1", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<TestIntf.ParamTest1Result> f = new com.zeroc.Ice.OutgoingAsync<>(this, "paramTest1", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, istr -> {
                      TestIntf.ParamTest1Result ret = new TestIntf.ParamTest1Result();
                      ret.read(istr);
@@ -574,9 +574,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.ParamTest2Result> _iceI_paramTest2Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<TestIntf.ParamTest2Result> _iceI_paramTest2Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TestIntf.ParamTest2Result> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "paramTest2", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<TestIntf.ParamTest2Result> f = new com.zeroc.Ice.OutgoingAsync<>(this, "paramTest2", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, istr -> {
                      TestIntf.ParamTest2Result ret = new TestIntf.ParamTest2Result();
                      ret.read(istr);
@@ -612,9 +612,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.ParamTest3Result> _iceI_paramTest3Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<TestIntf.ParamTest3Result> _iceI_paramTest3Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TestIntf.ParamTest3Result> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "paramTest3", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<TestIntf.ParamTest3Result> f = new com.zeroc.Ice.OutgoingAsync<>(this, "paramTest3", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, istr -> {
                      TestIntf.ParamTest3Result ret = new TestIntf.ParamTest3Result();
                      ret.read(istr);
@@ -650,9 +650,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.ParamTest4Result> _iceI_paramTest4Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<TestIntf.ParamTest4Result> _iceI_paramTest4Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TestIntf.ParamTest4Result> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "paramTest4", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<TestIntf.ParamTest4Result> f = new com.zeroc.Ice.OutgoingAsync<>(this, "paramTest4", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, istr -> {
                      TestIntf.ParamTest4Result ret = new TestIntf.ParamTest4Result();
                      ret.read(istr);
@@ -688,9 +688,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.ReturnTest1Result> _iceI_returnTest1Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<TestIntf.ReturnTest1Result> _iceI_returnTest1Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TestIntf.ReturnTest1Result> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "returnTest1", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<TestIntf.ReturnTest1Result> f = new com.zeroc.Ice.OutgoingAsync<>(this, "returnTest1", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, istr -> {
                      TestIntf.ReturnTest1Result ret = new TestIntf.ReturnTest1Result();
                      ret.read(istr);
@@ -726,9 +726,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.ReturnTest2Result> _iceI_returnTest2Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<TestIntf.ReturnTest2Result> _iceI_returnTest2Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TestIntf.ReturnTest2Result> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "returnTest2", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<TestIntf.ReturnTest2Result> f = new com.zeroc.Ice.OutgoingAsync<>(this, "returnTest2", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, istr -> {
                      TestIntf.ReturnTest2Result ret = new TestIntf.ReturnTest2Result();
                      ret.read(istr);
@@ -766,15 +766,15 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<B> _iceI_returnTest3Async(B iceP_p1, B iceP_p2, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<B> _iceI_returnTest3Async(B iceP_p1, B iceP_p2, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<B> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "returnTest3", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<B> f = new com.zeroc.Ice.OutgoingAsync<>(this, "returnTest3", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, ostr -> {
                      ostr.writeValue(iceP_p1);
                      ostr.writeValue(iceP_p2);
                      ostr.writePendingValues();
                  }, istr -> {
-                     final com.zeroc.IceInternal.Holder<B> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<B> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, B.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -810,9 +810,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<SS3> _iceI_sequenceTestAsync(SS1 iceP_p1, SS2 iceP_p2, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<SS3> _iceI_sequenceTestAsync(SS1 iceP_p1, SS2 iceP_p2, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<SS3> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "sequenceTest", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<SS3> f = new com.zeroc.Ice.OutgoingAsync<>(this, "sequenceTest", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, ostr -> {
                      ostr.writeValue(iceP_p1);
                      ostr.writeValue(iceP_p2);
@@ -853,9 +853,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.DictionaryTestResult> _iceI_dictionaryTestAsync(java.util.Map<java.lang.Integer, B> iceP_bin, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<TestIntf.DictionaryTestResult> _iceI_dictionaryTestAsync(java.util.Map<java.lang.Integer, B> iceP_bin, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TestIntf.DictionaryTestResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "dictionaryTest", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<TestIntf.DictionaryTestResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "dictionaryTest", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, ostr -> {
                      BDictHelper.write(ostr, iceP_bin);
                      ostr.writePendingValues();
@@ -895,14 +895,14 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<PBase> _iceI_exchangePBaseAsync(PBase iceP_pb, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<PBase> _iceI_exchangePBaseAsync(PBase iceP_pb, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<PBase> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "exchangePBase", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<PBase> f = new com.zeroc.Ice.OutgoingAsync<>(this, "exchangePBase", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, ostr -> {
                      ostr.writeValue(iceP_pb);
                      ostr.writePendingValues();
                  }, istr -> {
-                     final com.zeroc.IceInternal.Holder<PBase> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<PBase> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, PBase.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -936,11 +936,11 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Preserved> _iceI_PBSUnknownAsPreservedAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Preserved> _iceI_PBSUnknownAsPreservedAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Preserved> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "PBSUnknownAsPreserved", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Preserved> f = new com.zeroc.Ice.OutgoingAsync<>(this, "PBSUnknownAsPreserved", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<Preserved> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<Preserved> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, Preserved.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -975,9 +975,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_checkPBSUnknownAsync(Preserved iceP_p, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_checkPBSUnknownAsync(Preserved iceP_p, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "checkPBSUnknown", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "checkPBSUnknown", null, sync, null);
         f.invoke(false, context, com.zeroc.Ice.FormatType.SlicedFormat, ostr -> {
                      ostr.writeValue(iceP_p);
                      ostr.writePendingValues();
@@ -1011,11 +1011,11 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Preserved> _iceI_PBSUnknownAsPreservedWithGraphAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Preserved> _iceI_PBSUnknownAsPreservedWithGraphAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Preserved> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "PBSUnknownAsPreservedWithGraph", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Preserved> f = new com.zeroc.Ice.OutgoingAsync<>(this, "PBSUnknownAsPreservedWithGraph", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<Preserved> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<Preserved> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, Preserved.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -1050,9 +1050,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_checkPBSUnknownWithGraphAsync(Preserved iceP_p, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_checkPBSUnknownWithGraphAsync(Preserved iceP_p, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "checkPBSUnknownWithGraph", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "checkPBSUnknownWithGraph", null, sync, null);
         f.invoke(false, context, com.zeroc.Ice.FormatType.SlicedFormat, ostr -> {
                      ostr.writeValue(iceP_p);
                      ostr.writePendingValues();
@@ -1086,11 +1086,11 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Preserved> _iceI_PBSUnknown2AsPreservedWithGraphAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Preserved> _iceI_PBSUnknown2AsPreservedWithGraphAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Preserved> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "PBSUnknown2AsPreservedWithGraph", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Preserved> f = new com.zeroc.Ice.OutgoingAsync<>(this, "PBSUnknown2AsPreservedWithGraph", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<Preserved> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<Preserved> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, Preserved.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -1125,9 +1125,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_checkPBSUnknown2WithGraphAsync(Preserved iceP_p, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_checkPBSUnknown2WithGraphAsync(Preserved iceP_p, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "checkPBSUnknown2WithGraph", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "checkPBSUnknown2WithGraph", null, sync, null);
         f.invoke(false, context, com.zeroc.Ice.FormatType.SlicedFormat, ostr -> {
                      ostr.writeValue(iceP_p);
                      ostr.writePendingValues();
@@ -1162,14 +1162,14 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<PNode> _iceI_exchangePNodeAsync(PNode iceP_pn, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<PNode> _iceI_exchangePNodeAsync(PNode iceP_pn, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<PNode> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "exchangePNode", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<PNode> f = new com.zeroc.Ice.OutgoingAsync<>(this, "exchangePNode", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, ostr -> {
                      ostr.writeValue(iceP_pn);
                      ostr.writePendingValues();
                  }, istr -> {
-                     final com.zeroc.IceInternal.Holder<PNode> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<PNode> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, PNode.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -1216,9 +1216,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_throwBaseAsBaseAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwBaseAsBaseAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwBaseAsBase", null, sync, _iceE_throwBaseAsBase);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "throwBaseAsBase", null, sync, _iceE_throwBaseAsBase);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, null);
         return f;
     }
@@ -1268,9 +1268,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_throwDerivedAsBaseAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwDerivedAsBaseAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwDerivedAsBase", null, sync, _iceE_throwDerivedAsBase);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "throwDerivedAsBase", null, sync, _iceE_throwDerivedAsBase);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, null);
         return f;
     }
@@ -1320,9 +1320,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_throwDerivedAsDerivedAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwDerivedAsDerivedAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwDerivedAsDerived", null, sync, _iceE_throwDerivedAsDerived);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "throwDerivedAsDerived", null, sync, _iceE_throwDerivedAsDerived);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, null);
         return f;
     }
@@ -1372,9 +1372,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_throwUnknownDerivedAsBaseAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwUnknownDerivedAsBaseAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwUnknownDerivedAsBase", null, sync, _iceE_throwUnknownDerivedAsBase);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "throwUnknownDerivedAsBase", null, sync, _iceE_throwUnknownDerivedAsBase);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, null);
         return f;
     }
@@ -1424,9 +1424,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_throwPreservedExceptionAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwPreservedExceptionAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwPreservedException", null, sync, _iceE_throwPreservedException);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "throwPreservedException", null, sync, _iceE_throwPreservedException);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, null);
         return f;
     }
@@ -1479,11 +1479,11 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Forward> _iceI_useForwardAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Forward> _iceI_useForwardAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Forward> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "useForward", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Forward> f = new com.zeroc.Ice.OutgoingAsync<>(this, "useForward", null, sync, null);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<Forward> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<Forward> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, Forward.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -1517,9 +1517,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "shutdown", null, sync, null);
         f.invoke(false, context, com.zeroc.Ice.FormatType.SlicedFormat, null, null);
         return f;
     }
@@ -1676,7 +1676,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default TestIntfPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default TestIntfPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _TestIntfPrxI(ref);
     }

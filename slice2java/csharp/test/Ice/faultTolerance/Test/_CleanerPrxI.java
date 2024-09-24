@@ -18,7 +18,7 @@ package Test;
 /** @hidden */
 public class _CleanerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<CleanerPrx> implements CleanerPrx
 {
-    _CleanerPrxI(com.zeroc.IceInternal.Reference ref)
+    _CleanerPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

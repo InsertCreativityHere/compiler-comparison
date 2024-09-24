@@ -169,7 +169,7 @@ public interface elsifPrx extends breakPrx
      * @hidden
      **/
     @Override
-    default elsifPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default elsifPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _elsifPrxI(ref);
     }

@@ -170,7 +170,7 @@ public interface DiamondClassPrx extends MyDerivedClassPrx,
      * @hidden
      **/
     @Override
-    default DiamondClassPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default DiamondClassPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _DiamondClassPrxI(ref);
     }

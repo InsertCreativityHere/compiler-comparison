@@ -18,7 +18,7 @@ package test.Slice.escape._abstract;
 /** @hidden */
 public class _defaultPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<defaultPrx> implements defaultPrx
 {
-    _defaultPrxI(com.zeroc.IceInternal.Reference ref)
+    _defaultPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

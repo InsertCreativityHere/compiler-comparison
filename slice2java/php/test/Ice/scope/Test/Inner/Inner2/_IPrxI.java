@@ -18,7 +18,7 @@ package Test.Inner.Inner2;
 /** @hidden */
 public class _IPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<IPrx> implements IPrx
 {
-    _IPrxI(com.zeroc.IceInternal.Reference ref)
+    _IPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

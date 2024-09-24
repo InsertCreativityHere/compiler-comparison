@@ -70,9 +70,9 @@ public class STwoMembers implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::STwoMembers");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, e1);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, e2);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::STwoMembers");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, e1);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, e2);
         return h_;
     }
 
@@ -155,5 +155,5 @@ public class STwoMembers implements java.lang.Cloneable,
     private static final STwoMembers _nullMarshalValue = new STwoMembers();
 
     /** @hidden */
-    private static final long serialVersionUID = -5593681990793383550L;
+    private static final long serialVersionUID = -8706603223847687358L;
 }

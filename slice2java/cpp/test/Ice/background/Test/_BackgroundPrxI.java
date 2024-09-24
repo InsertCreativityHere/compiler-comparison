@@ -18,7 +18,7 @@ package Test;
 /** @hidden */
 public class _BackgroundPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<BackgroundPrx> implements BackgroundPrx
 {
-    _BackgroundPrxI(com.zeroc.IceInternal.Reference ref)
+    _BackgroundPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

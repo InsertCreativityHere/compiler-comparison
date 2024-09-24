@@ -72,9 +72,9 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_nodeInitAsync(NodeDynamicInfo[] iceP_nodes, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_nodeInitAsync(NodeDynamicInfo[] iceP_nodes, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "nodeInit", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "nodeInit", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      NodeDynamicInfoSeqHelper.write(ostr, iceP_nodes);
                  }, null);
@@ -128,9 +128,9 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_nodeUpAsync(NodeDynamicInfo iceP_node, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_nodeUpAsync(NodeDynamicInfo iceP_node, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "nodeUp", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "nodeUp", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      NodeDynamicInfo.ice_write(ostr, iceP_node);
                  }, null);
@@ -184,9 +184,9 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_nodeDownAsync(String iceP_name, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_nodeDownAsync(String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "nodeDown", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "nodeDown", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_name);
                  }, null);
@@ -245,9 +245,9 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_updateServerAsync(String iceP_node, ServerDynamicInfo iceP_updatedInfo, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_updateServerAsync(String iceP_node, ServerDynamicInfo iceP_updatedInfo, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "updateServer", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "updateServer", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_node);
                      ServerDynamicInfo.ice_write(ostr, iceP_updatedInfo);
@@ -311,9 +311,9 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_updateAdapterAsync(String iceP_node, AdapterDynamicInfo iceP_updatedInfo, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_updateAdapterAsync(String iceP_node, AdapterDynamicInfo iceP_updatedInfo, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "updateAdapter", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "updateAdapter", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_node);
                      AdapterDynamicInfo.ice_write(ostr, iceP_updatedInfo);
@@ -473,7 +473,7 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default NodeObserverPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default NodeObserverPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _NodeObserverPrxI(ref);
     }

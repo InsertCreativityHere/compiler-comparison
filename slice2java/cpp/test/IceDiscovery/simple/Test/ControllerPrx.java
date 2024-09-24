@@ -46,9 +46,9 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_activateObjectAdapterAsync(String iceP_name, String iceP_adapterId, String iceP_replicaGroupId, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_activateObjectAdapterAsync(String iceP_name, String iceP_adapterId, String iceP_replicaGroupId, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "activateObjectAdapter", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "activateObjectAdapter", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_name);
                      ostr.writeString(iceP_adapterId);
@@ -84,9 +84,9 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_deactivateObjectAdapterAsync(String iceP_name, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_deactivateObjectAdapterAsync(String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "deactivateObjectAdapter", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "deactivateObjectAdapter", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_name);
                  }, null);
@@ -121,9 +121,9 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_addObjectAsync(String iceP_oaName, String iceP_id, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_addObjectAsync(String iceP_oaName, String iceP_id, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "addObject", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "addObject", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_oaName);
                      ostr.writeString(iceP_id);
@@ -159,9 +159,9 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_removeObjectAsync(String iceP_oaName, String iceP_id, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_removeObjectAsync(String iceP_oaName, String iceP_id, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "removeObject", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "removeObject", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_oaName);
                      ostr.writeString(iceP_id);
@@ -195,9 +195,9 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "shutdown", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -354,7 +354,7 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default ControllerPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default ControllerPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _ControllerPrxI(ref);
     }

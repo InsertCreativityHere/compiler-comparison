@@ -85,9 +85,9 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_findObjectByIdAsync(String iceP_domainId, com.zeroc.Ice.Identity iceP_id, LookupReplyPrx iceP_reply, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_findObjectByIdAsync(String iceP_domainId, com.zeroc.Ice.Identity iceP_id, LookupReplyPrx iceP_reply, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "findObjectById", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "findObjectById", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_domainId);
                      com.zeroc.Ice.Identity.ice_write(ostr, iceP_id);
@@ -161,9 +161,9 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_findAdapterByIdAsync(String iceP_domainId, String iceP_id, LookupReplyPrx iceP_reply, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_findAdapterByIdAsync(String iceP_domainId, String iceP_id, LookupReplyPrx iceP_reply, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "findAdapterById", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "findAdapterById", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_domainId);
                      ostr.writeString(iceP_id);
@@ -324,7 +324,7 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default LookupPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default LookupPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _LookupPrxI(ref);
     }

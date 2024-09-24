@@ -57,8 +57,8 @@ public class InnerStruct implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::InnerStruct");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, a);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::InnerStruct");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, a);
         return h_;
     }
 
@@ -138,5 +138,5 @@ public class InnerStruct implements java.lang.Cloneable,
     private static final InnerStruct _nullMarshalValue = new InnerStruct();
 
     /** @hidden */
-    private static final long serialVersionUID = 5127395177512199974L;
+    private static final long serialVersionUID = 5127395017369893026L;
 }

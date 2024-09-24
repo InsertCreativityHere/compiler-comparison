@@ -18,7 +18,7 @@ package com.zeroc.Ice;
 /** @hidden */
 public class _LoggerAdminPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<LoggerAdminPrx> implements LoggerAdminPrx
 {
-    _LoggerAdminPrxI(com.zeroc.IceInternal.Reference ref)
+    _LoggerAdminPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

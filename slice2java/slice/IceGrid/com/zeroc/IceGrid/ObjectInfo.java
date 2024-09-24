@@ -80,9 +80,9 @@ public class ObjectInfo implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceGrid::ObjectInfo");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, proxy);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, type);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceGrid::ObjectInfo");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, proxy);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, type);
         return h_;
     }
 
@@ -165,5 +165,5 @@ public class ObjectInfo implements java.lang.Cloneable,
     private static final ObjectInfo _nullMarshalValue = new ObjectInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = 623059900519287081L;
+    private static final long serialVersionUID = -4873782502525522647L;
 }

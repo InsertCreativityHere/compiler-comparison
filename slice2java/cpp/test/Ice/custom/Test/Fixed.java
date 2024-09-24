@@ -57,8 +57,8 @@ public class Fixed implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::Fixed");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, s);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::Fixed");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, s);
         return h_;
     }
 
@@ -138,5 +138,5 @@ public class Fixed implements java.lang.Cloneable,
     private static final Fixed _nullMarshalValue = new Fixed();
 
     /** @hidden */
-    private static final long serialVersionUID = -5072328240643237261L;
+    private static final long serialVersionUID = -5072327996615074613L;
 }

@@ -76,9 +76,9 @@ public class NodeInfo implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceStormElection::NodeInfo");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, id);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, n);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceStormElection::NodeInfo");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, id);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, n);
         return h_;
     }
 
@@ -161,5 +161,5 @@ public class NodeInfo implements java.lang.Cloneable,
     private static final NodeInfo _nullMarshalValue = new NodeInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = -3120717269257856272L;
+    private static final long serialVersionUID = 8363685064909213296L;
 }

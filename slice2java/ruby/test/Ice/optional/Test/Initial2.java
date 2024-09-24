@@ -51,7 +51,7 @@ public interface Initial2 extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        final com.zeroc.IceInternal.Holder<A> icePP_p = new com.zeroc.IceInternal.Holder<>();
+        final com.zeroc.Ice.Holder<A> icePP_p = new com.zeroc.Ice.Holder<>();
         java.util.Optional<VarStruct> iceP_ovs;
         istr.readValue(v -> icePP_p.value = v, A.class);
         iceP_ovs = VarStruct.ice_read(istr, 1);

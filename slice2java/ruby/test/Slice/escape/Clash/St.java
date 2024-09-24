@@ -93,12 +93,12 @@ public class St implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Clash::St");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, v);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, istr);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, ostr);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, rhs);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, other);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Clash::St");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, v);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, istr);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, ostr);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, rhs);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, other);
         return h_;
     }
 
@@ -187,5 +187,5 @@ public class St implements java.lang.Cloneable,
     private static final St _nullMarshalValue = new St();
 
     /** @hidden */
-    private static final long serialVersionUID = -3895611408214230976L;
+    private static final long serialVersionUID = 27337492508851702L;
 }

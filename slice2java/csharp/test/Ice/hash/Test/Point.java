@@ -64,9 +64,9 @@ public class Point implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::Point");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, x);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, y);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::Point");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, x);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, y);
         return h_;
     }
 
@@ -148,5 +148,5 @@ public class Point implements java.lang.Cloneable,
     private static final Point _nullMarshalValue = new Point();
 
     /** @hidden */
-    private static final long serialVersionUID = 5128164051966289200L;
+    private static final long serialVersionUID = -5102517408839626704L;
 }

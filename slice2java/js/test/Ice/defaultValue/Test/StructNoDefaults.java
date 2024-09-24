@@ -156,20 +156,20 @@ public class StructNoDefaults implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::StructNoDefaults");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, bo);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, b);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, s);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, i);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, l);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, f);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, d);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, str);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, c1);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, bs);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, is);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, st);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, dict);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::StructNoDefaults");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, bo);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, b);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, s);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, i);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, l);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, f);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, d);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, str);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, c1);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, bs);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, is);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, st);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, dict);
         return h_;
     }
 
@@ -274,5 +274,5 @@ public class StructNoDefaults implements java.lang.Cloneable,
     private static final StructNoDefaults _nullMarshalValue = new StructNoDefaults();
 
     /** @hidden */
-    private static final long serialVersionUID = 5922786369097953616L;
+    private static final long serialVersionUID = 3231072015303259092L;
 }

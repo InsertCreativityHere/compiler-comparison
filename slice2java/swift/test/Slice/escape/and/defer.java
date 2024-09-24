@@ -61,8 +61,8 @@ public class defer implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::and::defer");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, _else);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::and::defer");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, _else);
         return h_;
     }
 
@@ -143,5 +143,5 @@ public class defer implements java.lang.Cloneable,
     private static final defer _nullMarshalValue = new defer();
 
     /** @hidden */
-    private static final long serialVersionUID = 8824788714440025062L;
+    private static final long serialVersionUID = 8824794848766317375L;
 }

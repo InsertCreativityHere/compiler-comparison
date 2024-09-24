@@ -60,9 +60,9 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_replicaInitAsync(InternalRegistryPrx[] iceP_replicas, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_replicaInitAsync(InternalRegistryPrx[] iceP_replicas, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "replicaInit", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "replicaInit", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      InternalRegistryPrxSeqHelper.write(ostr, iceP_replicas);
                  }, null);
@@ -112,9 +112,9 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_replicaAddedAsync(InternalRegistryPrx iceP_replica, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_replicaAddedAsync(InternalRegistryPrx iceP_replica, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "replicaAdded", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "replicaAdded", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeProxy(iceP_replica);
                  }, null);
@@ -164,9 +164,9 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_replicaRemovedAsync(InternalRegistryPrx iceP_replica, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_replicaRemovedAsync(InternalRegistryPrx iceP_replica, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "replicaRemoved", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "replicaRemoved", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeProxy(iceP_replica);
                  }, null);
@@ -325,7 +325,7 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default ReplicaObserverPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default ReplicaObserverPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _ReplicaObserverPrxI(ref);
     }

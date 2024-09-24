@@ -86,9 +86,9 @@ public class Identity implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Ice::Identity");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, name);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, category);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Ice::Identity");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, name);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, category);
         return h_;
     }
 
@@ -171,5 +171,5 @@ public class Identity implements java.lang.Cloneable,
     private static final Identity _nullMarshalValue = new Identity();
 
     /** @hidden */
-    private static final long serialVersionUID = 5554754867943403493L;
+    private static final long serialVersionUID = -7232444823985815963L;
 }

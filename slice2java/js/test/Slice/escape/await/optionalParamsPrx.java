@@ -58,9 +58,9 @@ public interface optionalParamsPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.util.Optional<_break>> _iceI_forAsync(var iceP_goto, explicitPrx iceP_if, java.util.Map<java.lang.String, _break> iceP_internal, String iceP_namespace, explicitPrx iceP_null, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.util.Optional<_break>> _iceI_forAsync(var iceP_goto, explicitPrx iceP_if, java.util.Map<java.lang.String, _break> iceP_internal, String iceP_namespace, explicitPrx iceP_null, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.util.Optional<_break>> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "for", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<java.util.Optional<_break>> f = new com.zeroc.Ice.OutgoingAsync<>(this, "for", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      var.ice_write(ostr, 2, iceP_goto);
                      ostr.writeProxy(3, iceP_if);
@@ -96,9 +96,9 @@ public interface optionalParamsPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.util.Optional<_break>> _iceI_forAsync(java.util.Optional<var> iceP_goto, java.util.Optional<explicitPrx> iceP_if, java.util.Optional<java.util.Map<java.lang.String, _break>> iceP_internal, java.util.Optional<java.lang.String> iceP_namespace, java.util.Optional<explicitPrx> iceP_null, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.util.Optional<_break>> _iceI_forAsync(java.util.Optional<var> iceP_goto, java.util.Optional<explicitPrx> iceP_if, java.util.Optional<java.util.Map<java.lang.String, _break>> iceP_internal, java.util.Optional<java.lang.String> iceP_namespace, java.util.Optional<explicitPrx> iceP_null, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.util.Optional<_break>> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "for", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<java.util.Optional<_break>> f = new com.zeroc.Ice.OutgoingAsync<>(this, "for", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      var.ice_write(ostr, 2, iceP_goto);
                      ostr.writeProxy(3, iceP_if);
@@ -154,9 +154,9 @@ public interface optionalParamsPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.util.Optional<_break>> _iceI_continueAsync(var iceP_goto, explicitPrx iceP_if, java.util.Map<java.lang.String, _break> iceP_internal, String iceP_namespace, explicitPrx iceP_null, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.util.Optional<_break>> _iceI_continueAsync(var iceP_goto, explicitPrx iceP_if, java.util.Map<java.lang.String, _break> iceP_internal, String iceP_namespace, explicitPrx iceP_null, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.util.Optional<_break>> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "continue", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<java.util.Optional<_break>> f = new com.zeroc.Ice.OutgoingAsync<>(this, "continue", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      var.ice_write(ostr, 2, iceP_goto);
                      ostr.writeProxy(3, iceP_if);
@@ -192,9 +192,9 @@ public interface optionalParamsPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.util.Optional<_break>> _iceI_continueAsync(java.util.Optional<var> iceP_goto, java.util.Optional<explicitPrx> iceP_if, java.util.Optional<java.util.Map<java.lang.String, _break>> iceP_internal, java.util.Optional<java.lang.String> iceP_namespace, java.util.Optional<explicitPrx> iceP_null, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.util.Optional<_break>> _iceI_continueAsync(java.util.Optional<var> iceP_goto, java.util.Optional<explicitPrx> iceP_if, java.util.Optional<java.util.Map<java.lang.String, _break>> iceP_internal, java.util.Optional<java.lang.String> iceP_namespace, java.util.Optional<explicitPrx> iceP_null, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.util.Optional<_break>> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "continue", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<java.util.Optional<_break>> f = new com.zeroc.Ice.OutgoingAsync<>(this, "continue", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      var.ice_write(ostr, 2, iceP_goto);
                      ostr.writeProxy(3, iceP_if);
@@ -235,9 +235,9 @@ public interface optionalParamsPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<optionalParams.InResult> _iceI_inAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<optionalParams.InResult> _iceI_inAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<optionalParams.InResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "in", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<optionalParams.InResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "in", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      optionalParams.InResult ret = new optionalParams.InResult();
                      ret.read(istr);
@@ -272,9 +272,9 @@ public interface optionalParamsPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<optionalParams.ForeachResult> _iceI_foreachAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<optionalParams.ForeachResult> _iceI_foreachAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<optionalParams.ForeachResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "foreach", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<optionalParams.ForeachResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "foreach", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      optionalParams.ForeachResult ret = new optionalParams.ForeachResult();
                      ret.read(istr);
@@ -435,7 +435,7 @@ public interface optionalParamsPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default optionalParamsPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default optionalParamsPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _optionalParamsPrxI(ref);
     }

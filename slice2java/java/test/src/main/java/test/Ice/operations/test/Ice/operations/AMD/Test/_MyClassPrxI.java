@@ -18,7 +18,7 @@ package test.Ice.operations.AMD.Test;
 /** @hidden */
 public class _MyClassPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<MyClassPrx> implements MyClassPrx
 {
-    _MyClassPrxI(com.zeroc.IceInternal.Reference ref)
+    _MyClassPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

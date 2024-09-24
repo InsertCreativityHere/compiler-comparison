@@ -44,9 +44,9 @@ public interface ProcessControllerRegistryPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_setProcessControllerAsync(ProcessControllerPrx iceP_controller, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_setProcessControllerAsync(ProcessControllerPrx iceP_controller, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setProcessController", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "setProcessController", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeProxy(iceP_controller);
                  }, null);
@@ -205,7 +205,7 @@ public interface ProcessControllerRegistryPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default ProcessControllerRegistryPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default ProcessControllerRegistryPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _ProcessControllerRegistryPrxI(ref);
     }

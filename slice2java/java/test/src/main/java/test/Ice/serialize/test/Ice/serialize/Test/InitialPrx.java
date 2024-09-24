@@ -43,9 +43,9 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<byte[]> _iceI_getStruct1Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<byte[]> _iceI_getStruct1Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<byte[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getStruct1", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<byte[]> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getStruct1", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      byte[] ret;
                      ret = istr.readByteSeq();
@@ -80,9 +80,9 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<byte[]> _iceI_getBaseAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<byte[]> _iceI_getBaseAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<byte[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getBase", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<byte[]> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getBase", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      byte[] ret;
                      ret = istr.readByteSeq();
@@ -117,9 +117,9 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<byte[]> _iceI_getExAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<byte[]> _iceI_getExAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<byte[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getEx", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<byte[]> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getEx", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      byte[] ret;
                      ret = istr.readByteSeq();
@@ -154,9 +154,9 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "shutdown", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -313,7 +313,7 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default InitialPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default InitialPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _InitialPrxI(ref);
     }

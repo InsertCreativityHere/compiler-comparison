@@ -44,9 +44,9 @@ public interface delPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_elifAsync(int iceP_else, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_elifAsync(int iceP_else, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "elif", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<java.lang.Integer> f = new com.zeroc.Ice.OutgoingAsync<>(this, "elif", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeInt(iceP_else);
                  }, istr -> {
@@ -209,7 +209,7 @@ public interface delPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default delPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default delPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _delPrxI(ref);
     }

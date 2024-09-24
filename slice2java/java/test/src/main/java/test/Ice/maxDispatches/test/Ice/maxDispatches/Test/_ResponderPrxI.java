@@ -18,7 +18,7 @@ package test.Ice.maxDispatches.Test;
 /** @hidden */
 public class _ResponderPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ResponderPrx> implements ResponderPrx
 {
-    _ResponderPrxI(com.zeroc.IceInternal.Reference ref)
+    _ResponderPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

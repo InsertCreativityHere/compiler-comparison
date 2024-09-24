@@ -44,9 +44,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpByteResult> _iceI_opByteAsync(ByteEnum iceP_b1, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<TestIntf.OpByteResult> _iceI_opByteAsync(ByteEnum iceP_b1, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpByteResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opByte", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<TestIntf.OpByteResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opByte", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ByteEnum.ice_write(ostr, iceP_b1);
                  }, istr -> {
@@ -84,9 +84,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpShortResult> _iceI_opShortAsync(ShortEnum iceP_s1, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<TestIntf.OpShortResult> _iceI_opShortAsync(ShortEnum iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpShortResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opShort", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<TestIntf.OpShortResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opShort", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ShortEnum.ice_write(ostr, iceP_s1);
                  }, istr -> {
@@ -124,9 +124,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpIntResult> _iceI_opIntAsync(IntEnum iceP_i1, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<TestIntf.OpIntResult> _iceI_opIntAsync(IntEnum iceP_i1, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpIntResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opInt", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<TestIntf.OpIntResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opInt", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      IntEnum.ice_write(ostr, iceP_i1);
                  }, istr -> {
@@ -164,9 +164,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpSimpleResult> _iceI_opSimpleAsync(SimpleEnum iceP_s1, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<TestIntf.OpSimpleResult> _iceI_opSimpleAsync(SimpleEnum iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpSimpleResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opSimple", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<TestIntf.OpSimpleResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opSimple", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      SimpleEnum.ice_write(ostr, iceP_s1);
                  }, istr -> {
@@ -203,9 +203,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "shutdown", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -362,7 +362,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default TestIntfPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default TestIntfPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _TestIntfPrxI(ref);
     }

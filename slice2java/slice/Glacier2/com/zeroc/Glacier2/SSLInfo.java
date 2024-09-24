@@ -127,13 +127,13 @@ public class SSLInfo implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Glacier2::SSLInfo");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, remoteHost);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, remotePort);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, localHost);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, localPort);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, cipher);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, certs);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Glacier2::SSLInfo");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, remoteHost);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, remotePort);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, localHost);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, localPort);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, cipher);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, certs);
         return h_;
     }
 
@@ -224,5 +224,5 @@ public class SSLInfo implements java.lang.Cloneable,
     private static final SSLInfo _nullMarshalValue = new SSLInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = 1354742977170402303L;
+    private static final long serialVersionUID = -4944311712419347137L;
 }

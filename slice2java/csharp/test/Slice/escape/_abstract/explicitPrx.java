@@ -170,7 +170,7 @@ public interface explicitPrx extends decimalPrx,
      * @hidden
      **/
     @Override
-    default explicitPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default explicitPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _explicitPrxI(ref);
     }

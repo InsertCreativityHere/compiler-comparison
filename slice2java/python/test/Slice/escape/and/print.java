@@ -52,7 +52,7 @@ public interface print extends com.zeroc.Ice.Object
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
         _continue iceP_else;
-        final com.zeroc.IceInternal.Holder<_for> icePP_return = new com.zeroc.IceInternal.Holder<>();
+        final com.zeroc.Ice.Holder<_for> icePP_return = new com.zeroc.Ice.Holder<>();
         delPrx iceP_while;
         execPrx iceP_yield;
         ifPrx iceP_or;

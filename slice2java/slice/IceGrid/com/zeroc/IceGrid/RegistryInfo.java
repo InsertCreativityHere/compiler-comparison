@@ -81,9 +81,9 @@ public class RegistryInfo implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceGrid::RegistryInfo");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, name);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, hostname);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceGrid::RegistryInfo");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, name);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, hostname);
         return h_;
     }
 
@@ -166,5 +166,5 @@ public class RegistryInfo implements java.lang.Cloneable,
     private static final RegistryInfo _nullMarshalValue = new RegistryInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = 7925089672650363623L;
+    private static final long serialVersionUID = 7594851688960436327L;
 }

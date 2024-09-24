@@ -45,9 +45,9 @@ public interface RemoteCommunicatorPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<RemoteObjectAdapterPrx> _iceI_createObjectAdapterAsync(String iceP_name, String iceP_endpoints, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<RemoteObjectAdapterPrx> _iceI_createObjectAdapterAsync(String iceP_name, String iceP_endpoints, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<RemoteObjectAdapterPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "createObjectAdapter", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<RemoteObjectAdapterPrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "createObjectAdapter", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_name);
                      ostr.writeString(iceP_endpoints);
@@ -86,9 +86,9 @@ public interface RemoteCommunicatorPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_deactivateObjectAdapterAsync(RemoteObjectAdapterPrx iceP_adapter, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_deactivateObjectAdapterAsync(RemoteObjectAdapterPrx iceP_adapter, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "deactivateObjectAdapter", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "deactivateObjectAdapter", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeProxy(iceP_adapter);
                  }, null);
@@ -121,9 +121,9 @@ public interface RemoteCommunicatorPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "shutdown", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -280,7 +280,7 @@ public interface RemoteCommunicatorPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default RemoteCommunicatorPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default RemoteCommunicatorPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _RemoteCommunicatorPrxI(ref);
     }

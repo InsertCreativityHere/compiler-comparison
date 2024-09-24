@@ -18,7 +18,7 @@ package Test;
 /** @hidden */
 public class _ServerManagerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ServerManagerPrx> implements ServerManagerPrx
 {
-    _ServerManagerPrxI(com.zeroc.IceInternal.Reference ref)
+    _ServerManagerPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

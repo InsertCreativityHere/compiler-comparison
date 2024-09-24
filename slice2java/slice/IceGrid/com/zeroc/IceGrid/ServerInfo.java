@@ -132,13 +132,13 @@ public class ServerInfo implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceGrid::ServerInfo");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, application);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, uuid);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, revision);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, node);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, descriptor);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, sessionId);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceGrid::ServerInfo");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, application);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, uuid);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, revision);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, node);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, descriptor);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, sessionId);
         return h_;
     }
 
@@ -229,5 +229,5 @@ public class ServerInfo implements java.lang.Cloneable,
     private static final ServerInfo _nullMarshalValue = new ServerInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = -1954786660789986027L;
+    private static final long serialVersionUID = 8824059756998515797L;
 }

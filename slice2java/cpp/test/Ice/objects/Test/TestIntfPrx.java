@@ -43,11 +43,11 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Base> _iceI_opDerivedAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Base> _iceI_opDerivedAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Base> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opDerived", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Base> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opDerived", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<Base> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<Base> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, Base.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -94,9 +94,9 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_throwDerivedAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwDerivedAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwDerived", null, sync, _iceE_throwDerived);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "throwDerived", null, sync, _iceE_throwDerived);
         f.invoke(true, context, null, null, null);
         return f;
     }
@@ -259,7 +259,7 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default TestIntfPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default TestIntfPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _TestIntfPrxI(ref);
     }

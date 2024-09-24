@@ -18,7 +18,7 @@ package test.Ice.facets.Test;
 /** @hidden */
 public class _HPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<HPrx> implements HPrx
 {
-    _HPrxI(com.zeroc.IceInternal.Reference ref)
+    _HPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

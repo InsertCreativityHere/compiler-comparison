@@ -60,8 +60,8 @@ public class SOneMember implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::SOneMember");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, e);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::SOneMember");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, e);
         return h_;
     }
 
@@ -142,5 +142,5 @@ public class SOneMember implements java.lang.Cloneable,
     private static final SOneMember _nullMarshalValue = new SOneMember();
 
     /** @hidden */
-    private static final long serialVersionUID = 6227753437699508472L;
+    private static final long serialVersionUID = 6227760718830171902L;
 }

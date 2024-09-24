@@ -18,7 +18,7 @@ package and;
 /** @hidden */
 public class _doPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<doPrx> implements doPrx
 {
-    _doPrxI(com.zeroc.IceInternal.Reference ref)
+    _doPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

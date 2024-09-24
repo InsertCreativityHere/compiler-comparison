@@ -158,20 +158,20 @@ public class S2 implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::S2");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, bo);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, by);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, sh);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, i);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, l);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, f);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, d);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, str);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, ss);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, sd);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, s);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, cls);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, prx);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::S2");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, bo);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, by);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, sh);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, i);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, l);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, f);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, d);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, str);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, ss);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, sd);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, s);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, cls);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, prx);
         return h_;
     }
 
@@ -276,5 +276,5 @@ public class S2 implements java.lang.Cloneable,
     private static final S2 _nullMarshalValue = new S2();
 
     /** @hidden */
-    private static final long serialVersionUID = -305703643655340935L;
+    private static final long serialVersionUID = -9163376507286315550L;
 }

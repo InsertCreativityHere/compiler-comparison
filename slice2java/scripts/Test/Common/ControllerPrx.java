@@ -60,9 +60,9 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestCasePrx> _iceI_runTestCaseAsync(String iceP_mapping, String iceP_testsuite, String iceP_testcase, String iceP_cross, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<TestCasePrx> _iceI_runTestCaseAsync(String iceP_mapping, String iceP_testsuite, String iceP_testcase, String iceP_cross, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TestCasePrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "runTestCase", null, sync, _iceE_runTestCase);
+        com.zeroc.Ice.OutgoingAsync<TestCasePrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "runTestCase", null, sync, _iceE_runTestCase);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_mapping);
                      ostr.writeString(iceP_testsuite);
@@ -108,11 +108,11 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<OptionOverrides> _iceI_getOptionOverridesAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<OptionOverrides> _iceI_getOptionOverridesAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<OptionOverrides> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getOptionOverrides", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<OptionOverrides> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getOptionOverrides", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<OptionOverrides> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<OptionOverrides> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, OptionOverrides.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -147,9 +147,9 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<String[]> _iceI_getTestSuitesAsync(String iceP_mapping, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<String[]> _iceI_getTestSuitesAsync(String iceP_mapping, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<String[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getTestSuites", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<String[]> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getTestSuites", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_mapping);
                  }, istr -> {
@@ -188,9 +188,9 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.String> _iceI_getHostAsync(String iceP_protocol, boolean iceP_ipv6, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.lang.String> _iceI_getHostAsync(String iceP_protocol, boolean iceP_ipv6, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getHost", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<java.lang.String> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getHost", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_protocol);
                      ostr.writeBool(iceP_ipv6);
@@ -354,7 +354,7 @@ public interface ControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default ControllerPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default ControllerPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _ControllerPrxI(ref);
     }

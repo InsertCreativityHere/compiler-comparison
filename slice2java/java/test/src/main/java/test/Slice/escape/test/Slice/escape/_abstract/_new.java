@@ -53,7 +53,7 @@ public interface _new extends com.zeroc.Ice.Object
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
         _break iceP_notifyAll;
-        final com.zeroc.IceInternal.Holder<_else> icePP_null = new com.zeroc.IceInternal.Holder<>();
+        final com.zeroc.Ice.Holder<_else> icePP_null = new com.zeroc.Ice.Holder<>();
         finalizePrx iceP_package;
         catchPrx iceP_public;
         defaultPrx iceP_return;

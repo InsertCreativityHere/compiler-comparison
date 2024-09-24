@@ -65,9 +65,9 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<MetricsAdmin.GetMetricsViewNamesResult> _iceI_getMetricsViewNamesAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<MetricsAdmin.GetMetricsViewNamesResult> _iceI_getMetricsViewNamesAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<MetricsAdmin.GetMetricsViewNamesResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getMetricsViewNames", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<MetricsAdmin.GetMetricsViewNamesResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getMetricsViewNames", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      MetricsAdmin.GetMetricsViewNamesResult ret = new MetricsAdmin.GetMetricsViewNamesResult();
                      ret.read(istr);
@@ -138,9 +138,9 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_enableMetricsViewAsync(String iceP_name, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_enableMetricsViewAsync(String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "enableMetricsView", null, sync, _iceE_enableMetricsView);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "enableMetricsView", null, sync, _iceE_enableMetricsView);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_name);
                  }, null);
@@ -215,9 +215,9 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_disableMetricsViewAsync(String iceP_name, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_disableMetricsViewAsync(String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "disableMetricsView", null, sync, _iceE_disableMetricsView);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "disableMetricsView", null, sync, _iceE_disableMetricsView);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_name);
                  }, null);
@@ -302,9 +302,9 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<MetricsAdmin.GetMetricsViewResult> _iceI_getMetricsViewAsync(String iceP_view, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<MetricsAdmin.GetMetricsViewResult> _iceI_getMetricsViewAsync(String iceP_view, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<MetricsAdmin.GetMetricsViewResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getMetricsView", null, sync, _iceE_getMetricsView);
+        com.zeroc.Ice.OutgoingAsync<MetricsAdmin.GetMetricsViewResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getMetricsView", null, sync, _iceE_getMetricsView);
         f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, ostr -> {
                      ostr.writeString(iceP_view);
                  }, istr -> {
@@ -391,9 +391,9 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<MetricsFailures[]> _iceI_getMapMetricsFailuresAsync(String iceP_view, String iceP_map, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<MetricsFailures[]> _iceI_getMapMetricsFailuresAsync(String iceP_view, String iceP_map, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<MetricsFailures[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getMapMetricsFailures", null, sync, _iceE_getMapMetricsFailures);
+        com.zeroc.Ice.OutgoingAsync<MetricsFailures[]> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getMapMetricsFailures", null, sync, _iceE_getMapMetricsFailures);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_view);
                      ostr.writeString(iceP_map);
@@ -485,9 +485,9 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<MetricsFailures> _iceI_getMetricsFailuresAsync(String iceP_view, String iceP_map, String iceP_id, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<MetricsFailures> _iceI_getMetricsFailuresAsync(String iceP_view, String iceP_map, String iceP_id, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<MetricsFailures> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getMetricsFailures", null, sync, _iceE_getMetricsFailures);
+        com.zeroc.Ice.OutgoingAsync<MetricsFailures> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getMetricsFailures", null, sync, _iceE_getMetricsFailures);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_view);
                      ostr.writeString(iceP_map);
@@ -658,7 +658,7 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default MetricsAdminPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default MetricsAdminPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _MetricsAdminPrxI(ref);
     }

@@ -18,7 +18,7 @@ package test.Ice.binding.Test;
 /** @hidden */
 public class _RemoteObjectAdapterPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<RemoteObjectAdapterPrx> implements RemoteObjectAdapterPrx
 {
-    _RemoteObjectAdapterPrxI(com.zeroc.IceInternal.Reference ref)
+    _RemoteObjectAdapterPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

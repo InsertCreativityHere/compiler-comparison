@@ -56,9 +56,9 @@ public interface RelayPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_knownPreservedAsBaseAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_knownPreservedAsBaseAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "knownPreservedAsBase", null, sync, _iceE_knownPreservedAsBase);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "knownPreservedAsBase", null, sync, _iceE_knownPreservedAsBase);
         f.invoke(true, context, null, null, null);
         return f;
     }
@@ -108,9 +108,9 @@ public interface RelayPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_knownPreservedAsKnownPreservedAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_knownPreservedAsKnownPreservedAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "knownPreservedAsKnownPreserved", null, sync, _iceE_knownPreservedAsKnownPreserved);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "knownPreservedAsKnownPreserved", null, sync, _iceE_knownPreservedAsKnownPreserved);
         f.invoke(true, context, null, null, null);
         return f;
     }
@@ -160,9 +160,9 @@ public interface RelayPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_unknownPreservedAsBaseAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_unknownPreservedAsBaseAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "unknownPreservedAsBase", null, sync, _iceE_unknownPreservedAsBase);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "unknownPreservedAsBase", null, sync, _iceE_unknownPreservedAsBase);
         f.invoke(true, context, null, null, null);
         return f;
     }
@@ -212,9 +212,9 @@ public interface RelayPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_unknownPreservedAsKnownPreservedAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_unknownPreservedAsKnownPreservedAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "unknownPreservedAsKnownPreserved", null, sync, _iceE_unknownPreservedAsKnownPreserved);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "unknownPreservedAsKnownPreserved", null, sync, _iceE_unknownPreservedAsKnownPreserved);
         f.invoke(true, context, null, null, null);
         return f;
     }
@@ -377,7 +377,7 @@ public interface RelayPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default RelayPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default RelayPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _RelayPrxI(ref);
     }

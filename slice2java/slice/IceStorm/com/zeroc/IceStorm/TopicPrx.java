@@ -74,9 +74,9 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.String> _iceI_getNameAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.lang.String> _iceI_getNameAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getName", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<java.lang.String> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getName", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      String ret;
                      ret = istr.readString();
@@ -137,9 +137,9 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_getPublisherAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_getPublisherAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getPublisher", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getPublisher", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      com.zeroc.Ice.ObjectPrx ret;
                      ret = istr.readProxy();
@@ -200,9 +200,9 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_getNonReplicatedPublisherAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_getNonReplicatedPublisherAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getNonReplicatedPublisher", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getNonReplicatedPublisher", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      com.zeroc.Ice.ObjectPrx ret;
                      ret = istr.readProxy();
@@ -304,9 +304,9 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_subscribeAndGetPublisherAsync(java.util.Map<java.lang.String, java.lang.String> iceP_theQoS, com.zeroc.Ice.ObjectPrx iceP_subscriber, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_subscribeAndGetPublisherAsync(java.util.Map<java.lang.String, java.lang.String> iceP_theQoS, com.zeroc.Ice.ObjectPrx iceP_subscriber, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "subscribeAndGetPublisher", null, sync, _iceE_subscribeAndGetPublisher);
+        com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "subscribeAndGetPublisher", null, sync, _iceE_subscribeAndGetPublisher);
         f.invoke(true, context, null, ostr -> {
                      QoSHelper.write(ostr, iceP_theQoS);
                      ostr.writeProxy(iceP_subscriber);
@@ -381,9 +381,9 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_unsubscribeAsync(com.zeroc.Ice.ObjectPrx iceP_subscriber, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_unsubscribeAsync(com.zeroc.Ice.ObjectPrx iceP_subscriber, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "unsubscribe", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "unsubscribe", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeProxy(iceP_subscriber);
                  }, null);
@@ -461,9 +461,9 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_linkAsync(TopicPrx iceP_linkTo, int iceP_cost, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_linkAsync(TopicPrx iceP_linkTo, int iceP_cost, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "link", null, sync, _iceE_link);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "link", null, sync, _iceE_link);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeProxy(iceP_linkTo);
                      ostr.writeInt(iceP_cost);
@@ -539,9 +539,9 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_unlinkAsync(TopicPrx iceP_linkTo, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_unlinkAsync(TopicPrx iceP_linkTo, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "unlink", null, sync, _iceE_unlink);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "unlink", null, sync, _iceE_unlink);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeProxy(iceP_linkTo);
                  }, null);
@@ -598,9 +598,9 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<LinkInfo[]> _iceI_getLinkInfoSeqAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<LinkInfo[]> _iceI_getLinkInfoSeqAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<LinkInfo[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getLinkInfoSeq", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<LinkInfo[]> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getLinkInfoSeq", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      LinkInfo[] ret;
                      ret = LinkInfoSeqHelper.read(istr);
@@ -653,9 +653,9 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.Identity[]> _iceI_getSubscribersAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.Identity[]> _iceI_getSubscribersAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.Identity[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getSubscribers", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.Identity[]> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getSubscribers", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      com.zeroc.Ice.Identity[] ret;
                      ret = com.zeroc.Ice.IdentitySeqHelper.read(istr);
@@ -706,9 +706,9 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_destroyAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_destroyAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "destroy", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "destroy", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -865,7 +865,7 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default TopicPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default TopicPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _TopicPrxI(ref);
     }

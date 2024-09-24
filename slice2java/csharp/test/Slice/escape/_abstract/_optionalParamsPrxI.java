@@ -18,7 +18,7 @@ package _abstract;
 /** @hidden */
 public class _optionalParamsPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<optionalParamsPrx> implements optionalParamsPrx
 {
-    _optionalParamsPrxI(com.zeroc.IceInternal.Reference ref)
+    _optionalParamsPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

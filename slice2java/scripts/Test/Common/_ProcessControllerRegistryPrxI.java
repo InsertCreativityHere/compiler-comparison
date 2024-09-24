@@ -18,7 +18,7 @@ package Test.Common;
 /** @hidden */
 public class _ProcessControllerRegistryPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ProcessControllerRegistryPrx> implements ProcessControllerRegistryPrx
 {
-    _ProcessControllerRegistryPrxI(com.zeroc.IceInternal.Reference ref)
+    _ProcessControllerRegistryPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

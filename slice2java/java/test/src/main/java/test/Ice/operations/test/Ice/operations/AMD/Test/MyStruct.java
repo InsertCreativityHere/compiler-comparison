@@ -64,9 +64,9 @@ public class MyStruct implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::MyStruct");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, i);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, j);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::MyStruct");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, i);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, j);
         return h_;
     }
 
@@ -148,5 +148,5 @@ public class MyStruct implements java.lang.Cloneable,
     private static final MyStruct _nullMarshalValue = new MyStruct();
 
     /** @hidden */
-    private static final long serialVersionUID = 2610380932345768221L;
+    private static final long serialVersionUID = 6625233939272367773L;
 }

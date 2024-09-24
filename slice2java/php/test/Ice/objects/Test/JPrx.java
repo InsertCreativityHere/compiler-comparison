@@ -169,7 +169,7 @@ public interface JPrx extends IPrx
      * @hidden
      **/
     @Override
-    default JPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default JPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _JPrxI(ref);
     }

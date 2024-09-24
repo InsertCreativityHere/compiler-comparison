@@ -94,9 +94,9 @@ public interface SSLSessionManagerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<SessionPrx> _iceI_createAsync(SSLInfo iceP_info, SessionControlPrx iceP_control, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<SessionPrx> _iceI_createAsync(SSLInfo iceP_info, SessionControlPrx iceP_control, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<SessionPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "create", null, sync, _iceE_create);
+        com.zeroc.Ice.OutgoingAsync<SessionPrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "create", null, sync, _iceE_create);
         f.invoke(true, context, null, ostr -> {
                      SSLInfo.ice_write(ostr, iceP_info);
                      ostr.writeProxy(iceP_control);
@@ -266,7 +266,7 @@ public interface SSLSessionManagerPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default SSLSessionManagerPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default SSLSessionManagerPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _SSLSessionManagerPrxI(ref);
     }

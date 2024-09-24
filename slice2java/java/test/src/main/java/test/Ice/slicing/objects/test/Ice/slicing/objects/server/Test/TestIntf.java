@@ -478,7 +478,7 @@ public interface TestIntf extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        final com.zeroc.IceInternal.Holder<com.zeroc.Ice.Value> icePP_o = new com.zeroc.IceInternal.Holder<>();
+        final com.zeroc.Ice.Holder<com.zeroc.Ice.Value> icePP_o = new com.zeroc.Ice.Holder<>();
         istr.readValue(v -> icePP_o.value = v, com.zeroc.Ice.Value.class);
         istr.readPendingValues();
         istr.endEncapsulation();
@@ -647,8 +647,8 @@ public interface TestIntf extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        final com.zeroc.IceInternal.Holder<B> icePP_p1 = new com.zeroc.IceInternal.Holder<>();
-        final com.zeroc.IceInternal.Holder<B> icePP_p2 = new com.zeroc.IceInternal.Holder<>();
+        final com.zeroc.Ice.Holder<B> icePP_p1 = new com.zeroc.Ice.Holder<>();
+        final com.zeroc.Ice.Holder<B> icePP_p2 = new com.zeroc.Ice.Holder<>();
         istr.readValue(v -> icePP_p1.value = v, B.class);
         istr.readValue(v -> icePP_p2.value = v, B.class);
         istr.readPendingValues();
@@ -670,8 +670,8 @@ public interface TestIntf extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        final com.zeroc.IceInternal.Holder<SS1> icePP_p1 = new com.zeroc.IceInternal.Holder<>();
-        final com.zeroc.IceInternal.Holder<SS2> icePP_p2 = new com.zeroc.IceInternal.Holder<>();
+        final com.zeroc.Ice.Holder<SS1> icePP_p1 = new com.zeroc.Ice.Holder<>();
+        final com.zeroc.Ice.Holder<SS2> icePP_p2 = new com.zeroc.Ice.Holder<>();
         istr.readValue(v -> icePP_p1.value = v, SS1.class);
         istr.readValue(v -> icePP_p2.value = v, SS2.class);
         istr.readPendingValues();
@@ -712,7 +712,7 @@ public interface TestIntf extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        final com.zeroc.IceInternal.Holder<PBase> icePP_pb = new com.zeroc.IceInternal.Holder<>();
+        final com.zeroc.Ice.Holder<PBase> icePP_pb = new com.zeroc.Ice.Holder<>();
         istr.readValue(v -> icePP_pb.value = v, PBase.class);
         istr.readPendingValues();
         istr.endEncapsulation();
@@ -746,7 +746,7 @@ public interface TestIntf extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        final com.zeroc.IceInternal.Holder<Preserved> icePP_p = new com.zeroc.IceInternal.Holder<>();
+        final com.zeroc.Ice.Holder<Preserved> icePP_p = new com.zeroc.Ice.Holder<>();
         istr.readValue(v -> icePP_p.value = v, Preserved.class);
         istr.readPendingValues();
         istr.endEncapsulation();
@@ -777,7 +777,7 @@ public interface TestIntf extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        final com.zeroc.IceInternal.Holder<Preserved> icePP_p = new com.zeroc.IceInternal.Holder<>();
+        final com.zeroc.Ice.Holder<Preserved> icePP_p = new com.zeroc.Ice.Holder<>();
         istr.readValue(v -> icePP_p.value = v, Preserved.class);
         istr.readPendingValues();
         istr.endEncapsulation();
@@ -808,7 +808,7 @@ public interface TestIntf extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        final com.zeroc.IceInternal.Holder<Preserved> icePP_p = new com.zeroc.IceInternal.Holder<>();
+        final com.zeroc.Ice.Holder<Preserved> icePP_p = new com.zeroc.Ice.Holder<>();
         istr.readValue(v -> icePP_p.value = v, Preserved.class);
         istr.readPendingValues();
         istr.endEncapsulation();
@@ -823,7 +823,7 @@ public interface TestIntf extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        final com.zeroc.IceInternal.Holder<PNode> icePP_pn = new com.zeroc.IceInternal.Holder<>();
+        final com.zeroc.Ice.Holder<PNode> icePP_pn = new com.zeroc.Ice.Holder<>();
         istr.readValue(v -> icePP_pn.value = v, PNode.class);
         istr.readPendingValues();
         istr.endEncapsulation();

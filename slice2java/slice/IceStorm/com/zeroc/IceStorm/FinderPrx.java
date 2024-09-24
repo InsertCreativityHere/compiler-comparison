@@ -65,9 +65,9 @@ public interface FinderPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TopicManagerPrx> _iceI_getTopicManagerAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<TopicManagerPrx> _iceI_getTopicManagerAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TopicManagerPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getTopicManager", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<TopicManagerPrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getTopicManager", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      TopicManagerPrx ret;
                      ret = TopicManagerPrx.uncheckedCast(istr.readProxy());
@@ -228,7 +228,7 @@ public interface FinderPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default FinderPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default FinderPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _FinderPrxI(ref);
     }

@@ -44,9 +44,9 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Custom.OpByteString1Result> _iceI_opByteString1Async(byte[] iceP_b1, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Custom.OpByteString1Result> _iceI_opByteString1Async(byte[] iceP_b1, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Custom.OpByteString1Result> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opByteString1", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Custom.OpByteString1Result> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opByteString1", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeByteSeq(iceP_b1);
                  }, istr -> {
@@ -84,9 +84,9 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Custom.OpByteString2Result> _iceI_opByteString2Async(byte[] iceP_b1, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Custom.OpByteString2Result> _iceI_opByteString2Async(byte[] iceP_b1, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Custom.OpByteString2Result> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opByteString2", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Custom.OpByteString2Result> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opByteString2", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeByteSeq(iceP_b1);
                  }, istr -> {
@@ -124,9 +124,9 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Custom.OpByteList1Result> _iceI_opByteList1Async(byte[] iceP_b1, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Custom.OpByteList1Result> _iceI_opByteList1Async(byte[] iceP_b1, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Custom.OpByteList1Result> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opByteList1", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Custom.OpByteList1Result> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opByteList1", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeByteSeq(iceP_b1);
                  }, istr -> {
@@ -164,9 +164,9 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Custom.OpByteList2Result> _iceI_opByteList2Async(byte[] iceP_b1, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Custom.OpByteList2Result> _iceI_opByteList2Async(byte[] iceP_b1, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Custom.OpByteList2Result> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opByteList2", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Custom.OpByteList2Result> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opByteList2", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeByteSeq(iceP_b1);
                  }, istr -> {
@@ -204,9 +204,9 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Custom.OpStringList1Result> _iceI_opStringList1Async(String[] iceP_s1, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Custom.OpStringList1Result> _iceI_opStringList1Async(String[] iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Custom.OpStringList1Result> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opStringList1", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Custom.OpStringList1Result> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opStringList1", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeStringSeq(iceP_s1);
                  }, istr -> {
@@ -244,9 +244,9 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Custom.OpStringList2Result> _iceI_opStringList2Async(String[] iceP_s1, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Custom.OpStringList2Result> _iceI_opStringList2Async(String[] iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Custom.OpStringList2Result> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opStringList2", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Custom.OpStringList2Result> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opStringList2", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeStringSeq(iceP_s1);
                  }, istr -> {
@@ -284,9 +284,9 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Custom.OpStringTuple1Result> _iceI_opStringTuple1Async(String[] iceP_s1, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Custom.OpStringTuple1Result> _iceI_opStringTuple1Async(String[] iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Custom.OpStringTuple1Result> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opStringTuple1", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Custom.OpStringTuple1Result> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opStringTuple1", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeStringSeq(iceP_s1);
                  }, istr -> {
@@ -324,9 +324,9 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Custom.OpStringTuple2Result> _iceI_opStringTuple2Async(String[] iceP_s1, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Custom.OpStringTuple2Result> _iceI_opStringTuple2Async(String[] iceP_s1, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Custom.OpStringTuple2Result> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opStringTuple2", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Custom.OpStringTuple2Result> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opStringTuple2", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeStringSeq(iceP_s1);
                  }, istr -> {
@@ -364,9 +364,9 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_sendSAsync(S iceP_val, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_sendSAsync(S iceP_val, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "sendS", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "sendS", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      S.ice_write(ostr, iceP_val);
                  }, null);
@@ -400,9 +400,9 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_sendCAsync(C iceP_val, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_sendCAsync(C iceP_val, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "sendC", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "sendC", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeValue(iceP_val);
                      ostr.writePendingValues();
@@ -437,9 +437,9 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Custom.OpBoolSeqResult> _iceI_opBoolSeqAsync(boolean[] iceP_v1, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Custom.OpBoolSeqResult> _iceI_opBoolSeqAsync(boolean[] iceP_v1, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Custom.OpBoolSeqResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opBoolSeq", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Custom.OpBoolSeqResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opBoolSeq", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeBoolSeq(iceP_v1);
                  }, istr -> {
@@ -477,9 +477,9 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Custom.OpByteSeqResult> _iceI_opByteSeqAsync(byte[] iceP_v1, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Custom.OpByteSeqResult> _iceI_opByteSeqAsync(byte[] iceP_v1, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Custom.OpByteSeqResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opByteSeq", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Custom.OpByteSeqResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opByteSeq", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeByteSeq(iceP_v1);
                  }, istr -> {
@@ -517,9 +517,9 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Custom.OpShortSeqResult> _iceI_opShortSeqAsync(short[] iceP_v1, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Custom.OpShortSeqResult> _iceI_opShortSeqAsync(short[] iceP_v1, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Custom.OpShortSeqResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opShortSeq", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Custom.OpShortSeqResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opShortSeq", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeShortSeq(iceP_v1);
                  }, istr -> {
@@ -557,9 +557,9 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Custom.OpIntSeqResult> _iceI_opIntSeqAsync(int[] iceP_v1, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Custom.OpIntSeqResult> _iceI_opIntSeqAsync(int[] iceP_v1, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Custom.OpIntSeqResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opIntSeq", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Custom.OpIntSeqResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opIntSeq", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeIntSeq(iceP_v1);
                  }, istr -> {
@@ -597,9 +597,9 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Custom.OpLongSeqResult> _iceI_opLongSeqAsync(long[] iceP_v1, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Custom.OpLongSeqResult> _iceI_opLongSeqAsync(long[] iceP_v1, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Custom.OpLongSeqResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opLongSeq", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Custom.OpLongSeqResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opLongSeq", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeLongSeq(iceP_v1);
                  }, istr -> {
@@ -637,9 +637,9 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Custom.OpFloatSeqResult> _iceI_opFloatSeqAsync(float[] iceP_v1, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Custom.OpFloatSeqResult> _iceI_opFloatSeqAsync(float[] iceP_v1, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Custom.OpFloatSeqResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opFloatSeq", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Custom.OpFloatSeqResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opFloatSeq", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeFloatSeq(iceP_v1);
                  }, istr -> {
@@ -677,9 +677,9 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Custom.OpDoubleSeqResult> _iceI_opDoubleSeqAsync(double[] iceP_v1, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Custom.OpDoubleSeqResult> _iceI_opDoubleSeqAsync(double[] iceP_v1, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Custom.OpDoubleSeqResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opDoubleSeq", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Custom.OpDoubleSeqResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opDoubleSeq", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeDoubleSeq(iceP_v1);
                  }, istr -> {
@@ -716,9 +716,9 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<boolean[]> _iceI_opBogusArrayNotExistsFactoryAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<boolean[]> _iceI_opBogusArrayNotExistsFactoryAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<boolean[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opBogusArrayNotExistsFactory", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<boolean[]> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opBogusArrayNotExistsFactory", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      boolean[] ret;
                      ret = istr.readBoolSeq();
@@ -753,9 +753,9 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<boolean[]> _iceI_opBogusArrayThrowFactoryAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<boolean[]> _iceI_opBogusArrayThrowFactoryAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<boolean[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opBogusArrayThrowFactory", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<boolean[]> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opBogusArrayThrowFactory", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      boolean[] ret;
                      ret = istr.readBoolSeq();
@@ -790,9 +790,9 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<boolean[]> _iceI_opBogusArrayTypeAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<boolean[]> _iceI_opBogusArrayTypeAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<boolean[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opBogusArrayType", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<boolean[]> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opBogusArrayType", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      boolean[] ret;
                      ret = istr.readBoolSeq();
@@ -827,9 +827,9 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<boolean[]> _iceI_opBogusArrayNoneFactoryAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<boolean[]> _iceI_opBogusArrayNoneFactoryAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<boolean[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opBogusArrayNoneFactory", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<boolean[]> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opBogusArrayNoneFactory", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      boolean[] ret;
                      ret = istr.readBoolSeq();
@@ -864,9 +864,9 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<boolean[]> _iceI_opBogusArraySignatureFactoryAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<boolean[]> _iceI_opBogusArraySignatureFactoryAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<boolean[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opBogusArraySignatureFactory", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<boolean[]> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opBogusArraySignatureFactory", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      boolean[] ret;
                      ret = istr.readBoolSeq();
@@ -901,9 +901,9 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<boolean[]> _iceI_opBogusArrayNoCallableFactoryAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<boolean[]> _iceI_opBogusArrayNoCallableFactoryAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<boolean[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opBogusArrayNoCallableFactory", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<boolean[]> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opBogusArrayNoCallableFactory", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      boolean[] ret;
                      ret = istr.readBoolSeq();
@@ -939,14 +939,14 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<D> _iceI_opDAsync(D iceP_d, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<D> _iceI_opDAsync(D iceP_d, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<D> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opD", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<D> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opD", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeValue(iceP_d);
                      ostr.writePendingValues();
                  }, istr -> {
-                     final com.zeroc.IceInternal.Holder<D> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<D> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, D.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -980,9 +980,9 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "shutdown", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -1139,7 +1139,7 @@ public interface CustomPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default CustomPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default CustomPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _CustomPrxI(ref);
     }

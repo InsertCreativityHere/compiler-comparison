@@ -113,16 +113,16 @@ public class xor implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::and::xor");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, _abstract);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, _clone);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, _private);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, _protected);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, _public);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, _this);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, _throw);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, use);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, var);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::and::xor");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, _abstract);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, _clone);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, _private);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, _protected);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, _public);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, _this);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, _throw);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, use);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, var);
         return h_;
     }
 
@@ -218,5 +218,5 @@ public class xor implements java.lang.Cloneable,
     private static final xor _nullMarshalValue = new xor();
 
     /** @hidden */
-    private static final long serialVersionUID = 6591198390558216242L;
+    private static final long serialVersionUID = 2662842911878143898L;
 }

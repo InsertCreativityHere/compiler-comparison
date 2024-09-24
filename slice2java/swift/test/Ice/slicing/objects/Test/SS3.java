@@ -70,9 +70,9 @@ public class SS3 implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::SS3");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, c1);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, c2);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::SS3");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, c1);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, c2);
         return h_;
     }
 
@@ -155,5 +155,5 @@ public class SS3 implements java.lang.Cloneable,
     private static final SS3 _nullMarshalValue = new SS3();
 
     /** @hidden */
-    private static final long serialVersionUID = -24702564517846810L;
+    private static final long serialVersionUID = 242626542107901276L;
 }

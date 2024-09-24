@@ -70,9 +70,9 @@ public interface RouterFinderPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<RouterPrx> _iceI_getRouterAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<RouterPrx> _iceI_getRouterAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<RouterPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getRouter", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<RouterPrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getRouter", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      RouterPrx ret;
                      ret = RouterPrx.uncheckedCast(istr.readProxy());
@@ -233,7 +233,7 @@ public interface RouterFinderPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default RouterFinderPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default RouterFinderPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _RouterFinderPrxI(ref);
     }

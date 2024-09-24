@@ -18,7 +18,7 @@ package Test;
 /** @hidden */
 public class _MetricsPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<MetricsPrx> implements MetricsPrx
 {
-    _MetricsPrxI(com.zeroc.IceInternal.Reference ref)
+    _MetricsPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

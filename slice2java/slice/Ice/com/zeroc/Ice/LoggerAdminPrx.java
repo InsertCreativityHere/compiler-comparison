@@ -120,9 +120,9 @@ public interface LoggerAdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_attachRemoteLoggerAsync(RemoteLoggerPrx iceP_prx, LogMessageType[] iceP_messageTypes, String[] iceP_traceCategories, int iceP_messageMax, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_attachRemoteLoggerAsync(RemoteLoggerPrx iceP_prx, LogMessageType[] iceP_messageTypes, String[] iceP_traceCategories, int iceP_messageMax, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "attachRemoteLogger", null, sync, _iceE_attachRemoteLogger);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "attachRemoteLogger", null, sync, _iceE_attachRemoteLogger);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeProxy(iceP_prx);
                      LogMessageTypeSeqHelper.write(ostr, iceP_messageTypes);
@@ -187,9 +187,9 @@ public interface LoggerAdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> _iceI_detachRemoteLoggerAsync(RemoteLoggerPrx iceP_prx, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.lang.Boolean> _iceI_detachRemoteLoggerAsync(RemoteLoggerPrx iceP_prx, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "detachRemoteLogger", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.Ice.OutgoingAsync<>(this, "detachRemoteLogger", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeProxy(iceP_prx);
                  }, istr -> {
@@ -275,9 +275,9 @@ public interface LoggerAdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<LoggerAdmin.GetLogResult> _iceI_getLogAsync(LogMessageType[] iceP_messageTypes, String[] iceP_traceCategories, int iceP_messageMax, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<LoggerAdmin.GetLogResult> _iceI_getLogAsync(LogMessageType[] iceP_messageTypes, String[] iceP_traceCategories, int iceP_messageMax, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<LoggerAdmin.GetLogResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getLog", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<LoggerAdmin.GetLogResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getLog", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      LogMessageTypeSeqHelper.write(ostr, iceP_messageTypes);
                      ostr.writeStringSeq(iceP_traceCategories);
@@ -442,7 +442,7 @@ public interface LoggerAdminPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default LoggerAdminPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default LoggerAdminPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _LoggerAdminPrxI(ref);
     }

@@ -131,14 +131,14 @@ public class QueryInfo implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceStormElection::QueryInfo");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, id);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, coord);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, group);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, replica);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, state);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, up);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, max);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceStormElection::QueryInfo");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, id);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, coord);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, group);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, replica);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, state);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, up);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, max);
         return h_;
     }
 
@@ -231,5 +231,5 @@ public class QueryInfo implements java.lang.Cloneable,
     private static final QueryInfo _nullMarshalValue = new QueryInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = -6568856846000692409L;
+    private static final long serialVersionUID = 606780833113404659L;
 }

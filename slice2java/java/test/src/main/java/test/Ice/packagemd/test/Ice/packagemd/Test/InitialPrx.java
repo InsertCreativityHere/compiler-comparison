@@ -43,11 +43,11 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<test.Ice.packagemd.Test1.C1> _iceI_getTest1C2AsC1Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<test.Ice.packagemd.Test1.C1> _iceI_getTest1C2AsC1Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<test.Ice.packagemd.Test1.C1> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getTest1C2AsC1", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<test.Ice.packagemd.Test1.C1> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getTest1C2AsC1", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<test.Ice.packagemd.Test1.C1> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<test.Ice.packagemd.Test1.C1> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, test.Ice.packagemd.Test1.C1.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -81,11 +81,11 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<test.Ice.packagemd.Test1.C2> _iceI_getTest1C2AsC2Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<test.Ice.packagemd.Test1.C2> _iceI_getTest1C2AsC2Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<test.Ice.packagemd.Test1.C2> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getTest1C2AsC2", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<test.Ice.packagemd.Test1.C2> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getTest1C2AsC2", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<test.Ice.packagemd.Test1.C2> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<test.Ice.packagemd.Test1.C2> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, test.Ice.packagemd.Test1.C2.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -132,9 +132,9 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_throwTest1E2AsE1Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwTest1E2AsE1Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwTest1E2AsE1", null, sync, _iceE_throwTest1E2AsE1);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "throwTest1E2AsE1", null, sync, _iceE_throwTest1E2AsE1);
         f.invoke(true, context, null, null, null);
         return f;
     }
@@ -184,9 +184,9 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_throwTest1E2AsE2Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwTest1E2AsE2Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwTest1E2AsE2", null, sync, _iceE_throwTest1E2AsE2);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "throwTest1E2AsE2", null, sync, _iceE_throwTest1E2AsE2);
         f.invoke(true, context, null, null, null);
         return f;
     }
@@ -236,9 +236,9 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_throwTest1NotifyAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwTest1NotifyAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwTest1Notify", null, sync, _iceE_throwTest1Notify);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "throwTest1Notify", null, sync, _iceE_throwTest1Notify);
         f.invoke(true, context, null, null, null);
         return f;
     }
@@ -275,11 +275,11 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<test.Ice.packagemd.testpkg.Test2.C1> _iceI_getTest2C2AsC1Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<test.Ice.packagemd.testpkg.Test2.C1> _iceI_getTest2C2AsC1Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<test.Ice.packagemd.testpkg.Test2.C1> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getTest2C2AsC1", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<test.Ice.packagemd.testpkg.Test2.C1> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getTest2C2AsC1", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<test.Ice.packagemd.testpkg.Test2.C1> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<test.Ice.packagemd.testpkg.Test2.C1> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, test.Ice.packagemd.testpkg.Test2.C1.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -313,11 +313,11 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<test.Ice.packagemd.testpkg.Test2.C2> _iceI_getTest2C2AsC2Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<test.Ice.packagemd.testpkg.Test2.C2> _iceI_getTest2C2AsC2Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<test.Ice.packagemd.testpkg.Test2.C2> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getTest2C2AsC2", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<test.Ice.packagemd.testpkg.Test2.C2> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getTest2C2AsC2", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<test.Ice.packagemd.testpkg.Test2.C2> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<test.Ice.packagemd.testpkg.Test2.C2> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, test.Ice.packagemd.testpkg.Test2.C2.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -364,9 +364,9 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_throwTest2E2AsE1Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwTest2E2AsE1Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwTest2E2AsE1", null, sync, _iceE_throwTest2E2AsE1);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "throwTest2E2AsE1", null, sync, _iceE_throwTest2E2AsE1);
         f.invoke(true, context, null, null, null);
         return f;
     }
@@ -416,9 +416,9 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_throwTest2E2AsE2Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwTest2E2AsE2Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwTest2E2AsE2", null, sync, _iceE_throwTest2E2AsE2);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "throwTest2E2AsE2", null, sync, _iceE_throwTest2E2AsE2);
         f.invoke(true, context, null, null, null);
         return f;
     }
@@ -455,11 +455,11 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<test.Ice.packagemd.modpkg.Test3.C1> _iceI_getTest3C2AsC1Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<test.Ice.packagemd.modpkg.Test3.C1> _iceI_getTest3C2AsC1Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<test.Ice.packagemd.modpkg.Test3.C1> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getTest3C2AsC1", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<test.Ice.packagemd.modpkg.Test3.C1> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getTest3C2AsC1", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<test.Ice.packagemd.modpkg.Test3.C1> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<test.Ice.packagemd.modpkg.Test3.C1> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, test.Ice.packagemd.modpkg.Test3.C1.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -493,11 +493,11 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<test.Ice.packagemd.modpkg.Test3.C2> _iceI_getTest3C2AsC2Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<test.Ice.packagemd.modpkg.Test3.C2> _iceI_getTest3C2AsC2Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<test.Ice.packagemd.modpkg.Test3.C2> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getTest3C2AsC2", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<test.Ice.packagemd.modpkg.Test3.C2> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getTest3C2AsC2", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<test.Ice.packagemd.modpkg.Test3.C2> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<test.Ice.packagemd.modpkg.Test3.C2> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, test.Ice.packagemd.modpkg.Test3.C2.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -544,9 +544,9 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_throwTest3E2AsE1Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwTest3E2AsE1Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwTest3E2AsE1", null, sync, _iceE_throwTest3E2AsE1);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "throwTest3E2AsE1", null, sync, _iceE_throwTest3E2AsE1);
         f.invoke(true, context, null, null, null);
         return f;
     }
@@ -596,9 +596,9 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_throwTest3E2AsE2Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwTest3E2AsE2Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwTest3E2AsE2", null, sync, _iceE_throwTest3E2AsE2);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "throwTest3E2AsE2", null, sync, _iceE_throwTest3E2AsE2);
         f.invoke(true, context, null, null, null);
         return f;
     }
@@ -635,9 +635,9 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "shutdown", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -794,7 +794,7 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default InitialPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default InitialPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _InitialPrxI(ref);
     }

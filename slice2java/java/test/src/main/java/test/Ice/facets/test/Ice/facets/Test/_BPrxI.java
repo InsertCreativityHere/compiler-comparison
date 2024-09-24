@@ -18,7 +18,7 @@ package test.Ice.facets.Test;
 /** @hidden */
 public class _BPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<BPrx> implements BPrx
 {
-    _BPrxI(com.zeroc.IceInternal.Reference ref)
+    _BPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

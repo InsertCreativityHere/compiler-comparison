@@ -93,10 +93,10 @@ public class NodeDynamicInfo implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceGrid::NodeDynamicInfo");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, info);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, servers);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, adapters);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceGrid::NodeDynamicInfo");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, info);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, servers);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, adapters);
         return h_;
     }
 
@@ -181,5 +181,5 @@ public class NodeDynamicInfo implements java.lang.Cloneable,
     private static final NodeDynamicInfo _nullMarshalValue = new NodeDynamicInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = 6811367027486276550L;
+    private static final long serialVersionUID = 8922406046136795156L;
 }

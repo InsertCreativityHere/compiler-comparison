@@ -170,7 +170,7 @@ public interface enddeclarePrx extends diePrx,
      * @hidden
      **/
     @Override
-    default enddeclarePrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default enddeclarePrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _enddeclarePrxI(ref);
     }

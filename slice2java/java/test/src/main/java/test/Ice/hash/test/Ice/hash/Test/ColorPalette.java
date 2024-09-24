@@ -60,8 +60,8 @@ public class ColorPalette implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::ColorPalette");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, colors);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::ColorPalette");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, colors);
         return h_;
     }
 
@@ -142,5 +142,5 @@ public class ColorPalette implements java.lang.Cloneable,
     private static final ColorPalette _nullMarshalValue = new ColorPalette();
 
     /** @hidden */
-    private static final long serialVersionUID = -2820063389326981386L;
+    private static final long serialVersionUID = -2820064031147425562L;
 }

@@ -44,9 +44,9 @@ public interface BrowserProcessControllerPrx extends ProcessControllerPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_redirectAsync(String iceP_url, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_redirectAsync(String iceP_url, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "redirect", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "redirect", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_url);
                  }, null);
@@ -205,7 +205,7 @@ public interface BrowserProcessControllerPrx extends ProcessControllerPrx
      * @hidden
      **/
     @Override
-    default BrowserProcessControllerPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default BrowserProcessControllerPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _BrowserProcessControllerPrxI(ref);
     }

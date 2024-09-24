@@ -81,9 +81,9 @@ public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_applicationInitAsync(int iceP_serial, java.util.List<ApplicationInfo> iceP_applications, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_applicationInitAsync(int iceP_serial, java.util.List<ApplicationInfo> iceP_applications, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "applicationInit", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "applicationInit", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeInt(iceP_serial);
                      ApplicationInfoSeqHelper.write(ostr, iceP_applications);
@@ -144,9 +144,9 @@ public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_applicationAddedAsync(int iceP_serial, ApplicationInfo iceP_desc, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_applicationAddedAsync(int iceP_serial, ApplicationInfo iceP_desc, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "applicationAdded", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "applicationAdded", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeInt(iceP_serial);
                      ApplicationInfo.ice_write(ostr, iceP_desc);
@@ -211,9 +211,9 @@ public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_applicationRemovedAsync(int iceP_serial, String iceP_name, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_applicationRemovedAsync(int iceP_serial, String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "applicationRemoved", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "applicationRemoved", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeInt(iceP_serial);
                      ostr.writeString(iceP_name);
@@ -277,9 +277,9 @@ public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_applicationUpdatedAsync(int iceP_serial, ApplicationUpdateInfo iceP_desc, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_applicationUpdatedAsync(int iceP_serial, ApplicationUpdateInfo iceP_desc, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "applicationUpdated", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "applicationUpdated", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeInt(iceP_serial);
                      ApplicationUpdateInfo.ice_write(ostr, iceP_desc);
@@ -440,7 +440,7 @@ public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default ApplicationObserverPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default ApplicationObserverPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _ApplicationObserverPrxI(ref);
     }

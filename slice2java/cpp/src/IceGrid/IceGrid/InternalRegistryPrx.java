@@ -105,9 +105,9 @@ public interface InternalRegistryPrx extends FileReaderPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<NodeSessionPrx> _iceI_registerNodeAsync(InternalNodeInfo iceP_info, NodePrx iceP_prx, com.zeroc.IceGrid.LoadInfo iceP_loadInf, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<NodeSessionPrx> _iceI_registerNodeAsync(InternalNodeInfo iceP_info, NodePrx iceP_prx, com.zeroc.IceGrid.LoadInfo iceP_loadInf, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<NodeSessionPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "registerNode", null, sync, _iceE_registerNode);
+        com.zeroc.Ice.OutgoingAsync<NodeSessionPrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "registerNode", null, sync, _iceE_registerNode);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeValue(iceP_info);
                      ostr.writeProxy(iceP_prx);
@@ -211,9 +211,9 @@ public interface InternalRegistryPrx extends FileReaderPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<ReplicaSessionPrx> _iceI_registerReplicaAsync(InternalReplicaInfo iceP_info, InternalRegistryPrx iceP_prx, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<ReplicaSessionPrx> _iceI_registerReplicaAsync(InternalReplicaInfo iceP_info, InternalRegistryPrx iceP_prx, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<ReplicaSessionPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "registerReplica", null, sync, _iceE_registerReplica);
+        com.zeroc.Ice.OutgoingAsync<ReplicaSessionPrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "registerReplica", null, sync, _iceE_registerReplica);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeValue(iceP_info);
                      ostr.writeProxy(iceP_prx);
@@ -280,9 +280,9 @@ public interface InternalRegistryPrx extends FileReaderPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_registerWithReplicaAsync(InternalRegistryPrx iceP_prx, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_registerWithReplicaAsync(InternalRegistryPrx iceP_prx, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "registerWithReplica", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "registerWithReplica", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeProxy(iceP_prx);
                  }, null);
@@ -331,9 +331,9 @@ public interface InternalRegistryPrx extends FileReaderPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<NodePrx[]> _iceI_getNodesAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<NodePrx[]> _iceI_getNodesAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<NodePrx[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getNodes", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<NodePrx[]> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getNodes", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      NodePrx[] ret;
                      ret = NodePrxSeqHelper.read(istr);
@@ -384,9 +384,9 @@ public interface InternalRegistryPrx extends FileReaderPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<InternalRegistryPrx[]> _iceI_getReplicasAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<InternalRegistryPrx[]> _iceI_getReplicasAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<InternalRegistryPrx[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getReplicas", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<InternalRegistryPrx[]> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getReplicas", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      InternalRegistryPrx[] ret;
                      ret = InternalRegistryPrxSeqHelper.read(istr);
@@ -439,9 +439,9 @@ public interface InternalRegistryPrx extends FileReaderPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<InternalRegistry.GetApplicationsResult> _iceI_getApplicationsAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<InternalRegistry.GetApplicationsResult> _iceI_getApplicationsAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<InternalRegistry.GetApplicationsResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getApplications", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<InternalRegistry.GetApplicationsResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getApplications", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      InternalRegistry.GetApplicationsResult ret = new InternalRegistry.GetApplicationsResult();
                      ret.read(istr);
@@ -477,9 +477,9 @@ public interface InternalRegistryPrx extends FileReaderPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<InternalRegistry.GetAdaptersResult> _iceI_getAdaptersAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<InternalRegistry.GetAdaptersResult> _iceI_getAdaptersAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<InternalRegistry.GetAdaptersResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getAdapters", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<InternalRegistry.GetAdaptersResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getAdapters", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      InternalRegistry.GetAdaptersResult ret = new InternalRegistry.GetAdaptersResult();
                      ret.read(istr);
@@ -514,9 +514,9 @@ public interface InternalRegistryPrx extends FileReaderPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<InternalRegistry.GetObjectsResult> _iceI_getObjectsAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<InternalRegistry.GetObjectsResult> _iceI_getObjectsAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<InternalRegistry.GetObjectsResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getObjects", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<InternalRegistry.GetObjectsResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getObjects", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      InternalRegistry.GetObjectsResult ret = new InternalRegistry.GetObjectsResult();
                      ret.read(istr);
@@ -567,9 +567,9 @@ public interface InternalRegistryPrx extends FileReaderPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "shutdown", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -726,7 +726,7 @@ public interface InternalRegistryPrx extends FileReaderPrx
      * @hidden
      **/
     @Override
-    default InternalRegistryPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default InternalRegistryPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _InternalRegistryPrxI(ref);
     }

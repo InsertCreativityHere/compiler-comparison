@@ -18,7 +18,7 @@ package com.zeroc.Ice;
 /** @hidden */
 public class _LocatorFinderPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<LocatorFinderPrx> implements LocatorFinderPrx
 {
-    _LocatorFinderPrxI(com.zeroc.IceInternal.Reference ref)
+    _LocatorFinderPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

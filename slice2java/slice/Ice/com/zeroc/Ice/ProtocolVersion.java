@@ -67,9 +67,9 @@ public class ProtocolVersion implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Ice::ProtocolVersion");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, major);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, minor);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Ice::ProtocolVersion");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, major);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, minor);
         return h_;
     }
 
@@ -151,5 +151,5 @@ public class ProtocolVersion implements java.lang.Cloneable,
     private static final ProtocolVersion _nullMarshalValue = new ProtocolVersion();
 
     /** @hidden */
-    private static final long serialVersionUID = 6606898755124531012L;
+    private static final long serialVersionUID = -75332671679498428L;
 }

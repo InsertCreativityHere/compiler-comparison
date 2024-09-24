@@ -18,7 +18,7 @@ package IceGrid;
 /** @hidden */
 public class _DatabaseObserverPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<DatabaseObserverPrx> implements DatabaseObserverPrx
 {
-    _DatabaseObserverPrxI(com.zeroc.IceInternal.Reference ref)
+    _DatabaseObserverPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

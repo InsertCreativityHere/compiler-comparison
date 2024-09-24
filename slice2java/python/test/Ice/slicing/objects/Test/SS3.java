@@ -70,9 +70,9 @@ public class SS3 implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::SS3");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, c1);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, c2);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::SS3");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, c1);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, c2);
         return h_;
     }
 

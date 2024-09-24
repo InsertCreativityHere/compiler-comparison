@@ -90,10 +90,10 @@ public class LinkInfo implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceStorm::LinkInfo");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, theTopic);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, name);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, cost);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceStorm::LinkInfo");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, theTopic);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, name);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, cost);
         return h_;
     }
 
@@ -178,5 +178,5 @@ public class LinkInfo implements java.lang.Cloneable,
     private static final LinkInfo _nullMarshalValue = new LinkInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = -6959170782375493012L;
+    private static final long serialVersionUID = -8772234286573255683L;
 }

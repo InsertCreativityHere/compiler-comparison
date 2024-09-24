@@ -69,9 +69,9 @@ public interface ServiceObserverPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_servicesStartedAsync(String[] iceP_services, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_servicesStartedAsync(String[] iceP_services, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "servicesStarted", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "servicesStarted", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeStringSeq(iceP_services);
                  }, null);
@@ -125,9 +125,9 @@ public interface ServiceObserverPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_servicesStoppedAsync(String[] iceP_services, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_servicesStoppedAsync(String[] iceP_services, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "servicesStopped", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "servicesStopped", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeStringSeq(iceP_services);
                  }, null);
@@ -286,7 +286,7 @@ public interface ServiceObserverPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default ServiceObserverPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default ServiceObserverPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _ServiceObserverPrxI(ref);
     }

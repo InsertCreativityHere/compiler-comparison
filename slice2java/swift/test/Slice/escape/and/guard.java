@@ -57,8 +57,8 @@ public class guard implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::and::guard");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, _default);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::and::guard");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, _default);
         return h_;
     }
 
@@ -138,5 +138,5 @@ public class guard implements java.lang.Cloneable,
     private static final guard _nullMarshalValue = new guard();
 
     /** @hidden */
-    private static final long serialVersionUID = 6403721320225021294L;
+    private static final long serialVersionUID = 6403721919310798327L;
 }

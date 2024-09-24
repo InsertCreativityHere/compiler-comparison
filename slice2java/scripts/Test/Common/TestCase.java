@@ -59,7 +59,7 @@ public interface TestCase extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        final com.zeroc.IceInternal.Holder<Config> icePP_config = new com.zeroc.IceInternal.Holder<>();
+        final com.zeroc.Ice.Holder<Config> icePP_config = new com.zeroc.Ice.Holder<>();
         istr.readValue(v -> icePP_config.value = v, Config.class);
         istr.readPendingValues();
         istr.endEncapsulation();
@@ -98,7 +98,7 @@ public interface TestCase extends com.zeroc.Ice.Object
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
         String iceP_host;
-        final com.zeroc.IceInternal.Holder<Config> icePP_config = new com.zeroc.IceInternal.Holder<>();
+        final com.zeroc.Ice.Holder<Config> icePP_config = new com.zeroc.Ice.Holder<>();
         iceP_host = istr.readString();
         istr.readValue(v -> icePP_config.value = v, Config.class);
         istr.readPendingValues();

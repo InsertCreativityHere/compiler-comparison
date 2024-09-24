@@ -231,27 +231,27 @@ public class Struct2 implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::Struct2");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, boolTrue);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, b);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, s);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, i);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, l);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, f);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, d);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, str);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, c1);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, c2);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, c3);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, nc1);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, nc2);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, nc3);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, zeroI);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, zeroL);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, zeroF);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, zeroDotF);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, zeroD);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, zeroDotD);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::Struct2");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, boolTrue);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, b);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, s);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, i);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, l);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, f);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, d);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, str);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, c1);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, c2);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, c3);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, nc1);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, nc2);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, nc3);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, zeroI);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, zeroL);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, zeroF);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, zeroDotF);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, zeroD);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, zeroDotD);
         return h_;
     }
 
@@ -370,5 +370,5 @@ public class Struct2 implements java.lang.Cloneable,
     private static final Struct2 _nullMarshalValue = new Struct2();
 
     /** @hidden */
-    private static final long serialVersionUID = -1616762988445676672L;
+    private static final long serialVersionUID = 4476425801863842873L;
 }

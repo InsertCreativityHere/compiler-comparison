@@ -92,9 +92,9 @@ public interface ServiceManagerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_startServiceAsync(String iceP_service, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_startServiceAsync(String iceP_service, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "startService", null, sync, _iceE_startService);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "startService", null, sync, _iceE_startService);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_service);
                  }, null);
@@ -178,9 +178,9 @@ public interface ServiceManagerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_stopServiceAsync(String iceP_service, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_stopServiceAsync(String iceP_service, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "stopService", null, sync, _iceE_stopService);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "stopService", null, sync, _iceE_stopService);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_service);
                  }, null);
@@ -241,9 +241,9 @@ public interface ServiceManagerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_addObserverAsync(ServiceObserverPrx iceP_observer, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_addObserverAsync(ServiceObserverPrx iceP_observer, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "addObserver", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "addObserver", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeProxy(iceP_observer);
                  }, null);
@@ -292,9 +292,9 @@ public interface ServiceManagerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "shutdown", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -451,7 +451,7 @@ public interface ServiceManagerPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default ServiceManagerPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default ServiceManagerPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _ServiceManagerPrxI(ref);
     }

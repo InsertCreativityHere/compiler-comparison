@@ -18,7 +18,7 @@ package System;
 /** @hidden */
 public class _TestPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TestPrx> implements TestPrx
 {
-    _TestPrxI(com.zeroc.IceInternal.Reference ref)
+    _TestPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

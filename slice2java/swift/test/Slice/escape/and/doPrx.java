@@ -170,7 +170,7 @@ public interface doPrx extends funcPrx,
      * @hidden
      **/
     @Override
-    default doPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default doPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _doPrxI(ref);
     }

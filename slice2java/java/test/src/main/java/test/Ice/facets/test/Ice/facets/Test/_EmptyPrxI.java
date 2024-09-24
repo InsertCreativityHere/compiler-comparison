@@ -18,7 +18,7 @@ package test.Ice.facets.Test;
 /** @hidden */
 public class _EmptyPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<EmptyPrx> implements EmptyPrx
 {
-    _EmptyPrxI(com.zeroc.IceInternal.Reference ref)
+    _EmptyPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

@@ -57,8 +57,8 @@ public class SmallStruct implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::SmallStruct");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, m);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::SmallStruct");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, m);
         return h_;
     }
 
@@ -138,5 +138,5 @@ public class SmallStruct implements java.lang.Cloneable,
     private static final SmallStruct _nullMarshalValue = new SmallStruct();
 
     /** @hidden */
-    private static final long serialVersionUID = 6700987779626424786L;
+    private static final long serialVersionUID = 6700991456526302045L;
 }

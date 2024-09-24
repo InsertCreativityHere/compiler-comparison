@@ -43,9 +43,9 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "shutdown", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -77,9 +77,9 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<MyClass.OpSerialSmallJavaResult> _iceI_opSerialSmallJavaAsync(test.Ice.seqMapping.Serialize.Small iceP_i, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<MyClass.OpSerialSmallJavaResult> _iceI_opSerialSmallJavaAsync(test.Ice.seqMapping.Serialize.Small iceP_i, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<MyClass.OpSerialSmallJavaResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opSerialSmallJava", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<MyClass.OpSerialSmallJavaResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opSerialSmallJava", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeSerializable(iceP_i);
                  }, istr -> {
@@ -117,9 +117,9 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<MyClass.OpSerialLargeJavaResult> _iceI_opSerialLargeJavaAsync(test.Ice.seqMapping.Serialize.Large iceP_i, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<MyClass.OpSerialLargeJavaResult> _iceI_opSerialLargeJavaAsync(test.Ice.seqMapping.Serialize.Large iceP_i, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<MyClass.OpSerialLargeJavaResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opSerialLargeJava", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<MyClass.OpSerialLargeJavaResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opSerialLargeJava", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeSerializable(iceP_i);
                  }, istr -> {
@@ -157,9 +157,9 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<MyClass.OpSerialStructJavaResult> _iceI_opSerialStructJavaAsync(test.Ice.seqMapping.Serialize.Struct iceP_i, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<MyClass.OpSerialStructJavaResult> _iceI_opSerialStructJavaAsync(test.Ice.seqMapping.Serialize.Struct iceP_i, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<MyClass.OpSerialStructJavaResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opSerialStructJava", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<MyClass.OpSerialStructJavaResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opSerialStructJava", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeSerializable(iceP_i);
                  }, istr -> {
@@ -322,7 +322,7 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default MyClassPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default MyClassPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _MyClassPrxI(ref);
     }

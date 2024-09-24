@@ -106,11 +106,11 @@ public class LogMessage implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Ice::LogMessage");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, type);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, timestamp);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, traceCategory);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, message);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Ice::LogMessage");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, type);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, timestamp);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, traceCategory);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, message);
         return h_;
     }
 
@@ -197,5 +197,5 @@ public class LogMessage implements java.lang.Cloneable,
     private static final LogMessage _nullMarshalValue = new LogMessage();
 
     /** @hidden */
-    private static final long serialVersionUID = -4946884862457326278L;
+    private static final long serialVersionUID = 1361557729256393067L;
 }

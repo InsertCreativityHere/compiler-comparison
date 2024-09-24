@@ -18,7 +18,7 @@ package Test;
 /** @hidden */
 public class _CallbackReceiverPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<CallbackReceiverPrx> implements CallbackReceiverPrx
 {
-    _CallbackReceiverPrxI(com.zeroc.IceInternal.Reference ref)
+    _CallbackReceiverPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

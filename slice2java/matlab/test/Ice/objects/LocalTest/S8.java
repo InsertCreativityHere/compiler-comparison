@@ -57,8 +57,8 @@ public class S8 implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::LocalTest::S8");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, s1seqseq);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::LocalTest::S8");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, s1seqseq);
         return h_;
     }
 
@@ -139,5 +139,5 @@ public class S8 implements java.lang.Cloneable,
     private static final S8 _nullMarshalValue = new S8();
 
     /** @hidden */
-    private static final long serialVersionUID = 4560070790804923806L;
+    private static final long serialVersionUID = 4560073076668566123L;
 }

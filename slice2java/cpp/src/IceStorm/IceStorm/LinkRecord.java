@@ -89,10 +89,10 @@ public class LinkRecord implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceStorm::LinkRecord");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, obj);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, cost);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, theTopic);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceStorm::LinkRecord");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, obj);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, cost);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, theTopic);
         return h_;
     }
 
@@ -177,5 +177,5 @@ public class LinkRecord implements java.lang.Cloneable,
     private static final LinkRecord _nullMarshalValue = new LinkRecord();
 
     /** @hidden */
-    private static final long serialVersionUID = -6522259167487136723L;
+    private static final long serialVersionUID = 637296829068065323L;
 }

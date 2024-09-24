@@ -101,11 +101,11 @@ public class ServerDynamicInfo implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceGrid::ServerDynamicInfo");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, id);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, state);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, pid);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, enabled);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceGrid::ServerDynamicInfo");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, id);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, state);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, pid);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, enabled);
         return h_;
     }
 
@@ -192,5 +192,5 @@ public class ServerDynamicInfo implements java.lang.Cloneable,
     private static final ServerDynamicInfo _nullMarshalValue = new ServerDynamicInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = -1015841200098241942L;
+    private static final long serialVersionUID = 6702342879470856426L;
 }

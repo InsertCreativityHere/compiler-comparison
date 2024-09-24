@@ -83,9 +83,9 @@ public class SubscriberRecordKey implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceStorm::SubscriberRecordKey");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, topic);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, id);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceStorm::SubscriberRecordKey");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, topic);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, id);
         return h_;
     }
 
@@ -168,5 +168,5 @@ public class SubscriberRecordKey implements java.lang.Cloneable,
     private static final SubscriberRecordKey _nullMarshalValue = new SubscriberRecordKey();
 
     /** @hidden */
-    private static final long serialVersionUID = -3780566963597991969L;
+    private static final long serialVersionUID = 2898860125380469215L;
 }

@@ -53,7 +53,7 @@ public interface _for extends com.zeroc.Ice.Object
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
         breakPrx iceP_if;
-        final com.zeroc.IceInternal.Holder<echo> icePP_global = new com.zeroc.IceInternal.Holder<>();
+        final com.zeroc.Ice.Holder<echo> icePP_global = new com.zeroc.Ice.Holder<>();
         functionPrx iceP_include;
         diePrx iceP_return;
         enddeclarePrx iceP_list;

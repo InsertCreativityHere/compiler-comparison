@@ -99,14 +99,14 @@ public class BufferStruct implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::BufferStruct");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, byteBuf);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, boolBuf);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, shortBuf);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, intBuf);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, longBuf);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, floatBuf);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, doubleBuf);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::BufferStruct");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, byteBuf);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, boolBuf);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, shortBuf);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, intBuf);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, longBuf);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, floatBuf);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, doubleBuf);
         return h_;
     }
 
@@ -199,5 +199,5 @@ public class BufferStruct implements java.lang.Cloneable,
     private static final BufferStruct _nullMarshalValue = new BufferStruct();
 
     /** @hidden */
-    private static final long serialVersionUID = -430389960433798205L;
+    private static final long serialVersionUID = -6060886261395473005L;
 }

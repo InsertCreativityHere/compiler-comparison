@@ -173,7 +173,7 @@ public interface MyDerivedClassPrx extends Test.MyClassPrx
      * @hidden
      **/
     @Override
-    default MyDerivedClassPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default MyDerivedClassPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _MyDerivedClassPrxI(ref);
     }

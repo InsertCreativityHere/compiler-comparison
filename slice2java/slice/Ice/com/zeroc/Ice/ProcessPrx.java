@@ -73,9 +73,9 @@ public interface ProcessPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "shutdown", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -132,9 +132,9 @@ public interface ProcessPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_writeMessageAsync(String iceP_message, int iceP_fd, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_writeMessageAsync(String iceP_message, int iceP_fd, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "writeMessage", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "writeMessage", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_message);
                      ostr.writeInt(iceP_fd);
@@ -294,7 +294,7 @@ public interface ProcessPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default ProcessPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default ProcessPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _ProcessPrxI(ref);
     }

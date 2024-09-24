@@ -18,7 +18,7 @@ package test.Ice.inheritance.Test.MA;
 /** @hidden */
 public class _IAPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<IAPrx> implements IAPrx
 {
-    _IAPrxI(com.zeroc.IceInternal.Reference ref)
+    _IAPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

@@ -78,11 +78,11 @@ public class Color implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::Color");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, r);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, g);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, b);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, a);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::Color");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, r);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, g);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, b);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, a);
         return h_;
     }
 
@@ -168,5 +168,5 @@ public class Color implements java.lang.Cloneable,
     private static final Color _nullMarshalValue = new Color();
 
     /** @hidden */
-    private static final long serialVersionUID = -5414467032528592906L;
+    private static final long serialVersionUID = -7885393982206426122L;
 }

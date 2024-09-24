@@ -18,7 +18,7 @@ package com.zeroc.IceGrid;
 /** @hidden */
 public class _LocatorPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<LocatorPrx> implements LocatorPrx
 {
-    _LocatorPrxI(com.zeroc.IceInternal.Reference ref)
+    _LocatorPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

@@ -80,9 +80,9 @@ public class AdapterDynamicInfo implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceGrid::AdapterDynamicInfo");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, id);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, proxy);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceGrid::AdapterDynamicInfo");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, id);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, proxy);
         return h_;
     }
 
@@ -165,5 +165,5 @@ public class AdapterDynamicInfo implements java.lang.Cloneable,
     private static final AdapterDynamicInfo _nullMarshalValue = new AdapterDynamicInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = -3174072437337383893L;
+    private static final long serialVersionUID = 7549928408911196779L;
 }

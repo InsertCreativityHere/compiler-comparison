@@ -18,7 +18,7 @@ package BEGIN;
 /** @hidden */
 public class _elsifPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<elsifPrx> implements elsifPrx
 {
-    _elsifPrxI(com.zeroc.IceInternal.Reference ref)
+    _elsifPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

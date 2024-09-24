@@ -61,8 +61,8 @@ public class VarStruct implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::VarStruct");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, m);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::VarStruct");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, m);
         return h_;
     }
 
@@ -143,5 +143,5 @@ public class VarStruct implements java.lang.Cloneable,
     private static final VarStruct _nullMarshalValue = new VarStruct();
 
     /** @hidden */
-    private static final long serialVersionUID = -1912281386805143948L;
+    private static final long serialVersionUID = -1912288143761185109L;
 }

@@ -43,9 +43,9 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "shutdown", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -76,9 +76,9 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Test.MA.IAPrx> _iceI_iaopAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Test.MA.IAPrx> _iceI_iaopAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Test.MA.IAPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "iaop", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Test.MA.IAPrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "iaop", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      Test.MA.IAPrx ret;
                      ret = Test.MA.IAPrx.uncheckedCast(istr.readProxy());
@@ -113,9 +113,9 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Test.MB.IB1Prx> _iceI_ib1opAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Test.MB.IB1Prx> _iceI_ib1opAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Test.MB.IB1Prx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "ib1op", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Test.MB.IB1Prx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "ib1op", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      Test.MB.IB1Prx ret;
                      ret = Test.MB.IB1Prx.uncheckedCast(istr.readProxy());
@@ -150,9 +150,9 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Test.MB.IB2Prx> _iceI_ib2opAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Test.MB.IB2Prx> _iceI_ib2opAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Test.MB.IB2Prx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "ib2op", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Test.MB.IB2Prx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "ib2op", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      Test.MB.IB2Prx ret;
                      ret = Test.MB.IB2Prx.uncheckedCast(istr.readProxy());
@@ -187,9 +187,9 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Test.MA.ICPrx> _iceI_icopAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Test.MA.ICPrx> _iceI_icopAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Test.MA.ICPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "icop", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Test.MA.ICPrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "icop", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      Test.MA.ICPrx ret;
                      ret = Test.MA.ICPrx.uncheckedCast(istr.readProxy());
@@ -350,7 +350,7 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default InitialPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default InitialPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _InitialPrxI(ref);
     }

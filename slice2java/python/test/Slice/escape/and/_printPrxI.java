@@ -18,7 +18,7 @@ package and;
 /** @hidden */
 public class _printPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<printPrx> implements printPrx
 {
-    _printPrxI(com.zeroc.IceInternal.Reference ref)
+    _printPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

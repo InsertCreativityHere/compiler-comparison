@@ -73,9 +73,9 @@ public class LogUpdate implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceStormElection::LogUpdate");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, generation);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, iteration);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceStormElection::LogUpdate");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, generation);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, iteration);
         return h_;
     }
 
@@ -157,5 +157,5 @@ public class LogUpdate implements java.lang.Cloneable,
     private static final LogUpdate _nullMarshalValue = new LogUpdate();
 
     /** @hidden */
-    private static final long serialVersionUID = -5938558295992202044L;
+    private static final long serialVersionUID = 2889275484074920260L;
 }

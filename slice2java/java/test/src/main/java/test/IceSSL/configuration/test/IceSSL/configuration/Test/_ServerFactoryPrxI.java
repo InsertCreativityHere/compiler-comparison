@@ -18,7 +18,7 @@ package test.IceSSL.configuration.Test;
 /** @hidden */
 public class _ServerFactoryPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ServerFactoryPrx> implements ServerFactoryPrx
 {
-    _ServerFactoryPrxI(com.zeroc.IceInternal.Reference ref)
+    _ServerFactoryPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

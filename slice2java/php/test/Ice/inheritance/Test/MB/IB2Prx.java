@@ -44,9 +44,9 @@ public interface IB2Prx extends Test.MA.IAPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<IB2Prx> _iceI_ib2opAsync(IB2Prx iceP_p, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<IB2Prx> _iceI_ib2opAsync(IB2Prx iceP_p, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<IB2Prx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "ib2op", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<IB2Prx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "ib2op", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeProxy(iceP_p);
                  }, istr -> {
@@ -209,7 +209,7 @@ public interface IB2Prx extends Test.MA.IAPrx
      * @hidden
      **/
     @Override
-    default IB2Prx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default IB2Prx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _IB2PrxI(ref);
     }

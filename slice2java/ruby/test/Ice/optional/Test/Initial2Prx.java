@@ -55,9 +55,9 @@ public interface Initial2Prx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opClassAndUnknownOptionalAsync(A iceP_p, VarStruct iceP_ovs, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_opClassAndUnknownOptionalAsync(A iceP_p, VarStruct iceP_ovs, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opClassAndUnknownOptional", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opClassAndUnknownOptional", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeValue(iceP_p);
                      VarStruct.ice_write(ostr, 1, iceP_ovs);
@@ -84,9 +84,9 @@ public interface Initial2Prx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opClassAndUnknownOptionalAsync(A iceP_p, java.util.Optional<VarStruct> iceP_ovs, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_opClassAndUnknownOptionalAsync(A iceP_p, java.util.Optional<VarStruct> iceP_ovs, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opClassAndUnknownOptional", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opClassAndUnknownOptional", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeValue(iceP_p);
                      VarStruct.ice_write(ostr, 1, iceP_ovs);
@@ -133,9 +133,9 @@ public interface Initial2Prx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opVoidAsync(int iceP_a, String iceP_v, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_opVoidAsync(int iceP_a, String iceP_v, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opVoid", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opVoid", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeInt(1, iceP_a);
                      ostr.writeString(2, iceP_v);
@@ -161,9 +161,9 @@ public interface Initial2Prx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opVoidAsync(java.util.OptionalInt iceP_a, java.util.Optional<java.lang.String> iceP_v, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_opVoidAsync(java.util.OptionalInt iceP_a, java.util.Optional<java.lang.String> iceP_v, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opVoid", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opVoid", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeInt(1, iceP_a);
                      ostr.writeString(2, iceP_v);
@@ -323,7 +323,7 @@ public interface Initial2Prx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default Initial2Prx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default Initial2Prx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _Initial2PrxI(ref);
     }

@@ -57,8 +57,8 @@ public class S3 implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::LocalTest::S3");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, c1seq);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::LocalTest::S3");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, c1seq);
         return h_;
     }
 
@@ -139,5 +139,5 @@ public class S3 implements java.lang.Cloneable,
     private static final S3 _nullMarshalValue = new S3();
 
     /** @hidden */
-    private static final long serialVersionUID = -9162147912339447264L;
+    private static final long serialVersionUID = -9162150283588427883L;
 }

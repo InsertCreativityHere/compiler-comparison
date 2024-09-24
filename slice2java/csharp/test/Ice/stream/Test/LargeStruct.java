@@ -131,17 +131,17 @@ public class LargeStruct implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::LargeStruct");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, bo);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, by);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, sh);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, i);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, l);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, f);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, d);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, str);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, e);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, p);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::LargeStruct");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, bo);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, by);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, sh);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, i);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, l);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, f);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, d);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, str);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, e);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, p);
         return h_;
     }
 
@@ -240,5 +240,5 @@ public class LargeStruct implements java.lang.Cloneable,
     private static final LargeStruct _nullMarshalValue = new LargeStruct();
 
     /** @hidden */
-    private static final long serialVersionUID = 2612221542063165492L;
+    private static final long serialVersionUID = 5504395557488701793L;
 }

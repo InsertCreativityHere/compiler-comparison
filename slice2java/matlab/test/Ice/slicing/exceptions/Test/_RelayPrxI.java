@@ -18,7 +18,7 @@ package Test;
 /** @hidden */
 public class _RelayPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<RelayPrx> implements RelayPrx
 {
-    _RelayPrxI(com.zeroc.IceInternal.Reference ref)
+    _RelayPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

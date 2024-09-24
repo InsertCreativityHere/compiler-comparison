@@ -57,8 +57,8 @@ public class and implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::BEGIN::and");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, begin);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::BEGIN::and");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, begin);
         return h_;
     }
 
@@ -138,5 +138,5 @@ public class and implements java.lang.Cloneable,
     private static final and _nullMarshalValue = new and();
 
     /** @hidden */
-    private static final long serialVersionUID = 1440105163840792053L;
+    private static final long serialVersionUID = 1440097270372106957L;
 }

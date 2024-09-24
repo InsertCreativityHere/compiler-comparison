@@ -57,8 +57,8 @@ public class ClassStruct implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::ClassStruct");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, i);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::ClassStruct");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, i);
         return h_;
     }
 
@@ -138,5 +138,5 @@ public class ClassStruct implements java.lang.Cloneable,
     private static final ClassStruct _nullMarshalValue = new ClassStruct();
 
     /** @hidden */
-    private static final long serialVersionUID = 4995618039376857946L;
+    private static final long serialVersionUID = 4995618925528001405L;
 }

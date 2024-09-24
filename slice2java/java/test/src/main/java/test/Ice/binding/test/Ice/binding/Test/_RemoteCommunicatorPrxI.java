@@ -18,7 +18,7 @@ package test.Ice.binding.Test;
 /** @hidden */
 public class _RemoteCommunicatorPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<RemoteCommunicatorPrx> implements RemoteCommunicatorPrx
 {
-    _RemoteCommunicatorPrxI(com.zeroc.IceInternal.Reference ref)
+    _RemoteCommunicatorPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

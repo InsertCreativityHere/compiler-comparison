@@ -175,17 +175,17 @@ public class NodeUpdateDescriptor implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceGrid::NodeUpdateDescriptor");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, name);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, description);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, variables);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, removeVariables);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, propertySets);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, removePropertySets);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, serverInstances);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, servers);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, removeServers);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, loadFactor);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceGrid::NodeUpdateDescriptor");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, name);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, description);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, variables);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, removeVariables);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, propertySets);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, removePropertySets);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, serverInstances);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, servers);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, removeServers);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, loadFactor);
         return h_;
     }
 
@@ -293,5 +293,5 @@ public class NodeUpdateDescriptor implements java.lang.Cloneable,
     private static final NodeUpdateDescriptor _nullMarshalValue = new NodeUpdateDescriptor();
 
     /** @hidden */
-    private static final long serialVersionUID = -1538668534971559149L;
+    private static final long serialVersionUID = 1428328752213753619L;
 }

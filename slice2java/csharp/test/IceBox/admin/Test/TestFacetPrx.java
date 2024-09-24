@@ -43,9 +43,9 @@ public interface TestFacetPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.util.Map<java.lang.String, java.lang.String>> _iceI_getChangesAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.util.Map<java.lang.String, java.lang.String>> _iceI_getChangesAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.util.Map<java.lang.String, java.lang.String>> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getChanges", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<java.util.Map<java.lang.String, java.lang.String>> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getChanges", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      java.util.Map<java.lang.String, java.lang.String> ret;
                      ret = com.zeroc.Ice.PropertyDictHelper.read(istr);
@@ -206,7 +206,7 @@ public interface TestFacetPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default TestFacetPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default TestFacetPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _TestFacetPrxI(ref);
     }

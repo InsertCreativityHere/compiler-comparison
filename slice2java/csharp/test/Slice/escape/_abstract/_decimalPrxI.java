@@ -18,7 +18,7 @@ package _abstract;
 /** @hidden */
 public class _decimalPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<decimalPrx> implements decimalPrx
 {
-    _decimalPrxI(com.zeroc.IceInternal.Reference ref)
+    _decimalPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

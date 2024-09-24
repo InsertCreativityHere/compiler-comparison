@@ -18,7 +18,7 @@ package test.Ice.proxy.AMD.Test;
 /** @hidden */
 public class _DiamondClassPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<DiamondClassPrx> implements DiamondClassPrx
 {
-    _DiamondClassPrxI(com.zeroc.IceInternal.Reference ref)
+    _DiamondClassPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

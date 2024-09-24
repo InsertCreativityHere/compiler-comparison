@@ -93,9 +93,9 @@ public interface PermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<PermissionsVerifier.CheckPermissionsResult> _iceI_checkPermissionsAsync(String iceP_userId, String iceP_password, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<PermissionsVerifier.CheckPermissionsResult> _iceI_checkPermissionsAsync(String iceP_userId, String iceP_password, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<PermissionsVerifier.CheckPermissionsResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "checkPermissions", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_checkPermissions);
+        com.zeroc.Ice.OutgoingAsync<PermissionsVerifier.CheckPermissionsResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "checkPermissions", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_checkPermissions);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_userId);
                      ostr.writeString(iceP_password);
@@ -265,7 +265,7 @@ public interface PermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default PermissionsVerifierPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default PermissionsVerifierPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _PermissionsVerifierPrxI(ref);
     }

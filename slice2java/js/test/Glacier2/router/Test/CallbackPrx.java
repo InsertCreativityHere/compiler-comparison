@@ -44,9 +44,9 @@ public interface CallbackPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_initiateCallbackAsync(CallbackReceiverPrx iceP_proxy, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_initiateCallbackAsync(CallbackReceiverPrx iceP_proxy, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "initiateCallback", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "initiateCallback", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeProxy(iceP_proxy);
                  }, null);
@@ -93,9 +93,9 @@ public interface CallbackPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_initiateCallbackExAsync(CallbackReceiverPrx iceP_proxy, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_initiateCallbackExAsync(CallbackReceiverPrx iceP_proxy, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "initiateCallbackEx", null, sync, _iceE_initiateCallbackEx);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "initiateCallbackEx", null, sync, _iceE_initiateCallbackEx);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeProxy(iceP_proxy);
                  }, null);
@@ -134,9 +134,9 @@ public interface CallbackPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "shutdown", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -293,7 +293,7 @@ public interface CallbackPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default CallbackPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default CallbackPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _CallbackPrxI(ref);
     }

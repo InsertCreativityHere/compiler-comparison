@@ -44,9 +44,9 @@ public interface BackgroundControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_pauseCallAsync(String iceP_call, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_pauseCallAsync(String iceP_call, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "pauseCall", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "pauseCall", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_call);
                  }, null);
@@ -80,9 +80,9 @@ public interface BackgroundControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_resumeCallAsync(String iceP_call, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_resumeCallAsync(String iceP_call, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "resumeCall", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "resumeCall", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_call);
                  }, null);
@@ -115,9 +115,9 @@ public interface BackgroundControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_holdAdapterAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_holdAdapterAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "holdAdapter", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "holdAdapter", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -148,9 +148,9 @@ public interface BackgroundControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_resumeAdapterAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_resumeAdapterAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "resumeAdapter", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "resumeAdapter", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -182,9 +182,9 @@ public interface BackgroundControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_initializeSocketOperationAsync(int iceP_status, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_initializeSocketOperationAsync(int iceP_status, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "initializeSocketOperation", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "initializeSocketOperation", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeInt(iceP_status);
                  }, null);
@@ -218,9 +218,9 @@ public interface BackgroundControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_initializeExceptionAsync(boolean iceP_enable, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_initializeExceptionAsync(boolean iceP_enable, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "initializeException", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "initializeException", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeBool(iceP_enable);
                  }, null);
@@ -254,9 +254,9 @@ public interface BackgroundControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_readReadyAsync(boolean iceP_enable, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_readReadyAsync(boolean iceP_enable, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "readReady", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "readReady", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeBool(iceP_enable);
                  }, null);
@@ -290,9 +290,9 @@ public interface BackgroundControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_readExceptionAsync(boolean iceP_enable, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_readExceptionAsync(boolean iceP_enable, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "readException", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "readException", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeBool(iceP_enable);
                  }, null);
@@ -326,9 +326,9 @@ public interface BackgroundControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_writeReadyAsync(boolean iceP_enable, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_writeReadyAsync(boolean iceP_enable, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "writeReady", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "writeReady", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeBool(iceP_enable);
                  }, null);
@@ -362,9 +362,9 @@ public interface BackgroundControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_writeExceptionAsync(boolean iceP_enable, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_writeExceptionAsync(boolean iceP_enable, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "writeException", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "writeException", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeBool(iceP_enable);
                  }, null);
@@ -398,9 +398,9 @@ public interface BackgroundControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_bufferedAsync(boolean iceP_enable, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_bufferedAsync(boolean iceP_enable, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "buffered", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "buffered", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeBool(iceP_enable);
                  }, null);
@@ -559,7 +559,7 @@ public interface BackgroundControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default BackgroundControllerPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default BackgroundControllerPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _BackgroundControllerPrxI(ref);
     }

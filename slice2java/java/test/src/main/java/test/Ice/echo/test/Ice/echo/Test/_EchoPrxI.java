@@ -18,7 +18,7 @@ package test.Ice.echo.Test;
 /** @hidden */
 public class _EchoPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<EchoPrx> implements EchoPrx
 {
-    _EchoPrxI(com.zeroc.IceInternal.Reference ref)
+    _EchoPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

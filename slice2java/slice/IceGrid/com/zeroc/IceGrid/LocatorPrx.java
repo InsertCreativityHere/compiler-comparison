@@ -68,9 +68,9 @@ public interface LocatorPrx extends com.zeroc.Ice.LocatorPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<RegistryPrx> _iceI_getLocalRegistryAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<RegistryPrx> _iceI_getLocalRegistryAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<RegistryPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getLocalRegistry", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<RegistryPrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getLocalRegistry", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      RegistryPrx ret;
                      ret = RegistryPrx.uncheckedCast(istr.readProxy());
@@ -123,9 +123,9 @@ public interface LocatorPrx extends com.zeroc.Ice.LocatorPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<QueryPrx> _iceI_getLocalQueryAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<QueryPrx> _iceI_getLocalQueryAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<QueryPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getLocalQuery", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<QueryPrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getLocalQuery", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      QueryPrx ret;
                      ret = QueryPrx.uncheckedCast(istr.readProxy());
@@ -286,7 +286,7 @@ public interface LocatorPrx extends com.zeroc.Ice.LocatorPrx
      * @hidden
      **/
     @Override
-    default LocatorPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default LocatorPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _LocatorPrxI(ref);
     }

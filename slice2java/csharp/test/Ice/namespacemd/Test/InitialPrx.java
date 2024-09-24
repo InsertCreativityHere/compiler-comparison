@@ -43,11 +43,11 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<NoNamespace.C1> _iceI_getNoNamespaceC2AsC1Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<NoNamespace.C1> _iceI_getNoNamespaceC2AsC1Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<NoNamespace.C1> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getNoNamespaceC2AsC1", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<NoNamespace.C1> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getNoNamespaceC2AsC1", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<NoNamespace.C1> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<NoNamespace.C1> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, NoNamespace.C1.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -81,11 +81,11 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<NoNamespace.C2> _iceI_getNoNamespaceC2AsC2Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<NoNamespace.C2> _iceI_getNoNamespaceC2AsC2Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<NoNamespace.C2> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getNoNamespaceC2AsC2", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<NoNamespace.C2> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getNoNamespaceC2AsC2", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<NoNamespace.C2> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<NoNamespace.C2> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, NoNamespace.C2.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -132,9 +132,9 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_throwNoNamespaceE2AsE1Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwNoNamespaceE2AsE1Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwNoNamespaceE2AsE1", null, sync, _iceE_throwNoNamespaceE2AsE1);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "throwNoNamespaceE2AsE1", null, sync, _iceE_throwNoNamespaceE2AsE1);
         f.invoke(true, context, null, null, null);
         return f;
     }
@@ -184,9 +184,9 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_throwNoNamespaceE2AsE2Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwNoNamespaceE2AsE2Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwNoNamespaceE2AsE2", null, sync, _iceE_throwNoNamespaceE2AsE2);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "throwNoNamespaceE2AsE2", null, sync, _iceE_throwNoNamespaceE2AsE2);
         f.invoke(true, context, null, null, null);
         return f;
     }
@@ -236,9 +236,9 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_throwNoNamespaceNotifyAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwNoNamespaceNotifyAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwNoNamespaceNotify", null, sync, _iceE_throwNoNamespaceNotify);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "throwNoNamespaceNotify", null, sync, _iceE_throwNoNamespaceNotify);
         f.invoke(true, context, null, null, null);
         return f;
     }
@@ -275,11 +275,11 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<WithNamespace.C1> _iceI_getWithNamespaceC2AsC1Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<WithNamespace.C1> _iceI_getWithNamespaceC2AsC1Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<WithNamespace.C1> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getWithNamespaceC2AsC1", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<WithNamespace.C1> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getWithNamespaceC2AsC1", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<WithNamespace.C1> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<WithNamespace.C1> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, WithNamespace.C1.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -313,11 +313,11 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<WithNamespace.C2> _iceI_getWithNamespaceC2AsC2Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<WithNamespace.C2> _iceI_getWithNamespaceC2AsC2Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<WithNamespace.C2> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getWithNamespaceC2AsC2", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<WithNamespace.C2> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getWithNamespaceC2AsC2", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
-                     final com.zeroc.IceInternal.Holder<WithNamespace.C2> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<WithNamespace.C2> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, WithNamespace.C2.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -364,9 +364,9 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_throwWithNamespaceE2AsE1Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwWithNamespaceE2AsE1Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwWithNamespaceE2AsE1", null, sync, _iceE_throwWithNamespaceE2AsE1);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "throwWithNamespaceE2AsE1", null, sync, _iceE_throwWithNamespaceE2AsE1);
         f.invoke(true, context, null, null, null);
         return f;
     }
@@ -416,9 +416,9 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_throwWithNamespaceE2AsE2Async(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwWithNamespaceE2AsE2Async(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwWithNamespaceE2AsE2", null, sync, _iceE_throwWithNamespaceE2AsE2);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "throwWithNamespaceE2AsE2", null, sync, _iceE_throwWithNamespaceE2AsE2);
         f.invoke(true, context, null, null, null);
         return f;
     }
@@ -455,9 +455,9 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "shutdown", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -614,7 +614,7 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default InitialPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default InitialPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _InitialPrxI(ref);
     }

@@ -18,7 +18,7 @@ package Test;
 /** @hidden */
 public class _PingablePrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<PingablePrx> implements PingablePrx
 {
-    _PingablePrxI(com.zeroc.IceInternal.Reference ref)
+    _PingablePrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

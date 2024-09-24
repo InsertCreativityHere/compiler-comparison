@@ -18,7 +18,7 @@ package com.zeroc.IceGrid;
 /** @hidden */
 public class _RegistryObserverPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<RegistryObserverPrx> implements RegistryObserverPrx
 {
-    _RegistryObserverPrxI(com.zeroc.IceInternal.Reference ref)
+    _RegistryObserverPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

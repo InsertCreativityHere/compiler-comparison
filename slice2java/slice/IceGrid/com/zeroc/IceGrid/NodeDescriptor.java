@@ -133,13 +133,13 @@ public class NodeDescriptor implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceGrid::NodeDescriptor");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, variables);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, serverInstances);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, servers);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, loadFactor);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, description);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, propertySets);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceGrid::NodeDescriptor");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, variables);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, serverInstances);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, servers);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, loadFactor);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, description);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, propertySets);
         return h_;
     }
 
@@ -239,5 +239,5 @@ public class NodeDescriptor implements java.lang.Cloneable,
     private static final NodeDescriptor _nullMarshalValue = new NodeDescriptor();
 
     /** @hidden */
-    private static final long serialVersionUID = 8459197698330681717L;
+    private static final long serialVersionUID = 8315784590809495669L;
 }

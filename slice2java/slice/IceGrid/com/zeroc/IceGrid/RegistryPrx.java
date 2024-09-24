@@ -94,9 +94,9 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<SessionPrx> _iceI_createSessionAsync(String iceP_userId, String iceP_password, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<SessionPrx> _iceI_createSessionAsync(String iceP_userId, String iceP_password, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<SessionPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "createSession", null, sync, _iceE_createSession);
+        com.zeroc.Ice.OutgoingAsync<SessionPrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "createSession", null, sync, _iceE_createSession);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_userId);
                      ostr.writeString(iceP_password);
@@ -185,9 +185,9 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<AdminSessionPrx> _iceI_createAdminSessionAsync(String iceP_userId, String iceP_password, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<AdminSessionPrx> _iceI_createAdminSessionAsync(String iceP_userId, String iceP_password, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<AdminSessionPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "createAdminSession", null, sync, _iceE_createAdminSession);
+        com.zeroc.Ice.OutgoingAsync<AdminSessionPrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "createAdminSession", null, sync, _iceE_createAdminSession);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_userId);
                      ostr.writeString(iceP_password);
@@ -266,9 +266,9 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<SessionPrx> _iceI_createSessionFromSecureConnectionAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<SessionPrx> _iceI_createSessionFromSecureConnectionAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<SessionPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "createSessionFromSecureConnection", null, sync, _iceE_createSessionFromSecureConnection);
+        com.zeroc.Ice.OutgoingAsync<SessionPrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "createSessionFromSecureConnection", null, sync, _iceE_createSessionFromSecureConnection);
         f.invoke(true, context, null, null, istr -> {
                      SessionPrx ret;
                      ret = SessionPrx.uncheckedCast(istr.readProxy());
@@ -344,9 +344,9 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<AdminSessionPrx> _iceI_createAdminSessionFromSecureConnectionAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<AdminSessionPrx> _iceI_createAdminSessionFromSecureConnectionAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<AdminSessionPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "createAdminSessionFromSecureConnection", null, sync, _iceE_createAdminSessionFromSecureConnection);
+        com.zeroc.Ice.OutgoingAsync<AdminSessionPrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "createAdminSessionFromSecureConnection", null, sync, _iceE_createAdminSessionFromSecureConnection);
         f.invoke(true, context, null, null, istr -> {
                      AdminSessionPrx ret;
                      ret = AdminSessionPrx.uncheckedCast(istr.readProxy());
@@ -405,9 +405,9 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_getSessionTimeoutAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_getSessionTimeoutAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getSessionTimeout", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<java.lang.Integer> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getSessionTimeout", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      int ret;
                      ret = istr.readInt();
@@ -568,7 +568,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default RegistryPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default RegistryPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _RegistryPrxI(ref);
     }

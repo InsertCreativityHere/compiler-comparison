@@ -57,8 +57,8 @@ public class Polyline implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::Polyline");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, vertices);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::Polyline");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, vertices);
         return h_;
     }
 
@@ -139,5 +139,5 @@ public class Polyline implements java.lang.Cloneable,
     private static final Polyline _nullMarshalValue = new Polyline();
 
     /** @hidden */
-    private static final long serialVersionUID = -345030122840386249L;
+    private static final long serialVersionUID = -345025117124346859L;
 }

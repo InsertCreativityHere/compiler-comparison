@@ -18,7 +18,7 @@ package Test;
 /** @hidden */
 public class _F2PrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<F2Prx> implements F2Prx
 {
-    _F2PrxI(com.zeroc.IceInternal.Reference ref)
+    _F2PrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

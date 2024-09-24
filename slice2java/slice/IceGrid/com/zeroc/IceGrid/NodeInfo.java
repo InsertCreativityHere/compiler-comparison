@@ -162,15 +162,15 @@ public class NodeInfo implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceGrid::NodeInfo");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, name);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, os);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, hostname);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, release);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, version);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, machine);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, nProcessors);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, dataDir);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceGrid::NodeInfo");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, name);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, os);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, hostname);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, release);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, version);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, machine);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, nProcessors);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, dataDir);
         return h_;
     }
 
@@ -265,5 +265,5 @@ public class NodeInfo implements java.lang.Cloneable,
     private static final NodeInfo _nullMarshalValue = new NodeInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = 1508353541969370192L;
+    private static final long serialVersionUID = 8947165633949290768L;
 }

@@ -104,11 +104,11 @@ public class EventData implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceStorm::EventData");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, op);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, mode);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, data);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, context);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceStorm::EventData");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, op);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, mode);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, data);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, context);
         return h_;
     }
 
@@ -195,5 +195,5 @@ public class EventData implements java.lang.Cloneable,
     private static final EventData _nullMarshalValue = new EventData();
 
     /** @hidden */
-    private static final long serialVersionUID = -1809997606776251457L;
+    private static final long serialVersionUID = 6916679280055561535L;
 }

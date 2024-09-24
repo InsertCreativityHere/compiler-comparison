@@ -43,9 +43,9 @@ public interface funcPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_publicAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_publicAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "public", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "public", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -202,7 +202,7 @@ public interface funcPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default funcPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default funcPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _funcPrxI(ref);
     }

@@ -18,7 +18,7 @@ package Test;
 /** @hidden */
 public class _MyDerivedClassPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<MyDerivedClassPrx> implements MyDerivedClassPrx
 {
-    _MyDerivedClassPrxI(com.zeroc.IceInternal.Reference ref)
+    _MyDerivedClassPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

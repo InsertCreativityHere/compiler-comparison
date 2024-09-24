@@ -104,13 +104,13 @@ public class TestToken implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::TestToken");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, expectedResult);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, description);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, code);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, config);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, caseIndex);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, testReference);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::TestToken");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, expectedResult);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, description);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, code);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, config);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, caseIndex);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, testReference);
         return h_;
     }
 
@@ -201,5 +201,5 @@ public class TestToken implements java.lang.Cloneable,
     private static final TestToken _nullMarshalValue = new TestToken();
 
     /** @hidden */
-    private static final long serialVersionUID = 755280616418938112L;
+    private static final long serialVersionUID = -3861010874067771213L;
 }

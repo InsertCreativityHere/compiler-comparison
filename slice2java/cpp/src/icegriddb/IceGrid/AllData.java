@@ -91,12 +91,12 @@ public class AllData implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceGrid::AllData");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, applications);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, adapters);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, objects);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, internalObjects);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, serials);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceGrid::AllData");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, applications);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, adapters);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, objects);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, internalObjects);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, serials);
         return h_;
     }
 
@@ -185,5 +185,5 @@ public class AllData implements java.lang.Cloneable,
     private static final AllData _nullMarshalValue = new AllData();
 
     /** @hidden */
-    private static final long serialVersionUID = 4207355634258694987L;
+    private static final long serialVersionUID = 3025610934254658175L;
 }

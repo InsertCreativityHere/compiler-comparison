@@ -18,7 +18,7 @@ package com.zeroc.IceGrid;
 /** @hidden */
 public class _QueryPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<QueryPrx> implements QueryPrx
 {
-    _QueryPrxI(com.zeroc.IceInternal.Reference ref)
+    _QueryPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

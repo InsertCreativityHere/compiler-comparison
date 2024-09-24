@@ -18,7 +18,7 @@ package Test;
 /** @hidden */
 public class _WrongOperationPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<WrongOperationPrx> implements WrongOperationPrx
 {
-    _WrongOperationPrxI(com.zeroc.IceInternal.Reference ref)
+    _WrongOperationPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

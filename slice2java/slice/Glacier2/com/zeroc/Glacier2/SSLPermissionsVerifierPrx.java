@@ -96,9 +96,9 @@ public interface SSLPermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<SSLPermissionsVerifier.AuthorizeResult> _iceI_authorizeAsync(SSLInfo iceP_info, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<SSLPermissionsVerifier.AuthorizeResult> _iceI_authorizeAsync(SSLInfo iceP_info, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<SSLPermissionsVerifier.AuthorizeResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "authorize", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_authorize);
+        com.zeroc.Ice.OutgoingAsync<SSLPermissionsVerifier.AuthorizeResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "authorize", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_authorize);
         f.invoke(true, context, null, ostr -> {
                      SSLInfo.ice_write(ostr, iceP_info);
                  }, istr -> {
@@ -267,7 +267,7 @@ public interface SSLPermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default SSLPermissionsVerifierPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default SSLPermissionsVerifierPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _SSLPermissionsVerifierPrxI(ref);
     }

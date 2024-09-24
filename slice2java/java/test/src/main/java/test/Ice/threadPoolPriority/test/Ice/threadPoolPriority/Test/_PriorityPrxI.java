@@ -18,7 +18,7 @@ package test.Ice.threadPoolPriority.Test;
 /** @hidden */
 public class _PriorityPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<PriorityPrx> implements PriorityPrx
 {
-    _PriorityPrxI(com.zeroc.IceInternal.Reference ref)
+    _PriorityPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

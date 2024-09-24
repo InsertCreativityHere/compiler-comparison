@@ -18,7 +18,7 @@ package test.Ice.facets.Test;
 /** @hidden */
 public class _GPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<GPrx> implements GPrx
 {
-    _GPrxI(com.zeroc.IceInternal.Reference ref)
+    _GPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

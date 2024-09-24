@@ -18,7 +18,7 @@ package Test.Common;
 /** @hidden */
 public class _TestCasePrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TestCasePrx> implements TestCasePrx
 {
-    _TestCasePrxI(com.zeroc.IceInternal.Reference ref)
+    _TestCasePrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

@@ -44,9 +44,9 @@ public interface TestActivationPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_activateServantLocatorAsync(boolean iceP_activate, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_activateServantLocatorAsync(boolean iceP_activate, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "activateServantLocator", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "activateServantLocator", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeBool(iceP_activate);
                  }, null);
@@ -205,7 +205,7 @@ public interface TestActivationPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default TestActivationPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default TestActivationPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _TestActivationPrxI(ref);
     }

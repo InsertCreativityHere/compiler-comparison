@@ -72,9 +72,9 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.String> _iceI_getCategoryForClientAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.lang.String> _iceI_getCategoryForClientAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getCategoryForClient", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<java.lang.String> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getCategoryForClient", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      String ret;
                      ret = istr.readString();
@@ -198,9 +198,9 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<SessionPrx> _iceI_createSessionAsync(String iceP_userId, String iceP_password, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<SessionPrx> _iceI_createSessionAsync(String iceP_userId, String iceP_password, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<SessionPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "createSession", null, sync, _iceE_createSession);
+        com.zeroc.Ice.OutgoingAsync<SessionPrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "createSession", null, sync, _iceE_createSession);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_userId);
                      ostr.writeString(iceP_password);
@@ -328,9 +328,9 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<SessionPrx> _iceI_createSessionFromSecureConnectionAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<SessionPrx> _iceI_createSessionFromSecureConnectionAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<SessionPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "createSessionFromSecureConnection", null, sync, _iceE_createSessionFromSecureConnection);
+        com.zeroc.Ice.OutgoingAsync<SessionPrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "createSessionFromSecureConnection", null, sync, _iceE_createSessionFromSecureConnection);
         f.invoke(true, context, null, null, istr -> {
                      SessionPrx ret;
                      ret = SessionPrx.uncheckedCast(istr.readProxy());
@@ -407,9 +407,9 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_refreshSessionAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_refreshSessionAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "refreshSession", null, sync, _iceE_refreshSession);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "refreshSession", null, sync, _iceE_refreshSession);
         f.invoke(true, context, null, null, null);
         return f;
     }
@@ -477,9 +477,9 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_destroySessionAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_destroySessionAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "destroySession", null, sync, _iceE_destroySession);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "destroySession", null, sync, _iceE_destroySession);
         f.invoke(true, context, null, null, null);
         return f;
     }
@@ -534,9 +534,9 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Long> _iceI_getSessionTimeoutAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.lang.Long> _iceI_getSessionTimeoutAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Long> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getSessionTimeout", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<java.lang.Long> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getSessionTimeout", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      long ret;
                      ret = istr.readLong();
@@ -589,9 +589,9 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_getACMTimeoutAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_getACMTimeoutAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getACMTimeout", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<java.lang.Integer> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getACMTimeout", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      int ret;
                      ret = istr.readInt();
@@ -752,7 +752,7 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
      * @hidden
      **/
     @Override
-    default RouterPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default RouterPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _RouterPrxI(ref);
     }

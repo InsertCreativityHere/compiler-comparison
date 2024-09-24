@@ -18,7 +18,7 @@ package com.zeroc.IceBox;
 /** @hidden */
 public class _ServiceManagerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ServiceManagerPrx> implements ServiceManagerPrx
 {
-    _ServiceManagerPrxI(com.zeroc.IceInternal.Reference ref)
+    _ServiceManagerPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

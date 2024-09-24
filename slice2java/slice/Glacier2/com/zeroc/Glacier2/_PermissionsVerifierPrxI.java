@@ -18,7 +18,7 @@ package com.zeroc.Glacier2;
 /** @hidden */
 public class _PermissionsVerifierPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<PermissionsVerifierPrx> implements PermissionsVerifierPrx
 {
-    _PermissionsVerifierPrxI(com.zeroc.IceInternal.Reference ref)
+    _PermissionsVerifierPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

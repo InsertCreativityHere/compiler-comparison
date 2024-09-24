@@ -57,8 +57,8 @@ public class FixedStruct implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::FixedStruct");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, m);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::FixedStruct");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, m);
         return h_;
     }
 
@@ -138,5 +138,5 @@ public class FixedStruct implements java.lang.Cloneable,
     private static final FixedStruct _nullMarshalValue = new FixedStruct();
 
     /** @hidden */
-    private static final long serialVersionUID = 1569617198368837860L;
+    private static final long serialVersionUID = 1569605607365323009L;
 }

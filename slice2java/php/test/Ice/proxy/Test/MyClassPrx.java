@@ -43,9 +43,9 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "shutdown", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -76,9 +76,9 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.util.Map<java.lang.String, java.lang.String>> _iceI_getContextAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.util.Map<java.lang.String, java.lang.String>> _iceI_getContextAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.util.Map<java.lang.String, java.lang.String>> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getContext", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<java.util.Map<java.lang.String, java.lang.String>> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getContext", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      java.util.Map<java.lang.String, java.lang.String> ret;
                      ret = ContextHelper.read(istr);
@@ -239,7 +239,7 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default MyClassPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default MyClassPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _MyClassPrxI(ref);
     }

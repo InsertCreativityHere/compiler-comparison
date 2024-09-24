@@ -18,7 +18,7 @@ package Test;
 /** @hidden */
 public class _TestLocatorRegistryPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TestLocatorRegistryPrx> implements TestLocatorRegistryPrx
 {
-    _TestLocatorRegistryPrxI(com.zeroc.IceInternal.Reference ref)
+    _TestLocatorRegistryPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

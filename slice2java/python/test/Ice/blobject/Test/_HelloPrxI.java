@@ -18,7 +18,7 @@ package Test;
 /** @hidden */
 public class _HelloPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<HelloPrx> implements HelloPrx
 {
-    _HelloPrxI(com.zeroc.IceInternal.Reference ref)
+    _HelloPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

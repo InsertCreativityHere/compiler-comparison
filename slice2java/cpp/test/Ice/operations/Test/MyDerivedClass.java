@@ -63,7 +63,7 @@ public interface MyDerivedClass extends MyClass
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        final com.zeroc.IceInternal.Holder<MyClass1> icePP_opMyClass1 = new com.zeroc.IceInternal.Holder<>();
+        final com.zeroc.Ice.Holder<MyClass1> icePP_opMyClass1 = new com.zeroc.Ice.Holder<>();
         istr.readValue(v -> icePP_opMyClass1.value = v, MyClass1.class);
         istr.readPendingValues();
         istr.endEncapsulation();

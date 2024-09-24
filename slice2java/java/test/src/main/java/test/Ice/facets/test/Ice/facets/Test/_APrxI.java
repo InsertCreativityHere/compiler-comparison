@@ -18,7 +18,7 @@ package test.Ice.facets.Test;
 /** @hidden */
 public class _APrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<APrx> implements APrx
 {
-    _APrxI(com.zeroc.IceInternal.Reference ref)
+    _APrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

@@ -104,9 +104,9 @@ public interface LocatorRegistryPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_setAdapterDirectProxyAsync(String iceP_id, ObjectPrx iceP_proxy, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_setAdapterDirectProxyAsync(String iceP_id, ObjectPrx iceP_proxy, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setAdapterDirectProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_setAdapterDirectProxy);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "setAdapterDirectProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_setAdapterDirectProxy);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_id);
                      ostr.writeProxy(iceP_proxy);
@@ -217,9 +217,9 @@ public interface LocatorRegistryPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_setReplicatedAdapterDirectProxyAsync(String iceP_adapterId, String iceP_replicaGroupId, ObjectPrx iceP_proxy, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_setReplicatedAdapterDirectProxyAsync(String iceP_adapterId, String iceP_replicaGroupId, ObjectPrx iceP_proxy, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setReplicatedAdapterDirectProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_setReplicatedAdapterDirectProxy);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "setReplicatedAdapterDirectProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_setReplicatedAdapterDirectProxy);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_adapterId);
                      ostr.writeString(iceP_replicaGroupId);
@@ -303,9 +303,9 @@ public interface LocatorRegistryPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_setServerProcessProxyAsync(String iceP_id, ProcessPrx iceP_proxy, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_setServerProcessProxyAsync(String iceP_id, ProcessPrx iceP_proxy, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setServerProcessProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_setServerProcessProxy);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "setServerProcessProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_setServerProcessProxy);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_id);
                      ostr.writeProxy(iceP_proxy);
@@ -471,7 +471,7 @@ public interface LocatorRegistryPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default LocatorRegistryPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default LocatorRegistryPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _LocatorRegistryPrxI(ref);
     }

@@ -96,9 +96,9 @@ public interface UserAccountMapperPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.String> _iceI_getUserAccountAsync(String iceP_user, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.lang.String> _iceI_getUserAccountAsync(String iceP_user, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getUserAccount", null, sync, _iceE_getUserAccount);
+        com.zeroc.Ice.OutgoingAsync<java.lang.String> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getUserAccount", null, sync, _iceE_getUserAccount);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_user);
                  }, istr -> {
@@ -267,7 +267,7 @@ public interface UserAccountMapperPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default UserAccountMapperPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default UserAccountMapperPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _UserAccountMapperPrxI(ref);
     }

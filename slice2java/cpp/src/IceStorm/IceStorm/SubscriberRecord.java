@@ -140,14 +140,14 @@ public class SubscriberRecord implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceStorm::SubscriberRecord");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, topicName);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, id);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, link);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, obj);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, theQoS);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, cost);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, theTopic);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceStorm::SubscriberRecord");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, topicName);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, id);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, link);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, obj);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, theQoS);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, cost);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, theTopic);
         return h_;
     }
 
@@ -240,5 +240,5 @@ public class SubscriberRecord implements java.lang.Cloneable,
     private static final SubscriberRecord _nullMarshalValue = new SubscriberRecord();
 
     /** @hidden */
-    private static final long serialVersionUID = -3596441595187232823L;
+    private static final long serialVersionUID = 2336719274145652141L;
 }

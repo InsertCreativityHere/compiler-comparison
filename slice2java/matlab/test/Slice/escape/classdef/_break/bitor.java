@@ -85,11 +85,11 @@ public class bitor implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::classdef::break::bitor");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, _case);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, _continue);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, eq);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, ne);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::classdef::break::bitor");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, _case);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, _continue);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, eq);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, ne);
         return h_;
     }
 
@@ -176,5 +176,5 @@ public class bitor implements java.lang.Cloneable,
     private static final bitor _nullMarshalValue = new bitor();
 
     /** @hidden */
-    private static final long serialVersionUID = -6188248582946065427L;
+    private static final long serialVersionUID = -5936842357324389139L;
 }

@@ -18,7 +18,7 @@ package and;
 /** @hidden */
 public class _diePrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<diePrx> implements diePrx
 {
-    _diePrxI(com.zeroc.IceInternal.Reference ref)
+    _diePrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

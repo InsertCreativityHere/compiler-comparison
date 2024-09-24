@@ -316,7 +316,7 @@ public interface I extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        final com.zeroc.IceInternal.Holder<Test.C> icePP_c1 = new com.zeroc.IceInternal.Holder<>();
+        final com.zeroc.Ice.Holder<Test.C> icePP_c1 = new com.zeroc.Ice.Holder<>();
         istr.readValue(v -> icePP_c1.value = v, Test.C.class);
         istr.readPendingValues();
         istr.endEncapsulation();

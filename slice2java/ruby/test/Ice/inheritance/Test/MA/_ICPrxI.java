@@ -18,7 +18,7 @@ package Test.MA;
 /** @hidden */
 public class _ICPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ICPrx> implements ICPrx
 {
-    _ICPrxI(com.zeroc.IceInternal.Reference ref)
+    _ICPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

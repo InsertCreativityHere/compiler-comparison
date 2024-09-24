@@ -18,7 +18,7 @@ package com.zeroc.IceGrid;
 /** @hidden */
 public class _UserAccountMapperPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<UserAccountMapperPrx> implements UserAccountMapperPrx
 {
-    _UserAccountMapperPrxI(com.zeroc.IceInternal.Reference ref)
+    _UserAccountMapperPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

@@ -18,7 +18,7 @@ package com.zeroc.IceGrid;
 /** @hidden */
 public class _ApplicationObserverPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ApplicationObserverPrx> implements ApplicationObserverPrx
 {
-    _ApplicationObserverPrxI(com.zeroc.IceInternal.Reference ref)
+    _ApplicationObserverPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

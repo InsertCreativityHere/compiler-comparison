@@ -107,11 +107,11 @@ public class ServiceInstanceDescriptor implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceGrid::ServiceInstanceDescriptor");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, template);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, parameterValues);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, descriptor);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, propertySet);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceGrid::ServiceInstanceDescriptor");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, template);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, parameterValues);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, descriptor);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, propertySet);
         return h_;
     }
 
@@ -198,5 +198,5 @@ public class ServiceInstanceDescriptor implements java.lang.Cloneable,
     private static final ServiceInstanceDescriptor _nullMarshalValue = new ServiceInstanceDescriptor();
 
     /** @hidden */
-    private static final long serialVersionUID = -4204216565151584203L;
+    private static final long serialVersionUID = 7271310810563722805L;
 }

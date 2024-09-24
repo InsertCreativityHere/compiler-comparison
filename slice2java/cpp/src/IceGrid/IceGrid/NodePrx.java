@@ -81,9 +81,9 @@ public interface NodePrx extends FileReaderPrx,
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Node.LoadServerResult> _iceI_loadServerAsync(InternalServerDescriptor iceP_svr, String iceP_replicaName, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Node.LoadServerResult> _iceI_loadServerAsync(InternalServerDescriptor iceP_svr, String iceP_replicaName, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Node.LoadServerResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "loadServer", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_loadServer);
+        com.zeroc.Ice.OutgoingAsync<Node.LoadServerResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "loadServer", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_loadServer);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeValue(iceP_svr);
                      ostr.writeString(iceP_replicaName);
@@ -169,9 +169,9 @@ public interface NodePrx extends FileReaderPrx,
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Node.LoadServerWithoutRestartResult> _iceI_loadServerWithoutRestartAsync(InternalServerDescriptor iceP_svr, String iceP_replicaName, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Node.LoadServerWithoutRestartResult> _iceI_loadServerWithoutRestartAsync(InternalServerDescriptor iceP_svr, String iceP_replicaName, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Node.LoadServerWithoutRestartResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "loadServerWithoutRestart", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_loadServerWithoutRestart);
+        com.zeroc.Ice.OutgoingAsync<Node.LoadServerWithoutRestartResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "loadServerWithoutRestart", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_loadServerWithoutRestart);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeValue(iceP_svr);
                      ostr.writeString(iceP_replicaName);
@@ -249,9 +249,9 @@ public interface NodePrx extends FileReaderPrx,
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_destroyServerAsync(String iceP_name, String iceP_uuid, int iceP_revision, String iceP_replicaName, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_destroyServerAsync(String iceP_name, String iceP_uuid, int iceP_revision, String iceP_replicaName, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "destroyServer", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_destroyServer);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "destroyServer", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_destroyServer);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_name);
                      ostr.writeString(iceP_uuid);
@@ -326,9 +326,9 @@ public interface NodePrx extends FileReaderPrx,
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_destroyServerWithoutRestartAsync(String iceP_name, String iceP_uuid, int iceP_revision, String iceP_replicaName, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_destroyServerWithoutRestartAsync(String iceP_name, String iceP_uuid, int iceP_revision, String iceP_replicaName, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "destroyServerWithoutRestart", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_destroyServerWithoutRestart);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "destroyServerWithoutRestart", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_destroyServerWithoutRestart);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_name);
                      ostr.writeString(iceP_uuid);
@@ -391,9 +391,9 @@ public interface NodePrx extends FileReaderPrx,
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_registerWithReplicaAsync(InternalRegistryPrx iceP_replica, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_registerWithReplicaAsync(InternalRegistryPrx iceP_replica, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "registerWithReplica", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "registerWithReplica", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeProxy(iceP_replica);
                  }, null);
@@ -442,9 +442,9 @@ public interface NodePrx extends FileReaderPrx,
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.String> _iceI_getNameAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.lang.String> _iceI_getNameAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getName", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<java.lang.String> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getName", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      String ret;
                      ret = istr.readString();
@@ -495,9 +495,9 @@ public interface NodePrx extends FileReaderPrx,
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.String> _iceI_getHostnameAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.lang.String> _iceI_getHostnameAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getHostname", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<java.lang.String> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getHostname", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      String ret;
                      ret = istr.readString();
@@ -548,9 +548,9 @@ public interface NodePrx extends FileReaderPrx,
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.IceGrid.LoadInfo> _iceI_getLoadAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<com.zeroc.IceGrid.LoadInfo> _iceI_getLoadAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.IceGrid.LoadInfo> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getLoad", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<com.zeroc.IceGrid.LoadInfo> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getLoad", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      com.zeroc.IceGrid.LoadInfo ret;
                      ret = com.zeroc.IceGrid.LoadInfo.ice_read(istr);
@@ -601,9 +601,9 @@ public interface NodePrx extends FileReaderPrx,
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_getProcessorSocketCountAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_getProcessorSocketCountAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getProcessorSocketCount", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<java.lang.Integer> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getProcessorSocketCount", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      int ret;
                      ret = istr.readInt();
@@ -654,9 +654,9 @@ public interface NodePrx extends FileReaderPrx,
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "shutdown", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -813,7 +813,7 @@ public interface NodePrx extends FileReaderPrx,
      * @hidden
      **/
     @Override
-    default NodePrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default NodePrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _NodePrxI(ref);
     }

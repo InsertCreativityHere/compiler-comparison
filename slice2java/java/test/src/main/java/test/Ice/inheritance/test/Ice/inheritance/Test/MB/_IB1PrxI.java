@@ -18,7 +18,7 @@ package test.Ice.inheritance.Test.MB;
 /** @hidden */
 public class _IB1PrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<IB1Prx> implements IB1Prx
 {
-    _IB1PrxI(com.zeroc.IceInternal.Reference ref)
+    _IB1PrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

@@ -67,9 +67,9 @@ public class EncodingVersion implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Ice::EncodingVersion");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, major);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, minor);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Ice::EncodingVersion");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, major);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, minor);
         return h_;
     }
 
@@ -151,5 +151,5 @@ public class EncodingVersion implements java.lang.Cloneable,
     private static final EncodingVersion _nullMarshalValue = new EncodingVersion();
 
     /** @hidden */
-    private static final long serialVersionUID = -5726373517886422255L;
+    private static final long serialVersionUID = 5917474331797417873L;
 }

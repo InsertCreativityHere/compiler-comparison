@@ -66,9 +66,9 @@ public interface TopicInternalPrx extends com.zeroc.IceStorm.TopicPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<TopicLinkPrx> _iceI_getLinkProxyAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<TopicLinkPrx> _iceI_getLinkProxyAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<TopicLinkPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getLinkProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
+        com.zeroc.Ice.OutgoingAsync<TopicLinkPrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getLinkProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      TopicLinkPrx ret;
                      ret = TopicLinkPrx.uncheckedCast(istr.readProxy());
@@ -139,9 +139,9 @@ public interface TopicInternalPrx extends com.zeroc.IceStorm.TopicPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_reapAsync(com.zeroc.Ice.Identity[] iceP_id, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_reapAsync(com.zeroc.Ice.Identity[] iceP_id, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "reap", null, sync, _iceE_reap);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "reap", null, sync, _iceE_reap);
         f.invoke(true, context, null, ostr -> {
                      com.zeroc.Ice.IdentitySeqHelper.write(ostr, iceP_id);
                  }, null);
@@ -306,7 +306,7 @@ public interface TopicInternalPrx extends com.zeroc.IceStorm.TopicPrx
      * @hidden
      **/
     @Override
-    default TopicInternalPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default TopicInternalPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _TopicInternalPrxI(ref);
     }

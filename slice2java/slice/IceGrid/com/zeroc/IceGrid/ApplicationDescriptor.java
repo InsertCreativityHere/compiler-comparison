@@ -173,16 +173,16 @@ public class ApplicationDescriptor implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceGrid::ApplicationDescriptor");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, name);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, variables);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, replicaGroups);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, serverTemplates);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, serviceTemplates);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, nodes);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, distrib);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, description);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, propertySets);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceGrid::ApplicationDescriptor");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, name);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, variables);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, replicaGroups);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, serverTemplates);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, serviceTemplates);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, nodes);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, distrib);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, description);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, propertySets);
         return h_;
     }
 
@@ -288,5 +288,5 @@ public class ApplicationDescriptor implements java.lang.Cloneable,
     private static final ApplicationDescriptor _nullMarshalValue = new ApplicationDescriptor();
 
     /** @hidden */
-    private static final long serialVersionUID = -6908467924554127100L;
+    private static final long serialVersionUID = -7204040128191831084L;
 }

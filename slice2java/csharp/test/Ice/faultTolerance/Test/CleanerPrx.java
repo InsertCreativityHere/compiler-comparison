@@ -43,9 +43,9 @@ public interface CleanerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_cleanupAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_cleanupAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "cleanup", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "cleanup", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -202,7 +202,7 @@ public interface CleanerPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default CleanerPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default CleanerPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _CleanerPrxI(ref);
     }

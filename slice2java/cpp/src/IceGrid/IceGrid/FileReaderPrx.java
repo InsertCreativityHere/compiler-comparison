@@ -74,9 +74,9 @@ public interface FileReaderPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Long> _iceI_getOffsetFromEndAsync(String iceP_filename, int iceP_lines, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.lang.Long> _iceI_getOffsetFromEndAsync(String iceP_filename, int iceP_lines, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Long> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getOffsetFromEnd", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_getOffsetFromEnd);
+        com.zeroc.Ice.OutgoingAsync<java.lang.Long> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getOffsetFromEnd", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_getOffsetFromEnd);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_filename);
                      ostr.writeInt(iceP_lines);
@@ -154,9 +154,9 @@ public interface FileReaderPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<FileReader.ReadResult> _iceI_readAsync(String iceP_filename, long iceP_pos, int iceP_size, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<FileReader.ReadResult> _iceI_readAsync(String iceP_filename, long iceP_pos, int iceP_size, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<FileReader.ReadResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "read", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_read);
+        com.zeroc.Ice.OutgoingAsync<FileReader.ReadResult> f = new com.zeroc.Ice.OutgoingAsync<>(this, "read", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_read);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_filename);
                      ostr.writeLong(iceP_pos);
@@ -327,7 +327,7 @@ public interface FileReaderPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default FileReaderPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default FileReaderPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _FileReaderPrxI(ref);
     }

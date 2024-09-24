@@ -58,8 +58,8 @@ public class SD implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::SD");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, i);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::SD");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, i);
         return h_;
     }
 
@@ -139,5 +139,5 @@ public class SD implements java.lang.Cloneable,
     private static final SD _nullMarshalValue = new SD();
 
     /** @hidden */
-    private static final long serialVersionUID = 9219740819595734732L;
+    private static final long serialVersionUID = 9219741400652567846L;
 }

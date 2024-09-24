@@ -76,9 +76,9 @@ public class PropertySetDescriptor implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceGrid::PropertySetDescriptor");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, references);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, properties);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceGrid::PropertySetDescriptor");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, references);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, properties);
         return h_;
     }
 
@@ -161,5 +161,5 @@ public class PropertySetDescriptor implements java.lang.Cloneable,
     private static final PropertySetDescriptor _nullMarshalValue = new PropertySetDescriptor();
 
     /** @hidden */
-    private static final long serialVersionUID = 3342176396344865071L;
+    private static final long serialVersionUID = -4443698722006217041L;
 }

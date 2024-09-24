@@ -44,9 +44,9 @@ public interface MyDerivedClassPrx extends MyClassPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_echoAsync(com.zeroc.Ice.ObjectPrx iceP_obj, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_echoAsync(com.zeroc.Ice.ObjectPrx iceP_obj, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "echo", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "echo", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeProxy(iceP_obj);
                  }, istr -> {
@@ -209,7 +209,7 @@ public interface MyDerivedClassPrx extends MyClassPrx
      * @hidden
      **/
     @Override
-    default MyDerivedClassPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default MyDerivedClassPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _MyDerivedClassPrxI(ref);
     }

@@ -18,7 +18,7 @@ package test.Ice.facets.Test;
 /** @hidden */
 public class _FPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<FPrx> implements FPrx
 {
-    _FPrxI(com.zeroc.IceInternal.Reference ref)
+    _FPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

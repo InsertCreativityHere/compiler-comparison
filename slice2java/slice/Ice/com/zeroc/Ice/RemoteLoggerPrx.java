@@ -73,9 +73,9 @@ public interface RemoteLoggerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_initAsync(String iceP_prefix, LogMessage[] iceP_logMessages, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_initAsync(String iceP_prefix, LogMessage[] iceP_logMessages, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "init", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "init", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_prefix);
                      LogMessageSeqHelper.write(ostr, iceP_logMessages);
@@ -130,9 +130,9 @@ public interface RemoteLoggerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_logAsync(LogMessage iceP_message, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_logAsync(LogMessage iceP_message, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "log", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "log", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      LogMessage.ice_write(ostr, iceP_message);
                  }, null);
@@ -291,7 +291,7 @@ public interface RemoteLoggerPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default RemoteLoggerPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default RemoteLoggerPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _RemoteLoggerPrxI(ref);
     }

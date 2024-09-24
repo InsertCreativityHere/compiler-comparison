@@ -57,8 +57,8 @@ public class _break implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::abstract::break");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, readonly);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::abstract::break");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, readonly);
         return h_;
     }
 
@@ -138,5 +138,5 @@ public class _break implements java.lang.Cloneable,
     private static final _break _nullMarshalValue = new _break();
 
     /** @hidden */
-    private static final long serialVersionUID = 3009636704539215893L;
+    private static final long serialVersionUID = 3009636700761760843L;
 }

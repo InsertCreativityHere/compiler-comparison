@@ -44,9 +44,9 @@ public interface TestLocatorRegistryPrx extends com.zeroc.Ice.LocatorRegistryPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_addObjectAsync(com.zeroc.Ice.ObjectPrx iceP_obj, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_addObjectAsync(com.zeroc.Ice.ObjectPrx iceP_obj, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "addObject", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "addObject", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeProxy(iceP_obj);
                  }, null);
@@ -205,7 +205,7 @@ public interface TestLocatorRegistryPrx extends com.zeroc.Ice.LocatorRegistryPrx
      * @hidden
      **/
     @Override
-    default TestLocatorRegistryPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default TestLocatorRegistryPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _TestLocatorRegistryPrxI(ref);
     }

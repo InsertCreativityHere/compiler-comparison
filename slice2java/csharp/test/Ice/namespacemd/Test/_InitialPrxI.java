@@ -18,7 +18,7 @@ package Test;
 /** @hidden */
 public class _InitialPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<InitialPrx> implements InitialPrx
 {
-    _InitialPrxI(com.zeroc.IceInternal.Reference ref)
+    _InitialPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

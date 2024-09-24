@@ -51,10 +51,10 @@ public interface extend extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        final com.zeroc.IceInternal.Holder<display> icePP_freeze = new com.zeroc.IceInternal.Holder<>();
+        final com.zeroc.Ice.Holder<display> icePP_freeze = new com.zeroc.Ice.Holder<>();
         elsifPrx iceP_hash;
         breakPrx iceP_if;
-        final com.zeroc.IceInternal.Holder<display> icePP_inspect = new com.zeroc.IceInternal.Holder<>();
+        final com.zeroc.Ice.Holder<display> icePP_inspect = new com.zeroc.Ice.Holder<>();
         elsifPrx iceP_method;
         int iceP_methods;
         istr.readValue(v -> icePP_freeze.value = v, display.class);

@@ -44,9 +44,9 @@ public interface catchPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_checkedCastAsync(int iceP_clone, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_checkedCastAsync(int iceP_clone, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "checkedCast", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<java.lang.Integer> f = new com.zeroc.Ice.OutgoingAsync<>(this, "checkedCast", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeInt(iceP_clone);
                  }, istr -> {
@@ -209,7 +209,7 @@ public interface catchPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default catchPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default catchPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _catchPrxI(ref);
     }

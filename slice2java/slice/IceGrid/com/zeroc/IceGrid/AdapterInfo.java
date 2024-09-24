@@ -94,10 +94,10 @@ public class AdapterInfo implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceGrid::AdapterInfo");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, id);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, proxy);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, replicaGroupId);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceGrid::AdapterInfo");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, id);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, proxy);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, replicaGroupId);
         return h_;
     }
 
@@ -182,5 +182,5 @@ public class AdapterInfo implements java.lang.Cloneable,
     private static final AdapterInfo _nullMarshalValue = new AdapterInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = -9180274168628856530L;
+    private static final long serialVersionUID = 2481055992455575164L;
 }

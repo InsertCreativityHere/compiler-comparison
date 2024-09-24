@@ -43,9 +43,9 @@ public interface TestSessionPrx extends com.zeroc.Glacier2.SessionPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_shutdownAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "shutdown", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "shutdown", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -202,7 +202,7 @@ public interface TestSessionPrx extends com.zeroc.Glacier2.SessionPrx
      * @hidden
      **/
     @Override
-    default TestSessionPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default TestSessionPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _TestSessionPrxI(ref);
     }

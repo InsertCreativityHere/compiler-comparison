@@ -82,9 +82,9 @@ public class DistributionDescriptor implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceGrid::DistributionDescriptor");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, icepatch);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, directories);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceGrid::DistributionDescriptor");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, icepatch);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, directories);
         return h_;
     }
 
@@ -185,5 +185,5 @@ public class DistributionDescriptor implements java.lang.Cloneable,
     private static final DistributionDescriptor _nullMarshalValue = new DistributionDescriptor();
 
     /** @hidden */
-    private static final long serialVersionUID = -2198178662818909320L;
+    private static final long serialVersionUID = 2483286841597798392L;
 }

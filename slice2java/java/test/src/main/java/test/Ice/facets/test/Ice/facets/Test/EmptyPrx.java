@@ -169,7 +169,7 @@ public interface EmptyPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default EmptyPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default EmptyPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _EmptyPrxI(ref);
     }

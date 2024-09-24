@@ -171,7 +171,7 @@ public interface DatabaseObserverPrx extends com.zeroc.IceGrid.ApplicationObserv
      * @hidden
      **/
     @Override
-    default DatabaseObserverPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default DatabaseObserverPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _DatabaseObserverPrxI(ref);
     }

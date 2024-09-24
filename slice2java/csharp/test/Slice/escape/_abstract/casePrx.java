@@ -44,9 +44,9 @@ public interface casePrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_catchAsync(int iceP_checked, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.lang.Integer> _iceI_catchAsync(int iceP_checked, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "catch", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<java.lang.Integer> f = new com.zeroc.Ice.OutgoingAsync<>(this, "catch", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeInt(iceP_checked);
                  }, istr -> {
@@ -209,7 +209,7 @@ public interface casePrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default casePrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default casePrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _casePrxI(ref);
     }

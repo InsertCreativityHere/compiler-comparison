@@ -18,7 +18,7 @@ package Test;
 /** @hidden */
 public class _DPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<DPrx> implements DPrx
 {
-    _DPrxI(com.zeroc.IceInternal.Reference ref)
+    _DPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

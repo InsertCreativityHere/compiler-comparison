@@ -18,7 +18,7 @@ package IceGrid;
 /** @hidden */
 public class _ReplicaSessionPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<ReplicaSessionPrx> implements ReplicaSessionPrx
 {
-    _ReplicaSessionPrxI(com.zeroc.IceInternal.Reference ref)
+    _ReplicaSessionPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

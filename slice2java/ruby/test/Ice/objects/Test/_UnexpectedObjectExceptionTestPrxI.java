@@ -18,7 +18,7 @@ package Test;
 /** @hidden */
 public class _UnexpectedObjectExceptionTestPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<UnexpectedObjectExceptionTestPrx> implements UnexpectedObjectExceptionTestPrx
 {
-    _UnexpectedObjectExceptionTestPrxI(com.zeroc.IceInternal.Reference ref)
+    _UnexpectedObjectExceptionTestPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

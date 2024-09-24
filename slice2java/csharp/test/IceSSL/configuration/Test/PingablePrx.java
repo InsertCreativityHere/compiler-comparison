@@ -43,9 +43,9 @@ public interface PingablePrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_pingAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_pingAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "ping", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "ping", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -202,7 +202,7 @@ public interface PingablePrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default PingablePrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default PingablePrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _PingablePrxI(ref);
     }

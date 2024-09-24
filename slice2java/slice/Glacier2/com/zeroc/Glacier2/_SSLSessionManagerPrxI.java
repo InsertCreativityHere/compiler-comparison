@@ -18,7 +18,7 @@ package com.zeroc.Glacier2;
 /** @hidden */
 public class _SSLSessionManagerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<SSLSessionManagerPrx> implements SSLSessionManagerPrx
 {
-    _SSLSessionManagerPrxI(com.zeroc.IceInternal.Reference ref)
+    _SSLSessionManagerPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

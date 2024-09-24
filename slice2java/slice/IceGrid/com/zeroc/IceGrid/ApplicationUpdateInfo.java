@@ -101,11 +101,11 @@ public class ApplicationUpdateInfo implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceGrid::ApplicationUpdateInfo");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, updateTime);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, updateUser);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, revision);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, descriptor);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceGrid::ApplicationUpdateInfo");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, updateTime);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, updateUser);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, revision);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, descriptor);
         return h_;
     }
 
@@ -192,5 +192,5 @@ public class ApplicationUpdateInfo implements java.lang.Cloneable,
     private static final ApplicationUpdateInfo _nullMarshalValue = new ApplicationUpdateInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = -861858358436383119L;
+    private static final long serialVersionUID = 8664267411077250289L;
 }

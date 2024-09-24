@@ -59,9 +59,9 @@ public interface ProcessControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<ProcessPrx> _iceI_startAsync(String iceP_testsuite, String iceP_exe, String[] iceP_args, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<ProcessPrx> _iceI_startAsync(String iceP_testsuite, String iceP_exe, String[] iceP_args, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<ProcessPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "start", null, sync, _iceE_start);
+        com.zeroc.Ice.OutgoingAsync<ProcessPrx> f = new com.zeroc.Ice.OutgoingAsync<>(this, "start", null, sync, _iceE_start);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_testsuite);
                      ostr.writeString(iceP_exe);
@@ -108,9 +108,9 @@ public interface ProcessControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.String> _iceI_getHostAsync(String iceP_protocol, boolean iceP_ipv6, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<java.lang.String> _iceI_getHostAsync(String iceP_protocol, boolean iceP_ipv6, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getHost", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<java.lang.String> f = new com.zeroc.Ice.OutgoingAsync<>(this, "getHost", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_protocol);
                      ostr.writeBool(iceP_ipv6);
@@ -274,7 +274,7 @@ public interface ProcessControllerPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default ProcessControllerPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default ProcessControllerPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _ProcessControllerPrxI(ref);
     }

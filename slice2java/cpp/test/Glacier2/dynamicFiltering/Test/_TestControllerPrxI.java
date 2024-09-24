@@ -18,7 +18,7 @@ package Test;
 /** @hidden */
 public class _TestControllerPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TestControllerPrx> implements TestControllerPrx
 {
-    _TestControllerPrxI(com.zeroc.IceInternal.Reference ref)
+    _TestControllerPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

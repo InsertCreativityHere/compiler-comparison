@@ -44,9 +44,9 @@ public interface EventPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_pubAsync(String iceP_data, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_pubAsync(String iceP_data, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "pub", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "pub", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_data);
                  }, null);
@@ -205,7 +205,7 @@ public interface EventPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default EventPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default EventPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _EventPrxI(ref);
     }

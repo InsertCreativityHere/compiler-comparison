@@ -18,7 +18,7 @@ package BEGIN;
 /** @hidden */
 public class _breakPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<breakPrx> implements breakPrx
 {
-    _breakPrxI(com.zeroc.IceInternal.Reference ref)
+    _breakPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

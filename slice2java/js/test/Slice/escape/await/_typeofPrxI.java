@@ -18,7 +18,7 @@ package await;
 /** @hidden */
 public class _typeofPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<typeofPrx> implements typeofPrx
 {
-    _typeofPrxI(com.zeroc.IceInternal.Reference ref)
+    _typeofPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

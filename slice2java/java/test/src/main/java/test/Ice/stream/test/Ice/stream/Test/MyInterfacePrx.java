@@ -169,7 +169,7 @@ public interface MyInterfacePrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default MyInterfacePrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default MyInterfacePrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _MyInterfacePrxI(ref);
     }

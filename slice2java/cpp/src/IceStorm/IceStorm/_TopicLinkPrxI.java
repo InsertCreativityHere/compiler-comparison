@@ -18,7 +18,7 @@ package IceStorm;
 /** @hidden */
 public class _TopicLinkPrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<TopicLinkPrx> implements TopicLinkPrx
 {
-    _TopicLinkPrxI(com.zeroc.IceInternal.Reference ref)
+    _TopicLinkPrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

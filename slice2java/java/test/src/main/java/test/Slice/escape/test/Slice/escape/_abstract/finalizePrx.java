@@ -170,7 +170,7 @@ public interface finalizePrx extends defaultPrx,
      * @hidden
      **/
     @Override
-    default finalizePrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default finalizePrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _finalizePrxI(ref);
     }

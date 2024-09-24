@@ -72,9 +72,9 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_foundObjectByIdAsync(com.zeroc.Ice.Identity iceP_id, com.zeroc.Ice.ObjectPrx iceP_prx, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_foundObjectByIdAsync(com.zeroc.Ice.Identity iceP_id, com.zeroc.Ice.ObjectPrx iceP_prx, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "foundObjectById", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "foundObjectById", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      com.zeroc.Ice.Identity.ice_write(ostr, iceP_id);
                      ostr.writeProxy(iceP_prx);
@@ -143,9 +143,9 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_foundAdapterByIdAsync(String iceP_id, com.zeroc.Ice.ObjectPrx iceP_prx, boolean iceP_isReplicaGroup, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_foundAdapterByIdAsync(String iceP_id, com.zeroc.Ice.ObjectPrx iceP_prx, boolean iceP_isReplicaGroup, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "foundAdapterById", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "foundAdapterById", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_id);
                      ostr.writeProxy(iceP_prx);
@@ -306,7 +306,7 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default LookupReplyPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default LookupReplyPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _LookupReplyPrxI(ref);
     }

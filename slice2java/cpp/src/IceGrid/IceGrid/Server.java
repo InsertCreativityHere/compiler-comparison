@@ -143,7 +143,7 @@ public interface Server extends FileReader
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        final com.zeroc.IceInternal.Holder<InternalServerDescriptor> icePP_svr = new com.zeroc.IceInternal.Holder<>();
+        final com.zeroc.Ice.Holder<InternalServerDescriptor> icePP_svr = new com.zeroc.Ice.Holder<>();
         boolean iceP_noRestart;
         istr.readValue(v -> icePP_svr.value = v, InternalServerDescriptor.class);
         iceP_noRestart = istr.readBool();

@@ -18,7 +18,7 @@ package _abstract;
 /** @hidden */
 public class _casePrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<casePrx> implements casePrx
 {
-    _casePrxI(com.zeroc.IceInternal.Reference ref)
+    _casePrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

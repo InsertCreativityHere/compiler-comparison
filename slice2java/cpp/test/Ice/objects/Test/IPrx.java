@@ -169,7 +169,7 @@ public interface IPrx extends com.zeroc.Ice.ObjectPrx
      * @hidden
      **/
     @Override
-    default IPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default IPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _IPrxI(ref);
     }

@@ -80,9 +80,9 @@ public class MetricsFailures implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceMX::MetricsFailures");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, id);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, failures);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceMX::MetricsFailures");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, id);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, failures);
         return h_;
     }
 
@@ -165,5 +165,5 @@ public class MetricsFailures implements java.lang.Cloneable,
     private static final MetricsFailures _nullMarshalValue = new MetricsFailures();
 
     /** @hidden */
-    private static final long serialVersionUID = 3948055393805433819L;
+    private static final long serialVersionUID = 2240843807084126619L;
 }

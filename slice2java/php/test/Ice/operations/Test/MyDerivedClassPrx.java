@@ -43,9 +43,9 @@ public interface MyDerivedClassPrx extends MyClassPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opDerivedAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_opDerivedAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opDerived", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opDerived", null, sync, null);
         f.invoke(false, context, null, null, null);
         return f;
     }
@@ -77,9 +77,9 @@ public interface MyDerivedClassPrx extends MyClassPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<MyStruct1> _iceI_opMyStruct1Async(MyStruct1 iceP_s, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<MyStruct1> _iceI_opMyStruct1Async(MyStruct1 iceP_s, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<MyStruct1> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opMyStruct1", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<MyStruct1> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opMyStruct1", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      MyStruct1.ice_write(ostr, iceP_s);
                  }, istr -> {
@@ -117,14 +117,14 @@ public interface MyDerivedClassPrx extends MyClassPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<MyClass1> _iceI_opMyClass1Async(MyClass1 iceP_c, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<MyClass1> _iceI_opMyClass1Async(MyClass1 iceP_c, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<MyClass1> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opMyClass1", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<MyClass1> f = new com.zeroc.Ice.OutgoingAsync<>(this, "opMyClass1", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeValue(iceP_c);
                      ostr.writePendingValues();
                  }, istr -> {
-                     final com.zeroc.IceInternal.Holder<MyClass1> ret = new com.zeroc.IceInternal.Holder<>();
+                     final com.zeroc.Ice.Holder<MyClass1> ret = new com.zeroc.Ice.Holder<>();
                      istr.readValue(v -> ret.value = v, MyClass1.class);
                      istr.readPendingValues();
                      return ret.value;
@@ -284,7 +284,7 @@ public interface MyDerivedClassPrx extends MyClassPrx
      * @hidden
      **/
     @Override
-    default MyDerivedClassPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default MyDerivedClassPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _MyDerivedClassPrxI(ref);
     }

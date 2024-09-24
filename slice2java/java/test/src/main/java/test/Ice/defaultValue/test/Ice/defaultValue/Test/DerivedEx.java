@@ -86,5 +86,5 @@ public class DerivedEx extends BaseEx
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 2733102639139960666L;
+    private static final long serialVersionUID = -2989128169323472806L;
 }

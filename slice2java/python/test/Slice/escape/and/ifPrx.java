@@ -170,7 +170,7 @@ public interface ifPrx extends execPrx,
      * @hidden
      **/
     @Override
-    default ifPrx _newInstance(com.zeroc.IceInternal.Reference ref)
+    default ifPrx _newInstance(com.zeroc.Ice.Reference ref)
     {
         return new _ifPrxI(ref);
     }

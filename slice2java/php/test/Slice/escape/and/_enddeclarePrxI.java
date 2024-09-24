@@ -18,7 +18,7 @@ package and;
 /** @hidden */
 public class _enddeclarePrxI extends com.zeroc.Ice._ObjectPrxFactoryMethods<enddeclarePrx> implements enddeclarePrx
 {
-    _enddeclarePrxI(com.zeroc.IceInternal.Reference ref)
+    _enddeclarePrxI(com.zeroc.Ice.Reference ref)
     {
         super(ref);
     }

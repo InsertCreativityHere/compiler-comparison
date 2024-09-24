@@ -96,10 +96,10 @@ public class ObjectDescriptor implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceGrid::ObjectDescriptor");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, id);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, type);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, proxyOptions);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceGrid::ObjectDescriptor");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, id);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, type);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, proxyOptions);
         return h_;
     }
 
@@ -184,5 +184,5 @@ public class ObjectDescriptor implements java.lang.Cloneable,
     private static final ObjectDescriptor _nullMarshalValue = new ObjectDescriptor();
 
     /** @hidden */
-    private static final long serialVersionUID = 5364376474307182422L;
+    private static final long serialVersionUID = 8199485693828009606L;
 }

@@ -78,10 +78,10 @@ public class Draw implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::Test::Draw");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, backgroundColor);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, pen);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, shared);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::Test::Draw");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, backgroundColor);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, pen);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, shared);
         return h_;
     }
 
@@ -166,5 +166,5 @@ public class Draw implements java.lang.Cloneable,
     private static final Draw _nullMarshalValue = new Draw();
 
     /** @hidden */
-    private static final long serialVersionUID = -1461427070622812728L;
+    private static final long serialVersionUID = 2561438831950497496L;
 }

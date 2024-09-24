@@ -83,10 +83,10 @@ public class LoadInfo implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceGrid::LoadInfo");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, avg1);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, avg5);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, avg15);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceGrid::LoadInfo");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, avg1);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, avg5);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, avg15);
         return h_;
     }
 
@@ -170,5 +170,5 @@ public class LoadInfo implements java.lang.Cloneable,
     private static final LoadInfo _nullMarshalValue = new LoadInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = 7109843550947853551L;
+    private static final long serialVersionUID = 2403644255839144829L;
 }

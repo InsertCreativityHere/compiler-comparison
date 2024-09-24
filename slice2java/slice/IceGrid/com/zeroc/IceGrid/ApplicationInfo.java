@@ -139,14 +139,14 @@ public class ApplicationInfo implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceGrid::ApplicationInfo");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, uuid);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, createTime);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, createUser);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, updateTime);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, updateUser);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, revision);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, descriptor);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceGrid::ApplicationInfo");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, uuid);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, createTime);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, createUser);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, updateTime);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, updateUser);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, revision);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, descriptor);
         return h_;
     }
 
@@ -239,5 +239,5 @@ public class ApplicationInfo implements java.lang.Cloneable,
     private static final ApplicationInfo _nullMarshalValue = new ApplicationInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = 1686754666346474724L;
+    private static final long serialVersionUID = -5363926114758941962L;
 }

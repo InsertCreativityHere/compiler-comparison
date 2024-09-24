@@ -77,9 +77,9 @@ public class TopicContent implements java.lang.Cloneable,
     public int hashCode()
     {
         int h_ = 5381;
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, "::IceStormElection::TopicContent");
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, id);
-        h_ = com.zeroc.IceInternal.HashUtil.hashAdd(h_, records);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, "::IceStormElection::TopicContent");
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, id);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, records);
         return h_;
     }
 
@@ -162,5 +162,5 @@ public class TopicContent implements java.lang.Cloneable,
     private static final TopicContent _nullMarshalValue = new TopicContent();
 
     /** @hidden */
-    private static final long serialVersionUID = -7073370948540793056L;
+    private static final long serialVersionUID = 3137183115892465888L;
 }

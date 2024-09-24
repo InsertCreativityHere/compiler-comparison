@@ -219,7 +219,7 @@ public interface InternalRegistry extends FileReader
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        final com.zeroc.IceInternal.Holder<InternalNodeInfo> icePP_info = new com.zeroc.IceInternal.Holder<>();
+        final com.zeroc.Ice.Holder<InternalNodeInfo> icePP_info = new com.zeroc.Ice.Holder<>();
         NodePrx iceP_prx;
         com.zeroc.IceGrid.LoadInfo iceP_loadInf;
         istr.readValue(v -> icePP_info.value = v, InternalNodeInfo.class);
@@ -243,7 +243,7 @@ public interface InternalRegistry extends FileReader
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        final com.zeroc.IceInternal.Holder<InternalReplicaInfo> icePP_info = new com.zeroc.IceInternal.Holder<>();
+        final com.zeroc.Ice.Holder<InternalReplicaInfo> icePP_info = new com.zeroc.Ice.Holder<>();
         InternalRegistryPrx iceP_prx;
         istr.readValue(v -> icePP_info.value = v, InternalReplicaInfo.class);
         iceP_prx = InternalRegistryPrx.uncheckedCast(istr.readProxy());
