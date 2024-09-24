@@ -237,7 +237,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception indicates that an attempt was made to create a link that already exists.
-open class LinkExists: Ice.UserException {
+open class LinkExists: Ice.UserException, @unchecked Sendable {
     /// The name of the linked topic.
     public var name: Swift.String = ""
 
@@ -279,7 +279,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception indicates that an attempt was made to remove a link that does not exist.
-open class NoSuchLink: Ice.UserException {
+open class NoSuchLink: Ice.UserException, @unchecked Sendable {
     /// The name of the link that does not exist.
     public var name: Swift.String = ""
 
@@ -321,7 +321,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception indicates that an attempt was made to subscribe a proxy for which a subscription already exists.
-open class AlreadySubscribed: Ice.UserException {
+open class AlreadySubscribed: Ice.UserException, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
@@ -352,7 +352,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception indicates that an attempt was made to subscribe a proxy that is null.
-open class InvalidSubscriber: Ice.UserException {
+open class InvalidSubscriber: Ice.UserException, @unchecked Sendable {
     /// The reason for the failure.
     public var reason: Swift.String = ""
 
@@ -394,7 +394,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception indicates that a subscription failed due to an invalid QoS.
-open class BadQoS: Ice.UserException {
+open class BadQoS: Ice.UserException, @unchecked Sendable {
     /// The reason for the failure.
     public var reason: Swift.String = ""
 
@@ -510,7 +510,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception indicates that an attempt was made to create a topic that already exists.
-open class TopicExists: Ice.UserException {
+open class TopicExists: Ice.UserException, @unchecked Sendable {
     /// The name of the topic that already exists.
     public var name: Swift.String = ""
 
@@ -552,7 +552,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception indicates that an attempt was made to retrieve a topic that does not exist.
-open class NoSuchTopic: Ice.UserException {
+open class NoSuchTopic: Ice.UserException, @unchecked Sendable {
     /// The name of the topic that does not exist.
     public var name: Swift.String = ""
 

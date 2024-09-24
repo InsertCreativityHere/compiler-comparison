@@ -333,7 +333,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class endif: Ice.UserException {
+open class endif: Ice.UserException, @unchecked Sendable {
     public var endswitch: Swift.Int32 = 0
 
     public required init() {}
@@ -373,7 +373,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class endwhile: endif {
+open class endwhile: endif, @unchecked Sendable {
     public var eval: Swift.Int32 = 0
     public var exit: Swift.Int32 = 0
 

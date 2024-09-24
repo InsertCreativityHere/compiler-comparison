@@ -33,7 +33,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class CommonTestCaseNotExistException: Ice.UserException {
+open class CommonTestCaseNotExistException: Ice.UserException, @unchecked Sendable {
     public var reason: Swift.String = ""
 
     public required init() {}
@@ -73,7 +73,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class CommonTestCaseFailedException: Ice.UserException {
+open class CommonTestCaseFailedException: Ice.UserException, @unchecked Sendable {
     public var output: Swift.String = ""
 
     public required init() {}
@@ -125,7 +125,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class CommonProcessFailedException: Ice.UserException {
+open class CommonProcessFailedException: Ice.UserException, @unchecked Sendable {
     public var reason: Swift.String = ""
 
     public required init() {}

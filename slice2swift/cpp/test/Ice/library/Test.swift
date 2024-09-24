@@ -29,7 +29,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class UserError: Ice.UserException {
+open class UserError: Ice.UserException, @unchecked Sendable {
     public var message: Swift.String = ""
 
     public required init() {}

@@ -30,7 +30,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is thrown if an attempt is made to start an already-started service.
-open class AlreadyStartedException: Ice.UserException {
+open class AlreadyStartedException: Ice.UserException, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
@@ -61,7 +61,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is thrown if an attempt is made to stop an already-stopped service.
-open class AlreadyStoppedException: Ice.UserException {
+open class AlreadyStoppedException: Ice.UserException, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
@@ -92,7 +92,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is thrown if a service name does not refer to an existing service.
-open class NoSuchServiceException: Ice.UserException {
+open class NoSuchServiceException: Ice.UserException, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.

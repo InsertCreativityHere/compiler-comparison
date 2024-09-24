@@ -29,7 +29,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class E1: Ice.UserException {
+open class E1: Ice.UserException, @unchecked Sendable {
     public var i: Swift.Int32 = 0
 
     public required init() {}
@@ -69,7 +69,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class E2: E1 {
+open class E2: E1, @unchecked Sendable {
     public var l: Swift.Int64 = 0
 
     public required init() {

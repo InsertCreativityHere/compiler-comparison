@@ -29,7 +29,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class BaseException: Ice.UserException {
+open class BaseException: Ice.UserException, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
@@ -59,7 +59,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class InvalidPointException: BaseException {
+open class InvalidPointException: BaseException, @unchecked Sendable {
     public var index: Swift.Int32 = 0
 
     public required init() {
@@ -104,7 +104,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class InvalidLengthException: BaseException {
+open class InvalidLengthException: BaseException, @unchecked Sendable {
     public var length: Swift.Int32 = 0
 
     public required init() {
@@ -149,7 +149,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class OtherException: Ice.UserException {
+open class OtherException: Ice.UserException, @unchecked Sendable {
     public var x: Swift.Int32 = 0
     public var y: Swift.Int32 = 0
     public var z: Swift.Int32 = 0

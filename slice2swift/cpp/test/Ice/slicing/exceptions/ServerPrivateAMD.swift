@@ -29,7 +29,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class UnknownDerived: Base {
+open class UnknownDerived: Base, @unchecked Sendable {
     public var ud: Swift.String = ""
 
     public required init() {
@@ -74,7 +74,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class UnknownIntermediate: Base {
+open class UnknownIntermediate: Base, @unchecked Sendable {
     public var ui: Swift.String = ""
 
     public required init() {
@@ -119,7 +119,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class UnknownMostDerived1: KnownIntermediate {
+open class UnknownMostDerived1: KnownIntermediate, @unchecked Sendable {
     public var umd1: Swift.String = ""
 
     public required init() {
@@ -164,7 +164,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class UnknownMostDerived2: UnknownIntermediate {
+open class UnknownMostDerived2: UnknownIntermediate, @unchecked Sendable {
     public var umd2: Swift.String = ""
 
     public required init() {

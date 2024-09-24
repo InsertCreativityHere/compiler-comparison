@@ -289,7 +289,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class next: Ice.UserException {
+open class next: Ice.UserException, @unchecked Sendable {
     public var new: Swift.Int32 = 0
 
     public required init() {}
@@ -329,7 +329,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class `nil`: next {
+open class `nil`: next, @unchecked Sendable {
     public var not: Swift.Int32 = 0
     public var or: Swift.Int32 = 0
 

@@ -235,7 +235,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class BaseException: Ice.UserException {
+open class BaseException: Ice.UserException, @unchecked Sendable {
     public var sbe: Swift.String = ""
     public var pb: B? = nil
 
@@ -283,7 +283,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class DerivedException: BaseException {
+open class DerivedException: BaseException, @unchecked Sendable {
     public var sde: Swift.String = ""
     public var pd1: D1? = nil
 

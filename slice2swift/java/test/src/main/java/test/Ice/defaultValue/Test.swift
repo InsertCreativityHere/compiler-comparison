@@ -469,7 +469,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class BaseEx: Ice.UserException {
+open class BaseEx: Ice.UserException, @unchecked Sendable {
     public var boolFalse: Swift.Bool = false
     public var boolTrue: Swift.Bool = true
     public var b: Swift.UInt8 = 1
@@ -569,7 +569,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class DerivedEx: BaseEx {
+open class DerivedEx: BaseEx, @unchecked Sendable {
     public var c1: Color = ConstColor1
     public var c2: Color = ConstColor2
     public var c3: Color = ConstColor3
@@ -872,7 +872,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class ExceptionNoDefaultsBase: Ice.UserException {
+open class ExceptionNoDefaultsBase: Ice.UserException, @unchecked Sendable {
     public var str: Swift.String = ""
     public var c1: Color = .red
     public var bs: ByteSeq = ByteSeq()
@@ -920,7 +920,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class ExceptionNoDefaults: ExceptionNoDefaultsBase {
+open class ExceptionNoDefaults: ExceptionNoDefaultsBase, @unchecked Sendable {
     public var st: InnerStruct = InnerStruct()
     public var dict: IntStringDict = IntStringDict()
 

@@ -594,7 +594,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class Ex: Ice.UserException {
+open class Ex: Ice.UserException, @unchecked Sendable {
     public var s: Struct1 = Struct1()
     public var b: Base? = nil
 

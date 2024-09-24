@@ -30,7 +30,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if an error occurs during parsing.
-open class ParseException: Ice.UserException {
+open class ParseException: Ice.UserException, @unchecked Sendable {
     /// The reason for the failure.
     public var reason: Swift.String = ""
 

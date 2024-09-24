@@ -29,7 +29,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class DerivedEx: BaseEx {
+open class DerivedEx: BaseEx, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.

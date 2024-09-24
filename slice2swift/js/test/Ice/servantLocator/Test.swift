@@ -29,7 +29,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class TestIntfUserException: Ice.UserException {
+open class TestIntfUserException: Ice.UserException, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
@@ -59,7 +59,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class TestImpossibleException: Ice.UserException {
+open class TestImpossibleException: Ice.UserException, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.

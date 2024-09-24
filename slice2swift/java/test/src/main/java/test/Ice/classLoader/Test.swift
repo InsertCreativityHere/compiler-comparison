@@ -29,7 +29,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class E: Ice.UserException {
+open class E: Ice.UserException, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.

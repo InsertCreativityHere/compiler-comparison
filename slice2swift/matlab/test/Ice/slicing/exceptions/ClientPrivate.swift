@@ -29,7 +29,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class Base: Ice.UserException {
+open class Base: Ice.UserException, @unchecked Sendable {
     public var b: Swift.String = ""
 
     public required init() {}
@@ -69,7 +69,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class KnownDerived: Base {
+open class KnownDerived: Base, @unchecked Sendable {
     public var kd: Swift.String = ""
 
     public required init() {
@@ -114,7 +114,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class KnownIntermediate: Base {
+open class KnownIntermediate: Base, @unchecked Sendable {
     public var ki: Swift.String = ""
 
     public required init() {
@@ -159,7 +159,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class KnownMostDerived: KnownIntermediate {
+open class KnownMostDerived: KnownIntermediate, @unchecked Sendable {
     public var kmd: Swift.String = ""
 
     public required init() {
@@ -204,7 +204,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class KnownPreserved: Base {
+open class KnownPreserved: Base, @unchecked Sendable {
     public var kp: Swift.String = ""
 
     public required init() {
@@ -249,7 +249,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class KnownPreservedDerived: KnownPreserved {
+open class KnownPreservedDerived: KnownPreserved, @unchecked Sendable {
     public var kpd: Swift.String = ""
 
     public required init() {
@@ -306,7 +306,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class Preserved1: KnownPreservedDerived {
+open class Preserved1: KnownPreservedDerived, @unchecked Sendable {
     public var p1: BaseClass? = nil
 
     public required init() {
@@ -355,7 +355,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class Preserved2: Preserved1 {
+open class Preserved2: Preserved1, @unchecked Sendable {
     public var p2: BaseClass? = nil
 
     public required init() {

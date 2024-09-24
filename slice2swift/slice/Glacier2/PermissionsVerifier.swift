@@ -30,7 +30,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if a client is denied the ability to create a session with the router.
-open class PermissionDeniedException: Ice.UserException {
+open class PermissionDeniedException: Ice.UserException, @unchecked Sendable {
     /// The reason why permission was denied.
     public var reason: Swift.String = ""
 

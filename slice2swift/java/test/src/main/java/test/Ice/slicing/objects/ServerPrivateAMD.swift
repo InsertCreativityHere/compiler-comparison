@@ -235,7 +235,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class BaseException: Ice.UserException {
+open class BaseException: Ice.UserException, @unchecked Sendable {
     public var sbe: Swift.String = ""
     public var pb: B? = nil
 
@@ -283,7 +283,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class DerivedException: BaseException {
+open class DerivedException: BaseException, @unchecked Sendable {
     public var sde: Swift.String = ""
     public var pd1: D1? = nil
 
@@ -398,7 +398,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class PreservedException: Ice.UserException {
+open class PreservedException: Ice.UserException, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
@@ -434,7 +434,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class UnknownDerivedException: BaseException {
+open class UnknownDerivedException: BaseException, @unchecked Sendable {
     public var sude: Swift.String = ""
     public var pd2: D2? = nil
 
@@ -483,7 +483,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class PSUnknownException: PreservedException {
+open class PSUnknownException: PreservedException, @unchecked Sendable {
     public var p: PSUnknown2? = nil
 
     public required init() {

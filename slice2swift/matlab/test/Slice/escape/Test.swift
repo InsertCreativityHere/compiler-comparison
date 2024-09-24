@@ -352,7 +352,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class breakpersistent: Ice.UserException {
+open class breakpersistent: Ice.UserException, @unchecked Sendable {
     public var identifier: Swift.String = "1"
     public var message: Swift.String = "2"
     public var stack: Swift.String = "3"
@@ -416,7 +416,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class breakglobal: breakpersistent {
+open class breakglobal: breakpersistent, @unchecked Sendable {
     public var enumeration: Swift.Int32 = 1
 
     public required init() {

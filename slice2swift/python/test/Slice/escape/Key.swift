@@ -295,7 +295,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class `is`: Ice.UserException {
+open class `is`: Ice.UserException, @unchecked Sendable {
     public var lambda: Swift.Int32 = 0
 
     public required init() {}
@@ -335,7 +335,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class not: `is` {
+open class not: `is`, @unchecked Sendable {
     public var or: Swift.Int32 = 0
     public var pass: Swift.Int32 = 0
 

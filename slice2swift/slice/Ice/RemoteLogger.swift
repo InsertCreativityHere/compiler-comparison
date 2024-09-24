@@ -310,7 +310,7 @@ public extension ClassResolver {
 }
 
 /// Thrown when the provided RemoteLogger was previously attached to a LoggerAdmin.
-open class RemoteLoggerAlreadyAttachedException: UserException {
+open class RemoteLoggerAlreadyAttachedException: UserException, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.

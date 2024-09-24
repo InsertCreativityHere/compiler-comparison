@@ -229,7 +229,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if an adapter is active.
-open class AdapterActiveException: Ice.UserException {
+open class AdapterActiveException: Ice.UserException, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
@@ -259,7 +259,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class AdapterNotActiveException: Ice.UserException {
+open class AdapterNotActiveException: Ice.UserException, @unchecked Sendable {
     /// True if the adapter can be activated on demand.
     public var activatable: Swift.Bool = false
 
@@ -307,7 +307,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if an adapter with the same name already exists.
-open class AdapterExistsException: Ice.UserException {
+open class AdapterExistsException: Ice.UserException, @unchecked Sendable {
     public var id: Swift.String = ""
 
     public required init() {}
@@ -571,7 +571,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if a node is already registered and active.
-open class NodeActiveException: Ice.UserException {
+open class NodeActiveException: Ice.UserException, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
@@ -608,7 +608,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if a replica is already registered and active.
-open class ReplicaActiveException: Ice.UserException {
+open class ReplicaActiveException: Ice.UserException, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.

@@ -165,7 +165,7 @@ public extension Ice.ClassResolver {
 }
 
 /// Thrown if an observer detects an inconsistency.
-open class ObserverInconsistencyException: Ice.UserException {
+open class ObserverInconsistencyException: Ice.UserException, @unchecked Sendable {
     /// The reason for the inconsistency.
     public var reason: Swift.String = ""
 

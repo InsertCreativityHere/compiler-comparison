@@ -29,7 +29,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class UnknownDerivedException: BaseException {
+open class UnknownDerivedException: BaseException, @unchecked Sendable {
     public var sude: Swift.String = ""
     public var pd2: D2? = nil
 
@@ -78,7 +78,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class PSUnknownException: PreservedException {
+open class PSUnknownException: PreservedException, @unchecked Sendable {
     public var p: PSUnknown2? = nil
 
     public required init() {

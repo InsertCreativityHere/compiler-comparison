@@ -30,7 +30,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if a user account for a given session identifier can't be found.
-open class UserAccountNotFoundException: Ice.UserException {
+open class UserAccountNotFoundException: Ice.UserException, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.

@@ -29,7 +29,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class CallbackException: Ice.UserException {
+open class CallbackException: Ice.UserException, @unchecked Sendable {
     public var someValue: Swift.Double = 0.0
     public var someString: Swift.String = ""
 

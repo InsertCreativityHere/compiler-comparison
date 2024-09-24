@@ -181,7 +181,7 @@ public extension Ice.ClassResolver {
 }
 
 /// Thrown if the reap call would block.
-open class ReapWouldBlock: Ice.UserException {
+open class ReapWouldBlock: Ice.UserException, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.

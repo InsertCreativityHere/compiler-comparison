@@ -30,7 +30,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if an application does not exist.
-open class ApplicationNotExistException: Ice.UserException {
+open class ApplicationNotExistException: Ice.UserException, @unchecked Sendable {
     /// The name of the application.
     public var name: Swift.String = ""
 
@@ -72,7 +72,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if a server does not exist.
-open class ServerNotExistException: Ice.UserException {
+open class ServerNotExistException: Ice.UserException, @unchecked Sendable {
     /// The identifier of the server.
     public var id: Swift.String = ""
 
@@ -114,7 +114,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if a server failed to start.
-open class ServerStartException: Ice.UserException {
+open class ServerStartException: Ice.UserException, @unchecked Sendable {
     /// The identifier of the server.
     public var id: Swift.String = ""
     /// The reason for the failure.
@@ -161,7 +161,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if a server failed to stop.
-open class ServerStopException: Ice.UserException {
+open class ServerStopException: Ice.UserException, @unchecked Sendable {
     /// The identifier of the server.
     public var id: Swift.String = ""
     /// The reason for the failure.
@@ -208,7 +208,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if an adapter does not exist.
-open class AdapterNotExistException: Ice.UserException {
+open class AdapterNotExistException: Ice.UserException, @unchecked Sendable {
     /// The id of the object adapter.
     public var id: Swift.String = ""
 
@@ -250,7 +250,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if an object already exists.
-open class ObjectExistsException: Ice.UserException {
+open class ObjectExistsException: Ice.UserException, @unchecked Sendable {
     /// The identity of the object.
     public var id: Ice.Identity = Ice.Identity()
 
@@ -292,7 +292,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if an object is not registered.
-open class ObjectNotRegisteredException: Ice.UserException {
+open class ObjectNotRegisteredException: Ice.UserException, @unchecked Sendable {
     /// The identity of the object.
     public var id: Ice.Identity = Ice.Identity()
 
@@ -334,7 +334,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if a node does not exist.
-open class NodeNotExistException: Ice.UserException {
+open class NodeNotExistException: Ice.UserException, @unchecked Sendable {
     /// The node name.
     public var name: Swift.String = ""
 
@@ -376,7 +376,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if a registry does not exist.
-open class RegistryNotExistException: Ice.UserException {
+open class RegistryNotExistException: Ice.UserException, @unchecked Sendable {
     /// The registry name.
     public var name: Swift.String = ""
 
@@ -418,7 +418,7 @@ public extension Ice.ClassResolver {
 }
 
 /// An exception for deployment errors.
-open class DeploymentException: Ice.UserException {
+open class DeploymentException: Ice.UserException, @unchecked Sendable {
     /// The reason for the failure.
     public var reason: Swift.String = ""
 
@@ -460,7 +460,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if a node could not be reached.
-open class NodeUnreachableException: Ice.UserException {
+open class NodeUnreachableException: Ice.UserException, @unchecked Sendable {
     /// The name of the node that is not reachable.
     public var name: Swift.String = ""
     /// The reason why the node couldn't be reached.
@@ -507,7 +507,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if a server could not be reached.
-open class ServerUnreachableException: Ice.UserException {
+open class ServerUnreachableException: Ice.UserException, @unchecked Sendable {
     /// The id of the server that is not reachable.
     public var name: Swift.String = ""
     /// The reason why the server couldn't be reached.
@@ -554,7 +554,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if a registry could not be reached.
-open class RegistryUnreachableException: Ice.UserException {
+open class RegistryUnreachableException: Ice.UserException, @unchecked Sendable {
     /// The name of the registry that is not reachable.
     public var name: Swift.String = ""
     /// The reason why the registry couldn't be reached.
@@ -601,7 +601,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if an unknown signal was sent to to a server.
-open class BadSignalException: Ice.UserException {
+open class BadSignalException: Ice.UserException, @unchecked Sendable {
     /// The details of the unknown signal.
     public var reason: Swift.String = ""
 
@@ -643,7 +643,7 @@ public extension Ice.ClassResolver {
 }
 
 /// his exception is raised if a registry lock wasn't acquired or is already held by a session.
-open class AccessDeniedException: Ice.UserException {
+open class AccessDeniedException: Ice.UserException, @unchecked Sendable {
     /// The id of the user holding the lock (if any).
     public var lockUserId: Swift.String = ""
 
@@ -685,7 +685,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if the allocation of an object failed.
-open class AllocationException: Ice.UserException {
+open class AllocationException: Ice.UserException, @unchecked Sendable {
     /// The reason why the object couldn't be allocated.
     public var reason: Swift.String = ""
 
@@ -727,7 +727,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if the request to allocate an object times out.
-open class AllocationTimeoutException: AllocationException {
+open class AllocationTimeoutException: AllocationException, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
@@ -760,7 +760,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if a client is denied the ability to create a session with IceGrid.
-open class PermissionDeniedException: Ice.UserException {
+open class PermissionDeniedException: Ice.UserException, @unchecked Sendable {
     /// The reason why permission was denied.
     public var reason: Swift.String = ""
 
@@ -802,7 +802,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if an observer is already registered with the registry.
-open class ObserverAlreadyRegisteredException: Ice.UserException {
+open class ObserverAlreadyRegisteredException: Ice.UserException, @unchecked Sendable {
     /// The identity of the observer.
     public var id: Ice.Identity = Ice.Identity()
 
@@ -844,7 +844,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if a file is not available.
-open class FileNotAvailableException: Ice.UserException {
+open class FileNotAvailableException: Ice.UserException, @unchecked Sendable {
     /// The reason for the failure.
     public var reason: Swift.String = ""
 

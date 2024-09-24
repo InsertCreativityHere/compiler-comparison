@@ -158,7 +158,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class WstringException: Ice.UserException {
+open class WstringException: Ice.UserException, @unchecked Sendable {
     public var reason: Swift.String = ""
 
     public required init() {}
@@ -333,7 +333,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class WstringException: Ice.UserException {
+open class WstringException: Ice.UserException, @unchecked Sendable {
     public var reason: Swift.String = ""
 
     public required init() {}

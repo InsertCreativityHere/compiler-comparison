@@ -157,7 +157,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class EBase: Ice.UserException {
+open class EBase: Ice.UserException, @unchecked Sendable {
     public var a1: A1? = nil
     public var a2: A1? = nil
 
@@ -205,7 +205,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class EDerived: EBase {
+open class EDerived: EBase, @unchecked Sendable {
     public var a3: A1? = nil
     public var a4: A1? = nil
 
@@ -254,7 +254,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class InnerEx: Ice.UserException {
+open class InnerEx: Ice.UserException, @unchecked Sendable {
     public var reason: Swift.String = ""
 
     public required init() {}
@@ -294,7 +294,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class InnerSubEx: Ice.UserException {
+open class InnerSubEx: Ice.UserException, @unchecked Sendable {
     public var reason: Swift.String = ""
 
     public required init() {}

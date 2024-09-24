@@ -31,7 +31,7 @@ public extension Ice.ClassResolver {
 
 /// This exception is raised if a client tries to destroy a session with a router, but no session exists for the
 /// client.
-open class SessionNotExistException: Ice.UserException {
+open class SessionNotExistException: Ice.UserException, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.

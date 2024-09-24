@@ -111,7 +111,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class Ex: Ice.UserException {
+open class Ex: Ice.UserException, @unchecked Sendable {
     public var istr: Swift.Int16 = 0
     public var ostr: Swift.Int32 = 0
 

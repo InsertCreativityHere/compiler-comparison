@@ -295,7 +295,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class hashCode: Ice.UserException {
+open class hashCode: Ice.UserException, @unchecked Sendable {
     public var `if`: Swift.Int32 = 0
 
     public required init() {}
@@ -335,7 +335,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class `import`: hashCode {
+open class `import`: hashCode, @unchecked Sendable {
     public var instanceof: Swift.Int32 = 0
     public var native: Swift.Int32 = 0
 

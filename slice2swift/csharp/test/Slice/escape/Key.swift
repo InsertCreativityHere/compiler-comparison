@@ -235,7 +235,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class fixed: Ice.UserException {
+open class fixed: Ice.UserException, @unchecked Sendable {
     public var `for`: Swift.Int32 = 0
 
     public required init() {}
@@ -275,7 +275,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class foreach: fixed {
+open class foreach: fixed, @unchecked Sendable {
     public var goto: Swift.Int32 = 0
     public var `if`: Swift.Int32 = 0
 
@@ -324,7 +324,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class BaseMethods: Ice.UserException {
+open class BaseMethods: Ice.UserException, @unchecked Sendable {
     public var Data: Swift.Int32 = 0
     public var HelpLink: Swift.Int32 = 0
     public var InnerException: Swift.Int32 = 0

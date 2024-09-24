@@ -29,7 +29,7 @@ public extension ClassResolver {
 }
 
 /// This exception is raised if an adapter cannot be found.
-open class AdapterNotFoundException: UserException {
+open class AdapterNotFoundException: UserException, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
@@ -60,7 +60,7 @@ public extension ClassResolver {
 }
 
 /// This exception is raised if the replica group provided by the server is invalid.
-open class InvalidReplicaGroupIdException: UserException {
+open class InvalidReplicaGroupIdException: UserException, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
@@ -91,7 +91,7 @@ public extension ClassResolver {
 }
 
 /// This exception is raised if a server tries to set endpoints for an adapter that is already active.
-open class AdapterAlreadyActiveException: UserException {
+open class AdapterAlreadyActiveException: UserException, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
@@ -122,7 +122,7 @@ public extension ClassResolver {
 }
 
 /// This exception is raised if an object cannot be found.
-open class ObjectNotFoundException: UserException {
+open class ObjectNotFoundException: UserException, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
@@ -153,7 +153,7 @@ public extension ClassResolver {
 }
 
 /// This exception is raised if a server cannot be found.
-open class ServerNotFoundException: UserException {
+open class ServerNotFoundException: UserException, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.

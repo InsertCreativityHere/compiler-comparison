@@ -1315,7 +1315,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class MyException: Ice.UserException {
+open class MyException: Ice.UserException, @unchecked Sendable {
     public var c: MyClass? = nil
 
     public required init() {}

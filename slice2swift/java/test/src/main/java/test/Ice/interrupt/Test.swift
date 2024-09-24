@@ -29,7 +29,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class InterruptedException: Ice.UserException {
+open class InterruptedException: Ice.UserException, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.
@@ -65,7 +65,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class CannotInterruptException: Ice.UserException {
+open class CannotInterruptException: Ice.UserException, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.

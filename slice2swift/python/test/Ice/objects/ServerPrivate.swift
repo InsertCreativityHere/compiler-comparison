@@ -35,7 +35,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class EOneMember: Ice.UserException {
+open class EOneMember: Ice.UserException, @unchecked Sendable {
     public var e: Empty? = nil
 
     public required init() {}
@@ -79,7 +79,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class ETwoMembers: Ice.UserException {
+open class ETwoMembers: Ice.UserException, @unchecked Sendable {
     public var e1: Empty? = nil
     public var e2: Empty? = nil
 

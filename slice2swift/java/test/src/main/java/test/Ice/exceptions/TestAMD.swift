@@ -29,7 +29,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class A: Ice.UserException {
+open class A: Ice.UserException, @unchecked Sendable {
     public var aMem: Swift.Int32 = 0
 
     public required init() {}
@@ -69,7 +69,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class B: A {
+open class B: A, @unchecked Sendable {
     public var bMem: Swift.Int32 = 0
 
     public required init() {
@@ -114,7 +114,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class C: B {
+open class C: B, @unchecked Sendable {
     public var cMem: Swift.Int32 = 0
 
     public required init() {
@@ -159,7 +159,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class D: Ice.UserException {
+open class D: Ice.UserException, @unchecked Sendable {
     public var dMem: Swift.Int32 = 0
 
     public required init() {}

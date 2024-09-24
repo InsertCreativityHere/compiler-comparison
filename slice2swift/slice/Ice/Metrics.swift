@@ -368,7 +368,7 @@ public extension ClassResolver {
 }
 
 /// Raised if a metrics view cannot be found.
-open class MXUnknownMetricsView: UserException {
+open class MXUnknownMetricsView: UserException, @unchecked Sendable {
     /// Returns the Slice type ID of this exception.
     ///
     /// - returns: `Swift.String` - the Slice type ID of this exception.

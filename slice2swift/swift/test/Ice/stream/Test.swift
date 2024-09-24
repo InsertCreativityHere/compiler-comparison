@@ -1453,7 +1453,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class MyException: Ice.UserException {
+open class MyException: Ice.UserException, @unchecked Sendable {
     public var c: MyClass? = nil
 
     public required init() {}
@@ -1649,7 +1649,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class SubNestedException: Ice.UserException {
+open class SubNestedException: Ice.UserException, @unchecked Sendable {
     public var str: Swift.String = ""
 
     public required init() {}
@@ -1841,7 +1841,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class Test2Sub2NestedException2: Ice.UserException {
+open class Test2Sub2NestedException2: Ice.UserException, @unchecked Sendable {
     public var str: Swift.String = ""
 
     public required init() {}

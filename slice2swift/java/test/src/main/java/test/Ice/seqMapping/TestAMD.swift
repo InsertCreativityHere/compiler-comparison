@@ -371,7 +371,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class Bar: Ice.UserException {
+open class Bar: Ice.UserException, @unchecked Sendable {
     public var SLmem: SerialLarge = SerialLarge()
     public var SLSmem: SLS = SLS()
 

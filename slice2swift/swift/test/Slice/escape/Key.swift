@@ -355,7 +355,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class `return`: Ice.UserException {
+open class `return`: Ice.UserException, @unchecked Sendable {
     public var Int32: Swift.Int32 = 0
 
     public required init() {}
@@ -395,7 +395,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class `as`: `return` {
+open class `as`: `return`, @unchecked Sendable {
     public var `static`: Swift.Int32 = 0
     public var `switch`: Swift.Int32 = 0
 

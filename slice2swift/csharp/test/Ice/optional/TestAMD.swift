@@ -1135,7 +1135,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class OptionalException: Ice.UserException {
+open class OptionalException: Ice.UserException, @unchecked Sendable {
     public var req: Swift.Bool = false
     public var a: Swift.Int32? = 5
     public var b: Swift.String? = nil
@@ -1183,7 +1183,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class DerivedException: OptionalException {
+open class DerivedException: OptionalException, @unchecked Sendable {
     public var d1: Swift.String = ""
     public var ss: Swift.String? = "test"
     public var d2: Swift.String = ""
@@ -1236,7 +1236,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class RequiredException: OptionalException {
+open class RequiredException: OptionalException, @unchecked Sendable {
     public var ss: Swift.String = "test"
 
     public required init() {

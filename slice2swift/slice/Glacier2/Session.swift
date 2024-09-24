@@ -30,7 +30,7 @@ public extension Ice.ClassResolver {
 }
 
 /// This exception is raised if an attempt to create a new session failed.
-open class CannotCreateSessionException: Ice.UserException {
+open class CannotCreateSessionException: Ice.UserException, @unchecked Sendable {
     /// The reason why session creation has failed.
     public var reason: Swift.String = ""
 
