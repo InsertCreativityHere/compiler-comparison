@@ -383,7 +383,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    properties(::std::int32_t _cpp_while, ::std::int32_t _cpp_delete, ::std::int32_t _cpp_if, ::classdef::break::xorPtr _cpp_catch, ::classdef::_cpp_break::parfor spmd, ::classdef::_cpp_break::_cpp_switch otherwise) noexcept :
+    properties(::std::int32_t _cpp_while, ::std::int32_t _cpp_delete, ::std::int32_t _cpp_if, ::classdef::_cpp_break::xorPtr _cpp_catch, ::classdef::_cpp_break::parfor spmd, ::classdef::_cpp_break::_cpp_switch otherwise) noexcept :
         _cpp_try(_cpp_while, _cpp_delete),
         _cpp_if(_cpp_if),
         _cpp_catch(::std::move(_cpp_catch)),
@@ -404,7 +404,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::classdef::break::xorPtr&, const ::classdef::_cpp_break::parfor&, const ::classdef::_cpp_break::_cpp_switch&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::classdef::_cpp_break::xorPtr&, const ::classdef::_cpp_break::parfor&, const ::classdef::_cpp_break::_cpp_switch&> ice_tuple() const
     {
         return std::tie(_cpp_while, _cpp_delete, _cpp_if, _cpp_catch, spmd, otherwise);
     }
@@ -416,7 +416,7 @@ public:
     propertiesPtr ice_clone() const { return ::std::static_pointer_cast<properties>(_iceCloneImpl()); }
 
     ::std::int32_t _cpp_if = 2;
-    ::classdef::break::xorPtr _cpp_catch;
+    ::classdef::_cpp_break::xorPtr _cpp_catch;
     ::classdef::_cpp_break::parfor spmd;
     ::classdef::_cpp_break::_cpp_switch otherwise;
 
@@ -440,7 +440,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    persistent(::std::string identifier, ::std::string message, ::std::string stack, ::std::string cause, ::std::string type, ::classdef::break::logicalPtr end) noexcept :
+    persistent(::std::string identifier, ::std::string message, ::std::string stack, ::std::string cause, ::std::string type, logicalPtr end) noexcept :
         identifier(::std::move(identifier)),
         message(::std::move(message)),
         stack(::std::move(stack)),
@@ -454,7 +454,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::classdef::break::logicalPtr&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::classdef::_cpp_break::logicalPtr&> ice_tuple() const
     {
         return std::tie(identifier, message, stack, cause, type, end);
     }
@@ -478,7 +478,7 @@ public:
     ::std::string stack = "3";
     ::std::string cause = "4";
     ::std::string type = "5";
-    ::classdef::break::logicalPtr end;
+    ::classdef::_cpp_break::logicalPtr end;
 
 protected:
     void _writeImpl(::Ice::OutputStream*) const override;
@@ -497,7 +497,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    global(::std::string identifier, ::std::string message, ::std::string stack, ::std::string cause, ::std::string type, ::classdef::break::logicalPtr end, ::std::int32_t enumeration) noexcept :
+    global(::std::string identifier, ::std::string message, ::std::string stack, ::std::string cause, ::std::string type, logicalPtr end, ::std::int32_t enumeration) noexcept :
         persistent(::std::move(identifier), ::std::move(message), ::std::move(stack), ::std::move(cause), ::std::move(type), ::std::move(end)),
         enumeration(enumeration)
     {
@@ -507,7 +507,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::classdef::break::logicalPtr&, const ::std::int32_t&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::classdef::_cpp_break::logicalPtr&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(identifier, message, stack, cause, type, end, enumeration);
     }
