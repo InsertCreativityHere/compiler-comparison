@@ -60,5 +60,5 @@ public class _import extends _hashCode
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -8009778449899280073L;
+    private static final long serialVersionUID = 5908299809147275767L;
 }

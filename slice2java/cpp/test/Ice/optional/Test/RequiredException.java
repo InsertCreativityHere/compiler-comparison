@@ -62,5 +62,5 @@ public class RequiredException extends OptionalException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 2894244991147683184L;
+    private static final long serialVersionUID = 2894243105660736419L;
 }
