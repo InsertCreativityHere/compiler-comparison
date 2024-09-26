@@ -13732,15 +13732,15 @@ namespace Test
 
         public abstract string[] opStringLiterals(Ice.Current current);
 
-        public abstract MyClass_OpMSeq1MarshaledResult opMSeq1(Ice.Current current);
-
-        public abstract MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, Ice.Current current);
-
         public abstract string[] opWStringLiterals(Ice.Current current);
 
         public abstract MyClass_OpMStruct1MarshaledResult opMStruct1(Ice.Current current);
 
         public abstract MyClass_OpMStruct2MarshaledResult opMStruct2(Structure p1, Ice.Current current);
+
+        public abstract MyClass_OpMSeq1MarshaledResult opMSeq1(Ice.Current current);
+
+        public abstract MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, Ice.Current current);
 
         public abstract MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
 
@@ -13965,15 +13965,15 @@ namespace Test2
 
         public abstract string[] opStringLiterals(Ice.Current current);
 
-        public abstract global::Test.MyClass_OpMSeq1MarshaledResult opMSeq1(Ice.Current current);
-
-        public abstract global::Test.MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, Ice.Current current);
-
         public abstract string[] opWStringLiterals(Ice.Current current);
 
         public abstract global::Test.MyClass_OpMStruct1MarshaledResult opMStruct1(Ice.Current current);
 
         public abstract global::Test.MyClass_OpMStruct2MarshaledResult opMStruct2(global::Test.Structure p1, Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMSeq1MarshaledResult opMSeq1(Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, Ice.Current current);
 
         public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
 

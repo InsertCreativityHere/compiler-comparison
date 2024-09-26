@@ -62,5 +62,5 @@ public class ObserverAlreadyRegisteredException extends com.zeroc.Ice.UserExcept
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 2733090601800932998L;
+    private static final long serialVersionUID = 2733098620454316869L;
 }
