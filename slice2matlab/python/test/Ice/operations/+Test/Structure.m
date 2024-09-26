@@ -40,14 +40,6 @@ classdef Structure
             r.e = Test.MyEnum.ice_read(is);
             r.s = Test.AnotherStruct.ice_read(is);
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = Test.Structure.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = Test.Structure();
@@ -55,6 +47,14 @@ classdef Structure
             os.writeProxy(v.p);
             Test.MyEnum.ice_write(os, v.e);
             Test.AnotherStruct.ice_write(os, v.s);
+        end
+        function r = ice_readOpt(is, tag)
+            if is.readOptional(tag, Ice.OptionalFormat.FSize)
+                is.skip(4);
+                r = Test.Structure.ice_read(is);
+            else
+                r = Ice.Unset;
+            end
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

@@ -70,14 +70,6 @@ classdef xor
             r.use = is.readInt();
             r.var = is.readInt();
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.VSize)
-                is.skipSize();
-                r = and.xor.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = and.xor();
@@ -91,6 +83,14 @@ classdef xor
             os.writeInt(v.throw);
             os.writeInt(v.use);
             os.writeInt(v.var);
+        end
+        function r = ice_readOpt(is, tag)
+            if is.readOptional(tag, Ice.OptionalFormat.VSize)
+                is.skipSize();
+                r = and.xor.ice_read(is);
+            else
+                r = Ice.Unset;
+            end
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.VSize)

@@ -96,14 +96,6 @@ classdef NodeUpdateDescriptor
             r.loadFactor = loadFactor_;
             is.readValue(@(v_) loadFactor_.set(v_), 'IceGrid.BoxedString');
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = IceGrid.NodeUpdateDescriptor.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = IceGrid.NodeUpdateDescriptor();
@@ -118,13 +110,6 @@ classdef NodeUpdateDescriptor
             IceGrid.ServerDescriptorSeq.write(os, v.servers);
             os.writeStringSeq(v.removeServers);
             os.writeValue(v.loadFactor);
-        end
-        function ice_writeOpt(os, tag, v)
-            if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                IceGrid.NodeUpdateDescriptor.ice_write(os, v);
-                os.endSize(pos);
-            end
         end
     end
 end

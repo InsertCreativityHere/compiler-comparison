@@ -20,14 +20,14 @@ classdef continue_ < uint8
                 os.writeEnum(int32(v), 1);
             end
         end
+        function r = ice_read(is)
+            v = is.readEnum(1);
+            r = and.continue_.ice_getValue(v);
+        end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.Size)
                 and.continue_.ice_write(os, v);
             end
-        end
-        function r = ice_read(is)
-            v = is.readEnum(1);
-            r = and.continue_.ice_getValue(v);
         end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.Size)

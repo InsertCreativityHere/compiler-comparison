@@ -70,14 +70,6 @@ classdef NestedStruct2
             r.str = is.readString();
             r.e = Test2.Sub2.NestedEnum2.ice_read(is);
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = Test2.Sub2.NestedStruct2.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = Test2.Sub2.NestedStruct2();
@@ -91,6 +83,14 @@ classdef NestedStruct2
             os.writeDouble(v.d);
             os.writeString(v.str);
             Test2.Sub2.NestedEnum2.ice_write(os, v.e);
+        end
+        function r = ice_readOpt(is, tag)
+            if is.readOptional(tag, Ice.OptionalFormat.FSize)
+                is.skip(4);
+                r = Test2.Sub2.NestedStruct2.ice_read(is);
+            else
+                r = Ice.Unset;
+            end
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

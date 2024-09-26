@@ -24,13 +24,6 @@ classdef ValueMap
                 end
             end
         end
-        function writeOpt(os, tag, d)
-            if d ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                Test.ValueMap.write(os, d);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = containers.Map('KeyType', 'char', 'ValueType', 'any');
@@ -39,14 +32,6 @@ classdef ValueMap
                 v = IceInternal.ValueHolder();
                 is.readValue(@(v_) v.set(v_), 'Ice.Value');
                 r(k) = v;
-            end
-        end
-        function r = readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = Test.ValueMap.read(is);
-            else
-                r = Ice.Unset;
             end
         end
         function r = convert(d)

@@ -11,13 +11,6 @@ classdef for_
                 abstract.assert.ice_write(os, seq(i));
             end
         end
-        function writeOpt(os, tag, seq)
-            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                abstract.for_.write(os, seq);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = abstract.assert.empty();
@@ -26,6 +19,13 @@ classdef for_
                 for i = 1:sz
                     r(i) = abstract.assert.ice_read(is);
                 end
+            end
+        end
+        function writeOpt(os, tag, seq)
+            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
+                pos = os.startSize();
+                abstract.for_.write(os, seq);
+                os.endSize(pos);
             end
         end
         function r = readOpt(is, tag)

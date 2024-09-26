@@ -24,13 +24,6 @@ classdef StringLongDict
                 end
             end
         end
-        function writeOpt(os, tag, d)
-            if d ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                IceGrid.StringLongDict.write(os, d);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = containers.Map('KeyType', 'char', 'ValueType', 'int64');
@@ -38,6 +31,13 @@ classdef StringLongDict
                 k = is.readString();
                 v = is.readLong();
                 r(k) = v;
+            end
+        end
+        function writeOpt(os, tag, d)
+            if d ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
+                pos = os.startSize();
+                IceGrid.StringLongDict.write(os, d);
+                os.endSize(pos);
             end
         end
         function r = readOpt(is, tag)

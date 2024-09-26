@@ -45,14 +45,6 @@ classdef AdapterInfo
             r.proxy = is.readProxy();
             r.replicaGroupId = is.readString();
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = IceGrid.AdapterInfo.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = IceGrid.AdapterInfo();
@@ -60,6 +52,14 @@ classdef AdapterInfo
             os.writeString(v.id);
             os.writeProxy(v.proxy);
             os.writeString(v.replicaGroupId);
+        end
+        function r = ice_readOpt(is, tag)
+            if is.readOptional(tag, Ice.OptionalFormat.FSize)
+                is.skip(4);
+                r = IceGrid.AdapterInfo.ice_read(is);
+            else
+                r = Ice.Unset;
+            end
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

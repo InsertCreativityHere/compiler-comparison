@@ -24,13 +24,6 @@ classdef StringStringDict
                 end
             end
         end
-        function writeOpt(os, tag, d)
-            if d ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                Test.StringStringDict.write(os, d);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = containers.Map('KeyType', 'char', 'ValueType', 'char');
@@ -38,6 +31,13 @@ classdef StringStringDict
                 k = is.readString();
                 v = is.readString();
                 r(k) = v;
+            end
+        end
+        function writeOpt(os, tag, d)
+            if d ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
+                pos = os.startSize();
+                Test.StringStringDict.write(os, d);
+                os.endSize(pos);
             end
         end
         function r = readOpt(is, tag)

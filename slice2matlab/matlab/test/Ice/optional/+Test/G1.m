@@ -30,6 +30,12 @@ classdef G1
             r = Test.G1(IceInternal.NoInit.Instance);
             r.a = is.readString();
         end
+        function ice_write(os, v)
+            if isempty(v)
+                v = Test.G1();
+            end
+            os.writeString(v.a);
+        end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.FSize)
                 is.skip(4);
@@ -37,12 +43,6 @@ classdef G1
             else
                 r = Ice.Unset;
             end
-        end
-        function ice_write(os, v)
-            if isempty(v)
-                v = Test.G1();
-            end
-            os.writeString(v.a);
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

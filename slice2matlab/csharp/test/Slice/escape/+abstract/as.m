@@ -18,14 +18,14 @@ classdef as < uint8
                 os.writeEnum(int32(v), 0);
             end
         end
+        function r = ice_read(is)
+            v = is.readEnum(0);
+            r = abstract.as.ice_getValue(v);
+        end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.Size)
                 abstract.as.ice_write(os, v);
             end
-        end
-        function r = ice_read(is)
-            v = is.readEnum(0);
-            r = abstract.as.ice_getValue(v);
         end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.Size)

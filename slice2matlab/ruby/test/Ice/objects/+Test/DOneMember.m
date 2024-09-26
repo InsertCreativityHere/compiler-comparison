@@ -24,13 +24,6 @@ classdef DOneMember
                 end
             end
         end
-        function writeOpt(os, tag, d)
-            if d ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                Test.DOneMember.write(os, d);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = containers.Map('KeyType', 'int32', 'ValueType', 'any');
@@ -39,14 +32,6 @@ classdef DOneMember
                 v = IceInternal.ValueHolder();
                 is.readValue(@(v_) v.set(v_), 'Test.COneMember');
                 r(k) = v;
-            end
-        end
-        function r = readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = Test.DOneMember.read(is);
-            else
-                r = Ice.Unset;
             end
         end
         function r = convert(d)

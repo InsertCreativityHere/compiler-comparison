@@ -11,13 +11,6 @@ classdef ByteEnumSeq
                 Test.ByteEnum.ice_write(os, seq(i));
             end
         end
-        function writeOpt(os, tag, seq)
-            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                Test.ByteEnumSeq.write(os, seq);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = Test.ByteEnum.empty();
@@ -26,6 +19,13 @@ classdef ByteEnumSeq
                 for i = 1:sz
                     r(i) = Test.ByteEnum.ice_read(is);
                 end
+            end
+        end
+        function writeOpt(os, tag, seq)
+            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
+                pos = os.startSize();
+                Test.ByteEnumSeq.write(os, seq);
+                os.endSize(pos);
             end
         end
         function r = readOpt(is, tag)

@@ -30,6 +30,12 @@ classdef InnerStruct
             r = Test.InnerStruct(IceInternal.NoInit.Instance);
             r.a = is.readInt();
         end
+        function ice_write(os, v)
+            if isempty(v)
+                v = Test.InnerStruct();
+            end
+            os.writeInt(v.a);
+        end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.VSize)
                 is.skipSize();
@@ -37,12 +43,6 @@ classdef InnerStruct
             else
                 r = Ice.Unset;
             end
-        end
-        function ice_write(os, v)
-            if isempty(v)
-                v = Test.InnerStruct();
-            end
-            os.writeInt(v.a);
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.VSize)

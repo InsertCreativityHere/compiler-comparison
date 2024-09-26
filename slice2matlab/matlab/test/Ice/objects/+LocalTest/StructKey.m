@@ -35,6 +35,13 @@ classdef StructKey
             r.i = is.readInt();
             r.j = is.readInt();
         end
+        function ice_write(os, v)
+            if isempty(v)
+                v = LocalTest.StructKey();
+            end
+            os.writeInt(v.i);
+            os.writeInt(v.j);
+        end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.VSize)
                 is.skipSize();
@@ -42,13 +49,6 @@ classdef StructKey
             else
                 r = Ice.Unset;
             end
-        end
-        function ice_write(os, v)
-            if isempty(v)
-                v = LocalTest.StructKey();
-            end
-            os.writeInt(v.i);
-            os.writeInt(v.j);
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.VSize)

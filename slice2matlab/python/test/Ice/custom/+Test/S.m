@@ -65,14 +65,6 @@ classdef S
             r.s3 = is.readStringSeq();
             r.s4 = is.readStringSeq();
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = Test.S.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = Test.S();
@@ -85,6 +77,14 @@ classdef S
             os.writeStringSeq(v.s2);
             os.writeStringSeq(v.s3);
             os.writeStringSeq(v.s4);
+        end
+        function r = ice_readOpt(is, tag)
+            if is.readOptional(tag, Ice.OptionalFormat.FSize)
+                is.skip(4);
+                r = Test.S.ice_read(is);
+            else
+                r = Ice.Unset;
+            end
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

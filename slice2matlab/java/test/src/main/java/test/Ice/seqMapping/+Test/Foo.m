@@ -35,6 +35,13 @@ classdef Foo
             r.SLmem = is.readByteSeq();
             r.SLSmem = Test.SLS.read(is);
         end
+        function ice_write(os, v)
+            if isempty(v)
+                v = Test.Foo();
+            end
+            os.writeByteSeq(v.SLmem);
+            Test.SLS.write(os, v.SLSmem);
+        end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.FSize)
                 is.skip(4);
@@ -42,13 +49,6 @@ classdef Foo
             else
                 r = Ice.Unset;
             end
-        end
-        function ice_write(os, v)
-            if isempty(v)
-                v = Test.Foo();
-            end
-            os.writeByteSeq(v.SLmem);
-            Test.SLS.write(os, v.SLSmem);
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

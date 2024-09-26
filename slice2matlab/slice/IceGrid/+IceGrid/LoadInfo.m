@@ -45,14 +45,6 @@ classdef LoadInfo
             r.avg5 = is.readFloat();
             r.avg15 = is.readFloat();
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.VSize)
-                is.skipSize();
-                r = IceGrid.LoadInfo.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = IceGrid.LoadInfo();
@@ -60,6 +52,14 @@ classdef LoadInfo
             os.writeFloat(v.avg1);
             os.writeFloat(v.avg5);
             os.writeFloat(v.avg15);
+        end
+        function r = ice_readOpt(is, tag)
+            if is.readOptional(tag, Ice.OptionalFormat.VSize)
+                is.skipSize();
+                r = IceGrid.LoadInfo.ice_read(is);
+            else
+                r = Ice.Unset;
+            end
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.VSize)

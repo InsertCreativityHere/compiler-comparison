@@ -24,13 +24,6 @@ classdef SMap
                 end
             end
         end
-        function writeOpt(os, tag, d)
-            if d ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                Test.Inner.SMap.write(os, d);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = containers.Map('KeyType', 'char', 'ValueType', 'any');
@@ -38,6 +31,13 @@ classdef SMap
                 k = is.readString();
                 v = Test.Inner.Inner2.S.ice_read(is);
                 r(k) = v;
+            end
+        end
+        function writeOpt(os, tag, d)
+            if d ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
+                pos = os.startSize();
+                Test.Inner.SMap.write(os, d);
+                os.endSize(pos);
             end
         end
         function r = readOpt(is, tag)

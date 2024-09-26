@@ -43,27 +43,12 @@ classdef SS3
             r.c2 = c2_;
             is.readValue(@(v_) c2_.set(v_), 'Test.SS2');
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = Test.SS3.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = Test.SS3();
             end
             os.writeValue(v.c1);
             os.writeValue(v.c2);
-        end
-        function ice_writeOpt(os, tag, v)
-            if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                Test.SS3.ice_write(os, v);
-                os.endSize(pos);
-            end
         end
     end
 end

@@ -40,14 +40,6 @@ classdef PointD
             r.y = is.readDouble();
             r.z = is.readDouble();
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.VSize)
-                is.skipSize();
-                r = Test.PointD.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = Test.PointD();
@@ -55,6 +47,14 @@ classdef PointD
             os.writeDouble(v.x);
             os.writeDouble(v.y);
             os.writeDouble(v.z);
+        end
+        function r = ice_readOpt(is, tag)
+            if is.readOptional(tag, Ice.OptionalFormat.VSize)
+                is.skipSize();
+                r = Test.PointD.ice_read(is);
+            else
+                r = Ice.Unset;
+            end
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.VSize)

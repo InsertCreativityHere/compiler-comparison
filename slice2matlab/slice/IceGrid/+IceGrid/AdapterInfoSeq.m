@@ -11,13 +11,6 @@ classdef AdapterInfoSeq
                 IceGrid.AdapterInfo.ice_write(os, seq(i));
             end
         end
-        function writeOpt(os, tag, seq)
-            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                IceGrid.AdapterInfoSeq.write(os, seq);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = IceGrid.AdapterInfo.empty();
@@ -28,6 +21,13 @@ classdef AdapterInfoSeq
                     r(i).proxy = is.readProxy();
                     r(i).replicaGroupId = is.readString();
                 end
+            end
+        end
+        function writeOpt(os, tag, seq)
+            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
+                pos = os.startSize();
+                IceGrid.AdapterInfoSeq.write(os, seq);
+                os.endSize(pos);
             end
         end
         function r = readOpt(is, tag)

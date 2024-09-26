@@ -24,13 +24,6 @@ classdef goto
                 end
             end
         end
-        function writeOpt(os, tag, d)
-            if d ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                abstract.goto.write(os, d);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = containers.Map('KeyType', 'char', 'ValueType', 'any');
@@ -38,6 +31,13 @@ classdef goto
                 k = is.readString();
                 v = abstract.assert.ice_read(is);
                 r(k) = v;
+            end
+        end
+        function writeOpt(os, tag, d)
+            if d ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
+                pos = os.startSize();
+                abstract.goto.write(os, d);
+                os.endSize(pos);
             end
         end
         function r = readOpt(is, tag)

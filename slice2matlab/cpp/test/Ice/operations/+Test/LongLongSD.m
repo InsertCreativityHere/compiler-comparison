@@ -24,13 +24,6 @@ classdef LongLongSD
                 end
             end
         end
-        function writeOpt(os, tag, d)
-            if d ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                Test.LongLongSD.write(os, d);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = containers.Map('KeyType', 'int64', 'ValueType', 'any');
@@ -38,6 +31,13 @@ classdef LongLongSD
                 k = is.readLong();
                 v = is.readLongSeq();
                 r(k) = v;
+            end
+        end
+        function writeOpt(os, tag, d)
+            if d ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
+                pos = os.startSize();
+                Test.LongLongSD.write(os, d);
+                os.endSize(pos);
             end
         end
         function r = readOpt(is, tag)

@@ -30,6 +30,12 @@ classdef AnotherStruct
             r = Test.AnotherStruct(IceInternal.NoInit.Instance);
             r.s = is.readString();
         end
+        function ice_write(os, v)
+            if isempty(v)
+                v = Test.AnotherStruct();
+            end
+            os.writeString(v.s);
+        end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.FSize)
                 is.skip(4);
@@ -37,12 +43,6 @@ classdef AnotherStruct
             else
                 r = Ice.Unset;
             end
-        end
-        function ice_write(os, v)
-            if isempty(v)
-                v = Test.AnotherStruct();
-            end
-            os.writeString(v.s);
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

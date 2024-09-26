@@ -55,14 +55,6 @@ classdef St
             r.hashCode = is.readString();
             r.clone = is.readInt();
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = Clash.St.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = Clash.St();
@@ -73,6 +65,14 @@ classdef St
             os.writeInt(v.rhs);
             os.writeString(v.hashCode);
             os.writeInt(v.clone);
+        end
+        function r = ice_readOpt(is, tag)
+            if is.readOptional(tag, Ice.OptionalFormat.FSize)
+                is.skip(4);
+                r = Clash.St.ice_read(is);
+            else
+                r = Ice.Unset;
+            end
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

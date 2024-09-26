@@ -11,13 +11,6 @@ classdef ServerInstanceDescriptorSeq
                 IceGrid.ServerInstanceDescriptor.ice_write(os, seq(i));
             end
         end
-        function writeOpt(os, tag, seq)
-            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                IceGrid.ServerInstanceDescriptorSeq.write(os, seq);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = IceGrid.ServerInstanceDescriptor.empty();
@@ -29,6 +22,13 @@ classdef ServerInstanceDescriptorSeq
                     r(i).propertySet = IceGrid.PropertySetDescriptor.ice_read(is);
                     r(i).servicePropertySets = IceGrid.PropertySetDescriptorDict.read(is);
                 end
+            end
+        end
+        function writeOpt(os, tag, seq)
+            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
+                pos = os.startSize();
+                IceGrid.ServerInstanceDescriptorSeq.write(os, seq);
+                os.endSize(pos);
             end
         end
         function r = readOpt(is, tag)

@@ -11,13 +11,6 @@ classdef ServerDynamicInfoSeq
                 IceGrid.ServerDynamicInfo.ice_write(os, seq(i));
             end
         end
-        function writeOpt(os, tag, seq)
-            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                IceGrid.ServerDynamicInfoSeq.write(os, seq);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = IceGrid.ServerDynamicInfo.empty();
@@ -29,6 +22,13 @@ classdef ServerDynamicInfoSeq
                     r(i).pid = is.readInt();
                     r(i).enabled = is.readBool();
                 end
+            end
+        end
+        function writeOpt(os, tag, seq)
+            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
+                pos = os.startSize();
+                IceGrid.ServerDynamicInfoSeq.write(os, seq);
+                os.endSize(pos);
             end
         end
         function r = readOpt(is, tag)

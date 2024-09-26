@@ -11,13 +11,6 @@ classdef LargeStructQueue
                 Test.LargeStruct.ice_write(os, seq(i));
             end
         end
-        function writeOpt(os, tag, seq)
-            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                Test.LargeStructQueue.write(os, seq);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = Test.LargeStruct.empty();
@@ -35,6 +28,13 @@ classdef LargeStructQueue
                     r(i).e = Test.MyEnum.ice_read(is);
                     r(i).p = Test.MyInterfacePrx.ice_read(is);
                 end
+            end
+        end
+        function writeOpt(os, tag, seq)
+            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
+                pos = os.startSize();
+                Test.LargeStructQueue.write(os, seq);
+                os.endSize(pos);
             end
         end
         function r = readOpt(is, tag)

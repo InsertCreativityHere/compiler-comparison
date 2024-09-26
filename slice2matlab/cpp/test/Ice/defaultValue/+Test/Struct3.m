@@ -135,14 +135,6 @@ classdef Struct3
             r.zeroD = is.readDouble();
             r.zeroDotD = is.readDouble();
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = Test.Struct3.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = Test.Struct3();
@@ -169,6 +161,14 @@ classdef Struct3
             os.writeFloat(v.zeroDotF);
             os.writeDouble(v.zeroD);
             os.writeDouble(v.zeroDotD);
+        end
+        function r = ice_readOpt(is, tag)
+            if is.readOptional(tag, Ice.OptionalFormat.FSize)
+                is.skip(4);
+                r = Test.Struct3.ice_read(is);
+            else
+                r = Ice.Unset;
+            end
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

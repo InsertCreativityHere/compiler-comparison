@@ -11,13 +11,6 @@ classdef NodeDynamicInfoSeq
                 IceGrid.NodeDynamicInfo.ice_write(os, seq(i));
             end
         end
-        function writeOpt(os, tag, seq)
-            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                IceGrid.NodeDynamicInfoSeq.write(os, seq);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = IceGrid.NodeDynamicInfo.empty();
@@ -28,6 +21,13 @@ classdef NodeDynamicInfoSeq
                     r(i).servers = IceGrid.ServerDynamicInfoSeq.read(is);
                     r(i).adapters = IceGrid.AdapterDynamicInfoSeq.read(is);
                 end
+            end
+        end
+        function writeOpt(os, tag, seq)
+            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
+                pos = os.startSize();
+                IceGrid.NodeDynamicInfoSeq.write(os, seq);
+                os.endSize(pos);
             end
         end
         function r = readOpt(is, tag)

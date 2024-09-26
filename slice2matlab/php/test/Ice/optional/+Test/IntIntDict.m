@@ -24,6 +24,15 @@ classdef IntIntDict
                 end
             end
         end
+        function r = read(is)
+            sz = is.readSize();
+            r = containers.Map('KeyType', 'int32', 'ValueType', 'int32');
+            for i = 1:sz
+                k = is.readInt();
+                v = is.readInt();
+                r(k) = v;
+            end
+        end
         function writeOpt(os, tag, d)
             if d ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.VSize)
                 len = length(d);
@@ -33,15 +42,6 @@ classdef IntIntDict
                     os.writeSize(len * 8 + 1);
                 end
                 Test.IntIntDict.write(os, d);
-            end
-        end
-        function r = read(is)
-            sz = is.readSize();
-            r = containers.Map('KeyType', 'int32', 'ValueType', 'int32');
-            for i = 1:sz
-                k = is.readInt();
-                v = is.readInt();
-                r(k) = v;
             end
         end
         function r = readOpt(is, tag)

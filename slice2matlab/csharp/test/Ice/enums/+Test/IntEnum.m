@@ -40,14 +40,14 @@ classdef IntEnum < int32
                 os.writeEnum(int32(v), 2147483647);
             end
         end
+        function r = ice_read(is)
+            v = is.readEnum(2147483647);
+            r = Test.IntEnum.ice_getValue(v);
+        end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.Size)
                 Test.IntEnum.ice_write(os, v);
             end
-        end
-        function r = ice_read(is)
-            v = is.readEnum(2147483647);
-            r = Test.IntEnum.ice_getValue(v);
         end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.Size)

@@ -50,14 +50,6 @@ classdef TemplateDescriptor
             r.parameters = is.readStringSeq();
             r.parameterDefaults = IceGrid.StringStringDict.read(is);
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = IceGrid.TemplateDescriptor.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = IceGrid.TemplateDescriptor();
@@ -65,13 +57,6 @@ classdef TemplateDescriptor
             os.writeValue(v.descriptor);
             os.writeStringSeq(v.parameters);
             IceGrid.StringStringDict.write(os, v.parameterDefaults);
-        end
-        function ice_writeOpt(os, tag, v)
-            if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                IceGrid.TemplateDescriptor.ice_write(os, v);
-                os.endSize(pos);
-            end
         end
     end
 end

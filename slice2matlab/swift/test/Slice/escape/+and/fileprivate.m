@@ -11,6 +11,16 @@ classdef fileprivate
                 and.guard.ice_write(os, seq(i));
             end
         end
+        function r = read(is)
+            sz = is.readSize();
+            r = and.guard.empty();
+            if sz > 0
+                r(1, sz) = and.guard();
+                for i = 1:sz
+                    r(i).default = is.readInt();
+                end
+            end
+        end
         function writeOpt(os, tag, seq)
             if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.VSize)
                 len = length(seq);
@@ -20,16 +30,6 @@ classdef fileprivate
                     os.writeSize(len * 4 + 1);
                 end
                 and.fileprivate.write(os, seq);
-            end
-        end
-        function r = read(is)
-            sz = is.readSize();
-            r = and.guard.empty();
-            if sz > 0
-                r(1, sz) = and.guard();
-                for i = 1:sz
-                    r(i).default = is.readInt();
-                end
             end
         end
         function r = readOpt(is, tag)

@@ -11,13 +11,6 @@ classdef ObjectInfoSeq
                 IceGrid.ObjectInfo.ice_write(os, seq(i));
             end
         end
-        function writeOpt(os, tag, seq)
-            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                IceGrid.ObjectInfoSeq.write(os, seq);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = IceGrid.ObjectInfo.empty();
@@ -27,6 +20,13 @@ classdef ObjectInfoSeq
                     r(i).proxy = is.readProxy();
                     r(i).type = is.readString();
                 end
+            end
+        end
+        function writeOpt(os, tag, seq)
+            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
+                pos = os.startSize();
+                IceGrid.ObjectInfoSeq.write(os, seq);
+                os.endSize(pos);
             end
         end
         function r = readOpt(is, tag)

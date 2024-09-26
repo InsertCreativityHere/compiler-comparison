@@ -45,14 +45,6 @@ classdef S3
             r.sd = Test.StringDict.read(is);
             r.prx = is.readProxy();
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = Test.S3.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = Test.S3();
@@ -60,13 +52,6 @@ classdef S3
             os.writeValue(v.obj);
             Test.StringDict.write(os, v.sd);
             os.writeProxy(v.prx);
-        end
-        function ice_writeOpt(os, tag, v)
-            if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                Test.S3.ice_write(os, v);
-                os.endSize(pos);
-            end
         end
     end
 end

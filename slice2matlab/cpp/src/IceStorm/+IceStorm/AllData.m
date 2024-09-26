@@ -35,6 +35,13 @@ classdef AllData
             r.llus = IceStormElection.StringLogUpdateDict.read(is);
             r.subscribers = IceStorm.SubscriberRecordDict.read(is);
         end
+        function ice_write(os, v)
+            if isempty(v)
+                v = IceStorm.AllData();
+            end
+            IceStormElection.StringLogUpdateDict.write(os, v.llus);
+            IceStorm.SubscriberRecordDict.write(os, v.subscribers);
+        end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.FSize)
                 is.skip(4);
@@ -42,13 +49,6 @@ classdef AllData
             else
                 r = Ice.Unset;
             end
-        end
-        function ice_write(os, v)
-            if isempty(v)
-                v = IceStorm.AllData();
-            end
-            IceStormElection.StringLogUpdateDict.write(os, v.llus);
-            IceStorm.SubscriberRecordDict.write(os, v.subscribers);
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

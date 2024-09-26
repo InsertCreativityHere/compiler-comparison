@@ -43,6 +43,13 @@ classdef Identity
             r.name = is.readString();
             r.category = is.readString();
         end
+        function ice_write(os, v)
+            if isempty(v)
+                v = Ice.Identity();
+            end
+            os.writeString(v.name);
+            os.writeString(v.category);
+        end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.FSize)
                 is.skip(4);
@@ -50,13 +57,6 @@ classdef Identity
             else
                 r = Ice.Unset;
             end
-        end
-        function ice_write(os, v)
-            if isempty(v)
-                v = Ice.Identity();
-            end
-            os.writeString(v.name);
-            os.writeString(v.category);
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

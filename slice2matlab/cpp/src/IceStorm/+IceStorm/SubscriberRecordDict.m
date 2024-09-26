@@ -20,13 +20,6 @@ classdef SubscriberRecordDict
                 end
             end
         end
-        function writeOpt(os, tag, d)
-            if d ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                IceStorm.SubscriberRecordDict.write(os, d);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = struct('key', {}, 'value', {});
@@ -35,6 +28,13 @@ classdef SubscriberRecordDict
                 v = IceStorm.SubscriberRecord.ice_read(is);
                 r(i).key = k;
                 r(i).value = v;
+            end
+        end
+        function writeOpt(os, tag, d)
+            if d ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
+                pos = os.startSize();
+                IceStorm.SubscriberRecordDict.write(os, d);
+                os.endSize(pos);
             end
         end
         function r = readOpt(is, tag)

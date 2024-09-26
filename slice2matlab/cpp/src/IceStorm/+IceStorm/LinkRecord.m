@@ -45,14 +45,6 @@ classdef LinkRecord
             r.cost = is.readInt();
             r.theTopic = IceStorm.TopicPrx.ice_read(is);
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = IceStorm.LinkRecord.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = IceStorm.LinkRecord();
@@ -60,6 +52,14 @@ classdef LinkRecord
             os.writeProxy(v.obj);
             os.writeInt(v.cost);
             os.writeProxy(v.theTopic);
+        end
+        function r = ice_readOpt(is, tag)
+            if is.readOptional(tag, Ice.OptionalFormat.FSize)
+                is.skip(4);
+                r = IceStorm.LinkRecord.ice_read(is);
+            else
+                r = Ice.Unset;
+            end
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

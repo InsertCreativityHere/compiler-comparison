@@ -24,6 +24,15 @@ classdef LongFloatD
                 end
             end
         end
+        function r = read(is)
+            sz = is.readSize();
+            r = containers.Map('KeyType', 'int64', 'ValueType', 'single');
+            for i = 1:sz
+                k = is.readLong();
+                v = is.readFloat();
+                r(k) = v;
+            end
+        end
         function writeOpt(os, tag, d)
             if d ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.VSize)
                 len = length(d);
@@ -33,15 +42,6 @@ classdef LongFloatD
                     os.writeSize(len * 12 + 1);
                 end
                 Test.LongFloatD.write(os, d);
-            end
-        end
-        function r = read(is)
-            sz = is.readSize();
-            r = containers.Map('KeyType', 'int64', 'ValueType', 'single');
-            for i = 1:sz
-                k = is.readLong();
-                v = is.readFloat();
-                r(k) = v;
             end
         end
         function r = readOpt(is, tag)

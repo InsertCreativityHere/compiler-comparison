@@ -39,6 +39,13 @@ classdef ObjectInfo
             r.proxy = is.readProxy();
             r.type = is.readString();
         end
+        function ice_write(os, v)
+            if isempty(v)
+                v = IceGrid.ObjectInfo();
+            end
+            os.writeProxy(v.proxy);
+            os.writeString(v.type);
+        end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.FSize)
                 is.skip(4);
@@ -46,13 +53,6 @@ classdef ObjectInfo
             else
                 r = Ice.Unset;
             end
-        end
-        function ice_write(os, v)
-            if isempty(v)
-                v = IceGrid.ObjectInfo();
-            end
-            os.writeProxy(v.proxy);
-            os.writeString(v.type);
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

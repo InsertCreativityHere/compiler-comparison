@@ -33,26 +33,11 @@ classdef S5
             r = LocalTest.S5(IceInternal.NoInit.Instance);
             r.c1dict = LocalTest.C1Dict.read(is);
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = LocalTest.S5.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = LocalTest.S5();
             end
             LocalTest.C1Dict.write(os, v.c1dict);
-        end
-        function ice_writeOpt(os, tag, v)
-            if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                LocalTest.S5.ice_write(os, v);
-                os.endSize(pos);
-            end
         end
     end
 end

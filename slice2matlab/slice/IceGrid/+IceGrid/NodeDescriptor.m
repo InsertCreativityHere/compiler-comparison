@@ -66,14 +66,6 @@ classdef NodeDescriptor
             r.description = is.readString();
             r.propertySets = IceGrid.PropertySetDescriptorDict.read(is);
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = IceGrid.NodeDescriptor.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = IceGrid.NodeDescriptor();
@@ -84,13 +76,6 @@ classdef NodeDescriptor
             os.writeString(v.loadFactor);
             os.writeString(v.description);
             IceGrid.PropertySetDescriptorDict.write(os, v.propertySets);
-        end
-        function ice_writeOpt(os, tag, v)
-            if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                IceGrid.NodeDescriptor.ice_write(os, v);
-                os.endSize(pos);
-            end
         end
     end
 end

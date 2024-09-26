@@ -68,14 +68,6 @@ classdef ReplicaGroupDescriptor
             r.description = is.readString();
             r.filter = is.readString();
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = IceGrid.ReplicaGroupDescriptor.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = IceGrid.ReplicaGroupDescriptor();
@@ -86,13 +78,6 @@ classdef ReplicaGroupDescriptor
             IceGrid.ObjectDescriptorSeq.write(os, v.objects);
             os.writeString(v.description);
             os.writeString(v.filter);
-        end
-        function ice_writeOpt(os, tag, v)
-            if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                IceGrid.ReplicaGroupDescriptor.ice_write(os, v);
-                os.endSize(pos);
-            end
         end
     end
 end

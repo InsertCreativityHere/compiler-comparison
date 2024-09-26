@@ -30,6 +30,12 @@ classdef ClassStruct
             r = Test.ClassStruct(IceInternal.NoInit.Instance);
             r.i = is.readInt();
         end
+        function ice_write(os, v)
+            if isempty(v)
+                v = Test.ClassStruct();
+            end
+            os.writeInt(v.i);
+        end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.VSize)
                 is.skipSize();
@@ -37,12 +43,6 @@ classdef ClassStruct
             else
                 r = Ice.Unset;
             end
-        end
-        function ice_write(os, v)
-            if isempty(v)
-                v = Test.ClassStruct();
-            end
-            os.writeInt(v.i);
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.VSize)

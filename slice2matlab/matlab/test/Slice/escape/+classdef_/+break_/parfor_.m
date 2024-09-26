@@ -11,13 +11,6 @@ classdef parfor_
                 classdef_.break_.bitor.ice_write(os, seq(i));
             end
         end
-        function writeOpt(os, tag, seq)
-            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                classdef_.break_.parfor_.write(os, seq);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = classdef_.break_.bitor.empty();
@@ -29,6 +22,13 @@ classdef parfor_
                     r(i).eq_ = is.readInt();
                     r(i).ne_ = is.readInt();
                 end
+            end
+        end
+        function writeOpt(os, tag, seq)
+            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
+                pos = os.startSize();
+                classdef_.break_.parfor_.write(os, seq);
+                os.endSize(pos);
             end
         end
         function r = readOpt(is, tag)

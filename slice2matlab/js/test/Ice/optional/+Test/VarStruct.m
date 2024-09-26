@@ -30,6 +30,12 @@ classdef VarStruct
             r = Test.VarStruct(IceInternal.NoInit.Instance);
             r.m = is.readString();
         end
+        function ice_write(os, v)
+            if isempty(v)
+                v = Test.VarStruct();
+            end
+            os.writeString(v.m);
+        end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.FSize)
                 is.skip(4);
@@ -37,12 +43,6 @@ classdef VarStruct
             else
                 r = Ice.Unset;
             end
-        end
-        function ice_write(os, v)
-            if isempty(v)
-                v = Test.VarStruct();
-            end
-            os.writeString(v.m);
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

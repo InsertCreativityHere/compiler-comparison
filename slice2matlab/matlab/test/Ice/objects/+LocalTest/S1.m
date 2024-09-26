@@ -35,26 +35,11 @@ classdef S1
             r.c1 = c1_;
             is.readValue(@(v_) c1_.set(v_), 'LocalTest.C1');
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = LocalTest.S1.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = LocalTest.S1();
             end
             os.writeValue(v.c1);
-        end
-        function ice_writeOpt(os, tag, v)
-            if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                LocalTest.S1.ice_write(os, v);
-                os.endSize(pos);
-            end
         end
     end
 end

@@ -45,14 +45,6 @@ classdef bitor
             r.eq_ = is.readInt();
             r.ne_ = is.readInt();
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = classdef_.break_.bitor.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = classdef_.break_.bitor();
@@ -61,6 +53,14 @@ classdef bitor
             os.writeInt(v.continue_);
             os.writeInt(v.eq_);
             os.writeInt(v.ne_);
+        end
+        function r = ice_readOpt(is, tag)
+            if is.readOptional(tag, Ice.OptionalFormat.FSize)
+                is.skip(4);
+                r = classdef_.break_.bitor.ice_read(is);
+            else
+                r = Ice.Unset;
+            end
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

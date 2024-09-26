@@ -39,6 +39,13 @@ classdef NodeInfo
             r.id = is.readInt();
             r.n = IceStormElection.NodePrx.ice_read(is);
         end
+        function ice_write(os, v)
+            if isempty(v)
+                v = IceStormElection.NodeInfo();
+            end
+            os.writeInt(v.id);
+            os.writeProxy(v.n);
+        end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.FSize)
                 is.skip(4);
@@ -46,13 +53,6 @@ classdef NodeInfo
             else
                 r = Ice.Unset;
             end
-        end
-        function ice_write(os, v)
-            if isempty(v)
-                v = IceStormElection.NodeInfo();
-            end
-            os.writeInt(v.id);
-            os.writeProxy(v.n);
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

@@ -26,14 +26,14 @@ classdef TopicName < uint8
                 os.writeEnum(int32(v), 4);
             end
         end
+        function r = ice_read(is)
+            v = is.readEnum(4);
+            r = IceGrid.TopicName.ice_getValue(v);
+        end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.Size)
                 IceGrid.TopicName.ice_write(os, v);
             end
-        end
-        function r = ice_read(is)
-            v = is.readEnum(4);
-            r = IceGrid.TopicName.ice_getValue(v);
         end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.Size)

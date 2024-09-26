@@ -11,13 +11,6 @@ classdef IdentitySeq
                 Ice.Identity.ice_write(os, seq(i));
             end
         end
-        function writeOpt(os, tag, seq)
-            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                Ice.IdentitySeq.write(os, seq);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = Ice.Identity.empty();
@@ -27,6 +20,13 @@ classdef IdentitySeq
                     r(i).name = is.readString();
                     r(i).category = is.readString();
                 end
+            end
+        end
+        function writeOpt(os, tag, seq)
+            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
+                pos = os.startSize();
+                Ice.IdentitySeq.write(os, seq);
+                os.endSize(pos);
             end
         end
         function r = readOpt(is, tag)

@@ -39,6 +39,13 @@ classdef AdapterDynamicInfo
             r.id = is.readString();
             r.proxy = is.readProxy();
         end
+        function ice_write(os, v)
+            if isempty(v)
+                v = IceGrid.AdapterDynamicInfo();
+            end
+            os.writeString(v.id);
+            os.writeProxy(v.proxy);
+        end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.FSize)
                 is.skip(4);
@@ -46,13 +53,6 @@ classdef AdapterDynamicInfo
             else
                 r = Ice.Unset;
             end
-        end
-        function ice_write(os, v)
-            if isempty(v)
-                v = IceGrid.AdapterDynamicInfo();
-            end
-            os.writeString(v.id);
-            os.writeProxy(v.proxy);
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

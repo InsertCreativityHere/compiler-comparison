@@ -30,6 +30,12 @@ classdef S
             r = Test.S(IceInternal.NoInit.Instance);
             r.en = Test.E.ice_read(is);
         end
+        function ice_write(os, v)
+            if isempty(v)
+                v = Test.S();
+            end
+            Test.E.ice_write(os, v.en);
+        end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.FSize)
                 is.skip(4);
@@ -37,12 +43,6 @@ classdef S
             else
                 r = Ice.Unset;
             end
-        end
-        function ice_write(os, v)
-            if isempty(v)
-                v = Test.S();
-            end
-            Test.E.ice_write(os, v.en);
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

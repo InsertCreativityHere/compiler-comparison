@@ -51,14 +51,6 @@ classdef EventData
             r.data = is.readByteSeq();
             r.context = Ice.Context.read(is);
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = IceStorm.EventData.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = IceStorm.EventData();
@@ -67,6 +59,14 @@ classdef EventData
             Ice.OperationMode.ice_write(os, v.mode);
             os.writeByteSeq(v.data);
             Ice.Context.write(os, v.context);
+        end
+        function r = ice_readOpt(is, tag)
+            if is.readOptional(tag, Ice.OptionalFormat.FSize)
+                is.skip(4);
+                r = IceStorm.EventData.ice_read(is);
+            else
+                r = Ice.Unset;
+            end
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

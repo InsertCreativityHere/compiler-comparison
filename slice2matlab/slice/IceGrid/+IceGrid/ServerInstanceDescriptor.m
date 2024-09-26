@@ -52,14 +52,6 @@ classdef ServerInstanceDescriptor
             r.propertySet = IceGrid.PropertySetDescriptor.ice_read(is);
             r.servicePropertySets = IceGrid.PropertySetDescriptorDict.read(is);
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = IceGrid.ServerInstanceDescriptor.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = IceGrid.ServerInstanceDescriptor();
@@ -68,6 +60,14 @@ classdef ServerInstanceDescriptor
             IceGrid.StringStringDict.write(os, v.parameterValues);
             IceGrid.PropertySetDescriptor.ice_write(os, v.propertySet);
             IceGrid.PropertySetDescriptorDict.write(os, v.servicePropertySets);
+        end
+        function r = ice_readOpt(is, tag)
+            if is.readOptional(tag, Ice.OptionalFormat.FSize)
+                is.skip(4);
+                r = IceGrid.ServerInstanceDescriptor.ice_read(is);
+            else
+                r = Ice.Unset;
+            end
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

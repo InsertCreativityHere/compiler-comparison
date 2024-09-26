@@ -45,14 +45,6 @@ classdef S2
             r.C1 = C1_;
             is.readValue(@(v_) C1_.set(v_), 'Test.C1');
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = Test.S2.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = Test.S2();
@@ -60,13 +52,6 @@ classdef S2
             Test.E1.ice_write(os, v.E1);
             Test.S1.ice_write(os, v.S1);
             os.writeValue(v.C1);
-        end
-        function ice_writeOpt(os, tag, v)
-            if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                Test.S2.ice_write(os, v);
-                os.endSize(pos);
-            end
         end
     end
 end

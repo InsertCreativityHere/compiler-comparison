@@ -11,13 +11,6 @@ classdef LinkInfoSeq
                 IceStorm.LinkInfo.ice_write(os, seq(i));
             end
         end
-        function writeOpt(os, tag, seq)
-            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                IceStorm.LinkInfoSeq.write(os, seq);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = IceStorm.LinkInfo.empty();
@@ -28,6 +21,13 @@ classdef LinkInfoSeq
                     r(i).name = is.readString();
                     r(i).cost = is.readInt();
                 end
+            end
+        end
+        function writeOpt(os, tag, seq)
+            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
+                pos = os.startSize();
+                IceStorm.LinkInfoSeq.write(os, seq);
+                os.endSize(pos);
             end
         end
         function r = readOpt(is, tag)

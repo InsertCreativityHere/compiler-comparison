@@ -11,17 +11,6 @@ classdef GroupInfoSeq
                 IceStormElection.GroupInfo.ice_write(os, seq(i));
             end
         end
-        function writeOpt(os, tag, seq)
-            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.VSize)
-                len = length(seq);
-                if len > 254
-                    os.writeSize(len * 20 + 5);
-                else
-                    os.writeSize(len * 20 + 1);
-                end
-                IceStormElection.GroupInfoSeq.write(os, seq);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = IceStormElection.GroupInfo.empty();
@@ -31,6 +20,17 @@ classdef GroupInfoSeq
                     r(i).id = is.readInt();
                     r(i).llu = IceStormElection.LogUpdate.ice_read(is);
                 end
+            end
+        end
+        function writeOpt(os, tag, seq)
+            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.VSize)
+                len = length(seq);
+                if len > 254
+                    os.writeSize(len * 20 + 5);
+                else
+                    os.writeSize(len * 20 + 1);
+                end
+                IceStormElection.GroupInfoSeq.write(os, seq);
             end
         end
         function r = readOpt(is, tag)

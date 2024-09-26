@@ -39,6 +39,13 @@ classdef PropertyDescriptor
             r.name = is.readString();
             r.value = is.readString();
         end
+        function ice_write(os, v)
+            if isempty(v)
+                v = IceGrid.PropertyDescriptor();
+            end
+            os.writeString(v.name);
+            os.writeString(v.value);
+        end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.FSize)
                 is.skip(4);
@@ -46,13 +53,6 @@ classdef PropertyDescriptor
             else
                 r = Ice.Unset;
             end
-        end
-        function ice_write(os, v)
-            if isempty(v)
-                v = IceGrid.PropertyDescriptor();
-            end
-            os.writeString(v.name);
-            os.writeString(v.value);
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

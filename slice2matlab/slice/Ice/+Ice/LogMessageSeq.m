@@ -11,13 +11,6 @@ classdef LogMessageSeq
                 Ice.LogMessage.ice_write(os, seq(i));
             end
         end
-        function writeOpt(os, tag, seq)
-            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                Ice.LogMessageSeq.write(os, seq);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = Ice.LogMessage.empty();
@@ -29,6 +22,13 @@ classdef LogMessageSeq
                     r(i).traceCategory = is.readString();
                     r(i).message = is.readString();
                 end
+            end
+        end
+        function writeOpt(os, tag, seq)
+            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
+                pos = os.startSize();
+                Ice.LogMessageSeq.write(os, seq);
+                os.endSize(pos);
             end
         end
         function r = readOpt(is, tag)

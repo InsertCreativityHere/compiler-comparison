@@ -39,6 +39,13 @@ classdef LogUpdate
             r.generation = is.readLong();
             r.iteration = is.readLong();
         end
+        function ice_write(os, v)
+            if isempty(v)
+                v = IceStormElection.LogUpdate();
+            end
+            os.writeLong(v.generation);
+            os.writeLong(v.iteration);
+        end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.VSize)
                 is.skipSize();
@@ -46,13 +53,6 @@ classdef LogUpdate
             else
                 r = Ice.Unset;
             end
-        end
-        function ice_write(os, v)
-            if isempty(v)
-                v = IceStormElection.LogUpdate();
-            end
-            os.writeLong(v.generation);
-            os.writeLong(v.iteration);
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.VSize)

@@ -24,13 +24,6 @@ classdef C1DictDict
                 end
             end
         end
-        function writeOpt(os, tag, d)
-            if d ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                LocalTest.C1DictDict.write(os, d);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = containers.Map('KeyType', 'int32', 'ValueType', 'any');
@@ -38,14 +31,6 @@ classdef C1DictDict
                 k = is.readInt();
                 v = LocalTest.C1Dict.read(is);
                 r(k) = v;
-            end
-        end
-        function r = readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = LocalTest.C1DictDict.read(is);
-            else
-                r = Ice.Unset;
             end
         end
         function r = convert(d)

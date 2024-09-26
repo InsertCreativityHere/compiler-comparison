@@ -30,6 +30,12 @@ classdef Polyline
             r = Test.Polyline(IceInternal.NoInit.Instance);
             r.vertices = Test.Points.read(is);
         end
+        function ice_write(os, v)
+            if isempty(v)
+                v = Test.Polyline();
+            end
+            Test.Points.write(os, v.vertices);
+        end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.FSize)
                 is.skip(4);
@@ -37,12 +43,6 @@ classdef Polyline
             else
                 r = Ice.Unset;
             end
-        end
-        function ice_write(os, v)
-            if isempty(v)
-                v = Test.Polyline();
-            end
-            Test.Points.write(os, v.vertices);
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

@@ -30,6 +30,12 @@ classdef continue_
             r = and.continue_(IceInternal.NoInit.Instance);
             r.def = is.readInt();
         end
+        function ice_write(os, v)
+            if isempty(v)
+                v = and.continue_();
+            end
+            os.writeInt(v.def);
+        end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.VSize)
                 is.skipSize();
@@ -37,12 +43,6 @@ classdef continue_
             else
                 r = Ice.Unset;
             end
-        end
-        function ice_write(os, v)
-            if isempty(v)
-                v = and.continue_();
-            end
-            os.writeInt(v.def);
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.VSize)

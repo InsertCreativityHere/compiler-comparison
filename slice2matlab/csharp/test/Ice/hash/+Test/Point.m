@@ -35,6 +35,13 @@ classdef Point
             r.x = is.readInt();
             r.y = is.readInt();
         end
+        function ice_write(os, v)
+            if isempty(v)
+                v = Test.Point();
+            end
+            os.writeInt(v.x);
+            os.writeInt(v.y);
+        end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.VSize)
                 is.skipSize();
@@ -42,13 +49,6 @@ classdef Point
             else
                 r = Ice.Unset;
             end
-        end
-        function ice_write(os, v)
-            if isempty(v)
-                v = Test.Point();
-            end
-            os.writeInt(v.x);
-            os.writeInt(v.y);
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.VSize)

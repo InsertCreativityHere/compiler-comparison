@@ -11,6 +11,16 @@ classdef SSeq
                 Test.Inner.Inner2.S.ice_write(os, seq(i));
             end
         end
+        function r = read(is)
+            sz = is.readSize();
+            r = Test.Inner.Inner2.S.empty();
+            if sz > 0
+                r(1, sz) = Test.Inner.Inner2.S();
+                for i = 1:sz
+                    r(i).v = is.readInt();
+                end
+            end
+        end
         function writeOpt(os, tag, seq)
             if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.VSize)
                 len = length(seq);
@@ -20,16 +30,6 @@ classdef SSeq
                     os.writeSize(len * 4 + 1);
                 end
                 Test.Inner.Inner2.SSeq.write(os, seq);
-            end
-        end
-        function r = read(is)
-            sz = is.readSize();
-            r = Test.Inner.Inner2.S.empty();
-            if sz > 0
-                r(1, sz) = Test.Inner.Inner2.S();
-                for i = 1:sz
-                    r(i).v = is.readInt();
-                end
             end
         end
         function r = readOpt(is, tag)

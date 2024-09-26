@@ -55,14 +55,6 @@ classdef S2
             r.S1Seq = Test.S1Seq.read(is);
             r.S1Map = Test.S1Map.read(is);
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = Test.S2.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = Test.S2();
@@ -72,13 +64,6 @@ classdef S2
             os.writeValue(v.C1);
             Test.S1Seq.write(os, v.S1Seq);
             Test.S1Map.write(os, v.S1Map);
-        end
-        function ice_writeOpt(os, tag, v)
-            if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                Test.S2.ice_write(os, v);
-                os.endSize(pos);
-            end
         end
     end
 end

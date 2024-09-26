@@ -30,6 +30,12 @@ classdef SC1
             r = Test.SC1(IceInternal.NoInit.Instance);
             r.id = is.readString();
         end
+        function ice_write(os, v)
+            if isempty(v)
+                v = Test.SC1();
+            end
+            os.writeString(v.id);
+        end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.FSize)
                 is.skip(4);
@@ -37,12 +43,6 @@ classdef SC1
             else
                 r = Ice.Unset;
             end
-        end
-        function ice_write(os, v)
-            if isempty(v)
-                v = Test.SC1();
-            end
-            os.writeString(v.id);
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

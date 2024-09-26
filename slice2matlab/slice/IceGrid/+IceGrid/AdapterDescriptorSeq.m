@@ -11,13 +11,6 @@ classdef AdapterDescriptorSeq
                 IceGrid.AdapterDescriptor.ice_write(os, seq(i));
             end
         end
-        function writeOpt(os, tag, seq)
-            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                IceGrid.AdapterDescriptorSeq.write(os, seq);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = IceGrid.AdapterDescriptor.empty();
@@ -34,6 +27,13 @@ classdef AdapterDescriptorSeq
                     r(i).objects = IceGrid.ObjectDescriptorSeq.read(is);
                     r(i).allocatables = IceGrid.ObjectDescriptorSeq.read(is);
                 end
+            end
+        end
+        function writeOpt(os, tag, seq)
+            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
+                pos = os.startSize();
+                IceGrid.AdapterDescriptorSeq.write(os, seq);
+                os.endSize(pos);
             end
         end
         function r = readOpt(is, tag)

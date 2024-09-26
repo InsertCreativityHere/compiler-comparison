@@ -46,14 +46,6 @@ classdef ObjectDescriptor
             r.type = is.readString();
             r.proxyOptions = is.readString();
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = IceGrid.ObjectDescriptor.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = IceGrid.ObjectDescriptor();
@@ -61,6 +53,14 @@ classdef ObjectDescriptor
             Ice.Identity.ice_write(os, v.id);
             os.writeString(v.type);
             os.writeString(v.proxyOptions);
+        end
+        function r = ice_readOpt(is, tag)
+            if is.readOptional(tag, Ice.OptionalFormat.FSize)
+                is.skip(4);
+                r = IceGrid.ObjectDescriptor.ice_read(is);
+            else
+                r = Ice.Unset;
+            end
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

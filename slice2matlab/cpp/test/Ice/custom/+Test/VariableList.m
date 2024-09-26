@@ -11,13 +11,6 @@ classdef VariableList
                 Test.Variable.ice_write(os, seq(i));
             end
         end
-        function writeOpt(os, tag, seq)
-            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                Test.VariableList.write(os, seq);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = Test.Variable.empty();
@@ -28,6 +21,13 @@ classdef VariableList
                     r(i).bl = is.readBoolSeq();
                     r(i).ss = is.readStringSeq();
                 end
+            end
+        end
+        function writeOpt(os, tag, seq)
+            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
+                pos = os.startSize();
+                Test.VariableList.write(os, seq);
+                os.endSize(pos);
             end
         end
         function r = readOpt(is, tag)

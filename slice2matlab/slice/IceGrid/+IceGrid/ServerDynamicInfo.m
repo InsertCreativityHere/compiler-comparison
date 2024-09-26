@@ -51,14 +51,6 @@ classdef ServerDynamicInfo
             r.pid = is.readInt();
             r.enabled = is.readBool();
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = IceGrid.ServerDynamicInfo.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = IceGrid.ServerDynamicInfo();
@@ -67,6 +59,14 @@ classdef ServerDynamicInfo
             IceGrid.ServerState.ice_write(os, v.state);
             os.writeInt(v.pid);
             os.writeBool(v.enabled);
+        end
+        function r = ice_readOpt(is, tag)
+            if is.readOptional(tag, Ice.OptionalFormat.FSize)
+                is.skip(4);
+                r = IceGrid.ServerDynamicInfo.ice_read(is);
+            else
+                r = Ice.Unset;
+            end
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

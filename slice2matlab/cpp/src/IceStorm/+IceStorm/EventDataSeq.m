@@ -11,13 +11,6 @@ classdef EventDataSeq
                 IceStorm.EventData.ice_write(os, seq(i));
             end
         end
-        function writeOpt(os, tag, seq)
-            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                IceStorm.EventDataSeq.write(os, seq);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = IceStorm.EventData.empty();
@@ -29,6 +22,13 @@ classdef EventDataSeq
                     r(i).data = is.readByteSeq();
                     r(i).context = Ice.Context.read(is);
                 end
+            end
+        end
+        function writeOpt(os, tag, seq)
+            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
+                pos = os.startSize();
+                IceStorm.EventDataSeq.write(os, seq);
+                os.endSize(pos);
             end
         end
         function r = readOpt(is, tag)

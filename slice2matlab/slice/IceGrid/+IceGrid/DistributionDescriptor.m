@@ -41,6 +41,13 @@ classdef DistributionDescriptor
             r.icepatch = is.readString();
             r.directories = is.readStringSeq();
         end
+        function ice_write(os, v)
+            if isempty(v)
+                v = IceGrid.DistributionDescriptor();
+            end
+            os.writeString(v.icepatch);
+            os.writeStringSeq(v.directories);
+        end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.FSize)
                 is.skip(4);
@@ -48,13 +55,6 @@ classdef DistributionDescriptor
             else
                 r = Ice.Unset;
             end
-        end
-        function ice_write(os, v)
-            if isempty(v)
-                v = IceGrid.DistributionDescriptor();
-            end
-            os.writeString(v.icepatch);
-            os.writeStringSeq(v.directories);
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

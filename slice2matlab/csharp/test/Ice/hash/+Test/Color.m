@@ -45,14 +45,6 @@ classdef Color
             r.b = is.readInt();
             r.a = is.readInt();
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.VSize)
-                is.skipSize();
-                r = Test.Color.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = Test.Color();
@@ -61,6 +53,14 @@ classdef Color
             os.writeInt(v.g);
             os.writeInt(v.b);
             os.writeInt(v.a);
+        end
+        function r = ice_readOpt(is, tag)
+            if is.readOptional(tag, Ice.OptionalFormat.VSize)
+                is.skipSize();
+                r = Test.Color.ice_read(is);
+            else
+                r = Ice.Unset;
+            end
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.VSize)

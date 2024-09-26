@@ -67,14 +67,6 @@ classdef QueryInfo
             r.up = IceStormElection.GroupInfoSeq.read(is);
             r.max = is.readInt();
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = IceStormElection.QueryInfo.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = IceStormElection.QueryInfo();
@@ -86,6 +78,14 @@ classdef QueryInfo
             IceStormElection.NodeState.ice_write(os, v.state);
             IceStormElection.GroupInfoSeq.write(os, v.up);
             os.writeInt(v.max);
+        end
+        function r = ice_readOpt(is, tag)
+            if is.readOptional(tag, Ice.OptionalFormat.FSize)
+                is.skip(4);
+                r = IceStormElection.QueryInfo.ice_read(is);
+            else
+                r = Ice.Unset;
+            end
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

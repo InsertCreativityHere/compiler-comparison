@@ -45,14 +45,6 @@ classdef Draw
             is.readValue(@(v_) pen_.set(v_), 'Test.Pen');
             r.shared = is.readBool();
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = Test.Draw.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = Test.Draw();
@@ -60,13 +52,6 @@ classdef Draw
             Test.Color.ice_write(os, v.backgroundColor);
             os.writeValue(v.pen);
             os.writeBool(v.shared);
-        end
-        function ice_writeOpt(os, tag, v)
-            if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                Test.Draw.ice_write(os, v);
-                os.endSize(pos);
-            end
         end
     end
 end

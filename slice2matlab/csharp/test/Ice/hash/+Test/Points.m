@@ -11,17 +11,6 @@ classdef Points
                 Test.Point.ice_write(os, seq(i));
             end
         end
-        function writeOpt(os, tag, seq)
-            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.VSize)
-                len = length(seq);
-                if len > 254
-                    os.writeSize(len * 8 + 5);
-                else
-                    os.writeSize(len * 8 + 1);
-                end
-                Test.Points.write(os, seq);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = Test.Point.empty();
@@ -31,6 +20,17 @@ classdef Points
                     r(i).x = is.readInt();
                     r(i).y = is.readInt();
                 end
+            end
+        end
+        function writeOpt(os, tag, seq)
+            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.VSize)
+                len = length(seq);
+                if len > 254
+                    os.writeSize(len * 8 + 5);
+                else
+                    os.writeSize(len * 8 + 1);
+                end
+                Test.Points.write(os, seq);
             end
         end
         function r = readOpt(is, tag)

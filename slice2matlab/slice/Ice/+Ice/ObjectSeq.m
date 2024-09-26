@@ -11,13 +11,6 @@ classdef ObjectSeq
                 os.writeValue(seq{i});
             end
         end
-        function writeOpt(os, tag, seq)
-            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                Ice.ObjectSeq.write(os, seq);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             if sz == 0
@@ -28,14 +21,6 @@ classdef ObjectSeq
                 for i = 1:sz
                     is.readValue(@(v) r.set(i, v), 'Ice.Value');
                 end
-            end
-        end
-        function r = readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = Ice.ObjectSeq.read(is);
-            else
-                r = Ice.Unset;
             end
         end
         function r = convert(seq)

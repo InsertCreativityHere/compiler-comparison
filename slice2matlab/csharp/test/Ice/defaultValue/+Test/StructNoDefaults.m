@@ -95,14 +95,6 @@ classdef StructNoDefaults
             r.st2 = Test.InnerStruct2.ice_read(is);
             r.dict = Test.IntStringDict.read(is);
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = Test.StructNoDefaults.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = Test.StructNoDefaults();
@@ -121,6 +113,14 @@ classdef StructNoDefaults
             Test.InnerStruct.ice_write(os, v.st);
             Test.InnerStruct2.ice_write(os, v.st2);
             Test.IntStringDict.write(os, v.dict);
+        end
+        function r = ice_readOpt(is, tag)
+            if is.readOptional(tag, Ice.OptionalFormat.FSize)
+                is.skip(4);
+                r = Test.StructNoDefaults.ice_read(is);
+            else
+                r = Ice.Unset;
+            end
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

@@ -43,27 +43,12 @@ classdef STwoMembers
             r.e2 = e2_;
             is.readValue(@(v_) e2_.set(v_), 'Test.Empty');
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = Test.STwoMembers.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = Test.STwoMembers();
             end
             os.writeValue(v.e1);
             os.writeValue(v.e2);
-        end
-        function ice_writeOpt(os, tag, v)
-            if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                Test.STwoMembers.ice_write(os, v);
-                os.endSize(pos);
-            end
         end
     end
 end

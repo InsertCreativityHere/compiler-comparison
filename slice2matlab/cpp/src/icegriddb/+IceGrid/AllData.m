@@ -53,14 +53,6 @@ classdef AllData
             r.internalObjects = IceGrid.ObjectInfoSeq.read(is);
             r.serials = IceGrid.StringLongDict.read(is);
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = IceGrid.AllData.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = IceGrid.AllData();
@@ -70,13 +62,6 @@ classdef AllData
             IceGrid.ObjectInfoSeq.write(os, v.objects);
             IceGrid.ObjectInfoSeq.write(os, v.internalObjects);
             IceGrid.StringLongDict.write(os, v.serials);
-        end
-        function ice_writeOpt(os, tag, v)
-            if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                IceGrid.AllData.ice_write(os, v);
-                os.endSize(pos);
-            end
         end
     end
 end

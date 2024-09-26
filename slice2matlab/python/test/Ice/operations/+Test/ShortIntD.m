@@ -24,6 +24,15 @@ classdef ShortIntD
                 end
             end
         end
+        function r = read(is)
+            sz = is.readSize();
+            r = containers.Map('KeyType', 'int32', 'ValueType', 'int32');
+            for i = 1:sz
+                k = is.readShort();
+                v = is.readInt();
+                r(k) = v;
+            end
+        end
         function writeOpt(os, tag, d)
             if d ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.VSize)
                 len = length(d);
@@ -33,15 +42,6 @@ classdef ShortIntD
                     os.writeSize(len * 6 + 1);
                 end
                 Test.ShortIntD.write(os, d);
-            end
-        end
-        function r = read(is)
-            sz = is.readSize();
-            r = containers.Map('KeyType', 'int32', 'ValueType', 'int32');
-            for i = 1:sz
-                k = is.readShort();
-                v = is.readInt();
-                r(k) = v;
             end
         end
         function r = readOpt(is, tag)

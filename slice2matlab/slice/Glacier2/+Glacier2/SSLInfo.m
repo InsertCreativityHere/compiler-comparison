@@ -65,14 +65,6 @@ classdef SSLInfo
             r.cipher = is.readString();
             r.certs = is.readStringSeq();
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = Glacier2.SSLInfo.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = Glacier2.SSLInfo();
@@ -83,6 +75,14 @@ classdef SSLInfo
             os.writeInt(v.localPort);
             os.writeString(v.cipher);
             os.writeStringSeq(v.certs);
+        end
+        function r = ice_readOpt(is, tag)
+            if is.readOptional(tag, Ice.OptionalFormat.FSize)
+                is.skip(4);
+                r = Glacier2.SSLInfo.ice_read(is);
+            else
+                r = Ice.Unset;
+            end
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

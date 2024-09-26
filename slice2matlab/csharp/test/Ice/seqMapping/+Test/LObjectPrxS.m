@@ -11,13 +11,6 @@ classdef LObjectPrxS
                 os.writeProxy(seq{i});
             end
         end
-        function writeOpt(os, tag, seq)
-            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                Test.LObjectPrxS.write(os, seq);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             if sz == 0
@@ -27,6 +20,13 @@ classdef LObjectPrxS
                 for i = 1:sz
                     r{i} = is.readProxy();
                 end
+            end
+        end
+        function writeOpt(os, tag, seq)
+            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
+                pos = os.startSize();
+                Test.LObjectPrxS.write(os, seq);
+                os.endSize(pos);
             end
         end
         function r = readOpt(is, tag)

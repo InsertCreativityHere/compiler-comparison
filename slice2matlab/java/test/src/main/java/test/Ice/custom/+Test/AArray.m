@@ -11,6 +11,16 @@ classdef AArray
                 Test.A.ice_write(os, seq(i));
             end
         end
+        function r = read(is)
+            sz = is.readSize();
+            r = Test.A.empty();
+            if sz > 0
+                r(1, sz) = Test.A();
+                for i = 1:sz
+                    r(i).i = is.readInt();
+                end
+            end
+        end
         function writeOpt(os, tag, seq)
             if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.VSize)
                 len = length(seq);
@@ -20,16 +30,6 @@ classdef AArray
                     os.writeSize(len * 4 + 1);
                 end
                 Test.AArray.write(os, seq);
-            end
-        end
-        function r = read(is)
-            sz = is.readSize();
-            r = Test.A.empty();
-            if sz > 0
-                r(1, sz) = Test.A();
-                for i = 1:sz
-                    r(i).i = is.readInt();
-                end
             end
         end
         function r = readOpt(is, tag)

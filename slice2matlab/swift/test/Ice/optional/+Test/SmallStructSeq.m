@@ -11,11 +11,6 @@ classdef SmallStructSeq
                 Test.SmallStruct.ice_write(os, seq(i));
             end
         end
-        function writeOpt(os, tag, seq)
-            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.VSize)
-                Test.SmallStructSeq.write(os, seq);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = Test.SmallStruct.empty();
@@ -24,6 +19,11 @@ classdef SmallStructSeq
                 for i = 1:sz
                     r(i).m = is.readByte();
                 end
+            end
+        end
+        function writeOpt(os, tag, seq)
+            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.VSize)
+                Test.SmallStructSeq.write(os, seq);
             end
         end
         function r = readOpt(is, tag)

@@ -24,13 +24,6 @@ classdef TemplateDescriptorDict
                 end
             end
         end
-        function writeOpt(os, tag, d)
-            if d ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                IceGrid.TemplateDescriptorDict.write(os, d);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = containers.Map('KeyType', 'char', 'ValueType', 'any');
@@ -38,14 +31,6 @@ classdef TemplateDescriptorDict
                 k = is.readString();
                 v = IceGrid.TemplateDescriptor.ice_read(is);
                 r(k) = v;
-            end
-        end
-        function r = readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = IceGrid.TemplateDescriptorDict.read(is);
-            else
-                r = Ice.Unset;
             end
         end
         function r = convert(d)

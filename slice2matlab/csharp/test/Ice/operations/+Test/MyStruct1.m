@@ -40,14 +40,6 @@ classdef MyStruct1
             r.myClass = Test.MyClassPrx.ice_read(is);
             r.myStruct1 = is.readString();
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = Test.MyStruct1.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = Test.MyStruct1();
@@ -55,6 +47,14 @@ classdef MyStruct1
             os.writeString(v.tesT);
             os.writeProxy(v.myClass);
             os.writeString(v.myStruct1);
+        end
+        function r = ice_readOpt(is, tag)
+            if is.readOptional(tag, Ice.OptionalFormat.FSize)
+                is.skip(4);
+                r = Test.MyStruct1.ice_read(is);
+            else
+                r = Ice.Unset;
+            end
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

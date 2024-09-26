@@ -24,6 +24,15 @@ classdef StringColorMap
                 end
             end
         end
+        function r = read(is)
+            sz = is.readSize();
+            r = containers.Map('KeyType', 'int32', 'ValueType', 'any');
+            for i = 1:sz
+                k = is.readInt();
+                v = Test.Color.ice_read(is);
+                r(k) = v;
+            end
+        end
         function writeOpt(os, tag, d)
             if d ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.VSize)
                 len = length(d);
@@ -33,15 +42,6 @@ classdef StringColorMap
                     os.writeSize(len * 20 + 1);
                 end
                 Test.StringColorMap.write(os, d);
-            end
-        end
-        function r = read(is)
-            sz = is.readSize();
-            r = containers.Map('KeyType', 'int32', 'ValueType', 'any');
-            for i = 1:sz
-                k = is.readInt();
-                v = Test.Color.ice_read(is);
-                r(k) = v;
             end
         end
         function r = readOpt(is, tag)

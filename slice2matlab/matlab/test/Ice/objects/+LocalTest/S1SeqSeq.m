@@ -11,13 +11,6 @@ classdef S1SeqSeq
                 LocalTest.S1Seq.write(os, seq{i});
             end
         end
-        function writeOpt(os, tag, seq)
-            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                LocalTest.S1SeqSeq.write(os, seq);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             if sz == 0
@@ -27,14 +20,6 @@ classdef S1SeqSeq
                 for i = 1:sz
                     r{i} = LocalTest.S1Seq.read(is);
                 end
-            end
-        end
-        function r = readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = LocalTest.S1SeqSeq.read(is);
-            else
-                r = Ice.Unset;
             end
         end
         function r = convert(seq)

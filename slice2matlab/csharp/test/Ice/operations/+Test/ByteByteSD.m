@@ -24,13 +24,6 @@ classdef ByteByteSD
                 end
             end
         end
-        function writeOpt(os, tag, d)
-            if d ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                Test.ByteByteSD.write(os, d);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = containers.Map('KeyType', 'int32', 'ValueType', 'any');
@@ -38,6 +31,13 @@ classdef ByteByteSD
                 k = is.readByte();
                 v = is.readByteSeq();
                 r(k) = v;
+            end
+        end
+        function writeOpt(os, tag, d)
+            if d ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
+                pos = os.startSize();
+                Test.ByteByteSD.write(os, d);
+                os.endSize(pos);
             end
         end
         function r = readOpt(is, tag)

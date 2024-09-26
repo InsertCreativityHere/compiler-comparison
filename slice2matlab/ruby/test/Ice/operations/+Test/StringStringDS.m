@@ -11,13 +11,6 @@ classdef StringStringDS
                 Test.StringStringD.write(os, seq{i});
             end
         end
-        function writeOpt(os, tag, seq)
-            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                Test.StringStringDS.write(os, seq);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             if sz == 0
@@ -27,6 +20,13 @@ classdef StringStringDS
                 for i = 1:sz
                     r{i} = Test.StringStringD.read(is);
                 end
+            end
+        end
+        function writeOpt(os, tag, seq)
+            if seq ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
+                pos = os.startSize();
+                Test.StringStringDS.write(os, seq);
+                os.endSize(pos);
             end
         end
         function r = readOpt(is, tag)

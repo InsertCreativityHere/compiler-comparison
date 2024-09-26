@@ -54,14 +54,6 @@ classdef ApplicationUpdateInfo
             r.revision = is.readInt();
             r.descriptor = IceGrid.ApplicationUpdateDescriptor.ice_read(is);
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = IceGrid.ApplicationUpdateInfo.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = IceGrid.ApplicationUpdateInfo();
@@ -70,13 +62,6 @@ classdef ApplicationUpdateInfo
             os.writeString(v.updateUser);
             os.writeInt(v.revision);
             IceGrid.ApplicationUpdateDescriptor.ice_write(os, v.descriptor);
-        end
-        function ice_writeOpt(os, tag, v)
-            if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                IceGrid.ApplicationUpdateInfo.ice_write(os, v);
-                os.endSize(pos);
-            end
         end
     end
 end

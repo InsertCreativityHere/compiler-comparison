@@ -20,13 +20,6 @@ classdef StructDict1
                 end
             end
         end
-        function writeOpt(os, tag, d)
-            if d ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                LocalTest.StructDict1.write(os, d);
-                os.endSize(pos);
-            end
-        end
         function r = read(is)
             sz = is.readSize();
             r = struct('key', {}, 'value', {});
@@ -36,14 +29,6 @@ classdef StructDict1
                 is.readValue(@(v_) v.set(v_), 'LocalTest.C1');
                 r(i).key = k;
                 r(i).value = v;
-            end
-        end
-        function r = readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = LocalTest.StructDict1.read(is);
-            else
-                r = Ice.Unset;
             end
         end
         function r = convert(d)

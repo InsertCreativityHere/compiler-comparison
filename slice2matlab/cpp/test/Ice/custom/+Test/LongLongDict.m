@@ -24,6 +24,15 @@ classdef LongLongDict
                 end
             end
         end
+        function r = read(is)
+            sz = is.readSize();
+            r = containers.Map('KeyType', 'int64', 'ValueType', 'int64');
+            for i = 1:sz
+                k = is.readLong();
+                v = is.readLong();
+                r(k) = v;
+            end
+        end
         function writeOpt(os, tag, d)
             if d ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.VSize)
                 len = length(d);
@@ -33,15 +42,6 @@ classdef LongLongDict
                     os.writeSize(len * 16 + 1);
                 end
                 Test.LongLongDict.write(os, d);
-            end
-        end
-        function r = read(is)
-            sz = is.readSize();
-            r = containers.Map('KeyType', 'int64', 'ValueType', 'int64');
-            for i = 1:sz
-                k = is.readLong();
-                v = is.readLong();
-                r(k) = v;
             end
         end
         function r = readOpt(is, tag)

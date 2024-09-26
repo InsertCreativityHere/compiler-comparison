@@ -35,6 +35,13 @@ classdef TEstNv
             r.d = Test.NV.read(is);
             r.s = is.readIntSeq();
         end
+        function ice_write(os, v)
+            if isempty(v)
+                v = Test.TEstNv();
+            end
+            Test.NV.write(os, v.d);
+            os.writeIntSeq(v.s);
+        end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.FSize)
                 is.skip(4);
@@ -42,13 +49,6 @@ classdef TEstNv
             else
                 r = Ice.Unset;
             end
-        end
-        function ice_write(os, v)
-            if isempty(v)
-                v = Test.TEstNv();
-            end
-            Test.NV.write(os, v.d);
-            os.writeIntSeq(v.s);
         end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)

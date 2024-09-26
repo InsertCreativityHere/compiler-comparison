@@ -33,26 +33,11 @@ classdef S8
             r = LocalTest.S8(IceInternal.NoInit.Instance);
             r.s1seqseq = LocalTest.S1SeqSeq.read(is);
         end
-        function r = ice_readOpt(is, tag)
-            if is.readOptional(tag, Ice.OptionalFormat.FSize)
-                is.skip(4);
-                r = LocalTest.S8.ice_read(is);
-            else
-                r = Ice.Unset;
-            end
-        end
         function ice_write(os, v)
             if isempty(v)
                 v = LocalTest.S8();
             end
             LocalTest.S1SeqSeq.write(os, v.s1seqseq);
-        end
-        function ice_writeOpt(os, tag, v)
-            if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.FSize)
-                pos = os.startSize();
-                LocalTest.S8.ice_write(os, v);
-                os.endSize(pos);
-            end
         end
     end
 end

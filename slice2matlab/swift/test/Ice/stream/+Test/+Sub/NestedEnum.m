@@ -22,14 +22,14 @@ classdef NestedEnum < uint8
                 os.writeEnum(int32(v), 2);
             end
         end
+        function r = ice_read(is)
+            v = is.readEnum(2);
+            r = Test.Sub.NestedEnum.ice_getValue(v);
+        end
         function ice_writeOpt(os, tag, v)
             if v ~= Ice.Unset && os.writeOptional(tag, Ice.OptionalFormat.Size)
                 Test.Sub.NestedEnum.ice_write(os, v);
             end
-        end
-        function r = ice_read(is)
-            v = is.readEnum(2);
-            r = Test.Sub.NestedEnum.ice_getValue(v);
         end
         function r = ice_readOpt(is, tag)
             if is.readOptional(tag, Ice.OptionalFormat.Size)
