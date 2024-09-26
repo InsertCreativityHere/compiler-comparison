@@ -311,5 +311,5 @@ public class StructProperty implements java.lang.Cloneable,
     private static final StructProperty _nullMarshalValue = new StructProperty();
 
     /** @hidden */
-    private static final long serialVersionUID = 1062379746472801301L;
+    private static final long serialVersionUID = -5853183633528723260L;
 }
