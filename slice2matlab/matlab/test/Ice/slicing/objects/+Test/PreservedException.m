@@ -18,8 +18,6 @@ classdef PreservedException < Ice.UserException
             id = '::Test::PreservedException';
         end
     end
-    methods(Hidden=true)
-    end
     methods(Access=protected)
         function obj = iceReadImpl(obj, is)
             is.startSlice();

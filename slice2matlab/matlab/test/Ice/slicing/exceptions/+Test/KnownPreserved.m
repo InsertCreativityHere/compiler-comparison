@@ -24,8 +24,6 @@ classdef KnownPreserved < Test.Base
             id = '::Test::KnownPreserved';
         end
     end
-    methods(Hidden=true)
-    end
     methods(Access=protected)
         function obj = iceReadImpl(obj, is)
             is.startSlice();
