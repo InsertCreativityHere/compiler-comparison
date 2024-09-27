@@ -395,9 +395,9 @@ public extension TestIntfPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
-                                           } catch let error as TestImpossibleException {
-                                               throw error
                                            } catch let error as TestIntfUserException {
+                                               throw error
+                                           } catch let error as TestImpossibleException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
@@ -412,9 +412,9 @@ public extension TestIntfPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
-                                           } catch let error as TestImpossibleException {
-                                               throw error
                                            } catch let error as TestIntfUserException {
+                                               throw error
+                                           } catch let error as TestImpossibleException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
@@ -429,9 +429,9 @@ public extension TestIntfPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
-                                           } catch let error as TestImpossibleException {
-                                               throw error
                                            } catch let error as TestIntfUserException {
+                                               throw error
+                                           } catch let error as TestImpossibleException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
