@@ -13424,8 +13424,6 @@ namespace Test
 
         public abstract string opString(string p1, string p2, out string p3, Ice.Current current);
 
-        public abstract MyEnum opMyEnum(MyEnum p1, out MyEnum p2, Ice.Current current);
-
         public abstract MyClassPrx? opMyClass(MyClassPrx? p1, out MyClassPrx? p2, out MyClassPrx? p3, Ice.Current current);
 
         public abstract Structure opStruct(Structure p1, Structure p2, out Structure p3, Ice.Current current);
@@ -13548,6 +13546,8 @@ namespace Test
 
         public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
 
+        public abstract MyEnum opMyEnum(MyEnum p1, out MyEnum p2, Ice.Current current);
+
         public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::Test::MyDerivedClass";
@@ -13656,8 +13656,6 @@ namespace Test2
         public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, Ice.Current current);
 
         public abstract string opString(string p1, string p2, out string p3, Ice.Current current);
-
-        public abstract global::Test.MyEnum opMyEnum(global::Test.MyEnum p1, out global::Test.MyEnum p2, Ice.Current current);
 
         public abstract global::Test.MyClassPrx? opMyClass(global::Test.MyClassPrx? p1, out global::Test.MyClassPrx? p2, out global::Test.MyClassPrx? p3, Ice.Current current);
 
@@ -13780,6 +13778,8 @@ namespace Test2
         public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
 
         public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
+
+        public abstract global::Test.MyEnum opMyEnum(global::Test.MyEnum p1, out global::Test.MyEnum p2, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
