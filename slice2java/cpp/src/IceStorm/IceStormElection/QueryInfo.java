@@ -231,5 +231,5 @@ public class QueryInfo implements java.lang.Cloneable,
     private static final QueryInfo _nullMarshalValue = new QueryInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = -7721909203618662522L;
+    private static final long serialVersionUID = 2612262423282990982L;
 }
