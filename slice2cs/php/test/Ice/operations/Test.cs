@@ -12220,14 +12220,6 @@ namespace Test
 
         public abstract MyClass1? opMyClass1(MyClass1? c, Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, MyEnum>[] opStringMyEnumDS(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<string, MyEnum>[] p3, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<short, int>[] opShortIntDS(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, out global::System.Collections.Generic.Dictionary<short, int>[] p3, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<long, float>[] opLongFloatDS(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, out global::System.Collections.Generic.Dictionary<long, float>[] p3, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, string>[] opStringStringDS(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, out global::System.Collections.Generic.Dictionary<string, string>[] p3, Ice.Current current);
-
         public abstract void shutdown(Ice.Current current);
 
         public abstract bool supportsCompress(Ice.Current current);
@@ -12283,6 +12275,14 @@ namespace Test
         public abstract global::System.Collections.Generic.Dictionary<MyEnum, string> opMyEnumStringD(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, out global::System.Collections.Generic.Dictionary<MyEnum, string> p3, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool>[] opByteBoolDS(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, out global::System.Collections.Generic.Dictionary<byte, bool>[] p3, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<short, int>[] opShortIntDS(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, out global::System.Collections.Generic.Dictionary<short, int>[] p3, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<long, float>[] opLongFloatDS(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, out global::System.Collections.Generic.Dictionary<long, float>[] p3, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, string>[] opStringStringDS(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, out global::System.Collections.Generic.Dictionary<string, string>[] p3, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, MyEnum>[] opStringMyEnumDS(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<string, MyEnum>[] p3, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<MyEnum, string>[] opMyEnumStringDS(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, out global::System.Collections.Generic.Dictionary<MyEnum, string>[] p3, Ice.Current current);
 
@@ -12432,14 +12432,6 @@ namespace Test2
 {
     public abstract class MyDerivedClassDisp_ : Ice.ObjectImpl, MyDerivedClass
     {
-        public abstract global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] opStringMyEnumDS(global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] p3, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<short, int>[] opShortIntDS(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, out global::System.Collections.Generic.Dictionary<short, int>[] p3, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<long, float>[] opLongFloatDS(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, out global::System.Collections.Generic.Dictionary<long, float>[] p3, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, string>[] opStringStringDS(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, out global::System.Collections.Generic.Dictionary<string, string>[] p3, Ice.Current current);
-
         public abstract void shutdown(Ice.Current current);
 
         public abstract bool supportsCompress(Ice.Current current);
@@ -12495,6 +12487,14 @@ namespace Test2
         public abstract global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> opMyEnumStringD(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p2, out global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p3, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool>[] opByteBoolDS(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, out global::System.Collections.Generic.Dictionary<byte, bool>[] p3, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<short, int>[] opShortIntDS(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, out global::System.Collections.Generic.Dictionary<short, int>[] p3, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<long, float>[] opLongFloatDS(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, out global::System.Collections.Generic.Dictionary<long, float>[] p3, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, string>[] opStringStringDS(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, out global::System.Collections.Generic.Dictionary<string, string>[] p3, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] opStringMyEnumDS(global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] p3, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] opMyEnumStringDS(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] p2, out global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string>[] p3, Ice.Current current);
 
