@@ -20,11 +20,11 @@ public class _package extends com.zeroc.Ice.Value
     public _package()
     {
         this._for = new _break();
-        this._goto = var.base;
+        this._goto = _var.base;
         this.debugger = "";
     }
 
-    public _package(_break _for, var _goto, explicitPrx _if, java.util.Map<java.lang.String, _break> internal, String debugger, explicitPrx _null)
+    public _package(_break _for, _var _goto, explicitPrx _if, java.util.Map<java.lang.String, _break> internal, String debugger, explicitPrx _null)
     {
         set_for(_for);
         set_goto(_goto);
@@ -87,10 +87,10 @@ public class _package extends com.zeroc.Ice.Value
         }
     }
 
-    private var _goto;
+    private _var _goto;
     private boolean _goto;
 
-    public var getGoto()
+    public _var getGoto()
     {
         if(!_goto)
         {
@@ -99,7 +99,7 @@ public class _package extends com.zeroc.Ice.Value
         return _goto;
     }
 
-    public void setGoto(var _goto)
+    public void setGoto(_var _goto)
     {
         _goto = true;
         this._goto = _goto;
@@ -115,7 +115,7 @@ public class _package extends com.zeroc.Ice.Value
         _goto = false;
     }
 
-    public void optionalGoto(java.util.Optional<var> v)
+    public void optionalGoto(java.util.Optional<_var> v)
     {
         if(v == null || !v.isPresent())
         {
@@ -128,7 +128,7 @@ public class _package extends com.zeroc.Ice.Value
         }
     }
 
-    public java.util.Optional<var> optionalGoto()
+    public java.util.Optional<_var> optionalGoto()
     {
         if(_goto)
         {
@@ -369,7 +369,7 @@ public class _package extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 6602681978764165589L;
+    private static final long serialVersionUID = -3133396270853292331L;
 
     /** @hidden */
     @Override
@@ -382,7 +382,7 @@ public class _package extends com.zeroc.Ice.Value
         }
         if(_goto)
         {
-            var.ice_write(ostr_, 2, _goto);
+            _var.ice_write(ostr_, 2, _goto);
         }
         if(_if)
         {
@@ -415,7 +415,7 @@ public class _package extends com.zeroc.Ice.Value
         }
         if(_goto = istr_.readOptional(2, com.zeroc.Ice.OptionalFormat.Size))
         {
-            _goto = var.ice_read(istr_);
+            _goto = _var.ice_read(istr_);
         }
         if(_if = istr_.readOptional(3, com.zeroc.Ice.OptionalFormat.FSize))
         {

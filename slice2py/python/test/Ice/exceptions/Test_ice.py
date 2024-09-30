@@ -353,11 +353,11 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
         def throwMarshalExceptionAsync(self, context=None):
             return _M_Test.Thrower._op_throwMarshalException.invokeAsync(self, ((), context))
 
-        def throwRequestFailedException(self, type, id, facet, operation, context=None):
-            return _M_Test.Thrower._op_throwRequestFailedException.invoke(self, ((type, id, facet, operation), context))
+        def throwRequestFailedException(self, _type, id, facet, operation, context=None):
+            return _M_Test.Thrower._op_throwRequestFailedException.invoke(self, ((_type, id, facet, operation), context))
 
-        def throwRequestFailedExceptionAsync(self, type, id, facet, operation, context=None):
-            return _M_Test.Thrower._op_throwRequestFailedException.invokeAsync(self, ((type, id, facet, operation), context))
+        def throwRequestFailedExceptionAsync(self, _type, id, facet, operation, context=None):
+            return _M_Test.Thrower._op_throwRequestFailedException.invokeAsync(self, ((_type, id, facet, operation), context))
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -454,7 +454,7 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
         def throwMarshalException(self, current=None):
             raise NotImplementedError("servant method 'throwMarshalException' not implemented")
 
-        def throwRequestFailedException(self, type, id, facet, operation, current=None):
+        def throwRequestFailedException(self, _type, id, facet, operation, current=None):
             raise NotImplementedError("servant method 'throwRequestFailedException' not implemented")
 
         def __str__(self):

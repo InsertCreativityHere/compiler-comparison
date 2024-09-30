@@ -26,7 +26,7 @@
 namespace Test
 {
     [Ice.SliceTypeId("::Test::Derived")]
-    public partial class Derived : @Base
+    public partial class Derived : Base
     {
         public string b = "";
 

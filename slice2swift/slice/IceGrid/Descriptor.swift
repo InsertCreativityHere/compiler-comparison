@@ -358,16 +358,16 @@ public struct ObjectDescriptor: Swift.Hashable {
     /// The identity of the object.
     public var id: Ice.Identity = Ice.Identity()
     /// The object type.
-    public var `type`: Swift.String = ""
+    public var type: Swift.String = ""
     /// Proxy options to use with the proxy created for this Ice object. If empty, the proxy will be created with
     /// the proxy options specified on the object adapter or replica group.
     public var proxyOptions: Swift.String = ""
 
     public init() {}
 
-    public init(id: Ice.Identity, `type`: Swift.String, proxyOptions: Swift.String) {
+    public init(id: Ice.Identity, type: Swift.String, proxyOptions: Swift.String) {
         self.id = id
-        self.`type` = `type`
+        self.type = type
         self.proxyOptions = proxyOptions
     }
 }
@@ -380,7 +380,7 @@ public extension Ice.InputStream {
     func read() throws -> ObjectDescriptor {
         var v = ObjectDescriptor()
         v.id = try self.read()
-        v.`type` = try self.read()
+        v.type = try self.read()
         v.proxyOptions = try self.read()
         return v
     }
@@ -406,7 +406,7 @@ public extension Ice.OutputStream {
     /// - parameter _: `ObjectDescriptor` - The value to write to the stream.
     func write(_ v: ObjectDescriptor) {
         self.write(v.id)
-        self.write(v.`type`)
+        self.write(v.type)
         self.write(v.proxyOptions)
     }
 

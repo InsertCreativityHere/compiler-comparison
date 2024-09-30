@@ -17,7 +17,7 @@ package and;
 
 public interface print extends com.zeroc.Ice.Object
 {
-    _assert raise(_continue _else, _for _return, delPrx _while, execPrx yield, ifPrx or, int global, com.zeroc.Ice.Current current)
+    _assert raise(_continue _else, _for _return, delPrx _while, execPrx _yield, ifPrx or, int global, com.zeroc.Ice.Current current)
         throws is;
 
     /** @hidden */

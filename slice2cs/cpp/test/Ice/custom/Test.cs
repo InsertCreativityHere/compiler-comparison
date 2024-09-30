@@ -25,19 +25,19 @@
 
 namespace Test
 {
-    public partial record struct @Fixed
+    public partial record struct Fixed
     {
         public short s;
 
         partial void ice_initialize();
 
-        public @Fixed(short s)
+        public Fixed(short s)
         {
             this.s = s;
             ice_initialize();
         }
 
-        public @Fixed(Ice.InputStream istr)
+        public Fixed(Ice.InputStream istr)
         {
             this.s = istr.readShort();
             ice_initialize();
@@ -48,12 +48,12 @@ namespace Test
             ostr.writeShort(this.s);
         }
 
-        public static void ice_write(Ice.OutputStream ostr, @Fixed v)
+        public static void ice_write(Ice.OutputStream ostr, Fixed v)
         {
             v.ice_writeMembers(ostr);
         }
 
-        public static @Fixed ice_read(Ice.InputStream istr) => new(istr);
+        public static Fixed ice_read(Ice.InputStream istr) => new(istr);
     }
 
     public sealed partial record class Variable
@@ -300,9 +300,9 @@ namespace Test
 
         string[] opStringList(string[] inSeq, out string[] outSeq, Ice.Current current);
 
-        @Fixed[] opFixedSeq(@Fixed[] inSeq, out @Fixed[] outSeq, Ice.Current current);
+        Fixed[] opFixedSeq(Fixed[] inSeq, out Fixed[] outSeq, Ice.Current current);
 
-        @Fixed[] opFixedList(@Fixed[] inSeq, out @Fixed[] outSeq, Ice.Current current);
+        Fixed[] opFixedList(Fixed[] inSeq, out Fixed[] outSeq, Ice.Current current);
 
         Variable[] opVariableSeq(Variable[] inSeq, out Variable[] outSeq, Ice.Current current);
 
@@ -370,9 +370,9 @@ namespace Test
 
     public record struct TestIntf_OpStringListResult(string[] returnValue, string[] outSeq);
 
-    public record struct TestIntf_OpFixedSeqResult(@Fixed[] returnValue, @Fixed[] outSeq);
+    public record struct TestIntf_OpFixedSeqResult(Fixed[] returnValue, Fixed[] outSeq);
 
-    public record struct TestIntf_OpFixedListResult(@Fixed[] returnValue, @Fixed[] outSeq);
+    public record struct TestIntf_OpFixedListResult(Fixed[] returnValue, Fixed[] outSeq);
 
     public record struct TestIntf_OpVariableSeqResult(Variable[] returnValue, Variable[] outSeq);
 
@@ -467,13 +467,13 @@ namespace Test
 
         global::System.Threading.Tasks.Task<TestIntf_OpStringListResult> opStringListAsync(string[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        @Fixed[] opFixedSeq(@Fixed[] inSeq, out @Fixed[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        Fixed[] opFixedSeq(Fixed[] inSeq, out Fixed[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpFixedSeqResult> opFixedSeqAsync(@Fixed[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<TestIntf_OpFixedSeqResult> opFixedSeqAsync(Fixed[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        @Fixed[] opFixedList(@Fixed[] inSeq, out @Fixed[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        Fixed[] opFixedList(Fixed[] inSeq, out Fixed[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<TestIntf_OpFixedListResult> opFixedListAsync(@Fixed[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<TestIntf_OpFixedListResult> opFixedListAsync(Fixed[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         Variable[] opVariableSeq(Variable[] inSeq, out Variable[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -969,7 +969,7 @@ namespace Test
 
     public sealed class FixedSeqHelper
     {
-        public static void write(Ice.OutputStream ostr, @Fixed[] v)
+        public static void write(Ice.OutputStream ostr, Fixed[] v)
         {
             if (v is null)
             {
@@ -985,15 +985,15 @@ namespace Test
             }
         }
 
-        public static @Fixed[] read(Ice.InputStream istr)
+        public static Fixed[] read(Ice.InputStream istr)
         {
-            @Fixed[] v;
+            Fixed[] v;
             {
                 int szx = istr.readAndCheckSeqSize(2);
-                v = new @Fixed[szx];
+                v = new Fixed[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix] = new @Fixed(istr);
+                    v[ix] = new Fixed(istr);
                 }
             }
             return v;
@@ -1002,7 +1002,7 @@ namespace Test
 
     public sealed class FixedListHelper
     {
-        public static void write(Ice.OutputStream ostr, @Fixed[] v)
+        public static void write(Ice.OutputStream ostr, Fixed[] v)
         {
             if (v is null)
             {
@@ -1018,15 +1018,15 @@ namespace Test
             }
         }
 
-        public static @Fixed[] read(Ice.InputStream istr)
+        public static Fixed[] read(Ice.InputStream istr)
         {
-            @Fixed[] v;
+            Fixed[] v;
             {
                 int szx = istr.readAndCheckSeqSize(2);
-                v = new @Fixed[szx];
+                v = new Fixed[szx];
                 for(int ix = 0; ix < szx; ++ix)
                 {
-                    v[ix] = new @Fixed(istr);
+                    v[ix] = new Fixed(istr);
                 }
             }
             return v;
@@ -1035,7 +1035,7 @@ namespace Test
 
     public sealed class FixedListListHelper
     {
-        public static void write(Ice.OutputStream ostr, @Fixed[][] v)
+        public static void write(Ice.OutputStream ostr, Fixed[][] v)
         {
             if (v is null)
             {
@@ -1051,12 +1051,12 @@ namespace Test
             }
         }
 
-        public static @Fixed[][] read(Ice.InputStream istr)
+        public static Fixed[][] read(Ice.InputStream istr)
         {
-            @Fixed[][] v;
+            Fixed[][] v;
             {
                 int szx = istr.readAndCheckSeqSize(1);
-                v = new @Fixed[szx][];
+                v = new Fixed[szx][];
                 for(int ix = 0; ix < szx; ++ix)
                 {
                     v[ix] = FixedListHelper.read(istr);
@@ -1068,7 +1068,7 @@ namespace Test
 
     public sealed class FixedListSeqHelper
     {
-        public static void write(Ice.OutputStream ostr, @Fixed[][] v)
+        public static void write(Ice.OutputStream ostr, Fixed[][] v)
         {
             if (v is null)
             {
@@ -1084,12 +1084,12 @@ namespace Test
             }
         }
 
-        public static @Fixed[][] read(Ice.InputStream istr)
+        public static Fixed[][] read(Ice.InputStream istr)
         {
-            @Fixed[][] v;
+            Fixed[][] v;
             {
                 int szx = istr.readAndCheckSeqSize(1);
-                v = new @Fixed[szx][];
+                v = new Fixed[szx][];
                 for(int ix = 0; ix < szx; ++ix)
                 {
                     v[ix] = FixedListHelper.read(istr);
@@ -1101,7 +1101,7 @@ namespace Test
 
     public sealed class FixedSeqListHelper
     {
-        public static void write(Ice.OutputStream ostr, @Fixed[][] v)
+        public static void write(Ice.OutputStream ostr, Fixed[][] v)
         {
             if (v is null)
             {
@@ -1117,12 +1117,12 @@ namespace Test
             }
         }
 
-        public static @Fixed[][] read(Ice.InputStream istr)
+        public static Fixed[][] read(Ice.InputStream istr)
         {
-            @Fixed[][] v;
+            Fixed[][] v;
             {
                 int szx = istr.readAndCheckSeqSize(1);
-                v = new @Fixed[szx][];
+                v = new Fixed[szx][];
                 for(int ix = 0; ix < szx; ++ix)
                 {
                     v[ix] = FixedSeqHelper.read(istr);
@@ -2484,7 +2484,7 @@ namespace Test
             }
         }
 
-        public @Fixed[] opFixedSeq(@Fixed[] inSeq, out @Fixed[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public Fixed[] opFixedSeq(Fixed[] inSeq, out Fixed[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -2498,7 +2498,7 @@ namespace Test
             }
         }
 
-        public @Fixed[] opFixedList(@Fixed[] inSeq, out @Fixed[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public Fixed[] opFixedList(Fixed[] inSeq, out Fixed[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -3263,12 +3263,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpFixedSeqResult> opFixedSeqAsync(@Fixed[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<TestIntf_OpFixedSeqResult> opFixedSeqAsync(Fixed[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opFixedSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpFixedSeqResult> _iceI_opFixedSeqAsync(@Fixed[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpFixedSeqResult> _iceI_opFixedSeqAsync(Fixed[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opFixedSeq_name);
             var completed = new Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpFixedSeqResult>(progress, cancel);
@@ -3278,7 +3278,7 @@ namespace Test
 
         private const string _opFixedSeq_name = "opFixedSeq";
 
-        private void _iceI_opFixedSeq(@Fixed[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opFixedSeq(Fixed[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<TestIntf_OpFixedSeqResult>(completed);
             outAsync.invoke(
@@ -3300,12 +3300,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpFixedListResult> opFixedListAsync(@Fixed[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<TestIntf_OpFixedListResult> opFixedListAsync(Fixed[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opFixedListAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<TestIntf_OpFixedListResult> _iceI_opFixedListAsync(@Fixed[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<TestIntf_OpFixedListResult> _iceI_opFixedListAsync(Fixed[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opFixedList_name);
             var completed = new Ice.Internal.OperationTaskCompletionCallback<TestIntf_OpFixedListResult>(progress, cancel);
@@ -3315,7 +3315,7 @@ namespace Test
 
         private const string _opFixedList_name = "opFixedList";
 
-        private void _iceI_opFixedList(@Fixed[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opFixedList(Fixed[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<TestIntf_OpFixedListResult>(completed);
             outAsync.invoke(
@@ -4044,9 +4044,9 @@ namespace Test
 
         public abstract string[] opStringList(string[] inSeq, out string[] outSeq, Ice.Current current);
 
-        public abstract @Fixed[] opFixedSeq(@Fixed[] inSeq, out @Fixed[] outSeq, Ice.Current current);
+        public abstract Fixed[] opFixedSeq(Fixed[] inSeq, out Fixed[] outSeq, Ice.Current current);
 
-        public abstract @Fixed[] opFixedList(@Fixed[] inSeq, out @Fixed[] outSeq, Ice.Current current);
+        public abstract Fixed[] opFixedList(Fixed[] inSeq, out Fixed[] outSeq, Ice.Current current);
 
         public abstract Variable[] opVariableSeq(Variable[] inSeq, out Variable[] outSeq, Ice.Current current);
 
@@ -4424,10 +4424,10 @@ namespace Test
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            @Fixed[] iceP_inSeq;
+            Fixed[] iceP_inSeq;
             iceP_inSeq = FixedSeqHelper.read(istr);
             istr.endEncapsulation();
-            @Fixed[] iceP_outSeq;
+            Fixed[] iceP_outSeq;
             var ret = obj.opFixedSeq(iceP_inSeq, out iceP_outSeq, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
             ostr.startEncapsulation(request.current.encoding, null);
@@ -4444,10 +4444,10 @@ namespace Test
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            @Fixed[] iceP_inSeq;
+            Fixed[] iceP_inSeq;
             iceP_inSeq = FixedListHelper.read(istr);
             istr.endEncapsulation();
-            @Fixed[] iceP_outSeq;
+            Fixed[] iceP_outSeq;
             var ret = obj.opFixedList(iceP_inSeq, out iceP_outSeq, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
             ostr.startEncapsulation(request.current.encoding, null);

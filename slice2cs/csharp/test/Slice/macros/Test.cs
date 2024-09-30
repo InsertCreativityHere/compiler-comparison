@@ -26,7 +26,7 @@
 namespace Test
 {
     [Ice.SliceTypeId("::Test::Default")]
-    public partial class @Default : Ice.Value
+    public partial class Default : Ice.Value
     {
         public int x = 10;
 
@@ -34,14 +34,14 @@ namespace Test
 
         partial void ice_initialize();
 
-        public @Default(int x, int y)
+        public Default(int x, int y)
         {
             this.x = x;
             this.y = y;
             ice_initialize();
         }
 
-        public @Default()
+        public Default()
         {
             ice_initialize();
         }

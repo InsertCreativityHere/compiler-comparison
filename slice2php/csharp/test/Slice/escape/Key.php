@@ -31,9 +31,9 @@ namespace _abstract
     global $abstract__t_break;
     class _break
     {
-        public function __construct($readonly=0)
+        public function __construct($_readonly=0)
         {
-            $this->readonly = $readonly;
+            $this->_readonly = $_readonly;
         }
 
         public function __toString(): string
@@ -42,12 +42,12 @@ namespace _abstract
             return IcePHP_stringify($this, $abstract__t_break);
         }
 
-        public $readonly;
+        public $_readonly;
     }
 
     global $IcePHP__t_int;
     $abstract__t_break = IcePHP_defineStruct('::abstract::break', '\\_abstract\\_break', array(
-        array('readonly', $IcePHP__t_int)));
+        array('_readonly', $IcePHP__t_int)));
 }
 
 namespace _abstract

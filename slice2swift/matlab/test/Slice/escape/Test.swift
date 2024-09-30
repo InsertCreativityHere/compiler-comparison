@@ -357,17 +357,17 @@ open class breakpersistent: Ice.UserException, @unchecked Sendable {
     public var message: Swift.String = "2"
     public var stack: Swift.String = "3"
     public var cause: Swift.String = "4"
-    public var `type`: Swift.String = "5"
+    public var type: Swift.String = "5"
     public var end: breaklogical? = nil
 
     public required init() {}
 
-    public init(identifier: Swift.String, message: Swift.String, stack: Swift.String, cause: Swift.String, `type`: Swift.String, end: breaklogical?) {
+    public init(identifier: Swift.String, message: Swift.String, stack: Swift.String, cause: Swift.String, type: Swift.String, end: breaklogical?) {
         self.identifier = identifier
         self.message = message
         self.stack = stack
         self.cause = cause
-        self.`type` = `type`
+        self.type = type
         self.end = end
     }
 
@@ -382,7 +382,7 @@ open class breakpersistent: Ice.UserException, @unchecked Sendable {
         ostr.write(self.message)
         ostr.write(self.stack)
         ostr.write(self.cause)
-        ostr.write(self.`type`)
+        ostr.write(self.type)
         ostr.write(self.end)
         ostr.endSlice()
     }
@@ -393,7 +393,7 @@ open class breakpersistent: Ice.UserException, @unchecked Sendable {
         self.message = try istr.read()
         self.stack = try istr.read()
         self.cause = try istr.read()
-        self.`type` = try istr.read()
+        self.type = try istr.read()
         try istr.read(breaklogical.self) { self.end = $0 }
         try istr.endSlice()
     }
@@ -423,9 +423,9 @@ open class breakglobal: breakpersistent, @unchecked Sendable {
         super.init()
     }
 
-    public init(identifier: Swift.String, message: Swift.String, stack: Swift.String, cause: Swift.String, `type`: Swift.String, end: breaklogical?, enumeration: Swift.Int32) {
+    public init(identifier: Swift.String, message: Swift.String, stack: Swift.String, cause: Swift.String, type: Swift.String, end: breaklogical?, enumeration: Swift.Int32) {
         self.enumeration = enumeration
-        super.init(identifier: identifier, message: message, stack: stack, cause: cause, `type`: `type`, end: end)
+        super.init(identifier: identifier, message: message, stack: stack, cause: cause, type: type, end: end)
     }
 
     /// Returns the Slice type ID of this exception.

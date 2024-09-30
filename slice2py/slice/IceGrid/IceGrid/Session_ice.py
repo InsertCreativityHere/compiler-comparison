@@ -129,14 +129,14 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
             """
             return _M_IceGrid.Session._op_allocateObjectById.invokeAsync(self, ((id, ), context))
 
-        def allocateObjectByType(self, type, context=None):
+        def allocateObjectByType(self, _type, context=None):
             """
             Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
             an object becomes available or until the timeout is reached.
             
             Parameters
             ----------
-            type : str
+            _type : str
                 The type of the object.
             context : Ice.Context
                 The request context for the invocation.
@@ -151,16 +151,16 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
             AllocationException
                 Raised if the object could not be allocated.
             """
-            return _M_IceGrid.Session._op_allocateObjectByType.invoke(self, ((type, ), context))
+            return _M_IceGrid.Session._op_allocateObjectByType.invoke(self, ((_type, ), context))
 
-        def allocateObjectByTypeAsync(self, type, context=None):
+        def allocateObjectByTypeAsync(self, _type, context=None):
             """
             Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
             an object becomes available or until the timeout is reached.
             
             Parameters
             ----------
-            type : str
+            _type : str
                 The type of the object.
             context : Ice.Context
                 The request context for the invocation.
@@ -170,7 +170,7 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
             Ice.Future
                 A future object that is completed with the result of the invocation.
             """
-            return _M_IceGrid.Session._op_allocateObjectByType.invokeAsync(self, ((type, ), context))
+            return _M_IceGrid.Session._op_allocateObjectByType.invokeAsync(self, ((_type, ), context))
 
         def releaseObject(self, id, context=None):
             """
@@ -322,14 +322,14 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
             """
             raise NotImplementedError("servant method 'allocateObjectById' not implemented")
 
-        def allocateObjectByType(self, type, current=None):
+        def allocateObjectByType(self, _type, current=None):
             """
             Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
             an object becomes available or until the timeout is reached.
             
             Parameters
             ----------
-            type : str
+            _type : str
                 The type of the object.
             current : Ice.Current
                 The Current object for the dispatch.

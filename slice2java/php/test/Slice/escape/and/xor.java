@@ -34,13 +34,13 @@ public class xor implements java.lang.Cloneable,
 
     public int use;
 
-    public int var;
+    public int _var;
 
     public xor()
     {
     }
 
-    public xor(int _abstract, int _clone, int _private, int _protected, int _public, int _this, int _throw, int use, int var)
+    public xor(int _abstract, int _clone, int _private, int _protected, int _public, int _this, int _throw, int use, int _var)
     {
         this._abstract = _abstract;
         this._clone = _clone;
@@ -50,7 +50,7 @@ public class xor implements java.lang.Cloneable,
         this._this = _this;
         this._throw = _throw;
         this.use = use;
-        this.var = var;
+        this._var = _var;
     }
 
     public boolean equals(java.lang.Object rhs)
@@ -99,7 +99,7 @@ public class xor implements java.lang.Cloneable,
             {
                 return false;
             }
-            if(this.var != r.var)
+            if(this._var != r._var)
             {
                 return false;
             }
@@ -122,7 +122,7 @@ public class xor implements java.lang.Cloneable,
         h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, _this);
         h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, _throw);
         h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, use);
-        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, var);
+        h_ = com.zeroc.Ice.HashUtil.hashAdd(h_, _var);
         return h_;
     }
 
@@ -150,7 +150,7 @@ public class xor implements java.lang.Cloneable,
         ostr.writeInt(this._this);
         ostr.writeInt(this._throw);
         ostr.writeInt(this.use);
-        ostr.writeInt(this.var);
+        ostr.writeInt(this._var);
     }
 
     public void ice_readMembers(com.zeroc.Ice.InputStream istr)
@@ -163,7 +163,7 @@ public class xor implements java.lang.Cloneable,
         this._this = istr.readInt();
         this._throw = istr.readInt();
         this.use = istr.readInt();
-        this.var = istr.readInt();
+        this._var = istr.readInt();
     }
 
     static public void ice_write(com.zeroc.Ice.OutputStream ostr, xor v)
@@ -218,5 +218,5 @@ public class xor implements java.lang.Cloneable,
     private static final xor _nullMarshalValue = new xor();
 
     /** @hidden */
-    private static final long serialVersionUID = 5559775017786619034L;
+    private static final long serialVersionUID = 7460503022277731213L;
 }

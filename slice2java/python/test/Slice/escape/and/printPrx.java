@@ -17,18 +17,18 @@ package and;
 
 public interface printPrx extends com.zeroc.Ice.ObjectPrx
 {
-    default _assert raise(_continue _else, _for _return, delPrx _while, execPrx yield, ifPrx or, int global)
+    default _assert raise(_continue _else, _for _return, delPrx _while, execPrx _yield, ifPrx or, int global)
         throws is
     {
-        return raise(_else, _return, _while, yield, or, global, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        return raise(_else, _return, _while, _yield, or, global, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default _assert raise(_continue _else, _for _return, delPrx _while, execPrx yield, ifPrx or, int global, java.util.Map<String, String> context)
+    default _assert raise(_continue _else, _for _return, delPrx _while, execPrx _yield, ifPrx or, int global, java.util.Map<String, String> context)
         throws is
     {
         try
         {
-            return _iceI_raiseAsync(_else, _return, _while, yield, or, global, context, true).waitForResponseOrUserEx();
+            return _iceI_raiseAsync(_else, _return, _while, _yield, or, global, context, true).waitForResponseOrUserEx();
         }
         catch(is ex)
         {
@@ -40,14 +40,14 @@ public interface printPrx extends com.zeroc.Ice.ObjectPrx
         }
     }
 
-    default java.util.concurrent.CompletableFuture<_assert> raiseAsync(_continue _else, _for _return, delPrx _while, execPrx yield, ifPrx or, int global)
+    default java.util.concurrent.CompletableFuture<_assert> raiseAsync(_continue _else, _for _return, delPrx _while, execPrx _yield, ifPrx or, int global)
     {
-        return _iceI_raiseAsync(_else, _return, _while, yield, or, global, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_raiseAsync(_else, _return, _while, _yield, or, global, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<_assert> raiseAsync(_continue _else, _for _return, delPrx _while, execPrx yield, ifPrx or, int global, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<_assert> raiseAsync(_continue _else, _for _return, delPrx _while, execPrx _yield, ifPrx or, int global, java.util.Map<String, String> context)
     {
-        return _iceI_raiseAsync(_else, _return, _while, yield, or, global, context, false);
+        return _iceI_raiseAsync(_else, _return, _while, _yield, or, global, context, false);
     }
 
     /**

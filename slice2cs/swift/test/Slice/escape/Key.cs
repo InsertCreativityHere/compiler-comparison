@@ -28,7 +28,7 @@ namespace and
     public enum @continue
     {
         let,
-        var
+        @var
     }
 
     public sealed class continueHelper

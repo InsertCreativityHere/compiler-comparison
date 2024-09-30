@@ -1469,7 +1469,7 @@ open class delete: Ice.Value {
 /// :nodoc:
 public class package_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
-        return package.self
+        return `package`.self
     }
 }
 
@@ -1479,7 +1479,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class package: Ice.Value {
+open class `package`: Ice.Value {
     public var `for`: `break`? = nil
     public var goto: `var`? = nil
     public var `if`: explicitPrx? = nil
@@ -1515,7 +1515,7 @@ open class package: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: package.ice_staticId(), compactId: -1, last: true)
+        ostr.startSlice(typeId: `package`.ice_staticId(), compactId: -1, last: true)
         ostr.write(tag: 1, value: self.`for`)
         ostr.write(tag: 2, value: self.goto)
         ostr.write(tag: 3, value: self.`if`)

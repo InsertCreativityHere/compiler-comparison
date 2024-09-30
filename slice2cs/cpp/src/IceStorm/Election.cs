@@ -154,7 +154,7 @@ namespace IceStormElection
         ///  inconsisency was detected.</exception>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, Ice.Current current);
+        void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord @record, Ice.Current current);
 
         /// <summary>
         /// Remove a subscriber from a topic.
@@ -572,7 +572,7 @@ namespace IceStormElection
         ///  inconsisency was detected.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord @record, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Add a subscriber to a topic.
@@ -587,7 +587,7 @@ namespace IceStormElection
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task addSubscriberAsync(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task addSubscriberAsync(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord @record, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Remove a subscriber from a topic.
@@ -911,11 +911,11 @@ namespace IceStormElection
             }
         }
 
-        public void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord @record, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_addSubscriberAsync(llu, topic, record, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_addSubscriberAsync(llu, topic, @record, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -1070,9 +1070,9 @@ namespace IceStormElection
                 });
         }
 
-        public global::System.Threading.Tasks.Task addSubscriberAsync(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task addSubscriberAsync(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord @record, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_addSubscriberAsync(llu, topic, record, context, progress, cancel, false);
+            return _iceI_addSubscriberAsync(llu, topic, @record, context, progress, cancel, false);
         }
 
         private global::System.Threading.Tasks.Task _iceI_addSubscriberAsync(LogUpdate iceP_llu, string iceP_topic, global::IceStorm.SubscriberRecord iceP_record, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
@@ -1792,7 +1792,7 @@ namespace IceStormElection
 
         public abstract void destroyTopic(LogUpdate llu, string name, Ice.Current current);
 
-        public abstract void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, Ice.Current current);
+        public abstract void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord @record, Ice.Current current);
 
         public abstract void removeSubscriber(LogUpdate llu, string topic, global::Ice.Identity[] subscribers, Ice.Current current);
 

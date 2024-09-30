@@ -87,12 +87,12 @@ if 'ObjectInfo' not in _M_IceGrid.__dict__:
         ----------
         proxy : (Ice.ObjectPrx or None)
             The proxy of the object.
-        type : str
+        _type : str
             The type of the object.
         """
-        def __init__(self, proxy=None, type=''):
+        def __init__(self, proxy=None, _type=''):
             self.proxy = proxy
-            self.type = type
+            self._type = _type
 
         def __eq__(self, other):
             if other is None:
@@ -102,7 +102,7 @@ if 'ObjectInfo' not in _M_IceGrid.__dict__:
             else:
                 if self.proxy != other.proxy:
                     return False
-                if self.type != other.type:
+                if self._type != other._type:
                     return False
                 return True
 
@@ -116,7 +116,7 @@ if 'ObjectInfo' not in _M_IceGrid.__dict__:
 
     _M_IceGrid._t_ObjectInfo = IcePy.defineStruct('::IceGrid::ObjectInfo', ObjectInfo, (), (
         ('proxy', (), IcePy._t_ObjectPrx),
-        ('type', (), IcePy._t_string)
+        ('_type', (), IcePy._t_string)
     ))
 
     _M_IceGrid.ObjectInfo = ObjectInfo
@@ -1815,7 +1815,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             """
             return _M_IceGrid.Admin._op_updateObject.invokeAsync(self, ((obj, ), context))
 
-        def addObjectWithType(self, obj, type, context=None):
+        def addObjectWithType(self, obj, _type, context=None):
             """
             Add an object to the object registry and explicitly specify its type.
             
@@ -1823,7 +1823,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             ----------
             obj : (Ice.ObjectPrx or None)
                 The object to be added to the registry. The proxy is never null.
-            type : str
+            _type : str
                 The object type.
             context : Ice.Context
                 The request context for the invocation.
@@ -1835,9 +1835,9 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             ObjectExistsException
                 Raised if the object is already registered.
             """
-            return _M_IceGrid.Admin._op_addObjectWithType.invoke(self, ((obj, type), context))
+            return _M_IceGrid.Admin._op_addObjectWithType.invoke(self, ((obj, _type), context))
 
-        def addObjectWithTypeAsync(self, obj, type, context=None):
+        def addObjectWithTypeAsync(self, obj, _type, context=None):
             """
             Add an object to the object registry and explicitly specify its type.
             
@@ -1845,7 +1845,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             ----------
             obj : (Ice.ObjectPrx or None)
                 The object to be added to the registry. The proxy is never null.
-            type : str
+            _type : str
                 The object type.
             context : Ice.Context
                 The request context for the invocation.
@@ -1855,7 +1855,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Ice.Future
                 A future object that is completed with the result of the invocation.
             """
-            return _M_IceGrid.Admin._op_addObjectWithType.invokeAsync(self, ((obj, type), context))
+            return _M_IceGrid.Admin._op_addObjectWithType.invokeAsync(self, ((obj, _type), context))
 
         def removeObject(self, id, context=None):
             """
@@ -1939,13 +1939,13 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             """
             return _M_IceGrid.Admin._op_getObjectInfo.invokeAsync(self, ((id, ), context))
 
-        def getObjectInfosByType(self, type, context=None):
+        def getObjectInfosByType(self, _type, context=None):
             """
             Get the object info of all the registered objects with the given type.
             
             Parameters
             ----------
-            type : str
+            _type : str
                 The type of the object.
             context : Ice.Context
                 The request context for the invocation.
@@ -1955,15 +1955,15 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             IceGrid.ObjectInfo[]
                 The object infos.
             """
-            return _M_IceGrid.Admin._op_getObjectInfosByType.invoke(self, ((type, ), context))
+            return _M_IceGrid.Admin._op_getObjectInfosByType.invoke(self, ((_type, ), context))
 
-        def getObjectInfosByTypeAsync(self, type, context=None):
+        def getObjectInfosByTypeAsync(self, _type, context=None):
             """
             Get the object info of all the registered objects with the given type.
             
             Parameters
             ----------
-            type : str
+            _type : str
                 The type of the object.
             context : Ice.Context
                 The request context for the invocation.
@@ -1973,7 +1973,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Ice.Future
                 A future object that is completed with the result of the invocation.
             """
-            return _M_IceGrid.Admin._op_getObjectInfosByType.invokeAsync(self, ((type, ), context))
+            return _M_IceGrid.Admin._op_getObjectInfosByType.invokeAsync(self, ((_type, ), context))
 
         def getAllObjectInfos(self, expr, context=None):
             """
@@ -3260,7 +3260,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             """
             raise NotImplementedError("servant method 'updateObject' not implemented")
 
-        def addObjectWithType(self, obj, type, current=None):
+        def addObjectWithType(self, obj, _type, current=None):
             """
             Add an object to the object registry and explicitly specify its type.
             
@@ -3268,7 +3268,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             ----------
             obj : (Ice.ObjectPrx or None)
                 The object to be added to the registry. The proxy is never null.
-            type : str
+            _type : str
                 The object type.
             current : Ice.Current
                 The Current object for the dispatch.
@@ -3337,13 +3337,13 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             """
             raise NotImplementedError("servant method 'getObjectInfo' not implemented")
 
-        def getObjectInfosByType(self, type, current=None):
+        def getObjectInfosByType(self, _type, current=None):
             """
             Get the object info of all the registered objects with the given type.
             
             Parameters
             ----------
-            type : str
+            _type : str
                 The type of the object.
             current : Ice.Current
                 The Current object for the dispatch.

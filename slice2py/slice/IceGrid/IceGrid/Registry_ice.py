@@ -122,14 +122,14 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             """
             return _M_IceGrid.Query._op_findObjectById.invokeAsync(self, ((id, ), context))
 
-        def findObjectByType(self, type, context=None):
+        def findObjectByType(self, _type, context=None):
             """
             Find a well-known object by type. If there are several objects registered for the given type, the object is
             randomly selected.
             
             Parameters
             ----------
-            type : str
+            _type : str
                 The object type.
             context : Ice.Context
                 The request context for the invocation.
@@ -139,16 +139,16 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             (Ice.ObjectPrx or None)
                 The proxy or null, if no such object has been found.
             """
-            return _M_IceGrid.Query._op_findObjectByType.invoke(self, ((type, ), context))
+            return _M_IceGrid.Query._op_findObjectByType.invoke(self, ((_type, ), context))
 
-        def findObjectByTypeAsync(self, type, context=None):
+        def findObjectByTypeAsync(self, _type, context=None):
             """
             Find a well-known object by type. If there are several objects registered for the given type, the object is
             randomly selected.
             
             Parameters
             ----------
-            type : str
+            _type : str
                 The object type.
             context : Ice.Context
                 The request context for the invocation.
@@ -158,9 +158,9 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             Ice.Future
                 A future object that is completed with the result of the invocation.
             """
-            return _M_IceGrid.Query._op_findObjectByType.invokeAsync(self, ((type, ), context))
+            return _M_IceGrid.Query._op_findObjectByType.invokeAsync(self, ((_type, ), context))
 
-        def findObjectByTypeOnLeastLoadedNode(self, type, sample, context=None):
+        def findObjectByTypeOnLeastLoadedNode(self, _type, sample, context=None):
             """
             Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
             the object (for example, because the object was registered with a direct proxy), the registry assumes the
@@ -168,7 +168,7 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             
             Parameters
             ----------
-            type : str
+            _type : str
                 The object type.
             sample : IceGrid.LoadSample
                 The sampling interval.
@@ -180,9 +180,9 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             (Ice.ObjectPrx or None)
                 The proxy or null, if no such object has been found.
             """
-            return _M_IceGrid.Query._op_findObjectByTypeOnLeastLoadedNode.invoke(self, ((type, sample), context))
+            return _M_IceGrid.Query._op_findObjectByTypeOnLeastLoadedNode.invoke(self, ((_type, sample), context))
 
-        def findObjectByTypeOnLeastLoadedNodeAsync(self, type, sample, context=None):
+        def findObjectByTypeOnLeastLoadedNodeAsync(self, _type, sample, context=None):
             """
             Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
             the object (for example, because the object was registered with a direct proxy), the registry assumes the
@@ -190,7 +190,7 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             
             Parameters
             ----------
-            type : str
+            _type : str
                 The object type.
             sample : IceGrid.LoadSample
                 The sampling interval.
@@ -202,15 +202,15 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             Ice.Future
                 A future object that is completed with the result of the invocation.
             """
-            return _M_IceGrid.Query._op_findObjectByTypeOnLeastLoadedNode.invokeAsync(self, ((type, sample), context))
+            return _M_IceGrid.Query._op_findObjectByTypeOnLeastLoadedNode.invokeAsync(self, ((_type, sample), context))
 
-        def findAllObjectsByType(self, type, context=None):
+        def findAllObjectsByType(self, _type, context=None):
             """
             Find all the well-known objects with the given type.
             
             Parameters
             ----------
-            type : str
+            _type : str
                 The object type.
             context : Ice.Context
                 The request context for the invocation.
@@ -220,15 +220,15 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             (Ice.ObjectPrx or None)[]
                 The proxies or an empty sequence, if no such objects have been found.
             """
-            return _M_IceGrid.Query._op_findAllObjectsByType.invoke(self, ((type, ), context))
+            return _M_IceGrid.Query._op_findAllObjectsByType.invoke(self, ((_type, ), context))
 
-        def findAllObjectsByTypeAsync(self, type, context=None):
+        def findAllObjectsByTypeAsync(self, _type, context=None):
             """
             Find all the well-known objects with the given type.
             
             Parameters
             ----------
-            type : str
+            _type : str
                 The object type.
             context : Ice.Context
                 The request context for the invocation.
@@ -238,7 +238,7 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             Ice.Future
                 A future object that is completed with the result of the invocation.
             """
-            return _M_IceGrid.Query._op_findAllObjectsByType.invokeAsync(self, ((type, ), context))
+            return _M_IceGrid.Query._op_findAllObjectsByType.invokeAsync(self, ((_type, ), context))
 
         def findAllReplicas(self, proxy, context=None):
             """
@@ -325,14 +325,14 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             """
             raise NotImplementedError("servant method 'findObjectById' not implemented")
 
-        def findObjectByType(self, type, current=None):
+        def findObjectByType(self, _type, current=None):
             """
             Find a well-known object by type. If there are several objects registered for the given type, the object is
             randomly selected.
             
             Parameters
             ----------
-            type : str
+            _type : str
                 The object type.
             current : Ice.Current
                 The Current object for the dispatch.
@@ -344,7 +344,7 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             """
             raise NotImplementedError("servant method 'findObjectByType' not implemented")
 
-        def findObjectByTypeOnLeastLoadedNode(self, type, sample, current=None):
+        def findObjectByTypeOnLeastLoadedNode(self, _type, sample, current=None):
             """
             Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
             the object (for example, because the object was registered with a direct proxy), the registry assumes the
@@ -352,7 +352,7 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             
             Parameters
             ----------
-            type : str
+            _type : str
                 The object type.
             sample : IceGrid.LoadSample
                 The sampling interval.
@@ -366,13 +366,13 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             """
             raise NotImplementedError("servant method 'findObjectByTypeOnLeastLoadedNode' not implemented")
 
-        def findAllObjectsByType(self, type, current=None):
+        def findAllObjectsByType(self, _type, current=None):
             """
             Find all the well-known objects with the given type.
             
             Parameters
             ----------
-            type : str
+            _type : str
                 The object type.
             current : Ice.Current
                 The Current object for the dispatch.

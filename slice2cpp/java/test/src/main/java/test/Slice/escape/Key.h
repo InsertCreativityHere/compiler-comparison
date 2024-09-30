@@ -338,10 +338,10 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    _cpp_else(::std::int32_t _cpp_if, ::std::optional<::abstract::defaultPrx> equals, ::std::int32_t final) noexcept :
+    _cpp_else(::std::int32_t _cpp_if, ::std::optional<::abstract::defaultPrx> equals, ::std::int32_t _cpp_final) noexcept :
         _cpp_if(_cpp_if),
         equals(::std::move(equals)),
-        final(final)
+        _cpp_final(_cpp_final)
     {
     }
 
@@ -359,7 +359,7 @@ public:
      */
     std::tuple<const ::std::int32_t&, const ::std::optional<::abstract::defaultPrx>&, const ::std::int32_t&> ice_tuple() const
     {
-        return std::tie(_cpp_if, equals, final);
+        return std::tie(_cpp_if, equals, _cpp_final);
     }
 
     /**
@@ -370,7 +370,7 @@ public:
 
     ::std::int32_t _cpp_if;
     ::std::optional<::abstract::defaultPrx> equals;
-    ::std::int32_t final;
+    ::std::int32_t _cpp_final;
 
 protected:
     _cpp_else(const _cpp_else&) = default;
@@ -424,18 +424,18 @@ protected:
     void _readImpl(::Ice::InputStream*) override;
 };
 
-class import : public hashCode
+class _cpp_import : public hashCode
 {
 public:
     /**
      * Default constructor.
      */
-    import() noexcept = default;
+    _cpp_import() noexcept = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    import(::std::int32_t _cpp_if, ::std::int32_t instanceof, ::std::int32_t native) noexcept :
+    _cpp_import(::std::int32_t _cpp_if, ::std::int32_t instanceof, ::std::int32_t native) noexcept :
         hashCode(_cpp_if),
         instanceof(instanceof),
         native(native)
@@ -668,7 +668,7 @@ struct StreamReader<::abstract::_cpp_else>
 {
     static void read(InputStream* istr, ::abstract::_cpp_else& v)
     {
-        istr->readAll(v._cpp_if, v.equals, v.final);
+        istr->readAll(v._cpp_if, v.equals, v._cpp_final);
     }
 };
 
@@ -682,18 +682,18 @@ struct StreamReader<::abstract::hashCode>
 };
 
 template<>
-struct StreamWriter<::abstract::import>
+struct StreamWriter<::abstract::_cpp_import>
 {
-    static void write(OutputStream* ostr, const ::abstract::import& v)
+    static void write(OutputStream* ostr, const ::abstract::_cpp_import& v)
     {
         ostr->writeAll(v.instanceof, v.native);
     }
 };
 
 template<>
-struct StreamReader<::abstract::import>
+struct StreamReader<::abstract::_cpp_import>
 {
-    static void read(InputStream* istr, ::abstract::import& v)
+    static void read(InputStream* istr, ::abstract::_cpp_import& v)
     {
         istr->readAll(v.instanceof, v.native);
     }

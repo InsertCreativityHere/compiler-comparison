@@ -68,7 +68,7 @@ if 'LogMessage' not in _M_Ice.__dict__:
         
         Attributes
         ----------
-        type : Ice.LogMessageType
+        _type : Ice.LogMessageType
             The type of message sent to the RemoteLogger.
         timestamp : int
             The date and time when the RemoteLogger received this message, expressed as the number of microseconds
@@ -78,15 +78,15 @@ if 'LogMessage' not in _M_Ice.__dict__:
         message : str
             The log message itself.
         """
-        def __init__(self, type=_M_Ice.LogMessageType.PrintMessage, timestamp=0, traceCategory='', message=''):
-            self.type = type
+        def __init__(self, _type=_M_Ice.LogMessageType.PrintMessage, timestamp=0, traceCategory='', message=''):
+            self._type = _type
             self.timestamp = timestamp
             self.traceCategory = traceCategory
             self.message = message
 
         def __hash__(self):
             _h = 0
-            _h = 5 * _h + _builtins.hash(self.type)
+            _h = 5 * _h + _builtins.hash(self._type)
             _h = 5 * _h + _builtins.hash(self.timestamp)
             _h = 5 * _h + _builtins.hash(self.traceCategory)
             _h = 5 * _h + _builtins.hash(self.message)
@@ -98,13 +98,13 @@ if 'LogMessage' not in _M_Ice.__dict__:
             elif not isinstance(other, _M_Ice.LogMessage):
                 return NotImplemented
             else:
-                if self.type is None or other.type is None:
-                    if self.type != other.type:
-                        return (-1 if self.type is None else 1)
+                if self._type is None or other._type is None:
+                    if self._type != other._type:
+                        return (-1 if self._type is None else 1)
                 else:
-                    if self.type < other.type:
+                    if self._type < other._type:
                         return -1
-                    elif self.type > other.type:
+                    elif self._type > other._type:
                         return 1
                 if self.timestamp is None or other.timestamp is None:
                     if self.timestamp != other.timestamp:
@@ -180,7 +180,7 @@ if 'LogMessage' not in _M_Ice.__dict__:
         __repr__ = __str__
 
     _M_Ice._t_LogMessage = IcePy.defineStruct('::Ice::LogMessage', LogMessage, (), (
-        ('type', (), _M_Ice._t_LogMessageType),
+        ('_type', (), _M_Ice._t_LogMessageType),
         ('timestamp', (), IcePy._t_long),
         ('traceCategory', (), IcePy._t_string),
         ('message', (), IcePy._t_string)

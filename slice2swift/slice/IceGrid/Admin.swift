@@ -160,13 +160,13 @@ public struct ObjectInfo {
     /// The proxy of the object.
     public var proxy: Ice.ObjectPrx? = nil
     /// The type of the object.
-    public var `type`: Swift.String = ""
+    public var type: Swift.String = ""
 
     public init() {}
 
-    public init(proxy: Ice.ObjectPrx?, `type`: Swift.String) {
+    public init(proxy: Ice.ObjectPrx?, type: Swift.String) {
         self.proxy = proxy
-        self.`type` = `type`
+        self.type = type
     }
 }
 
@@ -178,7 +178,7 @@ public extension Ice.InputStream {
     func read() throws -> ObjectInfo {
         var v = ObjectInfo()
         v.proxy = try self.read(Ice.ObjectPrx.self)
-        v.`type` = try self.read()
+        v.type = try self.read()
         return v
     }
 
@@ -203,7 +203,7 @@ public extension Ice.OutputStream {
     /// - parameter _: `ObjectInfo` - The value to write to the stream.
     func write(_ v: ObjectInfo) {
         self.write(v.proxy)
-        self.write(v.`type`)
+        self.write(v.type)
     }
 
     /// Write an optional `ObjectInfo?` structured value to the stream.
@@ -4898,13 +4898,13 @@ public extension AdminSessionPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
-                                           } catch let error as FileNotAvailableException {
-                                               throw error
                                            } catch let error as ServerNotExistException {
                                                throw error
                                            } catch let error as DeploymentException {
                                                throw error
                                            } catch let error as NodeUnreachableException {
+                                               throw error
+                                           } catch let error as FileNotAvailableException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
@@ -4945,13 +4945,13 @@ public extension AdminSessionPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
-                                           } catch let error as FileNotAvailableException {
-                                               throw error
                                            } catch let error as ServerNotExistException {
                                                throw error
                                            } catch let error as DeploymentException {
                                                throw error
                                            } catch let error as NodeUnreachableException {
+                                               throw error
+                                           } catch let error as FileNotAvailableException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
@@ -4992,13 +4992,13 @@ public extension AdminSessionPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
-                                           } catch let error as FileNotAvailableException {
-                                               throw error
                                            } catch let error as ServerNotExistException {
                                                throw error
                                            } catch let error as DeploymentException {
                                                throw error
                                            } catch let error as NodeUnreachableException {
+                                               throw error
+                                           } catch let error as FileNotAvailableException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
@@ -5037,11 +5037,11 @@ public extension AdminSessionPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
-                                           } catch let error as FileNotAvailableException {
-                                               throw error
                                            } catch let error as NodeNotExistException {
                                                throw error
                                            } catch let error as NodeUnreachableException {
+                                               throw error
+                                           } catch let error as FileNotAvailableException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
@@ -5080,11 +5080,11 @@ public extension AdminSessionPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
-                                           } catch let error as FileNotAvailableException {
-                                               throw error
                                            } catch let error as NodeNotExistException {
                                                throw error
                                            } catch let error as NodeUnreachableException {
+                                               throw error
+                                           } catch let error as FileNotAvailableException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
@@ -5123,11 +5123,11 @@ public extension AdminSessionPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
-                                           } catch let error as FileNotAvailableException {
-                                               throw error
                                            } catch let error as RegistryNotExistException {
                                                throw error
                                            } catch let error as RegistryUnreachableException {
+                                               throw error
+                                           } catch let error as FileNotAvailableException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
@@ -5166,11 +5166,11 @@ public extension AdminSessionPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
-                                           } catch let error as FileNotAvailableException {
-                                               throw error
                                            } catch let error as RegistryNotExistException {
                                                throw error
                                            } catch let error as RegistryUnreachableException {
+                                               throw error
+                                           } catch let error as FileNotAvailableException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },

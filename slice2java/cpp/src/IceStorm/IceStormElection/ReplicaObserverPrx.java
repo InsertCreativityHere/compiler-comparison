@@ -279,31 +279,31 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
      * Add a subscriber to a topic.
      * @param llu The log update token.
      * @param topic The topic name to which to add the subscriber.
-     * @param record The subscriber information.
+     * @param _record The subscriber information.
      * @throws ObserverInconsistencyException Raised if an
      * inconsisency was detected.
      **/
-    default void addSubscriber(LogUpdate llu, String topic, IceStorm.SubscriberRecord record)
+    default void addSubscriber(LogUpdate llu, String topic, IceStorm.SubscriberRecord _record)
         throws ObserverInconsistencyException
     {
-        addSubscriber(llu, topic, record, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        addSubscriber(llu, topic, _record, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
     /**
      * Add a subscriber to a topic.
      * @param llu The log update token.
      * @param topic The topic name to which to add the subscriber.
-     * @param record The subscriber information.
+     * @param _record The subscriber information.
      * @param context The Context map to send with the invocation.
      * @throws ObserverInconsistencyException Raised if an
      * inconsisency was detected.
      **/
-    default void addSubscriber(LogUpdate llu, String topic, IceStorm.SubscriberRecord record, java.util.Map<String, String> context)
+    default void addSubscriber(LogUpdate llu, String topic, IceStorm.SubscriberRecord _record, java.util.Map<String, String> context)
         throws ObserverInconsistencyException
     {
         try
         {
-            _iceI_addSubscriberAsync(llu, topic, record, context, true).waitForResponseOrUserEx();
+            _iceI_addSubscriberAsync(llu, topic, _record, context, true).waitForResponseOrUserEx();
         }
         catch(ObserverInconsistencyException ex)
         {
@@ -319,25 +319,25 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
      * Add a subscriber to a topic.
      * @param llu The log update token.
      * @param topic The topic name to which to add the subscriber.
-     * @param record The subscriber information.
+     * @param _record The subscriber information.
      * @return A future that will be completed when the invocation completes.
      **/
-    default java.util.concurrent.CompletableFuture<Void> addSubscriberAsync(LogUpdate llu, String topic, IceStorm.SubscriberRecord record)
+    default java.util.concurrent.CompletableFuture<Void> addSubscriberAsync(LogUpdate llu, String topic, IceStorm.SubscriberRecord _record)
     {
-        return _iceI_addSubscriberAsync(llu, topic, record, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_addSubscriberAsync(llu, topic, _record, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
     /**
      * Add a subscriber to a topic.
      * @param llu The log update token.
      * @param topic The topic name to which to add the subscriber.
-     * @param record The subscriber information.
+     * @param _record The subscriber information.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/
-    default java.util.concurrent.CompletableFuture<Void> addSubscriberAsync(LogUpdate llu, String topic, IceStorm.SubscriberRecord record, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> addSubscriberAsync(LogUpdate llu, String topic, IceStorm.SubscriberRecord _record, java.util.Map<String, String> context)
     {
-        return _iceI_addSubscriberAsync(llu, topic, record, context, false);
+        return _iceI_addSubscriberAsync(llu, topic, _record, context, false);
     }
 
     /**

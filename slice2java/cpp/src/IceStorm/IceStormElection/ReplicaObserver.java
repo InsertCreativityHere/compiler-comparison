@@ -57,12 +57,12 @@ public interface ReplicaObserver extends com.zeroc.Ice.Object
      * Add a subscriber to a topic.
      * @param llu The log update token.
      * @param topic The topic name to which to add the subscriber.
-     * @param record The subscriber information.
+     * @param _record The subscriber information.
      * @param current The Current object for the invocation.
      * @throws ObserverInconsistencyException Raised if an
      * inconsisency was detected.
      **/
-    void addSubscriber(LogUpdate llu, String topic, IceStorm.SubscriberRecord record, com.zeroc.Ice.Current current)
+    void addSubscriber(LogUpdate llu, String topic, IceStorm.SubscriberRecord _record, com.zeroc.Ice.Current current)
         throws ObserverInconsistencyException;
 
     /**

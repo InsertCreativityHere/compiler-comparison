@@ -193,21 +193,21 @@ if 'ObjectDescriptor' not in _M_IceGrid.__dict__:
         ----------
         id : Ice.Identity
             The identity of the object.
-        type : str
+        _type : str
             The object type.
         proxyOptions : str
             Proxy options to use with the proxy created for this Ice object. If empty, the proxy will be created with
             the proxy options specified on the object adapter or replica group.
         """
-        def __init__(self, id=None, type='', proxyOptions=''):
+        def __init__(self, id=None, _type='', proxyOptions=''):
             self.id = id if id is not None else _M_Ice.Identity()
-            self.type = type
+            self._type = _type
             self.proxyOptions = proxyOptions
 
         def __hash__(self):
             _h = 0
             _h = 5 * _h + _builtins.hash(self.id)
-            _h = 5 * _h + _builtins.hash(self.type)
+            _h = 5 * _h + _builtins.hash(self._type)
             _h = 5 * _h + _builtins.hash(self.proxyOptions)
             return _h % 0x7fffffff
 
@@ -225,13 +225,13 @@ if 'ObjectDescriptor' not in _M_IceGrid.__dict__:
                         return -1
                     elif self.id > other.id:
                         return 1
-                if self.type is None or other.type is None:
-                    if self.type != other.type:
-                        return (-1 if self.type is None else 1)
+                if self._type is None or other._type is None:
+                    if self._type != other._type:
+                        return (-1 if self._type is None else 1)
                 else:
-                    if self.type < other.type:
+                    if self._type < other._type:
                         return -1
-                    elif self.type > other.type:
+                    elif self._type > other._type:
                         return 1
                 if self.proxyOptions is None or other.proxyOptions is None:
                     if self.proxyOptions != other.proxyOptions:
@@ -292,7 +292,7 @@ if 'ObjectDescriptor' not in _M_IceGrid.__dict__:
 
     _M_IceGrid._t_ObjectDescriptor = IcePy.defineStruct('::IceGrid::ObjectDescriptor', ObjectDescriptor, (), (
         ('id', (), _M_Ice._t_Identity),
-        ('type', (), IcePy._t_string),
+        ('_type', (), IcePy._t_string),
         ('proxyOptions', (), IcePy._t_string)
     ))
 

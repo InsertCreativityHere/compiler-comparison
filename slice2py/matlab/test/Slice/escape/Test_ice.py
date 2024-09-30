@@ -319,12 +319,12 @@ if 'properties' not in _M_classdef._break.__dict__:
 if 'persistent' not in _M_classdef._break.__dict__:
     _M_classdef._break.persistent = None
     class persistent(Ice.UserException):
-        def __init__(self, identifier="1", message="2", stack="3", cause="4", type="5", end=None):
+        def __init__(self, identifier="1", message="2", stack="3", cause="4", _type="5", end=None):
             self.identifier = identifier
             self.message = message
             self.stack = stack
             self.cause = cause
-            self.type = type
+            self._type = _type
             self.end = end
 
         def __str__(self):
@@ -339,7 +339,7 @@ if 'persistent' not in _M_classdef._break.__dict__:
         ('message', (), IcePy._t_string, False, 0),
         ('stack', (), IcePy._t_string, False, 0),
         ('cause', (), IcePy._t_string, False, 0),
-        ('type', (), IcePy._t_string, False, 0),
+        ('_type', (), IcePy._t_string, False, 0),
         ('end', (), _M_classdef._break._t_logical, False, 0)
     ))
     persistent._ice_type = _M_classdef._break._t_persistent
@@ -350,8 +350,8 @@ if 'persistent' not in _M_classdef._break.__dict__:
 if '_global' not in _M_classdef._break.__dict__:
     _M_classdef._break._global = None
     class _global(_M_classdef._break.persistent):
-        def __init__(self, identifier="1", message="2", stack="3", cause="4", type="5", end=None, enumeration=1):
-            _M_classdef._break.persistent.__init__(self, identifier, message, stack, cause, type, end)
+        def __init__(self, identifier="1", message="2", stack="3", cause="4", _type="5", end=None, enumeration=1):
+            _M_classdef._break.persistent.__init__(self, identifier, message, stack, cause, _type, end)
             self.enumeration = enumeration
 
         def __str__(self):

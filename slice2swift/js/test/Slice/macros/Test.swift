@@ -19,7 +19,7 @@ import Ice
 /// :nodoc:
 public class Default_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
-        return `Default`.self
+        return Default.self
     }
 }
 
@@ -29,7 +29,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-open class `Default`: Ice.Value {
+open class Default: Ice.Value {
     public var x: Swift.Int32 = 0
     public var y: Swift.Int32 = 0
 
@@ -53,7 +53,7 @@ open class `Default`: Ice.Value {
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: `Default`.ice_staticId(), compactId: -1, last: true)
+        ostr.startSlice(typeId: Default.ice_staticId(), compactId: -1, last: true)
         ostr.write(self.x)
         ostr.write(self.y)
         ostr.endSlice()

@@ -29,7 +29,7 @@ public interface optionalParams extends com.zeroc.Ice.Object
         {
         }
 
-        public InResult(java.util.Optional<_break> returnValue, java.util.Optional<var> _goto, java.util.Optional<explicitPrx> _if, java.util.Optional<java.util.Map<java.lang.String, _break>> internal, java.util.Optional<java.lang.String> namespace, java.util.Optional<explicitPrx> _null)
+        public InResult(java.util.Optional<_break> returnValue, java.util.Optional<_var> _goto, java.util.Optional<explicitPrx> _if, java.util.Optional<java.util.Map<java.lang.String, _break>> internal, java.util.Optional<java.lang.String> namespace, java.util.Optional<explicitPrx> _null)
         {
             this.returnValue = returnValue;
             this._goto = _goto;
@@ -39,7 +39,7 @@ public interface optionalParams extends com.zeroc.Ice.Object
             this._null = _null;
         }
 
-        public InResult(_break returnValue, var _goto, explicitPrx _if, java.util.Map<java.lang.String, _break> internal, String namespace, explicitPrx _null)
+        public InResult(_break returnValue, _var _goto, explicitPrx _if, java.util.Map<java.lang.String, _break> internal, String namespace, explicitPrx _null)
         {
             this.returnValue = java.util.Optional.ofNullable(returnValue);
             this._goto = java.util.Optional.ofNullable(_goto);
@@ -50,7 +50,7 @@ public interface optionalParams extends com.zeroc.Ice.Object
         }
 
         public java.util.Optional<_break> returnValue;
-        public java.util.Optional<var> _goto;
+        public java.util.Optional<_var> _goto;
         public java.util.Optional<explicitPrx> _if;
         public java.util.Optional<java.util.Map<java.lang.String, _break>> internal;
         public java.util.Optional<java.lang.String> namespace;
@@ -59,7 +59,7 @@ public interface optionalParams extends com.zeroc.Ice.Object
         public void write(com.zeroc.Ice.OutputStream ostr)
         {
             _break.ice_write(ostr, 1, returnValue);
-            var.ice_write(ostr, 2, this._goto);
+            _var.ice_write(ostr, 2, this._goto);
             ostr.writeProxy(3, this._if);
             whileHelper.write(ostr, 5, this.internal);
             ostr.writeString(7, this.namespace);
@@ -69,7 +69,7 @@ public interface optionalParams extends com.zeroc.Ice.Object
         public void read(com.zeroc.Ice.InputStream istr)
         {
             returnValue = _break.ice_read(istr, 1);
-            this._goto = var.ice_read(istr, 2);
+            this._goto = _var.ice_read(istr, 2);
             this._if = istr.readProxy(3, explicitPrx::uncheckedCast);
             this.internal = whileHelper.read(istr, 5);
             this.namespace = istr.readString(7);
@@ -89,7 +89,7 @@ public interface optionalParams extends com.zeroc.Ice.Object
         {
         }
 
-        public ForeachResult(java.util.Optional<_break> returnValue, java.util.Optional<var> _goto, java.util.Optional<explicitPrx> _if, java.util.Optional<java.util.Map<java.lang.String, _break>> internal, java.util.Optional<java.lang.String> namespace, java.util.Optional<explicitPrx> _null)
+        public ForeachResult(java.util.Optional<_break> returnValue, java.util.Optional<_var> _goto, java.util.Optional<explicitPrx> _if, java.util.Optional<java.util.Map<java.lang.String, _break>> internal, java.util.Optional<java.lang.String> namespace, java.util.Optional<explicitPrx> _null)
         {
             this.returnValue = returnValue;
             this._goto = _goto;
@@ -99,7 +99,7 @@ public interface optionalParams extends com.zeroc.Ice.Object
             this._null = _null;
         }
 
-        public ForeachResult(_break returnValue, var _goto, explicitPrx _if, java.util.Map<java.lang.String, _break> internal, String namespace, explicitPrx _null)
+        public ForeachResult(_break returnValue, _var _goto, explicitPrx _if, java.util.Map<java.lang.String, _break> internal, String namespace, explicitPrx _null)
         {
             this.returnValue = java.util.Optional.ofNullable(returnValue);
             this._goto = java.util.Optional.ofNullable(_goto);
@@ -110,7 +110,7 @@ public interface optionalParams extends com.zeroc.Ice.Object
         }
 
         public java.util.Optional<_break> returnValue;
-        public java.util.Optional<var> _goto;
+        public java.util.Optional<_var> _goto;
         public java.util.Optional<explicitPrx> _if;
         public java.util.Optional<java.util.Map<java.lang.String, _break>> internal;
         public java.util.Optional<java.lang.String> namespace;
@@ -119,7 +119,7 @@ public interface optionalParams extends com.zeroc.Ice.Object
         public void write(com.zeroc.Ice.OutputStream ostr)
         {
             _break.ice_write(ostr, 1, returnValue);
-            var.ice_write(ostr, 2, this._goto);
+            _var.ice_write(ostr, 2, this._goto);
             ostr.writeProxy(3, this._if);
             whileHelper.write(ostr, 5, this.internal);
             ostr.writeString(7, this.namespace);
@@ -129,7 +129,7 @@ public interface optionalParams extends com.zeroc.Ice.Object
         public void read(com.zeroc.Ice.InputStream istr)
         {
             returnValue = _break.ice_read(istr, 1);
-            this._goto = var.ice_read(istr, 2);
+            this._goto = _var.ice_read(istr, 2);
             this._if = istr.readProxy(3, explicitPrx::uncheckedCast);
             this.internal = whileHelper.read(istr, 5);
             this.namespace = istr.readString(7);
@@ -137,9 +137,9 @@ public interface optionalParams extends com.zeroc.Ice.Object
         }
     }
 
-    java.util.Optional<_break> _for(java.util.Optional<var> _goto, java.util.Optional<explicitPrx> _if, java.util.Optional<java.util.Map<java.lang.String, _break>> internal, java.util.Optional<java.lang.String> namespace, java.util.Optional<explicitPrx> _null, com.zeroc.Ice.Current current);
+    java.util.Optional<_break> _for(java.util.Optional<_var> _goto, java.util.Optional<explicitPrx> _if, java.util.Optional<java.util.Map<java.lang.String, _break>> internal, java.util.Optional<java.lang.String> namespace, java.util.Optional<explicitPrx> _null, com.zeroc.Ice.Current current);
 
-    java.util.concurrent.CompletionStage<java.util.Optional<_break>> continueAsync(java.util.Optional<var> _goto, java.util.Optional<explicitPrx> _if, java.util.Optional<java.util.Map<java.lang.String, _break>> internal, java.util.Optional<java.lang.String> namespace, java.util.Optional<explicitPrx> _null, com.zeroc.Ice.Current current);
+    java.util.concurrent.CompletionStage<java.util.Optional<_break>> continueAsync(java.util.Optional<_var> _goto, java.util.Optional<explicitPrx> _if, java.util.Optional<java.util.Map<java.lang.String, _break>> internal, java.util.Optional<java.lang.String> namespace, java.util.Optional<explicitPrx> _null, com.zeroc.Ice.Current current);
 
     optionalParams.InResult in(com.zeroc.Ice.Current current);
 
@@ -175,12 +175,12 @@ public interface optionalParams extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        java.util.Optional<var> iceP_goto;
+        java.util.Optional<_var> iceP_goto;
         java.util.Optional<explicitPrx> iceP_if;
         java.util.Optional<java.util.Map<java.lang.String, _break>> iceP_internal;
         java.util.Optional<java.lang.String> iceP_namespace;
         java.util.Optional<explicitPrx> iceP_null;
-        iceP_goto = var.ice_read(istr, 2);
+        iceP_goto = _var.ice_read(istr, 2);
         iceP_if = istr.readProxy(3, explicitPrx::uncheckedCast);
         iceP_internal = whileHelper.read(istr, 5);
         iceP_namespace = istr.readString(7);
@@ -200,12 +200,12 @@ public interface optionalParams extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        java.util.Optional<var> iceP_goto;
+        java.util.Optional<_var> iceP_goto;
         java.util.Optional<explicitPrx> iceP_if;
         java.util.Optional<java.util.Map<java.lang.String, _break>> iceP_internal;
         java.util.Optional<java.lang.String> iceP_namespace;
         java.util.Optional<explicitPrx> iceP_null;
-        iceP_goto = var.ice_read(istr, 2);
+        iceP_goto = _var.ice_read(istr, 2);
         iceP_if = istr.readProxy(3, explicitPrx::uncheckedCast);
         iceP_internal = whileHelper.read(istr, 5);
         iceP_namespace = istr.readString(7);

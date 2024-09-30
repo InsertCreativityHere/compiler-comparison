@@ -15,7 +15,7 @@
 
 package await;
 
-public enum var
+public enum _var
 {
     base(0);
 
@@ -24,7 +24,7 @@ public enum var
         return _value;
     }
 
-    public static var valueOf(int v)
+    public static _var valueOf(int v)
     {
         switch(v)
         {
@@ -34,7 +34,7 @@ public enum var
         return null;
     }
 
-    private var(int v)
+    private _var(int v)
     {
         _value = v;
     }
@@ -44,11 +44,11 @@ public enum var
         ostr.writeEnum(_value, 0);
     }
 
-    public static void ice_write(com.zeroc.Ice.OutputStream ostr, var v)
+    public static void ice_write(com.zeroc.Ice.OutputStream ostr, _var v)
     {
         if(v == null)
         {
-            ostr.writeEnum(await.var.base.value(), 0);
+            ostr.writeEnum(await._var.base.value(), 0);
         }
         else
         {
@@ -56,13 +56,13 @@ public enum var
         }
     }
 
-    public static var ice_read(com.zeroc.Ice.InputStream istr)
+    public static _var ice_read(com.zeroc.Ice.InputStream istr)
     {
         int v = istr.readEnum(0);
         return validate(v);
     }
 
-    public static void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<var> v)
+    public static void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<_var> v)
     {
         if(v != null && v.isPresent())
         {
@@ -70,7 +70,7 @@ public enum var
         }
     }
 
-    public static void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, var v)
+    public static void ice_write(com.zeroc.Ice.OutputStream ostr, int tag, _var v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.Size))
         {
@@ -78,7 +78,7 @@ public enum var
         }
     }
 
-    public static java.util.Optional<var> ice_read(com.zeroc.Ice.InputStream istr, int tag)
+    public static java.util.Optional<_var> ice_read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.Size))
         {
@@ -90,9 +90,9 @@ public enum var
         }
     }
 
-    private static var validate(int v)
+    private static _var validate(int v)
     {
-        final var e = valueOf(v);
+        final _var e = valueOf(v);
         if(e == null)
         {
             throw new com.zeroc.Ice.MarshalException("enumerator value " + v + " is out of range");

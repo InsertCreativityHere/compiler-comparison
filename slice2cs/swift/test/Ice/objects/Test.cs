@@ -63,7 +63,7 @@ namespace Test
     }
 
     [Ice.SliceTypeId("::Test::Base")]
-    public partial class @Base : Ice.Value
+    public partial class Base : Ice.Value
     {
         public S theS;
 
@@ -71,7 +71,7 @@ namespace Test
 
         partial void ice_initialize();
 
-        public @Base(S theS, string str)
+        public Base(S theS, string str)
         {
             global::System.ArgumentNullException.ThrowIfNull(theS);
             this.theS = theS;
@@ -80,7 +80,7 @@ namespace Test
             ice_initialize();
         }
 
-        public @Base(S theS)
+        public Base(S theS)
         {
             global::System.ArgumentNullException.ThrowIfNull(theS);
             this.theS = theS;
@@ -88,7 +88,7 @@ namespace Test
         }
 
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public @Base()
+        public Base()
         {
             this.theS = null!;
             ice_initialize();
@@ -421,7 +421,7 @@ namespace Test
     }
 
     [Ice.SliceTypeId("::Test::G")]
-    public partial class G : @Base
+    public partial class G : Base
     {
         partial void ice_initialize();
 
@@ -1136,7 +1136,7 @@ namespace Test
 
         void setG(G? theG, Ice.Current current);
 
-        @Base?[] opBaseSeq(@Base?[] inSeq, out @Base?[] outSeq, Ice.Current current);
+        Base?[] opBaseSeq(Base?[] inSeq, out Base?[] outSeq, Ice.Current current);
 
         Compact? getCompact(Ice.Current current);
 
@@ -1162,7 +1162,7 @@ namespace Test
     [Ice.SliceTypeId("::Test::TestIntf")]
     public partial interface TestIntf : Ice.Object
     {
-        @Base? opDerived(Ice.Current current);
+        Base? opDerived(Ice.Current current);
 
         void throwDerived(Ice.Current current);
     }
@@ -1499,7 +1499,7 @@ namespace Test
 
     public record struct Initial_OpValueMapResult(global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> returnValue, global::System.Collections.Generic.Dictionary<string, global::Ice.Value?> v2);
 
-    public record struct Initial_OpBaseSeqResult(@Base?[] returnValue, @Base?[] outSeq);
+    public record struct Initial_OpBaseSeqResult(Base?[] returnValue, Base?[] outSeq);
 
     public record struct Initial_OpMResult(M? returnValue, M? v2);
 
@@ -1594,9 +1594,9 @@ namespace Test
 
         global::System.Threading.Tasks.Task setGAsync(G? theG, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        @Base?[] opBaseSeq(@Base?[] inSeq, out @Base?[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        Base?[] opBaseSeq(Base?[] inSeq, out Base?[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<Initial_OpBaseSeqResult> opBaseSeqAsync(@Base?[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<Initial_OpBaseSeqResult> opBaseSeqAsync(Base?[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         Compact? getCompact(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -1641,9 +1641,9 @@ namespace Test
 
     public interface TestIntfPrx : Ice.ObjectPrx
     {
-        @Base? opDerived(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        Base? opDerived(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task<@Base?> opDerivedAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task<Base?> opDerivedAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         void throwDerived(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -1662,7 +1662,7 @@ namespace Test
 {
     public sealed class BaseSeqHelper
     {
-        public static void write(Ice.OutputStream ostr, @Base?[] v)
+        public static void write(Ice.OutputStream ostr, Base?[] v)
         {
             if (v is null)
             {
@@ -1678,15 +1678,15 @@ namespace Test
             }
         }
 
-        public static @Base?[] read(Ice.InputStream istr)
+        public static Base?[] read(Ice.InputStream istr)
         {
-            @Base?[] v;
+            Base?[] v;
             {
                 int szx = istr.readAndCheckSeqSize(1);
-                v = new @Base?[szx];
+                v = new Base?[szx];
                 for (int ix = 0; ix < szx; ++ix)
                 {
-                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<@Base>(v, ix));
+                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<Base>(v, ix));
                 }
             }
             return v;
@@ -2044,7 +2044,7 @@ namespace Test
             }
         }
 
-        public @Base?[] opBaseSeq(@Base?[] inSeq, out @Base?[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public Base?[] opBaseSeq(Base?[] inSeq, out Base?[] outSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -2861,12 +2861,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<Initial_OpBaseSeqResult> opBaseSeqAsync(@Base?[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Initial_OpBaseSeqResult> opBaseSeqAsync(Base?[] inSeq, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opBaseSeqAsync(inSeq, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<Initial_OpBaseSeqResult> _iceI_opBaseSeqAsync(@Base?[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Initial_OpBaseSeqResult> _iceI_opBaseSeqAsync(Base?[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opBaseSeq_name);
             var completed = new Ice.Internal.OperationTaskCompletionCallback<Initial_OpBaseSeqResult>(progress, cancel);
@@ -2876,7 +2876,7 @@ namespace Test
 
         private const string _opBaseSeq_name = "opBaseSeq";
 
-        private void _iceI_opBaseSeq(@Base?[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opBaseSeq(Base?[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Initial_OpBaseSeqResult>(completed);
             outAsync.invoke(
@@ -3315,7 +3315,7 @@ namespace Test
 
     public sealed class TestIntfPrxHelper : Ice.ObjectPrxHelperBase, TestIntfPrx
     {
-        public @Base? opDerived(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public Base? opDerived(global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
@@ -3339,15 +3339,15 @@ namespace Test
             }
         }
 
-        public global::System.Threading.Tasks.Task<@Base?> opDerivedAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task<Base?> opDerivedAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_opDerivedAsync(context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<@Base?> _iceI_opDerivedAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Base?> _iceI_opDerivedAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opDerived_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<@Base?>(progress, cancel);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<Base?>(progress, cancel);
             _iceI_opDerived(context, synchronous, completed);
             return completed.Task;
         }
@@ -3356,7 +3356,7 @@ namespace Test
 
         private void _iceI_opDerived(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<@Base?>(completed);
+            var outAsync = getOutgoingAsync<Base?>(completed);
             outAsync.invoke(
                 _opDerived_name,
                 Ice.OperationMode.Normal,
@@ -3365,8 +3365,8 @@ namespace Test
                 synchronous,
                 read: (Ice.InputStream istr) =>
                 {
-                    @Base? ret = null;
-                    istr.readValue((@Base? v) => {ret = v; });
+                    Base? ret = null;
+                    istr.readValue((Base? v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
                 });
@@ -3668,7 +3668,7 @@ namespace Test
 
         public abstract void setG(G? theG, Ice.Current current);
 
-        public abstract @Base?[] opBaseSeq(@Base?[] inSeq, out @Base?[] outSeq, Ice.Current current);
+        public abstract Base?[] opBaseSeq(Base?[] inSeq, out Base?[] outSeq, Ice.Current current);
 
         public abstract Compact? getCompact(Ice.Current current);
 
@@ -3738,7 +3738,7 @@ namespace Test
 
     public abstract class TestIntfDisp_ : Ice.ObjectImpl, TestIntf
     {
-        public abstract @Base? opDerived(Ice.Current current);
+        public abstract Base? opDerived(Ice.Current current);
 
         public abstract void throwDerived(Ice.Current current);
 
@@ -4103,11 +4103,11 @@ namespace Test
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            @Base?[] iceP_inSeq;
+            Base?[] iceP_inSeq;
             iceP_inSeq = BaseSeqHelper.read(istr);
             istr.readPendingValues();
             istr.endEncapsulation();
-            @Base?[] iceP_outSeq;
+            Base?[] iceP_outSeq;
             var ret = obj.opBaseSeq(iceP_inSeq, out iceP_outSeq, request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
             ostr.startEncapsulation(request.current.encoding, null);

@@ -71,7 +71,7 @@ namespace _cpp_and
 
     constexpr ::std::int32_t _cpp_while = 0;
 
-    constexpr ::std::int32_t import = 0;
+    constexpr ::std::int32_t _cpp_import = 0;
 
 }
 

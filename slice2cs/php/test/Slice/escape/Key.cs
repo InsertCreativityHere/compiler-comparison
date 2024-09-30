@@ -63,11 +63,11 @@ namespace and
 
         public int use;
 
-        public int var;
+        public int @var;
 
         partial void ice_initialize();
 
-        public xor(int @abstract, int clone, int @private, int @protected, int @public, int @this, int @throw, int use, int var)
+        public xor(int @abstract, int clone, int @private, int @protected, int @public, int @this, int @throw, int use, int @var)
         {
             this.@abstract = @abstract;
             this.clone = clone;
@@ -77,7 +77,7 @@ namespace and
             this.@this = @this;
             this.@throw = @throw;
             this.use = use;
-            this.var = var;
+            this.@var = @var;
             ice_initialize();
         }
 
@@ -91,7 +91,7 @@ namespace and
             this.@this = istr.readInt();
             this.@throw = istr.readInt();
             this.use = istr.readInt();
-            this.var = istr.readInt();
+            this.@var = istr.readInt();
             ice_initialize();
         }
 
@@ -105,7 +105,7 @@ namespace and
             ostr.writeInt(this.@this);
             ostr.writeInt(this.@throw);
             ostr.writeInt(this.use);
-            ostr.writeInt(this.var);
+            ostr.writeInt(this.@var);
         }
 
         public static void ice_write(Ice.OutputStream ostr, xor v)

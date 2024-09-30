@@ -26,17 +26,17 @@
 namespace Test
 {
     [Ice.SliceTypeId("::Test::Base")]
-    public partial class @Base : Ice.UserException
+    public partial class Base : Ice.UserException
     {
         public string b = "";
 
-        public @Base(string b)
+        public Base(string b)
         {
             global::System.ArgumentNullException.ThrowIfNull(b);
             this.b = b;
         }
 
-        public @Base()
+        public Base()
         {
         }
 
@@ -58,7 +58,7 @@ namespace Test
     }
 
     [Ice.SliceTypeId("::Test::KnownDerived")]
-    public partial class KnownDerived : @Base
+    public partial class KnownDerived : Base
     {
         public string kd = "";
 
@@ -92,7 +92,7 @@ namespace Test
     }
 
     [Ice.SliceTypeId("::Test::KnownIntermediate")]
-    public partial class KnownIntermediate : @Base
+    public partial class KnownIntermediate : Base
     {
         public string ki = "";
 
@@ -160,7 +160,7 @@ namespace Test
     }
 
     [Ice.SliceTypeId("::Test::KnownPreserved")]
-    public partial class KnownPreserved : @Base
+    public partial class KnownPreserved : Base
     {
         public string kp = "";
 
@@ -524,7 +524,7 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(@Base)
+                    catch(Base)
                     {
                         throw;
                     }
@@ -564,7 +564,7 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(@Base)
+                    catch(Base)
                     {
                         throw;
                     }
@@ -604,7 +604,7 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(@Base)
+                    catch(Base)
                     {
                         throw;
                     }
@@ -684,7 +684,7 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(@Base)
+                    catch(Base)
                     {
                         throw;
                     }
@@ -724,7 +724,7 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(@Base)
+                    catch(Base)
                     {
                         throw;
                     }
@@ -764,7 +764,7 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(@Base)
+                    catch(Base)
                     {
                         throw;
                     }
@@ -924,7 +924,7 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(@Base)
+                    catch(Base)
                     {
                         throw;
                     }
@@ -1004,7 +1004,7 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(@Base)
+                    catch(Base)
                     {
                         throw;
                     }

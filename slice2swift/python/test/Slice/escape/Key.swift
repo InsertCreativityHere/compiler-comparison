@@ -380,10 +380,10 @@ public let lambda: Swift.Int32 = 0
 
 
 public enum EnumNone: Swift.UInt8 {
-    /// `None`
-    case `None` = 0
+    /// None
+    case None = 0
     public init() {
-        self = .`None`
+        self = .None
     }
 }
 

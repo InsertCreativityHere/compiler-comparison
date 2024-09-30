@@ -17,7 +17,7 @@ package await;
 
 public interface implicit extends com.zeroc.Ice.Object
 {
-    var in(_break internal, delete is, explicitPrx lock, casePrx namespace, typeofPrx _new, delete _null, explicitPrx operator, int override, int params, int _private, com.zeroc.Ice.Current current)
+    _var in(_break internal, delete is, explicitPrx lock, casePrx namespace, typeofPrx _new, delete _null, explicitPrx operator, int override, int params, int _private, com.zeroc.Ice.Current current)
         throws fixed,
                foreach;
 
@@ -76,10 +76,10 @@ public interface implicit extends com.zeroc.Ice.Object
         istr.endEncapsulation();
         delete iceP_is = icePP_is.value;
         delete iceP_null = icePP_null.value;
-        var ret = obj.in(iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_operator, iceP_override, iceP_params, iceP_private, request.current);
+        _var ret = obj.in(iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_operator, iceP_override, iceP_params, iceP_private, request.current);
         var ostr = request.current.startReplyStream();
         ostr.startEncapsulation(request.current.encoding, null);
-        var.ice_write(ostr, ret);
+        _var.ice_write(ostr, ret);
         ostr.endEncapsulation();
         return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
     }

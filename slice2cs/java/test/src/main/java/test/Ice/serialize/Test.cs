@@ -130,9 +130,9 @@ namespace Test
     }
 
     [Ice.SliceTypeId("::Test::Base")]
-    public partial class @Base : Ice.Value
+    public partial class Base : Ice.Value
     {
-        public @Base? b;
+        public Base? b;
 
         public global::Ice.Value? o;
 
@@ -144,7 +144,7 @@ namespace Test
 
         public MyEnum[] seq3;
 
-        public @Base?[] seq4;
+        public Base?[] seq4;
 
         public global::System.Collections.Generic.Dictionary<byte, bool> d1;
 
@@ -152,11 +152,11 @@ namespace Test
 
         public global::System.Collections.Generic.Dictionary<string, MyEnum> d3;
 
-        public global::System.Collections.Generic.Dictionary<string, @Base?> d4;
+        public global::System.Collections.Generic.Dictionary<string, Base?> d4;
 
         partial void ice_initialize();
 
-        public @Base(@Base? b, global::Ice.Value? o, Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, @Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, @Base?> d4)
+        public Base(Base? b, global::Ice.Value? o, Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, Base?> d4)
         {
             this.b = b;
             this.o = o;
@@ -181,7 +181,7 @@ namespace Test
             ice_initialize();
         }
 
-        public @Base(Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, @Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, @Base?> d4)
+        public Base(Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, Base?> d4)
         {
             global::System.ArgumentNullException.ThrowIfNull(s);
             this.s = s;
@@ -205,7 +205,7 @@ namespace Test
         }
 
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public @Base()
+        public Base()
         {
             this.s = null!;
             this.seq1 = null!;
@@ -242,7 +242,7 @@ namespace Test
         protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
-            istr_.readValue((@Base? v) => { this.b = v; });
+            istr_.readValue((Base? v) => { this.b = v; });
             istr_.readValue((global::Ice.Value? v) => { this.o = v; });
             s = new Struct1(istr_);
             seq1 = ByteSHelper.read(istr_);
@@ -258,19 +258,19 @@ namespace Test
     }
 
     [Ice.SliceTypeId("::Test::Derived")]
-    public partial class Derived : @Base
+    public partial class Derived : Base
     {
         public global::Ice.ObjectPrx? p;
 
         partial void ice_initialize();
 
-        public Derived(@Base? b, global::Ice.Value? o, Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, @Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, @Base?> d4, global::Ice.ObjectPrx? p) : base(b, o, s, seq1, seq2, seq3, seq4, d1, d2, d3, d4)
+        public Derived(Base? b, global::Ice.Value? o, Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, Base?> d4, global::Ice.ObjectPrx? p) : base(b, o, s, seq1, seq2, seq3, seq4, d1, d2, d3, d4)
         {
             this.p = p;
             ice_initialize();
         }
 
-        public Derived(Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, @Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, @Base?> d4) : base(s, seq1, seq2, seq3, seq4, d1, d2, d3, d4)
+        public Derived(Struct1 s, byte[] seq1, int[] seq2, MyEnum[] seq3, Base?[] seq4, global::System.Collections.Generic.Dictionary<byte, bool> d1, global::System.Collections.Generic.Dictionary<short, int> d2, global::System.Collections.Generic.Dictionary<string, MyEnum> d3, global::System.Collections.Generic.Dictionary<string, Base?> d4) : base(s, seq1, seq2, seq3, seq4, d1, d2, d3, d4)
         {
             ice_initialize();
         }
@@ -306,9 +306,9 @@ namespace Test
     {
         public Struct1 s;
 
-        public @Base? b;
+        public Base? b;
 
-        public Ex(Struct1 s, @Base? b)
+        public Ex(Struct1 s, Base? b)
         {
             global::System.ArgumentNullException.ThrowIfNull(s);
             this.s = s;
@@ -341,7 +341,7 @@ namespace Test
         {
             istr_.startSlice();
             s = new Struct1(istr_);
-            istr_.readValue((@Base? v) => { this.b = v; });
+            istr_.readValue((Base? v) => { this.b = v; });
             istr_.endSlice();
         }
 
@@ -453,7 +453,7 @@ namespace Test
 
     public sealed class BaseSHelper
     {
-        public static void write(Ice.OutputStream ostr, @Base?[] v)
+        public static void write(Ice.OutputStream ostr, Base?[] v)
         {
             if (v is null)
             {
@@ -469,15 +469,15 @@ namespace Test
             }
         }
 
-        public static @Base?[] read(Ice.InputStream istr)
+        public static Base?[] read(Ice.InputStream istr)
         {
-            @Base?[] v;
+            Base?[] v;
             {
                 int szx = istr.readAndCheckSeqSize(1);
-                v = new @Base?[szx];
+                v = new Base?[szx];
                 for (int ix = 0; ix < szx; ++ix)
                 {
-                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<@Base>(v, ix));
+                    istr.readValue(Ice.Internal.Patcher.arrayReadValue<Base>(v, ix));
                 }
             }
             return v;
@@ -595,7 +595,7 @@ namespace Test
     public sealed class StringBaseDHelper
     {
         public static void write(Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<string, @Base?> v)
+                                 global::System.Collections.Generic.Dictionary<string, Base?> v)
         {
             if(v == null)
             {
@@ -604,7 +604,7 @@ namespace Test
             else
             {
                 ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<string, @Base?> e in v)
+                foreach(global::System.Collections.Generic.KeyValuePair<string, Base?> e in v)
                 {
                     ostr.writeString(e.Key);
                     ostr.writeValue(e.Value);
@@ -612,15 +612,15 @@ namespace Test
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<string, @Base?> read(Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<string, Base?> read(Ice.InputStream istr)
         {
             int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<string, @Base?> r = new global::System.Collections.Generic.Dictionary<string, @Base?>();
+            global::System.Collections.Generic.Dictionary<string, Base?> r = new global::System.Collections.Generic.Dictionary<string, Base?>();
             for(int i = 0; i < sz; ++i)
             {
                 string k;
                 k = istr.readString();
-                istr.readValue((@Base? v) => { r[k] = v; });
+                istr.readValue((Base? v) => { r[k] = v; });
             }
             return r;
         }

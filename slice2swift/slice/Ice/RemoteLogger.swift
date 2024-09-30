@@ -148,7 +148,7 @@ public struct LogMessageTypeSeqHelper {
 /// A complete log message.
 public struct LogMessage: Swift.Hashable {
     /// The type of message sent to the RemoteLogger.
-    public var `type`: LogMessageType = .PrintMessage
+    public var type: LogMessageType = .PrintMessage
     /// The date and time when the RemoteLogger received this message, expressed as the number of microseconds
     /// since the Unix Epoch (00:00:00 UTC on 1 January 1970)
     public var timestamp: Swift.Int64 = 0
@@ -159,8 +159,8 @@ public struct LogMessage: Swift.Hashable {
 
     public init() {}
 
-    public init(`type`: LogMessageType, timestamp: Swift.Int64, traceCategory: Swift.String, message: Swift.String) {
-        self.`type` = `type`
+    public init(type: LogMessageType, timestamp: Swift.Int64, traceCategory: Swift.String, message: Swift.String) {
+        self.type = type
         self.timestamp = timestamp
         self.traceCategory = traceCategory
         self.message = message
@@ -174,7 +174,7 @@ public extension InputStream {
     /// - returns: `LogMessage` - The structured value read from the stream.
     func read() throws -> LogMessage {
         var v = LogMessage()
-        v.`type` = try self.read()
+        v.type = try self.read()
         v.timestamp = try self.read()
         v.traceCategory = try self.read()
         v.message = try self.read()
@@ -201,7 +201,7 @@ public extension OutputStream {
     ///
     /// - parameter _: `LogMessage` - The value to write to the stream.
     func write(_ v: LogMessage) {
-        self.write(v.`type`)
+        self.write(v.type)
         self.write(v.timestamp)
         self.write(v.traceCategory)
         self.write(v.message)

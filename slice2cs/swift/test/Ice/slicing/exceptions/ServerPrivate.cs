@@ -26,7 +26,7 @@
 namespace Test
 {
     [Ice.SliceTypeId("::Test::UnknownDerived")]
-    public partial class UnknownDerived : @Base
+    public partial class UnknownDerived : Base
     {
         public string ud = "";
 
@@ -60,7 +60,7 @@ namespace Test
     }
 
     [Ice.SliceTypeId("::Test::UnknownIntermediate")]
-    public partial class UnknownIntermediate : @Base
+    public partial class UnknownIntermediate : Base
     {
         public string ui = "";
 

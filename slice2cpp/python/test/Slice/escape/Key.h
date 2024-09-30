@@ -43,7 +43,7 @@ namespace _cpp_and
 
     class ifPrx;
 
-    using import = ::std::vector<assert>;
+    using _cpp_import = ::std::vector<assert>;
 
     using in = ::std::map<::std::string, assert>;
 

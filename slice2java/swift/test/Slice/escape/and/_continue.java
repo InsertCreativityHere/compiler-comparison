@@ -18,7 +18,7 @@ package and;
 public enum _continue
 {
     let(0),
-    var(1);
+    _var(1);
 
     public int value()
     {
@@ -32,7 +32,7 @@ public enum _continue
         case 0:
             return let;
         case 1:
-            return var;
+            return _var;
         }
         return null;
     }

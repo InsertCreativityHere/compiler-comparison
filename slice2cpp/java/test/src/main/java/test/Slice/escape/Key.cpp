@@ -41,7 +41,7 @@ namespace
     const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
     const ::IceInternal::DefaultValueFactoryInit<::abstract::_cpp_else> iceC_abstract_else_init("::abstract::else");
     const ::IceInternal::DefaultUserExceptionFactoryInit<::abstract::hashCode> iceC_abstract_hashCode_init("::abstract::hashCode");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::abstract::import> iceC_abstract_import_init("::abstract::import");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::abstract::_cpp_import> iceC_abstract_import_init("::abstract::import");
 }
 
 void
@@ -158,7 +158,7 @@ abstract::newPrx::_iceI_notify(const ::std::shared_ptr<::IceInternal::OutgoingAs
             {
                 ex.ice_throw();
             }
-            catch(const import&)
+            catch(const _cpp_import&)
             {
                 throw;
             }
@@ -247,37 +247,37 @@ abstract::hashCode::_readImpl(::Ice::InputStream* istr)
 }
 
 const char*
-abstract::import::ice_staticId() noexcept
+abstract::_cpp_import::ice_staticId() noexcept
 {
     return "::abstract::import";
 }
 
 const char*
-abstract::import::ice_id() const noexcept
+abstract::_cpp_import::ice_id() const noexcept
 {
     return ice_staticId();
 }
 
 void
-abstract::import::ice_throw() const
+abstract::_cpp_import::ice_throw() const
 {
     throw *this;
 }
 
 void
-abstract::import::_writeImpl(::Ice::OutputStream* ostr) const
+abstract::_cpp_import::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<import>::write(ostr, *this);
+    ::Ice::StreamWriter<_cpp_import>::write(ostr, *this);
     ostr->endSlice();
     hashCode::_writeImpl(ostr);
 }
 
 void
-abstract::import::_readImpl(::Ice::InputStream* istr)
+abstract::_cpp_import::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<import>::read(istr, *this);
+    ::Ice::StreamReader<_cpp_import>::read(istr, *this);
     istr->endSlice();
     hashCode::_readImpl(istr);
 }

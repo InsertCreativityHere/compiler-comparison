@@ -21,15 +21,15 @@ public class display extends com.zeroc.Ice.Value
     {
     }
 
-    public display(int when, int _do, breakPrx dup, int _else)
+    public display(int _when, int _do, breakPrx dup, int _else)
     {
-        this.when = when;
+        this._when = _when;
         this._do = _do;
         this.dup = dup;
         this._else = _else;
     }
 
-    public int when;
+    public int _when;
 
     public int _do;
 
@@ -54,14 +54,14 @@ public class display extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -7769321123030708986L;
+    private static final long serialVersionUID = 6410441231868544136L;
 
     /** @hidden */
     @Override
     protected void _iceWriteImpl(com.zeroc.Ice.OutputStream ostr_)
     {
         ostr_.startSlice(ice_staticId(), -1, true);
-        ostr_.writeInt(when);
+        ostr_.writeInt(_when);
         ostr_.writeInt(_do);
         ostr_.writeProxy(dup);
         ostr_.writeInt(_else);
@@ -73,7 +73,7 @@ public class display extends com.zeroc.Ice.Value
     protected void _iceReadImpl(com.zeroc.Ice.InputStream istr_)
     {
         istr_.startSlice();
-        when = istr_.readInt();
+        _when = istr_.readInt();
         _do = istr_.readInt();
         dup = breakPrx.uncheckedCast(istr_.readProxy());
         _else = istr_.readInt();

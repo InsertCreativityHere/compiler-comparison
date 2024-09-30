@@ -591,7 +591,7 @@ namespace Test
     }
 
     [Ice.SliceTypeId("::Test::Base")]
-    public partial class @Base : Ice.Value
+    public partial class Base : Ice.Value
     {
         public bool boolFalse = false;
 
@@ -627,7 +627,7 @@ namespace Test
 
         partial void ice_initialize();
 
-        public @Base(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD)
+        public Base(bool boolFalse, bool boolTrue, byte b, short s, int i, long l, float f, double d, string str, string noDefault, int zeroI, long zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD)
         {
             this.boolFalse = boolFalse;
             this.boolTrue = boolTrue;
@@ -650,7 +650,7 @@ namespace Test
             ice_initialize();
         }
 
-        public @Base()
+        public Base()
         {
             ice_initialize();
         }
@@ -704,7 +704,7 @@ namespace Test
     }
 
     [Ice.SliceTypeId("::Test::Derived")]
-    public partial class Derived : @Base
+    public partial class Derived : Base
     {
         public Color c1 = Test.Color.red;
 

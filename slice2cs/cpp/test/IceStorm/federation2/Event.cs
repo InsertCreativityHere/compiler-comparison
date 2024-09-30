@@ -26,7 +26,7 @@
 namespace Test
 {
     [Ice.SliceTypeId("::Test::Event")]
-    public partial interface @Event : Ice.Object
+    public partial interface Event : Ice.Object
     {
         void pub(string data, Ice.Current current);
     }
@@ -138,7 +138,7 @@ namespace Test
 
 namespace Test
 {
-    public abstract class EventDisp_ : Ice.ObjectImpl, @Event
+    public abstract class EventDisp_ : Ice.ObjectImpl, Event
     {
         public abstract void pub(string data, Ice.Current current);
 
@@ -149,7 +149,7 @@ namespace Test
         public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
             request.current.operation switch
             {
-                "pub" => @Event.iceD_pubAsync(this, request),
+                "pub" => Event.iceD_pubAsync(this, request),
                 "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
                 "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
                 "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
@@ -161,10 +161,10 @@ namespace Test
 
 namespace Test
 {
-    public partial interface @Event
+    public partial interface Event
     {
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_pubAsync(
-            @Event obj,
+            Event obj,
             Ice.IncomingRequest request)
         {
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
