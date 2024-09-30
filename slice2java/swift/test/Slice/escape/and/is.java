@@ -15,15 +15,6 @@
 
 package and;
 
-/**
- * TODO: reenable when #1617 is fixed
- * interface friend
- * {
- * guard goto(continue if, guard d, defer inline, switch private, do mutable, break* namespace,
- * func* new, switch* not, do* operator, int or, int protected, int public, int register)
- * throws return, as;
- * }
- **/
 public interface is
 {
     int value = 0;

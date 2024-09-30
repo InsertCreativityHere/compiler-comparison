@@ -50,15 +50,8 @@ namespace _cpp_and
 
     using _cpp_for = ::std::map<::std::string, guard>;
 
-    /**
-     * TODO: reenable when #1617 is fixed
-     * interface friend
-     * {
-     * guard goto(continue if, guard d, defer inline, switch private, do mutable, break* namespace,
-     * func* new, switch* not, do* operator, int or, int protected, int public, int register)
-     * throws return, as;
-     * }
-     */
+    class friendPrx;
+
     constexpr ::std::int32_t is = 0;
 
     constexpr ::std::int32_t self = 0;
@@ -248,6 +241,64 @@ protected:
 #if defined(__GNUC__)
 #   pragma GCC diagnostic pop
 #endif
+};
+
+class friendPrx : public ::Ice::Proxy<friendPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    guard _cpp_goto(_cpp_continue _cpp_if, const guard& d, const defer& _cpp_inline, const switchPtr& _cpp_private, const ::std::optional<doPrx>& _cpp_mutable, const ::std::optional<breakPrx>& _cpp_namespace, const ::std::optional<funcPrx>& _cpp_new, const switchPtr& _cpp_not, const ::std::optional<doPrx>& _cpp_operator, ::std::int32_t _cpp_or, ::std::int32_t _cpp_protected, ::std::int32_t _cpp_public, ::std::int32_t _cpp_register, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    [[nodiscard]] ::std::future<guard> gotoAsync(_cpp_continue _cpp_if, const guard& d, const defer& _cpp_inline, const switchPtr& _cpp_private, const ::std::optional<doPrx>& _cpp_mutable, const ::std::optional<breakPrx>& _cpp_namespace, const ::std::optional<funcPrx>& _cpp_new, const switchPtr& _cpp_not, const ::std::optional<doPrx>& _cpp_operator, ::std::int32_t _cpp_or, ::std::int32_t _cpp_protected, ::std::int32_t _cpp_public, ::std::int32_t _cpp_register, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::function<void()>
+    gotoAsync(_cpp_continue _cpp_if, const guard& d, const defer& _cpp_inline, const switchPtr& _cpp_private, const ::std::optional<doPrx>& _cpp_mutable, const ::std::optional<breakPrx>& _cpp_namespace, const ::std::optional<funcPrx>& _cpp_new, const switchPtr& _cpp_not, const ::std::optional<doPrx>& _cpp_operator, ::std::int32_t _cpp_or, ::std::int32_t _cpp_protected, ::std::int32_t _cpp_public, ::std::int32_t _cpp_register, ::std::function<void(::_cpp_and::guard)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    /// \cond INTERNAL
+    void _iceI_goto(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<guard>>&, _cpp_continue, const guard&, const defer&, const switchPtr&, const ::std::optional<doPrx>&, const ::std::optional<breakPrx>&, const ::std::optional<funcPrx>&, const switchPtr&, const ::std::optional<doPrx>&, ::std::int32_t, ::std::int32_t, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const char* ice_staticId() noexcept;
+    friendPrx(const friendPrx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    friendPrx(friendPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    friendPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    friendPrx& operator=(const friendPrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    friendPrx& operator=(friendPrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static friendPrx _fromReference(::IceInternal::ReferencePtr ref) { return friendPrx(::std::move(ref)); }
+
+protected:
+
+    friendPrx() = default;
+
+    explicit friendPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
+    /// \endcond
 };
 
 }
@@ -547,6 +598,44 @@ public:
 };
 
 using doPtr = ::std::shared_ptr<_cpp_do>;
+
+class _cpp_friend : public virtual ::Ice::Object
+{
+public:
+
+    using ProxyType = friendPrx;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this interface.
+     * @return A fully-scoped type ID.
+     */
+    static const char* ice_staticId() noexcept;
+
+    virtual guard _cpp_goto(_cpp_continue _cpp_if, guard d, defer _cpp_inline, switchPtr _cpp_private, ::std::optional<doPrx> _cpp_mutable, ::std::optional<breakPrx> _cpp_namespace, ::std::optional<funcPrx> _cpp_new, switchPtr _cpp_not, ::std::optional<doPrx> _cpp_operator, ::std::int32_t _cpp_or, ::std::int32_t _cpp_protected, ::std::int32_t _cpp_public, ::std::int32_t _cpp_register, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    void _iceD_goto(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    /// \endcond
+
+    /// \cond INTERNAL
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
+    /// \endcond
+};
+
+using friendPtr = ::std::shared_ptr<_cpp_friend>;
 
 }
 

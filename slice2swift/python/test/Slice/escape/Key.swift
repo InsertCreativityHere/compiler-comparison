@@ -896,7 +896,7 @@ public extension printPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
-                                           } catch let error as is {
+                                           } catch let error as `is` {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
@@ -1152,7 +1152,7 @@ extension print {
         _ = try istr.startEncapsulation()
         let iceP_else: `continue` = try istr.read()
         var iceP_return: `for`?
-        try istr.read(for.self) { iceP_return = $0 }
+        try istr.read(`for`.self) { iceP_return = $0 }
         let iceP_while: delPrx? = try istr.read(delPrx.self)
         let iceP_yield: execPrx? = try istr.read(execPrx.self)
         let iceP_or: ifPrx? = try istr.read(ifPrx.self)

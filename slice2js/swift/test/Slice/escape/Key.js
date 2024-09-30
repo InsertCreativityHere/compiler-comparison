@@ -264,6 +264,33 @@ Ice.TypeRegistry.declareUserExceptionType(
     "and.as",
     and.as);
 
+const iceC_and_friend_ids = [
+    "::Ice::Object",
+    "::and::friend"
+];
+
+and.friend = class extends Ice.Object
+{
+};
+
+and.friendPrx = class extends Ice.ObjectPrx
+{
+};
+Ice.TypeRegistry.declareProxyType("and.friendPrx", and.friendPrx);
+
+Ice.defineOperations(
+    and.friend,
+    and.friendPrx,
+    iceC_and_friend_ids,
+    "::and::friend",
+    {
+        "goto": [, , , [and.guard], [[and._continue._helper], [and.guard], [and.defer], ["and._switch", true], ["and.doPrx"], ["and.breakPrx"], ["and.funcPrx"], ["and._switch", true], ["and.doPrx"], [3], [3], [3], [3]], ,
+        [
+            and.as,
+            and._return
+        ], true, ]
+    });
+
 Object.defineProperty(and, 'is', {
     enumerable: true,
     value: 0

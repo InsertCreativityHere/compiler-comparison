@@ -870,7 +870,7 @@ public extension newPrx {
                                                throw ex
                                            } catch let error as hashCode {
                                                throw error
-                                           } catch let error as import {
+                                           } catch let error as `import` {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
@@ -1130,7 +1130,7 @@ extension new {
         _ = try istr.startEncapsulation()
         let iceP_notifyAll: `break` = try istr.read()
         var iceP_null: `else`?
-        try istr.read(else.self) { iceP_null = $0 }
+        try istr.read(`else`.self) { iceP_null = $0 }
         let iceP_package: finalizePrx? = try istr.read(finalizePrx.self)
         let iceP_public: catchPrx? = try istr.read(catchPrx.self)
         let iceP_return: defaultPrx? = try istr.read(defaultPrx.self)

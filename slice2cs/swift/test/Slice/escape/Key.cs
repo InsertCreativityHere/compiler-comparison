@@ -246,6 +246,12 @@ namespace and
         }
     }
 
+    [Ice.SliceTypeId("::and::friend")]
+    public partial interface friend : Ice.Object
+    {
+        guard @goto(@continue @if, guard d, defer inline, @switch? @private, doPrx? mutable, breakPrx? @namespace, funcPrx? @new, @switch? not, doPrx? @operator, int or, int @protected, int @public, int register, Ice.Current current);
+    }
+
     public abstract class @is
     {
         public const int value = 0;
@@ -300,6 +306,13 @@ namespace and
 
     public interface doPrx : funcPrx, breakPrx
     {
+    }
+
+    public interface friendPrx : Ice.ObjectPrx
+    {
+        guard @goto(@continue @if, guard d, defer inline, @switch? @private, doPrx? mutable, breakPrx? @namespace, funcPrx? @new, @switch? not, doPrx? @operator, int or, int @protected, int @public, int register, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<guard> gotoAsync(@continue @if, guard d, defer inline, @switch? @private, doPrx? mutable, breakPrx? @namespace, funcPrx? @new, @switch? not, doPrx? @operator, int or, int @protected, int @public, int register, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
@@ -695,6 +708,135 @@ namespace and
             return r;
         }
     }
+
+    public sealed class friendPrxHelper : Ice.ObjectPrxHelperBase, friendPrx
+    {
+        public guard @goto(@continue @if, guard d, defer inline, @switch? @private, doPrx? mutable, breakPrx? @namespace, funcPrx? @new, @switch? not, doPrx? @operator, int or, int @protected, int @public, int register, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        {
+            try
+            {
+                return _iceI_gotoAsync(@if, d, inline, @private, mutable, @namespace, @new, not, @operator, or, @protected, @public, register, context, null, global::System.Threading.CancellationToken.None, true).Result;
+            }
+            catch (global::System.AggregateException ex_)
+            {
+                throw ex_.InnerException!;
+            }
+        }
+
+        public global::System.Threading.Tasks.Task<guard> gotoAsync(@continue @if, guard d, defer inline, @switch? @private, doPrx? mutable, breakPrx? @namespace, funcPrx? @new, @switch? not, doPrx? @operator, int or, int @protected, int @public, int register, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        {
+            return _iceI_gotoAsync(@if, d, inline, @private, mutable, @namespace, @new, not, @operator, or, @protected, @public, register, context, progress, cancel, false);
+        }
+
+        private global::System.Threading.Tasks.Task<guard> _iceI_gotoAsync(@continue iceP_if, guard iceP_d, defer iceP_inline, @switch? iceP_private, doPrx? iceP_mutable, breakPrx? iceP_namespace, funcPrx? iceP_new, @switch? iceP_not, doPrx? iceP_operator, int iceP_or, int iceP_protected, int iceP_public, int iceP_register, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        {
+            iceCheckTwowayOnly(_goto_name);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<guard>(progress, cancel);
+            _iceI_goto(iceP_if, iceP_d, iceP_inline, iceP_private, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_operator, iceP_or, iceP_protected, iceP_public, iceP_register, context, synchronous, completed);
+            return completed.Task;
+        }
+
+        private const string _goto_name = "goto";
+
+        private void _iceI_goto(@continue iceP_if, guard iceP_d, defer iceP_inline, @switch? iceP_private, doPrx? iceP_mutable, breakPrx? iceP_namespace, funcPrx? iceP_new, @switch? iceP_not, doPrx? iceP_operator, int iceP_or, int iceP_protected, int iceP_public, int iceP_register, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        {
+            var outAsync = getOutgoingAsync<guard>(completed);
+            outAsync.invoke(
+                _goto_name,
+                Ice.OperationMode.Normal,
+                null,
+                context,
+                synchronous,
+                write: (Ice.OutputStream ostr) =>
+                {
+                    ostr.writeEnum((int)iceP_if, 1);
+                    iceP_d.ice_writeMembers(ostr);
+                    defer.ice_write(ostr, iceP_inline);
+                    ostr.writeValue(iceP_private);
+                    doPrxHelper.write(ostr, iceP_mutable);
+                    breakPrxHelper.write(ostr, iceP_namespace);
+                    funcPrxHelper.write(ostr, iceP_new);
+                    ostr.writeValue(iceP_not);
+                    doPrxHelper.write(ostr, iceP_operator);
+                    ostr.writeInt(iceP_or);
+                    ostr.writeInt(iceP_protected);
+                    ostr.writeInt(iceP_public);
+                    ostr.writeInt(iceP_register);
+                    ostr.writePendingValues();
+                },
+                userException: (Ice.UserException ex) =>
+                {
+                    try
+                    {
+                        throw ex;
+                    }
+                    catch(@as)
+                    {
+                        throw;
+                    }
+                    catch(@return)
+                    {
+                        throw;
+                    }
+                    catch(Ice.UserException)
+                    {
+                    }
+                },
+                read: (Ice.InputStream istr) =>
+                {
+                    guard ret;
+                    ret = new guard(istr);
+                    return ret;
+                });
+        }
+
+        public static friendPrx createProxy(Ice.Communicator communicator, string proxyString) =>
+            new friendPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
+
+        public static friendPrx? checkedCast(Ice.ObjectPrx? b, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            b is not null && b.ice_isA(ice_staticId(), ctx) ? new friendPrxHelper(b) : null;
+
+        public static friendPrx? checkedCast(Ice.ObjectPrx? b, string f, global::System.Collections.Generic.Dictionary<string, string>? ctx = null) =>
+            checkedCast(b?.ice_facet(f), ctx);
+
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static friendPrx? uncheckedCast(Ice.ObjectPrx? b) =>
+            b is not null ? new friendPrxHelper(b) : null;
+
+        [return: global::System.Diagnostics.CodeAnalysis.NotNullIfNotNull(nameof(b))]
+
+        public static friendPrx? uncheckedCast(Ice.ObjectPrx? b, string f) =>
+            uncheckedCast(b?.ice_facet(f));
+
+        private static readonly string[] _ids =
+        {
+            "::Ice::Object",
+            "::and::friend"
+        };
+
+        public static string ice_staticId() => "::and::friend";
+
+        public static void write(Ice.OutputStream ostr, friendPrx? v)
+        {
+            ostr.writeProxy(v);
+        }
+
+        public static friendPrx? read(Ice.InputStream istr) =>
+            istr.readProxy() is Ice.ObjectPrx proxy ? new friendPrxHelper(proxy) : null;
+
+        protected override Ice.ObjectPrxHelperBase iceNewInstance(Ice.Internal.Reference reference) => new friendPrxHelper(reference);
+
+        private friendPrxHelper(Ice.ObjectPrx proxy)
+            : base(proxy)
+        {
+        }
+
+        private friendPrxHelper(Ice.Internal.Reference reference)
+            : base(reference)
+        {
+        }
+    }
 }
 
 namespace and
@@ -761,6 +903,26 @@ namespace and
                 _ => throw new Ice.OperationNotExistException()
             };
     }
+
+    public abstract class friendDisp_ : Ice.ObjectImpl, friend
+    {
+        public abstract guard @goto(@continue @if, guard d, defer inline, @switch? @private, doPrx? mutable, breakPrx? @namespace, funcPrx? @new, @switch? not, doPrx? @operator, int or, int @protected, int @public, int register, Ice.Current current);
+
+        public override string ice_id(Ice.Current current) => ice_staticId();
+
+        public static new string ice_staticId() => "::and::friend";
+
+        public override global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> dispatchAsync(Ice.IncomingRequest request) =>
+            request.current.operation switch
+            {
+                "goto" => friend.iceD_gotoAsync(this, request),
+                "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
+                "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
+                "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
+                "ice_ping" => Ice.Object.iceD_ice_pingAsync(this, request),
+                _ => throw new Ice.OperationNotExistException()
+            };
+    }
 }
 
 namespace and
@@ -803,5 +965,51 @@ namespace and
 
     public partial interface @do
     {
+    }
+
+    public partial interface friend
+    {
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_gotoAsync(
+            friend obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            var istr = request.inputStream;
+            istr.startEncapsulation();
+            @continue iceP_if;
+            guard iceP_d;
+            defer iceP_inline;
+            @switch? iceP_private = null;
+            doPrx? iceP_mutable;
+            breakPrx? iceP_namespace;
+            funcPrx? iceP_new;
+            @switch? iceP_not = null;
+            doPrx? iceP_operator;
+            int iceP_or;
+            int iceP_protected;
+            int iceP_public;
+            int iceP_register;
+            iceP_if = (@continue)istr.readEnum(1);
+            iceP_d = new guard(istr);
+            iceP_inline = new defer(istr);
+            istr.readValue((@switch? v) => { iceP_private = v; });
+            iceP_mutable = doPrxHelper.read(istr);
+            iceP_namespace = breakPrxHelper.read(istr);
+            iceP_new = funcPrxHelper.read(istr);
+            istr.readValue((@switch? v) => { iceP_not = v; });
+            iceP_operator = doPrxHelper.read(istr);
+            iceP_or = istr.readInt();
+            iceP_protected = istr.readInt();
+            iceP_public = istr.readInt();
+            iceP_register = istr.readInt();
+            istr.readPendingValues();
+            istr.endEncapsulation();
+            var ret = obj.@goto(iceP_if, iceP_d, iceP_inline, iceP_private, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_operator, iceP_or, iceP_protected, iceP_public, iceP_register, request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ret.ice_writeMembers(ostr);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
     }
 }

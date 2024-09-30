@@ -489,6 +489,79 @@ if '_as' not in _M__and.__dict__:
     _M__and._as = _as
     del _as
 
+if 'friendPrx' not in _M__and.__dict__:
+    _M__and.friendPrx = None
+    class friendPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new friendPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
+        def goto(self, _if, d, inline, private, mutable, namespace, new, _not, operator, _or, protected, public, register, context=None):
+            return _M__and.friend._op_goto.invoke(self, ((_if, d, inline, private, mutable, namespace, new, _not, operator, _or, protected, public, register), context))
+
+        def gotoAsync(self, _if, d, inline, private, mutable, namespace, new, _not, operator, _or, protected, public, register, context=None):
+            return _M__and.friend._op_goto.invokeAsync(self, ((_if, d, inline, private, mutable, namespace, new, _not, operator, _or, protected, public, register), context))
+
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M__and.friendPrx.ice_checkedCast(proxy, '::and::friend', facetOrContext, context)
+
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M__and.friendPrx.ice_uncheckedCast(proxy, facet)
+
+        @staticmethod
+        def ice_staticId():
+            return '::and::friend'
+    _M__and._t_friendPrx = IcePy.defineProxy('::and::friend', friendPrx)
+
+    _M__and.friendPrx = friendPrx
+    del friendPrx
+
+    _M__and.friend = None
+    class friend(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::and::friend')
+
+        def ice_id(self, current=None):
+            return '::and::friend'
+
+        @staticmethod
+        def ice_staticId():
+            return '::and::friend'
+
+        def goto(self, _if, d, inline, private, mutable, namespace, new, _not, operator, _or, protected, public, register, current=None):
+            raise NotImplementedError("servant method 'goto' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M__and._t_friendDisp)
+
+        __repr__ = __str__
+
+    _M__and._t_friendDisp = IcePy.defineClass('::and::friend', friend, (), None, ())
+    friend._ice_type = _M__and._t_friendDisp
+
+    friend._op_goto = IcePy.Operation('goto', Ice.OperationMode.Normal, False, None, (), (((), _M__and._t__continue, False, 0), ((), _M__and._t_guard, False, 0), ((), _M__and._t_defer, False, 0), ((), _M__and._t_switch, False, 0), ((), _M__and._t_doPrx, False, 0), ((), _M__and._t_breakPrx, False, 0), ((), _M__and._t_funcPrx, False, 0), ((), _M__and._t_switch, False, 0), ((), _M__and._t_doPrx, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M__and._t_guard, False, 0), (_M__and._t__return, _M__and._t__as))
+
+    _M__and.friend = friend
+    del friend
+
 _M__and._is = 0
 
 _M__and.self = 0

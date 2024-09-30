@@ -430,13 +430,12 @@ open class `as`: `return`, @unchecked Sendable {
         try super._iceReadImpl(from: istr);
     }
 }
-/// TODO: reenable when #1617 is fixed
-/// interface friend
-/// {
-/// guard goto(continue if, guard d, defer inline, switch private, do mutable, break* namespace,
-/// func* new, switch* not, do* operator, int or, int protected, int public, int register)
-/// throws return, as;
-/// }
+
+/// Traits for Slice interface`friend`.
+public struct friendTraits: Ice.SliceTraits {
+    public static let staticIds = ["::Ice::Object", "::and::friend"]
+    public static let staticId = "::and::friend"
+}
 public let `is`: Swift.Int32 = 0
 
 public let `self`: Swift.Int32 = 0
@@ -776,6 +775,174 @@ public extension Ice.InputStream {
 /// doPrx overview.
 public extension doPrx {}
 
+/// friendPrx overview.
+///
+/// friendPrx Methods:
+///
+///  - goto: 
+///
+///  - gotoAsync: 
+public protocol friendPrx: Ice.ObjectPrx {}
+
+private final class friendPrxI: Ice.ObjectPrxI, friendPrx {
+    public override class func ice_staticId() -> Swift.String {
+        return friendTraits.staticId
+    }
+}
+
+/// Makes a new proxy from a communicator and a proxy string.
+///
+/// - Parameters:
+///    - communicator: The communicator of the new proxy.
+///    - proxyString: The proxy string to parse.
+///    - type: The type of the new proxy.
+/// - Throws: `Ice.ParseException` if the proxy string is invalid.
+/// - Returns: A new proxy with the requested type.
+public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: friendPrx.Protocol) throws -> friendPrx {
+    try communicator.makeProxyImpl(proxyString) as friendPrxI
+}
+
+/// Casts a proxy to the requested type. This call contacts the server and verifies that the object
+/// implements this type.
+///
+/// It will throw a local exception if a communication error occurs. You can optionally supply a
+/// facet name and a context map.
+///
+/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+///
+/// - parameter type: `friendPrx.Protocol` - The proxy type to cast to.
+///
+/// - parameter facet: `String` - The optional name of the desired facet.
+///
+/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
+///
+/// - returns: `friendPrx` - A proxy with the requested type or nil if the objet does not
+///   support this type.
+///
+/// - throws: `Ice.LocalException` if a communication error occurs.
+public func checkedCast(prx: Ice.ObjectPrx, type: friendPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> friendPrx? {
+    return try await friendPrxI.checkedCast(prx: prx, facet: facet, context: context) as friendPrxI?
+}
+
+/// Downcasts the given proxy to this type without contacting the remote server.
+///
+/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+///
+/// - parameter type: `friendPrx.Protocol` - The proxy type to cast to.
+///
+/// - parameter facet: `String` - The optional name of the desired facet
+///
+/// - returns: `friendPrx` - A proxy with the requested type
+public func uncheckedCast(prx: Ice.ObjectPrx, type: friendPrx.Protocol, facet: Swift.String? = nil) -> friendPrx {
+    return friendPrxI.uncheckedCast(prx: prx, facet: facet) as friendPrxI
+}
+
+/// Returns the Slice type id of the interface associated with this proxy type.
+///
+/// parameter type: `friendPrx.Protocol` -  The proxy type to retrieve the type id.
+///
+/// returns: `String` - The type id of the interface associated with this proxy type.
+public func ice_staticId(_ type: friendPrx.Protocol) -> Swift.String {
+    return friendTraits.staticId
+}
+
+/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// `friendPrx`.
+public extension Ice.InputStream {
+    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
+    ///
+    /// - parameter type: `friendPrx.Protocol` - The type of the proxy to be extracted.
+    ///
+    /// - returns: `friendPrx?` - The extracted proxy
+    func read(_ type: friendPrx.Protocol) throws -> friendPrx? {
+        return try read() as friendPrxI?
+    }
+    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
+    ///
+    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    ///
+    /// - parameter type: `friendPrx.Protocol` - The type of the proxy to be extracted.
+    ///
+    /// - returns: `friendPrx` - The extracted proxy.
+    func read(tag: Swift.Int32, type: friendPrx.Protocol) throws -> friendPrx? {
+        return try read(tag: tag) as friendPrxI?
+    }
+}
+
+/// friendPrx overview.
+///
+/// friendPrx Methods:
+///
+///  - goto: 
+///
+///  - gotoAsync: 
+public extension friendPrx {
+    ///
+    /// - parameter if: ``continue``
+    ///
+    /// - parameter d: ``guard``
+    ///
+    /// - parameter inline: ``defer``
+    ///
+    /// - parameter private: ``switch`?`
+    ///
+    /// - parameter mutable: `doPrx?`
+    ///
+    /// - parameter namespace: `breakPrx?`
+    ///
+    /// - parameter new: `funcPrx?`
+    ///
+    /// - parameter not: ``switch`?`
+    ///
+    /// - parameter operator: `doPrx?`
+    ///
+    /// - parameter or: `Swift.Int32`
+    ///
+    /// - parameter protected: `Swift.Int32`
+    ///
+    /// - parameter public: `Swift.Int32`
+    ///
+    /// - parameter register: `Swift.Int32`
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    ///
+    /// - returns: ``guard``
+    func goto(if iceP_if: `continue`, d iceP_d: `guard`, inline iceP_inline: `defer`, private iceP_private: `switch`?, mutable iceP_mutable: doPrx?, namespace iceP_namespace: breakPrx?, new iceP_new: funcPrx?, not iceP_not: `switch`?, operator iceP_operator: doPrx?, or iceP_or: Swift.Int32, protected iceP_protected: Swift.Int32, public iceP_public: Swift.Int32, register iceP_register: Swift.Int32, context: Ice.Context? = nil) async throws -> `guard` {
+        return try await _impl._invoke(operation: "goto",
+                                       mode: .Normal,
+                                       write: { ostr in
+                                           ostr.write(iceP_if)
+                                           ostr.write(iceP_d)
+                                           ostr.write(iceP_inline)
+                                           ostr.write(iceP_private)
+                                           ostr.write(iceP_mutable)
+                                           ostr.write(iceP_namespace)
+                                           ostr.write(iceP_new)
+                                           ostr.write(iceP_not)
+                                           ostr.write(iceP_operator)
+                                           ostr.write(iceP_or)
+                                           ostr.write(iceP_protected)
+                                           ostr.write(iceP_public)
+                                           ostr.write(iceP_register)
+                                           ostr.writePendingValues()
+                                       },
+                                       read: { istr in
+                                           let iceP_returnValue: `guard` = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       userException:{ ex in
+                                           do  {
+                                               throw ex
+                                           } catch let error as `return` {
+                                               throw error
+                                           } catch let error as `as` {
+                                               throw error
+                                           } catch is Ice.UserException {}
+                                       },
+                                       context: context)
+    }
+}
+
 /// :nodoc:
 public class switch_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
@@ -928,6 +1095,68 @@ public struct doDisp: Ice.Dispatcher {
 
 public protocol `do`: `func`, `break` {}
 
+
+/// Dispatcher for `friend` servants.
+public struct friendDisp: Ice.Dispatcher {
+    public let servant: friend
+    private static let defaultObject = Ice.ObjectI<friendTraits>()
+
+    public init(_ servant: friend) {
+        self.servant = servant
+    }
+
+    public func dispatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        switch request.current.operation {
+        case "goto":
+            try await servant._iceD_goto(request)
+        case "ice_id":
+            try await (servant as? Ice.Object ?? friendDisp.defaultObject)._iceD_ice_id(request)
+        case "ice_ids":
+            try await (servant as? Ice.Object ?? friendDisp.defaultObject)._iceD_ice_ids(request)
+        case "ice_isA":
+            try await (servant as? Ice.Object ?? friendDisp.defaultObject)._iceD_ice_isA(request)
+        case "ice_ping":
+            try await (servant as? Ice.Object ?? friendDisp.defaultObject)._iceD_ice_ping(request)
+        default:
+            throw Ice.OperationNotExistException()
+        }
+    }
+}
+
+public protocol friend {
+    ///
+    /// - parameter if: ``continue``
+    ///
+    /// - parameter d: ``guard``
+    ///
+    /// - parameter inline: ``defer``
+    ///
+    /// - parameter private: ``switch`?`
+    ///
+    /// - parameter mutable: `doPrx?`
+    ///
+    /// - parameter namespace: `breakPrx?`
+    ///
+    /// - parameter new: `funcPrx?`
+    ///
+    /// - parameter not: ``switch`?`
+    ///
+    /// - parameter operator: `doPrx?`
+    ///
+    /// - parameter or: `Swift.Int32`
+    ///
+    /// - parameter protected: `Swift.Int32`
+    ///
+    /// - parameter public: `Swift.Int32`
+    ///
+    /// - parameter register: `Swift.Int32`
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: ``guard``
+    func goto(if: `continue`, d: `guard`, inline: `defer`, private: `switch`?, mutable: doPrx?, namespace: breakPrx?, new: funcPrx?, not: `switch`?, operator: doPrx?, or: Swift.Int32, protected: Swift.Int32, public: Swift.Int32, register: Swift.Int32, current: Ice.Current) async throws -> `guard`
+}
+
 /// break overview.
 ///
 /// break Methods:
@@ -963,3 +1192,37 @@ extension `func` {
 
 /// do overview.
 extension `do` {}
+
+/// friend overview.
+///
+/// friend Methods:
+///
+///  - goto: 
+extension friend {
+    public func _iceD_goto(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        let istr = request.inputStream
+        _ = try istr.startEncapsulation()
+        let iceP_if: `continue` = try istr.read()
+        let iceP_d: `guard` = try istr.read()
+        let iceP_inline: `defer` = try istr.read()
+        var iceP_private: `switch`?
+        try istr.read(`switch`.self) { iceP_private = $0 }
+        let iceP_mutable: doPrx? = try istr.read(doPrx.self)
+        let iceP_namespace: breakPrx? = try istr.read(breakPrx.self)
+        let iceP_new: funcPrx? = try istr.read(funcPrx.self)
+        var iceP_not: `switch`?
+        try istr.read(`switch`.self) { iceP_not = $0 }
+        let iceP_operator: doPrx? = try istr.read(doPrx.self)
+        let iceP_or: Swift.Int32 = try istr.read()
+        let iceP_protected: Swift.Int32 = try istr.read()
+        let iceP_public: Swift.Int32 = try istr.read()
+        let iceP_register: Swift.Int32 = try istr.read()
+        try istr.readPendingValues()
+        let result = try await self.goto(if: iceP_if, d: iceP_d, inline: iceP_inline, private: iceP_private, mutable: iceP_mutable, namespace: iceP_namespace, new: iceP_new, not: iceP_not, operator: iceP_operator, or: iceP_or, protected: iceP_protected, public: iceP_public, register: iceP_register, current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
+    }
+}

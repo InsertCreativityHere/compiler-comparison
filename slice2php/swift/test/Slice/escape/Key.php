@@ -293,6 +293,48 @@ namespace _and
 
 namespace _and
 {
+    global $and__t_friend;
+    global $and__t_friendPrx;
+
+    class friendPrxHelper
+    {
+        public static function createProxy($communicator, $proxyString)
+        {
+            return  $communicator->stringToProxy($proxyString, '::and::friend');
+        }
+
+        public static function checkedCast($proxy, ...$args)
+        {
+            return $proxy->ice_checkedCast('::and::friend', ...$args);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::and::friend', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::and::friend';
+        }
+    }
+
+    global $Ice__t_ObjectPrx;
+    $and__t_friendPrx = IcePHP_defineProxy('::and::friend', $Ice__t_ObjectPrx, null);
+
+    global $and__t_continue;
+    global $and__t_guard;
+    global $and__t_defer;
+    global $and__t_switch;
+    global $and__t_doPrx;
+    global $and__t_breakPrx;
+    global $and__t_funcPrx;
+    global $IcePHP__t_int;
+    IcePHP_defineOperation($and__t_friendPrx, 'goto', 0, -1, array(array($and__t_continue), array($and__t_guard), array($and__t_defer), array($and__t_switch), array($and__t_doPrx), array($and__t_breakPrx), array($and__t_funcPrx), array($and__t_switch), array($and__t_doPrx), array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int)), null, array($and__t_guard), array($and__t_return, $and__t_as));
+}
+
+namespace _and
+{
     if(!defined('\\_and\\is'))
     {
         define(__NAMESPACE__ . '\\is', 0);

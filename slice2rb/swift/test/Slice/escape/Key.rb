@@ -245,6 +245,28 @@ module ::And
         ])
     end
 
+    if not defined?(::And::FriendPrx)
+        module FriendPrx_mixin
+
+            def goto(_if, d, inline, private, mutable, namespace, _new, _not, operator, _or, protected, public, register, context=nil)
+                FriendPrx_mixin::OP_goto.invoke(self, [_if, d, inline, private, mutable, namespace, _new, _not, operator, _or, protected, public, register], context)
+            end
+        end
+
+        class FriendPrx < ::Ice::ObjectPrx
+            include ::Ice::Proxy_mixin
+            include FriendPrx_mixin
+        end
+
+        if not defined?(::And::T_FriendPrx)
+            T_FriendPrx = ::Ice::__declareProxy('::and::friend')
+        end
+
+        T_FriendPrx.defineProxy(FriendPrx, nil, [])
+
+        FriendPrx_mixin::OP_goto = ::Ice::__defineOperation('goto', ::Ice::OperationMode::Normal, false, nil, [[::And::T_Continue, false, 0], [::And::T_Guard, false, 0], [::And::T_Defer, false, 0], [::And::T_Switch, false, 0], [::And::T_DoPrx, false, 0], [::And::T_BreakPrx, false, 0], [::And::T_FuncPrx, false, 0], [::And::T_Switch, false, 0], [::And::T_DoPrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::And::T_Guard, false, 0], [::And::T_Return, ::And::T_As])
+    end
+
     Is = 0
 
     Self = 0

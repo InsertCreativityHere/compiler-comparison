@@ -768,7 +768,7 @@ public extension extendPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
-                                           } catch let error as nil {
+                                           } catch let error as `nil` {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
