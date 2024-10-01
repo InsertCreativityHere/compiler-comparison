@@ -13440,6 +13440,22 @@ namespace Ice.operations
 
             public abstract MyStruct1 opMyStruct1(MyStruct1 opMyStruct1, Ice.Current current);
 
+            public abstract void shutdown(Ice.Current current);
+
+            public abstract bool supportsCompress(Ice.Current current);
+
+            public abstract void opVoid(Ice.Current current);
+
+            public abstract byte opByte(byte p1, byte p2, out byte p3, Ice.Current current);
+
+            public abstract bool opBool(bool p1, bool p2, out bool p3, Ice.Current current);
+
+            public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, Ice.Current current);
+
+            public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, Ice.Current current);
+
+            public abstract string opString(string p1, string p2, out string p3, Ice.Current current);
+
             public abstract MyEnum opMyEnum(MyEnum p1, out MyEnum p2, Ice.Current current);
 
             public abstract MyClassPrx? opMyClass(MyClassPrx? p1, out MyClassPrx? p2, out MyClassPrx? p3, Ice.Current current);
@@ -13518,6 +13534,22 @@ namespace Ice.operations
 
             public abstract void opByteSOneway(byte[] s, Ice.Current current);
 
+            public abstract int opByteSOnewayCallCount(Ice.Current current);
+
+            public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(Ice.Current current);
+
+            public abstract void opDoubleMarshaling(double p1, double[] p2, Ice.Current current);
+
+            public abstract void opIdempotent(Ice.Current current);
+
+            public abstract byte opByte1(byte opByte1, Ice.Current current);
+
+            public abstract short opShort1(short opShort1, Ice.Current current);
+
+            public abstract int opInt1(int opInt1, Ice.Current current);
+
+            public abstract long opLong1(long opLong1, Ice.Current current);
+
             public abstract float opFloat1(float opFloat1, Ice.Current current);
 
             public abstract double opDouble1(double opDouble1, Ice.Current current);
@@ -13547,38 +13579,6 @@ namespace Ice.operations
             public abstract MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
 
             public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
-
-            public abstract int opByteSOnewayCallCount(Ice.Current current);
-
-            public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(Ice.Current current);
-
-            public abstract void opDoubleMarshaling(double p1, double[] p2, Ice.Current current);
-
-            public abstract void opIdempotent(Ice.Current current);
-
-            public abstract byte opByte1(byte opByte1, Ice.Current current);
-
-            public abstract short opShort1(short opShort1, Ice.Current current);
-
-            public abstract int opInt1(int opInt1, Ice.Current current);
-
-            public abstract long opLong1(long opLong1, Ice.Current current);
-
-            public abstract void shutdown(Ice.Current current);
-
-            public abstract bool supportsCompress(Ice.Current current);
-
-            public abstract void opVoid(Ice.Current current);
-
-            public abstract byte opByte(byte p1, byte p2, out byte p3, Ice.Current current);
-
-            public abstract bool opBool(bool p1, bool p2, out bool p3, Ice.Current current);
-
-            public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, Ice.Current current);
-
-            public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, Ice.Current current);
-
-            public abstract string opString(string p1, string p2, out string p3, Ice.Current current);
 
             public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -13674,6 +13674,22 @@ namespace Test2
 {
     public abstract class MyDerivedClassDisp_ : Ice.ObjectImpl, MyDerivedClass
     {
+        public abstract void shutdown(Ice.Current current);
+
+        public abstract bool supportsCompress(Ice.Current current);
+
+        public abstract void opVoid(Ice.Current current);
+
+        public abstract byte opByte(byte p1, byte p2, out byte p3, Ice.Current current);
+
+        public abstract bool opBool(bool p1, bool p2, out bool p3, Ice.Current current);
+
+        public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, Ice.Current current);
+
+        public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, Ice.Current current);
+
+        public abstract string opString(string p1, string p2, out string p3, Ice.Current current);
+
         public abstract global::Ice.operations.Test.MyEnum opMyEnum(global::Ice.operations.Test.MyEnum p1, out global::Ice.operations.Test.MyEnum p2, Ice.Current current);
 
         public abstract global::Ice.operations.Test.MyClassPrx? opMyClass(global::Ice.operations.Test.MyClassPrx? p1, out global::Ice.operations.Test.MyClassPrx? p2, out global::Ice.operations.Test.MyClassPrx? p3, Ice.Current current);
@@ -13752,6 +13768,22 @@ namespace Test2
 
         public abstract void opByteSOneway(byte[] s, Ice.Current current);
 
+        public abstract int opByteSOnewayCallCount(Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(Ice.Current current);
+
+        public abstract void opDoubleMarshaling(double p1, double[] p2, Ice.Current current);
+
+        public abstract void opIdempotent(Ice.Current current);
+
+        public abstract byte opByte1(byte opByte1, Ice.Current current);
+
+        public abstract short opShort1(short opShort1, Ice.Current current);
+
+        public abstract int opInt1(int opInt1, Ice.Current current);
+
+        public abstract long opLong1(long opLong1, Ice.Current current);
+
         public abstract float opFloat1(float opFloat1, Ice.Current current);
 
         public abstract double opDouble1(double opDouble1, Ice.Current current);
@@ -13781,38 +13813,6 @@ namespace Test2
         public abstract global::Ice.operations.Test.MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
 
         public abstract global::Ice.operations.Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
-
-        public abstract int opByteSOnewayCallCount(Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(Ice.Current current);
-
-        public abstract void opDoubleMarshaling(double p1, double[] p2, Ice.Current current);
-
-        public abstract void opIdempotent(Ice.Current current);
-
-        public abstract byte opByte1(byte opByte1, Ice.Current current);
-
-        public abstract short opShort1(short opShort1, Ice.Current current);
-
-        public abstract int opInt1(int opInt1, Ice.Current current);
-
-        public abstract long opLong1(long opLong1, Ice.Current current);
-
-        public abstract void shutdown(Ice.Current current);
-
-        public abstract bool supportsCompress(Ice.Current current);
-
-        public abstract void opVoid(Ice.Current current);
-
-        public abstract byte opByte(byte p1, byte p2, out byte p3, Ice.Current current);
-
-        public abstract bool opBool(bool p1, bool p2, out bool p3, Ice.Current current);
-
-        public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, Ice.Current current);
-
-        public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, Ice.Current current);
-
-        public abstract string opString(string p1, string p2, out string p3, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
