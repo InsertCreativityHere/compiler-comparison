@@ -21,7 +21,7 @@ import { Ice } from "ice";
 
 export const Test = {};
 
-Test._Default = class extends Ice.Value
+Test.Default = class extends Ice.Value
 {
     constructor(x = 10, y = 10)
     {
@@ -43,8 +43,8 @@ Test._Default = class extends Ice.Value
     }
 };
 
-Ice.defineValue(Test._Default, "::Test::Default");
-Ice.TypeRegistry.declareValueType("Test._Default", Test._Default);
+Ice.defineValue(Test.Default, "::Test::Default");
+Ice.TypeRegistry.declareValueType("Test.Default", Test.Default);
 
 Test.NoDefault = class extends Ice.Value
 {

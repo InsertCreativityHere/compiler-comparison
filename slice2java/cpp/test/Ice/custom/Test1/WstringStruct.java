@@ -143,5 +143,5 @@ public class WstringStruct implements java.lang.Cloneable,
     private static final WstringStruct _nullMarshalValue = new WstringStruct();
 
     /** @hidden */
-    private static final long serialVersionUID = -6616021040695341333L;
+    private static final long serialVersionUID = -6616020314740918824L;
 }
