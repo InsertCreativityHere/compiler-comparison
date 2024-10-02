@@ -12220,6 +12220,14 @@ namespace Test
 
         public abstract MyClass1? opMyClass1(MyClass1? c, Ice.Current current);
 
+        public abstract void shutdown(Ice.Current current);
+
+        public abstract bool supportsCompress(Ice.Current current);
+
+        public abstract void opVoid(Ice.Current current);
+
+        public abstract byte opByte(byte p1, byte p2, out byte p3, Ice.Current current);
+
         public abstract bool opBool(bool p1, bool p2, out bool p3, Ice.Current current);
 
         public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, Ice.Current current);
@@ -12307,14 +12315,6 @@ namespace Test
         public abstract short opShort1(short opShort1, Ice.Current current);
 
         public abstract int opInt1(int opInt1, Ice.Current current);
-
-        public abstract void shutdown(Ice.Current current);
-
-        public abstract bool supportsCompress(Ice.Current current);
-
-        public abstract void opVoid(Ice.Current current);
-
-        public abstract byte opByte(byte p1, byte p2, out byte p3, Ice.Current current);
 
         public abstract long opLong1(long opLong1, Ice.Current current);
 
@@ -12432,6 +12432,14 @@ namespace Test2
 {
     public abstract class MyDerivedClassDisp_ : Ice.ObjectImpl, MyDerivedClass
     {
+        public abstract void shutdown(Ice.Current current);
+
+        public abstract bool supportsCompress(Ice.Current current);
+
+        public abstract void opVoid(Ice.Current current);
+
+        public abstract byte opByte(byte p1, byte p2, out byte p3, Ice.Current current);
+
         public abstract bool opBool(bool p1, bool p2, out bool p3, Ice.Current current);
 
         public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, Ice.Current current);
@@ -12519,14 +12527,6 @@ namespace Test2
         public abstract short opShort1(short opShort1, Ice.Current current);
 
         public abstract int opInt1(int opInt1, Ice.Current current);
-
-        public abstract void shutdown(Ice.Current current);
-
-        public abstract bool supportsCompress(Ice.Current current);
-
-        public abstract void opVoid(Ice.Current current);
-
-        public abstract byte opByte(byte p1, byte p2, out byte p3, Ice.Current current);
 
         public abstract long opLong1(long opLong1, Ice.Current current);
 
