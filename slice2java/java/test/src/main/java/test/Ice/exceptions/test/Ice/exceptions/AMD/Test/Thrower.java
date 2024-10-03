@@ -27,8 +27,8 @@ public interface Thrower extends com.zeroc.Ice.Object
         throws A;
 
     java.util.concurrent.CompletionStage<Void> throwAorDasAorDAsync(int a, com.zeroc.Ice.Current current)
-        throws A,
-               D;
+        throws D,
+               A;
 
     java.util.concurrent.CompletionStage<Void> throwBasAAsync(int a, int b, com.zeroc.Ice.Current current)
         throws A;
