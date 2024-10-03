@@ -5516,11 +5516,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(AdapterExistsException)
+                    catch(AdapterNotExistException)
                     {
                         throw;
                     }
-                    catch(AdapterNotExistException)
+                    catch(AdapterExistsException)
                     {
                         throw;
                     }
@@ -5919,11 +5919,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(NodeActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(NodeActiveException)
                     {
                         throw;
                     }
@@ -5975,11 +5975,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(ReplicaActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(ReplicaActiveException)
                     {
                         throw;
                     }
@@ -6419,11 +6419,11 @@ namespace IceGrid
 
         public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, Ice.Current current);
 
+        public abstract void replicaInit(InternalRegistryPrx?[] replicas, Ice.Current current);
+
         public abstract void replicaAdded(InternalRegistryPrx? replica, Ice.Current current);
 
         public abstract void replicaRemoved(InternalRegistryPrx? replica, Ice.Current current);
-
-        public abstract void replicaInit(InternalRegistryPrx?[] replicas, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
