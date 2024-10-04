@@ -173,5 +173,5 @@ public class St implements java.lang.Cloneable,
     private static final St _nullMarshalValue = new St();
 
     /** @hidden */
-    private static final long serialVersionUID = 965308705550221089L;
+    private static final long serialVersionUID = 3273995771083698529L;
 }
