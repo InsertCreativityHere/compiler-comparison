@@ -12298,22 +12298,6 @@ namespace Test
 
         public abstract global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3, Ice.Current current);
-
-        public abstract int[] opIntS(int[] s, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(Ice.Current current);
-
-        public abstract void opIdempotent(Ice.Current current);
-
-        public abstract byte opByte1(byte opByte1, Ice.Current current);
-
-        public abstract short opShort1(short opShort1, Ice.Current current);
-
         public abstract int opInt1(int opInt1, Ice.Current current);
 
         public abstract long opLong1(long opLong1, Ice.Current current);
@@ -12345,6 +12329,22 @@ namespace Test
         public abstract MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
 
         public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3, Ice.Current current);
+
+        public abstract int[] opIntS(int[] s, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(Ice.Current current);
+
+        public abstract void opIdempotent(Ice.Current current);
+
+        public abstract byte opByte1(byte opByte1, Ice.Current current);
+
+        public abstract short opShort1(short opShort1, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -12510,22 +12510,6 @@ namespace Test2
 
         public abstract global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p3, Ice.Current current);
-
-        public abstract int[] opIntS(int[] s, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(Ice.Current current);
-
-        public abstract void opIdempotent(Ice.Current current);
-
-        public abstract byte opByte1(byte opByte1, Ice.Current current);
-
-        public abstract short opShort1(short opShort1, Ice.Current current);
-
         public abstract int opInt1(int opInt1, Ice.Current current);
 
         public abstract long opLong1(long opLong1, Ice.Current current);
@@ -12557,6 +12541,22 @@ namespace Test2
         public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
 
         public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p3, Ice.Current current);
+
+        public abstract int[] opIntS(int[] s, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(Ice.Current current);
+
+        public abstract void opIdempotent(Ice.Current current);
+
+        public abstract byte opByte1(byte opByte1, Ice.Current current);
+
+        public abstract short opShort1(short opShort1, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
