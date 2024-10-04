@@ -48,7 +48,7 @@ public class SBSKnownDerived extends SBase
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 8804375095350693539L;
+    private static final long serialVersionUID = 8804382773221704337L;
 
     /** @hidden */
     @Override
