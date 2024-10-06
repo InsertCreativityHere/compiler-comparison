@@ -933,9 +933,9 @@ public extension friendPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
-                                           } catch let error as `return` {
-                                               throw error
                                            } catch let error as `as` {
+                                               throw error
+                                           } catch let error as `return` {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
