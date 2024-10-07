@@ -484,15 +484,6 @@ struct StreamReader<::Test1::WstringStruct>
     }
 };
 
-template<>
-struct StreamReader<::Test1::WstringException>
-{
-    static void read(InputStream* istr, ::Test1::WstringException& v)
-    {
-        istr->readAll(v.reason);
-    }
-};
-
 }
 /// \endcond
 
@@ -514,15 +505,6 @@ struct StreamReader<::Test2::WstringStruct>
     static void read(InputStream* istr, ::Test2::WstringStruct& v)
     {
         istr->readAll(v.s);
-    }
-};
-
-template<>
-struct StreamReader<::Test2::WstringException>
-{
-    static void read(InputStream* istr, ::Test2::WstringException& v)
-    {
-        istr->readAll(v.reason);
     }
 };
 

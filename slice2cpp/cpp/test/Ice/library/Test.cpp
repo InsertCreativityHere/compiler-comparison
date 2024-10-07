@@ -118,7 +118,7 @@ void
 Test::UserError::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<UserError>::write(ostr, *this);
+    ostr->writeAll(this->message);
     ostr->endSlice();
 }
 
@@ -126,7 +126,7 @@ void
 Test::UserError::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<UserError>::read(istr, *this);
+    istr->readAll(this->message);
     istr->endSlice();
 }
 

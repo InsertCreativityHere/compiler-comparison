@@ -245,7 +245,7 @@ void
 BEGIN::display::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<display>::write(ostr, *this);
+    ostr->writeAll(this->when, this->_cpp_do, this->dup, this->_cpp_else);
     ostr->endSlice();
 }
 
@@ -253,7 +253,7 @@ void
 BEGIN::display::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<display>::read(istr, *this);
+    istr->readAll(this->when, this->_cpp_do, this->dup, this->_cpp_else);
     istr->endSlice();
 }
 
@@ -279,7 +279,7 @@ void
 BEGIN::next::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<next>::write(ostr, *this);
+    ostr->writeAll(this->_cpp_new);
     ostr->endSlice();
 }
 
@@ -287,7 +287,7 @@ void
 BEGIN::next::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<next>::read(istr, *this);
+    istr->readAll(this->_cpp_new);
     istr->endSlice();
 }
 
@@ -313,7 +313,7 @@ void
 BEGIN::nil::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<nil>::write(ostr, *this);
+    ostr->writeAll(this->_cpp_not, this->_cpp_or);
     ostr->endSlice();
     next::_writeImpl(ostr);
 }
@@ -322,7 +322,7 @@ void
 BEGIN::nil::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<nil>::read(istr, *this);
+    istr->readAll(this->_cpp_not, this->_cpp_or);
     istr->endSlice();
     next::_readImpl(istr);
 }

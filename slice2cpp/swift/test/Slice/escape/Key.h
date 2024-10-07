@@ -687,42 +687,6 @@ struct StreamReader<::_cpp_and::defer>
     }
 };
 
-template<>
-struct StreamReader<::_cpp_and::_cpp_switch>
-{
-    static void read(InputStream* istr, ::_cpp_and::_cpp_switch& v)
-    {
-        istr->readAll(v._cpp_if, v._cpp_export, v._cpp_volatile);
-    }
-};
-
-template<>
-struct StreamReader<::_cpp_and::_cpp_return>
-{
-    static void read(InputStream* istr, ::_cpp_and::_cpp_return& v)
-    {
-        istr->readAll(v.Int32);
-    }
-};
-
-template<>
-struct StreamWriter<::_cpp_and::as>
-{
-    static void write(OutputStream* ostr, const ::_cpp_and::as& v)
-    {
-        ostr->writeAll(v._cpp_static, v._cpp_switch);
-    }
-};
-
-template<>
-struct StreamReader<::_cpp_and::as>
-{
-    static void read(InputStream* istr, ::_cpp_and::as& v)
-    {
-        istr->readAll(v._cpp_static, v._cpp_switch);
-    }
-};
-
 }
 /// \endcond
 

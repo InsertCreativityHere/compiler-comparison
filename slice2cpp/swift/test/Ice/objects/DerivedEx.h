@@ -67,22 +67,6 @@ using Ice::Tuple::operator!=;
 namespace Ice
 {
 
-template<>
-struct StreamWriter<::Test::DerivedEx>
-{
-    static void write(OutputStream*, const ::Test::DerivedEx&)
-    {
-    }
-};
-
-template<>
-struct StreamReader<::Test::DerivedEx>
-{
-    static void read(InputStream*, ::Test::DerivedEx&)
-    {
-    }
-};
-
 }
 /// \endcond
 

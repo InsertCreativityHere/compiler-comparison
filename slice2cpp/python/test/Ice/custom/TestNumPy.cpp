@@ -710,7 +710,7 @@ void
 Test::NumPy::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<D>::write(ostr, *this);
+    ostr->writeAll({1, 2, 3, 4, 5, 6, 7}, this->boolSeq, this->byteSeq, this->shortSeq, this->intSeq, this->longSeq, this->floatSeq, this->doubleSeq);
     ostr->endSlice();
 }
 
@@ -718,7 +718,7 @@ void
 Test::NumPy::D::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<D>::read(istr, *this);
+    istr->readAll({1, 2, 3, 4, 5, 6, 7}, this->boolSeq, this->byteSeq, this->shortSeq, this->intSeq, this->longSeq, this->floatSeq, this->doubleSeq);
     istr->endSlice();
 }
 

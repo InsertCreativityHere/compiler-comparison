@@ -67,7 +67,7 @@ void
 WithNamespace::C1::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<C1>::write(ostr, *this);
+    ostr->writeAll(this->i);
     ostr->endSlice();
 }
 
@@ -75,7 +75,7 @@ void
 WithNamespace::C1::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<C1>::read(istr, *this);
+    istr->readAll(this->i);
     istr->endSlice();
 }
 
@@ -101,7 +101,7 @@ void
 WithNamespace::C2::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<C2>::write(ostr, *this);
+    ostr->writeAll(this->l);
     ostr->endSlice();
     C1::_iceWriteImpl(ostr);
 }
@@ -110,7 +110,7 @@ void
 WithNamespace::C2::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<C2>::read(istr, *this);
+    istr->readAll(this->l);
     istr->endSlice();
     C1::_iceReadImpl(istr);
 }
@@ -137,7 +137,7 @@ void
 WithNamespace::E1::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<E1>::write(ostr, *this);
+    ostr->writeAll(this->i);
     ostr->endSlice();
 }
 
@@ -145,7 +145,7 @@ void
 WithNamespace::E1::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<E1>::read(istr, *this);
+    istr->readAll(this->i);
     istr->endSlice();
 }
 
@@ -171,7 +171,7 @@ void
 WithNamespace::E2::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<E2>::write(ostr, *this);
+    ostr->writeAll(this->l);
     ostr->endSlice();
     E1::_writeImpl(ostr);
 }
@@ -180,7 +180,7 @@ void
 WithNamespace::E2::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<E2>::read(istr, *this);
+    istr->readAll(this->l);
     istr->endSlice();
     E1::_readImpl(istr);
 }

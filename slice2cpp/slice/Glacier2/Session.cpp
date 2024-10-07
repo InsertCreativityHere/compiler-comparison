@@ -547,7 +547,7 @@ void
 Glacier2::CannotCreateSessionException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<CannotCreateSessionException>::write(ostr, *this);
+    ostr->writeAll(this->reason);
     ostr->endSlice();
 }
 
@@ -555,7 +555,7 @@ void
 Glacier2::CannotCreateSessionException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<CannotCreateSessionException>::read(istr, *this);
+    istr->readAll(this->reason);
     istr->endSlice();
 }
 

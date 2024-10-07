@@ -1039,15 +1039,6 @@ struct StreamableTraits< ::Test::E>
 };
 
 template<>
-struct StreamReader<::Test::DictClass>
-{
-    static void read(InputStream* istr, ::Test::DictClass& v)
-    {
-        istr->readAll(v.isdict);
-    }
-};
-
-template<>
 struct StreamableTraits<::Test::BufferStruct>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryStruct;

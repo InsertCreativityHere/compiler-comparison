@@ -147,15 +147,6 @@ namespace Ice
 {
 
 template<>
-struct StreamReader<::Test::C>
-{
-    static void read(InputStream* istr, ::Test::C& v)
-    {
-        istr->readAll(v.i);
-    }
-};
-
-template<>
 struct StreamableTraits<::Test::S1>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryStruct;

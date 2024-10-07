@@ -194,15 +194,6 @@ struct StreamReader<::Test::S2>
 };
 
 template<>
-struct StreamReader<::Test::C>
-{
-    static void read(InputStream* istr, ::Test::C& v)
-    {
-        istr->readAll(v.name);
-    }
-};
-
-template<>
 struct StreamableTraits<::Test::S3>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryStruct;

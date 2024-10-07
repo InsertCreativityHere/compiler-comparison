@@ -435,7 +435,8 @@ void
 Clash::Cls::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<Cls>::write(ostr, *this);
+    ostr->writeAll(this->s, this->context, this->current, this->response, this->typeId, this->del, this->ex, this->result, this->istr, this->ostr, this->inS, this->in, this->proxy, this->obj, this->getCookie, this->clone);
+    ostr->writeAll({1}, this->cookie);
     ostr->endSlice();
 }
 
@@ -443,7 +444,8 @@ void
 Clash::Cls::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<Cls>::read(istr, *this);
+    istr->readAll(this->s, this->context, this->current, this->response, this->typeId, this->del, this->ex, this->result, this->istr, this->ostr, this->inS, this->in, this->proxy, this->obj, this->getCookie, this->clone);
+    istr->readAll({1}, this->cookie);
     istr->endSlice();
 }
 
@@ -469,7 +471,7 @@ void
 Clash::Ex::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<Ex>::write(ostr, *this);
+    ostr->writeAll(this->istr, this->ostr, this->cause);
     ostr->endSlice();
 }
 
@@ -477,7 +479,7 @@ void
 Clash::Ex::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<Ex>::read(istr, *this);
+    istr->readAll(this->istr, this->ostr, this->cause);
     istr->endSlice();
 }
 

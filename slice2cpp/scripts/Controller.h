@@ -1081,69 +1081,6 @@ using ProcessControllerRegistryPtr = ::std::shared_ptr<ProcessControllerRegistry
 namespace Ice
 {
 
-template<>
-struct StreamWriter<::Test::Common::Config>
-{
-    static void write(OutputStream* ostr, const ::Test::Common::Config& v)
-    {
-        ostr->writeAll({1, 2, 3, 4, 5, 6, 7}, v.protocol, v.mx, v.serialize, v.compress, v.ipv6, v.cprops, v.sprops);
-    }
-};
-
-template<>
-struct StreamReader<::Test::Common::Config>
-{
-    static void read(InputStream* istr, ::Test::Common::Config& v)
-    {
-        istr->readAll({1, 2, 3, 4, 5, 6, 7}, v.protocol, v.mx, v.serialize, v.compress, v.ipv6, v.cprops, v.sprops);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::Common::OptionOverrides>
-{
-    static void write(OutputStream* ostr, const ::Test::Common::OptionOverrides& v)
-    {
-        ostr->writeAll({1, 2, 3, 4, 5}, v.protocol, v.mx, v.serialize, v.compress, v.ipv6);
-    }
-};
-
-template<>
-struct StreamReader<::Test::Common::OptionOverrides>
-{
-    static void read(InputStream* istr, ::Test::Common::OptionOverrides& v)
-    {
-        istr->readAll({1, 2, 3, 4, 5}, v.protocol, v.mx, v.serialize, v.compress, v.ipv6);
-    }
-};
-
-template<>
-struct StreamReader<::Test::Common::TestCaseNotExistException>
-{
-    static void read(InputStream* istr, ::Test::Common::TestCaseNotExistException& v)
-    {
-        istr->readAll(v.reason);
-    }
-};
-
-template<>
-struct StreamReader<::Test::Common::TestCaseFailedException>
-{
-    static void read(InputStream* istr, ::Test::Common::TestCaseFailedException& v)
-    {
-        istr->readAll(v.output);
-    }
-};
-
-template<>
-struct StreamReader<::Test::Common::ProcessFailedException>
-{
-    static void read(InputStream* istr, ::Test::Common::ProcessFailedException& v)
-    {
-        istr->readAll(v.reason);
-    }
-};
-
 }
 /// \endcond
 

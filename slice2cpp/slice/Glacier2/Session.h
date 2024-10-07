@@ -1270,15 +1270,6 @@ using SSLSessionManagerPtr = ::std::shared_ptr<SSLSessionManager>;
 namespace Ice
 {
 
-template<>
-struct StreamReader<::Glacier2::CannotCreateSessionException>
-{
-    static void read(InputStream* istr, ::Glacier2::CannotCreateSessionException& v)
-    {
-        istr->readAll(v.reason);
-    }
-};
-
 }
 /// \endcond
 

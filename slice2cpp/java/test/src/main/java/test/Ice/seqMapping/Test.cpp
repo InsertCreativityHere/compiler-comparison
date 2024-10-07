@@ -231,7 +231,7 @@ void
 Test::Bar::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<Bar>::write(ostr, *this);
+    ostr->writeAll(this->SLmem, this->SLSmem);
     ostr->endSlice();
 }
 
@@ -239,7 +239,7 @@ void
 Test::Bar::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<Bar>::read(istr, *this);
+    istr->readAll(this->SLmem, this->SLSmem);
     istr->endSlice();
 }
 
@@ -265,7 +265,7 @@ void
 Test::Baz::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<Baz>::write(ostr, *this);
+    ostr->writeAll(this->SLmem, this->SLSmem);
     ostr->endSlice();
 }
 
@@ -273,7 +273,7 @@ void
 Test::Baz::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<Baz>::read(istr, *this);
+    istr->readAll(this->SLmem, this->SLSmem);
     istr->endSlice();
 }
 

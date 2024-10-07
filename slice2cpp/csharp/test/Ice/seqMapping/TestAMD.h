@@ -1761,24 +1761,6 @@ struct StreamReader<::Test::SD>
 };
 
 template<>
-struct StreamReader<::Test::CV>
-{
-    static void read(InputStream* istr, ::Test::CV& v)
-    {
-        istr->readAll(v.i);
-    }
-};
-
-template<>
-struct StreamReader<::Test::CR>
-{
-    static void read(InputStream* istr, ::Test::CR& v)
-    {
-        istr->readAll(v.v);
-    }
-};
-
-template<>
 struct StreamableTraits< ::Test::En>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryEnum;

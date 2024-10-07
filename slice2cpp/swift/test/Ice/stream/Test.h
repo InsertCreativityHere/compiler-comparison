@@ -613,44 +613,6 @@ struct StreamReader<::Test::LargeStruct>
 };
 
 template<>
-struct StreamWriter<::Test::OptionalClass>
-{
-    static void write(OutputStream* ostr, const ::Test::OptionalClass& v)
-    {
-        ostr->writeAll(v.bo, v.by);
-        ostr->writeAll({1, 2}, v.sh, v.i);
-    }
-};
-
-template<>
-struct StreamReader<::Test::OptionalClass>
-{
-    static void read(InputStream* istr, ::Test::OptionalClass& v)
-    {
-        istr->readAll(v.bo, v.by);
-        istr->readAll({1, 2}, v.sh, v.i);
-    }
-};
-
-template<>
-struct StreamReader<::Test::MyClass>
-{
-    static void read(InputStream* istr, ::Test::MyClass& v)
-    {
-        istr->readAll(v.c, v.o, v.s, v.seq1, v.seq2, v.seq3, v.seq4, v.seq5, v.seq6, v.seq7, v.seq8, v.seq9, v.seq10, v.d);
-    }
-};
-
-template<>
-struct StreamReader<::Test::MyException>
-{
-    static void read(InputStream* istr, ::Test::MyException& v)
-    {
-        istr->readAll(v.c);
-    }
-};
-
-template<>
 struct StreamableTraits< ::Test::Sub::NestedEnum>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryEnum;
@@ -674,15 +636,6 @@ struct StreamReader<::Test::Sub::NestedStruct>
     static void read(InputStream* istr, ::Test::Sub::NestedStruct& v)
     {
         istr->readAll(v.bo, v.by, v.sh, v.i, v.l, v.f, v.d, v.str, v.e);
-    }
-};
-
-template<>
-struct StreamReader<::Test::Sub::NestedException>
-{
-    static void read(InputStream* istr, ::Test::Sub::NestedException& v)
-    {
-        istr->readAll(v.str);
     }
 };
 
@@ -717,15 +670,6 @@ struct StreamReader<::Test2::Sub2::NestedStruct2>
     static void read(InputStream* istr, ::Test2::Sub2::NestedStruct2& v)
     {
         istr->readAll(v.bo, v.by, v.sh, v.i, v.l, v.f, v.d, v.str, v.e);
-    }
-};
-
-template<>
-struct StreamReader<::Test2::Sub2::NestedException2>
-{
-    static void read(InputStream* istr, ::Test2::Sub2::NestedException2& v)
-    {
-        istr->readAll(v.str);
     }
 };
 

@@ -383,33 +383,6 @@ namespace Ice
 {
 
 template<>
-struct StreamReader<::Test::InvalidPointException>
-{
-    static void read(InputStream* istr, ::Test::InvalidPointException& v)
-    {
-        istr->readAll(v.index);
-    }
-};
-
-template<>
-struct StreamReader<::Test::InvalidLengthException>
-{
-    static void read(InputStream* istr, ::Test::InvalidLengthException& v)
-    {
-        istr->readAll(v.length);
-    }
-};
-
-template<>
-struct StreamReader<::Test::OtherException>
-{
-    static void read(InputStream* istr, ::Test::OtherException& v)
-    {
-        istr->readAll(v.x, v.y, v.z, v.b);
-    }
-};
-
-template<>
 struct StreamableTraits<::Test::PointF>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryStruct;
@@ -508,15 +481,6 @@ struct StreamReader<::Test::ColorPalette>
     static void read(InputStream* istr, ::Test::ColorPalette& v)
     {
         istr->readAll(v.colors);
-    }
-};
-
-template<>
-struct StreamReader<::Test::Pen>
-{
-    static void read(InputStream* istr, ::Test::Pen& v)
-    {
-        istr->readAll(v.thickness, v.color);
     }
 };
 

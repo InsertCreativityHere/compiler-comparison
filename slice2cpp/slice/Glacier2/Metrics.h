@@ -158,24 +158,6 @@ using Ice::Tuple::operator!=;
 namespace Ice
 {
 
-template<>
-struct StreamWriter<::IceMX::SessionMetrics>
-{
-    static void write(OutputStream* ostr, const ::IceMX::SessionMetrics& v)
-    {
-        ostr->writeAll(v.forwardedClient, v.forwardedServer, v.routingTableSize, v.queuedClient, v.queuedServer, v.overriddenClient, v.overriddenServer);
-    }
-};
-
-template<>
-struct StreamReader<::IceMX::SessionMetrics>
-{
-    static void read(InputStream* istr, ::IceMX::SessionMetrics& v)
-    {
-        istr->readAll(v.forwardedClient, v.forwardedServer, v.routingTableSize, v.queuedClient, v.queuedServer, v.overriddenClient, v.overriddenServer);
-    }
-};
-
 }
 /// \endcond
 

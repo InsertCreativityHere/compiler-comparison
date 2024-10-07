@@ -257,15 +257,6 @@ using InitialPtr = ::std::shared_ptr<Initial>;
 namespace Ice
 {
 
-template<>
-struct StreamReader<::Test::ConcreteClass>
-{
-    static void read(InputStream* istr, ::Test::ConcreteClass& v)
-    {
-        istr->readAll(v.i);
-    }
-};
-
 }
 /// \endcond
 

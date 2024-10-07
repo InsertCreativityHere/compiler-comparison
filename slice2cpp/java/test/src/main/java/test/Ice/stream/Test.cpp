@@ -72,7 +72,8 @@ void
 Test::OptionalClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<OptionalClass>::write(ostr, *this);
+    ostr->writeAll(this->bo, this->by);
+    ostr->writeAll({1, 2, 3, 4, 6, 7, 8, 12, 13, 14, 15}, this->sh, this->i, this->s, this->enumS4, this->byteBoolD6, this->shortIntD7, this->enum8, this->intSeq12, this->byteSeq13, this->stringSeq14, this->p15);
     ostr->endSlice();
 }
 
@@ -80,7 +81,8 @@ void
 Test::OptionalClass::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<OptionalClass>::read(istr, *this);
+    istr->readAll(this->bo, this->by);
+    istr->readAll({1, 2, 3, 4, 6, 7, 8, 12, 13, 14, 15}, this->sh, this->i, this->s, this->enumS4, this->byteBoolD6, this->shortIntD7, this->enum8, this->intSeq12, this->byteSeq13, this->stringSeq14, this->p15);
     istr->endSlice();
 }
 
@@ -106,7 +108,7 @@ void
 Test::MyClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<MyClass>::write(ostr, *this);
+    ostr->writeAll(this->c, this->prx, this->o, this->s, this->seq1, this->seq2, this->seq3, this->seq4, this->seq5, this->seq6, this->seq7, this->seq8, this->seq9, this->seq10, this->d);
     ostr->endSlice();
 }
 
@@ -114,7 +116,7 @@ void
 Test::MyClass::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<MyClass>::read(istr, *this);
+    istr->readAll(this->c, this->prx, this->o, this->s, this->seq1, this->seq2, this->seq3, this->seq4, this->seq5, this->seq6, this->seq7, this->seq8, this->seq9, this->seq10, this->d);
     istr->endSlice();
 }
 
@@ -148,7 +150,7 @@ void
 Test::MyException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<MyException>::write(ostr, *this);
+    ostr->writeAll(this->c);
     ostr->endSlice();
 }
 
@@ -156,7 +158,7 @@ void
 Test::MyException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<MyException>::read(istr, *this);
+    istr->readAll(this->c);
     istr->endSlice();
 }
 

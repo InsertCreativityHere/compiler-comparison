@@ -70,7 +70,7 @@ void
 Test::D3::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<D3>::write(ostr, *this);
+    ostr->writeAll(this->sd3, this->pd3);
     ostr->endSlice();
     B::_iceWriteImpl(ostr);
 }
@@ -79,7 +79,7 @@ void
 Test::D3::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<D3>::read(istr, *this);
+    istr->readAll(this->sd3, this->pd3);
     istr->endSlice();
     B::_iceReadImpl(istr);
 }
@@ -106,7 +106,7 @@ void
 Test::PCUnknown::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<PCUnknown>::write(ostr, *this);
+    ostr->writeAll(this->pu);
     ostr->endSlice();
     PBase::_iceWriteImpl(ostr);
 }
@@ -115,7 +115,7 @@ void
 Test::PCUnknown::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<PCUnknown>::read(istr, *this);
+    istr->readAll(this->pu);
     istr->endSlice();
     PBase::_iceReadImpl(istr);
 }
@@ -142,7 +142,7 @@ void
 Test::PCDerived::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<PCDerived>::write(ostr, *this);
+    ostr->writeAll(this->pbs);
     ostr->endSlice();
     PDerived::_iceWriteImpl(ostr);
 }
@@ -151,7 +151,7 @@ void
 Test::PCDerived::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<PCDerived>::read(istr, *this);
+    istr->readAll(this->pbs);
     istr->endSlice();
     PDerived::_iceReadImpl(istr);
 }
@@ -178,7 +178,7 @@ void
 Test::PCDerived2::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<PCDerived2>::write(ostr, *this);
+    ostr->writeAll(this->pcd2);
     ostr->endSlice();
     PCDerived::_iceWriteImpl(ostr);
 }
@@ -187,7 +187,7 @@ void
 Test::PCDerived2::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<PCDerived2>::read(istr, *this);
+    istr->readAll(this->pcd2);
     istr->endSlice();
     PCDerived::_iceReadImpl(istr);
 }
@@ -214,7 +214,7 @@ void
 Test::PCDerived3::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<PCDerived3>::write(ostr, *this);
+    ostr->writeAll(this->pcd3);
     ostr->endSlice();
     PCDerived2::_iceWriteImpl(ostr);
 }
@@ -223,7 +223,7 @@ void
 Test::PCDerived3::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<PCDerived3>::read(istr, *this);
+    istr->readAll(this->pcd3);
     istr->endSlice();
     PCDerived2::_iceReadImpl(istr);
 }
@@ -250,7 +250,7 @@ void
 Test::CompactPCDerived::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<CompactPCDerived>::write(ostr, *this);
+    ostr->writeAll(this->pbs);
     ostr->endSlice();
     CompactPDerived::_iceWriteImpl(ostr);
 }
@@ -259,7 +259,7 @@ void
 Test::CompactPCDerived::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<CompactPCDerived>::read(istr, *this);
+    istr->readAll(this->pbs);
     istr->endSlice();
     CompactPDerived::_iceReadImpl(istr);
 }

@@ -100,7 +100,7 @@ void
 Test::InvalidPointException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<InvalidPointException>::write(ostr, *this);
+    ostr->writeAll(this->index);
     ostr->endSlice();
     BaseException::_writeImpl(ostr);
 }
@@ -109,7 +109,7 @@ void
 Test::InvalidPointException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<InvalidPointException>::read(istr, *this);
+    istr->readAll(this->index);
     istr->endSlice();
     BaseException::_readImpl(istr);
 }
@@ -136,7 +136,7 @@ void
 Test::InvalidLengthException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<InvalidLengthException>::write(ostr, *this);
+    ostr->writeAll(this->length);
     ostr->endSlice();
     BaseException::_writeImpl(ostr);
 }
@@ -145,7 +145,7 @@ void
 Test::InvalidLengthException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<InvalidLengthException>::read(istr, *this);
+    istr->readAll(this->length);
     istr->endSlice();
     BaseException::_readImpl(istr);
 }
@@ -172,7 +172,7 @@ void
 Test::OtherException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<OtherException>::write(ostr, *this);
+    ostr->writeAll(this->x, this->y, this->z, this->b);
     ostr->endSlice();
 }
 
@@ -180,7 +180,7 @@ void
 Test::OtherException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<OtherException>::read(istr, *this);
+    istr->readAll(this->x, this->y, this->z, this->b);
     istr->endSlice();
 }
 
@@ -206,7 +206,7 @@ void
 Test::Pen::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<Pen>::write(ostr, *this);
+    ostr->writeAll(this->thickness, this->color);
     ostr->endSlice();
 }
 
@@ -214,6 +214,6 @@ void
 Test::Pen::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<Pen>::read(istr, *this);
+    istr->readAll(this->thickness, this->color);
     istr->endSlice();
 }

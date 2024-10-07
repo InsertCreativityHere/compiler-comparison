@@ -196,7 +196,7 @@ void
 _cpp_and::_cpp_for::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<_cpp_for>::write(ostr, *this);
+    ostr->writeAll(this->lambda, this->from, this->global);
     ostr->endSlice();
 }
 
@@ -204,7 +204,7 @@ void
 _cpp_and::_cpp_for::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<_cpp_for>::read(istr, *this);
+    istr->readAll(this->lambda, this->from, this->global);
     istr->endSlice();
 }
 
@@ -230,7 +230,7 @@ void
 _cpp_and::is::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<is>::write(ostr, *this);
+    ostr->writeAll(this->lambda);
     ostr->endSlice();
 }
 
@@ -238,7 +238,7 @@ void
 _cpp_and::is::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<is>::read(istr, *this);
+    istr->readAll(this->lambda);
     istr->endSlice();
 }
 
@@ -264,7 +264,7 @@ void
 _cpp_and::_cpp_not::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<_cpp_not>::write(ostr, *this);
+    ostr->writeAll(this->_cpp_or, this->pass);
     ostr->endSlice();
     is::_writeImpl(ostr);
 }
@@ -273,7 +273,7 @@ void
 _cpp_and::_cpp_not::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<_cpp_not>::read(istr, *this);
+    istr->readAll(this->_cpp_or, this->pass);
     istr->endSlice();
     is::_readImpl(istr);
 }

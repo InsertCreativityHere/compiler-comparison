@@ -237,7 +237,7 @@ void
 _cpp_and::echo::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<echo>::write(ostr, *this);
+    ostr->writeAll(this->_cpp_if, this->_cpp_else, this->elseif, this->empty);
     ostr->endSlice();
 }
 
@@ -245,7 +245,7 @@ void
 _cpp_and::echo::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<echo>::read(istr, *this);
+    istr->readAll(this->_cpp_if, this->_cpp_else, this->elseif, this->empty);
     istr->endSlice();
 }
 
@@ -271,7 +271,7 @@ void
 _cpp_and::endif::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<endif>::write(ostr, *this);
+    ostr->writeAll(this->endswitch);
     ostr->endSlice();
 }
 
@@ -279,7 +279,7 @@ void
 _cpp_and::endif::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<endif>::read(istr, *this);
+    istr->readAll(this->endswitch);
     istr->endSlice();
 }
 
@@ -305,7 +305,7 @@ void
 _cpp_and::endwhile::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<endwhile>::write(ostr, *this);
+    ostr->writeAll(this->eval, this->exit);
     ostr->endSlice();
     endif::_writeImpl(ostr);
 }
@@ -314,7 +314,7 @@ void
 _cpp_and::endwhile::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<endwhile>::read(istr, *this);
+    istr->readAll(this->eval, this->exit);
     istr->endSlice();
     endif::_readImpl(istr);
 }

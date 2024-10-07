@@ -744,60 +744,6 @@ using WrongOperationPtr = ::std::shared_ptr<WrongOperation>;
 namespace Ice
 {
 
-template<>
-struct StreamReader<::Test::A>
-{
-    static void read(InputStream* istr, ::Test::A& v)
-    {
-        istr->readAll(v.aMem);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::B>
-{
-    static void write(OutputStream* ostr, const ::Test::B& v)
-    {
-        ostr->writeAll(v.bMem);
-    }
-};
-
-template<>
-struct StreamReader<::Test::B>
-{
-    static void read(InputStream* istr, ::Test::B& v)
-    {
-        istr->readAll(v.bMem);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::C>
-{
-    static void write(OutputStream* ostr, const ::Test::C& v)
-    {
-        ostr->writeAll(v.cMem);
-    }
-};
-
-template<>
-struct StreamReader<::Test::C>
-{
-    static void read(InputStream* istr, ::Test::C& v)
-    {
-        istr->readAll(v.cMem);
-    }
-};
-
-template<>
-struct StreamReader<::Test::D>
-{
-    static void read(InputStream* istr, ::Test::D& v)
-    {
-        istr->readAll(v.dMem);
-    }
-};
-
 }
 /// \endcond
 

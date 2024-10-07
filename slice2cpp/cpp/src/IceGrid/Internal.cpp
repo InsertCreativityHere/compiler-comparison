@@ -1585,11 +1585,11 @@ IceGrid::ReplicaSessionPrx::_iceI_setAdapterDirectProxy(const ::std::shared_ptr<
             {
                 ex.ice_throw();
             }
-            catch(const AdapterNotExistException&)
+            catch(const AdapterExistsException&)
             {
                 throw;
             }
-            catch(const AdapterExistsException&)
+            catch(const AdapterNotExistException&)
             {
                 throw;
             }
@@ -1700,11 +1700,11 @@ IceGrid::InternalRegistryPrx::_iceI_registerNode(const ::std::shared_ptr<::IceIn
             {
                 ex.ice_throw();
             }
-            catch(const PermissionDeniedException&)
+            catch(const NodeActiveException&)
             {
                 throw;
             }
-            catch(const NodeActiveException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
@@ -1750,11 +1750,11 @@ IceGrid::InternalRegistryPrx::_iceI_registerReplica(const ::std::shared_ptr<::Ic
             {
                 ex.ice_throw();
             }
-            catch(const PermissionDeniedException&)
+            catch(const ReplicaActiveException&)
             {
                 throw;
             }
-            catch(const ReplicaActiveException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
@@ -2033,7 +2033,7 @@ void
 IceGrid::InternalDbEnvDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<InternalDbEnvDescriptor>::write(ostr, *this);
+    ostr->writeAll(this->name, this->properties);
     ostr->endSlice();
 }
 
@@ -2041,7 +2041,7 @@ void
 IceGrid::InternalDbEnvDescriptor::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<InternalDbEnvDescriptor>::read(istr, *this);
+    istr->readAll(this->name, this->properties);
     istr->endSlice();
 }
 
@@ -2067,7 +2067,7 @@ void
 IceGrid::InternalAdapterDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<InternalAdapterDescriptor>::write(ostr, *this);
+    ostr->writeAll(this->id, this->serverLifetime);
     ostr->endSlice();
 }
 
@@ -2075,7 +2075,7 @@ void
 IceGrid::InternalAdapterDescriptor::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<InternalAdapterDescriptor>::read(istr, *this);
+    istr->readAll(this->id, this->serverLifetime);
     istr->endSlice();
 }
 
@@ -2101,7 +2101,8 @@ void
 IceGrid::InternalServerDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<InternalServerDescriptor>::write(ostr, *this);
+    ostr->writeAll(this->id, this->application, this->uuid, this->revision, this->sessionId, this->exe, this->pwd, this->user, this->activation, this->activationTimeout, this->deactivationTimeout, this->processRegistered, this->options, this->envs, this->logs, this->adapters, this->dbEnvs, this->properties);
+    ostr->writeAll({1}, this->services);
     ostr->endSlice();
 }
 
@@ -2109,7 +2110,8 @@ void
 IceGrid::InternalServerDescriptor::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<InternalServerDescriptor>::read(istr, *this);
+    istr->readAll(this->id, this->application, this->uuid, this->revision, this->sessionId, this->exe, this->pwd, this->user, this->activation, this->activationTimeout, this->deactivationTimeout, this->processRegistered, this->options, this->envs, this->logs, this->adapters, this->dbEnvs, this->properties);
+    istr->readAll({1}, this->services);
     istr->endSlice();
 }
 
@@ -2167,7 +2169,7 @@ void
 IceGrid::AdapterNotActiveException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<AdapterNotActiveException>::write(ostr, *this);
+    ostr->writeAll(this->activatable);
     ostr->endSlice();
 }
 
@@ -2175,7 +2177,7 @@ void
 IceGrid::AdapterNotActiveException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<AdapterNotActiveException>::read(istr, *this);
+    istr->readAll(this->activatable);
     istr->endSlice();
 }
 
@@ -2201,7 +2203,7 @@ void
 IceGrid::AdapterExistsException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<AdapterExistsException>::write(ostr, *this);
+    ostr->writeAll(this->id);
     ostr->endSlice();
 }
 
@@ -2209,7 +2211,7 @@ void
 IceGrid::AdapterExistsException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<AdapterExistsException>::read(istr, *this);
+    istr->readAll(this->id);
     istr->endSlice();
 }
 
@@ -2299,7 +2301,7 @@ void
 IceGrid::InternalNodeInfo::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<InternalNodeInfo>::write(ostr, *this);
+    ostr->writeAll(this->name, this->os, this->hostname, this->release, this->version, this->machine, this->nProcessors, this->dataDir);
     ostr->endSlice();
 }
 
@@ -2307,7 +2309,7 @@ void
 IceGrid::InternalNodeInfo::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<InternalNodeInfo>::read(istr, *this);
+    istr->readAll(this->name, this->os, this->hostname, this->release, this->version, this->machine, this->nProcessors, this->dataDir);
     istr->endSlice();
 }
 
@@ -2333,7 +2335,7 @@ void
 IceGrid::InternalReplicaInfo::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<InternalReplicaInfo>::write(ostr, *this);
+    ostr->writeAll(this->name, this->hostname);
     ostr->endSlice();
 }
 
@@ -2341,7 +2343,7 @@ void
 IceGrid::InternalReplicaInfo::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<InternalReplicaInfo>::read(istr, *this);
+    istr->readAll(this->name, this->hostname);
     istr->endSlice();
 }
 

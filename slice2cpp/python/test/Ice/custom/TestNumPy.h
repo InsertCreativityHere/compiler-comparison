@@ -546,24 +546,6 @@ using CustomPtr = ::std::shared_ptr<Custom>;
 namespace Ice
 {
 
-template<>
-struct StreamWriter<::Test::NumPy::D>
-{
-    static void write(OutputStream* ostr, const ::Test::NumPy::D& v)
-    {
-        ostr->writeAll({1, 2, 3, 4, 5, 6, 7}, v.boolSeq, v.byteSeq, v.shortSeq, v.intSeq, v.longSeq, v.floatSeq, v.doubleSeq);
-    }
-};
-
-template<>
-struct StreamReader<::Test::NumPy::D>
-{
-    static void read(InputStream* istr, ::Test::NumPy::D& v)
-    {
-        istr->readAll({1, 2, 3, 4, 5, 6, 7}, v.boolSeq, v.byteSeq, v.shortSeq, v.intSeq, v.longSeq, v.floatSeq, v.doubleSeq);
-    }
-};
-
 }
 /// \endcond
 

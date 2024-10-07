@@ -647,42 +647,6 @@ struct StreamReader<::_cpp_and::_cpp_continue>
 };
 
 template<>
-struct StreamReader<::_cpp_and::_cpp_for>
-{
-    static void read(InputStream* istr, ::_cpp_and::_cpp_for& v)
-    {
-        istr->readAll(v.lambda, v.from, v.global);
-    }
-};
-
-template<>
-struct StreamReader<::_cpp_and::is>
-{
-    static void read(InputStream* istr, ::_cpp_and::is& v)
-    {
-        istr->readAll(v.lambda);
-    }
-};
-
-template<>
-struct StreamWriter<::_cpp_and::_cpp_not>
-{
-    static void write(OutputStream* ostr, const ::_cpp_and::_cpp_not& v)
-    {
-        ostr->writeAll(v._cpp_or, v.pass);
-    }
-};
-
-template<>
-struct StreamReader<::_cpp_and::_cpp_not>
-{
-    static void read(InputStream* istr, ::_cpp_and::_cpp_not& v)
-    {
-        istr->readAll(v._cpp_or, v.pass);
-    }
-};
-
-template<>
 struct StreamableTraits< ::_cpp_and::EnumNone>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryEnum;

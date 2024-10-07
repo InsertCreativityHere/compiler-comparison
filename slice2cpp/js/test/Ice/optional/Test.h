@@ -1416,11 +1416,6 @@ protected:
 
     ::std::optional<::Test::SmallStructList> lp;
 
-    template<typename T>
-    friend struct Ice::StreamWriter;
-    template<typename T>
-    friend struct Ice::StreamReader;
-
     OptionalWithCustom(const OptionalWithCustom&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -2060,24 +2055,6 @@ namespace Ice
 {
 
 template<>
-struct StreamWriter<::Test::OneOptional>
-{
-    static void write(OutputStream* ostr, const ::Test::OneOptional& v)
-    {
-        ostr->writeAll({1}, v.a);
-    }
-};
-
-template<>
-struct StreamReader<::Test::OneOptional>
-{
-    static void read(InputStream* istr, ::Test::OneOptional& v)
-    {
-        istr->readAll({1}, v.a);
-    }
-};
-
-template<>
 struct StreamableTraits< ::Test::MyEnum>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryEnum;
@@ -2139,205 +2116,6 @@ struct StreamReader<::Test::VarStruct>
 };
 
 template<>
-struct StreamWriter<::Test::MultiOptional>
-{
-    static void write(OutputStream* ostr, const ::Test::MultiOptional& v)
-    {
-        ostr->writeAll({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 28, 29, 30}, v.a, v.b, v.c, v.d, v.e, v.f, v.g, v.h, v.i, v.j, v.bs, v.ss, v.iid, v.sid, v.fs, v.vs, v.shs, v.es, v.fss, v.vss, v.mips, v.ied, v.ifsd, v.ivsd, v.imipd, v.bos, v.ser);
-    }
-};
-
-template<>
-struct StreamReader<::Test::MultiOptional>
-{
-    static void read(InputStream* istr, ::Test::MultiOptional& v)
-    {
-        istr->readAll({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 28, 29, 30}, v.a, v.b, v.c, v.d, v.e, v.f, v.g, v.h, v.i, v.j, v.bs, v.ss, v.iid, v.sid, v.fs, v.vs, v.shs, v.es, v.fss, v.vss, v.mips, v.ied, v.ifsd, v.ivsd, v.imipd, v.bos, v.ser);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::A>
-{
-    static void write(OutputStream* ostr, const ::Test::A& v)
-    {
-        ostr->writeAll(v.requiredA);
-        ostr->writeAll({1, 50, 500}, v.ma, v.mb, v.mc);
-    }
-};
-
-template<>
-struct StreamReader<::Test::A>
-{
-    static void read(InputStream* istr, ::Test::A& v)
-    {
-        istr->readAll(v.requiredA);
-        istr->readAll({1, 50, 500}, v.ma, v.mb, v.mc);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::B>
-{
-    static void write(OutputStream* ostr, const ::Test::B& v)
-    {
-        ostr->writeAll(v.requiredB);
-        ostr->writeAll({10}, v.md);
-    }
-};
-
-template<>
-struct StreamReader<::Test::B>
-{
-    static void read(InputStream* istr, ::Test::B& v)
-    {
-        istr->readAll(v.requiredB);
-        istr->readAll({10}, v.md);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::C>
-{
-    static void write(OutputStream* ostr, const ::Test::C& v)
-    {
-        ostr->writeAll(v.ss);
-        ostr->writeAll({890}, v.ms);
-    }
-};
-
-template<>
-struct StreamReader<::Test::C>
-{
-    static void read(InputStream* istr, ::Test::C& v)
-    {
-        istr->readAll(v.ss);
-        istr->readAll({890}, v.ms);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::WD>
-{
-    static void write(OutputStream* ostr, const ::Test::WD& v)
-    {
-        ostr->writeAll({1, 2}, v.a, v.s);
-    }
-};
-
-template<>
-struct StreamReader<::Test::WD>
-{
-    static void read(InputStream* istr, ::Test::WD& v)
-    {
-        istr->readAll({1, 2}, v.a, v.s);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::OptionalException>
-{
-    static void write(OutputStream* ostr, const ::Test::OptionalException& v)
-    {
-        ostr->writeAll(v.req);
-        ostr->writeAll({1, 2}, v.a, v.b);
-    }
-};
-
-template<>
-struct StreamReader<::Test::OptionalException>
-{
-    static void read(InputStream* istr, ::Test::OptionalException& v)
-    {
-        istr->readAll(v.req);
-        istr->readAll({1, 2}, v.a, v.b);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::DerivedException>
-{
-    static void write(OutputStream* ostr, const ::Test::DerivedException& v)
-    {
-        ostr->writeAll(v.d1, v.d2);
-        ostr->writeAll({600}, v.ss);
-    }
-};
-
-template<>
-struct StreamReader<::Test::DerivedException>
-{
-    static void read(InputStream* istr, ::Test::DerivedException& v)
-    {
-        istr->readAll(v.d1, v.d2);
-        istr->readAll({600}, v.ss);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::RequiredException>
-{
-    static void write(OutputStream* ostr, const ::Test::RequiredException& v)
-    {
-        ostr->writeAll(v.ss);
-    }
-};
-
-template<>
-struct StreamReader<::Test::RequiredException>
-{
-    static void read(InputStream* istr, ::Test::RequiredException& v)
-    {
-        istr->readAll(v.ss);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::OptionalWithCustom>
-{
-    static void write(OutputStream* ostr, const ::Test::OptionalWithCustom& v)
-    {
-        ostr->writeAll({1, 2}, v.l, v.lp);
-    }
-};
-
-template<>
-struct StreamReader<::Test::OptionalWithCustom>
-{
-    static void read(InputStream* istr, ::Test::OptionalWithCustom& v)
-    {
-        istr->readAll({1, 2}, v.l, v.lp);
-    }
-};
-
-template<>
-struct StreamReader<::Test::E>
-{
-    static void read(InputStream* istr, ::Test::E& v)
-    {
-        istr->readAll(v.fse);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::F>
-{
-    static void write(OutputStream* ostr, const ::Test::F& v)
-    {
-        ostr->writeAll({1}, v.fsf);
-    }
-};
-
-template<>
-struct StreamReader<::Test::F>
-{
-    static void read(InputStream* istr, ::Test::F& v)
-    {
-        istr->readAll({1}, v.fsf);
-    }
-};
-
-template<>
 struct StreamableTraits<::Test::G1>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryStruct;
@@ -2368,26 +2146,6 @@ struct StreamReader<::Test::G2>
     static void read(InputStream* istr, ::Test::G2& v)
     {
         istr->readAll(v.a);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::G>
-{
-    static void write(OutputStream* ostr, const ::Test::G& v)
-    {
-        ostr->writeAll(v.gg2, v.gg1);
-        ostr->writeAll({0, 1}, v.gg2Opt, v.gg1Opt);
-    }
-};
-
-template<>
-struct StreamReader<::Test::G>
-{
-    static void read(InputStream* istr, ::Test::G& v)
-    {
-        istr->readAll(v.gg2, v.gg1);
-        istr->readAll({0, 1}, v.gg2Opt, v.gg1Opt);
     }
 };
 

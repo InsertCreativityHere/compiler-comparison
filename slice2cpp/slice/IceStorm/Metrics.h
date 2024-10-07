@@ -207,42 +207,6 @@ using Ice::Tuple::operator!=;
 namespace Ice
 {
 
-template<>
-struct StreamWriter<::IceMX::TopicMetrics>
-{
-    static void write(OutputStream* ostr, const ::IceMX::TopicMetrics& v)
-    {
-        ostr->writeAll(v.published, v.forwarded);
-    }
-};
-
-template<>
-struct StreamReader<::IceMX::TopicMetrics>
-{
-    static void read(InputStream* istr, ::IceMX::TopicMetrics& v)
-    {
-        istr->readAll(v.published, v.forwarded);
-    }
-};
-
-template<>
-struct StreamWriter<::IceMX::SubscriberMetrics>
-{
-    static void write(OutputStream* ostr, const ::IceMX::SubscriberMetrics& v)
-    {
-        ostr->writeAll(v.queued, v.outstanding, v.delivered);
-    }
-};
-
-template<>
-struct StreamReader<::IceMX::SubscriberMetrics>
-{
-    static void read(InputStream* istr, ::IceMX::SubscriberMetrics& v)
-    {
-        istr->readAll(v.queued, v.outstanding, v.delivered);
-    }
-};
-
 }
 /// \endcond
 

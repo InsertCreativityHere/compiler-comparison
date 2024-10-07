@@ -329,15 +329,6 @@ struct StreamReader<::Test::ColorPalette>
 };
 
 template<>
-struct StreamReader<::Test::Pen>
-{
-    static void read(InputStream* istr, ::Test::Pen& v)
-    {
-        istr->readAll(v.thickness, v.color);
-    }
-};
-
-template<>
 struct StreamableTraits<::Test::Draw>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryStruct;

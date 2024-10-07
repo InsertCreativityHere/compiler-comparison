@@ -449,120 +449,12 @@ using Ice::Tuple::operator!=;
 namespace Ice
 {
 
-template<>
-struct StreamReader<::Test2::C1>
-{
-    static void read(InputStream* istr, ::Test2::C1& v)
-    {
-        istr->readAll(v.i);
-    }
-};
-
-template<>
-struct StreamWriter<::Test2::C2>
-{
-    static void write(OutputStream* ostr, const ::Test2::C2& v)
-    {
-        ostr->writeAll(v.l);
-    }
-};
-
-template<>
-struct StreamReader<::Test2::C2>
-{
-    static void read(InputStream* istr, ::Test2::C2& v)
-    {
-        istr->readAll(v.l);
-    }
-};
-
-template<>
-struct StreamReader<::Test2::E1>
-{
-    static void read(InputStream* istr, ::Test2::E1& v)
-    {
-        istr->readAll(v.i);
-    }
-};
-
-template<>
-struct StreamWriter<::Test2::E2>
-{
-    static void write(OutputStream* ostr, const ::Test2::E2& v)
-    {
-        ostr->writeAll(v.l);
-    }
-};
-
-template<>
-struct StreamReader<::Test2::E2>
-{
-    static void read(InputStream* istr, ::Test2::E2& v)
-    {
-        istr->readAll(v.l);
-    }
-};
-
 }
 /// \endcond
 
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamReader<::Test3::C1>
-{
-    static void read(InputStream* istr, ::Test3::C1& v)
-    {
-        istr->readAll(v.i);
-    }
-};
-
-template<>
-struct StreamWriter<::Test3::C2>
-{
-    static void write(OutputStream* ostr, const ::Test3::C2& v)
-    {
-        ostr->writeAll(v.l);
-    }
-};
-
-template<>
-struct StreamReader<::Test3::C2>
-{
-    static void read(InputStream* istr, ::Test3::C2& v)
-    {
-        istr->readAll(v.l);
-    }
-};
-
-template<>
-struct StreamReader<::Test3::E1>
-{
-    static void read(InputStream* istr, ::Test3::E1& v)
-    {
-        istr->readAll(v.i);
-    }
-};
-
-template<>
-struct StreamWriter<::Test3::E2>
-{
-    static void write(OutputStream* ostr, const ::Test3::E2& v)
-    {
-        ostr->writeAll(v.l);
-    }
-};
-
-template<>
-struct StreamReader<::Test3::E2>
-{
-    static void read(InputStream* istr, ::Test3::E2& v)
-    {
-        istr->readAll(v.l);
-    }
-};
 
 }
 /// \endcond

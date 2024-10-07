@@ -1072,69 +1072,6 @@ struct StreamReader<::Test::Struct4>
 };
 
 template<>
-struct StreamReader<::Test::Base>
-{
-    static void read(InputStream* istr, ::Test::Base& v)
-    {
-        istr->readAll(v.boolFalse, v.boolTrue, v.b, v.s, v.i, v.l, v.f, v.d, v.str, v.noDefault, v.zeroI, v.zeroL, v.zeroF, v.zeroDotF, v.zeroD, v.zeroDotD);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::Derived>
-{
-    static void write(OutputStream* ostr, const ::Test::Derived& v)
-    {
-        ostr->writeAll(v.c1, v.c2, v.c3, v.nc1, v.nc2, v.nc3);
-    }
-};
-
-template<>
-struct StreamReader<::Test::Derived>
-{
-    static void read(InputStream* istr, ::Test::Derived& v)
-    {
-        istr->readAll(v.c1, v.c2, v.c3, v.nc1, v.nc2, v.nc3);
-    }
-};
-
-template<>
-struct StreamReader<::Test::BaseEx>
-{
-    static void read(InputStream* istr, ::Test::BaseEx& v)
-    {
-        istr->readAll(v.boolFalse, v.boolTrue, v.b, v.s, v.i, v.l, v.f, v.d, v.str, v.noDefault, v.zeroI, v.zeroL, v.zeroF, v.zeroDotF, v.zeroD, v.zeroDotD);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::DerivedEx>
-{
-    static void write(OutputStream* ostr, const ::Test::DerivedEx& v)
-    {
-        ostr->writeAll(v.c1, v.c2, v.c3, v.nc1, v.nc2, v.nc3);
-    }
-};
-
-template<>
-struct StreamReader<::Test::DerivedEx>
-{
-    static void read(InputStream* istr, ::Test::DerivedEx& v)
-    {
-        istr->readAll(v.c1, v.c2, v.c3, v.nc1, v.nc2, v.nc3);
-    }
-};
-
-template<>
-struct StreamReader<::Test::ClassProperty>
-{
-    static void read(InputStream* istr, ::Test::ClassProperty& v)
-    {
-        istr->readAll(v.boolFalse, v.boolTrue, v.b, v.s, v.i, v.l, v.f, v.d, v.str, v.noDefault, v.zeroI, v.zeroL, v.zeroF, v.zeroDotF, v.zeroD, v.zeroDotD);
-    }
-};
-
-template<>
 struct StreamableTraits<::Test::StructProperty>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryStruct;
@@ -1146,15 +1083,6 @@ template<>
 struct StreamReader<::Test::StructProperty>
 {
     static void read(InputStream* istr, ::Test::StructProperty& v)
-    {
-        istr->readAll(v.boolFalse, v.boolTrue, v.b, v.s, v.i, v.l, v.f, v.d, v.str, v.noDefault, v.zeroI, v.zeroL, v.zeroF, v.zeroDotF, v.zeroD, v.zeroDotD);
-    }
-};
-
-template<>
-struct StreamReader<::Test::ExceptionProperty>
-{
-    static void read(InputStream* istr, ::Test::ExceptionProperty& v)
     {
         istr->readAll(v.boolFalse, v.boolTrue, v.b, v.s, v.i, v.l, v.f, v.d, v.str, v.noDefault, v.zeroI, v.zeroL, v.zeroF, v.zeroDotF, v.zeroD, v.zeroDotD);
     }
@@ -1208,60 +1136,6 @@ struct StreamReader<::Test::StructNoDefaults>
     static void read(InputStream* istr, ::Test::StructNoDefaults& v)
     {
         istr->readAll(v.bo, v.b, v.s, v.i, v.l, v.f, v.d, v.str, v.c1, v.bs, v.iseq, v.st, v.st2, v.dict);
-    }
-};
-
-template<>
-struct StreamReader<::Test::ExceptionNoDefaultsBase>
-{
-    static void read(InputStream* istr, ::Test::ExceptionNoDefaultsBase& v)
-    {
-        istr->readAll(v.str, v.c1, v.bs);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::ExceptionNoDefaults>
-{
-    static void write(OutputStream* ostr, const ::Test::ExceptionNoDefaults& v)
-    {
-        ostr->writeAll(v.st, v.st2, v.dict);
-    }
-};
-
-template<>
-struct StreamReader<::Test::ExceptionNoDefaults>
-{
-    static void read(InputStream* istr, ::Test::ExceptionNoDefaults& v)
-    {
-        istr->readAll(v.st, v.st2, v.dict);
-    }
-};
-
-template<>
-struct StreamReader<::Test::ClassNoDefaultsBase>
-{
-    static void read(InputStream* istr, ::Test::ClassNoDefaultsBase& v)
-    {
-        istr->readAll(v.str, v.c1, v.bs);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::ClassNoDefaults>
-{
-    static void write(OutputStream* ostr, const ::Test::ClassNoDefaults& v)
-    {
-        ostr->writeAll(v.st, v.st2, v.dict);
-    }
-};
-
-template<>
-struct StreamReader<::Test::ClassNoDefaults>
-{
-    static void read(InputStream* istr, ::Test::ClassNoDefaults& v)
-    {
-        istr->readAll(v.st, v.st2, v.dict);
     }
 };
 

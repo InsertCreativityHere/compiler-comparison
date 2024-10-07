@@ -440,7 +440,7 @@ void
 abstract::delegate::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<delegate>::write(ostr, *this);
+    ostr->writeAll(this->_cpp_if, this->_cpp_else, this->event);
     ostr->endSlice();
 }
 
@@ -448,7 +448,7 @@ void
 abstract::delegate::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<delegate>::read(istr, *this);
+    istr->readAll(this->_cpp_if, this->_cpp_else, this->event);
     istr->endSlice();
 }
 
@@ -474,7 +474,7 @@ void
 abstract::optionalMembers::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<optionalMembers>::write(ostr, *this);
+    ostr->writeAll({1, 2, 3, 5, 7}, this->_cpp_for, this->_cpp_goto, this->_cpp_if, this->internal, this->_cpp_namespace);
     ostr->endSlice();
 }
 
@@ -482,7 +482,7 @@ void
 abstract::optionalMembers::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<optionalMembers>::read(istr, *this);
+    istr->readAll({1, 2, 3, 5, 7}, this->_cpp_for, this->_cpp_goto, this->_cpp_if, this->internal, this->_cpp_namespace);
     istr->endSlice();
 }
 
@@ -508,7 +508,7 @@ void
 abstract::fixed::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<fixed>::write(ostr, *this);
+    ostr->writeAll(this->_cpp_for);
     ostr->endSlice();
 }
 
@@ -516,7 +516,7 @@ void
 abstract::fixed::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<fixed>::read(istr, *this);
+    istr->readAll(this->_cpp_for);
     istr->endSlice();
 }
 
@@ -542,7 +542,7 @@ void
 abstract::foreach::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<foreach>::write(ostr, *this);
+    ostr->writeAll(this->_cpp_goto, this->_cpp_if);
     ostr->endSlice();
     fixed::_writeImpl(ostr);
 }
@@ -551,7 +551,7 @@ void
 abstract::foreach::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<foreach>::read(istr, *this);
+    istr->readAll(this->_cpp_goto, this->_cpp_if);
     istr->endSlice();
     fixed::_readImpl(istr);
 }
@@ -578,7 +578,7 @@ void
 abstract::BaseMethods::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<BaseMethods>::write(ostr, *this);
+    ostr->writeAll(this->Data, this->HelpLink, this->InnerException, this->Message, this->Source, this->StackTrace, this->TargetSite, this->HResult, this->Equals, this->GetBaseException, this->GetHashCode, this->GetObjectData, this->GetType, this->ReferenceEquals, this->ToString);
     ostr->endSlice();
 }
 
@@ -586,7 +586,7 @@ void
 abstract::BaseMethods::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<BaseMethods>::read(istr, *this);
+    istr->readAll(this->Data, this->HelpLink, this->InnerException, this->Message, this->Source, this->StackTrace, this->TargetSite, this->HResult, this->Equals, this->GetBaseException, this->GetHashCode, this->GetObjectData, this->GetType, this->ReferenceEquals, this->ToString);
     istr->endSlice();
 }
 

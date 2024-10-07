@@ -343,7 +343,7 @@ void
 Test1::WstringException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<WstringException>::write(ostr, *this);
+    ostr->writeAll(this->reason);
     ostr->endSlice();
 }
 
@@ -351,7 +351,7 @@ void
 Test1::WstringException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<WstringException>::read(istr, *this);
+    istr->readAll(this->reason);
     istr->endSlice();
 }
 
@@ -377,7 +377,7 @@ void
 Test2::WstringException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<WstringException>::write(ostr, *this);
+    ostr->writeAll(this->reason);
     ostr->endSlice();
 }
 
@@ -385,7 +385,7 @@ void
 Test2::WstringException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<WstringException>::read(istr, *this);
+    istr->readAll(this->reason);
     istr->endSlice();
 }
 

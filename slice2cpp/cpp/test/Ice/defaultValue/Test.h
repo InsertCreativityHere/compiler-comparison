@@ -557,60 +557,6 @@ struct StreamReader<::Test::Struct3>
     }
 };
 
-template<>
-struct StreamReader<::Test::Base>
-{
-    static void read(InputStream* istr, ::Test::Base& v)
-    {
-        istr->readAll(v.boolFalse, v.boolTrue, v.b, v.s, v.i, v.l, v.f, v.d, v.str, v.noDefault, v.zeroI, v.zeroL, v.zeroF, v.zeroDotF, v.zeroD, v.zeroDotD);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::Derived>
-{
-    static void write(OutputStream* ostr, const ::Test::Derived& v)
-    {
-        ostr->writeAll(v.c1, v.c2, v.c3, v.nc1, v.nc2, v.nc3);
-    }
-};
-
-template<>
-struct StreamReader<::Test::Derived>
-{
-    static void read(InputStream* istr, ::Test::Derived& v)
-    {
-        istr->readAll(v.c1, v.c2, v.c3, v.nc1, v.nc2, v.nc3);
-    }
-};
-
-template<>
-struct StreamReader<::Test::BaseEx>
-{
-    static void read(InputStream* istr, ::Test::BaseEx& v)
-    {
-        istr->readAll(v.boolFalse, v.boolTrue, v.b, v.s, v.i, v.l, v.f, v.d, v.str, v.noDefault, v.zeroI, v.zeroL, v.zeroF, v.zeroDotF, v.zeroD, v.zeroDotD);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::DerivedEx>
-{
-    static void write(OutputStream* ostr, const ::Test::DerivedEx& v)
-    {
-        ostr->writeAll(v.c1, v.c2, v.c3, v.nc1, v.nc2, v.nc3);
-    }
-};
-
-template<>
-struct StreamReader<::Test::DerivedEx>
-{
-    static void read(InputStream* istr, ::Test::DerivedEx& v)
-    {
-        istr->readAll(v.c1, v.c2, v.c3, v.nc1, v.nc2, v.nc3);
-    }
-};
-
 }
 /// \endcond
 

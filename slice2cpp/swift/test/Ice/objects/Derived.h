@@ -100,24 +100,6 @@ using Ice::Tuple::operator!=;
 namespace Ice
 {
 
-template<>
-struct StreamWriter<::Test::Derived>
-{
-    static void write(OutputStream* ostr, const ::Test::Derived& v)
-    {
-        ostr->writeAll(v.b);
-    }
-};
-
-template<>
-struct StreamReader<::Test::Derived>
-{
-    static void read(InputStream* istr, ::Test::Derived& v)
-    {
-        istr->readAll(v.b);
-    }
-};
-
 }
 /// \endcond
 

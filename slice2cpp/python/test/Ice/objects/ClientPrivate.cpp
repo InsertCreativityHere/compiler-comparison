@@ -175,7 +175,7 @@ void
 Test::COneMember::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<COneMember>::write(ostr, *this);
+    ostr->writeAll(this->e);
     ostr->endSlice();
 }
 
@@ -183,7 +183,7 @@ void
 Test::COneMember::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<COneMember>::read(istr, *this);
+    istr->readAll(this->e);
     istr->endSlice();
 }
 
@@ -209,7 +209,7 @@ void
 Test::CTwoMembers::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<CTwoMembers>::write(ostr, *this);
+    ostr->writeAll(this->e1, this->e2);
     ostr->endSlice();
 }
 
@@ -217,7 +217,7 @@ void
 Test::CTwoMembers::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<CTwoMembers>::read(istr, *this);
+    istr->readAll(this->e1, this->e2);
     istr->endSlice();
 }
 
@@ -251,7 +251,7 @@ void
 Test::EOneMember::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<EOneMember>::write(ostr, *this);
+    ostr->writeAll(this->e);
     ostr->endSlice();
 }
 
@@ -259,7 +259,7 @@ void
 Test::EOneMember::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<EOneMember>::read(istr, *this);
+    istr->readAll(this->e);
     istr->endSlice();
 }
 
@@ -293,7 +293,7 @@ void
 Test::ETwoMembers::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<ETwoMembers>::write(ostr, *this);
+    ostr->writeAll(this->e1, this->e2);
     ostr->endSlice();
 }
 
@@ -301,7 +301,7 @@ void
 Test::ETwoMembers::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<ETwoMembers>::read(istr, *this);
+    istr->readAll(this->e1, this->e2);
     istr->endSlice();
 }
 

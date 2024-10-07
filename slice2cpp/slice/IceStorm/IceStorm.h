@@ -1345,60 +1345,6 @@ struct StreamReader<::IceStorm::LinkInfo>
     }
 };
 
-template<>
-struct StreamReader<::IceStorm::LinkExists>
-{
-    static void read(InputStream* istr, ::IceStorm::LinkExists& v)
-    {
-        istr->readAll(v.name);
-    }
-};
-
-template<>
-struct StreamReader<::IceStorm::NoSuchLink>
-{
-    static void read(InputStream* istr, ::IceStorm::NoSuchLink& v)
-    {
-        istr->readAll(v.name);
-    }
-};
-
-template<>
-struct StreamReader<::IceStorm::InvalidSubscriber>
-{
-    static void read(InputStream* istr, ::IceStorm::InvalidSubscriber& v)
-    {
-        istr->readAll(v.reason);
-    }
-};
-
-template<>
-struct StreamReader<::IceStorm::BadQoS>
-{
-    static void read(InputStream* istr, ::IceStorm::BadQoS& v)
-    {
-        istr->readAll(v.reason);
-    }
-};
-
-template<>
-struct StreamReader<::IceStorm::TopicExists>
-{
-    static void read(InputStream* istr, ::IceStorm::TopicExists& v)
-    {
-        istr->readAll(v.name);
-    }
-};
-
-template<>
-struct StreamReader<::IceStorm::NoSuchTopic>
-{
-    static void read(InputStream* istr, ::IceStorm::NoSuchTopic& v)
-    {
-        istr->readAll(v.name);
-    }
-};
-
 }
 /// \endcond
 

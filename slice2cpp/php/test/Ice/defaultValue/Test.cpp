@@ -67,7 +67,7 @@ void
 Test::Base::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<Base>::write(ostr, *this);
+    ostr->writeAll(this->boolFalse, this->boolTrue, this->b, this->s, this->i, this->l, this->f, this->d, this->str, this->noDefault, this->zeroI, this->zeroL, this->zeroF, this->zeroDotF, this->zeroD, this->zeroDotD);
     ostr->endSlice();
 }
 
@@ -75,7 +75,7 @@ void
 Test::Base::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<Base>::read(istr, *this);
+    istr->readAll(this->boolFalse, this->boolTrue, this->b, this->s, this->i, this->l, this->f, this->d, this->str, this->noDefault, this->zeroI, this->zeroL, this->zeroF, this->zeroDotF, this->zeroD, this->zeroDotD);
     istr->endSlice();
 }
 
@@ -101,7 +101,7 @@ void
 Test::Derived::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<Derived>::write(ostr, *this);
+    ostr->writeAll(this->c1, this->c2, this->c3, this->nc1, this->nc2, this->nc3);
     ostr->endSlice();
     Base::_iceWriteImpl(ostr);
 }
@@ -110,7 +110,7 @@ void
 Test::Derived::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<Derived>::read(istr, *this);
+    istr->readAll(this->c1, this->c2, this->c3, this->nc1, this->nc2, this->nc3);
     istr->endSlice();
     Base::_iceReadImpl(istr);
 }
@@ -137,7 +137,7 @@ void
 Test::ClassNoDefaultsBase::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<ClassNoDefaultsBase>::write(ostr, *this);
+    ostr->writeAll(this->str, this->c1, this->bs);
     ostr->endSlice();
 }
 
@@ -145,7 +145,7 @@ void
 Test::ClassNoDefaultsBase::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<ClassNoDefaultsBase>::read(istr, *this);
+    istr->readAll(this->str, this->c1, this->bs);
     istr->endSlice();
 }
 
@@ -171,7 +171,7 @@ void
 Test::ClassNoDefaults::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<ClassNoDefaults>::write(ostr, *this);
+    ostr->writeAll(this->st, this->dict);
     ostr->endSlice();
     ClassNoDefaultsBase::_iceWriteImpl(ostr);
 }
@@ -180,7 +180,7 @@ void
 Test::ClassNoDefaults::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<ClassNoDefaults>::read(istr, *this);
+    istr->readAll(this->st, this->dict);
     istr->endSlice();
     ClassNoDefaultsBase::_iceReadImpl(istr);
 }

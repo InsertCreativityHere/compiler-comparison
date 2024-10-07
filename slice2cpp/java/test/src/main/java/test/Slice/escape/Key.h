@@ -663,42 +663,6 @@ struct StreamReader<::abstract::_cpp_break>
     }
 };
 
-template<>
-struct StreamReader<::abstract::_cpp_else>
-{
-    static void read(InputStream* istr, ::abstract::_cpp_else& v)
-    {
-        istr->readAll(v._cpp_if, v.equals, v._cpp_final);
-    }
-};
-
-template<>
-struct StreamReader<::abstract::hashCode>
-{
-    static void read(InputStream* istr, ::abstract::hashCode& v)
-    {
-        istr->readAll(v._cpp_if);
-    }
-};
-
-template<>
-struct StreamWriter<::abstract::_cpp_import>
-{
-    static void write(OutputStream* ostr, const ::abstract::_cpp_import& v)
-    {
-        ostr->writeAll(v.instanceof, v.native);
-    }
-};
-
-template<>
-struct StreamReader<::abstract::_cpp_import>
-{
-    static void read(InputStream* istr, ::abstract::_cpp_import& v)
-    {
-        istr->readAll(v.instanceof, v.native);
-    }
-};
-
 }
 /// \endcond
 

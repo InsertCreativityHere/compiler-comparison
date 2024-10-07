@@ -1143,69 +1143,6 @@ struct StreamReader<::abstract::_cpp_break>
     }
 };
 
-template<>
-struct StreamReader<::abstract::delegate>
-{
-    static void read(InputStream* istr, ::abstract::delegate& v)
-    {
-        istr->readAll(v._cpp_if, v._cpp_else, v.event);
-    }
-};
-
-template<>
-struct StreamWriter<::abstract::optionalMembers>
-{
-    static void write(OutputStream* ostr, const ::abstract::optionalMembers& v)
-    {
-        ostr->writeAll({1, 2, 3, 5, 7}, v._cpp_for, v._cpp_goto, v._cpp_if, v.internal, v._cpp_namespace);
-    }
-};
-
-template<>
-struct StreamReader<::abstract::optionalMembers>
-{
-    static void read(InputStream* istr, ::abstract::optionalMembers& v)
-    {
-        istr->readAll({1, 2, 3, 5, 7}, v._cpp_for, v._cpp_goto, v._cpp_if, v.internal, v._cpp_namespace);
-    }
-};
-
-template<>
-struct StreamReader<::abstract::fixed>
-{
-    static void read(InputStream* istr, ::abstract::fixed& v)
-    {
-        istr->readAll(v._cpp_for);
-    }
-};
-
-template<>
-struct StreamWriter<::abstract::foreach>
-{
-    static void write(OutputStream* ostr, const ::abstract::foreach& v)
-    {
-        ostr->writeAll(v._cpp_goto, v._cpp_if);
-    }
-};
-
-template<>
-struct StreamReader<::abstract::foreach>
-{
-    static void read(InputStream* istr, ::abstract::foreach& v)
-    {
-        istr->readAll(v._cpp_goto, v._cpp_if);
-    }
-};
-
-template<>
-struct StreamReader<::abstract::BaseMethods>
-{
-    static void read(InputStream* istr, ::abstract::BaseMethods& v)
-    {
-        istr->readAll(v.Data, v.HelpLink, v.InnerException, v.Message, v.Source, v.StackTrace, v.TargetSite, v.HResult, v.Equals, v.GetBaseException, v.GetHashCode, v.GetObjectData, v.GetType, v.ReferenceEquals, v.ToString);
-    }
-};
-
 }
 /// \endcond
 

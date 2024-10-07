@@ -586,7 +586,7 @@ void
 IceStorm::LinkExists::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<LinkExists>::write(ostr, *this);
+    ostr->writeAll(this->name);
     ostr->endSlice();
 }
 
@@ -594,7 +594,7 @@ void
 IceStorm::LinkExists::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<LinkExists>::read(istr, *this);
+    istr->readAll(this->name);
     istr->endSlice();
 }
 
@@ -620,7 +620,7 @@ void
 IceStorm::NoSuchLink::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<NoSuchLink>::write(ostr, *this);
+    ostr->writeAll(this->name);
     ostr->endSlice();
 }
 
@@ -628,7 +628,7 @@ void
 IceStorm::NoSuchLink::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<NoSuchLink>::read(istr, *this);
+    istr->readAll(this->name);
     istr->endSlice();
 }
 
@@ -686,7 +686,7 @@ void
 IceStorm::InvalidSubscriber::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<InvalidSubscriber>::write(ostr, *this);
+    ostr->writeAll(this->reason);
     ostr->endSlice();
 }
 
@@ -694,7 +694,7 @@ void
 IceStorm::InvalidSubscriber::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<InvalidSubscriber>::read(istr, *this);
+    istr->readAll(this->reason);
     istr->endSlice();
 }
 
@@ -720,7 +720,7 @@ void
 IceStorm::BadQoS::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<BadQoS>::write(ostr, *this);
+    ostr->writeAll(this->reason);
     ostr->endSlice();
 }
 
@@ -728,7 +728,7 @@ void
 IceStorm::BadQoS::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<BadQoS>::read(istr, *this);
+    istr->readAll(this->reason);
     istr->endSlice();
 }
 
@@ -754,7 +754,7 @@ void
 IceStorm::TopicExists::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<TopicExists>::write(ostr, *this);
+    ostr->writeAll(this->name);
     ostr->endSlice();
 }
 
@@ -762,7 +762,7 @@ void
 IceStorm::TopicExists::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<TopicExists>::read(istr, *this);
+    istr->readAll(this->name);
     istr->endSlice();
 }
 
@@ -788,7 +788,7 @@ void
 IceStorm::NoSuchTopic::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<NoSuchTopic>::write(ostr, *this);
+    ostr->writeAll(this->name);
     ostr->endSlice();
 }
 
@@ -796,7 +796,7 @@ void
 IceStorm::NoSuchTopic::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<NoSuchTopic>::read(istr, *this);
+    istr->readAll(this->name);
     istr->endSlice();
 }
 

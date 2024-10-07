@@ -187,7 +187,7 @@ void
 classdef::_cpp_break::logical::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<logical>::write(ostr, *this);
+    ostr->writeAll(this->_cpp_else, this->_cpp_for, this->int64);
     ostr->endSlice();
 }
 
@@ -195,7 +195,7 @@ void
 classdef::_cpp_break::logical::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<logical>::read(istr, *this);
+    istr->readAll(this->_cpp_else, this->_cpp_for, this->int64);
     istr->endSlice();
 }
 
@@ -221,7 +221,7 @@ void
 classdef::_cpp_break::_cpp_xor::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<_cpp_xor>::write(ostr, *this);
+    ostr->writeAll(this->_cpp_return);
     ostr->endSlice();
     logical::_iceWriteImpl(ostr);
 }
@@ -230,7 +230,7 @@ void
 classdef::_cpp_break::_cpp_xor::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<_cpp_xor>::read(istr, *this);
+    istr->readAll(this->_cpp_return);
     istr->endSlice();
     logical::_iceReadImpl(istr);
 }
@@ -257,7 +257,7 @@ void
 classdef::_cpp_break::_cpp_try::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<_cpp_try>::write(ostr, *this);
+    ostr->writeAll(this->_cpp_while, this->_cpp_delete);
     ostr->endSlice();
 }
 
@@ -265,7 +265,7 @@ void
 classdef::_cpp_break::_cpp_try::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<_cpp_try>::read(istr, *this);
+    istr->readAll(this->_cpp_while, this->_cpp_delete);
     istr->endSlice();
 }
 
@@ -291,7 +291,7 @@ void
 classdef::_cpp_break::properties::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<properties>::write(ostr, *this);
+    ostr->writeAll(this->_cpp_if, this->_cpp_catch, this->spmd, this->otherwise);
     ostr->endSlice();
     _cpp_try::_iceWriteImpl(ostr);
 }
@@ -300,7 +300,7 @@ void
 classdef::_cpp_break::properties::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<properties>::read(istr, *this);
+    istr->readAll(this->_cpp_if, this->_cpp_catch, this->spmd, this->otherwise);
     istr->endSlice();
     _cpp_try::_iceReadImpl(istr);
 }
@@ -335,7 +335,7 @@ void
 classdef::_cpp_break::persistent::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<persistent>::write(ostr, *this);
+    ostr->writeAll(this->identifier, this->message, this->stack, this->cause, this->type, this->end);
     ostr->endSlice();
 }
 
@@ -343,7 +343,7 @@ void
 classdef::_cpp_break::persistent::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<persistent>::read(istr, *this);
+    istr->readAll(this->identifier, this->message, this->stack, this->cause, this->type, this->end);
     istr->endSlice();
 }
 
@@ -369,7 +369,7 @@ void
 classdef::_cpp_break::global::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<global>::write(ostr, *this);
+    ostr->writeAll(this->enumeration);
     ostr->endSlice();
     persistent::_writeImpl(ostr);
 }
@@ -378,7 +378,7 @@ void
 classdef::_cpp_break::global::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<global>::read(istr, *this);
+    istr->readAll(this->enumeration);
     istr->endSlice();
     persistent::_readImpl(istr);
 }

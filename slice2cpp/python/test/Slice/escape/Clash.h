@@ -476,26 +476,6 @@ namespace Ice
 {
 
 template<>
-struct StreamWriter<::Clash::Cls>
-{
-    static void write(OutputStream* ostr, const ::Clash::Cls& v)
-    {
-        ostr->writeAll(v.s, v.context, v.current, v.response, v.upCast, v.typeId, v.del, v.ex, v.result, v.istr, v.ostr, v.inS, v.in, v.proxy);
-        ostr->writeAll({1}, v.cookie);
-    }
-};
-
-template<>
-struct StreamReader<::Clash::Cls>
-{
-    static void read(InputStream* istr, ::Clash::Cls& v)
-    {
-        istr->readAll(v.s, v.context, v.current, v.response, v.upCast, v.typeId, v.del, v.ex, v.result, v.istr, v.ostr, v.inS, v.in, v.proxy);
-        istr->readAll({1}, v.cookie);
-    }
-};
-
-template<>
 struct StreamableTraits<::Clash::St>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryStruct;
@@ -509,15 +489,6 @@ struct StreamReader<::Clash::St>
     static void read(InputStream* istr, ::Clash::St& v)
     {
         istr->readAll(v.v, v.istr, v.ostr, v.rhs, v.other);
-    }
-};
-
-template<>
-struct StreamReader<::Clash::Ex>
-{
-    static void read(InputStream* istr, ::Clash::Ex& v)
-    {
-        istr->readAll(v.istr, v.ostr);
     }
 };
 

@@ -692,15 +692,6 @@ namespace Ice
 {
 
 template<>
-struct StreamReader<::LocalTest::C1>
-{
-    static void read(InputStream* istr, ::LocalTest::C1& v)
-    {
-        istr->readAll(v.i);
-    }
-};
-
-template<>
 struct StreamableTraits<::LocalTest::S1>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryStruct;
@@ -833,78 +824,6 @@ struct StreamReader<::LocalTest::S8>
     static void read(InputStream* istr, ::LocalTest::S8& v)
     {
         istr->readAll(v.s1seqseq);
-    }
-};
-
-template<>
-struct StreamReader<::LocalTest::CB1>
-{
-    static void read(InputStream* istr, ::LocalTest::CB1& v)
-    {
-        istr->readAll(v.s1);
-    }
-};
-
-template<>
-struct StreamReader<::LocalTest::CB2>
-{
-    static void read(InputStream* istr, ::LocalTest::CB2& v)
-    {
-        istr->readAll(v.c1seq);
-    }
-};
-
-template<>
-struct StreamReader<::LocalTest::CB3>
-{
-    static void read(InputStream* istr, ::LocalTest::CB3& v)
-    {
-        istr->readAll(v.s1seq);
-    }
-};
-
-template<>
-struct StreamReader<::LocalTest::CB4>
-{
-    static void read(InputStream* istr, ::LocalTest::CB4& v)
-    {
-        istr->readAll(v.c1dict);
-    }
-};
-
-template<>
-struct StreamReader<::LocalTest::CB5>
-{
-    static void read(InputStream* istr, ::LocalTest::CB5& v)
-    {
-        istr->readAll(v.s1dict);
-    }
-};
-
-template<>
-struct StreamReader<::LocalTest::CB6>
-{
-    static void read(InputStream* istr, ::LocalTest::CB6& v)
-    {
-        istr->readAll(v.c1seqseq);
-    }
-};
-
-template<>
-struct StreamReader<::LocalTest::CB7>
-{
-    static void read(InputStream* istr, ::LocalTest::CB7& v)
-    {
-        istr->readAll(v.s1seqseq);
-    }
-};
-
-template<>
-struct StreamReader<::LocalTest::CB8>
-{
-    static void read(InputStream* istr, ::LocalTest::CB8& v)
-    {
-        istr->readAll(v.s1, v.c1seq, v.s1dict);
     }
 };
 

@@ -349,24 +349,6 @@ struct StreamReader<::Test::Foo>
     }
 };
 
-template<>
-struct StreamReader<::Test::Bar>
-{
-    static void read(InputStream* istr, ::Test::Bar& v)
-    {
-        istr->readAll(v.SLmem, v.SLSmem);
-    }
-};
-
-template<>
-struct StreamReader<::Test::Baz>
-{
-    static void read(InputStream* istr, ::Test::Baz& v)
-    {
-        istr->readAll(v.SLmem, v.SLSmem);
-    }
-};
-
 }
 /// \endcond
 

@@ -285,69 +285,6 @@ using Ice::Tuple::operator!=;
 namespace Ice
 {
 
-template<>
-struct StreamReader<::NoNamespace::C1>
-{
-    static void read(InputStream* istr, ::NoNamespace::C1& v)
-    {
-        istr->readAll(v.i);
-    }
-};
-
-template<>
-struct StreamWriter<::NoNamespace::C2>
-{
-    static void write(OutputStream* ostr, const ::NoNamespace::C2& v)
-    {
-        ostr->writeAll(v.l);
-    }
-};
-
-template<>
-struct StreamReader<::NoNamespace::C2>
-{
-    static void read(InputStream* istr, ::NoNamespace::C2& v)
-    {
-        istr->readAll(v.l);
-    }
-};
-
-template<>
-struct StreamReader<::NoNamespace::E1>
-{
-    static void read(InputStream* istr, ::NoNamespace::E1& v)
-    {
-        istr->readAll(v.i);
-    }
-};
-
-template<>
-struct StreamWriter<::NoNamespace::E2>
-{
-    static void write(OutputStream* ostr, const ::NoNamespace::E2& v)
-    {
-        ostr->writeAll(v.l);
-    }
-};
-
-template<>
-struct StreamReader<::NoNamespace::E2>
-{
-    static void read(InputStream* istr, ::NoNamespace::E2& v)
-    {
-        istr->readAll(v.l);
-    }
-};
-
-template<>
-struct StreamReader<::NoNamespace::notify>
-{
-    static void read(InputStream* istr, ::NoNamespace::notify& v)
-    {
-        istr->readAll(v.i);
-    }
-};
-
 }
 /// \endcond
 

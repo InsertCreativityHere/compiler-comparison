@@ -592,42 +592,6 @@ struct StreamReader<::BEGIN::_cpp_and>
     }
 };
 
-template<>
-struct StreamReader<::BEGIN::display>
-{
-    static void read(InputStream* istr, ::BEGIN::display& v)
-    {
-        istr->readAll(v.when, v._cpp_do, v.dup, v._cpp_else);
-    }
-};
-
-template<>
-struct StreamReader<::BEGIN::next>
-{
-    static void read(InputStream* istr, ::BEGIN::next& v)
-    {
-        istr->readAll(v._cpp_new);
-    }
-};
-
-template<>
-struct StreamWriter<::BEGIN::nil>
-{
-    static void write(OutputStream* ostr, const ::BEGIN::nil& v)
-    {
-        ostr->writeAll(v._cpp_not, v._cpp_or);
-    }
-};
-
-template<>
-struct StreamReader<::BEGIN::nil>
-{
-    static void read(InputStream* istr, ::BEGIN::nil& v)
-    {
-        istr->readAll(v._cpp_not, v._cpp_or);
-    }
-};
-
 }
 /// \endcond
 

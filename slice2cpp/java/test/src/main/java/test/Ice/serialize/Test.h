@@ -452,42 +452,6 @@ struct StreamReader<::Test::Struct1>
     }
 };
 
-template<>
-struct StreamReader<::Test::Base>
-{
-    static void read(InputStream* istr, ::Test::Base& v)
-    {
-        istr->readAll(v.b, v.o, v.s, v.seq1, v.seq2, v.seq3, v.seq4, v.d1, v.d2, v.d3, v.d4);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::Derived>
-{
-    static void write(OutputStream* ostr, const ::Test::Derived& v)
-    {
-        ostr->writeAll(v.p);
-    }
-};
-
-template<>
-struct StreamReader<::Test::Derived>
-{
-    static void read(InputStream* istr, ::Test::Derived& v)
-    {
-        istr->readAll(v.p);
-    }
-};
-
-template<>
-struct StreamReader<::Test::Ex>
-{
-    static void read(InputStream* istr, ::Test::Ex& v)
-    {
-        istr->readAll(v.s, v.b);
-    }
-};
-
 }
 /// \endcond
 

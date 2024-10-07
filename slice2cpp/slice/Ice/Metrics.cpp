@@ -360,7 +360,7 @@ void
 IceMX::Metrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<Metrics>::write(ostr, *this);
+    ostr->writeAll(this->id, this->total, this->current, this->totalLifetime, this->failures);
     ostr->endSlice();
 }
 
@@ -368,7 +368,7 @@ void
 IceMX::Metrics::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<Metrics>::read(istr, *this);
+    istr->readAll(this->id, this->total, this->current, this->totalLifetime, this->failures);
     istr->endSlice();
 }
 
@@ -426,7 +426,7 @@ void
 IceMX::ThreadMetrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<ThreadMetrics>::write(ostr, *this);
+    ostr->writeAll(this->inUseForIO, this->inUseForUser, this->inUseForOther);
     ostr->endSlice();
     Metrics::_iceWriteImpl(ostr);
 }
@@ -435,7 +435,7 @@ void
 IceMX::ThreadMetrics::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<ThreadMetrics>::read(istr, *this);
+    istr->readAll(this->inUseForIO, this->inUseForUser, this->inUseForOther);
     istr->endSlice();
     Metrics::_iceReadImpl(istr);
 }
@@ -462,7 +462,7 @@ void
 IceMX::DispatchMetrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<DispatchMetrics>::write(ostr, *this);
+    ostr->writeAll(this->userException, this->size, this->replySize);
     ostr->endSlice();
     Metrics::_iceWriteImpl(ostr);
 }
@@ -471,7 +471,7 @@ void
 IceMX::DispatchMetrics::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<DispatchMetrics>::read(istr, *this);
+    istr->readAll(this->userException, this->size, this->replySize);
     istr->endSlice();
     Metrics::_iceReadImpl(istr);
 }
@@ -498,7 +498,7 @@ void
 IceMX::ChildInvocationMetrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<ChildInvocationMetrics>::write(ostr, *this);
+    ostr->writeAll(this->size, this->replySize);
     ostr->endSlice();
     Metrics::_iceWriteImpl(ostr);
 }
@@ -507,7 +507,7 @@ void
 IceMX::ChildInvocationMetrics::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<ChildInvocationMetrics>::read(istr, *this);
+    istr->readAll(this->size, this->replySize);
     istr->endSlice();
     Metrics::_iceReadImpl(istr);
 }
@@ -602,7 +602,7 @@ void
 IceMX::InvocationMetrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<InvocationMetrics>::write(ostr, *this);
+    ostr->writeAll(this->retry, this->userException, this->remotes, this->collocated);
     ostr->endSlice();
     Metrics::_iceWriteImpl(ostr);
 }
@@ -611,7 +611,7 @@ void
 IceMX::InvocationMetrics::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<InvocationMetrics>::read(istr, *this);
+    istr->readAll(this->retry, this->userException, this->remotes, this->collocated);
     istr->endSlice();
     Metrics::_iceReadImpl(istr);
 }
@@ -638,7 +638,7 @@ void
 IceMX::ConnectionMetrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<ConnectionMetrics>::write(ostr, *this);
+    ostr->writeAll(this->receivedBytes, this->sentBytes);
     ostr->endSlice();
     Metrics::_iceWriteImpl(ostr);
 }
@@ -647,7 +647,7 @@ void
 IceMX::ConnectionMetrics::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<ConnectionMetrics>::read(istr, *this);
+    istr->readAll(this->receivedBytes, this->sentBytes);
     istr->endSlice();
     Metrics::_iceReadImpl(istr);
 }

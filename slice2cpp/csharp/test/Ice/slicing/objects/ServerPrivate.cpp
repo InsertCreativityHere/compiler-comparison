@@ -72,7 +72,7 @@ void
 Test::SBSUnknownDerived::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<SBSUnknownDerived>::write(ostr, *this);
+    ostr->writeAll(this->sbsud);
     ostr->endSlice();
     SBase::_iceWriteImpl(ostr);
 }
@@ -81,7 +81,7 @@ void
 Test::SBSUnknownDerived::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<SBSUnknownDerived>::read(istr, *this);
+    istr->readAll(this->sbsud);
     istr->endSlice();
     SBase::_iceReadImpl(istr);
 }
@@ -108,7 +108,7 @@ void
 Test::SUnknown::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<SUnknown>::write(ostr, *this);
+    ostr->writeAll(this->su, this->cycle);
     ostr->endSlice();
 }
 
@@ -116,7 +116,7 @@ void
 Test::SUnknown::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<SUnknown>::read(istr, *this);
+    istr->readAll(this->su, this->cycle);
     istr->endSlice();
 }
 
@@ -142,7 +142,7 @@ void
 Test::D2::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<D2>::write(ostr, *this);
+    ostr->writeAll(this->sd2, this->pd2);
     ostr->endSlice();
     B::_iceWriteImpl(ostr);
 }
@@ -151,7 +151,7 @@ void
 Test::D2::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<D2>::read(istr, *this);
+    istr->readAll(this->sd2, this->pd2);
     istr->endSlice();
     B::_iceReadImpl(istr);
 }
@@ -178,7 +178,7 @@ void
 Test::D4::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<D4>::write(ostr, *this);
+    ostr->writeAll(this->p1, this->p2);
     ostr->endSlice();
     B::_iceWriteImpl(ostr);
 }
@@ -187,7 +187,7 @@ void
 Test::D4::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<D4>::read(istr, *this);
+    istr->readAll(this->p1, this->p2);
     istr->endSlice();
     B::_iceReadImpl(istr);
 }
@@ -214,7 +214,7 @@ void
 Test::UnknownDerivedException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<UnknownDerivedException>::write(ostr, *this);
+    ostr->writeAll(this->sude, this->pd2);
     ostr->endSlice();
     BaseException::_writeImpl(ostr);
 }
@@ -223,7 +223,7 @@ void
 Test::UnknownDerivedException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<UnknownDerivedException>::read(istr, *this);
+    istr->readAll(this->sude, this->pd2);
     istr->endSlice();
     BaseException::_readImpl(istr);
 }
@@ -250,7 +250,7 @@ void
 Test::MyClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<MyClass>::write(ostr, *this);
+    ostr->writeAll(this->i);
     ostr->endSlice();
 }
 
@@ -258,7 +258,7 @@ void
 Test::MyClass::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<MyClass>::read(istr, *this);
+    istr->readAll(this->i);
     istr->endSlice();
 }
 
@@ -284,7 +284,7 @@ void
 Test::PSUnknown::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<PSUnknown>::write(ostr, *this);
+    ostr->writeAll(this->psu, this->graph, this->cl);
     ostr->endSlice();
     Preserved::_iceWriteImpl(ostr);
 }
@@ -293,7 +293,7 @@ void
 Test::PSUnknown::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<PSUnknown>::read(istr, *this);
+    istr->readAll(this->psu, this->graph, this->cl);
     istr->endSlice();
     Preserved::_iceReadImpl(istr);
 }
@@ -320,7 +320,7 @@ void
 Test::PSUnknown2::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<PSUnknown2>::write(ostr, *this);
+    ostr->writeAll(this->pb);
     ostr->endSlice();
     Preserved::_iceWriteImpl(ostr);
 }
@@ -329,7 +329,7 @@ void
 Test::PSUnknown2::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<PSUnknown2>::read(istr, *this);
+    istr->readAll(this->pb);
     istr->endSlice();
     Preserved::_iceReadImpl(istr);
 }
@@ -364,7 +364,7 @@ void
 Test::PSUnknownException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<PSUnknownException>::write(ostr, *this);
+    ostr->writeAll(this->p);
     ostr->endSlice();
     PreservedException::_writeImpl(ostr);
 }
@@ -373,7 +373,7 @@ void
 Test::PSUnknownException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<PSUnknownException>::read(istr, *this);
+    istr->readAll(this->p);
     istr->endSlice();
     PreservedException::_readImpl(istr);
 }

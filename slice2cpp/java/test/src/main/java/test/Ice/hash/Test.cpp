@@ -64,7 +64,7 @@ void
 Test::Pen::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<Pen>::write(ostr, *this);
+    ostr->writeAll(this->thickness, this->color);
     ostr->endSlice();
 }
 
@@ -72,6 +72,6 @@ void
 Test::Pen::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<Pen>::read(istr, *this);
+    istr->readAll(this->thickness, this->color);
     istr->endSlice();
 }

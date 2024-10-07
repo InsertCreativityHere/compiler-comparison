@@ -3421,7 +3421,7 @@ void
 Test::CV::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<CV>::write(ostr, *this);
+    ostr->writeAll(this->i);
     ostr->endSlice();
 }
 
@@ -3429,7 +3429,7 @@ void
 Test::CV::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<CV>::read(istr, *this);
+    istr->readAll(this->i);
     istr->endSlice();
 }
 
@@ -3455,7 +3455,7 @@ void
 Test::CR::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<CR>::write(ostr, *this);
+    ostr->writeAll(this->v);
     ostr->endSlice();
 }
 
@@ -3463,7 +3463,7 @@ void
 Test::CR::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<CR>::read(istr, *this);
+    istr->readAll(this->v);
     istr->endSlice();
 }
 

@@ -1659,7 +1659,7 @@ void
 Test::DictClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<DictClass>::write(ostr, *this);
+    ostr->writeAll(this->isdict);
     ostr->endSlice();
 }
 
@@ -1667,7 +1667,7 @@ void
 Test::DictClass::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<DictClass>::read(istr, *this);
+    istr->readAll(this->isdict);
     istr->endSlice();
 }
 

@@ -1204,15 +1204,6 @@ struct StreamReader<::IceStormElection::TopicContent>
 };
 
 template<>
-struct StreamReader<::IceStormElection::ObserverInconsistencyException>
-{
-    static void read(InputStream* istr, ::IceStormElection::ObserverInconsistencyException& v)
-    {
-        istr->readAll(v.reason);
-    }
-};
-
-template<>
 struct StreamableTraits< ::IceStormElection::NodeState>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryEnum;

@@ -463,42 +463,6 @@ namespace Ice
 {
 
 template<>
-struct StreamReader<::Test::COneMember>
-{
-    static void read(InputStream* istr, ::Test::COneMember& v)
-    {
-        istr->readAll(v.e);
-    }
-};
-
-template<>
-struct StreamReader<::Test::CTwoMembers>
-{
-    static void read(InputStream* istr, ::Test::CTwoMembers& v)
-    {
-        istr->readAll(v.e1, v.e2);
-    }
-};
-
-template<>
-struct StreamReader<::Test::EOneMember>
-{
-    static void read(InputStream* istr, ::Test::EOneMember& v)
-    {
-        istr->readAll(v.e);
-    }
-};
-
-template<>
-struct StreamReader<::Test::ETwoMembers>
-{
-    static void read(InputStream* istr, ::Test::ETwoMembers& v)
-    {
-        istr->readAll(v.e1, v.e2);
-    }
-};
-
-template<>
 struct StreamableTraits<::Test::SOneMember>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryStruct;

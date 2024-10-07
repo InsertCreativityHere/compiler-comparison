@@ -1427,15 +1427,6 @@ struct StreamReader<::Test::S>
 };
 
 template<>
-struct StreamReader<::Test::C>
-{
-    static void read(InputStream* istr, ::Test::C& v)
-    {
-        istr->readAll(v.s);
-    }
-};
-
-template<>
 struct StreamableTraits< ::Test::E1>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryEnum;
@@ -1463,15 +1454,6 @@ struct StreamReader<::Test::S1>
 };
 
 template<>
-struct StreamReader<::Test::C1>
-{
-    static void read(InputStream* istr, ::Test::C1& v)
-    {
-        istr->readAll(v.s);
-    }
-};
-
-template<>
 struct StreamableTraits<::Test::S2>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryStruct;
@@ -1483,15 +1465,6 @@ template<>
 struct StreamReader<::Test::S2>
 {
     static void read(InputStream* istr, ::Test::S2& v)
-    {
-        istr->readAll(v.E1, v.S1, v.C1, v.S1Seq, v.S1Map);
-    }
-};
-
-template<>
-struct StreamReader<::Test::C2>
-{
-    static void read(InputStream* istr, ::Test::C2& v)
     {
         istr->readAll(v.E1, v.S1, v.C1, v.S1Seq, v.S1Map);
     }
@@ -1528,24 +1501,6 @@ struct StreamReader<::Test::Inner::Inner2::S>
     static void read(InputStream* istr, ::Test::Inner::Inner2::S& v)
     {
         istr->readAll(v.v);
-    }
-};
-
-template<>
-struct StreamReader<::Test::Inner::Inner2::C>
-{
-    static void read(InputStream* istr, ::Test::Inner::Inner2::C& v)
-    {
-        istr->readAll(v.s);
-    }
-};
-
-template<>
-struct StreamReader<::Test::Inner::C>
-{
-    static void read(InputStream* istr, ::Test::Inner::C& v)
-    {
-        istr->readAll(v.s);
     }
 };
 

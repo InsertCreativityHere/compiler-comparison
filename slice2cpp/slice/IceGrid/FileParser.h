@@ -255,15 +255,6 @@ using FileParserPtr = ::std::shared_ptr<FileParser>;
 namespace Ice
 {
 
-template<>
-struct StreamReader<::IceGrid::ParseException>
-{
-    static void read(InputStream* istr, ::IceGrid::ParseException& v)
-    {
-        istr->readAll(v.reason);
-    }
-};
-
 }
 /// \endcond
 

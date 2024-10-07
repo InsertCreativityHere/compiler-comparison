@@ -77,7 +77,7 @@ void
 IceGrid::CommunicatorDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<CommunicatorDescriptor>::write(ostr, *this);
+    ostr->writeAll(this->adapters, this->propertySet, this->logs, this->description);
     ostr->endSlice();
 }
 
@@ -85,7 +85,7 @@ void
 IceGrid::CommunicatorDescriptor::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<CommunicatorDescriptor>::read(istr, *this);
+    istr->readAll(this->adapters, this->propertySet, this->logs, this->description);
     istr->endSlice();
 }
 
@@ -111,7 +111,7 @@ void
 IceGrid::ServerDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<ServerDescriptor>::write(ostr, *this);
+    ostr->writeAll(this->id, this->exe, this->iceVersion, this->pwd, this->options, this->envs, this->activation, this->activationTimeout, this->deactivationTimeout, this->applicationDistrib, this->distrib, this->allocatable, this->user);
     ostr->endSlice();
     CommunicatorDescriptor::_iceWriteImpl(ostr);
 }
@@ -120,7 +120,7 @@ void
 IceGrid::ServerDescriptor::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<ServerDescriptor>::read(istr, *this);
+    istr->readAll(this->id, this->exe, this->iceVersion, this->pwd, this->options, this->envs, this->activation, this->activationTimeout, this->deactivationTimeout, this->applicationDistrib, this->distrib, this->allocatable, this->user);
     istr->endSlice();
     CommunicatorDescriptor::_iceReadImpl(istr);
 }
@@ -147,7 +147,7 @@ void
 IceGrid::ServiceDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<ServiceDescriptor>::write(ostr, *this);
+    ostr->writeAll(this->name, this->entry);
     ostr->endSlice();
     CommunicatorDescriptor::_iceWriteImpl(ostr);
 }
@@ -156,7 +156,7 @@ void
 IceGrid::ServiceDescriptor::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<ServiceDescriptor>::read(istr, *this);
+    istr->readAll(this->name, this->entry);
     istr->endSlice();
     CommunicatorDescriptor::_iceReadImpl(istr);
 }
@@ -183,7 +183,7 @@ void
 IceGrid::IceBoxDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<IceBoxDescriptor>::write(ostr, *this);
+    ostr->writeAll(this->services);
     ostr->endSlice();
     ServerDescriptor::_iceWriteImpl(ostr);
 }
@@ -192,7 +192,7 @@ void
 IceGrid::IceBoxDescriptor::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<IceBoxDescriptor>::read(istr, *this);
+    istr->readAll(this->services);
     istr->endSlice();
     ServerDescriptor::_iceReadImpl(istr);
 }
@@ -219,7 +219,7 @@ void
 IceGrid::LoadBalancingPolicy::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<LoadBalancingPolicy>::write(ostr, *this);
+    ostr->writeAll(this->nReplicas);
     ostr->endSlice();
 }
 
@@ -227,7 +227,7 @@ void
 IceGrid::LoadBalancingPolicy::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<LoadBalancingPolicy>::read(istr, *this);
+    istr->readAll(this->nReplicas);
     istr->endSlice();
 }
 
@@ -355,7 +355,7 @@ void
 IceGrid::AdaptiveLoadBalancingPolicy::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<AdaptiveLoadBalancingPolicy>::write(ostr, *this);
+    ostr->writeAll(this->loadSample);
     ostr->endSlice();
     LoadBalancingPolicy::_iceWriteImpl(ostr);
 }
@@ -364,7 +364,7 @@ void
 IceGrid::AdaptiveLoadBalancingPolicy::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<AdaptiveLoadBalancingPolicy>::read(istr, *this);
+    istr->readAll(this->loadSample);
     istr->endSlice();
     LoadBalancingPolicy::_iceReadImpl(istr);
 }
@@ -391,7 +391,7 @@ void
 IceGrid::BoxedString::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<BoxedString>::write(ostr, *this);
+    ostr->writeAll(this->value);
     ostr->endSlice();
 }
 
@@ -399,7 +399,7 @@ void
 IceGrid::BoxedString::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<BoxedString>::read(istr, *this);
+    istr->readAll(this->value);
     istr->endSlice();
 }
 
@@ -425,7 +425,7 @@ void
 IceGrid::BoxedDistributionDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<BoxedDistributionDescriptor>::write(ostr, *this);
+    ostr->writeAll(this->value);
     ostr->endSlice();
 }
 
@@ -433,6 +433,6 @@ void
 IceGrid::BoxedDistributionDescriptor::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<BoxedDistributionDescriptor>::read(istr, *this);
+    istr->readAll(this->value);
     istr->endSlice();
 }

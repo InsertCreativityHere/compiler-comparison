@@ -751,33 +751,6 @@ struct StreamReader<::Test::S>
     }
 };
 
-template<>
-struct StreamReader<::Test::C>
-{
-    static void read(InputStream* istr, ::Test::C& v)
-    {
-        istr->readAll(v.b1, v.b2, v.b3, v.b4, v.s1, v.s2, v.s3, v.s4);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::D>
-{
-    static void write(OutputStream* ostr, const ::Test::D& v)
-    {
-        ostr->writeAll({1, 2, 3, 4, 5, 6, 7}, v.boolSeq, v.byteSeq, v.shortSeq, v.intSeq, v.longSeq, v.floatSeq, v.doubleSeq);
-    }
-};
-
-template<>
-struct StreamReader<::Test::D>
-{
-    static void read(InputStream* istr, ::Test::D& v)
-    {
-        istr->readAll({1, 2, 3, 4, 5, 6, 7}, v.boolSeq, v.byteSeq, v.shortSeq, v.intSeq, v.longSeq, v.floatSeq, v.doubleSeq);
-    }
-};
-
 }
 /// \endcond
 

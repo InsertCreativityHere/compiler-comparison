@@ -3539,62 +3539,6 @@ namespace Ice
 {
 
 template<>
-struct StreamReader<::IceGrid::InternalDbEnvDescriptor>
-{
-    static void read(InputStream* istr, ::IceGrid::InternalDbEnvDescriptor& v)
-    {
-        istr->readAll(v.name, v.properties);
-    }
-};
-
-template<>
-struct StreamReader<::IceGrid::InternalAdapterDescriptor>
-{
-    static void read(InputStream* istr, ::IceGrid::InternalAdapterDescriptor& v)
-    {
-        istr->readAll(v.id, v.serverLifetime);
-    }
-};
-
-template<>
-struct StreamWriter<::IceGrid::InternalServerDescriptor>
-{
-    static void write(OutputStream* ostr, const ::IceGrid::InternalServerDescriptor& v)
-    {
-        ostr->writeAll(v.id, v.application, v.uuid, v.revision, v.sessionId, v.exe, v.pwd, v.user, v.activation, v.activationTimeout, v.deactivationTimeout, v.processRegistered, v.options, v.envs, v.logs, v.adapters, v.dbEnvs, v.properties);
-        ostr->writeAll({1}, v.services);
-    }
-};
-
-template<>
-struct StreamReader<::IceGrid::InternalServerDescriptor>
-{
-    static void read(InputStream* istr, ::IceGrid::InternalServerDescriptor& v)
-    {
-        istr->readAll(v.id, v.application, v.uuid, v.revision, v.sessionId, v.exe, v.pwd, v.user, v.activation, v.activationTimeout, v.deactivationTimeout, v.processRegistered, v.options, v.envs, v.logs, v.adapters, v.dbEnvs, v.properties);
-        istr->readAll({1}, v.services);
-    }
-};
-
-template<>
-struct StreamReader<::IceGrid::AdapterNotActiveException>
-{
-    static void read(InputStream* istr, ::IceGrid::AdapterNotActiveException& v)
-    {
-        istr->readAll(v.activatable);
-    }
-};
-
-template<>
-struct StreamReader<::IceGrid::AdapterExistsException>
-{
-    static void read(InputStream* istr, ::IceGrid::AdapterExistsException& v)
-    {
-        istr->readAll(v.id);
-    }
-};
-
-template<>
 struct StreamableTraits< ::IceGrid::TopicName>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryEnum;
@@ -3602,24 +3546,6 @@ struct StreamableTraits< ::IceGrid::TopicName>
     static const int maxValue = 4;
     static const int minWireSize = 1;
     static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::IceGrid::InternalNodeInfo>
-{
-    static void read(InputStream* istr, ::IceGrid::InternalNodeInfo& v)
-    {
-        istr->readAll(v.name, v.os, v.hostname, v.release, v.version, v.machine, v.nProcessors, v.dataDir);
-    }
-};
-
-template<>
-struct StreamReader<::IceGrid::InternalReplicaInfo>
-{
-    static void read(InputStream* istr, ::IceGrid::InternalReplicaInfo& v)
-    {
-        istr->readAll(v.name, v.hostname);
-    }
 };
 
 }

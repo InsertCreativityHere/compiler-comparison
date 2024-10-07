@@ -844,11 +844,6 @@ protected:
     ::std::int32_t i;
     ::std::string s;
 
-    template<typename T>
-    friend struct Ice::StreamWriter;
-    template<typename T>
-    friend struct Ice::StreamReader;
-
     E(const E&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -906,11 +901,6 @@ public:
     ::Test::EPtr e2;
 
 protected:
-    template<typename T>
-    friend struct Ice::StreamWriter;
-    template<typename T>
-    friend struct Ice::StreamReader;
-
     F(const F&) = default;
 
     ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1981,220 +1971,6 @@ struct StreamReader<::Test::S>
 };
 
 template<>
-struct StreamReader<::Test::Base>
-{
-    static void read(InputStream* istr, ::Test::Base& v)
-    {
-        istr->readAll(v.theS, v.str);
-    }
-};
-
-template<>
-struct StreamReader<::Test::A>
-{
-    static void read(InputStream* istr, ::Test::A& v)
-    {
-        istr->readAll(v.theB, v.theC, v.preMarshalInvoked, v.postUnmarshalInvoked);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::B>
-{
-    static void write(OutputStream* ostr, const ::Test::B& v)
-    {
-        ostr->writeAll(v.theA);
-    }
-};
-
-template<>
-struct StreamReader<::Test::B>
-{
-    static void read(InputStream* istr, ::Test::B& v)
-    {
-        istr->readAll(v.theA);
-    }
-};
-
-template<>
-struct StreamReader<::Test::C>
-{
-    static void read(InputStream* istr, ::Test::C& v)
-    {
-        istr->readAll(v.theB, v.preMarshalInvoked, v.postUnmarshalInvoked);
-    }
-};
-
-template<>
-struct StreamReader<::Test::D>
-{
-    static void read(InputStream* istr, ::Test::D& v)
-    {
-        istr->readAll(v.theA, v.theB, v.theC, v.preMarshalInvoked, v.postUnmarshalInvoked);
-    }
-};
-
-template<>
-struct StreamReader<::Test::E>
-{
-    static void read(InputStream* istr, ::Test::E& v)
-    {
-        istr->readAll(v.i, v.s);
-    }
-};
-
-template<>
-struct StreamReader<::Test::F>
-{
-    static void read(InputStream* istr, ::Test::F& v)
-    {
-        istr->readAll(v.e1, v.e2);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::G>
-{
-    static void write(OutputStream*, const ::Test::G&)
-    {
-    }
-};
-
-template<>
-struct StreamReader<::Test::G>
-{
-    static void read(InputStream*, ::Test::G&)
-    {
-    }
-};
-
-template<>
-struct StreamReader<::Test::A1>
-{
-    static void read(InputStream* istr, ::Test::A1& v)
-    {
-        istr->readAll(v.name);
-    }
-};
-
-template<>
-struct StreamReader<::Test::B1>
-{
-    static void read(InputStream* istr, ::Test::B1& v)
-    {
-        istr->readAll(v.a1, v.a2);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::D1>
-{
-    static void write(OutputStream* ostr, const ::Test::D1& v)
-    {
-        ostr->writeAll(v.a3, v.a4);
-    }
-};
-
-template<>
-struct StreamReader<::Test::D1>
-{
-    static void read(InputStream* istr, ::Test::D1& v)
-    {
-        istr->readAll(v.a3, v.a4);
-    }
-};
-
-template<>
-struct StreamReader<::Test::EBase>
-{
-    static void read(InputStream* istr, ::Test::EBase& v)
-    {
-        istr->readAll(v.a1, v.a2);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::EDerived>
-{
-    static void write(OutputStream* ostr, const ::Test::EDerived& v)
-    {
-        ostr->writeAll(v.a3, v.a4);
-    }
-};
-
-template<>
-struct StreamReader<::Test::EDerived>
-{
-    static void read(InputStream* istr, ::Test::EDerived& v)
-    {
-        istr->readAll(v.a3, v.a4);
-    }
-};
-
-template<>
-struct StreamReader<::Test::Inner::A>
-{
-    static void read(InputStream* istr, ::Test::Inner::A& v)
-    {
-        istr->readAll(v.theA);
-    }
-};
-
-template<>
-struct StreamReader<::Test::Inner::Ex>
-{
-    static void read(InputStream* istr, ::Test::Inner::Ex& v)
-    {
-        istr->readAll(v.reason);
-    }
-};
-
-template<>
-struct StreamReader<::Test::Inner::Sub::A>
-{
-    static void read(InputStream* istr, ::Test::Inner::Sub::A& v)
-    {
-        istr->readAll(v.theA);
-    }
-};
-
-template<>
-struct StreamReader<::Test::Inner::Sub::Ex>
-{
-    static void read(InputStream* istr, ::Test::Inner::Sub::Ex& v)
-    {
-        istr->readAll(v.reason);
-    }
-};
-
-template<>
-struct StreamReader<::Test::Recursive>
-{
-    static void read(InputStream* istr, ::Test::Recursive& v)
-    {
-        istr->readAll(v.v);
-    }
-};
-
-template<>
-struct StreamReader<::Test::K>
-{
-    static void read(InputStream* istr, ::Test::K& v)
-    {
-        istr->readAll(v.value);
-    }
-};
-
-template<>
-struct StreamReader<::Test::L>
-{
-    static void read(InputStream* istr, ::Test::L& v)
-    {
-        istr->readAll(v.data);
-    }
-};
-
-template<>
 struct StreamableTraits<::Test::StructKey>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryStruct;
@@ -2208,24 +1984,6 @@ struct StreamReader<::Test::StructKey>
     static void read(InputStream* istr, ::Test::StructKey& v)
     {
         istr->readAll(v.i, v.s);
-    }
-};
-
-template<>
-struct StreamReader<::Test::M>
-{
-    static void read(InputStream* istr, ::Test::M& v)
-    {
-        istr->readAll(v.v);
-    }
-};
-
-template<>
-struct StreamReader<::Test::F3>
-{
-    static void read(InputStream* istr, ::Test::F3& v)
-    {
-        istr->readAll(v.f1, v.f2);
     }
 };
 

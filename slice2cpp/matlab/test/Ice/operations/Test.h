@@ -1992,15 +1992,6 @@ struct StreamReader<::Test::MyStruct1>
     }
 };
 
-template<>
-struct StreamReader<::Test::MyClass1>
-{
-    static void read(InputStream* istr, ::Test::MyClass1& v)
-    {
-        istr->readAll(v.tesT, v.myClass, v.myClass1);
-    }
-};
-
 }
 /// \endcond
 

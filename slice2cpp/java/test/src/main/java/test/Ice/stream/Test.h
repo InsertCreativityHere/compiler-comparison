@@ -469,44 +469,6 @@ struct StreamReader<::Test::Point>
     }
 };
 
-template<>
-struct StreamWriter<::Test::OptionalClass>
-{
-    static void write(OutputStream* ostr, const ::Test::OptionalClass& v)
-    {
-        ostr->writeAll(v.bo, v.by);
-        ostr->writeAll({1, 2, 3, 4, 6, 7, 8, 12, 13, 14, 15}, v.sh, v.i, v.s, v.enumS4, v.byteBoolD6, v.shortIntD7, v.enum8, v.intSeq12, v.byteSeq13, v.stringSeq14, v.p15);
-    }
-};
-
-template<>
-struct StreamReader<::Test::OptionalClass>
-{
-    static void read(InputStream* istr, ::Test::OptionalClass& v)
-    {
-        istr->readAll(v.bo, v.by);
-        istr->readAll({1, 2, 3, 4, 6, 7, 8, 12, 13, 14, 15}, v.sh, v.i, v.s, v.enumS4, v.byteBoolD6, v.shortIntD7, v.enum8, v.intSeq12, v.byteSeq13, v.stringSeq14, v.p15);
-    }
-};
-
-template<>
-struct StreamReader<::Test::MyClass>
-{
-    static void read(InputStream* istr, ::Test::MyClass& v)
-    {
-        istr->readAll(v.c, v.prx, v.o, v.s, v.seq1, v.seq2, v.seq3, v.seq4, v.seq5, v.seq6, v.seq7, v.seq8, v.seq9, v.seq10, v.d);
-    }
-};
-
-template<>
-struct StreamReader<::Test::MyException>
-{
-    static void read(InputStream* istr, ::Test::MyException& v)
-    {
-        istr->readAll(v.c);
-    }
-};
-
 }
 /// \endcond
 

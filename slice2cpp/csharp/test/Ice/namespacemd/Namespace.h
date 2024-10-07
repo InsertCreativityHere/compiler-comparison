@@ -239,60 +239,6 @@ using Ice::Tuple::operator!=;
 namespace Ice
 {
 
-template<>
-struct StreamReader<::WithNamespace::C1>
-{
-    static void read(InputStream* istr, ::WithNamespace::C1& v)
-    {
-        istr->readAll(v.i);
-    }
-};
-
-template<>
-struct StreamWriter<::WithNamespace::C2>
-{
-    static void write(OutputStream* ostr, const ::WithNamespace::C2& v)
-    {
-        ostr->writeAll(v.l);
-    }
-};
-
-template<>
-struct StreamReader<::WithNamespace::C2>
-{
-    static void read(InputStream* istr, ::WithNamespace::C2& v)
-    {
-        istr->readAll(v.l);
-    }
-};
-
-template<>
-struct StreamReader<::WithNamespace::E1>
-{
-    static void read(InputStream* istr, ::WithNamespace::E1& v)
-    {
-        istr->readAll(v.i);
-    }
-};
-
-template<>
-struct StreamWriter<::WithNamespace::E2>
-{
-    static void write(OutputStream* ostr, const ::WithNamespace::E2& v)
-    {
-        ostr->writeAll(v.l);
-    }
-};
-
-template<>
-struct StreamReader<::WithNamespace::E2>
-{
-    static void read(InputStream* istr, ::WithNamespace::E2& v)
-    {
-        istr->readAll(v.l);
-    }
-};
-
 }
 /// \endcond
 

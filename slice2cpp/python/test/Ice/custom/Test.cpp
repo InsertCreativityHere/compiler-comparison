@@ -1036,7 +1036,7 @@ void
 Test::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<C>::write(ostr, *this);
+    ostr->writeAll(this->b1, this->b2, this->b3, this->b4, this->s1, this->s2, this->s3, this->s4);
     ostr->endSlice();
 }
 
@@ -1044,7 +1044,7 @@ void
 Test::C::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<C>::read(istr, *this);
+    istr->readAll(this->b1, this->b2, this->b3, this->b4, this->s1, this->s2, this->s3, this->s4);
     istr->endSlice();
 }
 
@@ -1070,7 +1070,7 @@ void
 Test::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<D>::write(ostr, *this);
+    ostr->writeAll({1, 2, 3, 4, 5, 6, 7}, this->boolSeq, this->byteSeq, this->shortSeq, this->intSeq, this->longSeq, this->floatSeq, this->doubleSeq);
     ostr->endSlice();
 }
 
@@ -1078,7 +1078,7 @@ void
 Test::D::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<D>::read(istr, *this);
+    istr->readAll({1, 2, 3, 4, 5, 6, 7}, this->boolSeq, this->byteSeq, this->shortSeq, this->intSeq, this->longSeq, this->floatSeq, this->doubleSeq);
     istr->endSlice();
 }
 

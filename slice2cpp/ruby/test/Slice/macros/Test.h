@@ -155,24 +155,6 @@ using Ice::Tuple::operator!=;
 namespace Ice
 {
 
-template<>
-struct StreamReader<::Test::Default>
-{
-    static void read(InputStream* istr, ::Test::Default& v)
-    {
-        istr->readAll(v.x, v.y);
-    }
-};
-
-template<>
-struct StreamReader<::Test::NoDefault>
-{
-    static void read(InputStream* istr, ::Test::NoDefault& v)
-    {
-        istr->readAll(v.x, v.y);
-    }
-};
-
 }
 /// \endcond
 
