@@ -148,6 +148,13 @@ protected:
     ICE_MEMBER(LIBRARY_TEST_API) void _readImpl(::Ice::InputStream*) override;
 };
 
+using Ice::Tuple::operator<;
+using Ice::Tuple::operator<=;
+using Ice::Tuple::operator>;
+using Ice::Tuple::operator>=;
+using Ice::Tuple::operator==;
+using Ice::Tuple::operator!=;
+
 }
 
 namespace Test

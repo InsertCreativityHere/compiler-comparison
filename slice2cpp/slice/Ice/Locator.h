@@ -569,6 +569,13 @@ protected:
     ICE_MEMBER(ICE_API) void _readImpl(::Ice::InputStream*) override;
 };
 
+using Ice::Tuple::operator<;
+using Ice::Tuple::operator<=;
+using Ice::Tuple::operator>;
+using Ice::Tuple::operator>=;
+using Ice::Tuple::operator==;
+using Ice::Tuple::operator!=;
+
 }
 
 namespace Ice

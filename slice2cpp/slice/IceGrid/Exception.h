@@ -1075,6 +1075,13 @@ protected:
     ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
+using Ice::Tuple::operator<;
+using Ice::Tuple::operator<=;
+using Ice::Tuple::operator>;
+using Ice::Tuple::operator>=;
+using Ice::Tuple::operator==;
+using Ice::Tuple::operator!=;
+
 }
 
 /// \cond STREAM

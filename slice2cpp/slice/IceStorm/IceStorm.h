@@ -1040,12 +1040,12 @@ protected:
     ICE_MEMBER(ICESTORM_API) void _readImpl(::Ice::InputStream*) override;
 };
 
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
+using Ice::Tuple::operator<;
+using Ice::Tuple::operator<=;
+using Ice::Tuple::operator>;
+using Ice::Tuple::operator>=;
+using Ice::Tuple::operator==;
+using Ice::Tuple::operator!=;
 
 }
 

@@ -3818,12 +3818,12 @@ struct NodeDynamicInfo
     }
 };
 
-using Ice::operator<;
-using Ice::operator<=;
-using Ice::operator>;
-using Ice::operator>=;
-using Ice::operator==;
-using Ice::operator!=;
+using Ice::Tuple::operator<;
+using Ice::Tuple::operator<=;
+using Ice::Tuple::operator>;
+using Ice::Tuple::operator>=;
+using Ice::Tuple::operator==;
+using Ice::Tuple::operator!=;
 
 }
 
