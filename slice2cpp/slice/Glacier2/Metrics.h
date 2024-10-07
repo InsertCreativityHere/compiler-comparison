@@ -145,13 +145,6 @@ protected:
     ICE_MEMBER(GLACIER2_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
-
 }
 
 /// \cond STREAM

@@ -194,13 +194,6 @@ protected:
     ICE_MEMBER(ICESTORM_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
-
 }
 
 /// \cond STREAM

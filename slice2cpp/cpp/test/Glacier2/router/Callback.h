@@ -302,13 +302,6 @@ protected:
     void _readImpl(::Ice::InputStream*) override;
 };
 
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
-
 }
 
 namespace Test

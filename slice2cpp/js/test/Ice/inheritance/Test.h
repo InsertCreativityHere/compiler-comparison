@@ -830,13 +830,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
-
 }
 
 namespace MD
@@ -1044,13 +1037,6 @@ protected:
 
     void _iceReadImpl(::Ice::InputStream*) override;
 };
-
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
 
 }
 
@@ -1260,13 +1246,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
-
 }
 
 namespace MF
@@ -1474,13 +1453,6 @@ protected:
 
     void _iceReadImpl(::Ice::InputStream*) override;
 };
-
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
 
 }
 
@@ -1690,13 +1662,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
-
 }
 
 namespace MH
@@ -1905,21 +1870,7 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
-
 }
-
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
 
 }
 
