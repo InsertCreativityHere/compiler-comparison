@@ -143,5 +143,5 @@ public class defer implements java.lang.Cloneable,
     private static final defer _nullMarshalValue = new defer();
 
     /** @hidden */
-    private static final long serialVersionUID = 8824794667970010803L;
+    private static final long serialVersionUID = 8824790350874997538L;
 }
