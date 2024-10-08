@@ -13436,8 +13436,6 @@ namespace Test
 
         public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, Ice.Current current);
 
-        public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, Ice.Current current);
-
         public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, Ice.Current current);
 
         public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, Ice.Current current);
@@ -13445,6 +13443,8 @@ namespace Test
         public abstract bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, Ice.Current current);
 
         public abstract long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, Ice.Current current);
+
+        public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, Ice.Current current);
 
         public abstract double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, Ice.Current current);
 
@@ -13669,8 +13669,6 @@ namespace Test2
 
         public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, Ice.Current current);
 
-        public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, Ice.Current current);
-
         public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, Ice.Current current);
 
         public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, Ice.Current current);
@@ -13678,6 +13676,8 @@ namespace Test2
         public abstract bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, Ice.Current current);
 
         public abstract long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, Ice.Current current);
+
+        public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, Ice.Current current);
 
         public abstract double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, Ice.Current current);
 
