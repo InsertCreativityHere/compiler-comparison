@@ -198,5 +198,5 @@ public class ServiceInstanceDescriptor implements java.lang.Cloneable,
     private static final ServiceInstanceDescriptor _nullMarshalValue = new ServiceInstanceDescriptor();
 
     /** @hidden */
-    private static final long serialVersionUID = -1094667970080175819L;
+    private static final long serialVersionUID = 2864339820730479541L;
 }
