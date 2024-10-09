@@ -55,5 +55,5 @@ public class _notify extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 4322848218788529219L;
+    private static final long serialVersionUID = 4322854554899400182L;
 }
