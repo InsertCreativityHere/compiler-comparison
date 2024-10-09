@@ -59,5 +59,5 @@ public class DeploymentException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -6801508866827147598L;
+    private static final long serialVersionUID = -6801510207517103683L;
 }
