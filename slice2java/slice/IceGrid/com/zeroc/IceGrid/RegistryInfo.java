@@ -166,5 +166,5 @@ public class RegistryInfo implements java.lang.Cloneable,
     private static final RegistryInfo _nullMarshalValue = new RegistryInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = 362992730994136423L;
+    private static final long serialVersionUID = 3420910609568988391L;
 }
