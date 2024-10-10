@@ -926,11 +926,11 @@ IceGrid::AdminPrx::_iceI_startServer(const ::std::shared_ptr<::IceInternal::Outg
             {
                 ex.ice_throw();
             }
-            catch(const ServerNotExistException&)
+            catch(const ServerStartException&)
             {
                 throw;
             }
-            catch(const ServerStartException&)
+            catch(const ServerNotExistException&)
             {
                 throw;
             }

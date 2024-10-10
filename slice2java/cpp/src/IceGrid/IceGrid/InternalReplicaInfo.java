@@ -59,7 +59,7 @@ public class InternalReplicaInfo extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -701391299135697924L;
+    private static final long serialVersionUID = 8679348828248764668L;
 
     /** @hidden */
     @Override
