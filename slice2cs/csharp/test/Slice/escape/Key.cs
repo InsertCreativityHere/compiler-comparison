@@ -1634,9 +1634,9 @@ namespace @abstract
 
     public abstract class explicitDisp_ : Ice.ObjectImpl, @explicit
     {
-        public abstract void @default(Ice.Current current);
-
         public abstract global::System.Threading.Tasks.Task<int> catchAsync(int @checked, Ice.Current current);
+
+        public abstract void @default(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
