@@ -130,8 +130,15 @@ Test::TestIntf::_iceD_sleep(::Ice::IncomingRequest& request, ::std::function<voi
     ::std::int32_t iceP_ms;
     istr->readAll(iceP_ms);
     istr->endEncapsulation();
-    this->sleep(iceP_ms, request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    try
+    {
+        this->sleepAsync(iceP_ms, [responseHandler] { responseHandler->sendEmptyResponse(); }, [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
+    }
+    catch (...)
+    {
+        responseHandler->sendException(::std::current_exception());
+    }
 }
 /// \endcond
 

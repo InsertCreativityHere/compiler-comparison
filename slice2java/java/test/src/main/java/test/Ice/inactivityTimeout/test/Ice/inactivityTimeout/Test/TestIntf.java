@@ -17,7 +17,7 @@ package test.Ice.inactivityTimeout.Test;
 
 public interface TestIntf extends com.zeroc.Ice.Object
 {
-    void sleep(int ms, com.zeroc.Ice.Current current);
+    java.util.concurrent.CompletionStage<Void> sleepAsync(int ms, com.zeroc.Ice.Current current);
 
     void shutdown(com.zeroc.Ice.Current current);
 
@@ -54,8 +54,8 @@ public interface TestIntf extends com.zeroc.Ice.Object
         int iceP_ms;
         iceP_ms = istr.readInt();
         istr.endEncapsulation();
-        obj.sleep(iceP_ms, request.current);
-        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
+        var result = obj.sleepAsync(iceP_ms, request.current);
+        return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
     }
 
     /** @hidden */

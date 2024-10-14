@@ -30,7 +30,7 @@ namespace Ice.inactivityTimeout
         [Ice.SliceTypeId("::Test::TestIntf")]
         public partial interface TestIntf : Ice.Object
         {
-            void sleep(int ms, Ice.Current current);
+            global::System.Threading.Tasks.Task sleepAsync(int ms, Ice.Current current);
 
             void shutdown(Ice.Current current);
         }
@@ -194,7 +194,7 @@ namespace Ice.inactivityTimeout
     {
         public abstract class TestIntfDisp_ : Ice.ObjectImpl, TestIntf
         {
-            public abstract void sleep(int ms, Ice.Current current);
+            public abstract global::System.Threading.Tasks.Task sleepAsync(int ms, Ice.Current current);
 
             public abstract void shutdown(Ice.Current current);
 
@@ -223,7 +223,7 @@ namespace Ice.inactivityTimeout
     {
         public partial interface TestIntf
         {
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_sleepAsync(
+            protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_sleepAsync(
                 TestIntf obj,
                 Ice.IncomingRequest request)
             {
@@ -233,8 +233,8 @@ namespace Ice.inactivityTimeout
                 int iceP_ms;
                 iceP_ms = istr.readInt();
                 istr.endEncapsulation();
-                obj.sleep(iceP_ms, request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+                await obj.sleepAsync(iceP_ms, request.current).ConfigureAwait(false);
+                return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
             }
 
             protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(

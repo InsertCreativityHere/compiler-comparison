@@ -99,7 +99,7 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
     TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
-    TestIntf._op_sleep = IcePy.Operation('sleep', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
+    TestIntf._op_sleep = IcePy.Operation('sleep', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
     TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.TestIntf = TestIntf

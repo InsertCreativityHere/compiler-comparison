@@ -134,7 +134,7 @@ public:
      */
     static const char* ice_staticId() noexcept;
 
-    virtual void sleep(::std::int32_t ms, const ::Ice::Current& current) = 0;
+    virtual void sleepAsync(::std::int32_t ms, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_sleep(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
