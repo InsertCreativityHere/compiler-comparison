@@ -53,7 +53,7 @@ public class IceBoxDescriptor extends ServerDescriptor
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 2337759512021679761L;
+    private static final long serialVersionUID = 2337759488586870212L;
 
     /** @hidden */
     @Override
