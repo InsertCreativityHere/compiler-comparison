@@ -525,32 +525,32 @@ Test::TestIntfPrx::_iceI_supportsFunctionalTests(const ::std::shared_ptr<::IceIn
 }
 
 void
-Test::TestIntfPrx::pingBidDir(const ::Ice::Identity& iceP_id, const ::Ice::Context& context) const
+Test::TestIntfPrx::pingBiDir(const ::std::optional<PingReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_pingBidDir, iceP_id, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_pingBiDir, iceP_reply, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::pingBidDirAsync(const ::Ice::Identity& iceP_id, const ::Ice::Context& context) const
+Test::TestIntfPrx::pingBiDirAsync(const ::std::optional<PingReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_pingBidDir, iceP_id, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_pingBiDir, iceP_reply, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::pingBidDirAsync(const ::Ice::Identity& iceP_id, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::pingBiDirAsync(const ::std::optional<PingReplyPrx>& iceP_reply, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_pingBidDir, iceP_id, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_pingBiDir, iceP_reply, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_pingBidDir(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Identity& iceP_id, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_pingBiDir(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<PingReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
-    static constexpr ::std::string_view operationName = "pingBidDir";
+    static constexpr ::std::string_view operationName = "pingBiDir";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
-            ostr->writeAll(iceP_id);
+            ostr->writeAll(iceP_reply);
         },
         nullptr);
 }
@@ -960,15 +960,15 @@ Test::TestIntf::_iceD_supportsFunctionalTests(::Ice::IncomingRequest& request, :
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_pingBidDir(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_pingBiDir(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::Ice::Identity iceP_id;
-    istr->readAll(iceP_id);
+    ::std::optional<PingReplyPrx> iceP_reply;
+    istr->readAll(iceP_reply);
     istr->endEncapsulation();
-    this->pingBidDir(::std::move(iceP_id), request.current());
+    this->pingBiDir(::std::move(iceP_reply), request.current());
     sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
@@ -977,7 +977,7 @@ Test::TestIntf::_iceD_pingBidDir(::Ice::IncomingRequest& request, ::std::functio
 void
 Test::TestIntf::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"abortConnection", "closeConnection", "finishDispatch", "ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opBatch", "opBatchCount", "opWithPayload", "opWithResult", "opWithUE", "pingBidDir", "shutdown", "sleep", "startDispatch", "supportsAMD", "supportsFunctionalTests", "waitForBatch"};
+    static constexpr ::std::string_view allOperations[] = {"abortConnection", "closeConnection", "finishDispatch", "ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opBatch", "opBatchCount", "opWithPayload", "opWithResult", "opWithUE", "pingBiDir", "shutdown", "sleep", "startDispatch", "supportsAMD", "supportsFunctionalTests", "waitForBatch"};
 
     const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 20, current.operation);
@@ -1056,7 +1056,7 @@ Test::TestIntf::dispatch(::Ice::IncomingRequest& request, ::std::function<void(:
         }
         case 13:
         {
-            _iceD_pingBidDir(request, ::std::move(sendResponse));
+            _iceD_pingBiDir(request, ::std::move(sendResponse));
             break;
         }
         case 14:

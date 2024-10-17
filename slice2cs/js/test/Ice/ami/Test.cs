@@ -82,7 +82,7 @@ namespace Test
 
         bool supportsFunctionalTests(Ice.Current current);
 
-        void pingBidDir(global::Ice.Identity id, Ice.Current current);
+        void pingBiDir(PingReplyPrx? reply, Ice.Current current);
     }
 
     [Ice.SliceTypeId("::Test::TestIntfController")]
@@ -165,9 +165,9 @@ namespace Test
 
         global::System.Threading.Tasks.Task<bool> supportsFunctionalTestsAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void pingBidDir(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void pingBiDir(PingReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task pingBidDirAsync(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task pingBiDirAsync(PingReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public interface TestIntfControllerPrx : Ice.ObjectPrx
@@ -453,11 +453,11 @@ namespace Test
             }
         }
 
-        public void pingBidDir(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void pingBiDir(PingReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_pingBidDirAsync(id, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_pingBiDirAsync(reply, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -902,32 +902,32 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task pingBidDirAsync(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task pingBiDirAsync(PingReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_pingBidDirAsync(id, context, progress, cancel, false);
+            return _iceI_pingBiDirAsync(reply, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_pingBidDirAsync(global::Ice.Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_pingBiDirAsync(PingReplyPrx? iceP_reply, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_pingBidDir(iceP_id, context, synchronous, completed);
+            _iceI_pingBiDir(iceP_reply, context, synchronous, completed);
             return completed.Task;
         }
 
-        private const string _pingBidDir_name = "pingBidDir";
+        private const string _pingBiDir_name = "pingBiDir";
 
-        private void _iceI_pingBidDir(global::Ice.Identity iceP_id, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_pingBiDir(PingReplyPrx? iceP_reply, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
-                _pingBidDir_name,
+                _pingBiDir_name,
                 Ice.OperationMode.Normal,
                 null,
                 context,
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    global::Ice.Identity.ice_write(ostr, iceP_id);
+                    PingReplyPrxHelper.write(ostr, iceP_reply);
                 });
         }
 
@@ -1158,7 +1158,7 @@ namespace Test
 
         public abstract bool supportsFunctionalTests(Ice.Current current);
 
-        public abstract void pingBidDir(global::Ice.Identity id, Ice.Current current);
+        public abstract void pingBiDir(PingReplyPrx? reply, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -1182,7 +1182,7 @@ namespace Test
                 "shutdown" => TestIntf.iceD_shutdownAsync(this, request),
                 "supportsAMD" => TestIntf.iceD_supportsAMDAsync(this, request),
                 "supportsFunctionalTests" => TestIntf.iceD_supportsFunctionalTestsAsync(this, request),
-                "pingBidDir" => TestIntf.iceD_pingBidDirAsync(this, request),
+                "pingBiDir" => TestIntf.iceD_pingBiDirAsync(this, request),
                 "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
                 "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
                 "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
@@ -1414,17 +1414,17 @@ namespace Test
             return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_pingBidDirAsync(
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_pingBiDirAsync(
             TestIntf obj,
             Ice.IncomingRequest request)
         {
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            global::Ice.Identity iceP_id;
-            iceP_id = new global::Ice.Identity(istr);
+            PingReplyPrx? iceP_reply;
+            iceP_reply = PingReplyPrxHelper.read(istr);
             istr.endEncapsulation();
-            obj.pingBidDir(iceP_id, request.current);
+            obj.pingBiDir(iceP_reply, request.current);
             return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
     }

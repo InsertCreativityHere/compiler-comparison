@@ -239,9 +239,9 @@ public extension PingReplyPrx {
 ///
 ///  - supportsFunctionalTestsAsync: 
 ///
-///  - pingBidDir: 
+///  - pingBiDir: 
 ///
-///  - pingBidDirAsync: 
+///  - pingBiDirAsync: 
 public protocol TestIntfPrx: Ice.ObjectPrx {}
 
 private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
@@ -393,9 +393,9 @@ public extension Ice.InputStream {
 ///
 ///  - supportsFunctionalTestsAsync: 
 ///
-///  - pingBidDir: 
+///  - pingBiDir: 
 ///
-///  - pingBidDirAsync: 
+///  - pingBiDirAsync: 
 public extension TestIntfPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
@@ -570,14 +570,14 @@ public extension TestIntfPrx {
     }
 
     ///
-    /// - parameter _: `Ice.Identity`
+    /// - parameter _: `PingReplyPrx?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func pingBidDir(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) async throws -> Swift.Void {
-        return try await _impl._invoke(operation: "pingBidDir",
+    func pingBiDir(_ iceP_reply: PingReplyPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+        return try await _impl._invoke(operation: "pingBiDir",
                                        mode: .Normal,
                                        write: { ostr in
-                                           ostr.write(iceP_id)
+                                           ostr.write(iceP_reply)
                                        },
                                        context: context)
     }
@@ -782,8 +782,8 @@ public struct TestIntfDisp: Ice.Dispatcher {
             try await servant._iceD_opWithResult(request)
         case "opWithUE":
             try await servant._iceD_opWithUE(request)
-        case "pingBidDir":
-            try await servant._iceD_pingBidDir(request)
+        case "pingBiDir":
+            try await servant._iceD_pingBiDir(request)
         case "shutdown":
             try await servant._iceD_shutdown(request)
         case "sleep":
@@ -880,10 +880,10 @@ public protocol TestIntf {
     func supportsFunctionalTests(current: Ice.Current) async throws -> Swift.Bool
 
     ///
-    /// - parameter id: `Ice.Identity`
+    /// - parameter reply: `PingReplyPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func pingBidDir(id: Ice.Identity, current: Ice.Current) async throws
+    func pingBiDir(reply: PingReplyPrx?, current: Ice.Current) async throws
 }
 
 
@@ -974,7 +974,7 @@ extension PingReply {
 ///
 ///  - supportsFunctionalTests: 
 ///
-///  - pingBidDir: 
+///  - pingBiDir: 
 extension TestIntf {
     public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1102,12 +1102,12 @@ extension TestIntf {
         }
     }
 
-    public func _iceD_pingBidDir(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+    public func _iceD_pingBiDir(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
-        let iceP_id: Ice.Identity = try istr.read()
-        try await self.pingBidDir(id: iceP_id, current: request.current)
+        let iceP_reply: PingReplyPrx? = try istr.read(PingReplyPrx.self)
+        try await self.pingBiDir(reply: iceP_reply, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 }

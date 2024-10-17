@@ -115,8 +115,8 @@ module ::Test
                 TestIntfPrx_mixin::OP_supportsFunctionalTests.invoke(self, [], context)
             end
 
-            def pingBidDir(id, context=nil)
-                TestIntfPrx_mixin::OP_pingBidDir.invoke(self, [id], context)
+            def pingBiDir(reply, context=nil)
+                TestIntfPrx_mixin::OP_pingBiDir.invoke(self, [reply], context)
             end
         end
 
@@ -146,7 +146,7 @@ module ::Test
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         TestIntfPrx_mixin::OP_supportsAMD = ::Ice::__defineOperation('supportsAMD', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
         TestIntfPrx_mixin::OP_supportsFunctionalTests = ::Ice::__defineOperation('supportsFunctionalTests', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
-        TestIntfPrx_mixin::OP_pingBidDir = ::Ice::__defineOperation('pingBidDir', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_Identity, false, 0]], [], nil, [])
+        TestIntfPrx_mixin::OP_pingBiDir = ::Ice::__defineOperation('pingBiDir', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_PingReplyPrx, false, 0]], [], nil, [])
     end
 
     if not defined?(::Test::TestIntfControllerPrx)

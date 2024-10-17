@@ -108,7 +108,7 @@ Ice.defineOperations(
         "shutdown": [, , , , , , , , ],
         "supportsAMD": [, , , [1], , , , , ],
         "supportsFunctionalTests": [, , , [1], , , , , ],
-        "pingBidDir": [, , , , [[Ice.Identity]], , , , ]
+        "pingBiDir": [, , , , [["Test.PingReplyPrx"]], , , , ]
     });
 
 const iceC_Test_TestIntfController_ids = [

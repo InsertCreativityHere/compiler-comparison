@@ -48,7 +48,7 @@ public interface TestIntf extends com.zeroc.Ice.Object
 
     boolean supportsFunctionalTests(com.zeroc.Ice.Current current);
 
-    void pingBidDir(com.zeroc.Ice.Identity id, com.zeroc.Ice.Current current);
+    void pingBiDir(PingReplyPrx reply, com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -243,15 +243,15 @@ public interface TestIntf extends com.zeroc.Ice.Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_pingBidDir(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_pingBiDir(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        com.zeroc.Ice.Identity iceP_id;
-        iceP_id = com.zeroc.Ice.Identity.ice_read(istr);
+        PingReplyPrx iceP_reply;
+        iceP_reply = PingReplyPrx.uncheckedCast(istr.readProxy());
         istr.endEncapsulation();
-        obj.pingBidDir(iceP_id, request.current);
+        obj.pingBiDir(iceP_reply, request.current);
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
@@ -276,7 +276,7 @@ public interface TestIntf extends com.zeroc.Ice.Object
             case "shutdown" -> TestIntf._iceD_shutdown(this, request);
             case "supportsAMD" -> TestIntf._iceD_supportsAMD(this, request);
             case "supportsFunctionalTests" -> TestIntf._iceD_supportsFunctionalTests(this, request);
-            case "pingBidDir" -> TestIntf._iceD_pingBidDir(this, request);
+            case "pingBiDir" -> TestIntf._iceD_pingBiDir(this, request);
             case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
             case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
             case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);

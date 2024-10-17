@@ -231,11 +231,11 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def supportsFunctionalTestsAsync(self, context=None):
             return _M_Test.TestIntf._op_supportsFunctionalTests.invokeAsync(self, ((), context))
 
-        def pingBidDir(self, id, context=None):
-            return _M_Test.TestIntf._op_pingBidDir.invoke(self, ((id, ), context))
+        def pingBiDir(self, reply, context=None):
+            return _M_Test.TestIntf._op_pingBiDir.invoke(self, ((reply, ), context))
 
-        def pingBidDirAsync(self, id, context=None):
-            return _M_Test.TestIntf._op_pingBidDir.invokeAsync(self, ((id, ), context))
+        def pingBiDirAsync(self, reply, context=None):
+            return _M_Test.TestIntf._op_pingBiDir.invokeAsync(self, ((reply, ), context))
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -311,8 +311,8 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def supportsFunctionalTests(self, current=None):
             raise NotImplementedError("servant method 'supportsFunctionalTests' not implemented")
 
-        def pingBidDir(self, id, current=None):
-            raise NotImplementedError("servant method 'pingBidDir' not implemented")
+        def pingBiDir(self, reply, current=None):
+            raise NotImplementedError("servant method 'pingBiDir' not implemented")
 
         def __str__(self):
             return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
@@ -337,7 +337,7 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     TestIntf._op_supportsAMD = IcePy.Operation('supportsAMD', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     TestIntf._op_supportsFunctionalTests = IcePy.Operation('supportsFunctionalTests', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
-    TestIntf._op_pingBidDir = IcePy.Operation('pingBidDir', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_Identity, False, 0),), (), None, ())
+    TestIntf._op_pingBiDir = IcePy.Operation('pingBiDir', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_PingReplyPrx, False, 0),), (), None, ())
 
     _M_Test.TestIntf = TestIntf
     del TestIntf

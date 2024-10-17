@@ -31,8 +31,8 @@
 %   supportsAMDAsync
 %   supportsFunctionalTests
 %   supportsFunctionalTestsAsync
-%   pingBidDir
-%   pingBidDirAsync
+%   pingBiDir
+%   pingBiDirAsync
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
 %   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
@@ -390,31 +390,31 @@ classdef TestIntfPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('supportsFunctionalTests', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
-        function pingBidDir(obj, id, varargin)
-            % pingBidDir
+        function pingBiDir(obj, reply, varargin)
+            % pingBiDir
             %
             % Parameters:
-            %   id (Ice.Identity)
+            %   reply (Test.PingReplyPrx)
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
-            Ice.Identity.ice_write(os_, id);
+            os_.writeProxy(reply);
             obj.iceEndWriteParams(os_);
-            obj.iceInvoke('pingBidDir', 0, false, os_, false, {}, varargin{:});
+            obj.iceInvoke('pingBiDir', 0, false, os_, false, {}, varargin{:});
         end
-        function r_ = pingBidDirAsync(obj, id, varargin)
-            % pingBidDirAsync
+        function r_ = pingBiDirAsync(obj, reply, varargin)
+            % pingBiDirAsync
             %
             % Parameters:
-            %   id (Ice.Identity)
+            %   reply (Test.PingReplyPrx)
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
             os_ = obj.iceStartWriteParams([]);
-            Ice.Identity.ice_write(os_, id);
+            os_.writeProxy(reply);
             obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('pingBidDir', 0, false, os_, 0, [], {}, varargin{:});
+            r_ = obj.iceInvokeAsync('pingBiDir', 0, false, os_, 0, [], {}, varargin{:});
         end
     end
     methods(Static)

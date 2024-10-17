@@ -560,38 +560,38 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default void pingBidDir(com.zeroc.Ice.Identity id)
+    default void pingBiDir(PingReplyPrx reply)
     {
-        pingBidDir(id, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        pingBiDir(reply, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void pingBidDir(com.zeroc.Ice.Identity id, java.util.Map<String, String> context)
+    default void pingBiDir(PingReplyPrx reply, java.util.Map<String, String> context)
     {
-        _iceI_pingBidDirAsync(id, context, true).waitForResponse();
+        _iceI_pingBiDirAsync(reply, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> pingBidDirAsync(com.zeroc.Ice.Identity id)
+    default java.util.concurrent.CompletableFuture<Void> pingBiDirAsync(PingReplyPrx reply)
     {
-        return _iceI_pingBidDirAsync(id, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_pingBiDirAsync(reply, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> pingBidDirAsync(com.zeroc.Ice.Identity id, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> pingBiDirAsync(PingReplyPrx reply, java.util.Map<String, String> context)
     {
-        return _iceI_pingBidDirAsync(id, context, false);
+        return _iceI_pingBiDirAsync(reply, context, false);
     }
 
     /**
      * @hidden
-     * @param iceP_id -
+     * @param iceP_reply -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_pingBidDirAsync(com.zeroc.Ice.Identity iceP_id, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_pingBiDirAsync(PingReplyPrx iceP_reply, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "pingBidDir", null, sync, null);
+        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "pingBiDir", null, sync, null);
         f.invoke(false, context, null, ostr -> {
-                     com.zeroc.Ice.Identity.ice_write(ostr, iceP_id);
+                     ostr.writeProxy(iceP_reply);
                  }, null);
         return f;
     }

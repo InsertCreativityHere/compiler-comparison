@@ -109,7 +109,7 @@ namespace Test
     global $Ice__t_ByteSeq;
     global $IcePHP__t_int;
     global $IcePHP__t_bool;
-    global $Ice__t_Identity;
+    global $Test__t_PingReplyPrx;
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'op', 0, -1, null, null, null, null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opWithPayload', 0, -1, array(array($Ice__t_ByteSeq)), null, null, null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opWithResult', 0, -1, null, null, array($IcePHP__t_int), null);
@@ -125,7 +125,7 @@ namespace Test
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, -1, null, null, null, null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'supportsAMD', 0, -1, null, null, array($IcePHP__t_bool), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'supportsFunctionalTests', 0, -1, null, null, array($IcePHP__t_bool), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'pingBidDir', 0, -1, array(array($Ice__t_Identity)), null, null, null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'pingBiDir', 0, -1, array(array($Test__t_PingReplyPrx)), null, null, null);
 }
 
 namespace Test
