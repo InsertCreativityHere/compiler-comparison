@@ -1151,8 +1151,15 @@ Test::TestIntf::_iceD_pingBiDir(::Ice::IncomingRequest& request, ::std::function
     ::std::optional<PingReplyPrx> iceP_reply;
     istr->readAll(iceP_reply);
     istr->endEncapsulation();
-    this->pingBiDir(::std::move(iceP_reply), request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    try
+    {
+        this->pingBiDirAsync(::std::move(iceP_reply), [responseHandler] { responseHandler->sendEmptyResponse(); }, [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
+    }
+    catch (...)
+    {
+        responseHandler->sendException(::std::current_exception());
+    }
 }
 /// \endcond
 

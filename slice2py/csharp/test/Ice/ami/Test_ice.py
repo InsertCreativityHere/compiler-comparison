@@ -367,7 +367,7 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     TestIntf._op_opAsyncDispatch = IcePy.Operation('opAsyncDispatch', Ice.OperationMode.Normal, True, None, (), (), (), None, ())
     TestIntf._op_opWithResultAsyncDispatch = IcePy.Operation('opWithResultAsyncDispatch', Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_int, False, 0), ())
     TestIntf._op_opWithUEAsyncDispatch = IcePy.Operation('opWithUEAsyncDispatch', Ice.OperationMode.Normal, True, None, (), (), (), None, (_M_Test._t_TestIntfException,))
-    TestIntf._op_pingBiDir = IcePy.Operation('pingBiDir', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_PingReplyPrx, False, 0),), (), None, ())
+    TestIntf._op_pingBiDir = IcePy.Operation('pingBiDir', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_PingReplyPrx, False, 0),), (), None, ())
 
     _M_Test.TestIntf = TestIntf
     del TestIntf

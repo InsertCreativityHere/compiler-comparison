@@ -357,7 +357,7 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     TestIntf._op_supportsAMD = IcePy.Operation('supportsAMD', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     TestIntf._op_supportsFunctionalTests = IcePy.Operation('supportsFunctionalTests', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
-    TestIntf._op_pingBiDir = IcePy.Operation('pingBiDir', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_PingReplyPrx, False, 0),), (), None, ())
+    TestIntf._op_pingBiDir = IcePy.Operation('pingBiDir', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_PingReplyPrx, False, 0),), (), None, ())
 
     _M_Test.TestIntf = TestIntf
     del TestIntf

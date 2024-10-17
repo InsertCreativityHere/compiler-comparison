@@ -407,7 +407,7 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     TestIntf._op_opLong = IcePy.Operation('opLong', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_long, False, 0),), (), ((), IcePy._t_long, False, 0), ())
     TestIntf._op_opFloat = IcePy.Operation('opFloat', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_float, False, 0),), (), ((), IcePy._t_float, False, 0), ())
     TestIntf._op_opDouble = IcePy.Operation('opDouble', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_double, False, 0),), (), ((), IcePy._t_double, False, 0), ())
-    TestIntf._op_pingBiDir = IcePy.Operation('pingBiDir', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_PingReplyPrx, False, 0),), (), None, ())
+    TestIntf._op_pingBiDir = IcePy.Operation('pingBiDir', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_PingReplyPrx, False, 0),), (), None, ())
 
     _M_Test.TestIntf = TestIntf
     del TestIntf

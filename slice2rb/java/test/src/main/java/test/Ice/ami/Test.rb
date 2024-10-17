@@ -181,7 +181,7 @@ module ::Test
         TestIntfPrx_mixin::OP_opLong = ::Ice::__defineOperation('opLong', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_long, false, 0]], [], [::Ice::T_long, false, 0], [])
         TestIntfPrx_mixin::OP_opFloat = ::Ice::__defineOperation('opFloat', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_float, false, 0]], [], [::Ice::T_float, false, 0], [])
         TestIntfPrx_mixin::OP_opDouble = ::Ice::__defineOperation('opDouble', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_double, false, 0]], [], [::Ice::T_double, false, 0], [])
-        TestIntfPrx_mixin::OP_pingBiDir = ::Ice::__defineOperation('pingBiDir', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_PingReplyPrx, false, 0]], [], nil, [])
+        TestIntfPrx_mixin::OP_pingBiDir = ::Ice::__defineOperation('pingBiDir', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_PingReplyPrx, false, 0]], [], nil, [])
     end
 
     if not defined?(::Test::TestIntfControllerPrx)

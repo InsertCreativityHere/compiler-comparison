@@ -161,7 +161,7 @@ module ::Test
         TestIntfPrx_mixin::OP_opAsyncDispatch = ::Ice::__defineOperation('opAsyncDispatch', ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
         TestIntfPrx_mixin::OP_opWithResultAsyncDispatch = ::Ice::__defineOperation('opWithResultAsyncDispatch', ::Ice::OperationMode::Normal, true, nil, [], [], [::Ice::T_int, false, 0], [])
         TestIntfPrx_mixin::OP_opWithUEAsyncDispatch = ::Ice::__defineOperation('opWithUEAsyncDispatch', ::Ice::OperationMode::Normal, true, nil, [], [], nil, [::Test::T_TestIntfException])
-        TestIntfPrx_mixin::OP_pingBiDir = ::Ice::__defineOperation('pingBiDir', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_PingReplyPrx, false, 0]], [], nil, [])
+        TestIntfPrx_mixin::OP_pingBiDir = ::Ice::__defineOperation('pingBiDir', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_PingReplyPrx, false, 0]], [], nil, [])
     end
 
     if not defined?(::Test::TestIntfControllerPrx)

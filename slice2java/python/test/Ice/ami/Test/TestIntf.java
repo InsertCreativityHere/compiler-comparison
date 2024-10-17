@@ -48,7 +48,7 @@ public interface TestIntf extends com.zeroc.Ice.Object
 
     boolean supportsFunctionalTests(com.zeroc.Ice.Current current);
 
-    void pingBiDir(PingReplyPrx reply, com.zeroc.Ice.Current current);
+    java.util.concurrent.CompletionStage<Void> pingBiDirAsync(PingReplyPrx reply, com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -251,8 +251,8 @@ public interface TestIntf extends com.zeroc.Ice.Object
         PingReplyPrx iceP_reply;
         iceP_reply = PingReplyPrx.uncheckedCast(istr.readProxy());
         istr.endEncapsulation();
-        obj.pingBiDir(iceP_reply, request.current);
-        return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
+        var result = obj.pingBiDirAsync(iceP_reply, request.current);
+        return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
     }
 
     @Override

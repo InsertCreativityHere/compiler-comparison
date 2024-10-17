@@ -82,7 +82,7 @@ namespace Test
 
         bool supportsFunctionalTests(Ice.Current current);
 
-        void pingBiDir(PingReplyPrx? reply, Ice.Current current);
+        global::System.Threading.Tasks.Task pingBiDirAsync(PingReplyPrx? reply, Ice.Current current);
     }
 
     [Ice.SliceTypeId("::Test::TestIntfController")]
@@ -1301,7 +1301,7 @@ namespace Test
 
         public abstract bool supportsFunctionalTests(Ice.Current current);
 
-        public abstract void pingBiDir(PingReplyPrx? reply, Ice.Current current);
+        public abstract global::System.Threading.Tasks.Task pingBiDirAsync(PingReplyPrx? reply, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -1583,7 +1583,7 @@ namespace Test
             return new(new Ice.OutgoingResponse(ostr));
         }
 
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_pingBiDirAsync(
+        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_pingBiDirAsync(
             TestIntf obj,
             Ice.IncomingRequest request)
         {
@@ -1593,8 +1593,8 @@ namespace Test
             PingReplyPrx? iceP_reply;
             iceP_reply = PingReplyPrxHelper.read(istr);
             istr.endEncapsulation();
-            obj.pingBiDir(iceP_reply, request.current);
-            return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            await obj.pingBiDirAsync(iceP_reply, request.current).ConfigureAwait(false);
+            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
         }
     }
 
