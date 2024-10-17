@@ -3242,6 +3242,12 @@ namespace DataStormContract
 
         public abstract void detachTopic(long topic, Ice.Current current);
 
+        public abstract void attachTags(long topic, ElementInfo[] tags, bool initialize, Ice.Current current);
+
+        public abstract void detachTags(long topic, long[] tags, Ice.Current current);
+
+        public abstract void announceElements(long topic, ElementInfo[] keys, Ice.Current current);
+
         public abstract void attachElements(long topic, ElementSpec[] elements, bool initialize, Ice.Current current);
 
         public abstract void attachElementsAck(long topic, ElementSpecAck[] elements, Ice.Current current);
@@ -3251,12 +3257,6 @@ namespace DataStormContract
         public abstract void initSamples(long topic, DataSamples[] samples, Ice.Current current);
 
         public abstract void disconnected(Ice.Current current);
-
-        public abstract void attachTags(long topic, ElementInfo[] tags, bool initialize, Ice.Current current);
-
-        public abstract void detachTags(long topic, long[] tags, Ice.Current current);
-
-        public abstract void announceElements(long topic, ElementInfo[] keys, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -3294,6 +3294,12 @@ namespace DataStormContract
 
         public abstract void detachTopic(long topic, Ice.Current current);
 
+        public abstract void attachTags(long topic, ElementInfo[] tags, bool initialize, Ice.Current current);
+
+        public abstract void detachTags(long topic, long[] tags, Ice.Current current);
+
+        public abstract void announceElements(long topic, ElementInfo[] keys, Ice.Current current);
+
         public abstract void attachElements(long topic, ElementSpec[] elements, bool initialize, Ice.Current current);
 
         public abstract void attachElementsAck(long topic, ElementSpecAck[] elements, Ice.Current current);
@@ -3303,12 +3309,6 @@ namespace DataStormContract
         public abstract void initSamples(long topic, DataSamples[] samples, Ice.Current current);
 
         public abstract void disconnected(Ice.Current current);
-
-        public abstract void attachTags(long topic, ElementInfo[] tags, bool initialize, Ice.Current current);
-
-        public abstract void detachTags(long topic, long[] tags, Ice.Current current);
-
-        public abstract void announceElements(long topic, ElementInfo[] keys, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
