@@ -100,7 +100,7 @@ public class InternalNodeInfo extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 1001564554819082020L;
+    private static final long serialVersionUID = -38233506123964444L;
 
     /** @hidden */
     @Override
