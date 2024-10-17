@@ -60,5 +60,5 @@ public class foreach extends fixed
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 32740565878276995L;
+    private static final long serialVersionUID = 5375142723050851971L;
 }
