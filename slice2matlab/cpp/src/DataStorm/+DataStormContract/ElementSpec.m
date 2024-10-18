@@ -2,7 +2,7 @@
 %
 % ElementSpec Properties:
 %   elements - The readers and writers associated with the key or filter.
-%   id - The id of the key or filter
+%   id - The id of the key or filter.
 %   name - The name of the filter.
 %   value - The value of the key or filter.
 %   peerId - The id of the key or filter from the peer.
@@ -15,7 +15,7 @@ classdef ElementSpec
     properties
         % elements - The readers and writers associated with the key or filter.
         elements
-        % id - The id of the key or filter
+        % id - The id of the key or filter.
         id int64
         % name - The name of the filter.
         name char

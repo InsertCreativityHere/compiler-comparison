@@ -19,12 +19,12 @@ public class ElementData implements java.lang.Cloneable,
                                     java.io.Serializable
 {
     /**
-     * The id of the writer or reader
+     * The id of the writer or reader.
      **/
     public long id;
 
     /**
-     * The config of the writer or reader
+     * The config of the writer or reader.
      **/
     public ElementConfig config;
 
@@ -174,5 +174,5 @@ public class ElementData implements java.lang.Cloneable,
     private static final ElementData _nullMarshalValue = new ElementData();
 
     /** @hidden */
-    private static final long serialVersionUID = -2155631615559974065L;
+    private static final long serialVersionUID = -5198086738084048157L;
 }

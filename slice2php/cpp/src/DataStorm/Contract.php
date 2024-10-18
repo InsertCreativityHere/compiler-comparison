@@ -18,6 +18,7 @@
 namespace
 {
     require_once 'Ice/Identity.php';
+    require_once 'Ice/BuiltinSequences.php';
     require_once 'DataStorm/Sample.php';
 }
 
@@ -34,39 +35,6 @@ namespace DataStormContract
     }
 
     $DataStormContract__t_ClearHistoryPolicy = IcePHP_defineEnum('::DataStormContract::ClearHistoryPolicy', array('OnAdd', 0, 'OnRemove', 1, 'OnAll', 2, 'OnAllExceptPartialUpdate', 3, 'Never', 4));
-}
-
-namespace DataStormContract
-{
-    global $DataStormContract__t_ByteSeq;
-
-    if(!isset($DataStormContract__t_ByteSeq))
-    {
-        global $IcePHP__t_byte;
-        $DataStormContract__t_ByteSeq = IcePHP_defineSequence('::DataStormContract::ByteSeq', $IcePHP__t_byte);
-    }
-}
-
-namespace DataStormContract
-{
-    global $DataStormContract__t_LongSeq;
-
-    if(!isset($DataStormContract__t_LongSeq))
-    {
-        global $IcePHP__t_long;
-        $DataStormContract__t_LongSeq = IcePHP_defineSequence('::DataStormContract::LongSeq', $IcePHP__t_long);
-    }
-}
-
-namespace DataStormContract
-{
-    global $DataStormContract__t_StringSeq;
-
-    if(!isset($DataStormContract__t_StringSeq))
-    {
-        global $IcePHP__t_string;
-        $DataStormContract__t_StringSeq = IcePHP_defineSequence('::DataStormContract::StringSeq', $IcePHP__t_string);
-    }
 }
 
 namespace DataStormContract
@@ -113,16 +81,16 @@ namespace DataStormContract
     }
 
     global $IcePHP__t_long;
-    global $DataStormContract__t_ByteSeq;
+    global $Ice__t_ByteSeq;
     global $DataStorm__t_SampleEvent;
     $DataStormContract__t_DataSample = IcePHP_defineStruct('::DataStormContract::DataSample', '\\DataStormContract\\DataSample', array(
         array('id', $IcePHP__t_long),
         array('keyId', $IcePHP__t_long),
-        array('keyValue', $DataStormContract__t_ByteSeq),
+        array('keyValue', $Ice__t_ByteSeq),
         array('timestamp', $IcePHP__t_long),
         array('tag', $IcePHP__t_long),
         array('event', $DataStorm__t_SampleEvent),
-        array('value', $DataStormContract__t_ByteSeq)));
+        array('value', $Ice__t_ByteSeq)));
 }
 
 namespace DataStormContract
@@ -200,11 +168,11 @@ namespace DataStormContract
 
     global $IcePHP__t_long;
     global $IcePHP__t_string;
-    global $DataStormContract__t_ByteSeq;
+    global $Ice__t_ByteSeq;
     $DataStormContract__t_ElementInfo = IcePHP_defineStruct('::DataStormContract::ElementInfo', '\\DataStormContract\\ElementInfo', array(
         array('id', $IcePHP__t_long),
         array('name', $IcePHP__t_string),
-        array('value', $DataStormContract__t_ByteSeq)));
+        array('value', $Ice__t_ByteSeq)));
 }
 
 namespace DataStormContract
@@ -240,10 +208,10 @@ namespace DataStormContract
     }
 
     global $IcePHP__t_string;
-    global $DataStormContract__t_LongSeq;
+    global $Ice__t_LongSeq;
     $DataStormContract__t_TopicInfo = IcePHP_defineStruct('::DataStormContract::TopicInfo', '\\DataStormContract\\TopicInfo', array(
         array('name', $IcePHP__t_string),
-        array('ids', $DataStormContract__t_LongSeq)));
+        array('ids', $Ice__t_LongSeq)));
 }
 
 namespace DataStormContract
@@ -314,10 +282,10 @@ namespace DataStormContract
     }
 
     global $IcePHP__t_string;
-    global $DataStormContract__t_ByteSeq;
+    global $Ice__t_ByteSeq;
     $DataStormContract__t_FilterInfo = IcePHP_defineStruct('::DataStormContract::FilterInfo', '\\DataStormContract\\FilterInfo', array(
         array('name', $IcePHP__t_string),
-        array('criteria', $DataStormContract__t_ByteSeq)));
+        array('criteria', $Ice__t_ByteSeq)));
 }
 
 namespace DataStormContract
@@ -451,12 +419,12 @@ namespace DataStormContract
     global $DataStormContract__t_ElementDataSeq;
     global $IcePHP__t_long;
     global $IcePHP__t_string;
-    global $DataStormContract__t_ByteSeq;
+    global $Ice__t_ByteSeq;
     $DataStormContract__t_ElementSpec = IcePHP_defineStruct('::DataStormContract::ElementSpec', '\\DataStormContract\\ElementSpec', array(
         array('elements', $DataStormContract__t_ElementDataSeq),
         array('id', $IcePHP__t_long),
         array('name', $IcePHP__t_string),
-        array('value', $DataStormContract__t_ByteSeq),
+        array('value', $Ice__t_ByteSeq),
         array('peerId', $IcePHP__t_long),
         array('peerName', $IcePHP__t_string)));
 }
@@ -554,12 +522,12 @@ namespace DataStormContract
     global $DataStormContract__t_ElementDataAckSeq;
     global $IcePHP__t_long;
     global $IcePHP__t_string;
-    global $DataStormContract__t_ByteSeq;
+    global $Ice__t_ByteSeq;
     $DataStormContract__t_ElementSpecAck = IcePHP_defineStruct('::DataStormContract::ElementSpecAck', '\\DataStormContract\\ElementSpecAck', array(
         array('elements', $DataStormContract__t_ElementDataAckSeq),
         array('id', $IcePHP__t_long),
         array('name', $IcePHP__t_string),
-        array('value', $DataStormContract__t_ByteSeq),
+        array('value', $Ice__t_ByteSeq),
         array('peerId', $IcePHP__t_long),
         array('peerName', $IcePHP__t_string)));
 }
@@ -611,7 +579,7 @@ namespace DataStormContract
     global $DataStormContract__t_TopicSpec;
     global $IcePHP__t_long;
     global $DataStormContract__t_ElementInfoSeq;
-    global $DataStormContract__t_LongSeq;
+    global $Ice__t_LongSeq;
     global $DataStormContract__t_ElementSpecSeq;
     global $DataStormContract__t_ElementSpecAckSeq;
     global $DataStormContract__t_DataSamplesSeq;
@@ -619,11 +587,11 @@ namespace DataStormContract
     IcePHP_defineOperation($DataStormContract__t_SessionPrx, 'attachTopic', 0, -1, array(array($DataStormContract__t_TopicSpec)), null, null, null);
     IcePHP_defineOperation($DataStormContract__t_SessionPrx, 'detachTopic', 0, -1, array(array($IcePHP__t_long)), null, null, null);
     IcePHP_defineOperation($DataStormContract__t_SessionPrx, 'attachTags', 0, -1, array(array($IcePHP__t_long), array($DataStormContract__t_ElementInfoSeq), array($IcePHP__t_bool)), null, null, null);
-    IcePHP_defineOperation($DataStormContract__t_SessionPrx, 'detachTags', 0, -1, array(array($IcePHP__t_long), array($DataStormContract__t_LongSeq)), null, null, null);
+    IcePHP_defineOperation($DataStormContract__t_SessionPrx, 'detachTags', 0, -1, array(array($IcePHP__t_long), array($Ice__t_LongSeq)), null, null, null);
     IcePHP_defineOperation($DataStormContract__t_SessionPrx, 'announceElements', 0, -1, array(array($IcePHP__t_long), array($DataStormContract__t_ElementInfoSeq)), null, null, null);
     IcePHP_defineOperation($DataStormContract__t_SessionPrx, 'attachElements', 0, -1, array(array($IcePHP__t_long), array($DataStormContract__t_ElementSpecSeq), array($IcePHP__t_bool)), null, null, null);
     IcePHP_defineOperation($DataStormContract__t_SessionPrx, 'attachElementsAck', 0, -1, array(array($IcePHP__t_long), array($DataStormContract__t_ElementSpecAckSeq)), null, null, null);
-    IcePHP_defineOperation($DataStormContract__t_SessionPrx, 'detachElements', 0, -1, array(array($IcePHP__t_long), array($DataStormContract__t_LongSeq)), null, null, null);
+    IcePHP_defineOperation($DataStormContract__t_SessionPrx, 'detachElements', 0, -1, array(array($IcePHP__t_long), array($Ice__t_LongSeq)), null, null, null);
     IcePHP_defineOperation($DataStormContract__t_SessionPrx, 'initSamples', 0, -1, array(array($IcePHP__t_long), array($DataStormContract__t_DataSamplesSeq)), null, null, null);
     IcePHP_defineOperation($DataStormContract__t_SessionPrx, 'disconnected', 0, -1, null, null, null, null);
 }
@@ -769,10 +737,10 @@ namespace DataStormContract
 
     global $IcePHP__t_string;
     global $DataStormContract__t_NodePrx;
-    global $DataStormContract__t_StringSeq;
+    global $Ice__t_StringSeq;
     IcePHP_defineOperation($DataStormContract__t_LookupPrx, 'announceTopicReader', 2, -1, array(array($IcePHP__t_string), array($DataStormContract__t_NodePrx)), null, null, null);
     IcePHP_defineOperation($DataStormContract__t_LookupPrx, 'announceTopicWriter', 2, -1, array(array($IcePHP__t_string), array($DataStormContract__t_NodePrx)), null, null, null);
-    IcePHP_defineOperation($DataStormContract__t_LookupPrx, 'announceTopics', 2, -1, array(array($DataStormContract__t_StringSeq), array($DataStormContract__t_StringSeq), array($DataStormContract__t_NodePrx)), null, null, null);
+    IcePHP_defineOperation($DataStormContract__t_LookupPrx, 'announceTopics', 2, -1, array(array($Ice__t_StringSeq), array($Ice__t_StringSeq), array($DataStormContract__t_NodePrx)), null, null, null);
     IcePHP_defineOperation($DataStormContract__t_LookupPrx, 'createSession', 0, -1, array(array($DataStormContract__t_NodePrx)), null, array($DataStormContract__t_NodePrx), null);
 }
 ?>

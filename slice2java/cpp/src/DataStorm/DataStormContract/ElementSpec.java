@@ -24,7 +24,7 @@ public class ElementSpec implements java.lang.Cloneable,
     public ElementData[] elements;
 
     /**
-     * The id of the key or filter
+     * The id of the key or filter.
      **/
     public long id;
 
@@ -215,5 +215,5 @@ public class ElementSpec implements java.lang.Cloneable,
     private static final ElementSpec _nullMarshalValue = new ElementSpec();
 
     /** @hidden */
-    private static final long serialVersionUID = -2625031972083668324L;
+    private static final long serialVersionUID = -1802592215073346761L;
 }

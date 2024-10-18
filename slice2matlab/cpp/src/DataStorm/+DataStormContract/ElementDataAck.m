@@ -2,9 +2,9 @@
 %
 % ElementDataAck Properties:
 %   id - The id of the writer or filter.
-%   config - The config of the writer or reader
+%   config - The config of the writer or reader.
 %   lastIds - The lastIds received by the reader.
-%   samples - The samples of the writer or reader
+%   samples - The samples of the writer or reader.
 %   peerId - The id of the writer or reader on the peer.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
@@ -14,11 +14,11 @@ classdef ElementDataAck
     properties
         % id - The id of the writer or filter.
         id int64
-        % config - The config of the writer or reader
+        % config - The config of the writer or reader.
         config
         % lastIds - The lastIds received by the reader.
         lastIds containers.Map
-        % samples - The samples of the writer or reader
+        % samples - The samples of the writer or reader.
         samples
         % peerId - The id of the writer or reader on the peer.
         peerId int64

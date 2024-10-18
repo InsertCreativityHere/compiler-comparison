@@ -15,14 +15,44 @@
 
 package DataStormContract;
 
+/**
+ * The lookup interface is used by DataStorm nodes to announce their topic readers and writers to other connected
+ * nodes. When multicast is enabled, the lookup interface also broadcasts these announcements.
+ * Each DataStorm node hosts a lookup servant with the identity "DataStorm/Lookup".
+ **/
 public interface Lookup extends com.zeroc.Ice.Object
 {
+    /**
+     * Announce a topic reader.
+     * @param topic The name of the topic.
+     * @param node The node reading the topic. The proxy is never null.
+     * @param current The Current object for the invocation.
+     **/
     void announceTopicReader(String topic, NodePrx node, com.zeroc.Ice.Current current);
 
+    /**
+     * Announce a topic writer.
+     * @param topic The name of the topic.
+     * @param node The node writing the topic. The proxy is never null.
+     * @param current The Current object for the invocation.
+     **/
     void announceTopicWriter(String topic, NodePrx node, com.zeroc.Ice.Current current);
 
+    /**
+     * Announce a set of topic readers and writers.
+     * @param readers A sequence of topic names for readers.
+     * @param writers A sequence of topic names for writers.
+     * @param node The node reading or writing the topics. The proxy is never null.
+     * @param current The Current object for the invocation.
+     **/
     void announceTopics(String[] readers, String[] writers, NodePrx node, com.zeroc.Ice.Current current);
 
+    /**
+     * Establish a connection between this node and another node.
+     * @param node The node initiating the connection. The proxy is never null.
+     * @param current The Current object for the invocation.
+     * @return A proxy to this node. The proxy is never null.
+     **/
     NodePrx createSession(NodePrx node, com.zeroc.Ice.Current current);
 
     /** @hidden */

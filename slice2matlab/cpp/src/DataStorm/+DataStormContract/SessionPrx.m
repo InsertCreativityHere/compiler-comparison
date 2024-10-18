@@ -152,7 +152,7 @@ classdef SessionPrx < Ice.ObjectPrx
             %
             % Parameters:
             %   topic (int64)
-            %   tags (DataStormContract.LongSeq)
+            %   tags (Ice.LongSeq)
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
@@ -166,7 +166,7 @@ classdef SessionPrx < Ice.ObjectPrx
             %
             % Parameters:
             %   topic (int64)
-            %   tags (DataStormContract.LongSeq)
+            %   tags (Ice.LongSeq)
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -280,7 +280,7 @@ classdef SessionPrx < Ice.ObjectPrx
             %
             % Parameters:
             %   topic (int64)
-            %   keys (DataStormContract.LongSeq)
+            %   keys (Ice.LongSeq)
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
@@ -294,7 +294,7 @@ classdef SessionPrx < Ice.ObjectPrx
             %
             % Parameters:
             %   topic (int64)
-            %   keys (DataStormContract.LongSeq)
+            %   keys (Ice.LongSeq)
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.

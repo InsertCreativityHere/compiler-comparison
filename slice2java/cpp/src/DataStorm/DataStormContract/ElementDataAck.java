@@ -24,7 +24,7 @@ public class ElementDataAck implements java.lang.Cloneable,
     public long id;
 
     /**
-     * The config of the writer or reader
+     * The config of the writer or reader.
      **/
     public ElementConfig config;
 
@@ -34,7 +34,7 @@ public class ElementDataAck implements java.lang.Cloneable,
     public java.util.Map<java.lang.Long, java.lang.Long> lastIds;
 
     /**
-     * The samples of the writer or reader
+     * The samples of the writer or reader.
      **/
     public DataSample[] samples;
 
@@ -200,5 +200,5 @@ public class ElementDataAck implements java.lang.Cloneable,
     private static final ElementDataAck _nullMarshalValue = new ElementDataAck();
 
     /** @hidden */
-    private static final long serialVersionUID = -5767612838706803423L;
+    private static final long serialVersionUID = -3471863734148547195L;
 }

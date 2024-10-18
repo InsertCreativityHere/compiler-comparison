@@ -1,10 +1,7 @@
 % SampleEvent   Summary of SampleEvent
 %
-% The sample event.
-%
-% The sample event matches the operation used by the DataWriter to update
-% the data element. It also provides information on what to expect from
-% the sample. A sample with the Add or Update event always provide a value
+% The sample event matches the operation used by the DataWriter to update the data element. It also provides
+% information on what to expect from the sample. A sample with the Add or Update event always provide a value
 % while a sample with the Remove type doesn't.
 %
 % SampleEvent Properties:

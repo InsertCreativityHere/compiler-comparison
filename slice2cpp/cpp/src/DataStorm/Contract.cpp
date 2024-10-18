@@ -168,25 +168,25 @@ DataStormContract::SessionPrx::_iceI_attachTags(const ::std::shared_ptr<::IceInt
 }
 
 void
-DataStormContract::SessionPrx::detachTags(::std::int64_t iceP_topic, const LongSeq& iceP_tags, const ::Ice::Context& context) const
+DataStormContract::SessionPrx::detachTags(::std::int64_t iceP_topic, const ::Ice::LongSeq& iceP_tags, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &SessionPrx::_iceI_detachTags, iceP_topic, iceP_tags, context).get();
 }
 
 ::std::future<void>
-DataStormContract::SessionPrx::detachTagsAsync(::std::int64_t iceP_topic, const LongSeq& iceP_tags, const ::Ice::Context& context) const
+DataStormContract::SessionPrx::detachTagsAsync(::std::int64_t iceP_topic, const ::Ice::LongSeq& iceP_tags, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &SessionPrx::_iceI_detachTags, iceP_topic, iceP_tags, context);
 }
 
 ::std::function<void()>
-DataStormContract::SessionPrx::detachTagsAsync(::std::int64_t iceP_topic, const LongSeq& iceP_tags, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+DataStormContract::SessionPrx::detachTagsAsync(::std::int64_t iceP_topic, const ::Ice::LongSeq& iceP_tags, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &DataStormContract::SessionPrx::_iceI_detachTags, iceP_topic, iceP_tags, context);
 }
 
 void
-DataStormContract::SessionPrx::_iceI_detachTags(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int64_t iceP_topic, const LongSeq& iceP_tags, const ::Ice::Context& context) const
+DataStormContract::SessionPrx::_iceI_detachTags(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int64_t iceP_topic, const ::Ice::LongSeq& iceP_tags, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "detachTags";
 
@@ -294,25 +294,25 @@ DataStormContract::SessionPrx::_iceI_attachElementsAck(const ::std::shared_ptr<:
 }
 
 void
-DataStormContract::SessionPrx::detachElements(::std::int64_t iceP_topic, const LongSeq& iceP_keys, const ::Ice::Context& context) const
+DataStormContract::SessionPrx::detachElements(::std::int64_t iceP_topic, const ::Ice::LongSeq& iceP_keys, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &SessionPrx::_iceI_detachElements, iceP_topic, iceP_keys, context).get();
 }
 
 ::std::future<void>
-DataStormContract::SessionPrx::detachElementsAsync(::std::int64_t iceP_topic, const LongSeq& iceP_keys, const ::Ice::Context& context) const
+DataStormContract::SessionPrx::detachElementsAsync(::std::int64_t iceP_topic, const ::Ice::LongSeq& iceP_keys, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &SessionPrx::_iceI_detachElements, iceP_topic, iceP_keys, context);
 }
 
 ::std::function<void()>
-DataStormContract::SessionPrx::detachElementsAsync(::std::int64_t iceP_topic, const LongSeq& iceP_keys, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+DataStormContract::SessionPrx::detachElementsAsync(::std::int64_t iceP_topic, const ::Ice::LongSeq& iceP_keys, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &DataStormContract::SessionPrx::_iceI_detachElements, iceP_topic, iceP_keys, context);
 }
 
 void
-DataStormContract::SessionPrx::_iceI_detachElements(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int64_t iceP_topic, const LongSeq& iceP_keys, const ::Ice::Context& context) const
+DataStormContract::SessionPrx::_iceI_detachElements(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int64_t iceP_topic, const ::Ice::LongSeq& iceP_keys, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "detachElements";
 
@@ -594,25 +594,25 @@ DataStormContract::LookupPrx::_iceI_announceTopicWriter(const ::std::shared_ptr<
 }
 
 void
-DataStormContract::LookupPrx::announceTopics(const StringSeq& iceP_readers, const StringSeq& iceP_writers, const ::std::optional<NodePrx>& iceP_node, const ::Ice::Context& context) const
+DataStormContract::LookupPrx::announceTopics(const ::Ice::StringSeq& iceP_readers, const ::Ice::StringSeq& iceP_writers, const ::std::optional<NodePrx>& iceP_node, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &LookupPrx::_iceI_announceTopics, iceP_readers, iceP_writers, iceP_node, context).get();
 }
 
 ::std::future<void>
-DataStormContract::LookupPrx::announceTopicsAsync(const StringSeq& iceP_readers, const StringSeq& iceP_writers, const ::std::optional<NodePrx>& iceP_node, const ::Ice::Context& context) const
+DataStormContract::LookupPrx::announceTopicsAsync(const ::Ice::StringSeq& iceP_readers, const ::Ice::StringSeq& iceP_writers, const ::std::optional<NodePrx>& iceP_node, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &LookupPrx::_iceI_announceTopics, iceP_readers, iceP_writers, iceP_node, context);
 }
 
 ::std::function<void()>
-DataStormContract::LookupPrx::announceTopicsAsync(const StringSeq& iceP_readers, const StringSeq& iceP_writers, const ::std::optional<NodePrx>& iceP_node, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+DataStormContract::LookupPrx::announceTopicsAsync(const ::Ice::StringSeq& iceP_readers, const ::Ice::StringSeq& iceP_writers, const ::std::optional<NodePrx>& iceP_node, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &DataStormContract::LookupPrx::_iceI_announceTopics, iceP_readers, iceP_writers, iceP_node, context);
 }
 
 void
-DataStormContract::LookupPrx::_iceI_announceTopics(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const StringSeq& iceP_readers, const StringSeq& iceP_writers, const ::std::optional<NodePrx>& iceP_node, const ::Ice::Context& context) const
+DataStormContract::LookupPrx::_iceI_announceTopics(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::StringSeq& iceP_readers, const ::Ice::StringSeq& iceP_writers, const ::std::optional<NodePrx>& iceP_node, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "announceTopics";
 
@@ -786,7 +786,7 @@ DataStormContract::Session::_iceD_detachTags(::Ice::IncomingRequest& request, ::
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     ::std::int64_t iceP_topic;
-    LongSeq iceP_tags;
+    ::Ice::LongSeq iceP_tags;
     istr->readAll(iceP_topic, iceP_tags);
     istr->endEncapsulation();
     this->detachTags(iceP_topic, ::std::move(iceP_tags), request.current());
@@ -853,7 +853,7 @@ DataStormContract::Session::_iceD_detachElements(::Ice::IncomingRequest& request
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     ::std::int64_t iceP_topic;
-    LongSeq iceP_keys;
+    ::Ice::LongSeq iceP_keys;
     istr->readAll(iceP_topic, iceP_keys);
     istr->endEncapsulation();
     this->detachElements(iceP_topic, ::std::move(iceP_keys), request.current());
@@ -1433,8 +1433,8 @@ DataStormContract::Lookup::_iceD_announceTopics(::Ice::IncomingRequest& request,
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    StringSeq iceP_readers;
-    StringSeq iceP_writers;
+    ::Ice::StringSeq iceP_readers;
+    ::Ice::StringSeq iceP_writers;
     ::std::optional<NodePrx> iceP_node;
     istr->readAll(iceP_readers, iceP_writers, iceP_node);
     istr->endEncapsulation();

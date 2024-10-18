@@ -22,13 +22,9 @@ import { Ice } from "ice";
 export const DataStorm = {};
 
 /**
- * The sample event.
- *
- * The sample event matches the operation used by the DataWriter to update
- * the data element. It also provides information on what to expect from
- * the sample. A sample with the Add or Update event always provide a value
+ * The sample event matches the operation used by the DataWriter to update the data element. It also provides
+ * information on what to expect from the sample. A sample with the Add or Update event always provide a value
  * while a sample with the Remove type doesn't.
- *
  **/
 DataStorm.SampleEvent = Ice.defineEnum([
     ['Add', 0], ['Update', 1], ['PartialUpdate', 2], ['Remove', 3]]);

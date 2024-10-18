@@ -26,10 +26,8 @@ if 'SampleEvent' not in _M_DataStorm.__dict__:
     _M_DataStorm.SampleEvent = None
     class SampleEvent(Ice.EnumBase):
         """
-        The sample event.
-        The sample event matches the operation used by the DataWriter to update
-        the data element. It also provides information on what to expect from
-        the sample. A sample with the Add or Update event always provide a value
+        The sample event matches the operation used by the DataWriter to update the data element. It also provides
+        information on what to expect from the sample. A sample with the Add or Update event always provide a value
         while a sample with the Remove type doesn't.
         Enumerators:
         Add -- The element has been added.

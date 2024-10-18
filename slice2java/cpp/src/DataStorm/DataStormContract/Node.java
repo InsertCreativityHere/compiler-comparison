@@ -15,12 +15,46 @@
 
 package DataStormContract;
 
+/**
+ * The Node interface allows DataStorm nodes to create publisher and subscriber sessions with each other.
+ *
+ * When a node has a writer for a topic that another node is reading, the node initiates the creation of a
+ * publisher session. Likewise, when a node has a reader for a topic that another node is writing, the node
+ * initiates the creation of a subscriber session.
+ *
+ * The publisher node hosts the publisher session servant, which is accessed by the subscriber node through a
+ * PublisherSession proxy. The subscriber node hosts the subscriber session servant, which is accessed by the
+ * publisher node through a SubscriberSession proxy.
+ **/
 public interface Node extends com.zeroc.Ice.Object
 {
+    /**
+     * Initiate the creation of a publisher session with a node, after
+     * the target node has announced a topic reader for which this node has a corresponding topic writer.
+     * @param publisher The publisher node initiating the session. The proxy is never null.
+     * @param current The Current object for the invocation.
+     *
+     * @see Lookup::announceTopicReader
+     **/
     void initiateCreateSession(NodePrx publisher, com.zeroc.Ice.Current current);
 
+    /**
+     * Initiate the creation of a subscriber session with a node, after
+     * the target node has announced a topic writer for which this node has a corresponding topic reader,
+     * or after the node has called Node::initiateCreateSession.
+     * @param subscriber The subscriber node initiating the session. The proxy is never null.
+     * @param session The subscriber session being created. The proxy is never null.
+     * @param fromRelay Indicates if the session is being created from a relay node.
+     * @param current The Current object for the invocation.
+     **/
     void createSession(NodePrx subscriber, SubscriberSessionPrx session, boolean fromRelay, com.zeroc.Ice.Current current);
 
+    /**
+     * Confirm the creation of a publisher session with a node.
+     * @param publisher The publisher node confirming the session. The proxy is never null.
+     * @param session The publisher session being confirmed. The proxy is never null.
+     * @param current The Current object for the invocation.
+     **/
     void confirmCreateSession(NodePrx publisher, PublisherSessionPrx session, com.zeroc.Ice.Current current);
 
     /** @hidden */

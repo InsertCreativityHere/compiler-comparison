@@ -18,6 +18,7 @@ import Ice
 import IcePy
 import builtins as _builtins
 import Ice.Identity_ice
+import Ice.BuiltinSequences_ice
 import DataStorm_Sample_ice
 
 # Included module Ice
@@ -54,15 +55,6 @@ if 'ClearHistoryPolicy' not in _M_DataStormContract.__dict__:
 
     _M_DataStormContract.ClearHistoryPolicy = ClearHistoryPolicy
     del ClearHistoryPolicy
-
-if '_t_ByteSeq' not in _M_DataStormContract.__dict__:
-    _M_DataStormContract._t_ByteSeq = IcePy.defineSequence('::DataStormContract::ByteSeq', (), IcePy._t_byte)
-
-if '_t_LongSeq' not in _M_DataStormContract.__dict__:
-    _M_DataStormContract._t_LongSeq = IcePy.defineSequence('::DataStormContract::LongSeq', (), IcePy._t_long)
-
-if '_t_StringSeq' not in _M_DataStormContract.__dict__:
-    _M_DataStormContract._t_StringSeq = IcePy.defineSequence('::DataStormContract::StringSeq', (), IcePy._t_string)
 
 if '_t_LongLongDict' not in _M_DataStormContract.__dict__:
     _M_DataStormContract._t_LongLongDict = IcePy.defineDictionary('::DataStormContract::LongLongDict', (), IcePy._t_long, IcePy._t_long)
@@ -112,11 +104,11 @@ if 'DataSample' not in _M_DataStormContract.__dict__:
     _M_DataStormContract._t_DataSample = IcePy.defineStruct('::DataStormContract::DataSample', DataSample, (), (
         ('id', (), IcePy._t_long),
         ('keyId', (), IcePy._t_long),
-        ('keyValue', (), _M_DataStormContract._t_ByteSeq),
+        ('keyValue', (), _M_Ice._t_ByteSeq),
         ('timestamp', (), IcePy._t_long),
         ('tag', (), IcePy._t_long),
         ('event', (), _M_DataStorm._t_SampleEvent),
-        ('value', (), _M_DataStormContract._t_ByteSeq)
+        ('value', (), _M_Ice._t_ByteSeq)
     ))
 
     _M_DataStormContract.DataSample = DataSample
@@ -196,7 +188,7 @@ if 'ElementInfo' not in _M_DataStormContract.__dict__:
     _M_DataStormContract._t_ElementInfo = IcePy.defineStruct('::DataStormContract::ElementInfo', ElementInfo, (), (
         ('id', (), IcePy._t_long),
         ('name', (), IcePy._t_string),
-        ('value', (), _M_DataStormContract._t_ByteSeq)
+        ('value', (), _M_Ice._t_ByteSeq)
     ))
 
     _M_DataStormContract.ElementInfo = ElementInfo
@@ -234,7 +226,7 @@ if 'TopicInfo' not in _M_DataStormContract.__dict__:
 
     _M_DataStormContract._t_TopicInfo = IcePy.defineStruct('::DataStormContract::TopicInfo', TopicInfo, (), (
         ('name', (), IcePy._t_string),
-        ('ids', (), _M_DataStormContract._t_LongSeq)
+        ('ids', (), _M_Ice._t_LongSeq)
     ))
 
     _M_DataStormContract.TopicInfo = TopicInfo
@@ -315,7 +307,7 @@ if 'FilterInfo' not in _M_DataStormContract.__dict__:
 
     _M_DataStormContract._t_FilterInfo = IcePy.defineStruct('::DataStormContract::FilterInfo', FilterInfo, (), (
         ('name', (), IcePy._t_string),
-        ('criteria', (), _M_DataStormContract._t_ByteSeq)
+        ('criteria', (), _M_Ice._t_ByteSeq)
     ))
 
     _M_DataStormContract.FilterInfo = FilterInfo
@@ -444,7 +436,7 @@ if 'ElementSpec' not in _M_DataStormContract.__dict__:
         ('elements', (), _M_DataStormContract._t_ElementDataSeq),
         ('id', (), IcePy._t_long),
         ('name', (), IcePy._t_string),
-        ('value', (), _M_DataStormContract._t_ByteSeq),
+        ('value', (), _M_Ice._t_ByteSeq),
         ('peerId', (), IcePy._t_long),
         ('peerName', (), IcePy._t_string)
     ))
@@ -548,7 +540,7 @@ if 'ElementSpecAck' not in _M_DataStormContract.__dict__:
         ('elements', (), _M_DataStormContract._t_ElementDataAckSeq),
         ('id', (), IcePy._t_long),
         ('name', (), IcePy._t_string),
-        ('value', (), _M_DataStormContract._t_ByteSeq),
+        ('value', (), _M_Ice._t_ByteSeq),
         ('peerId', (), IcePy._t_long),
         ('peerName', (), IcePy._t_string)
     ))
@@ -721,11 +713,11 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
     Session._op_attachTopic = IcePy.Operation('attachTopic', Ice.OperationMode.Normal, False, None, (), (((), _M_DataStormContract._t_TopicSpec, False, 0),), (), None, ())
     Session._op_detachTopic = IcePy.Operation('detachTopic', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_long, False, 0),), (), None, ())
     Session._op_attachTags = IcePy.Operation('attachTags', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_long, False, 0), ((), _M_DataStormContract._t_ElementInfoSeq, False, 0), ((), IcePy._t_bool, False, 0)), (), None, ())
-    Session._op_detachTags = IcePy.Operation('detachTags', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_long, False, 0), ((), _M_DataStormContract._t_LongSeq, False, 0)), (), None, ())
+    Session._op_detachTags = IcePy.Operation('detachTags', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_long, False, 0), ((), _M_Ice._t_LongSeq, False, 0)), (), None, ())
     Session._op_announceElements = IcePy.Operation('announceElements', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_long, False, 0), ((), _M_DataStormContract._t_ElementInfoSeq, False, 0)), (), None, ())
     Session._op_attachElements = IcePy.Operation('attachElements', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_long, False, 0), ((), _M_DataStormContract._t_ElementSpecSeq, False, 0), ((), IcePy._t_bool, False, 0)), (), None, ())
     Session._op_attachElementsAck = IcePy.Operation('attachElementsAck', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_long, False, 0), ((), _M_DataStormContract._t_ElementSpecAckSeq, False, 0)), (), None, ())
-    Session._op_detachElements = IcePy.Operation('detachElements', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_long, False, 0), ((), _M_DataStormContract._t_LongSeq, False, 0)), (), None, ())
+    Session._op_detachElements = IcePy.Operation('detachElements', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_long, False, 0), ((), _M_Ice._t_LongSeq, False, 0)), (), None, ())
     Session._op_initSamples = IcePy.Operation('initSamples', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_long, False, 0), ((), _M_DataStormContract._t_DataSamplesSeq, False, 0)), (), None, ())
     Session._op_disconnected = IcePy.Operation('disconnected', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
@@ -890,21 +882,114 @@ if 'NodePrx' not in _M_DataStormContract.__dict__:
             super().__init__(communicator, proxyString)
 
         def initiateCreateSession(self, publisher, context=None):
+            """
+            Initiate the creation of a publisher session with a node, after
+            the target node has announced a topic reader for which this node has a corresponding topic writer.
+            
+            Parameters
+            ----------
+            publisher : (DataStormContract.NodePrx or None)
+                The publisher node initiating the session. The proxy is never null.
+            context : Ice.Context
+                The request context for the invocation.
+            """
             return _M_DataStormContract.Node._op_initiateCreateSession.invoke(self, ((publisher, ), context))
 
         def initiateCreateSessionAsync(self, publisher, context=None):
+            """
+            Initiate the creation of a publisher session with a node, after
+            the target node has announced a topic reader for which this node has a corresponding topic writer.
+            
+            Parameters
+            ----------
+            publisher : (DataStormContract.NodePrx or None)
+                The publisher node initiating the session. The proxy is never null.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
             return _M_DataStormContract.Node._op_initiateCreateSession.invokeAsync(self, ((publisher, ), context))
 
         def createSession(self, subscriber, session, fromRelay, context=None):
+            """
+            Initiate the creation of a subscriber session with a node, after
+            the target node has announced a topic writer for which this node has a corresponding topic reader,
+            or after the node has called Node::initiateCreateSession.
+            
+            Parameters
+            ----------
+            subscriber : (DataStormContract.NodePrx or None)
+                The subscriber node initiating the session. The proxy is never null.
+            session : (DataStormContract.SubscriberSessionPrx or None)
+                The subscriber session being created. The proxy is never null.
+            fromRelay : bool
+                Indicates if the session is being created from a relay node.
+            context : Ice.Context
+                The request context for the invocation.
+            """
             return _M_DataStormContract.Node._op_createSession.invoke(self, ((subscriber, session, fromRelay), context))
 
         def createSessionAsync(self, subscriber, session, fromRelay, context=None):
+            """
+            Initiate the creation of a subscriber session with a node, after
+            the target node has announced a topic writer for which this node has a corresponding topic reader,
+            or after the node has called Node::initiateCreateSession.
+            
+            Parameters
+            ----------
+            subscriber : (DataStormContract.NodePrx or None)
+                The subscriber node initiating the session. The proxy is never null.
+            session : (DataStormContract.SubscriberSessionPrx or None)
+                The subscriber session being created. The proxy is never null.
+            fromRelay : bool
+                Indicates if the session is being created from a relay node.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
             return _M_DataStormContract.Node._op_createSession.invokeAsync(self, ((subscriber, session, fromRelay), context))
 
         def confirmCreateSession(self, publisher, session, context=None):
+            """
+            Confirm the creation of a publisher session with a node.
+            
+            Parameters
+            ----------
+            publisher : (DataStormContract.NodePrx or None)
+                The publisher node confirming the session. The proxy is never null.
+            session : (DataStormContract.PublisherSessionPrx or None)
+                The publisher session being confirmed. The proxy is never null.
+            context : Ice.Context
+                The request context for the invocation.
+            """
             return _M_DataStormContract.Node._op_confirmCreateSession.invoke(self, ((publisher, session), context))
 
         def confirmCreateSessionAsync(self, publisher, session, context=None):
+            """
+            Confirm the creation of a publisher session with a node.
+            
+            Parameters
+            ----------
+            publisher : (DataStormContract.NodePrx or None)
+                The publisher node confirming the session. The proxy is never null.
+            session : (DataStormContract.PublisherSessionPrx or None)
+                The publisher session being confirmed. The proxy is never null.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
             return _M_DataStormContract.Node._op_confirmCreateSession.invokeAsync(self, ((publisher, session), context))
 
         @staticmethod
@@ -937,12 +1022,66 @@ if 'NodePrx' not in _M_DataStormContract.__dict__:
             return '::DataStormContract::Node'
 
         def initiateCreateSession(self, publisher, current=None):
+            """
+            Initiate the creation of a publisher session with a node, after
+            the target node has announced a topic reader for which this node has a corresponding topic writer.
+            
+            Parameters
+            ----------
+            publisher : (DataStormContract.NodePrx or None)
+                The publisher node initiating the session. The proxy is never null.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
             raise NotImplementedError("servant method 'initiateCreateSession' not implemented")
 
         def createSession(self, subscriber, session, fromRelay, current=None):
+            """
+            Initiate the creation of a subscriber session with a node, after
+            the target node has announced a topic writer for which this node has a corresponding topic reader,
+            or after the node has called Node::initiateCreateSession.
+            
+            Parameters
+            ----------
+            subscriber : (DataStormContract.NodePrx or None)
+                The subscriber node initiating the session. The proxy is never null.
+            session : (DataStormContract.SubscriberSessionPrx or None)
+                The subscriber session being created. The proxy is never null.
+            fromRelay : bool
+                Indicates if the session is being created from a relay node.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
             raise NotImplementedError("servant method 'createSession' not implemented")
 
         def confirmCreateSession(self, publisher, session, current=None):
+            """
+            Confirm the creation of a publisher session with a node.
+            
+            Parameters
+            ----------
+            publisher : (DataStormContract.NodePrx or None)
+                The publisher node confirming the session. The proxy is never null.
+            session : (DataStormContract.PublisherSessionPrx or None)
+                The publisher session being confirmed. The proxy is never null.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
             raise NotImplementedError("servant method 'confirmCreateSession' not implemented")
 
         def __str__(self):
@@ -983,27 +1122,148 @@ if 'LookupPrx' not in _M_DataStormContract.__dict__:
             super().__init__(communicator, proxyString)
 
         def announceTopicReader(self, topic, node, context=None):
+            """
+            Announce a topic reader.
+            
+            Parameters
+            ----------
+            topic : str
+                The name of the topic.
+            node : (DataStormContract.NodePrx or None)
+                The node reading the topic. The proxy is never null.
+            context : Ice.Context
+                The request context for the invocation.
+            """
             return _M_DataStormContract.Lookup._op_announceTopicReader.invoke(self, ((topic, node), context))
 
         def announceTopicReaderAsync(self, topic, node, context=None):
+            """
+            Announce a topic reader.
+            
+            Parameters
+            ----------
+            topic : str
+                The name of the topic.
+            node : (DataStormContract.NodePrx or None)
+                The node reading the topic. The proxy is never null.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
             return _M_DataStormContract.Lookup._op_announceTopicReader.invokeAsync(self, ((topic, node), context))
 
         def announceTopicWriter(self, topic, node, context=None):
+            """
+            Announce a topic writer.
+            
+            Parameters
+            ----------
+            topic : str
+                The name of the topic.
+            node : (DataStormContract.NodePrx or None)
+                The node writing the topic. The proxy is never null.
+            context : Ice.Context
+                The request context for the invocation.
+            """
             return _M_DataStormContract.Lookup._op_announceTopicWriter.invoke(self, ((topic, node), context))
 
         def announceTopicWriterAsync(self, topic, node, context=None):
+            """
+            Announce a topic writer.
+            
+            Parameters
+            ----------
+            topic : str
+                The name of the topic.
+            node : (DataStormContract.NodePrx or None)
+                The node writing the topic. The proxy is never null.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
             return _M_DataStormContract.Lookup._op_announceTopicWriter.invokeAsync(self, ((topic, node), context))
 
         def announceTopics(self, readers, writers, node, context=None):
+            """
+            Announce a set of topic readers and writers.
+            
+            Parameters
+            ----------
+            readers : str[]
+                A sequence of topic names for readers.
+            writers : str[]
+                A sequence of topic names for writers.
+            node : (DataStormContract.NodePrx or None)
+                The node reading or writing the topics. The proxy is never null.
+            context : Ice.Context
+                The request context for the invocation.
+            """
             return _M_DataStormContract.Lookup._op_announceTopics.invoke(self, ((readers, writers, node), context))
 
         def announceTopicsAsync(self, readers, writers, node, context=None):
+            """
+            Announce a set of topic readers and writers.
+            
+            Parameters
+            ----------
+            readers : str[]
+                A sequence of topic names for readers.
+            writers : str[]
+                A sequence of topic names for writers.
+            node : (DataStormContract.NodePrx or None)
+                The node reading or writing the topics. The proxy is never null.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
             return _M_DataStormContract.Lookup._op_announceTopics.invokeAsync(self, ((readers, writers, node), context))
 
         def createSession(self, node, context=None):
+            """
+            Establish a connection between this node and another node.
+            
+            Parameters
+            ----------
+            node : (DataStormContract.NodePrx or None)
+                The node initiating the connection. The proxy is never null.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            (DataStormContract.NodePrx or None)
+                A proxy to this node. The proxy is never null.
+            """
             return _M_DataStormContract.Lookup._op_createSession.invoke(self, ((node, ), context))
 
         def createSessionAsync(self, node, context=None):
+            """
+            Establish a connection between this node and another node.
+            
+            Parameters
+            ----------
+            node : (DataStormContract.NodePrx or None)
+                The node initiating the connection. The proxy is never null.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
             return _M_DataStormContract.Lookup._op_createSession.invokeAsync(self, ((node, ), context))
 
         @staticmethod
@@ -1036,15 +1296,83 @@ if 'LookupPrx' not in _M_DataStormContract.__dict__:
             return '::DataStormContract::Lookup'
 
         def announceTopicReader(self, topic, node, current=None):
+            """
+            Announce a topic reader.
+            
+            Parameters
+            ----------
+            topic : str
+                The name of the topic.
+            node : (DataStormContract.NodePrx or None)
+                The node reading the topic. The proxy is never null.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
             raise NotImplementedError("servant method 'announceTopicReader' not implemented")
 
         def announceTopicWriter(self, topic, node, current=None):
+            """
+            Announce a topic writer.
+            
+            Parameters
+            ----------
+            topic : str
+                The name of the topic.
+            node : (DataStormContract.NodePrx or None)
+                The node writing the topic. The proxy is never null.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
             raise NotImplementedError("servant method 'announceTopicWriter' not implemented")
 
         def announceTopics(self, readers, writers, node, current=None):
+            """
+            Announce a set of topic readers and writers.
+            
+            Parameters
+            ----------
+            readers : str[]
+                A sequence of topic names for readers.
+            writers : str[]
+                A sequence of topic names for writers.
+            node : (DataStormContract.NodePrx or None)
+                The node reading or writing the topics. The proxy is never null.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
             raise NotImplementedError("servant method 'announceTopics' not implemented")
 
         def createSession(self, node, current=None):
+            """
+            Establish a connection between this node and another node.
+            
+            Parameters
+            ----------
+            node : (DataStormContract.NodePrx or None)
+                The node initiating the connection. The proxy is never null.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
             raise NotImplementedError("servant method 'createSession' not implemented")
 
         def __str__(self):
@@ -1057,7 +1385,7 @@ if 'LookupPrx' not in _M_DataStormContract.__dict__:
 
     Lookup._op_announceTopicReader = IcePy.Operation('announceTopicReader', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), _M_DataStormContract._t_NodePrx, False, 0)), (), None, ())
     Lookup._op_announceTopicWriter = IcePy.Operation('announceTopicWriter', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), _M_DataStormContract._t_NodePrx, False, 0)), (), None, ())
-    Lookup._op_announceTopics = IcePy.Operation('announceTopics', Ice.OperationMode.Idempotent, False, None, (), (((), _M_DataStormContract._t_StringSeq, False, 0), ((), _M_DataStormContract._t_StringSeq, False, 0), ((), _M_DataStormContract._t_NodePrx, False, 0)), (), None, ())
+    Lookup._op_announceTopics = IcePy.Operation('announceTopics', Ice.OperationMode.Idempotent, False, None, (), (((), _M_Ice._t_StringSeq, False, 0), ((), _M_Ice._t_StringSeq, False, 0), ((), _M_DataStormContract._t_NodePrx, False, 0)), (), None, ())
     Lookup._op_createSession = IcePy.Operation('createSession', Ice.OperationMode.Normal, False, None, (), (((), _M_DataStormContract._t_NodePrx, False, 0),), (), ((), _M_DataStormContract._t_NodePrx, False, 0), ())
 
     _M_DataStormContract.Lookup = Lookup

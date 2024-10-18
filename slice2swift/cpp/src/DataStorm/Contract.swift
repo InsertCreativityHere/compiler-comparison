@@ -81,16 +81,6 @@ public extension Ice.OutputStream {
     }
 }
 
-/// A sequence of bytes use to hold the encoded key or value
-public typealias ByteSeq = Foundation.Data
-
-/// A sequence of long
-public typealias LongSeq = [Swift.Int64]
-
-/// A sequence of strings
-public typealias StringSeq = [Swift.String]
-
-/// A dictionary of
 public typealias LongLongDict = [Swift.Int64: Swift.Int64]
 
 /// Helper class to read and write `LongLongDict` dictionary values from
@@ -162,7 +152,7 @@ public struct DataSample {
     /// The key id.
     public var keyId: Swift.Int64 = 0
     /// The key value if the key ID <= 0.
-    public var keyValue: ByteSeq = ByteSeq()
+    public var keyValue: Ice.ByteSeq = Ice.ByteSeq()
     /// The timestamp of the sample (write time).
     public var timestamp: Swift.Int64 = 0
     /// The update tag if the sample event is PartialUpdate.
@@ -170,11 +160,11 @@ public struct DataSample {
     /// The sample event.
     public var event: DataStorm.SampleEvent = .Add
     /// The value of the sample.
-    public var value: ByteSeq = ByteSeq()
+    public var value: Ice.ByteSeq = Ice.ByteSeq()
 
     public init() {}
 
-    public init(id: Swift.Int64, keyId: Swift.Int64, keyValue: ByteSeq, timestamp: Swift.Int64, tag: Swift.Int64, event: DataStorm.SampleEvent, value: ByteSeq) {
+    public init(id: Swift.Int64, keyId: Swift.Int64, keyValue: Ice.ByteSeq, timestamp: Swift.Int64, tag: Swift.Int64, event: DataStorm.SampleEvent, value: Ice.ByteSeq) {
         self.id = id
         self.keyId = keyId
         self.keyValue = keyValue
@@ -451,11 +441,11 @@ public struct ElementInfo {
     /// The filter name.
     public var name: Swift.String = ""
     /// The key or filter value.
-    public var value: ByteSeq = ByteSeq()
+    public var value: Ice.ByteSeq = Ice.ByteSeq()
 
     public init() {}
 
-    public init(id: Swift.Int64, name: Swift.String, value: ByteSeq) {
+    public init(id: Swift.Int64, name: Swift.String, value: Ice.ByteSeq) {
         self.id = id
         self.name = name
         self.value = value
@@ -586,11 +576,11 @@ public struct TopicInfo {
     /// The topic name.
     public var name: Swift.String = ""
     /// The id of topic writers or readers.
-    public var ids: LongSeq = LongSeq()
+    public var ids: Ice.LongSeq = Ice.LongSeq()
 
     public init() {}
 
-    public init(name: Swift.String, ids: LongSeq) {
+    public init(name: Swift.String, ids: Ice.LongSeq) {
         self.name = name
         self.ids = ids
     }
@@ -792,11 +782,11 @@ public extension Ice.OutputStream {
 
 public struct FilterInfo {
     public var name: Swift.String = ""
-    public var criteria: ByteSeq = ByteSeq()
+    public var criteria: Ice.ByteSeq = Ice.ByteSeq()
 
     public init() {}
 
-    public init(name: Swift.String, criteria: ByteSeq) {
+    public init(name: Swift.String, criteria: Ice.ByteSeq) {
         self.name = name
         self.criteria = criteria
     }
@@ -855,9 +845,9 @@ public extension Ice.OutputStream {
 }
 
 public class ElementData {
-    /// The id of the writer or reader
+    /// The id of the writer or reader.
     public var id: Swift.Int64 = 0
-    /// The config of the writer or reader
+    /// The config of the writer or reader.
     public var config: ElementConfig? = nil
     /// The lastIds received by the reader.
     public var lastIds: LongLongDict = LongLongDict()
@@ -994,12 +984,12 @@ public struct ElementDataSeqHelper {
 public class ElementSpec {
     /// The readers and writers associated with the key or filter.
     public var elements: ElementDataSeq = ElementDataSeq()
-    /// The id of the key or filter
+    /// The id of the key or filter.
     public var id: Swift.Int64 = 0
     /// The name of the filter.
     public var name: Swift.String = ""
     /// The value of the key or filter.
-    public var value: ByteSeq = ByteSeq()
+    public var value: Ice.ByteSeq = Ice.ByteSeq()
     /// The id of the key or filter from the peer.
     public var peerId: Swift.Int64 = 0
     /// The name of the filter from the peer.
@@ -1007,7 +997,7 @@ public class ElementSpec {
 
     public init() {}
 
-    public init(elements: ElementDataSeq, id: Swift.Int64, name: Swift.String, value: ByteSeq, peerId: Swift.Int64, peerName: Swift.String) {
+    public init(elements: ElementDataSeq, id: Swift.Int64, name: Swift.String, value: Ice.ByteSeq, peerId: Swift.Int64, peerName: Swift.String) {
         self.elements = elements
         self.id = id
         self.name = name
@@ -1146,11 +1136,11 @@ public struct ElementSpecSeqHelper {
 public class ElementDataAck {
     /// The id of the writer or filter.
     public var id: Swift.Int64 = 0
-    /// The config of the writer or reader
+    /// The config of the writer or reader.
     public var config: ElementConfig? = nil
     /// The lastIds received by the reader.
     public var lastIds: LongLongDict = LongLongDict()
-    /// The samples of the writer or reader
+    /// The samples of the writer or reader.
     public var samples: DataSampleSeq = DataSampleSeq()
     /// The id of the writer or reader on the peer.
     public var peerId: Swift.Int64 = 0
@@ -1298,7 +1288,7 @@ public class ElementSpecAck {
     /// The name of the filter.
     public var name: Swift.String = ""
     /// The key or filter value.
-    public var value: ByteSeq = ByteSeq()
+    public var value: Ice.ByteSeq = Ice.ByteSeq()
     /// The id of the key or filter on the peer.
     public var peerId: Swift.Int64 = 0
     /// The name of the filter on the peer.
@@ -1306,7 +1296,7 @@ public class ElementSpecAck {
 
     public init() {}
 
-    public init(elements: ElementDataAckSeq, id: Swift.Int64, name: Swift.String, value: ByteSeq, peerId: Swift.Int64, peerName: Swift.String) {
+    public init(elements: ElementDataAckSeq, id: Swift.Int64, name: Swift.String, value: Ice.ByteSeq, peerId: Swift.Int64, peerName: Swift.String) {
         self.elements = elements
         self.id = id
         self.name = name
@@ -1718,10 +1708,10 @@ public extension SessionPrx {
     ///
     /// - parameter topic: `Swift.Int64`
     ///
-    /// - parameter tags: `LongSeq`
+    /// - parameter tags: `Ice.LongSeq`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func detachTags(topic iceP_topic: Swift.Int64, tags iceP_tags: LongSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+    func detachTags(topic iceP_topic: Swift.Int64, tags iceP_tags: Ice.LongSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "detachTags",
                                        mode: .Normal,
                                        write: { ostr in
@@ -1787,10 +1777,10 @@ public extension SessionPrx {
     ///
     /// - parameter topic: `Swift.Int64`
     ///
-    /// - parameter keys: `LongSeq`
+    /// - parameter keys: `Ice.LongSeq`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func detachElements(topic iceP_topic: Swift.Int64, keys iceP_keys: LongSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+    func detachElements(topic iceP_topic: Swift.Int64, keys iceP_keys: Ice.LongSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "detachElements",
                                        mode: .Normal,
                                        write: { ostr in
@@ -2038,21 +2028,29 @@ public extension SubscriberSessionPrx {
     }
 }
 
-/// NodePrx overview.
+/// The Node interface allows DataStorm nodes to create publisher and subscriber sessions with each other.
+///
+/// When a node has a writer for a topic that another node is reading, the node initiates the creation of a
+/// publisher session. Likewise, when a node has a reader for a topic that another node is writing, the node
+/// initiates the creation of a subscriber session.
+///
+/// The publisher node hosts the publisher session servant, which is accessed by the subscriber node through a
+/// PublisherSession proxy. The subscriber node hosts the subscriber session servant, which is accessed by the
+/// publisher node through a SubscriberSession proxy.
 ///
 /// NodePrx Methods:
 ///
-///  - initiateCreateSession: 
+///  - initiateCreateSession: Initiate the creation of a publisher session with a node, after the target node has announced a topic reader for which this node has a corresponding topic writer.
 ///
-///  - initiateCreateSessionAsync: 
+///  - initiateCreateSessionAsync: Initiate the creation of a publisher session with a node, after the target node has announced a topic reader for which this node has a corresponding topic writer.
 ///
-///  - createSession: 
+///  - createSession: Initiate the creation of a subscriber session with a node, after the target node has announced a topic writer for which this node has a corresponding topic reader, or after the node has called Node::initiateCreateSession.
 ///
-///  - createSessionAsync: 
+///  - createSessionAsync: Initiate the creation of a subscriber session with a node, after the target node has announced a topic writer for which this node has a corresponding topic reader, or after the node has called Node::initiateCreateSession.
 ///
-///  - confirmCreateSession: 
+///  - confirmCreateSession: Confirm the creation of a publisher session with a node.
 ///
-///  - confirmCreateSessionAsync: 
+///  - confirmCreateSessionAsync: Confirm the creation of a publisher session with a node.
 public protocol NodePrx: Ice.ObjectPrx {}
 
 private final class NodePrxI: Ice.ObjectPrxI, NodePrx {
@@ -2140,24 +2138,34 @@ public extension Ice.InputStream {
     }
 }
 
-/// NodePrx overview.
+/// The Node interface allows DataStorm nodes to create publisher and subscriber sessions with each other.
+///
+/// When a node has a writer for a topic that another node is reading, the node initiates the creation of a
+/// publisher session. Likewise, when a node has a reader for a topic that another node is writing, the node
+/// initiates the creation of a subscriber session.
+///
+/// The publisher node hosts the publisher session servant, which is accessed by the subscriber node through a
+/// PublisherSession proxy. The subscriber node hosts the subscriber session servant, which is accessed by the
+/// publisher node through a SubscriberSession proxy.
 ///
 /// NodePrx Methods:
 ///
-///  - initiateCreateSession: 
+///  - initiateCreateSession: Initiate the creation of a publisher session with a node, after the target node has announced a topic reader for which this node has a corresponding topic writer.
 ///
-///  - initiateCreateSessionAsync: 
+///  - initiateCreateSessionAsync: Initiate the creation of a publisher session with a node, after the target node has announced a topic reader for which this node has a corresponding topic writer.
 ///
-///  - createSession: 
+///  - createSession: Initiate the creation of a subscriber session with a node, after the target node has announced a topic writer for which this node has a corresponding topic reader, or after the node has called Node::initiateCreateSession.
 ///
-///  - createSessionAsync: 
+///  - createSessionAsync: Initiate the creation of a subscriber session with a node, after the target node has announced a topic writer for which this node has a corresponding topic reader, or after the node has called Node::initiateCreateSession.
 ///
-///  - confirmCreateSession: 
+///  - confirmCreateSession: Confirm the creation of a publisher session with a node.
 ///
-///  - confirmCreateSessionAsync: 
+///  - confirmCreateSessionAsync: Confirm the creation of a publisher session with a node.
 public extension NodePrx {
+    /// Initiate the creation of a publisher session with a node, after
+    /// the target node has announced a topic reader for which this node has a corresponding topic writer.
     ///
-    /// - parameter _: `NodePrx?`
+    /// - parameter _: `NodePrx?` The publisher node initiating the session. The proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func initiateCreateSession(_ iceP_publisher: NodePrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
@@ -2169,12 +2177,15 @@ public extension NodePrx {
                                        context: context)
     }
 
+    /// Initiate the creation of a subscriber session with a node, after
+    /// the target node has announced a topic writer for which this node has a corresponding topic reader,
+    /// or after the node has called Node::initiateCreateSession.
     ///
-    /// - parameter subscriber: `NodePrx?`
+    /// - parameter subscriber: `NodePrx?` The subscriber node initiating the session. The proxy is never null.
     ///
-    /// - parameter session: `SubscriberSessionPrx?`
+    /// - parameter session: `SubscriberSessionPrx?` The subscriber session being created. The proxy is never null.
     ///
-    /// - parameter fromRelay: `Swift.Bool`
+    /// - parameter fromRelay: `Swift.Bool` Indicates if the session is being created from a relay node.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func createSession(subscriber iceP_subscriber: NodePrx?, session iceP_session: SubscriberSessionPrx?, fromRelay iceP_fromRelay: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
@@ -2188,10 +2199,11 @@ public extension NodePrx {
                                        context: context)
     }
 
+    /// Confirm the creation of a publisher session with a node.
     ///
-    /// - parameter publisher: `NodePrx?`
+    /// - parameter publisher: `NodePrx?` The publisher node confirming the session. The proxy is never null.
     ///
-    /// - parameter session: `PublisherSessionPrx?`
+    /// - parameter session: `PublisherSessionPrx?` The publisher session being confirmed. The proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func confirmCreateSession(publisher iceP_publisher: NodePrx?, session iceP_session: PublisherSessionPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
@@ -2205,25 +2217,27 @@ public extension NodePrx {
     }
 }
 
-/// LookupPrx overview.
+/// The lookup interface is used by DataStorm nodes to announce their topic readers and writers to other connected
+/// nodes. When multicast is enabled, the lookup interface also broadcasts these announcements.
+/// Each DataStorm node hosts a lookup servant with the identity "DataStorm/Lookup".
 ///
 /// LookupPrx Methods:
 ///
-///  - announceTopicReader: 
+///  - announceTopicReader: Announce a topic reader.
 ///
-///  - announceTopicReaderAsync: 
+///  - announceTopicReaderAsync: Announce a topic reader.
 ///
-///  - announceTopicWriter: 
+///  - announceTopicWriter: Announce a topic writer.
 ///
-///  - announceTopicWriterAsync: 
+///  - announceTopicWriterAsync: Announce a topic writer.
 ///
-///  - announceTopics: 
+///  - announceTopics: Announce a set of topic readers and writers.
 ///
-///  - announceTopicsAsync: 
+///  - announceTopicsAsync: Announce a set of topic readers and writers.
 ///
-///  - createSession: 
+///  - createSession: Establish a connection between this node and another node.
 ///
-///  - createSessionAsync: 
+///  - createSessionAsync: Establish a connection between this node and another node.
 public protocol LookupPrx: Ice.ObjectPrx {}
 
 private final class LookupPrxI: Ice.ObjectPrxI, LookupPrx {
@@ -2311,30 +2325,33 @@ public extension Ice.InputStream {
     }
 }
 
-/// LookupPrx overview.
+/// The lookup interface is used by DataStorm nodes to announce their topic readers and writers to other connected
+/// nodes. When multicast is enabled, the lookup interface also broadcasts these announcements.
+/// Each DataStorm node hosts a lookup servant with the identity "DataStorm/Lookup".
 ///
 /// LookupPrx Methods:
 ///
-///  - announceTopicReader: 
+///  - announceTopicReader: Announce a topic reader.
 ///
-///  - announceTopicReaderAsync: 
+///  - announceTopicReaderAsync: Announce a topic reader.
 ///
-///  - announceTopicWriter: 
+///  - announceTopicWriter: Announce a topic writer.
 ///
-///  - announceTopicWriterAsync: 
+///  - announceTopicWriterAsync: Announce a topic writer.
 ///
-///  - announceTopics: 
+///  - announceTopics: Announce a set of topic readers and writers.
 ///
-///  - announceTopicsAsync: 
+///  - announceTopicsAsync: Announce a set of topic readers and writers.
 ///
-///  - createSession: 
+///  - createSession: Establish a connection between this node and another node.
 ///
-///  - createSessionAsync: 
+///  - createSessionAsync: Establish a connection between this node and another node.
 public extension LookupPrx {
+    /// Announce a topic reader.
     ///
-    /// - parameter topic: `Swift.String`
+    /// - parameter topic: `Swift.String` The name of the topic.
     ///
-    /// - parameter node: `NodePrx?`
+    /// - parameter node: `NodePrx?` The node reading the topic. The proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func announceTopicReader(topic iceP_topic: Swift.String, node iceP_node: NodePrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
@@ -2347,10 +2364,11 @@ public extension LookupPrx {
                                        context: context)
     }
 
+    /// Announce a topic writer.
     ///
-    /// - parameter topic: `Swift.String`
+    /// - parameter topic: `Swift.String` The name of the topic.
     ///
-    /// - parameter node: `NodePrx?`
+    /// - parameter node: `NodePrx?` The node writing the topic. The proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func announceTopicWriter(topic iceP_topic: Swift.String, node iceP_node: NodePrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
@@ -2363,15 +2381,16 @@ public extension LookupPrx {
                                        context: context)
     }
 
+    /// Announce a set of topic readers and writers.
     ///
-    /// - parameter readers: `StringSeq`
+    /// - parameter readers: `Ice.StringSeq` A sequence of topic names for readers.
     ///
-    /// - parameter writers: `StringSeq`
+    /// - parameter writers: `Ice.StringSeq` A sequence of topic names for writers.
     ///
-    /// - parameter node: `NodePrx?`
+    /// - parameter node: `NodePrx?` The node reading or writing the topics. The proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func announceTopics(readers iceP_readers: StringSeq, writers iceP_writers: StringSeq, node iceP_node: NodePrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+    func announceTopics(readers iceP_readers: Ice.StringSeq, writers iceP_writers: Ice.StringSeq, node iceP_node: NodePrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "announceTopics",
                                        mode: .Idempotent,
                                        write: { ostr in
@@ -2382,12 +2401,13 @@ public extension LookupPrx {
                                        context: context)
     }
 
+    /// Establish a connection between this node and another node.
     ///
-    /// - parameter _: `NodePrx?`
+    /// - parameter _: `NodePrx?` The node initiating the connection. The proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `NodePrx?`
+    /// - returns: `NodePrx?` - A proxy to this node. The proxy is never null.
     func createSession(_ iceP_node: NodePrx?, context: Ice.Context? = nil) async throws -> NodePrx? {
         return try await _impl._invoke(operation: "createSession",
                                        mode: .Normal,
@@ -2554,10 +2574,10 @@ public protocol Session {
     ///
     /// - parameter topic: `Swift.Int64`
     ///
-    /// - parameter tags: `LongSeq`
+    /// - parameter tags: `Ice.LongSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func detachTags(topic: Swift.Int64, tags: LongSeq, current: Ice.Current) async throws
+    func detachTags(topic: Swift.Int64, tags: Ice.LongSeq, current: Ice.Current) async throws
 
     ///
     /// - parameter topic: `Swift.Int64`
@@ -2588,10 +2608,10 @@ public protocol Session {
     ///
     /// - parameter topic: `Swift.Int64`
     ///
-    /// - parameter keys: `LongSeq`
+    /// - parameter keys: `Ice.LongSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func detachElements(topic: Swift.Int64, keys: LongSeq, current: Ice.Current) async throws
+    func detachElements(topic: Swift.Int64, keys: Ice.LongSeq, current: Ice.Current) async throws
 
     ///
     /// - parameter topic: `Swift.Int64`
@@ -2750,27 +2770,42 @@ public struct NodeDisp: Ice.Dispatcher {
     }
 }
 
+/// The Node interface allows DataStorm nodes to create publisher and subscriber sessions with each other.
+///
+/// When a node has a writer for a topic that another node is reading, the node initiates the creation of a
+/// publisher session. Likewise, when a node has a reader for a topic that another node is writing, the node
+/// initiates the creation of a subscriber session.
+///
+/// The publisher node hosts the publisher session servant, which is accessed by the subscriber node through a
+/// PublisherSession proxy. The subscriber node hosts the subscriber session servant, which is accessed by the
+/// publisher node through a SubscriberSession proxy.
 public protocol Node {
+    /// Initiate the creation of a publisher session with a node, after
+    /// the target node has announced a topic reader for which this node has a corresponding topic writer.
     ///
-    /// - parameter publisher: `NodePrx?`
+    /// - parameter publisher: `NodePrx?` The publisher node initiating the session. The proxy is never null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func initiateCreateSession(publisher: NodePrx?, current: Ice.Current) async throws
 
+    /// Initiate the creation of a subscriber session with a node, after
+    /// the target node has announced a topic writer for which this node has a corresponding topic reader,
+    /// or after the node has called Node::initiateCreateSession.
     ///
-    /// - parameter subscriber: `NodePrx?`
+    /// - parameter subscriber: `NodePrx?` The subscriber node initiating the session. The proxy is never null.
     ///
-    /// - parameter session: `SubscriberSessionPrx?`
+    /// - parameter session: `SubscriberSessionPrx?` The subscriber session being created. The proxy is never null.
     ///
-    /// - parameter fromRelay: `Swift.Bool`
+    /// - parameter fromRelay: `Swift.Bool` Indicates if the session is being created from a relay node.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func createSession(subscriber: NodePrx?, session: SubscriberSessionPrx?, fromRelay: Swift.Bool, current: Ice.Current) async throws
 
+    /// Confirm the creation of a publisher session with a node.
     ///
-    /// - parameter publisher: `NodePrx?`
+    /// - parameter publisher: `NodePrx?` The publisher node confirming the session. The proxy is never null.
     ///
-    /// - parameter session: `PublisherSessionPrx?`
+    /// - parameter session: `PublisherSessionPrx?` The publisher session being confirmed. The proxy is never null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func confirmCreateSession(publisher: NodePrx?, session: PublisherSessionPrx?, current: Ice.Current) async throws
@@ -2810,39 +2845,46 @@ public struct LookupDisp: Ice.Dispatcher {
     }
 }
 
+/// The lookup interface is used by DataStorm nodes to announce their topic readers and writers to other connected
+/// nodes. When multicast is enabled, the lookup interface also broadcasts these announcements.
+/// Each DataStorm node hosts a lookup servant with the identity "DataStorm/Lookup".
 public protocol Lookup {
+    /// Announce a topic reader.
     ///
-    /// - parameter topic: `Swift.String`
+    /// - parameter topic: `Swift.String` The name of the topic.
     ///
-    /// - parameter node: `NodePrx?`
+    /// - parameter node: `NodePrx?` The node reading the topic. The proxy is never null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func announceTopicReader(topic: Swift.String, node: NodePrx?, current: Ice.Current) async throws
 
+    /// Announce a topic writer.
     ///
-    /// - parameter topic: `Swift.String`
+    /// - parameter topic: `Swift.String` The name of the topic.
     ///
-    /// - parameter node: `NodePrx?`
+    /// - parameter node: `NodePrx?` The node writing the topic. The proxy is never null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func announceTopicWriter(topic: Swift.String, node: NodePrx?, current: Ice.Current) async throws
 
+    /// Announce a set of topic readers and writers.
     ///
-    /// - parameter readers: `StringSeq`
+    /// - parameter readers: `Ice.StringSeq` A sequence of topic names for readers.
     ///
-    /// - parameter writers: `StringSeq`
+    /// - parameter writers: `Ice.StringSeq` A sequence of topic names for writers.
     ///
-    /// - parameter node: `NodePrx?`
+    /// - parameter node: `NodePrx?` The node reading or writing the topics. The proxy is never null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func announceTopics(readers: StringSeq, writers: StringSeq, node: NodePrx?, current: Ice.Current) async throws
+    func announceTopics(readers: Ice.StringSeq, writers: Ice.StringSeq, node: NodePrx?, current: Ice.Current) async throws
 
+    /// Establish a connection between this node and another node.
     ///
-    /// - parameter node: `NodePrx?`
+    /// - parameter node: `NodePrx?` The node initiating the connection. The proxy is never null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NodePrx?`
+    /// - returns: `NodePrx?` - A proxy to this node. The proxy is never null.
     func createSession(node: NodePrx?, current: Ice.Current) async throws -> NodePrx?
 }
 
@@ -2916,7 +2958,7 @@ extension Session {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_topic: Swift.Int64 = try istr.read()
-        let iceP_tags: LongSeq = try istr.read()
+        let iceP_tags: Ice.LongSeq = try istr.read()
         try await self.detachTags(topic: iceP_topic, tags: iceP_tags, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
@@ -2959,7 +3001,7 @@ extension Session {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_topic: Swift.Int64 = try istr.read()
-        let iceP_keys: LongSeq = try istr.read()
+        let iceP_keys: Ice.LongSeq = try istr.read()
         try await self.detachElements(topic: iceP_topic, keys: iceP_keys, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
@@ -3003,15 +3045,23 @@ extension SubscriberSession {
     }
 }
 
-/// Node overview.
+/// The Node interface allows DataStorm nodes to create publisher and subscriber sessions with each other.
+///
+/// When a node has a writer for a topic that another node is reading, the node initiates the creation of a
+/// publisher session. Likewise, when a node has a reader for a topic that another node is writing, the node
+/// initiates the creation of a subscriber session.
+///
+/// The publisher node hosts the publisher session servant, which is accessed by the subscriber node through a
+/// PublisherSession proxy. The subscriber node hosts the subscriber session servant, which is accessed by the
+/// publisher node through a SubscriberSession proxy.
 ///
 /// Node Methods:
 ///
-///  - initiateCreateSession: 
+///  - initiateCreateSession: Initiate the creation of a publisher session with a node, after the target node has announced a topic reader for which this node has a corresponding topic writer.
 ///
-///  - createSession: 
+///  - createSession: Initiate the creation of a subscriber session with a node, after the target node has announced a topic writer for which this node has a corresponding topic reader, or after the node has called Node::initiateCreateSession.
 ///
-///  - confirmCreateSession: 
+///  - confirmCreateSession: Confirm the creation of a publisher session with a node.
 extension Node {
     public func _iceD_initiateCreateSession(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -3044,17 +3094,19 @@ extension Node {
     }
 }
 
-/// Lookup overview.
+/// The lookup interface is used by DataStorm nodes to announce their topic readers and writers to other connected
+/// nodes. When multicast is enabled, the lookup interface also broadcasts these announcements.
+/// Each DataStorm node hosts a lookup servant with the identity "DataStorm/Lookup".
 ///
 /// Lookup Methods:
 ///
-///  - announceTopicReader: 
+///  - announceTopicReader: Announce a topic reader.
 ///
-///  - announceTopicWriter: 
+///  - announceTopicWriter: Announce a topic writer.
 ///
-///  - announceTopics: 
+///  - announceTopics: Announce a set of topic readers and writers.
 ///
-///  - createSession: 
+///  - createSession: Establish a connection between this node and another node.
 extension Lookup {
     public func _iceD_announceTopicReader(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -3080,8 +3132,8 @@ extension Lookup {
         
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
-        let iceP_readers: StringSeq = try istr.read()
-        let iceP_writers: StringSeq = try istr.read()
+        let iceP_readers: Ice.StringSeq = try istr.read()
+        let iceP_writers: Ice.StringSeq = try istr.read()
         let iceP_node: NodePrx? = try istr.read(NodePrx.self)
         try await self.announceTopics(readers: iceP_readers, writers: iceP_writers, node: iceP_node, current: request.current)
         return request.current.makeEmptyOutgoingResponse()

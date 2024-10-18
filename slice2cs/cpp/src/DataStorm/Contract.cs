@@ -94,11 +94,11 @@ namespace DataStormContract
         {
             this.id = istr.readLong();
             this.keyId = istr.readLong();
-            this.keyValue = ByteSeqHelper.read(istr);
+            this.keyValue = global::Ice.ByteSeqHelper.read(istr);
             this.timestamp = istr.readLong();
             this.tag = istr.readLong();
             this.@event = (global::DataStorm.SampleEvent)istr.readEnum(3);
-            this.value = ByteSeqHelper.read(istr);
+            this.value = global::Ice.ByteSeqHelper.read(istr);
             ice_initialize();
         }
 
@@ -106,11 +106,11 @@ namespace DataStormContract
         {
             ostr.writeLong(this.id);
             ostr.writeLong(this.keyId);
-            ByteSeqHelper.write(ostr, this.keyValue);
+            global::Ice.ByteSeqHelper.write(ostr, this.keyValue);
             ostr.writeLong(this.timestamp);
             ostr.writeLong(this.tag);
             ostr.writeEnum((int)this.@event, 3);
-            ByteSeqHelper.write(ostr, this.value);
+            global::Ice.ByteSeqHelper.write(ostr, this.value);
         }
 
         public static void ice_write(Ice.OutputStream ostr, DataSample v)
@@ -196,7 +196,7 @@ namespace DataStormContract
         {
             this.id = istr.readLong();
             this.name = istr.readString();
-            this.value = ByteSeqHelper.read(istr);
+            this.value = global::Ice.ByteSeqHelper.read(istr);
             ice_initialize();
         }
 
@@ -204,7 +204,7 @@ namespace DataStormContract
         {
             ostr.writeLong(this.id);
             ostr.writeString(this.name);
-            ByteSeqHelper.write(ostr, this.value);
+            global::Ice.ByteSeqHelper.write(ostr, this.value);
         }
 
         public static void ice_write(Ice.OutputStream ostr, ElementInfo v)
@@ -242,14 +242,14 @@ namespace DataStormContract
         public TopicInfo(Ice.InputStream istr)
         {
             this.name = istr.readString();
-            this.ids = LongSeqHelper.read(istr);
+            this.ids = global::Ice.LongSeqHelper.read(istr);
             ice_initialize();
         }
 
         public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeString(this.name);
-            LongSeqHelper.write(ostr, this.ids);
+            global::Ice.LongSeqHelper.write(ostr, this.ids);
         }
 
         public static void ice_write(Ice.OutputStream ostr, TopicInfo v)
@@ -345,14 +345,14 @@ namespace DataStormContract
         public FilterInfo(Ice.InputStream istr)
         {
             this.name = istr.readString();
-            this.criteria = ByteSeqHelper.read(istr);
+            this.criteria = global::Ice.ByteSeqHelper.read(istr);
             ice_initialize();
         }
 
         public void ice_writeMembers(Ice.OutputStream ostr)
         {
             ostr.writeString(this.name);
-            ByteSeqHelper.write(ostr, this.criteria);
+            global::Ice.ByteSeqHelper.write(ostr, this.criteria);
         }
 
         public static void ice_write(Ice.OutputStream ostr, FilterInfo v)
@@ -551,7 +551,7 @@ namespace DataStormContract
             this.elements = ElementDataSeqHelper.read(istr);
             this.id = istr.readLong();
             this.name = istr.readString();
-            this.value = ByteSeqHelper.read(istr);
+            this.value = global::Ice.ByteSeqHelper.read(istr);
             this.peerId = istr.readLong();
             this.peerName = istr.readString();
             ice_initialize();
@@ -562,7 +562,7 @@ namespace DataStormContract
             ElementDataSeqHelper.write(ostr, this.elements);
             ostr.writeLong(this.id);
             ostr.writeString(this.name);
-            ByteSeqHelper.write(ostr, this.value);
+            global::Ice.ByteSeqHelper.write(ostr, this.value);
             ostr.writeLong(this.peerId);
             ostr.writeString(this.peerName);
         }
@@ -682,7 +682,7 @@ namespace DataStormContract
             this.elements = ElementDataAckSeqHelper.read(istr);
             this.id = istr.readLong();
             this.name = istr.readString();
-            this.value = ByteSeqHelper.read(istr);
+            this.value = global::Ice.ByteSeqHelper.read(istr);
             this.peerId = istr.readLong();
             this.peerName = istr.readString();
             ice_initialize();
@@ -693,7 +693,7 @@ namespace DataStormContract
             ElementDataAckSeqHelper.write(ostr, this.elements);
             ostr.writeLong(this.id);
             ostr.writeString(this.name);
-            ByteSeqHelper.write(ostr, this.value);
+            global::Ice.ByteSeqHelper.write(ostr, this.value);
             ostr.writeLong(this.peerId);
             ostr.writeString(this.peerName);
         }
@@ -746,9 +746,37 @@ namespace DataStormContract
     [Ice.SliceTypeId("::DataStormContract::Node")]
     public partial interface Node : Ice.Object
     {
+        /// <summary>
+        /// Initiate the creation of a publisher session with a node, after
+        ///  the target node has announced a topic reader for which this node has a corresponding topic writer.
+        /// </summary>
+        /// <param name="publisher">The publisher node initiating the session. The proxy is never null.
+        ///  </param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
         void initiateCreateSession(NodePrx? publisher, Ice.Current current);
 
+        /// <summary>
+        /// Initiate the creation of a subscriber session with a node, after
+        ///  the target node has announced a topic writer for which this node has a corresponding topic reader,
+        ///  or after the node has called Node::initiateCreateSession.
+        /// </summary>
+        /// <param name="subscriber">The subscriber node initiating the session. The proxy is never null.
+        ///  </param>
+        /// <param name="session">The subscriber session being created. The proxy is never null.
+        ///  </param>
+        /// <param name="fromRelay">Indicates if the session is being created from a relay node.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
         void createSession(NodePrx? subscriber, SubscriberSessionPrx? session, bool fromRelay, Ice.Current current);
+
+        /// <summary>
+        /// Confirm the creation of a publisher session with a node.
+        /// </summary>
+        /// <param name="publisher">The publisher node confirming the session. The proxy is never null.
+        ///  </param>
+        /// <param name="session">The publisher session being confirmed. The proxy is never null.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         void confirmCreateSession(NodePrx? publisher, PublisherSessionPrx? session, Ice.Current current);
     }
@@ -756,11 +784,45 @@ namespace DataStormContract
     [Ice.SliceTypeId("::DataStormContract::Lookup")]
     public partial interface Lookup : Ice.Object
     {
+        /// <summary>
+        /// Announce a topic reader.
+        /// </summary>
+        /// <param name="topic">The name of the topic.
+        ///  </param>
+        /// <param name="node">The node reading the topic. The proxy is never null.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
         void announceTopicReader(string topic, NodePrx? node, Ice.Current current);
+
+        /// <summary>
+        /// Announce a topic writer.
+        /// </summary>
+        /// <param name="topic">The name of the topic.
+        ///  </param>
+        /// <param name="node">The node writing the topic. The proxy is never null.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         void announceTopicWriter(string topic, NodePrx? node, Ice.Current current);
 
+        /// <summary>
+        /// Announce a set of topic readers and writers.
+        /// </summary>
+        /// <param name="readers">A sequence of topic names for readers.
+        ///  </param>
+        /// <param name="writers">A sequence of topic names for writers.
+        ///  </param>
+        /// <param name="node">The node reading or writing the topics. The proxy is never null.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
         void announceTopics(string[] readers, string[] writers, NodePrx? node, Ice.Current current);
+
+        /// <summary>
+        /// Establish a connection between this node and another node.
+        /// </summary>
+        /// <param name="node">The node initiating the connection. The proxy is never null.
+        ///  </param>
+        /// <returns>A proxy to this node. The proxy is never null.</returns>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         NodePrx? createSession(NodePrx? node, Ice.Current current);
     }
@@ -826,88 +888,198 @@ namespace DataStormContract
         global::System.Threading.Tasks.Task sAsync(long topicId, long elementId, DataSample sample, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
+    /// <summary>
+    /// The Node interface allows DataStorm nodes to create publisher and subscriber sessions with each other.
+    /// When a node has a writer for a topic that another node is reading, the node initiates the creation of a
+    ///  publisher session. Likewise, when a node has a reader for a topic that another node is writing, the node
+    ///  initiates the creation of a subscriber session.
+    ///
+    ///  The publisher node hosts the publisher session servant, which is accessed by the subscriber node through a
+    ///  PublisherSession proxy. The subscriber node hosts the subscriber session servant, which is accessed by the
+    ///  publisher node through a SubscriberSession proxy.
+    /// </summary>
+
     public interface NodePrx : Ice.ObjectPrx
     {
+        /// <summary>
+        /// Initiate the creation of a publisher session with a node, after
+        ///  the target node has announced a topic reader for which this node has a corresponding topic writer.
+        /// </summary>
+        /// <param name="publisher">The publisher node initiating the session. The proxy is never null.
+        ///  </param>
+        /// <param name="context">The Context map to send with the invocation.</param>
+
         void initiateCreateSession(NodePrx? publisher, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
+        /// <summary>
+        /// Initiate the creation of a publisher session with a node, after
+        ///  the target node has announced a topic reader for which this node has a corresponding topic writer.
+        /// </summary>
+        /// <param name="publisher">The publisher node initiating the session. The proxy is never null.
+        ///  </param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task initiateCreateSessionAsync(NodePrx? publisher, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Initiate the creation of a subscriber session with a node, after
+        ///  the target node has announced a topic writer for which this node has a corresponding topic reader,
+        ///  or after the node has called Node::initiateCreateSession.
+        /// </summary>
+        /// <param name="subscriber">The subscriber node initiating the session. The proxy is never null.
+        ///  </param>
+        /// <param name="session">The subscriber session being created. The proxy is never null.
+        ///  </param>
+        /// <param name="fromRelay">Indicates if the session is being created from a relay node.</param>
+        /// <param name="context">The Context map to send with the invocation.</param>
 
         void createSession(NodePrx? subscriber, SubscriberSessionPrx? session, bool fromRelay, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
+        /// <summary>
+        /// Initiate the creation of a subscriber session with a node, after
+        ///  the target node has announced a topic writer for which this node has a corresponding topic reader,
+        ///  or after the node has called Node::initiateCreateSession.
+        /// </summary>
+        /// <param name="subscriber">The subscriber node initiating the session. The proxy is never null.
+        ///  </param>
+        /// <param name="session">The subscriber session being created. The proxy is never null.
+        ///  </param>
+        /// <param name="fromRelay">Indicates if the session is being created from a relay node.</param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task createSessionAsync(NodePrx? subscriber, SubscriberSessionPrx? session, bool fromRelay, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Confirm the creation of a publisher session with a node.
+        /// </summary>
+        /// <param name="publisher">The publisher node confirming the session. The proxy is never null.
+        ///  </param>
+        /// <param name="session">The publisher session being confirmed. The proxy is never null.</param>
+        /// <param name="context">The Context map to send with the invocation.</param>
 
         void confirmCreateSession(NodePrx? publisher, PublisherSessionPrx? session, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
+        /// <summary>
+        /// Confirm the creation of a publisher session with a node.
+        /// </summary>
+        /// <param name="publisher">The publisher node confirming the session. The proxy is never null.
+        ///  </param>
+        /// <param name="session">The publisher session being confirmed. The proxy is never null.</param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task confirmCreateSessionAsync(NodePrx? publisher, PublisherSessionPrx? session, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
+    /// <summary>
+    /// The lookup interface is used by DataStorm nodes to announce their topic readers and writers to other connected
+    ///  nodes.
+    /// When multicast is enabled, the lookup interface also broadcasts these announcements.
+    ///  Each DataStorm node hosts a lookup servant with the identity "DataStorm/Lookup".
+    /// </summary>
+
     public interface LookupPrx : Ice.ObjectPrx
     {
+        /// <summary>
+        /// Announce a topic reader.
+        /// </summary>
+        /// <param name="topic">The name of the topic.
+        ///  </param>
+        /// <param name="node">The node reading the topic. The proxy is never null.</param>
+        /// <param name="context">The Context map to send with the invocation.</param>
+
         void announceTopicReader(string topic, NodePrx? node, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
+        /// <summary>
+        /// Announce a topic reader.
+        /// </summary>
+        /// <param name="topic">The name of the topic.
+        ///  </param>
+        /// <param name="node">The node reading the topic. The proxy is never null.</param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task announceTopicReaderAsync(string topic, NodePrx? node, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Announce a topic writer.
+        /// </summary>
+        /// <param name="topic">The name of the topic.
+        ///  </param>
+        /// <param name="node">The node writing the topic. The proxy is never null.</param>
+        /// <param name="context">The Context map to send with the invocation.</param>
 
         void announceTopicWriter(string topic, NodePrx? node, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
+        /// <summary>
+        /// Announce a topic writer.
+        /// </summary>
+        /// <param name="topic">The name of the topic.
+        ///  </param>
+        /// <param name="node">The node writing the topic. The proxy is never null.</param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task announceTopicWriterAsync(string topic, NodePrx? node, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Announce a set of topic readers and writers.
+        /// </summary>
+        /// <param name="readers">A sequence of topic names for readers.
+        ///  </param>
+        /// <param name="writers">A sequence of topic names for writers.
+        ///  </param>
+        /// <param name="node">The node reading or writing the topics. The proxy is never null.</param>
+        /// <param name="context">The Context map to send with the invocation.</param>
 
         void announceTopics(string[] readers, string[] writers, NodePrx? node, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
+        /// <summary>
+        /// Announce a set of topic readers and writers.
+        /// </summary>
+        /// <param name="readers">A sequence of topic names for readers.
+        ///  </param>
+        /// <param name="writers">A sequence of topic names for writers.
+        ///  </param>
+        /// <param name="node">The node reading or writing the topics. The proxy is never null.</param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task announceTopicsAsync(string[] readers, string[] writers, NodePrx? node, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Establish a connection between this node and another node.
+        /// </summary>
+        /// <param name="node">The node initiating the connection. The proxy is never null.
+        ///  </param>
+        /// <returns>A proxy to this node. The proxy is never null.</returns>
+        /// <param name="context">The Context map to send with the invocation.</param>
 
         NodePrx? createSession(NodePrx? node, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
+        /// <summary>
+        /// Establish a connection between this node and another node.
+        /// </summary>
+        /// <param name="node">The node initiating the connection. The proxy is never null.
+        ///  </param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<NodePrx?> createSessionAsync(NodePrx? node, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
 
 namespace DataStormContract
 {
-    public sealed class ByteSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, byte[] v)
-        {
-            ostr.writeByteSeq(v);
-        }
-
-        public static byte[] read(Ice.InputStream istr)
-        {
-            byte[] v;
-            v = istr.readByteSeq();
-            return v;
-        }
-    }
-
-    public sealed class LongSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, long[] v)
-        {
-            ostr.writeLongSeq(v);
-        }
-
-        public static long[] read(Ice.InputStream istr)
-        {
-            long[] v;
-            v = istr.readLongSeq();
-            return v;
-        }
-    }
-
-    public sealed class StringSeqHelper
-    {
-        public static void write(Ice.OutputStream ostr, string[] v)
-        {
-            ostr.writeStringSeq(v);
-        }
-
-        public static string[] read(Ice.InputStream istr)
-        {
-            string[] v;
-            v = istr.readStringSeq();
-            return v;
-        }
-    }
-
     public sealed class LongLongDictHelper
     {
         public static void write(Ice.OutputStream ostr,
@@ -1487,7 +1659,7 @@ namespace DataStormContract
                 write: (Ice.OutputStream ostr) =>
                 {
                     ostr.writeLong(iceP_topic);
-                    LongSeqHelper.write(ostr, iceP_tags);
+                    global::Ice.LongSeqHelper.write(ostr, iceP_tags);
                 });
         }
 
@@ -1610,7 +1782,7 @@ namespace DataStormContract
                 write: (Ice.OutputStream ostr) =>
                 {
                     ostr.writeLong(iceP_topic);
-                    LongSeqHelper.write(ostr, iceP_keys);
+                    global::Ice.LongSeqHelper.write(ostr, iceP_keys);
                 });
         }
 
@@ -1996,7 +2168,7 @@ namespace DataStormContract
                 write: (Ice.OutputStream ostr) =>
                 {
                     ostr.writeLong(iceP_topic);
-                    LongSeqHelper.write(ostr, iceP_tags);
+                    global::Ice.LongSeqHelper.write(ostr, iceP_tags);
                 });
         }
 
@@ -2119,7 +2291,7 @@ namespace DataStormContract
                 write: (Ice.OutputStream ostr) =>
                 {
                     ostr.writeLong(iceP_topic);
-                    LongSeqHelper.write(ostr, iceP_keys);
+                    global::Ice.LongSeqHelper.write(ostr, iceP_keys);
                 });
         }
 
@@ -2518,7 +2690,7 @@ namespace DataStormContract
                 write: (Ice.OutputStream ostr) =>
                 {
                     ostr.writeLong(iceP_topic);
-                    LongSeqHelper.write(ostr, iceP_tags);
+                    global::Ice.LongSeqHelper.write(ostr, iceP_tags);
                 });
         }
 
@@ -2641,7 +2813,7 @@ namespace DataStormContract
                 write: (Ice.OutputStream ostr) =>
                 {
                     ostr.writeLong(iceP_topic);
-                    LongSeqHelper.write(ostr, iceP_keys);
+                    global::Ice.LongSeqHelper.write(ostr, iceP_keys);
                 });
         }
 
@@ -3091,8 +3263,8 @@ namespace DataStormContract
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    StringSeqHelper.write(ostr, iceP_readers);
-                    StringSeqHelper.write(ostr, iceP_writers);
+                    global::Ice.StringSeqHelper.write(ostr, iceP_readers);
+                    global::Ice.StringSeqHelper.write(ostr, iceP_writers);
                     NodePrxHelper.write(ostr, iceP_node);
                 });
         }
@@ -3469,7 +3641,7 @@ namespace DataStormContract
             long iceP_topic;
             long[] iceP_tags;
             iceP_topic = istr.readLong();
-            iceP_tags = LongSeqHelper.read(istr);
+            iceP_tags = global::Ice.LongSeqHelper.read(istr);
             istr.endEncapsulation();
             obj.detachTags(iceP_topic, iceP_tags, request.current);
             return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
@@ -3537,7 +3709,7 @@ namespace DataStormContract
             long iceP_topic;
             long[] iceP_keys;
             iceP_topic = istr.readLong();
-            iceP_keys = LongSeqHelper.read(istr);
+            iceP_keys = global::Ice.LongSeqHelper.read(istr);
             istr.endEncapsulation();
             obj.detachElements(iceP_topic, iceP_keys, request.current);
             return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
@@ -3690,8 +3862,8 @@ namespace DataStormContract
             string[] iceP_readers;
             string[] iceP_writers;
             NodePrx? iceP_node;
-            iceP_readers = StringSeqHelper.read(istr);
-            iceP_writers = StringSeqHelper.read(istr);
+            iceP_readers = global::Ice.StringSeqHelper.read(istr);
+            iceP_writers = global::Ice.StringSeqHelper.read(istr);
             iceP_node = NodePrxHelper.read(istr);
             istr.endEncapsulation();
             obj.announceTopics(iceP_readers, iceP_writers, iceP_node, request.current);

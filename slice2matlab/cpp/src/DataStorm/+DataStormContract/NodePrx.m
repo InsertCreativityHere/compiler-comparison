@@ -1,12 +1,22 @@
 % NodePrx   Summary of NodePrx
 %
+% The Node interface allows DataStorm nodes to create publisher and subscriber sessions with each other.
+%
+% When a node has a writer for a topic that another node is reading, the node initiates the creation of a
+% publisher session. Likewise, when a node has a reader for a topic that another node is writing, the node
+% initiates the creation of a subscriber session.
+%
+% The publisher node hosts the publisher session servant, which is accessed by the subscriber node through a
+% PublisherSession proxy. The subscriber node hosts the subscriber session servant, which is accessed by the
+% publisher node through a SubscriberSession proxy.
+%
 % NodePrx Methods:
-%   initiateCreateSession
-%   initiateCreateSessionAsync
-%   createSession
-%   createSessionAsync
-%   confirmCreateSession
-%   confirmCreateSessionAsync
+%   initiateCreateSession - Initiate the creation of a publisher session with a node, after the target node has announced a topic reader for which this node has a corresponding topic writer.
+%   initiateCreateSessionAsync - Initiate the creation of a publisher session with a node, after the target node has announced a topic reader for which this node has a corresponding topic writer.
+%   createSession - Initiate the creation of a subscriber session with a node, after the target node has announced a topic writer for which this node has a corresponding topic reader, or after the node has called Node::initiateCreateSession.
+%   createSessionAsync - Initiate the creation of a subscriber session with a node, after the target node has announced a topic writer for which this node has a corresponding topic reader, or after the node has called Node::initiateCreateSession.
+%   confirmCreateSession - Confirm the creation of a publisher session with a node.
+%   confirmCreateSessionAsync - Confirm the creation of a publisher session with a node.
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
 %   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
@@ -16,11 +26,14 @@
 classdef NodePrx < Ice.ObjectPrx
     methods
         function initiateCreateSession(obj, publisher, varargin)
-            % initiateCreateSession
+            % initiateCreateSession   Initiate the creation of a publisher session with a node, after
+            % the target node has announced a topic reader for which this node has a corresponding topic writer.
             %
             % Parameters:
-            %   publisher (DataStormContract.NodePrx)
+            %   publisher (DataStormContract.NodePrx) - The publisher node initiating the session. The proxy is never null.
             %   context (containers.Map) - Optional request context.
+            %
+            % See also DataStormContract.Lookup.announceTopicReader
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(publisher);
@@ -28,13 +41,16 @@ classdef NodePrx < Ice.ObjectPrx
             obj.iceInvoke('initiateCreateSession', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = initiateCreateSessionAsync(obj, publisher, varargin)
-            % initiateCreateSessionAsync
+            % initiateCreateSessionAsync   Initiate the creation of a publisher session with a node, after
+            % the target node has announced a topic reader for which this node has a corresponding topic writer.
             %
             % Parameters:
-            %   publisher (DataStormContract.NodePrx)
+            %   publisher (DataStormContract.NodePrx) - The publisher node initiating the session. The proxy is never null.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            %
+            % See also DataStormContract.Lookup.announceTopicReader
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(publisher);
@@ -42,12 +58,14 @@ classdef NodePrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('initiateCreateSession', 0, false, os_, 0, [], {}, varargin{:});
         end
         function createSession(obj, subscriber, session, fromRelay, varargin)
-            % createSession
+            % createSession   Initiate the creation of a subscriber session with a node, after
+            % the target node has announced a topic writer for which this node has a corresponding topic reader,
+            % or after the node has called Node::initiateCreateSession.
             %
             % Parameters:
-            %   subscriber (DataStormContract.NodePrx)
-            %   session (DataStormContract.SubscriberSessionPrx)
-            %   fromRelay (logical)
+            %   subscriber (DataStormContract.NodePrx) - The subscriber node initiating the session. The proxy is never null.
+            %   session (DataStormContract.SubscriberSessionPrx) - The subscriber session being created. The proxy is never null.
+            %   fromRelay (logical) - Indicates if the session is being created from a relay node.
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
@@ -58,12 +76,14 @@ classdef NodePrx < Ice.ObjectPrx
             obj.iceInvoke('createSession', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = createSessionAsync(obj, subscriber, session, fromRelay, varargin)
-            % createSessionAsync
+            % createSessionAsync   Initiate the creation of a subscriber session with a node, after
+            % the target node has announced a topic writer for which this node has a corresponding topic reader,
+            % or after the node has called Node::initiateCreateSession.
             %
             % Parameters:
-            %   subscriber (DataStormContract.NodePrx)
-            %   session (DataStormContract.SubscriberSessionPrx)
-            %   fromRelay (logical)
+            %   subscriber (DataStormContract.NodePrx) - The subscriber node initiating the session. The proxy is never null.
+            %   session (DataStormContract.SubscriberSessionPrx) - The subscriber session being created. The proxy is never null.
+            %   fromRelay (logical) - Indicates if the session is being created from a relay node.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -76,11 +96,11 @@ classdef NodePrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('createSession', 0, false, os_, 0, [], {}, varargin{:});
         end
         function confirmCreateSession(obj, publisher, session, varargin)
-            % confirmCreateSession
+            % confirmCreateSession   Confirm the creation of a publisher session with a node.
             %
             % Parameters:
-            %   publisher (DataStormContract.NodePrx)
-            %   session (DataStormContract.PublisherSessionPrx)
+            %   publisher (DataStormContract.NodePrx) - The publisher node confirming the session. The proxy is never null.
+            %   session (DataStormContract.PublisherSessionPrx) - The publisher session being confirmed. The proxy is never null.
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
@@ -90,11 +110,11 @@ classdef NodePrx < Ice.ObjectPrx
             obj.iceInvoke('confirmCreateSession', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = confirmCreateSessionAsync(obj, publisher, session, varargin)
-            % confirmCreateSessionAsync
+            % confirmCreateSessionAsync   Confirm the creation of a publisher session with a node.
             %
             % Parameters:
-            %   publisher (DataStormContract.NodePrx)
-            %   session (DataStormContract.PublisherSessionPrx)
+            %   publisher (DataStormContract.NodePrx) - The publisher node confirming the session. The proxy is never null.
+            %   session (DataStormContract.PublisherSessionPrx) - The publisher session being confirmed. The proxy is never null.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.

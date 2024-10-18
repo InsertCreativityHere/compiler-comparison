@@ -30,12 +30,6 @@ export const DataStormContract = {};
 DataStormContract.ClearHistoryPolicy = Ice.defineEnum([
     ['OnAdd', 0], ['OnRemove', 1], ['OnAll', 2], ['OnAllExceptPartialUpdate', 3], ['Never', 4]]);
 
-DataStormContract.ByteSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.ByteHelper, true);
-
-DataStormContract.LongSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.LongHelper, true);
-
-DataStormContract.StringSeqHelper = Ice.StreamHelpers.generateSeqHelper(Ice.StringHelper, false);
-
 [DataStormContract.LongLongDict, DataStormContract.LongLongDictHelper] = Ice.defineDictionary(Ice.LongHelper, Ice.LongHelper, true, Ice.HashMap.compareEquals);
 
 DataStormContract.DataSample = class
@@ -55,22 +49,22 @@ DataStormContract.DataSample = class
     {
         ostr.writeLong(this.id);
         ostr.writeLong(this.keyId);
-        DataStormContract.ByteSeqHelper.write(ostr, this.keyValue);
+        Ice.ByteSeqHelper.write(ostr, this.keyValue);
         ostr.writeLong(this.timestamp);
         ostr.writeLong(this.tag);
         DataStorm.SampleEvent._write(ostr, this.event);
-        DataStormContract.ByteSeqHelper.write(ostr, this.value);
+        Ice.ByteSeqHelper.write(ostr, this.value);
     }
 
     _read(istr)
     {
         this.id = istr.readLong();
         this.keyId = istr.readLong();
-        this.keyValue = DataStormContract.ByteSeqHelper.read(istr);
+        this.keyValue = Ice.ByteSeqHelper.read(istr);
         this.timestamp = istr.readLong();
         this.tag = istr.readLong();
         this.event = DataStorm.SampleEvent._read(istr);
-        this.value = DataStormContract.ByteSeqHelper.read(istr);
+        this.value = Ice.ByteSeqHelper.read(istr);
     }
 
     static get minWireSize()
@@ -126,14 +120,14 @@ DataStormContract.ElementInfo = class
     {
         ostr.writeLong(this.id);
         ostr.writeString(this.name);
-        DataStormContract.ByteSeqHelper.write(ostr, this.value);
+        Ice.ByteSeqHelper.write(ostr, this.value);
     }
 
     _read(istr)
     {
         this.id = istr.readLong();
         this.name = istr.readString();
-        this.value = DataStormContract.ByteSeqHelper.read(istr);
+        this.value = Ice.ByteSeqHelper.read(istr);
     }
 
     static get minWireSize()
@@ -157,13 +151,13 @@ DataStormContract.TopicInfo = class
     _write(ostr)
     {
         ostr.writeString(this.name);
-        DataStormContract.LongSeqHelper.write(ostr, this.ids);
+        Ice.LongSeqHelper.write(ostr, this.ids);
     }
 
     _read(istr)
     {
         this.name = istr.readString();
-        this.ids = DataStormContract.LongSeqHelper.read(istr);
+        this.ids = Ice.LongSeqHelper.read(istr);
     }
 
     static get minWireSize()
@@ -221,13 +215,13 @@ DataStormContract.FilterInfo = class
     _write(ostr)
     {
         ostr.writeString(this.name);
-        DataStormContract.ByteSeqHelper.write(ostr, this.criteria);
+        Ice.ByteSeqHelper.write(ostr, this.criteria);
     }
 
     _read(istr)
     {
         this.name = istr.readString();
-        this.criteria = DataStormContract.ByteSeqHelper.read(istr);
+        this.criteria = Ice.ByteSeqHelper.read(istr);
     }
 
     static get minWireSize()
@@ -333,7 +327,7 @@ DataStormContract.ElementSpec = class
         DataStormContract.ElementDataSeqHelper.write(ostr, this.elements);
         ostr.writeLong(this.id);
         ostr.writeString(this.name);
-        DataStormContract.ByteSeqHelper.write(ostr, this.value);
+        Ice.ByteSeqHelper.write(ostr, this.value);
         ostr.writeLong(this.peerId);
         ostr.writeString(this.peerName);
     }
@@ -343,7 +337,7 @@ DataStormContract.ElementSpec = class
         this.elements = DataStormContract.ElementDataSeqHelper.read(istr);
         this.id = istr.readLong();
         this.name = istr.readString();
-        this.value = DataStormContract.ByteSeqHelper.read(istr);
+        this.value = Ice.ByteSeqHelper.read(istr);
         this.peerId = istr.readLong();
         this.peerName = istr.readString();
     }
@@ -414,7 +408,7 @@ DataStormContract.ElementSpecAck = class
         DataStormContract.ElementDataAckSeqHelper.write(ostr, this.elements);
         ostr.writeLong(this.id);
         ostr.writeString(this.name);
-        DataStormContract.ByteSeqHelper.write(ostr, this.value);
+        Ice.ByteSeqHelper.write(ostr, this.value);
         ostr.writeLong(this.peerId);
         ostr.writeString(this.peerName);
     }
@@ -424,7 +418,7 @@ DataStormContract.ElementSpecAck = class
         this.elements = DataStormContract.ElementDataAckSeqHelper.read(istr);
         this.id = istr.readLong();
         this.name = istr.readString();
-        this.value = DataStormContract.ByteSeqHelper.read(istr);
+        this.value = Ice.ByteSeqHelper.read(istr);
         this.peerId = istr.readLong();
         this.peerName = istr.readString();
     }
@@ -463,11 +457,11 @@ Ice.defineOperations(
         "attachTopic": [, , , , [[DataStormContract.TopicSpec]], , , , ],
         "detachTopic": [, , , , [[4]], , , , ],
         "attachTags": [, , , , [[4], [DataStormContract.ElementInfoSeqHelper], [1]], , , , ],
-        "detachTags": [, , , , [[4], [DataStormContract.LongSeqHelper]], , , , ],
+        "detachTags": [, , , , [[4], [Ice.LongSeqHelper]], , , , ],
         "announceElements": [, , , , [[4], [DataStormContract.ElementInfoSeqHelper]], , , , ],
         "attachElements": [, , , , [[4], [DataStormContract.ElementSpecSeqHelper], [1]], , , true, ],
         "attachElementsAck": [, , , , [[4], [DataStormContract.ElementSpecAckSeqHelper]], , , true, ],
-        "detachElements": [, , , , [[4], [DataStormContract.LongSeqHelper]], , , , ],
+        "detachElements": [, , , , [[4], [Ice.LongSeqHelper]], , , , ],
         "initSamples": [, , , , [[4], [DataStormContract.DataSamplesSeqHelper]], , , , ],
         "disconnected": [, , , , , , , , ]
     });
@@ -544,6 +538,17 @@ const iceC_DataStormContract_Node_ids = [
     "::Ice::Object"
 ];
 
+/**
+ * The Node interface allows DataStorm nodes to create publisher and subscriber sessions with each other.
+ *
+ * When a node has a writer for a topic that another node is reading, the node initiates the creation of a
+ * publisher session. Likewise, when a node has a reader for a topic that another node is writing, the node
+ * initiates the creation of a subscriber session.
+ *
+ * The publisher node hosts the publisher session servant, which is accessed by the subscriber node through a
+ * PublisherSession proxy. The subscriber node hosts the subscriber session servant, which is accessed by the
+ * publisher node through a SubscriberSession proxy.
+ **/
 DataStormContract.Node = class extends Ice.Object
 {
 };
@@ -569,6 +574,11 @@ const iceC_DataStormContract_Lookup_ids = [
     "::Ice::Object"
 ];
 
+/**
+ * The lookup interface is used by DataStorm nodes to announce their topic readers and writers to other connected
+ * nodes. When multicast is enabled, the lookup interface also broadcasts these announcements.
+ * Each DataStorm node hosts a lookup servant with the identity "DataStorm/Lookup".
+ **/
 DataStormContract.Lookup = class extends Ice.Object
 {
 };
@@ -586,6 +596,6 @@ Ice.defineOperations(
     {
         "announceTopicReader": [, 2, , , [[7], ["DataStormContract.NodePrx"]], , , , ],
         "announceTopicWriter": [, 2, , , [[7], ["DataStormContract.NodePrx"]], , , , ],
-        "announceTopics": [, 2, , , [[DataStormContract.StringSeqHelper], [DataStormContract.StringSeqHelper], ["DataStormContract.NodePrx"]], , , , ],
+        "announceTopics": [, 2, , , [[Ice.StringSeqHelper], [Ice.StringSeqHelper], ["DataStormContract.NodePrx"]], , , , ],
         "createSession": [, , , ["DataStormContract.NodePrx"], [["DataStormContract.NodePrx"]], , , , ]
     });

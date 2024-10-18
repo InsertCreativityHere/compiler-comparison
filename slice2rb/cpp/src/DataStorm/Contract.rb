@@ -16,6 +16,7 @@
 
 require 'Ice'
 require 'Ice/Identity.rb'
+require 'Ice/BuiltinSequences.rb'
 require 'DataStorm/Sample.rb'
 
 module ::DataStormContract
@@ -72,18 +73,6 @@ module ::DataStormContract
         T_ClearHistoryPolicy = ::Ice::__defineEnum('::DataStormContract::ClearHistoryPolicy', ClearHistoryPolicy, ClearHistoryPolicy::_enumerators)
     end
 
-    if not defined?(::DataStormContract::T_ByteSeq)
-        T_ByteSeq = ::Ice::__defineSequence('::DataStormContract::ByteSeq', ::Ice::T_byte)
-    end
-
-    if not defined?(::DataStormContract::T_LongSeq)
-        T_LongSeq = ::Ice::__defineSequence('::DataStormContract::LongSeq', ::Ice::T_long)
-    end
-
-    if not defined?(::DataStormContract::T_StringSeq)
-        T_StringSeq = ::Ice::__defineSequence('::DataStormContract::StringSeq', ::Ice::T_string)
-    end
-
     if not defined?(::DataStormContract::T_LongLongDict)
         T_LongLongDict = ::Ice::__defineDictionary('::DataStormContract::LongLongDict', ::Ice::T_long, ::Ice::T_long)
     end
@@ -135,11 +124,11 @@ module ::DataStormContract
         T_DataSample = ::Ice::__defineStruct('::DataStormContract::DataSample', DataSample, [
             ["id", ::Ice::T_long],
             ["keyId", ::Ice::T_long],
-            ["keyValue", ::DataStormContract::T_ByteSeq],
+            ["keyValue", ::Ice::T_ByteSeq],
             ["timestamp", ::Ice::T_long],
             ["tag", ::Ice::T_long],
             ["event", ::DataStorm::T_SampleEvent],
-            ["value", ::DataStormContract::T_ByteSeq]
+            ["value", ::Ice::T_ByteSeq]
         ])
     end
 
@@ -221,7 +210,7 @@ module ::DataStormContract
         T_ElementInfo = ::Ice::__defineStruct('::DataStormContract::ElementInfo', ElementInfo, [
             ["id", ::Ice::T_long],
             ["name", ::Ice::T_string],
-            ["value", ::DataStormContract::T_ByteSeq]
+            ["value", ::Ice::T_ByteSeq]
         ])
     end
 
@@ -260,7 +249,7 @@ module ::DataStormContract
 
         T_TopicInfo = ::Ice::__defineStruct('::DataStormContract::TopicInfo', TopicInfo, [
             ["name", ::Ice::T_string],
-            ["ids", ::DataStormContract::T_LongSeq]
+            ["ids", ::Ice::T_LongSeq]
         ])
     end
 
@@ -342,7 +331,7 @@ module ::DataStormContract
 
         T_FilterInfo = ::Ice::__defineStruct('::DataStormContract::FilterInfo', FilterInfo, [
             ["name", ::Ice::T_string],
-            ["criteria", ::DataStormContract::T_ByteSeq]
+            ["criteria", ::Ice::T_ByteSeq]
         ])
     end
 
@@ -465,7 +454,7 @@ module ::DataStormContract
             ["elements", ::DataStormContract::T_ElementDataSeq],
             ["id", ::Ice::T_long],
             ["name", ::Ice::T_string],
-            ["value", ::DataStormContract::T_ByteSeq],
+            ["value", ::Ice::T_ByteSeq],
             ["peerId", ::Ice::T_long],
             ["peerName", ::Ice::T_string]
         ])
@@ -571,7 +560,7 @@ module ::DataStormContract
             ["elements", ::DataStormContract::T_ElementDataAckSeq],
             ["id", ::Ice::T_long],
             ["name", ::Ice::T_string],
-            ["value", ::DataStormContract::T_ByteSeq],
+            ["value", ::Ice::T_ByteSeq],
             ["peerId", ::Ice::T_long],
             ["peerName", ::Ice::T_string]
         ])
@@ -644,11 +633,11 @@ module ::DataStormContract
         SessionPrx_mixin::OP_attachTopic = ::Ice::__defineOperation('attachTopic', ::Ice::OperationMode::Normal, false, nil, [[::DataStormContract::T_TopicSpec, false, 0]], [], nil, [])
         SessionPrx_mixin::OP_detachTopic = ::Ice::__defineOperation('detachTopic', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_long, false, 0]], [], nil, [])
         SessionPrx_mixin::OP_attachTags = ::Ice::__defineOperation('attachTags', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_long, false, 0], [::DataStormContract::T_ElementInfoSeq, false, 0], [::Ice::T_bool, false, 0]], [], nil, [])
-        SessionPrx_mixin::OP_detachTags = ::Ice::__defineOperation('detachTags', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_long, false, 0], [::DataStormContract::T_LongSeq, false, 0]], [], nil, [])
+        SessionPrx_mixin::OP_detachTags = ::Ice::__defineOperation('detachTags', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_long, false, 0], [::Ice::T_LongSeq, false, 0]], [], nil, [])
         SessionPrx_mixin::OP_announceElements = ::Ice::__defineOperation('announceElements', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_long, false, 0], [::DataStormContract::T_ElementInfoSeq, false, 0]], [], nil, [])
         SessionPrx_mixin::OP_attachElements = ::Ice::__defineOperation('attachElements', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_long, false, 0], [::DataStormContract::T_ElementSpecSeq, false, 0], [::Ice::T_bool, false, 0]], [], nil, [])
         SessionPrx_mixin::OP_attachElementsAck = ::Ice::__defineOperation('attachElementsAck', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_long, false, 0], [::DataStormContract::T_ElementSpecAckSeq, false, 0]], [], nil, [])
-        SessionPrx_mixin::OP_detachElements = ::Ice::__defineOperation('detachElements', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_long, false, 0], [::DataStormContract::T_LongSeq, false, 0]], [], nil, [])
+        SessionPrx_mixin::OP_detachElements = ::Ice::__defineOperation('detachElements', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_long, false, 0], [::Ice::T_LongSeq, false, 0]], [], nil, [])
         SessionPrx_mixin::OP_initSamples = ::Ice::__defineOperation('initSamples', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_long, false, 0], [::DataStormContract::T_DataSamplesSeq, false, 0]], [], nil, [])
         SessionPrx_mixin::OP_disconnected = ::Ice::__defineOperation('disconnected', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
@@ -758,7 +747,7 @@ module ::DataStormContract
 
         LookupPrx_mixin::OP_announceTopicReader = ::Ice::__defineOperation('announceTopicReader', ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0], [::DataStormContract::T_NodePrx, false, 0]], [], nil, [])
         LookupPrx_mixin::OP_announceTopicWriter = ::Ice::__defineOperation('announceTopicWriter', ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0], [::DataStormContract::T_NodePrx, false, 0]], [], nil, [])
-        LookupPrx_mixin::OP_announceTopics = ::Ice::__defineOperation('announceTopics', ::Ice::OperationMode::Idempotent, false, nil, [[::DataStormContract::T_StringSeq, false, 0], [::DataStormContract::T_StringSeq, false, 0], [::DataStormContract::T_NodePrx, false, 0]], [], nil, [])
+        LookupPrx_mixin::OP_announceTopics = ::Ice::__defineOperation('announceTopics', ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_StringSeq, false, 0], [::Ice::T_StringSeq, false, 0], [::DataStormContract::T_NodePrx, false, 0]], [], nil, [])
         LookupPrx_mixin::OP_createSession = ::Ice::__defineOperation('createSession', ::Ice::OperationMode::Normal, false, nil, [[::DataStormContract::T_NodePrx, false, 0]], [], [::DataStormContract::T_NodePrx, false, 0], [])
     end
 end

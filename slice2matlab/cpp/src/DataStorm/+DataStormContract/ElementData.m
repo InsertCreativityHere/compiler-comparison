@@ -1,8 +1,8 @@
 % ElementData   Summary of ElementData
 %
 % ElementData Properties:
-%   id - The id of the writer or reader
-%   config - The config of the writer or reader
+%   id - The id of the writer or reader.
+%   config - The config of the writer or reader.
 %   lastIds - The lastIds received by the reader.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
@@ -10,9 +10,9 @@
 
 classdef ElementData
     properties
-        % id - The id of the writer or reader
+        % id - The id of the writer or reader.
         id int64
-        % config - The config of the writer or reader
+        % config - The config of the writer or reader.
         config
         % lastIds - The lastIds received by the reader.
         lastIds containers.Map

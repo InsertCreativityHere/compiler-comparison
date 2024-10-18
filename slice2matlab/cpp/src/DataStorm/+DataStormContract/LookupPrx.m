@@ -1,14 +1,18 @@
 % LookupPrx   Summary of LookupPrx
 %
+% The lookup interface is used by DataStorm nodes to announce their topic readers and writers to other connected
+% nodes. When multicast is enabled, the lookup interface also broadcasts these announcements.
+% Each DataStorm node hosts a lookup servant with the identity "DataStorm/Lookup".
+%
 % LookupPrx Methods:
-%   announceTopicReader
-%   announceTopicReaderAsync
-%   announceTopicWriter
-%   announceTopicWriterAsync
-%   announceTopics
-%   announceTopicsAsync
-%   createSession
-%   createSessionAsync
+%   announceTopicReader - Announce a topic reader.
+%   announceTopicReaderAsync - Announce a topic reader.
+%   announceTopicWriter - Announce a topic writer.
+%   announceTopicWriterAsync - Announce a topic writer.
+%   announceTopics - Announce a set of topic readers and writers.
+%   announceTopicsAsync - Announce a set of topic readers and writers.
+%   createSession - Establish a connection between this node and another node.
+%   createSessionAsync - Establish a connection between this node and another node.
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
 %   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
@@ -18,11 +22,11 @@
 classdef LookupPrx < Ice.ObjectPrx
     methods
         function announceTopicReader(obj, topic, node, varargin)
-            % announceTopicReader
+            % announceTopicReader   Announce a topic reader.
             %
             % Parameters:
-            %   topic (char)
-            %   node (DataStormContract.NodePrx)
+            %   topic (char) - The name of the topic.
+            %   node (DataStormContract.NodePrx) - The node reading the topic. The proxy is never null.
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
@@ -32,11 +36,11 @@ classdef LookupPrx < Ice.ObjectPrx
             obj.iceInvoke('announceTopicReader', 2, false, os_, false, {}, varargin{:});
         end
         function r_ = announceTopicReaderAsync(obj, topic, node, varargin)
-            % announceTopicReaderAsync
+            % announceTopicReaderAsync   Announce a topic reader.
             %
             % Parameters:
-            %   topic (char)
-            %   node (DataStormContract.NodePrx)
+            %   topic (char) - The name of the topic.
+            %   node (DataStormContract.NodePrx) - The node reading the topic. The proxy is never null.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -48,11 +52,11 @@ classdef LookupPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('announceTopicReader', 2, false, os_, 0, [], {}, varargin{:});
         end
         function announceTopicWriter(obj, topic, node, varargin)
-            % announceTopicWriter
+            % announceTopicWriter   Announce a topic writer.
             %
             % Parameters:
-            %   topic (char)
-            %   node (DataStormContract.NodePrx)
+            %   topic (char) - The name of the topic.
+            %   node (DataStormContract.NodePrx) - The node writing the topic. The proxy is never null.
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
@@ -62,11 +66,11 @@ classdef LookupPrx < Ice.ObjectPrx
             obj.iceInvoke('announceTopicWriter', 2, false, os_, false, {}, varargin{:});
         end
         function r_ = announceTopicWriterAsync(obj, topic, node, varargin)
-            % announceTopicWriterAsync
+            % announceTopicWriterAsync   Announce a topic writer.
             %
             % Parameters:
-            %   topic (char)
-            %   node (DataStormContract.NodePrx)
+            %   topic (char) - The name of the topic.
+            %   node (DataStormContract.NodePrx) - The node writing the topic. The proxy is never null.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -78,12 +82,12 @@ classdef LookupPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('announceTopicWriter', 2, false, os_, 0, [], {}, varargin{:});
         end
         function announceTopics(obj, readers, writers, node, varargin)
-            % announceTopics
+            % announceTopics   Announce a set of topic readers and writers.
             %
             % Parameters:
-            %   readers (DataStormContract.StringSeq)
-            %   writers (DataStormContract.StringSeq)
-            %   node (DataStormContract.NodePrx)
+            %   readers (Ice.StringSeq) - A sequence of topic names for readers.
+            %   writers (Ice.StringSeq) - A sequence of topic names for writers.
+            %   node (DataStormContract.NodePrx) - The node reading or writing the topics. The proxy is never null.
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
@@ -94,12 +98,12 @@ classdef LookupPrx < Ice.ObjectPrx
             obj.iceInvoke('announceTopics', 2, false, os_, false, {}, varargin{:});
         end
         function r_ = announceTopicsAsync(obj, readers, writers, node, varargin)
-            % announceTopicsAsync
+            % announceTopicsAsync   Announce a set of topic readers and writers.
             %
             % Parameters:
-            %   readers (DataStormContract.StringSeq)
-            %   writers (DataStormContract.StringSeq)
-            %   node (DataStormContract.NodePrx)
+            %   readers (Ice.StringSeq) - A sequence of topic names for readers.
+            %   writers (Ice.StringSeq) - A sequence of topic names for writers.
+            %   node (DataStormContract.NodePrx) - The node reading or writing the topics. The proxy is never null.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -112,13 +116,13 @@ classdef LookupPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('announceTopics', 2, false, os_, 0, [], {}, varargin{:});
         end
         function result = createSession(obj, node, varargin)
-            % createSession
+            % createSession   Establish a connection between this node and another node.
             %
             % Parameters:
-            %   node (DataStormContract.NodePrx)
+            %   node (DataStormContract.NodePrx) - The node initiating the connection. The proxy is never null.
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (DataStormContract.NodePrx)
+            % Returns (DataStormContract.NodePrx) - A proxy to this node. The proxy is never null.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(node);
@@ -129,10 +133,10 @@ classdef LookupPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = createSessionAsync(obj, node, varargin)
-            % createSessionAsync
+            % createSessionAsync   Establish a connection between this node and another node.
             %
             % Parameters:
-            %   node (DataStormContract.NodePrx)
+            %   node (DataStormContract.NodePrx) - The node initiating the connection. The proxy is never null.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.

@@ -15,23 +15,52 @@
 
 package DataStormContract;
 
+/**
+ * The lookup interface is used by DataStorm nodes to announce their topic readers and writers to other connected
+ * nodes. When multicast is enabled, the lookup interface also broadcasts these announcements.
+ * Each DataStorm node hosts a lookup servant with the identity "DataStorm/Lookup".
+ **/
 public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
 {
+    /**
+     * Announce a topic reader.
+     * @param topic The name of the topic.
+     * @param node The node reading the topic. The proxy is never null.
+     **/
     default void announceTopicReader(String topic, NodePrx node)
     {
         announceTopicReader(topic, node, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
+    /**
+     * Announce a topic reader.
+     * @param topic The name of the topic.
+     * @param node The node reading the topic. The proxy is never null.
+     * @param context The Context map to send with the invocation.
+     **/
     default void announceTopicReader(String topic, NodePrx node, java.util.Map<String, String> context)
     {
         _iceI_announceTopicReaderAsync(topic, node, context, true).waitForResponse();
     }
 
+    /**
+     * Announce a topic reader.
+     * @param topic The name of the topic.
+     * @param node The node reading the topic. The proxy is never null.
+     * @return A future that will be completed when the invocation completes.
+     **/
     default java.util.concurrent.CompletableFuture<Void> announceTopicReaderAsync(String topic, NodePrx node)
     {
         return _iceI_announceTopicReaderAsync(topic, node, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
+    /**
+     * Announce a topic reader.
+     * @param topic The name of the topic.
+     * @param node The node reading the topic. The proxy is never null.
+     * @param context The Context map to send with the invocation.
+     * @return A future that will be completed when the invocation completes.
+     **/
     default java.util.concurrent.CompletableFuture<Void> announceTopicReaderAsync(String topic, NodePrx node, java.util.Map<String, String> context)
     {
         return _iceI_announceTopicReaderAsync(topic, node, context, false);
@@ -55,21 +84,45 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
+    /**
+     * Announce a topic writer.
+     * @param topic The name of the topic.
+     * @param node The node writing the topic. The proxy is never null.
+     **/
     default void announceTopicWriter(String topic, NodePrx node)
     {
         announceTopicWriter(topic, node, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
+    /**
+     * Announce a topic writer.
+     * @param topic The name of the topic.
+     * @param node The node writing the topic. The proxy is never null.
+     * @param context The Context map to send with the invocation.
+     **/
     default void announceTopicWriter(String topic, NodePrx node, java.util.Map<String, String> context)
     {
         _iceI_announceTopicWriterAsync(topic, node, context, true).waitForResponse();
     }
 
+    /**
+     * Announce a topic writer.
+     * @param topic The name of the topic.
+     * @param node The node writing the topic. The proxy is never null.
+     * @return A future that will be completed when the invocation completes.
+     **/
     default java.util.concurrent.CompletableFuture<Void> announceTopicWriterAsync(String topic, NodePrx node)
     {
         return _iceI_announceTopicWriterAsync(topic, node, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
+    /**
+     * Announce a topic writer.
+     * @param topic The name of the topic.
+     * @param node The node writing the topic. The proxy is never null.
+     * @param context The Context map to send with the invocation.
+     * @return A future that will be completed when the invocation completes.
+     **/
     default java.util.concurrent.CompletableFuture<Void> announceTopicWriterAsync(String topic, NodePrx node, java.util.Map<String, String> context)
     {
         return _iceI_announceTopicWriterAsync(topic, node, context, false);
@@ -93,21 +146,49 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
+    /**
+     * Announce a set of topic readers and writers.
+     * @param readers A sequence of topic names for readers.
+     * @param writers A sequence of topic names for writers.
+     * @param node The node reading or writing the topics. The proxy is never null.
+     **/
     default void announceTopics(String[] readers, String[] writers, NodePrx node)
     {
         announceTopics(readers, writers, node, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
+    /**
+     * Announce a set of topic readers and writers.
+     * @param readers A sequence of topic names for readers.
+     * @param writers A sequence of topic names for writers.
+     * @param node The node reading or writing the topics. The proxy is never null.
+     * @param context The Context map to send with the invocation.
+     **/
     default void announceTopics(String[] readers, String[] writers, NodePrx node, java.util.Map<String, String> context)
     {
         _iceI_announceTopicsAsync(readers, writers, node, context, true).waitForResponse();
     }
 
+    /**
+     * Announce a set of topic readers and writers.
+     * @param readers A sequence of topic names for readers.
+     * @param writers A sequence of topic names for writers.
+     * @param node The node reading or writing the topics. The proxy is never null.
+     * @return A future that will be completed when the invocation completes.
+     **/
     default java.util.concurrent.CompletableFuture<Void> announceTopicsAsync(String[] readers, String[] writers, NodePrx node)
     {
         return _iceI_announceTopicsAsync(readers, writers, node, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
+    /**
+     * Announce a set of topic readers and writers.
+     * @param readers A sequence of topic names for readers.
+     * @param writers A sequence of topic names for writers.
+     * @param node The node reading or writing the topics. The proxy is never null.
+     * @param context The Context map to send with the invocation.
+     * @return A future that will be completed when the invocation completes.
+     **/
     default java.util.concurrent.CompletableFuture<Void> announceTopicsAsync(String[] readers, String[] writers, NodePrx node, java.util.Map<String, String> context)
     {
         return _iceI_announceTopicsAsync(readers, writers, node, context, false);
@@ -133,21 +214,43 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
+    /**
+     * Establish a connection between this node and another node.
+     * @param node The node initiating the connection. The proxy is never null.
+     * @return A proxy to this node. The proxy is never null.
+     **/
     default NodePrx createSession(NodePrx node)
     {
         return createSession(node, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
+    /**
+     * Establish a connection between this node and another node.
+     * @param node The node initiating the connection. The proxy is never null.
+     * @param context The Context map to send with the invocation.
+     * @return A proxy to this node. The proxy is never null.
+     **/
     default NodePrx createSession(NodePrx node, java.util.Map<String, String> context)
     {
         return _iceI_createSessionAsync(node, context, true).waitForResponse();
     }
 
+    /**
+     * Establish a connection between this node and another node.
+     * @param node The node initiating the connection. The proxy is never null.
+     * @return A proxy to this node. The proxy is never null.
+     **/
     default java.util.concurrent.CompletableFuture<NodePrx> createSessionAsync(NodePrx node)
     {
         return _iceI_createSessionAsync(node, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
+    /**
+     * Establish a connection between this node and another node.
+     * @param node The node initiating the connection. The proxy is never null.
+     * @param context The Context map to send with the invocation.
+     * @return A proxy to this node. The proxy is never null.
+     **/
     default java.util.concurrent.CompletableFuture<NodePrx> createSessionAsync(NodePrx node, java.util.Map<String, String> context)
     {
         return _iceI_createSessionAsync(node, context, false);

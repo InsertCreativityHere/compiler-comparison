@@ -15,23 +15,66 @@
 
 package DataStormContract;
 
+/**
+ * The Node interface allows DataStorm nodes to create publisher and subscriber sessions with each other.
+ *
+ * When a node has a writer for a topic that another node is reading, the node initiates the creation of a
+ * publisher session. Likewise, when a node has a reader for a topic that another node is writing, the node
+ * initiates the creation of a subscriber session.
+ *
+ * The publisher node hosts the publisher session servant, which is accessed by the subscriber node through a
+ * PublisherSession proxy. The subscriber node hosts the subscriber session servant, which is accessed by the
+ * publisher node through a SubscriberSession proxy.
+ **/
 public interface NodePrx extends com.zeroc.Ice.ObjectPrx
 {
+    /**
+     * Initiate the creation of a publisher session with a node, after
+     * the target node has announced a topic reader for which this node has a corresponding topic writer.
+     * @param publisher The publisher node initiating the session. The proxy is never null.
+     *
+     * @see Lookup::announceTopicReader
+     **/
     default void initiateCreateSession(NodePrx publisher)
     {
         initiateCreateSession(publisher, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
+    /**
+     * Initiate the creation of a publisher session with a node, after
+     * the target node has announced a topic reader for which this node has a corresponding topic writer.
+     * @param publisher The publisher node initiating the session. The proxy is never null.
+     * @param context The Context map to send with the invocation.
+     *
+     * @see Lookup::announceTopicReader
+     **/
     default void initiateCreateSession(NodePrx publisher, java.util.Map<String, String> context)
     {
         _iceI_initiateCreateSessionAsync(publisher, context, true).waitForResponse();
     }
 
+    /**
+     * Initiate the creation of a publisher session with a node, after
+     * the target node has announced a topic reader for which this node has a corresponding topic writer.
+     * @param publisher The publisher node initiating the session. The proxy is never null.
+     * @return A future that will be completed when the invocation completes.
+     *
+     * @see Lookup::announceTopicReader
+     **/
     default java.util.concurrent.CompletableFuture<Void> initiateCreateSessionAsync(NodePrx publisher)
     {
         return _iceI_initiateCreateSessionAsync(publisher, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
+    /**
+     * Initiate the creation of a publisher session with a node, after
+     * the target node has announced a topic reader for which this node has a corresponding topic writer.
+     * @param publisher The publisher node initiating the session. The proxy is never null.
+     * @param context The Context map to send with the invocation.
+     * @return A future that will be completed when the invocation completes.
+     *
+     * @see Lookup::announceTopicReader
+     **/
     default java.util.concurrent.CompletableFuture<Void> initiateCreateSessionAsync(NodePrx publisher, java.util.Map<String, String> context)
     {
         return _iceI_initiateCreateSessionAsync(publisher, context, false);
@@ -53,21 +96,57 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
+    /**
+     * Initiate the creation of a subscriber session with a node, after
+     * the target node has announced a topic writer for which this node has a corresponding topic reader,
+     * or after the node has called Node::initiateCreateSession.
+     * @param subscriber The subscriber node initiating the session. The proxy is never null.
+     * @param session The subscriber session being created. The proxy is never null.
+     * @param fromRelay Indicates if the session is being created from a relay node.
+     **/
     default void createSession(NodePrx subscriber, SubscriberSessionPrx session, boolean fromRelay)
     {
         createSession(subscriber, session, fromRelay, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
+    /**
+     * Initiate the creation of a subscriber session with a node, after
+     * the target node has announced a topic writer for which this node has a corresponding topic reader,
+     * or after the node has called Node::initiateCreateSession.
+     * @param subscriber The subscriber node initiating the session. The proxy is never null.
+     * @param session The subscriber session being created. The proxy is never null.
+     * @param fromRelay Indicates if the session is being created from a relay node.
+     * @param context The Context map to send with the invocation.
+     **/
     default void createSession(NodePrx subscriber, SubscriberSessionPrx session, boolean fromRelay, java.util.Map<String, String> context)
     {
         _iceI_createSessionAsync(subscriber, session, fromRelay, context, true).waitForResponse();
     }
 
+    /**
+     * Initiate the creation of a subscriber session with a node, after
+     * the target node has announced a topic writer for which this node has a corresponding topic reader,
+     * or after the node has called Node::initiateCreateSession.
+     * @param subscriber The subscriber node initiating the session. The proxy is never null.
+     * @param session The subscriber session being created. The proxy is never null.
+     * @param fromRelay Indicates if the session is being created from a relay node.
+     * @return A future that will be completed when the invocation completes.
+     **/
     default java.util.concurrent.CompletableFuture<Void> createSessionAsync(NodePrx subscriber, SubscriberSessionPrx session, boolean fromRelay)
     {
         return _iceI_createSessionAsync(subscriber, session, fromRelay, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
+    /**
+     * Initiate the creation of a subscriber session with a node, after
+     * the target node has announced a topic writer for which this node has a corresponding topic reader,
+     * or after the node has called Node::initiateCreateSession.
+     * @param subscriber The subscriber node initiating the session. The proxy is never null.
+     * @param session The subscriber session being created. The proxy is never null.
+     * @param fromRelay Indicates if the session is being created from a relay node.
+     * @param context The Context map to send with the invocation.
+     * @return A future that will be completed when the invocation completes.
+     **/
     default java.util.concurrent.CompletableFuture<Void> createSessionAsync(NodePrx subscriber, SubscriberSessionPrx session, boolean fromRelay, java.util.Map<String, String> context)
     {
         return _iceI_createSessionAsync(subscriber, session, fromRelay, context, false);
@@ -93,21 +172,45 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
+    /**
+     * Confirm the creation of a publisher session with a node.
+     * @param publisher The publisher node confirming the session. The proxy is never null.
+     * @param session The publisher session being confirmed. The proxy is never null.
+     **/
     default void confirmCreateSession(NodePrx publisher, PublisherSessionPrx session)
     {
         confirmCreateSession(publisher, session, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
+    /**
+     * Confirm the creation of a publisher session with a node.
+     * @param publisher The publisher node confirming the session. The proxy is never null.
+     * @param session The publisher session being confirmed. The proxy is never null.
+     * @param context The Context map to send with the invocation.
+     **/
     default void confirmCreateSession(NodePrx publisher, PublisherSessionPrx session, java.util.Map<String, String> context)
     {
         _iceI_confirmCreateSessionAsync(publisher, session, context, true).waitForResponse();
     }
 
+    /**
+     * Confirm the creation of a publisher session with a node.
+     * @param publisher The publisher node confirming the session. The proxy is never null.
+     * @param session The publisher session being confirmed. The proxy is never null.
+     * @return A future that will be completed when the invocation completes.
+     **/
     default java.util.concurrent.CompletableFuture<Void> confirmCreateSessionAsync(NodePrx publisher, PublisherSessionPrx session)
     {
         return _iceI_confirmCreateSessionAsync(publisher, session, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
+    /**
+     * Confirm the creation of a publisher session with a node.
+     * @param publisher The publisher node confirming the session. The proxy is never null.
+     * @param session The publisher session being confirmed. The proxy is never null.
+     * @param context The Context map to send with the invocation.
+     * @return A future that will be completed when the invocation completes.
+     **/
     default java.util.concurrent.CompletableFuture<Void> confirmCreateSessionAsync(NodePrx publisher, PublisherSessionPrx session, java.util.Map<String, String> context)
     {
         return _iceI_confirmCreateSessionAsync(publisher, session, context, false);
