@@ -152,7 +152,7 @@ public class WD extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 7816226656215569818L;
+    private static final long serialVersionUID = 9054916401393179546L;
 
     /** @hidden */
     @Override
