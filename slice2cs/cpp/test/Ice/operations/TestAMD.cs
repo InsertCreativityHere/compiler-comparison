@@ -10138,9 +10138,9 @@ namespace Test
 
         public abstract global::System.Threading.Tasks.Task<double> opDouble1Async(double opDouble1, Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<string> opString1Async(string opString1, Ice.Current current);
-
         public abstract global::System.Threading.Tasks.Task<string[]> opStringS1Async(string[] opStringS1, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<string> opString1Async(string opString1, Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD1Async(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, Ice.Current current);
 
