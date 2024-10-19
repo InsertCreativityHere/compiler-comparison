@@ -79,11 +79,11 @@ IceGrid::AdminPrx::_iceI_addApplication(const ::std::shared_ptr<::IceInternal::O
             {
                 ex.ice_throw();
             }
-            catch(const AccessDeniedException&)
+            catch(const DeploymentException&)
             {
                 throw;
             }
-            catch(const DeploymentException&)
+            catch(const AccessDeniedException&)
             {
                 throw;
             }
@@ -133,11 +133,11 @@ IceGrid::AdminPrx::_iceI_syncApplication(const ::std::shared_ptr<::IceInternal::
             {
                 throw;
             }
-            catch(const AccessDeniedException&)
+            catch(const DeploymentException&)
             {
                 throw;
             }
-            catch(const DeploymentException&)
+            catch(const AccessDeniedException&)
             {
                 throw;
             }
@@ -187,11 +187,11 @@ IceGrid::AdminPrx::_iceI_updateApplication(const ::std::shared_ptr<::IceInternal
             {
                 throw;
             }
-            catch(const AccessDeniedException&)
+            catch(const DeploymentException&)
             {
                 throw;
             }
-            catch(const DeploymentException&)
+            catch(const AccessDeniedException&)
             {
                 throw;
             }
@@ -241,11 +241,11 @@ IceGrid::AdminPrx::_iceI_syncApplicationWithoutRestart(const ::std::shared_ptr<:
             {
                 throw;
             }
-            catch(const AccessDeniedException&)
+            catch(const DeploymentException&)
             {
                 throw;
             }
-            catch(const DeploymentException&)
+            catch(const AccessDeniedException&)
             {
                 throw;
             }
@@ -295,11 +295,11 @@ IceGrid::AdminPrx::_iceI_updateApplicationWithoutRestart(const ::std::shared_ptr
             {
                 throw;
             }
-            catch(const AccessDeniedException&)
+            catch(const DeploymentException&)
             {
                 throw;
             }
-            catch(const DeploymentException&)
+            catch(const AccessDeniedException&)
             {
                 throw;
             }
@@ -348,11 +348,11 @@ IceGrid::AdminPrx::_iceI_removeApplication(const ::std::shared_ptr<::IceInternal
             {
                 throw;
             }
-            catch(const AccessDeniedException&)
+            catch(const DeploymentException&)
             {
                 throw;
             }
-            catch(const DeploymentException&)
+            catch(const AccessDeniedException&)
             {
                 throw;
             }
@@ -401,11 +401,11 @@ IceGrid::AdminPrx::_iceI_instantiateServer(const ::std::shared_ptr<::IceInternal
             {
                 throw;
             }
-            catch(const AccessDeniedException&)
+            catch(const DeploymentException&)
             {
                 throw;
             }
-            catch(const DeploymentException&)
+            catch(const AccessDeniedException&)
             {
                 throw;
             }
@@ -983,11 +983,11 @@ IceGrid::AdminPrx::_iceI_stopServer(const ::std::shared_ptr<::IceInternal::Outgo
             {
                 ex.ice_throw();
             }
-            catch(const ServerStopException&)
+            catch(const ServerNotExistException&)
             {
                 throw;
             }
-            catch(const ServerNotExistException&)
+            catch(const ServerStopException&)
             {
                 throw;
             }
@@ -1044,15 +1044,15 @@ IceGrid::AdminPrx::_iceI_sendSignal(const ::std::shared_ptr<::IceInternal::Outgo
             {
                 throw;
             }
-            catch(const BadSignalException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const BadSignalException&)
             {
                 throw;
             }
@@ -1967,11 +1967,11 @@ IceGrid::AdminPrx::_iceI_getRegistryInfo(const ::std::shared_ptr<::IceInternal::
             {
                 ex.ice_throw();
             }
-            catch(const RegistryUnreachableException&)
+            catch(const RegistryNotExistException&)
             {
                 throw;
             }
-            catch(const RegistryNotExistException&)
+            catch(const RegistryUnreachableException&)
             {
                 throw;
             }
@@ -2061,11 +2061,11 @@ IceGrid::AdminPrx::_iceI_shutdownRegistry(const ::std::shared_ptr<::IceInternal:
             {
                 ex.ice_throw();
             }
-            catch(const RegistryUnreachableException&)
+            catch(const RegistryNotExistException&)
             {
                 throw;
             }
-            catch(const RegistryNotExistException&)
+            catch(const RegistryUnreachableException&)
             {
                 throw;
             }
@@ -3483,11 +3483,11 @@ IceGrid::AdminSessionPrx::_iceI_openRegistryStdErr(const ::std::shared_ptr<::Ice
             {
                 ex.ice_throw();
             }
-            catch(const RegistryUnreachableException&)
+            catch(const RegistryNotExistException&)
             {
                 throw;
             }
-            catch(const RegistryNotExistException&)
+            catch(const RegistryUnreachableException&)
             {
                 throw;
             }
@@ -3536,11 +3536,11 @@ IceGrid::AdminSessionPrx::_iceI_openRegistryStdOut(const ::std::shared_ptr<::Ice
             {
                 ex.ice_throw();
             }
-            catch(const RegistryUnreachableException&)
+            catch(const RegistryNotExistException&)
             {
                 throw;
             }
-            catch(const RegistryNotExistException&)
+            catch(const RegistryUnreachableException&)
             {
                 throw;
             }
