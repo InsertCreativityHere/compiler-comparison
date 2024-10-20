@@ -13090,6 +13090,26 @@ namespace Test
 
         public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, Ice.Current current);
 
+        public abstract int opByteSOnewayCallCount(Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(Ice.Current current);
+
+        public abstract void opIdempotent(Ice.Current current);
+
+        public abstract byte opByte1(byte opByte1, Ice.Current current);
+
+        public abstract short opShort1(short opShort1, Ice.Current current);
+
+        public abstract int opInt1(int opInt1, Ice.Current current);
+
+        public abstract long opLong1(long opLong1, Ice.Current current);
+
+        public abstract float opFloat1(float opFloat1, Ice.Current current);
+
+        public abstract double opDouble1(double opDouble1, Ice.Current current);
+
+        public abstract string opString1(string opString1, Ice.Current current);
+
         public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, Ice.Current current);
 
         public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, Ice.Current current);
@@ -13159,26 +13179,6 @@ namespace Test
         public abstract int[] opIntS(int[] s, Ice.Current current);
 
         public abstract void opByteSOneway(byte[] s, Ice.Current current);
-
-        public abstract int opByteSOnewayCallCount(Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(Ice.Current current);
-
-        public abstract void opIdempotent(Ice.Current current);
-
-        public abstract byte opByte1(byte opByte1, Ice.Current current);
-
-        public abstract short opShort1(short opShort1, Ice.Current current);
-
-        public abstract int opInt1(int opInt1, Ice.Current current);
-
-        public abstract long opLong1(long opLong1, Ice.Current current);
-
-        public abstract float opFloat1(float opFloat1, Ice.Current current);
-
-        public abstract double opDouble1(double opDouble1, Ice.Current current);
-
-        public abstract string opString1(string opString1, Ice.Current current);
 
         public abstract string[] opStringS1(string[] opStringS1, Ice.Current current);
 
@@ -13317,6 +13317,26 @@ namespace Test2
 
         public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, Ice.Current current);
 
+        public abstract int opByteSOnewayCallCount(Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(Ice.Current current);
+
+        public abstract void opIdempotent(Ice.Current current);
+
+        public abstract byte opByte1(byte opByte1, Ice.Current current);
+
+        public abstract short opShort1(short opShort1, Ice.Current current);
+
+        public abstract int opInt1(int opInt1, Ice.Current current);
+
+        public abstract long opLong1(long opLong1, Ice.Current current);
+
+        public abstract float opFloat1(float opFloat1, Ice.Current current);
+
+        public abstract double opDouble1(double opDouble1, Ice.Current current);
+
+        public abstract string opString1(string opString1, Ice.Current current);
+
         public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, Ice.Current current);
 
         public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, Ice.Current current);
@@ -13386,26 +13406,6 @@ namespace Test2
         public abstract int[] opIntS(int[] s, Ice.Current current);
 
         public abstract void opByteSOneway(byte[] s, Ice.Current current);
-
-        public abstract int opByteSOnewayCallCount(Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(Ice.Current current);
-
-        public abstract void opIdempotent(Ice.Current current);
-
-        public abstract byte opByte1(byte opByte1, Ice.Current current);
-
-        public abstract short opShort1(short opShort1, Ice.Current current);
-
-        public abstract int opInt1(int opInt1, Ice.Current current);
-
-        public abstract long opLong1(long opLong1, Ice.Current current);
-
-        public abstract float opFloat1(float opFloat1, Ice.Current current);
-
-        public abstract double opDouble1(double opDouble1, Ice.Current current);
-
-        public abstract string opString1(string opString1, Ice.Current current);
 
         public abstract string[] opStringS1(string[] opStringS1, Ice.Current current);
 
