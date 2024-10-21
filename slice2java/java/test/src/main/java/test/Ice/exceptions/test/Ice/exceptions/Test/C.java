@@ -55,5 +55,5 @@ public class C extends B
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 1080695567631863211L;
+    private static final long serialVersionUID = 1080700461179595806L;
 }

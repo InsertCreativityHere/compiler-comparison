@@ -48,7 +48,7 @@ public class xor extends logical
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -1008955854999341961L;
+    private static final long serialVersionUID = -1008947353154134626L;
 
     /** @hidden */
     @Override

@@ -48,7 +48,7 @@ public class B1 extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 8004024632809721156L;
+    private static final long serialVersionUID = 4618017579266075460L;
 
     /** @hidden */
     @Override

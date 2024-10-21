@@ -45,7 +45,7 @@ public class ConcreteClass extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 6434294248768832973L;
+    private static final long serialVersionUID = 6434295948328513869L;
 
     /** @hidden */
     @Override

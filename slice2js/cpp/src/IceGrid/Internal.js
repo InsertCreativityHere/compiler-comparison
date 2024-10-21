@@ -745,8 +745,8 @@ Ice.defineOperations(
     {
         "registerNode": [, , , ["IceGrid.NodeSessionPrx"], [["IceGrid.InternalNodeInfo", true], ["IceGrid.NodePrx"], [IceGrid.LoadInfo]], ,
         [
-            IceGrid.NodeActiveException,
-            IceGrid.PermissionDeniedException
+            IceGrid.PermissionDeniedException,
+            IceGrid.NodeActiveException
         ], true, ],
         "registerReplica": [, , , ["IceGrid.ReplicaSessionPrx"], [["IceGrid.InternalReplicaInfo", true], ["IceGrid.InternalRegistryPrx"]], ,
         [
