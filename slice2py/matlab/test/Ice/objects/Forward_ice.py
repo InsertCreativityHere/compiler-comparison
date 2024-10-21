@@ -111,9 +111,6 @@ if 'F2Prx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_F2Disp = IcePy.defineClass('::Test::F2', F2, (), None, ())
-    F2._ice_type = _M_Test._t_F2Disp
-
     F2._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.F2 = F2

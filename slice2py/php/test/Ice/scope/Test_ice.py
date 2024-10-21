@@ -480,9 +480,6 @@ if 'IPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_IDisp = IcePy.defineClass('::Test::I', I, (), None, ())
-    I._ice_type = _M_Test._t_IDisp
-
     I._op_opS = IcePy.Operation('opS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_S, False, 0),), (((), _M_Test._t_S, False, 0),), ((), _M_Test._t_S, False, 0), ())
     I._op_opSSeq = IcePy.Operation('opSSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SSeq, False, 0),), (((), _M_Test._t_SSeq, False, 0),), ((), _M_Test._t_SSeq, False, 0), ())
     I._op_opSMap = IcePy.Operation('opSMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SMap, False, 0),), (((), _M_Test._t_SMap, False, 0),), ((), _M_Test._t_SMap, False, 0), ())
@@ -824,9 +821,6 @@ if 'IPrx' not in _M_Test.Inner.Inner2.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.Inner.Inner2._t_IDisp = IcePy.defineClass('::Test::Inner::Inner2::I', I, (), None, ())
-    I._ice_type = _M_Test.Inner.Inner2._t_IDisp
-
     I._op_opS = IcePy.Operation('opS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_S, False, 0),), (((), _M_Test.Inner.Inner2._t_S, False, 0),), ((), _M_Test.Inner.Inner2._t_S, False, 0), ())
     I._op_opSSeq = IcePy.Operation('opSSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_SSeq, False, 0),), (((), _M_Test.Inner.Inner2._t_SSeq, False, 0),), ((), _M_Test.Inner.Inner2._t_SSeq, False, 0), ())
     I._op_opSMap = IcePy.Operation('opSMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_SMap, False, 0),), (((), _M_Test.Inner.Inner2._t_SMap, False, 0),), ((), _M_Test.Inner.Inner2._t_SMap, False, 0), ())
@@ -1003,9 +997,6 @@ if 'IPrx' not in _M_Test.Inner.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.Inner._t_IDisp = IcePy.defineClass('::Test::Inner::I', I, (), None, ())
-    I._ice_type = _M_Test.Inner._t_IDisp
-
     I._op_opS = IcePy.Operation('opS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_S, False, 0),), (((), _M_Test.Inner.Inner2._t_S, False, 0),), ((), _M_Test.Inner.Inner2._t_S, False, 0), ())
     I._op_opSSeq = IcePy.Operation('opSSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_SSeq, False, 0),), (((), _M_Test.Inner.Inner2._t_SSeq, False, 0),), ((), _M_Test.Inner.Inner2._t_SSeq, False, 0), ())
     I._op_opSMap = IcePy.Operation('opSMap', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.Inner.Inner2._t_SMap, False, 0),), (((), _M_Test.Inner.Inner2._t_SMap, False, 0),), ((), _M_Test.Inner.Inner2._t_SMap, False, 0), ())
@@ -1159,9 +1150,6 @@ if 'IPrx' not in _M_Inner.Test.Inner2.__dict__:
             return IcePy.stringify(self, _M_Inner.Test.Inner2._t_IDisp)
 
         __repr__ = __str__
-
-    _M_Inner.Test.Inner2._t_IDisp = IcePy.defineClass('::Inner::Test::Inner2::I', I, (), None, ())
-    I._ice_type = _M_Inner.Test.Inner2._t_IDisp
 
     I._op_opS = IcePy.Operation('opS', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_S, False, 0),), (((), _M_Test._t_S, False, 0),), ((), _M_Test._t_S, False, 0), ())
     I._op_opSSeq = IcePy.Operation('opSSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SSeq, False, 0),), (((), _M_Test._t_SSeq, False, 0),), ((), _M_Test._t_SSeq, False, 0), ())

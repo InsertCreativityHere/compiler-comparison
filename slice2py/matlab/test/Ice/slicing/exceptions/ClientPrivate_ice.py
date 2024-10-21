@@ -257,9 +257,6 @@ if 'RelayPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_RelayDisp = IcePy.defineClass('::Test::Relay', Relay, (), None, ())
-    Relay._ice_type = _M_Test._t_RelayDisp
-
     Relay._op_knownPreservedAsBase = IcePy.Operation('knownPreservedAsBase', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_Base,))
     Relay._op_knownPreservedAsKnownPreserved = IcePy.Operation('knownPreservedAsKnownPreserved', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_KnownPreserved,))
     Relay._op_unknownPreservedAsBase = IcePy.Operation('unknownPreservedAsBase', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_Base,))
@@ -530,9 +527,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-    TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
     TestIntf._op_baseAsBase = IcePy.Operation('baseAsBase', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_Base,))
     TestIntf._op_unknownDerivedAsBase = IcePy.Operation('unknownDerivedAsBase', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_Base,))

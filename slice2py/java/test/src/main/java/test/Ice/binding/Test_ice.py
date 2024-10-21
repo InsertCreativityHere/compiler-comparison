@@ -87,9 +87,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-    TestIntf._ice_type = _M_Test._t_TestIntfDisp
-
     TestIntf._op_getAdapterName = IcePy.Operation('getAdapterName', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
 
     _M_Test.TestIntf = TestIntf
@@ -168,9 +165,6 @@ if 'RemoteObjectAdapterPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_RemoteObjectAdapterDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_RemoteObjectAdapterDisp = IcePy.defineClass('::Test::RemoteObjectAdapter', RemoteObjectAdapter, (), None, ())
-    RemoteObjectAdapter._ice_type = _M_Test._t_RemoteObjectAdapterDisp
 
     RemoteObjectAdapter._op_getTestIntf = IcePy.Operation('getTestIntf', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_TestIntfPrx, False, 0), ())
     RemoteObjectAdapter._op_deactivate = IcePy.Operation('deactivate', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
@@ -260,9 +254,6 @@ if 'RemoteCommunicatorPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_RemoteCommunicatorDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_RemoteCommunicatorDisp = IcePy.defineClass('::Test::RemoteCommunicator', RemoteCommunicator, (), None, ())
-    RemoteCommunicator._ice_type = _M_Test._t_RemoteCommunicatorDisp
 
     RemoteCommunicator._op_createObjectAdapter = IcePy.Operation('createObjectAdapter', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), ((), _M_Test._t_RemoteObjectAdapterPrx, False, 0), ())
     RemoteCommunicator._op_deactivateObjectAdapter = IcePy.Operation('deactivateObjectAdapter', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_RemoteObjectAdapterPrx, False, 0),), (), None, ())

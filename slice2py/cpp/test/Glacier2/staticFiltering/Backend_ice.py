@@ -87,9 +87,6 @@ if 'BackendPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_BackendDisp = IcePy.defineClass('::Test::Backend', Backend, (), None, ())
-    Backend._ice_type = _M_Test._t_BackendDisp
-
     Backend._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.Backend = Backend

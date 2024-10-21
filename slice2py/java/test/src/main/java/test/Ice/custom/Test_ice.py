@@ -716,9 +716,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-    TestIntf._ice_type = _M_Test._t_TestIntfDisp
-
     TestIntf._op_opASeq = IcePy.Operation('opASeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ASeq, False, 0),), (((), _M_Test._t_ASeq, False, 0),), ((), _M_Test._t_ASeq, False, 0), ())
     TestIntf._op_opAArray = IcePy.Operation('opAArray', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AArray, False, 0),), (((), _M_Test._t_AArray, False, 0),), ((), _M_Test._t_AArray, False, 0), ())
     TestIntf._op_opAList = IcePy.Operation('opAList', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_AList, False, 0),), (((), _M_Test._t_AList, False, 0),), ((), _M_Test._t_AList, False, 0), ())

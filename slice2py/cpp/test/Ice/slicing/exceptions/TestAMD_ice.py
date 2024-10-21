@@ -283,9 +283,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-    TestIntf._ice_type = _M_Test._t_TestIntfDisp
-
     TestIntf._op_baseAsBase = IcePy.Operation('baseAsBase', Ice.OperationMode.Normal, True, None, (), (), (), None, (_M_Test._t_Base,))
     TestIntf._op_unknownDerivedAsBase = IcePy.Operation('unknownDerivedAsBase', Ice.OperationMode.Normal, True, Ice.FormatType.CompactFormat, (), (), (), None, (_M_Test._t_Base,))
     TestIntf._op_knownDerivedAsBase = IcePy.Operation('knownDerivedAsBase', Ice.OperationMode.Normal, True, None, (), (), (), None, (_M_Test._t_Base,))

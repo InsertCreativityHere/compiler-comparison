@@ -108,9 +108,6 @@ if 'TimeoutPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_TimeoutDisp = IcePy.defineClass('::Test::Timeout', Timeout, (), None, ())
-    Timeout._ice_type = _M_Test._t_TimeoutDisp
-
     Timeout._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     Timeout._op_sendData = IcePy.Operation('sendData', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteSeq, False, 0),), (), None, ())
     Timeout._op_sleep = IcePy.Operation('sleep', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
@@ -200,9 +197,6 @@ if 'ControllerPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_ControllerDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_ControllerDisp = IcePy.defineClass('::Test::Controller', Controller, (), None, ())
-    Controller._ice_type = _M_Test._t_ControllerDisp
 
     Controller._op_holdAdapter = IcePy.Operation('holdAdapter', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
     Controller._op_resumeAdapter = IcePy.Operation('resumeAdapter', Ice.OperationMode.Normal, False, None, (), (), (), None, ())

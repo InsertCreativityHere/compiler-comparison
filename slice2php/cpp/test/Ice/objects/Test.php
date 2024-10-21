@@ -1115,7 +1115,6 @@ namespace Test
     global $Test__t_F2Prx;
     if(!isset($Test__t_F2))
     {
-        $Test__t_F2 = IcePHP_declareClass('::Test::F2');
         $Test__t_F2Prx = IcePHP_declareProxy('::Test::F2');
     }
 }

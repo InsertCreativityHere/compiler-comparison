@@ -78,9 +78,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-    TestIntf._ice_type = _M_Test._t_TestIntfDisp
-
     _M_Test.TestIntf = TestIntf
     del TestIntf
 

@@ -109,9 +109,6 @@ if 'BackgroundPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_BackgroundDisp = IcePy.defineClass('::Test::Background', Background, (), None, ())
-    Background._ice_type = _M_Test._t_BackgroundDisp
-
     Background._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     Background._op_opWithPayload = IcePy.Operation('opWithPayload', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_ByteSeq, False, 0),), (), None, ())
     Background._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
@@ -264,9 +261,6 @@ if 'BackgroundControllerPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_BackgroundControllerDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_BackgroundControllerDisp = IcePy.defineClass('::Test::BackgroundController', BackgroundController, (), None, ())
-    BackgroundController._ice_type = _M_Test._t_BackgroundControllerDisp
 
     BackgroundController._op_pauseCall = IcePy.Operation('pauseCall', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
     BackgroundController._op_resumeCall = IcePy.Operation('resumeCall', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())

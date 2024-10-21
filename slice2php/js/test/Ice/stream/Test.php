@@ -48,7 +48,6 @@ namespace Test
     global $Test__t_MyInterfacePrx;
     if(!isset($Test__t_MyInterface))
     {
-        $Test__t_MyInterface = IcePHP_declareClass('::Test::MyInterface');
         $Test__t_MyInterfacePrx = IcePHP_declareProxy('::Test::MyInterface');
     }
 }

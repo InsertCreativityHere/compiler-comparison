@@ -148,9 +148,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_InitialDisp = IcePy.defineClass('::Test::Initial', Initial, (), None, ())
-    Initial._ice_type = _M_Test._t_InitialDisp
-
     Initial._op_getConcreteClass = IcePy.Operation('getConcreteClass', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_ConcreteClass, False, 0), ())
     Initial._op_throwException = IcePy.Operation('throwException', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_E,))
     Initial._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())

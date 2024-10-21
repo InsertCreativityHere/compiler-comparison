@@ -706,9 +706,6 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
 
         __repr__ = __str__
 
-    _M_DataStormContract._t_SessionDisp = IcePy.defineClass('::DataStormContract::Session', Session, (), None, ())
-    Session._ice_type = _M_DataStormContract._t_SessionDisp
-
     Session._op_announceTopics = IcePy.Operation('announceTopics', Ice.OperationMode.Normal, False, None, (), (((), _M_DataStormContract._t_TopicInfoSeq, False, 0), ((), IcePy._t_bool, False, 0)), (), None, ())
     Session._op_attachTopic = IcePy.Operation('attachTopic', Ice.OperationMode.Normal, False, None, (), (((), _M_DataStormContract._t_TopicSpec, False, 0),), (), None, ())
     Session._op_detachTopic = IcePy.Operation('detachTopic', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_long, False, 0),), (), None, ())
@@ -780,9 +777,6 @@ if 'PublisherSessionPrx' not in _M_DataStormContract.__dict__:
 
         __repr__ = __str__
 
-    _M_DataStormContract._t_PublisherSessionDisp = IcePy.defineClass('::DataStormContract::PublisherSession', PublisherSession, (), None, (_M_DataStormContract._t_SessionDisp,))
-    PublisherSession._ice_type = _M_DataStormContract._t_PublisherSessionDisp
-
     _M_DataStormContract.PublisherSession = PublisherSession
     del PublisherSession
 
@@ -850,9 +844,6 @@ if 'SubscriberSessionPrx' not in _M_DataStormContract.__dict__:
             return IcePy.stringify(self, _M_DataStormContract._t_SubscriberSessionDisp)
 
         __repr__ = __str__
-
-    _M_DataStormContract._t_SubscriberSessionDisp = IcePy.defineClass('::DataStormContract::SubscriberSession', SubscriberSession, (), None, (_M_DataStormContract._t_SessionDisp,))
-    SubscriberSession._ice_type = _M_DataStormContract._t_SubscriberSessionDisp
 
     SubscriberSession._op_s = IcePy.Operation('s', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_long, False, 0), ((), IcePy._t_long, False, 0), ((), _M_DataStormContract._t_DataSample, False, 0)), (), None, ())
 
@@ -1088,9 +1079,6 @@ if 'NodePrx' not in _M_DataStormContract.__dict__:
             return IcePy.stringify(self, _M_DataStormContract._t_NodeDisp)
 
         __repr__ = __str__
-
-    _M_DataStormContract._t_NodeDisp = IcePy.defineClass('::DataStormContract::Node', Node, (), None, ())
-    Node._ice_type = _M_DataStormContract._t_NodeDisp
 
     Node._op_initiateCreateSession = IcePy.Operation('initiateCreateSession', Ice.OperationMode.Normal, False, None, (), (((), _M_DataStormContract._t_NodePrx, False, 0),), (), None, ())
     Node._op_createSession = IcePy.Operation('createSession', Ice.OperationMode.Normal, False, None, (), (((), _M_DataStormContract._t_NodePrx, False, 0), ((), _M_DataStormContract._t_SubscriberSessionPrx, False, 0), ((), IcePy._t_bool, False, 0)), (), None, ())
@@ -1379,9 +1367,6 @@ if 'LookupPrx' not in _M_DataStormContract.__dict__:
             return IcePy.stringify(self, _M_DataStormContract._t_LookupDisp)
 
         __repr__ = __str__
-
-    _M_DataStormContract._t_LookupDisp = IcePy.defineClass('::DataStormContract::Lookup', Lookup, (), None, ())
-    Lookup._ice_type = _M_DataStormContract._t_LookupDisp
 
     Lookup._op_announceTopicReader = IcePy.Operation('announceTopicReader', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), _M_DataStormContract._t_NodePrx, False, 0)), (), None, ())
     Lookup._op_announceTopicWriter = IcePy.Operation('announceTopicWriter', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), _M_DataStormContract._t_NodePrx, False, 0)), (), None, ())

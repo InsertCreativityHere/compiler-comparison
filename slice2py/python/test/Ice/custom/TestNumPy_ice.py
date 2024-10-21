@@ -327,9 +327,6 @@ if 'CustomPrx' not in _M_Test.NumPy.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.NumPy._t_CustomDisp = IcePy.defineClass('::Test::NumPy::Custom', Custom, (), None, ())
-    Custom._ice_type = _M_Test.NumPy._t_CustomDisp
-
     Custom._op_opBoolSeq = IcePy.Operation('opBoolSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.NumPy._t_BoolSeq1, False, 0),), (((), _M_Test.NumPy._t_BoolSeq2, False, 0),), ((), _M_Test.NumPy._t_BoolSeq1, False, 0), ())
     Custom._op_opByteSeq = IcePy.Operation('opByteSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.NumPy._t_ByteSeq1, False, 0),), (((), _M_Test.NumPy._t_ByteSeq2, False, 0),), ((), _M_Test.NumPy._t_ByteSeq1, False, 0), ())
     Custom._op_opShortSeq = IcePy.Operation('opShortSeq', Ice.OperationMode.Normal, False, None, (), (((), _M_Test.NumPy._t_ShortSeq1, False, 0),), (((), _M_Test.NumPy._t_ShortSeq2, False, 0),), ((), _M_Test.NumPy._t_ShortSeq1, False, 0), ())

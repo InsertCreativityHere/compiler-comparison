@@ -437,9 +437,6 @@ if 'IPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_IDisp = IcePy.defineClass('::Test::I', I, (), None, ())
-    I._ice_type = _M_Test._t_IDisp
-
     _M_Test.I = I
     del I
 
@@ -1279,9 +1276,6 @@ if 'MyClassPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_MyClassDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_MyClassDisp = IcePy.defineClass('::Test::MyClass', MyClass, (), None, ())
-    MyClass._ice_type = _M_Test._t_MyClassDisp
 
     MyClass._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, True, None, (), (), (), None, ())
     MyClass._op_opAByteS = IcePy.Operation('opAByteS', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_AByteS, False, 0),), (((), _M_Test._t_AByteS, False, 0),), ((), _M_Test._t_AByteS, False, 0), ())

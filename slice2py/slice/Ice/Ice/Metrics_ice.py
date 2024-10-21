@@ -608,9 +608,6 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
 
         __repr__ = __str__
 
-    _M_IceMX._t_MetricsAdminDisp = IcePy.defineClass('::IceMX::MetricsAdmin', MetricsAdmin, (), None, ())
-    MetricsAdmin._ice_type = _M_IceMX._t_MetricsAdminDisp
-
     MetricsAdmin._op_getMetricsViewNames = IcePy.Operation('getMetricsViewNames', Ice.OperationMode.Normal, False, None, (), (), (((), _M_Ice._t_StringSeq, False, 0),), ((), _M_Ice._t_StringSeq, False, 0), ())
     MetricsAdmin._op_enableMetricsView = IcePy.Operation('enableMetricsView', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, (_M_IceMX._t_UnknownMetricsView,))
     MetricsAdmin._op_disableMetricsView = IcePy.Operation('disableMetricsView', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, (_M_IceMX._t_UnknownMetricsView,))

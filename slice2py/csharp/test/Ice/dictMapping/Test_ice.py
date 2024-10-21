@@ -233,9 +233,6 @@ if 'MyClassPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_MyClassDisp = IcePy.defineClass('::Test::MyClass', MyClass, (), None, ())
-    MyClass._ice_type = _M_Test._t_MyClassDisp
-
     MyClass._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     MyClass._op_opNV = IcePy.Operation('opNV', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_NV, False, 0),), (((), _M_Test._t_NV, False, 0),), ((), _M_Test._t_NV, False, 0), ())
     MyClass._op_opNR = IcePy.Operation('opNR', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_NR, False, 0),), (((), _M_Test._t_NR, False, 0),), ((), _M_Test._t_NR, False, 0), ())

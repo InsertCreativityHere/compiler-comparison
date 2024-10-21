@@ -352,9 +352,6 @@ if 'RemoteLoggerPrx' not in _M_Ice.__dict__:
 
         __repr__ = __str__
 
-    _M_Ice._t_RemoteLoggerDisp = IcePy.defineClass('::Ice::RemoteLogger', RemoteLogger, (), None, ())
-    RemoteLogger._ice_type = _M_Ice._t_RemoteLoggerDisp
-
     RemoteLogger._op_init = IcePy.Operation('init', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), _M_Ice._t_LogMessageSeq, False, 0)), (), None, ())
     RemoteLogger._op_log = IcePy.Operation('log', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_LogMessage, False, 0),), (), None, ())
 
@@ -668,9 +665,6 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
             return IcePy.stringify(self, _M_Ice._t_LoggerAdminDisp)
 
         __repr__ = __str__
-
-    _M_Ice._t_LoggerAdminDisp = IcePy.defineClass('::Ice::LoggerAdmin', LoggerAdmin, (), None, ())
-    LoggerAdmin._ice_type = _M_Ice._t_LoggerAdminDisp
 
     LoggerAdmin._op_attachRemoteLogger = IcePy.Operation('attachRemoteLogger', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_RemoteLoggerPrx, False, 0), ((), _M_Ice._t_LogMessageTypeSeq, False, 0), ((), _M_Ice._t_StringSeq, False, 0), ((), IcePy._t_int, False, 0)), (), None, (_M_Ice._t_RemoteLoggerAlreadyAttachedException,))
     LoggerAdmin._op_detachRemoteLogger = IcePy.Operation('detachRemoteLogger', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_RemoteLoggerPrx, False, 0),), (), ((), IcePy._t_bool, False, 0), ())

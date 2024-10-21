@@ -100,9 +100,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-    TestIntf._ice_type = _M_Test._t_TestIntfDisp
-
     TestIntf._op_getProperty = IcePy.Operation('getProperty', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_string, False, 0), ())
     TestIntf._op_getArgs = IcePy.Operation('getArgs', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_StringSeq, False, 0), ())
 

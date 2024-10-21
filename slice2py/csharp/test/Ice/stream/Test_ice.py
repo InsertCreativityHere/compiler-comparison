@@ -53,7 +53,6 @@ if 'MyClass' not in _M_Test.__dict__:
     _M_Test._t_MyClass = IcePy.declareValue('::Test::MyClass')
 
 if 'MyInterface' not in _M_Test.__dict__:
-    _M_Test._t_MyInterfaceDisp = IcePy.declareClass('::Test::MyInterface')
     _M_Test._t_MyInterfacePrx = IcePy.declareProxy('::Test::MyInterface')
 
 if 'LargeStruct' not in _M_Test.__dict__:
@@ -398,9 +397,6 @@ if 'MyInterfacePrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_MyInterfaceDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_MyInterfaceDisp = IcePy.defineClass('::Test::MyInterface', MyInterface, (), None, ())
-    MyInterface._ice_type = _M_Test._t_MyInterfaceDisp
 
     _M_Test.MyInterface = MyInterface
     del MyInterface

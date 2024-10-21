@@ -176,9 +176,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_InitialDisp = IcePy.defineClass('::Test::Initial', Initial, (), None, ())
-    Initial._ice_type = _M_Test._t_InitialDisp
-
     Initial._op_getNoNamespaceC2AsC1 = IcePy.Operation('getNoNamespaceC2AsC1', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_NoNamespace._t_C1, False, 0), ())
     Initial._op_getNoNamespaceC2AsC2 = IcePy.Operation('getNoNamespaceC2AsC2', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_NoNamespace._t_C2, False, 0), ())
     Initial._op_throwNoNamespaceE2AsE1 = IcePy.Operation('throwNoNamespaceE2AsE1', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_NoNamespace._t_E1,))

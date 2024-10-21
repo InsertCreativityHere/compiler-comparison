@@ -494,9 +494,6 @@ if 'CustomPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_CustomDisp = IcePy.defineClass('::Test::Custom', Custom, (), None, ())
-    Custom._ice_type = _M_Test._t_CustomDisp
-
     Custom._op_opByteString1 = IcePy.Operation('opByteString1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteString, False, 0),), (((), _M_Test._t_ByteString, False, 0),), ((), _M_Test._t_ByteString, False, 0), ())
     Custom._op_opByteString2 = IcePy.Operation('opByteString2', Ice.OperationMode.Normal, False, None, ('python:seq:tuple',), ((('python:seq:list',), _M_Test._t_ByteString, False, 0),), ((('python:seq:list',), _M_Test._t_ByteString, False, 0),), ((), _M_Test._t_ByteString, False, 0), ())
     Custom._op_opByteList1 = IcePy.Operation('opByteList1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteList, False, 0),), (((), _M_Test._t_ByteList, False, 0),), ((), _M_Test._t_ByteList, False, 0), ())

@@ -91,9 +91,6 @@ if 'TestFacetPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_TestFacetDisp = IcePy.defineClass('::Test::TestFacet', TestFacet, (), None, ())
-    TestFacet._ice_type = _M_Test._t_TestFacetDisp
-
     TestFacet._op_getChanges = IcePy.Operation('getChanges', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_PropertyDict, False, 0), ())
 
     _M_Test.TestFacet = TestFacet

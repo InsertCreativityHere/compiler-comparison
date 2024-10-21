@@ -109,9 +109,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-    TestIntf._ice_type = _M_Test._t_TestIntfDisp
-
     TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     TestIntf._op_getEndpointInfoAsContext = IcePy.Operation('getEndpointInfoAsContext', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_Context, False, 0), ())
     TestIntf._op_getConnectionInfoAsContext = IcePy.Operation('getConnectionInfoAsContext', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_Context, False, 0), ())

@@ -233,9 +233,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-    TestIntf._ice_type = _M_Test._t_TestIntfDisp
-
     TestIntf._op_requestFailedException = IcePy.Operation('requestFailedException', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     TestIntf._op_unknownUserException = IcePy.Operation('unknownUserException', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     TestIntf._op_unknownLocalException = IcePy.Operation('unknownLocalException', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
@@ -317,9 +314,6 @@ if 'TestActivationPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_TestActivationDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_TestActivationDisp = IcePy.defineClass('::Test::TestActivation', TestActivation, (), None, ())
-    TestActivation._ice_type = _M_Test._t_TestActivationDisp
 
     TestActivation._op_activateServantLocator = IcePy.Operation('activateServantLocator', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0),), (), None, ())
 

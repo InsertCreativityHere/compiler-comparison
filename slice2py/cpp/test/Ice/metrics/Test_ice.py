@@ -181,9 +181,6 @@ if 'MetricsPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_MetricsDisp = IcePy.defineClass('::Test::Metrics', Metrics, (), None, ())
-    Metrics._ice_type = _M_Test._t_MetricsDisp
-
     Metrics._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     Metrics._op_fail = IcePy.Operation('fail', Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
     Metrics._op_opWithUserException = IcePy.Operation('opWithUserException', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_UserEx,))
@@ -270,9 +267,6 @@ if 'ControllerPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_ControllerDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_ControllerDisp = IcePy.defineClass('::Test::Controller', Controller, (), None, ())
-    Controller._ice_type = _M_Test._t_ControllerDisp
 
     Controller._op_hold = IcePy.Operation('hold', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     Controller._op_resume = IcePy.Operation('resume', Ice.OperationMode.Normal, False, None, (), (), (), None, ())

@@ -96,9 +96,6 @@ if 'ServerPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_ServerDisp = IcePy.defineClass('::Test::Server', Server, (), None, ())
-    Server._ice_type = _M_Test._t_ServerDisp
-
     Server._op_noCert = IcePy.Operation('noCert', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     Server._op_checkCert = IcePy.Operation('checkCert', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), None, ())
 
@@ -190,9 +187,6 @@ if 'ServerFactoryPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_ServerFactoryDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_ServerFactoryDisp = IcePy.defineClass('::Test::ServerFactory', ServerFactory, (), None, ())
-    ServerFactory._ice_type = _M_Test._t_ServerFactoryDisp
 
     ServerFactory._op_createServer = IcePy.Operation('createServer', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_Properties, False, 0),), (), ((), _M_Test._t_ServerPrx, False, 0), ())
     ServerFactory._op_destroyServer = IcePy.Operation('destroyServer', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ServerPrx, False, 0),), (), None, ())

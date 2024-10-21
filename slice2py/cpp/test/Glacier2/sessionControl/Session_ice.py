@@ -103,9 +103,6 @@ if 'SessionPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_SessionDisp = IcePy.defineClass('::Test::Session', Session, (), None, (_M_Glacier2._t_SessionDisp,))
-    Session._ice_type = _M_Test._t_SessionDisp
-
     Session._op_destroyFromClient = IcePy.Operation('destroyFromClient', Ice.OperationMode.Normal, True, None, (), (), (), None, ())
     Session._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 

@@ -184,9 +184,6 @@ if 'FileParserPrx' not in _M_IceGrid.__dict__:
 
         __repr__ = __str__
 
-    _M_IceGrid._t_FileParserDisp = IcePy.defineClass('::IceGrid::FileParser', FileParser, (), None, ())
-    FileParser._ice_type = _M_IceGrid._t_FileParserDisp
-
     FileParser._op_parse = IcePy.Operation('parse', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), _M_IceGrid._t_AdminPrx, False, 0)), (), ((), _M_IceGrid._t_ApplicationDescriptor, False, 0), (_M_IceGrid._t_ParseException,))
 
     _M_IceGrid.FileParser = FileParser

@@ -115,9 +115,6 @@ if 'RegistryPrx' not in _M_User.__dict__:
 
         __repr__ = __str__
 
-    _M_User._t_RegistryDisp = IcePy.defineClass('::User::Registry', Registry, (), None, ())
-    Registry._ice_type = _M_User._t_RegistryDisp
-
     Registry._op_getUserInfo = IcePy.Operation('getUserInfo', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_User._t_UserInfo, False, 0), (_M_Core._t_ArgumentException,))
 
     _M_User.Registry = Registry

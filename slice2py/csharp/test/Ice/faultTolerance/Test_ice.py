@@ -114,9 +114,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-    TestIntf._ice_type = _M_Test._t_TestIntfDisp
-
     TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     TestIntf._op_abort = IcePy.Operation('abort', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     TestIntf._op_idempotentAbort = IcePy.Operation('idempotentAbort', Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
@@ -189,9 +186,6 @@ if 'CleanerPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_CleanerDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_CleanerDisp = IcePy.defineClass('::Test::Cleaner', Cleaner, (), None, ())
-    Cleaner._ice_type = _M_Test._t_CleanerDisp
 
     Cleaner._op_cleanup = IcePy.Operation('cleanup', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 

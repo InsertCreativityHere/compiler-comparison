@@ -114,9 +114,6 @@ if 'EchoPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_EchoDisp = IcePy.defineClass('::Test::Echo', Echo, (), None, ())
-    Echo._ice_type = _M_Test._t_EchoDisp
-
     Echo._op_setConnection = IcePy.Operation('setConnection', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     Echo._op_startBatch = IcePy.Operation('startBatch', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     Echo._op_flushBatch = IcePy.Operation('flushBatch', Ice.OperationMode.Normal, False, None, (), (), (), None, ())

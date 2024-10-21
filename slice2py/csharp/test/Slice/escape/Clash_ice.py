@@ -186,9 +186,6 @@ if 'IntfPrx' not in _M_Clash.__dict__:
 
         __repr__ = __str__
 
-    _M_Clash._t_IntfDisp = IcePy.defineClass('::Clash::Intf', Intf, (), None, ())
-    Intf._ice_type = _M_Clash._t_IntfDisp
-
     Intf._op_context = IcePy.Operation('context', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     Intf._op_current = IcePy.Operation('current', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     Intf._op_response = IcePy.Operation('response', Ice.OperationMode.Normal, False, None, (), (), (), None, ())

@@ -127,9 +127,6 @@ if 'RemoteCommunicatorPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_RemoteCommunicatorDisp = IcePy.defineClass('::Test::RemoteCommunicator', RemoteCommunicator, (), None, ())
-    RemoteCommunicator._ice_type = _M_Test._t_RemoteCommunicatorDisp
-
     RemoteCommunicator._op_getAdmin = IcePy.Operation('getAdmin', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
     RemoteCommunicator._op_getChanges = IcePy.Operation('getChanges', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_PropertyDict, False, 0), ())
     RemoteCommunicator._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
@@ -213,9 +210,6 @@ if 'RemoteCommunicatorFactoryPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_RemoteCommunicatorFactoryDisp = IcePy.defineClass('::Test::RemoteCommunicatorFactory', RemoteCommunicatorFactory, (), None, ())
-    RemoteCommunicatorFactory._ice_type = _M_Test._t_RemoteCommunicatorFactoryDisp
-
     RemoteCommunicatorFactory._op_createCommunicator = IcePy.Operation('createCommunicator', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_PropertyDict, False, 0),), (), ((), _M_Test._t_RemoteCommunicatorPrx, False, 0), ())
     RemoteCommunicatorFactory._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
@@ -286,9 +280,6 @@ if 'TestFacetPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_TestFacetDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_TestFacetDisp = IcePy.defineClass('::Test::TestFacet', TestFacet, (), None, ())
-    TestFacet._ice_type = _M_Test._t_TestFacetDisp
 
     TestFacet._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 

@@ -546,9 +546,6 @@ if 'RouterPrx' not in _M_Glacier2.__dict__:
 
         __repr__ = __str__
 
-    _M_Glacier2._t_RouterDisp = IcePy.defineClass('::Glacier2::Router', Router, (), None, (_M_Ice._t_RouterDisp,))
-    Router._ice_type = _M_Glacier2._t_RouterDisp
-
     Router._op_getCategoryForClient = IcePy.Operation('getCategoryForClient', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
     Router._op_createSession = IcePy.Operation('createSession', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), ((), _M_Glacier2._t_SessionPrx, False, 0), (_M_Glacier2._t_PermissionDeniedException, _M_Glacier2._t_CannotCreateSessionException))
     Router._op_createSessionFromSecureConnection = IcePy.Operation('createSessionFromSecureConnection', Ice.OperationMode.Normal, True, None, (), (), (), ((), _M_Glacier2._t_SessionPrx, False, 0), (_M_Glacier2._t_PermissionDeniedException, _M_Glacier2._t_CannotCreateSessionException))

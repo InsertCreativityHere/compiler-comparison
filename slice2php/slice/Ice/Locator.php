@@ -26,7 +26,6 @@ namespace Ice
     global $Ice__t_ProcessPrx;
     if(!isset($Ice__t_Process))
     {
-        $Ice__t_Process = IcePHP_declareClass('::Ice::Process');
         $Ice__t_ProcessPrx = IcePHP_declareProxy('::Ice::Process');
     }
 }
@@ -137,7 +136,6 @@ namespace Ice
     global $Ice__t_LocatorRegistryPrx;
     if(!isset($Ice__t_LocatorRegistry))
     {
-        $Ice__t_LocatorRegistry = IcePHP_declareClass('::Ice::LocatorRegistry');
         $Ice__t_LocatorRegistryPrx = IcePHP_declareProxy('::Ice::LocatorRegistry');
     }
 }

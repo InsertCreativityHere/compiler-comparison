@@ -114,9 +114,6 @@ if 'CallbackPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_CallbackDisp = IcePy.defineClass('::Test::Callback', Callback, (), None, ())
-    Callback._ice_type = _M_Test._t_CallbackDisp
-
     Callback._op_ping = IcePy.Operation('ping', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     Callback._op_getCount = IcePy.Operation('getCount', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
     Callback._op_datagram = IcePy.Operation('datagram', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
@@ -288,9 +285,6 @@ if 'MyClassPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_MyClassDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_MyClassDisp = IcePy.defineClass('::Test::MyClass', MyClass, (), None, ())
-    MyClass._ice_type = _M_Test._t_MyClassDisp
 
     MyClass._op_callCallback = IcePy.Operation('callCallback', Ice.OperationMode.Normal, True, None, (), (), (), None, ())
     MyClass._op_getCallbackCount = IcePy.Operation('getCallbackCount', Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_int, False, 0), ())

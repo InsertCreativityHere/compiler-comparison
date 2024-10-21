@@ -185,7 +185,6 @@ namespace IceStormElection
     global $IceStormElection__t_NodePrx;
     if(!isset($IceStormElection__t_Node))
     {
-        $IceStormElection__t_Node = IcePHP_declareClass('::IceStormElection::Node');
         $IceStormElection__t_NodePrx = IcePHP_declareProxy('::IceStormElection::Node');
     }
 }

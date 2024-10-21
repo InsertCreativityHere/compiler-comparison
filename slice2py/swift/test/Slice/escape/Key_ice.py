@@ -267,9 +267,6 @@ if 'breakPrx' not in _M__and.__dict__:
 
         __repr__ = __str__
 
-    _M__and._t_breakDisp = IcePy.defineClass('::and::break', _break, (), None, ())
-    _break._ice_type = _M__and._t_breakDisp
-
     _break._op_case = IcePy.Operation('case', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_int, False, 0),), (((), IcePy._t_int, False, 0),), None, ())
 
     _M__and._break = _break
@@ -339,9 +336,6 @@ if 'funcPrx' not in _M__and.__dict__:
             return IcePy.stringify(self, _M__and._t_funcDisp)
 
         __repr__ = __str__
-
-    _M__and._t_funcDisp = IcePy.defineClass('::and::func', func, (), None, ())
-    func._ice_type = _M__and._t_funcDisp
 
     func._op_public = IcePy.Operation('public', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
@@ -433,9 +427,6 @@ if 'doPrx' not in _M__and.__dict__:
             return IcePy.stringify(self, _M__and._t_doDisp)
 
         __repr__ = __str__
-
-    _M__and._t_doDisp = IcePy.defineClass('::and::do', do, (), None, (_M__and._t_funcDisp, _M__and._t_breakDisp))
-    do._ice_type = _M__and._t_doDisp
 
     _M__and.do = do
     del do
@@ -553,9 +544,6 @@ if 'friendPrx' not in _M__and.__dict__:
             return IcePy.stringify(self, _M__and._t_friendDisp)
 
         __repr__ = __str__
-
-    _M__and._t_friendDisp = IcePy.defineClass('::and::friend', friend, (), None, ())
-    friend._ice_type = _M__and._t_friendDisp
 
     friend._op_goto = IcePy.Operation('goto', Ice.OperationMode.Normal, False, None, (), (((), _M__and._t__continue, False, 0), ((), _M__and._t_guard, False, 0), ((), _M__and._t_defer, False, 0), ((), _M__and._t_switch, False, 0), ((), _M__and._t_doPrx, False, 0), ((), _M__and._t_breakPrx, False, 0), ((), _M__and._t_funcPrx, False, 0), ((), _M__and._t_switch, False, 0), ((), _M__and._t_doPrx, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M__and._t_guard, False, 0), (_M__and._t__return, _M__and._t__as))
 

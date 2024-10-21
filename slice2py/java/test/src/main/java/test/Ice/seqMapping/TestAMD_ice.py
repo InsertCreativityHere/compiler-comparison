@@ -123,9 +123,6 @@ if 'MyClassPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_MyClassDisp = IcePy.defineClass('::Test::MyClass', MyClass, (), None, ())
-    MyClass._ice_type = _M_Test._t_MyClassDisp
-
     MyClass._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, True, None, (), (), (), None, ())
     MyClass._op_opSerialSmallJava = IcePy.Operation('opSerialSmallJava', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_SerialSmall, False, 0),), (((), _M_Test._t_SerialSmall, False, 0),), ((), _M_Test._t_SerialSmall, False, 0), ())
     MyClass._op_opSerialLargeJava = IcePy.Operation('opSerialLargeJava', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_SerialLarge, False, 0),), (((), _M_Test._t_SerialLarge, False, 0),), ((), _M_Test._t_SerialLarge, False, 0), ())

@@ -87,9 +87,6 @@ if 'DelayedTestIntfPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_DelayedTestIntfDisp = IcePy.defineClass('::Test::DelayedTestIntf', DelayedTestIntf, (), None, ())
-    DelayedTestIntf._ice_type = _M_Test._t_DelayedTestIntfDisp
-
     DelayedTestIntf._op_sleep = IcePy.Operation('sleep', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
 
     _M_Test.DelayedTestIntf = DelayedTestIntf
@@ -160,9 +157,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, (_M_Test._t_DelayedTestIntfDisp,))
-    TestIntf._ice_type = _M_Test._t_TestIntfDisp
-
     TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.TestIntf = TestIntf
@@ -232,9 +226,6 @@ if 'TestIntfBidirPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_TestIntfBidirDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_TestIntfBidirDisp = IcePy.defineClass('::Test::TestIntfBidir', TestIntfBidir, (), None, ())
-    TestIntfBidir._ice_type = _M_Test._t_TestIntfBidirDisp
 
     TestIntfBidir._op_makeSleep = IcePy.Operation('makeSleep', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0), ((), IcePy._t_int, False, 0), ((), _M_Test._t_DelayedTestIntfPrx, False, 0)), (), None, ())
 

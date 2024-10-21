@@ -34,7 +34,6 @@ namespace Test
     global $Test__t_InitialPrx;
     if(!isset($Test__t_Initial))
     {
-        $Test__t_Initial = IcePHP_declareClass('::Test::Initial');
         $Test__t_InitialPrx = IcePHP_declareProxy('::Test::Initial');
     }
 }

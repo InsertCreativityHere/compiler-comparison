@@ -304,9 +304,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-    TestIntf._ice_type = _M_Test._t_TestIntfDisp
-
     TestIntf._op_opByte = IcePy.Operation('opByte', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ByteEnum, False, 0),), (((), _M_Test._t_ByteEnum, False, 0),), ((), _M_Test._t_ByteEnum, False, 0), ())
     TestIntf._op_opShort = IcePy.Operation('opShort', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortEnum, False, 0),), (((), _M_Test._t_ShortEnum, False, 0),), ((), _M_Test._t_ShortEnum, False, 0), ())
     TestIntf._op_opInt = IcePy.Operation('opInt', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntEnum, False, 0),), (((), _M_Test._t_IntEnum, False, 0),), ((), _M_Test._t_IntEnum, False, 0), ())

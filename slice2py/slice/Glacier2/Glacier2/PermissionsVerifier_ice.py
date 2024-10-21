@@ -187,9 +187,6 @@ if 'PermissionsVerifierPrx' not in _M_Glacier2.__dict__:
 
         __repr__ = __str__
 
-    _M_Glacier2._t_PermissionsVerifierDisp = IcePy.defineClass('::Glacier2::PermissionsVerifier', PermissionsVerifier, (), None, ())
-    PermissionsVerifier._ice_type = _M_Glacier2._t_PermissionsVerifierDisp
-
     PermissionsVerifier._op_checkPermissions = IcePy.Operation('checkPermissions', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (((), IcePy._t_string, False, 0),), ((), IcePy._t_bool, False, 0), (_M_Glacier2._t_PermissionDeniedException,))
 
     _M_Glacier2.PermissionsVerifier = PermissionsVerifier
@@ -320,9 +317,6 @@ if 'SSLPermissionsVerifierPrx' not in _M_Glacier2.__dict__:
             return IcePy.stringify(self, _M_Glacier2._t_SSLPermissionsVerifierDisp)
 
         __repr__ = __str__
-
-    _M_Glacier2._t_SSLPermissionsVerifierDisp = IcePy.defineClass('::Glacier2::SSLPermissionsVerifier', SSLPermissionsVerifier, (), None, ())
-    SSLPermissionsVerifier._ice_type = _M_Glacier2._t_SSLPermissionsVerifierDisp
 
     SSLPermissionsVerifier._op_authorize = IcePy.Operation('authorize', Ice.OperationMode.Idempotent, False, None, (), (((), _M_Glacier2._t_SSLInfo, False, 0),), (((), IcePy._t_string, False, 0),), ((), IcePy._t_bool, False, 0), (_M_Glacier2._t_PermissionDeniedException,))
 

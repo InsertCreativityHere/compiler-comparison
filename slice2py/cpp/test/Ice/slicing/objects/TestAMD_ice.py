@@ -798,9 +798,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-    TestIntf._ice_type = _M_Test._t_TestIntfDisp
-
     TestIntf._op_SBaseAsObject = IcePy.Operation('SBaseAsObject', Ice.OperationMode.Normal, True, Ice.FormatType.SlicedFormat, (), (), (), ((), IcePy._t_Value, False, 0), ())
     TestIntf._op_SBaseAsSBase = IcePy.Operation('SBaseAsSBase', Ice.OperationMode.Normal, True, Ice.FormatType.SlicedFormat, (), (), (), ((), _M_Test._t_SBase, False, 0), ())
     TestIntf._op_SBSKnownDerivedAsSBase = IcePy.Operation('SBSKnownDerivedAsSBase', Ice.OperationMode.Normal, True, Ice.FormatType.SlicedFormat, (), (), (), ((), _M_Test._t_SBase, False, 0), ())

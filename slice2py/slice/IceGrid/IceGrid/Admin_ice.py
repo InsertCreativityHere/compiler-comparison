@@ -3698,9 +3698,6 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         __repr__ = __str__
 
-    _M_IceGrid._t_AdminDisp = IcePy.defineClass('::IceGrid::Admin', Admin, (), None, ())
-    Admin._ice_type = _M_IceGrid._t_AdminDisp
-
     Admin._op_addApplication = IcePy.Operation('addApplication', Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_ApplicationDescriptor, False, 0),), (), None, (_M_IceGrid._t_AccessDeniedException, _M_IceGrid._t_DeploymentException))
     Admin._op_syncApplication = IcePy.Operation('syncApplication', Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_ApplicationDescriptor, False, 0),), (), None, (_M_IceGrid._t_AccessDeniedException, _M_IceGrid._t_DeploymentException, _M_IceGrid._t_ApplicationNotExistException))
     Admin._op_updateApplication = IcePy.Operation('updateApplication', Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_ApplicationUpdateDescriptor, False, 0),), (), None, (_M_IceGrid._t_AccessDeniedException, _M_IceGrid._t_DeploymentException, _M_IceGrid._t_ApplicationNotExistException))
@@ -3921,9 +3918,6 @@ if 'FileIteratorPrx' not in _M_IceGrid.__dict__:
             return IcePy.stringify(self, _M_IceGrid._t_FileIteratorDisp)
 
         __repr__ = __str__
-
-    _M_IceGrid._t_FileIteratorDisp = IcePy.defineClass('::IceGrid::FileIterator', FileIterator, (), None, ())
-    FileIterator._ice_type = _M_IceGrid._t_FileIteratorDisp
 
     FileIterator._op_read = IcePy.Operation('read', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (((), _M_Ice._t_StringSeq, False, 0),), ((), IcePy._t_bool, False, 0), (_M_IceGrid._t_FileNotAvailableException,))
     FileIterator._op_destroy = IcePy.Operation('destroy', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
@@ -4367,9 +4361,6 @@ if 'RegistryObserverPrx' not in _M_IceGrid.__dict__:
 
         __repr__ = __str__
 
-    _M_IceGrid._t_RegistryObserverDisp = IcePy.defineClass('::IceGrid::RegistryObserver', RegistryObserver, (), None, ())
-    RegistryObserver._ice_type = _M_IceGrid._t_RegistryObserverDisp
-
     RegistryObserver._op_registryInit = IcePy.Operation('registryInit', Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_RegistryInfoSeq, False, 0),), (), None, ())
     RegistryObserver._op_registryUp = IcePy.Operation('registryUp', Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_RegistryInfo, False, 0),), (), None, ())
     RegistryObserver._op_registryDown = IcePy.Operation('registryDown', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
@@ -4699,9 +4690,6 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
 
         __repr__ = __str__
 
-    _M_IceGrid._t_NodeObserverDisp = IcePy.defineClass('::IceGrid::NodeObserver', NodeObserver, (), None, ())
-    NodeObserver._ice_type = _M_IceGrid._t_NodeObserverDisp
-
     NodeObserver._op_nodeInit = IcePy.Operation('nodeInit', Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_NodeDynamicInfoSeq, False, 0),), (), None, ())
     NodeObserver._op_nodeUp = IcePy.Operation('nodeUp', Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_NodeDynamicInfo, False, 0),), (), None, ())
     NodeObserver._op_nodeDown = IcePy.Operation('nodeDown', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
@@ -4999,9 +4987,6 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
 
         __repr__ = __str__
 
-    _M_IceGrid._t_ApplicationObserverDisp = IcePy.defineClass('::IceGrid::ApplicationObserver', ApplicationObserver, (), None, ())
-    ApplicationObserver._ice_type = _M_IceGrid._t_ApplicationObserverDisp
-
     ApplicationObserver._op_applicationInit = IcePy.Operation('applicationInit', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), _M_IceGrid._t_ApplicationInfoSeq, False, 0)), (), None, ())
     ApplicationObserver._op_applicationAdded = IcePy.Operation('applicationAdded', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), _M_IceGrid._t_ApplicationInfo, False, 0)), (), None, ())
     ApplicationObserver._op_applicationRemoved = IcePy.Operation('applicationRemoved', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_string, False, 0)), (), None, ())
@@ -5273,9 +5258,6 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             return IcePy.stringify(self, _M_IceGrid._t_AdapterObserverDisp)
 
         __repr__ = __str__
-
-    _M_IceGrid._t_AdapterObserverDisp = IcePy.defineClass('::IceGrid::AdapterObserver', AdapterObserver, (), None, ())
-    AdapterObserver._ice_type = _M_IceGrid._t_AdapterObserverDisp
 
     AdapterObserver._op_adapterInit = IcePy.Operation('adapterInit', Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_AdapterInfoSeq, False, 0),), (), None, ())
     AdapterObserver._op_adapterAdded = IcePy.Operation('adapterAdded', Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_AdapterInfo, False, 0),), (), None, ())
@@ -5551,9 +5533,6 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
             return IcePy.stringify(self, _M_IceGrid._t_ObjectObserverDisp)
 
         __repr__ = __str__
-
-    _M_IceGrid._t_ObjectObserverDisp = IcePy.defineClass('::IceGrid::ObjectObserver', ObjectObserver, (), None, ())
-    ObjectObserver._ice_type = _M_IceGrid._t_ObjectObserverDisp
 
     ObjectObserver._op_objectInit = IcePy.Operation('objectInit', Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_ObjectInfoSeq, False, 0),), (), None, ())
     ObjectObserver._op_objectAdded = IcePy.Operation('objectAdded', Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_ObjectInfo, False, 0),), (), None, ())
@@ -6684,9 +6663,6 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return IcePy.stringify(self, _M_IceGrid._t_AdminSessionDisp)
 
         __repr__ = __str__
-
-    _M_IceGrid._t_AdminSessionDisp = IcePy.defineClass('::IceGrid::AdminSession', AdminSession, (), None, (_M_Glacier2._t_SessionDisp,))
-    AdminSession._ice_type = _M_IceGrid._t_AdminSessionDisp
 
     AdminSession._op_keepAlive = IcePy.Operation('keepAlive', Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
     AdminSession._op_getAdmin = IcePy.Operation('getAdmin', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceGrid._t_AdminPrx, False, 0), ())

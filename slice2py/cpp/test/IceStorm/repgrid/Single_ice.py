@@ -87,9 +87,6 @@ if 'SinglePrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_SingleDisp = IcePy.defineClass('::Test::Single', Single, (), None, ())
-    Single._ice_type = _M_Test._t_SingleDisp
-
     Single._op_event = IcePy.Operation('event', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
 
     _M_Test.Single = Single

@@ -119,9 +119,6 @@ if 'CallbackReceiverPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_CallbackReceiverDisp = IcePy.defineClass('::Test::CallbackReceiver', CallbackReceiver, (), None, ())
-    CallbackReceiver._ice_type = _M_Test._t_CallbackReceiverDisp
-
     CallbackReceiver._op_callback = IcePy.Operation('callback', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     CallbackReceiver._op_callbackEx = IcePy.Operation('callbackEx', Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_CallbackException,))
 
@@ -210,9 +207,6 @@ if 'CallbackPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_CallbackDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_CallbackDisp = IcePy.defineClass('::Test::Callback', Callback, (), None, ())
-    Callback._ice_type = _M_Test._t_CallbackDisp
 
     Callback._op_initiateCallback = IcePy.Operation('initiateCallback', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CallbackReceiverPrx, False, 0),), (), None, ())
     Callback._op_initiateCallbackEx = IcePy.Operation('initiateCallbackEx', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CallbackReceiverPrx, False, 0),), (), None, (_M_Test._t_CallbackException,))

@@ -99,9 +99,6 @@ if 'MyClassPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_MyClassDisp = IcePy.defineClass('::Test::MyClass', MyClass, (), None, ())
-    MyClass._ice_type = _M_Test._t_MyClassDisp
-
     MyClass._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     MyClass._op_getContext = IcePy.Operation('getContext', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_Context, False, 0), ())
 
@@ -172,9 +169,6 @@ if 'MyDerivedClassPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_MyDerivedClassDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_MyDerivedClassDisp = IcePy.defineClass('::Test::MyDerivedClass', MyDerivedClass, (), None, (_M_Test._t_MyClassDisp,))
-    MyDerivedClass._ice_type = _M_Test._t_MyDerivedClassDisp
 
     MyDerivedClass._op_echo = IcePy.Operation('echo', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_ObjectPrx, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), ())
 

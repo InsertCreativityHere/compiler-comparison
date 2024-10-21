@@ -59,7 +59,6 @@ namespace Test
     global $Test__t_ThrowerPrx;
     if(!isset($Test__t_Thrower))
     {
-        $Test__t_Thrower = IcePHP_declareClass('::Test::Thrower');
         $Test__t_ThrowerPrx = IcePHP_declareProxy('::Test::Thrower');
     }
 }

@@ -96,9 +96,6 @@ if 'PriorityPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_PriorityDisp = IcePy.defineClass('::Test::Priority', Priority, (), None, ())
-    Priority._ice_type = _M_Test._t_PriorityDisp
-
     Priority._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     Priority._op_getPriority = IcePy.Operation('getPriority', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
 

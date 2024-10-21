@@ -87,9 +87,6 @@ if 'EventPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_EventDisp = IcePy.defineClass('::Test::Event', Event, (), None, ())
-    Event._ice_type = _M_Test._t_EventDisp
-
     Event._op_pub = IcePy.Operation('pub', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
 
     _M_Test.Event = Event

@@ -27,7 +27,6 @@ namespace IceStorm
     global $IceStorm__t_TopicPrx;
     if(!isset($IceStorm__t_Topic))
     {
-        $IceStorm__t_Topic = IcePHP_declareClass('::IceStorm::Topic');
         $IceStorm__t_TopicPrx = IcePHP_declareProxy('::IceStorm::Topic');
     }
 }

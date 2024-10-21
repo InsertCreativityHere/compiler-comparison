@@ -118,9 +118,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-    TestIntf._ice_type = _M_Test._t_TestIntfDisp
-
     TestIntf._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     TestIntf._op_sleep = IcePy.Operation('sleep', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), None, ())
     TestIntf._op_opWithPayload = IcePy.Operation('opWithPayload', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_ByteSeq, False, 0),), (), None, ())
@@ -202,9 +199,6 @@ if 'TestIntfControllerPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_TestIntfControllerDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_TestIntfControllerDisp = IcePy.defineClass('::Test::TestIntfController', TestIntfController, (), None, ())
-    TestIntfController._ice_type = _M_Test._t_TestIntfControllerDisp
 
     TestIntfController._op_holdAdapter = IcePy.Operation('holdAdapter', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     TestIntfController._op_resumeAdapter = IcePy.Operation('resumeAdapter', Ice.OperationMode.Normal, False, None, (), (), (), None, ())

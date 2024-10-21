@@ -399,9 +399,6 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
 
         __repr__ = __str__
 
-    _M_IceGrid._t_SessionDisp = IcePy.defineClass('::IceGrid::Session', Session, (), None, (_M_Glacier2._t_SessionDisp,))
-    Session._ice_type = _M_IceGrid._t_SessionDisp
-
     Session._op_keepAlive = IcePy.Operation('keepAlive', Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
     Session._op_allocateObjectById = IcePy.Operation('allocateObjectById', Ice.OperationMode.Normal, True, None, (), (((), _M_Ice._t_Identity, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), (_M_IceGrid._t_ObjectNotRegisteredException, _M_IceGrid._t_AllocationException))
     Session._op_allocateObjectByType = IcePy.Operation('allocateObjectByType', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), (_M_IceGrid._t_AllocationException,))

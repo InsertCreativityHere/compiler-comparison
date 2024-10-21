@@ -78,9 +78,6 @@ if 'EmptyPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_EmptyDisp = IcePy.defineClass('::Test::Empty', Empty, (), None, ())
-    Empty._ice_type = _M_Test._t_EmptyDisp
-
     _M_Test.Empty = Empty
     del Empty
 
@@ -148,9 +145,6 @@ if 'APrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_ADisp)
 
         __repr__ = __str__
-
-    _M_Test._t_ADisp = IcePy.defineClass('::Test::A', A, (), None, ())
-    A._ice_type = _M_Test._t_ADisp
 
     A._op_callA = IcePy.Operation('callA', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
 
@@ -222,9 +216,6 @@ if 'BPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_BDisp = IcePy.defineClass('::Test::B', B, (), None, (_M_Test._t_ADisp,))
-    B._ice_type = _M_Test._t_BDisp
-
     B._op_callB = IcePy.Operation('callB', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
 
     _M_Test.B = B
@@ -294,9 +285,6 @@ if 'CPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_CDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_CDisp = IcePy.defineClass('::Test::C', C, (), None, (_M_Test._t_ADisp,))
-    C._ice_type = _M_Test._t_CDisp
 
     C._op_callC = IcePy.Operation('callC', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
 
@@ -368,9 +356,6 @@ if 'DPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_DDisp = IcePy.defineClass('::Test::D', D, (), None, (_M_Test._t_BDisp, _M_Test._t_CDisp))
-    D._ice_type = _M_Test._t_DDisp
-
     D._op_callD = IcePy.Operation('callD', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
 
     _M_Test.D = D
@@ -441,9 +426,6 @@ if 'EPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_EDisp = IcePy.defineClass('::Test::E', E, (), None, ())
-    E._ice_type = _M_Test._t_EDisp
-
     E._op_callE = IcePy.Operation('callE', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
 
     _M_Test.E = E
@@ -513,9 +495,6 @@ if 'FPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_FDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_FDisp = IcePy.defineClass('::Test::F', F, (), None, (_M_Test._t_EDisp,))
-    F._ice_type = _M_Test._t_FDisp
 
     F._op_callF = IcePy.Operation('callF', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
 
@@ -596,9 +575,6 @@ if 'GPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_GDisp = IcePy.defineClass('::Test::G', G, (), None, ())
-    G._ice_type = _M_Test._t_GDisp
-
     G._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     G._op_callG = IcePy.Operation('callG', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
 
@@ -669,9 +645,6 @@ if 'HPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_HDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_HDisp = IcePy.defineClass('::Test::H', H, (), None, (_M_Test._t_GDisp,))
-    H._ice_type = _M_Test._t_HDisp
 
     H._op_callH = IcePy.Operation('callH', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
 

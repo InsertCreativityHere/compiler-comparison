@@ -87,9 +87,6 @@ if 'Interface1Prx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_Interface1Disp = IcePy.defineClass('::Test::Interface1', Interface1, (), None, ())
-    Interface1._ice_type = _M_Test._t_Interface1Disp
-
     Interface1._op_method = IcePy.Operation('method', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.Interface1 = Interface1

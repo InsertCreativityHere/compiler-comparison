@@ -36,7 +36,6 @@ interface.
 """
 
 if 'Topic' not in _M_IceStorm.__dict__:
-    _M_IceStorm._t_TopicDisp = IcePy.declareClass('::IceStorm::Topic')
     _M_IceStorm._t_TopicPrx = IcePy.declareProxy('::IceStorm::Topic')
 
 if 'LinkInfo' not in _M_IceStorm.__dict__:
@@ -831,9 +830,6 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
 
         __repr__ = __str__
 
-    _M_IceStorm._t_TopicDisp = IcePy.defineClass('::IceStorm::Topic', Topic, (), None, ())
-    Topic._ice_type = _M_IceStorm._t_TopicDisp
-
     Topic._op_getName = IcePy.Operation('getName', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
     Topic._op_getPublisher = IcePy.Operation('getPublisher', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
     Topic._op_getNonReplicatedPublisher = IcePy.Operation('getNonReplicatedPublisher', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
@@ -1137,9 +1133,6 @@ if 'TopicManagerPrx' not in _M_IceStorm.__dict__:
 
         __repr__ = __str__
 
-    _M_IceStorm._t_TopicManagerDisp = IcePy.defineClass('::IceStorm::TopicManager', TopicManager, (), None, ())
-    TopicManager._ice_type = _M_IceStorm._t_TopicManagerDisp
-
     TopicManager._op_create = IcePy.Operation('create', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_IceStorm._t_TopicPrx, False, 0), (_M_IceStorm._t_TopicExists,))
     TopicManager._op_retrieve = IcePy.Operation('retrieve', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_IceStorm._t_TopicPrx, False, 0), (_M_IceStorm._t_NoSuchTopic,))
     TopicManager._op_retrieveAll = IcePy.Operation('retrieveAll', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceStorm._t_TopicDict, False, 0), ())
@@ -1250,9 +1243,6 @@ if 'FinderPrx' not in _M_IceStorm.__dict__:
             return IcePy.stringify(self, _M_IceStorm._t_FinderDisp)
 
         __repr__ = __str__
-
-    _M_IceStorm._t_FinderDisp = IcePy.defineClass('::IceStorm::Finder', Finder, (), None, ())
-    Finder._ice_type = _M_IceStorm._t_FinderDisp
 
     Finder._op_getTopicManager = IcePy.Operation('getTopicManager', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_IceStorm._t_TopicManagerPrx, False, 0), ())
 

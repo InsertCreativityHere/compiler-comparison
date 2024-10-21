@@ -106,9 +106,6 @@ if 'MyInterfacePrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_MyInterfaceDisp = IcePy.defineClass('::Test::MyInterface', MyInterface, (), None, ())
-    MyInterface._ice_type = _M_Test._t_MyInterfaceDisp
-
     MyInterface._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0),), (), None, (_M_Test._t_UserError,))
 
     _M_Test.MyInterface = MyInterface

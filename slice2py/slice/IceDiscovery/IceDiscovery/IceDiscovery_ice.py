@@ -201,9 +201,6 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
 
         __repr__ = __str__
 
-    _M_IceDiscovery._t_LookupReplyDisp = IcePy.defineClass('::IceDiscovery::LookupReply', LookupReply, (), None, ())
-    LookupReply._ice_type = _M_IceDiscovery._t_LookupReplyDisp
-
     LookupReply._op_foundObjectById = IcePy.Operation('foundObjectById', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_Identity, False, 0), ((), IcePy._t_ObjectPrx, False, 0)), (), None, ())
     LookupReply._op_foundAdapterById = IcePy.Operation('foundAdapterById', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_ObjectPrx, False, 0), ((), IcePy._t_bool, False, 0)), (), None, ())
 
@@ -399,9 +396,6 @@ if 'LookupPrx' not in _M_IceDiscovery.__dict__:
             return IcePy.stringify(self, _M_IceDiscovery._t_LookupDisp)
 
         __repr__ = __str__
-
-    _M_IceDiscovery._t_LookupDisp = IcePy.defineClass('::IceDiscovery::Lookup', Lookup, (), None, ())
-    Lookup._ice_type = _M_IceDiscovery._t_LookupDisp
 
     Lookup._op_findObjectById = IcePy.Operation('findObjectById', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), _M_Ice._t_Identity, False, 0), ((), _M_IceDiscovery._t_LookupReplyPrx, False, 0)), (), None, ())
     Lookup._op_findAdapterById = IcePy.Operation('findAdapterById', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), _M_IceDiscovery._t_LookupReplyPrx, False, 0)), (), None, ())

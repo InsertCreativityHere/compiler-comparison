@@ -398,9 +398,6 @@ if 'IPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_IDisp = IcePy.defineClass('::Test::I', I, (), None, ())
-    I._ice_type = _M_Test._t_IDisp
-
     _M_Test.I = I
     del I
 
@@ -459,9 +456,6 @@ if 'JPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_JDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_JDisp = IcePy.defineClass('::Test::J', J, (), None, (_M_Test._t_IDisp,))
-    J._ice_type = _M_Test._t_JDisp
 
     _M_Test.J = J
     del J
@@ -740,7 +734,6 @@ if 'F1' not in _M_Test.__dict__:
     _M_Test._t_F1 = IcePy.declareValue('::Test::F1')
 
 if 'F2' not in _M_Test.__dict__:
-    _M_Test._t_F2Disp = IcePy.declareClass('::Test::F2')
     _M_Test._t_F2Prx = IcePy.declareProxy('::Test::F2')
 
 if 'F3' not in _M_Test.__dict__:
@@ -1095,9 +1088,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_InitialDisp = IcePy.defineClass('::Test::Initial', Initial, (), None, ())
-    Initial._ice_type = _M_Test._t_InitialDisp
-
     Initial._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     Initial._op_getB1 = IcePy.Operation('getB1', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_B, False, 0), ())
     Initial._op_getB2 = IcePy.Operation('getB2', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_B, False, 0), ())
@@ -1240,9 +1230,6 @@ if 'UnexpectedObjectExceptionTestPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_UnexpectedObjectExceptionTestDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_UnexpectedObjectExceptionTestDisp = IcePy.defineClass('::Test::UnexpectedObjectExceptionTest', UnexpectedObjectExceptionTest, (), None, ())
-    UnexpectedObjectExceptionTest._ice_type = _M_Test._t_UnexpectedObjectExceptionTestDisp
 
     UnexpectedObjectExceptionTest._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_Empty, False, 0), ())
 

@@ -91,9 +91,6 @@ if 'TestLocatorRegistryPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_TestLocatorRegistryDisp = IcePy.defineClass('::Test::TestLocatorRegistry', TestLocatorRegistry, (), None, (_M_Ice._t_LocatorRegistryDisp,))
-    TestLocatorRegistry._ice_type = _M_Test._t_TestLocatorRegistryDisp
-
     TestLocatorRegistry._op_addObject = IcePy.Operation('addObject', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_ObjectPrx, False, 0),), (), None, ())
 
     _M_Test.TestLocatorRegistry = TestLocatorRegistry
@@ -163,9 +160,6 @@ if 'TestLocatorPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_TestLocatorDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_TestLocatorDisp = IcePy.defineClass('::Test::TestLocator', TestLocator, (), None, (_M_Ice._t_LocatorDisp,))
-    TestLocator._ice_type = _M_Test._t_TestLocatorDisp
 
     TestLocator._op_getRequestCount = IcePy.Operation('getRequestCount', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
 
@@ -246,9 +240,6 @@ if 'ServerManagerPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_ServerManagerDisp = IcePy.defineClass('::Test::ServerManager', ServerManager, (), None, ())
-    ServerManager._ice_type = _M_Test._t_ServerManagerDisp
-
     ServerManager._op_startServer = IcePy.Operation('startServer', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     ServerManager._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
@@ -319,9 +310,6 @@ if 'HelloPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_HelloDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_HelloDisp = IcePy.defineClass('::Test::Hello', Hello, (), None, ())
-    Hello._ice_type = _M_Test._t_HelloDisp
 
     Hello._op_sayHello = IcePy.Operation('sayHello', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
@@ -419,9 +407,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-    TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
     TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     TestIntf._op_getHello = IcePy.Operation('getHello', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_HelloPrx, False, 0), ())

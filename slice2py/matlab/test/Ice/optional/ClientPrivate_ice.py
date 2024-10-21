@@ -99,9 +99,6 @@ if 'Initial2Prx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_Initial2Disp = IcePy.defineClass('::Test::Initial2', Initial2, (), None, ())
-    Initial2._ice_type = _M_Test._t_Initial2Disp
-
     Initial2._op_opClassAndUnknownOptional = IcePy.Operation('opClassAndUnknownOptional', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_A, False, 0), ((), _M_Test._t_VarStruct, True, 1)), (), None, ())
     Initial2._op_opVoid = IcePy.Operation('opVoid', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, True, 1), ((), IcePy._t_string, True, 2)), (), None, ())
 

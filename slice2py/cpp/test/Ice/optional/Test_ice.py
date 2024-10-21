@@ -111,9 +111,6 @@ if 'MyInterfacePrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_MyInterfaceDisp = IcePy.defineClass('::Test::MyInterface', MyInterface, (), None, ())
-    MyInterface._ice_type = _M_Test._t_MyInterfaceDisp
-
     MyInterface._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Test.MyInterface = MyInterface
@@ -1552,9 +1549,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_InitialDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_InitialDisp = IcePy.defineClass('::Test::Initial', Initial, (), None, ())
-    Initial._ice_type = _M_Test._t_InitialDisp
 
     Initial._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     Initial._op_pingPong = IcePy.Operation('pingPong', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_Value, False, 0),), (), ((), IcePy._t_Value, False, 0), ())

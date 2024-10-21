@@ -124,9 +124,6 @@ if 'MyObjectPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_MyObjectDisp = IcePy.defineClass('::Test::MyObject', MyObject, (), None, ())
-    MyObject._ice_type = _M_Test._t_MyObjectDisp
-
     MyObject._op_widen = IcePy.Operation('widen', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_string, False, 0), (_M_Test._t_BadEncodingException,))
     MyObject._op_narrow = IcePy.Operation('narrow', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_string, False, 0), ())
     MyObject._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())

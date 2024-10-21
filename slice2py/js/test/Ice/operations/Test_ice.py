@@ -50,7 +50,6 @@ if 'MyEnum' not in _M_Test.__dict__:
     del MyEnum
 
 if 'MyClass' not in _M_Test.__dict__:
-    _M_Test._t_MyClassDisp = IcePy.declareClass('::Test::MyClass')
     _M_Test._t_MyClassPrx = IcePy.declareProxy('::Test::MyClass')
 
 if 'AnotherStruct' not in _M_Test.__dict__:
@@ -1180,9 +1179,6 @@ if 'MyClassPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_MyClassDisp = IcePy.defineClass('::Test::MyClass', MyClass, (), None, ())
-    MyClass._ice_type = _M_Test._t_MyClassDisp
-
     MyClass._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     MyClass._op_supportsCompress = IcePy.Operation('supportsCompress', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     MyClass._op_opVoid = IcePy.Operation('opVoid', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
@@ -1409,9 +1405,6 @@ if 'MyDerivedClassPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_MyDerivedClassDisp = IcePy.defineClass('::Test::MyDerivedClass', MyDerivedClass, (), None, (_M_Test._t_MyClassDisp,))
-    MyDerivedClass._ice_type = _M_Test._t_MyDerivedClassDisp
-
     MyDerivedClass._op_opDerived = IcePy.Operation('opDerived', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     MyDerivedClass._op_opMyClass1 = IcePy.Operation('opMyClass1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyClass1, False, 0),), (), ((), _M_Test._t_MyClass1, False, 0), ())
     MyDerivedClass._op_opMyStruct1 = IcePy.Operation('opMyStruct1', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyStruct1, False, 0),), (), ((), _M_Test._t_MyStruct1, False, 0), ())
@@ -1519,9 +1512,6 @@ if 'EchoPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_EchoDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_EchoDisp = IcePy.defineClass('::Test::Echo', Echo, (), None, ())
-    Echo._ice_type = _M_Test._t_EchoDisp
 
     Echo._op_setConnection = IcePy.Operation('setConnection', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     Echo._op_startBatch = IcePy.Operation('startBatch', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
@@ -1655,9 +1645,6 @@ if 'MyDerivedClassPrx' not in _M_Test2.__dict__:
             return IcePy.stringify(self, _M_Test2._t_MyDerivedClassDisp)
 
         __repr__ = __str__
-
-    _M_Test2._t_MyDerivedClassDisp = IcePy.defineClass('::Test2::MyDerivedClass', MyDerivedClass, (), None, (_M_Test._t_MyClassDisp,))
-    MyDerivedClass._ice_type = _M_Test2._t_MyDerivedClassDisp
 
     _M_Test2.MyDerivedClass = MyDerivedClass
     del MyDerivedClass

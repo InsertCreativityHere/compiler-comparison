@@ -369,9 +369,6 @@ if 'DPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_DDisp = IcePy.defineClass('::Test::D', D, (), None, ())
-    D._ice_type = _M_Test._t_DDisp
-
     _M_Test.D = D
     del D
 
@@ -857,9 +854,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_TestIntfDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-    TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
     TestIntf._op_opShortArray = IcePy.Operation('opShortArray', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ShortSeq, False, 0),), (((), _M_Test._t_ShortSeq, False, 0),), ((), _M_Test._t_ShortSeq, False, 0), ())
     TestIntf._op_opDoubleArray = IcePy.Operation('opDoubleArray', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0), ((), _M_Test._t_DoubleSeq, False, 0)), (((), _M_Test._t_DoubleSeq, False, 0),), ((), _M_Test._t_DoubleSeq, False, 0), ())

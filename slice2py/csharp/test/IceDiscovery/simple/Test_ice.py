@@ -87,9 +87,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-    TestIntf._ice_type = _M_Test._t_TestIntfDisp
-
     TestIntf._op_getAdapterId = IcePy.Operation('getAdapterId', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
 
     _M_Test.TestIntf = TestIntf
@@ -195,9 +192,6 @@ if 'ControllerPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_ControllerDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_ControllerDisp = IcePy.defineClass('::Test::Controller', Controller, (), None, ())
-    Controller._ice_type = _M_Test._t_ControllerDisp
 
     Controller._op_activateObjectAdapter = IcePy.Operation('activateObjectAdapter', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), None, ())
     Controller._op_deactivateObjectAdapter = IcePy.Operation('deactivateObjectAdapter', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())

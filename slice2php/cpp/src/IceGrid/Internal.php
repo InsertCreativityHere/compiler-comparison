@@ -446,7 +446,6 @@ namespace IceGrid
     global $IceGrid__t_InternalRegistryPrx;
     if(!isset($IceGrid__t_InternalRegistry))
     {
-        $IceGrid__t_InternalRegistry = IcePHP_declareClass('::IceGrid::InternalRegistry');
         $IceGrid__t_InternalRegistryPrx = IcePHP_declareProxy('::IceGrid::InternalRegistry');
     }
 }

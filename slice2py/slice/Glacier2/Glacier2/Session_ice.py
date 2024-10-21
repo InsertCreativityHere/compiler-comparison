@@ -156,9 +156,6 @@ if 'SessionPrx' not in _M_Glacier2.__dict__:
 
         __repr__ = __str__
 
-    _M_Glacier2._t_SessionDisp = IcePy.defineClass('::Glacier2::Session', Session, (), None, ())
-    Session._ice_type = _M_Glacier2._t_SessionDisp
-
     Session._op_destroy = IcePy.Operation('destroy', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
     _M_Glacier2.Session = Session
@@ -368,9 +365,6 @@ if 'StringSetPrx' not in _M_Glacier2.__dict__:
             return IcePy.stringify(self, _M_Glacier2._t_StringSetDisp)
 
         __repr__ = __str__
-
-    _M_Glacier2._t_StringSetDisp = IcePy.defineClass('::Glacier2::StringSet', StringSet, (), None, ())
-    StringSet._ice_type = _M_Glacier2._t_StringSetDisp
 
     StringSet._op_add = IcePy.Operation('add', Ice.OperationMode.Idempotent, False, None, (), (((), _M_Ice._t_StringSeq, False, 0),), (), None, ())
     StringSet._op_remove = IcePy.Operation('remove', Ice.OperationMode.Idempotent, False, None, (), (((), _M_Ice._t_StringSeq, False, 0),), (), None, ())
@@ -586,9 +580,6 @@ if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
             return IcePy.stringify(self, _M_Glacier2._t_IdentitySetDisp)
 
         __repr__ = __str__
-
-    _M_Glacier2._t_IdentitySetDisp = IcePy.defineClass('::Glacier2::IdentitySet', IdentitySet, (), None, ())
-    IdentitySet._ice_type = _M_Glacier2._t_IdentitySetDisp
 
     IdentitySet._op_add = IcePy.Operation('add', Ice.OperationMode.Idempotent, False, None, (), (((), _M_Ice._t_IdentitySeq, False, 0),), (), None, ())
     IdentitySet._op_remove = IcePy.Operation('remove', Ice.OperationMode.Idempotent, False, None, (), (((), _M_Ice._t_IdentitySeq, False, 0),), (), None, ())
@@ -888,9 +879,6 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
 
         __repr__ = __str__
 
-    _M_Glacier2._t_SessionControlDisp = IcePy.defineClass('::Glacier2::SessionControl', SessionControl, (), None, ())
-    SessionControl._ice_type = _M_Glacier2._t_SessionControlDisp
-
     SessionControl._op_categories = IcePy.Operation('categories', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Glacier2._t_StringSetPrx, False, 0), ())
     SessionControl._op_adapterIds = IcePy.Operation('adapterIds', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Glacier2._t_StringSetPrx, False, 0), ())
     SessionControl._op_identities = IcePy.Operation('identities', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Glacier2._t_IdentitySetPrx, False, 0), ())
@@ -1032,9 +1020,6 @@ if 'SessionManagerPrx' not in _M_Glacier2.__dict__:
 
         __repr__ = __str__
 
-    _M_Glacier2._t_SessionManagerDisp = IcePy.defineClass('::Glacier2::SessionManager', SessionManager, (), None, ())
-    SessionManager._ice_type = _M_Glacier2._t_SessionManagerDisp
-
     SessionManager._op_create = IcePy.Operation('create', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), _M_Glacier2._t_SessionControlPrx, False, 0)), (), ((), _M_Glacier2._t_SessionPrx, False, 0), (_M_Glacier2._t_CannotCreateSessionException,))
 
     _M_Glacier2.SessionManager = SessionManager
@@ -1165,9 +1150,6 @@ if 'SSLSessionManagerPrx' not in _M_Glacier2.__dict__:
             return IcePy.stringify(self, _M_Glacier2._t_SSLSessionManagerDisp)
 
         __repr__ = __str__
-
-    _M_Glacier2._t_SSLSessionManagerDisp = IcePy.defineClass('::Glacier2::SSLSessionManager', SSLSessionManager, (), None, ())
-    SSLSessionManager._ice_type = _M_Glacier2._t_SSLSessionManagerDisp
 
     SSLSessionManager._op_create = IcePy.Operation('create', Ice.OperationMode.Normal, False, None, (), (((), _M_Glacier2._t_SSLInfo, False, 0), ((), _M_Glacier2._t_SessionControlPrx, False, 0)), (), ((), _M_Glacier2._t_SessionPrx, False, 0), (_M_Glacier2._t_CannotCreateSessionException,))
 

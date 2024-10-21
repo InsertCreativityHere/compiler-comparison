@@ -103,9 +103,6 @@ if 'BackendPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_BackendDisp = IcePy.defineClass('::Test::Backend', Backend, (), None, ())
-    Backend._ice_type = _M_Test._t_BackendDisp
-
     Backend._op_check = IcePy.Operation('check', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     Backend._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
@@ -345,9 +342,6 @@ if 'TestControllerPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_TestControllerDisp = IcePy.defineClass('::Test::TestController', TestController, (), None, ())
-    TestController._ice_type = _M_Test._t_TestControllerDisp
-
     TestController._op_step = IcePy.Operation('step', Ice.OperationMode.Normal, False, None, (), (((), _M_Glacier2._t_SessionPrx, False, 0), ((), _M_Test._t_TestToken, False, 0)), (((), _M_Test._t_TestToken, False, 0),), None, ())
     TestController._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 
@@ -418,9 +412,6 @@ if 'TestSessionPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_TestSessionDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_TestSessionDisp = IcePy.defineClass('::Test::TestSession', TestSession, (), None, (_M_Glacier2._t_SessionDisp,))
-    TestSession._ice_type = _M_Test._t_TestSessionDisp
 
     TestSession._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
 

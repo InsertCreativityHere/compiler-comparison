@@ -173,9 +173,6 @@ if 'UserAccountMapperPrx' not in _M_IceGrid.__dict__:
 
         __repr__ = __str__
 
-    _M_IceGrid._t_UserAccountMapperDisp = IcePy.defineClass('::IceGrid::UserAccountMapper', UserAccountMapper, (), None, ())
-    UserAccountMapper._ice_type = _M_IceGrid._t_UserAccountMapperDisp
-
     UserAccountMapper._op_getUserAccount = IcePy.Operation('getUserAccount', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_string, False, 0), (_M_IceGrid._t_UserAccountNotFoundException,))
 
     _M_IceGrid.UserAccountMapper = UserAccountMapper

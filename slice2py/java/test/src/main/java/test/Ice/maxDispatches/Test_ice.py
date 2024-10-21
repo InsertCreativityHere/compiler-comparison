@@ -105,9 +105,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_TestIntfDisp = IcePy.defineClass('::Test::TestIntf', TestIntf, (), None, ())
-    TestIntf._ice_type = _M_Test._t_TestIntfDisp
-
     TestIntf._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, True, None, (), (), (), None, ())
     TestIntf._op_resetMaxConcurrentDispatches = IcePy.Operation('resetMaxConcurrentDispatches', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
     TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
@@ -197,9 +194,6 @@ if 'ResponderPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_ResponderDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_ResponderDisp = IcePy.defineClass('::Test::Responder', Responder, (), None, ())
-    Responder._ice_type = _M_Test._t_ResponderDisp
 
     Responder._op_start = IcePy.Operation('start', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     Responder._op_stop = IcePy.Operation('stop', Ice.OperationMode.Normal, False, None, (), (), (), None, ())

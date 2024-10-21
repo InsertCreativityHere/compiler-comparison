@@ -82,14 +82,10 @@ if 'EmptyPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_EmptyDisp = IcePy.defineClass('::Test::Empty', Empty, (), None, ())
-    Empty._ice_type = _M_Test._t_EmptyDisp
-
     _M_Test.Empty = Empty
     del Empty
 
 if 'Thrower' not in _M_Test.__dict__:
-    _M_Test._t_ThrowerDisp = IcePy.declareClass('::Test::Thrower')
     _M_Test._t_ThrowerPrx = IcePy.declareProxy('::Test::Thrower')
 
 if 'A' not in _M_Test.__dict__:
@@ -499,9 +495,6 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_ThrowerDisp = IcePy.defineClass('::Test::Thrower', Thrower, (), None, ())
-    Thrower._ice_type = _M_Test._t_ThrowerDisp
-
     Thrower._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, True, None, (), (), (), None, ())
     Thrower._op_supportsUndeclaredExceptions = IcePy.Operation('supportsUndeclaredExceptions', Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     Thrower._op_supportsAssertException = IcePy.Operation('supportsAssertException', Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
@@ -593,9 +586,6 @@ if 'WrongOperationPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_WrongOperationDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_WrongOperationDisp = IcePy.defineClass('::Test::WrongOperation', WrongOperation, (), None, ())
-    WrongOperation._ice_type = _M_Test._t_WrongOperationDisp
 
     WrongOperation._op_noSuchOperation = IcePy.Operation('noSuchOperation', Ice.OperationMode.Normal, True, None, (), (), (), None, ())
 

@@ -408,9 +408,6 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
 
         __repr__ = __str__
 
-    _M_IceGrid._t_QueryDisp = IcePy.defineClass('::IceGrid::Query', Query, (), None, ())
-    Query._ice_type = _M_IceGrid._t_QueryDisp
-
     Query._op_findObjectById = IcePy.Operation('findObjectById', Ice.OperationMode.Idempotent, False, None, (), (((), _M_Ice._t_Identity, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), ())
     Query._op_findObjectByType = IcePy.Operation('findObjectByType', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), ())
     Query._op_findObjectByTypeOnLeastLoadedNode = IcePy.Operation('findObjectByTypeOnLeastLoadedNode', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), _M_IceGrid._t_LoadSample, False, 0)), (), ((), IcePy._t_ObjectPrx, False, 0), ())
@@ -788,9 +785,6 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
 
         __repr__ = __str__
 
-    _M_IceGrid._t_RegistryDisp = IcePy.defineClass('::IceGrid::Registry', Registry, (), None, ())
-    Registry._ice_type = _M_IceGrid._t_RegistryDisp
-
     Registry._op_createSession = IcePy.Operation('createSession', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), ((), _M_IceGrid._t_SessionPrx, False, 0), (_M_IceGrid._t_PermissionDeniedException,))
     Registry._op_createAdminSession = IcePy.Operation('createAdminSession', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), ((), _M_IceGrid._t_AdminSessionPrx, False, 0), (_M_IceGrid._t_PermissionDeniedException,))
     Registry._op_createSessionFromSecureConnection = IcePy.Operation('createSessionFromSecureConnection', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_IceGrid._t_SessionPrx, False, 0), (_M_IceGrid._t_PermissionDeniedException,))
@@ -951,9 +945,6 @@ if 'LocatorPrx' not in _M_IceGrid.__dict__:
             return IcePy.stringify(self, _M_IceGrid._t_LocatorDisp)
 
         __repr__ = __str__
-
-    _M_IceGrid._t_LocatorDisp = IcePy.defineClass('::IceGrid::Locator', Locator, (), None, (_M_Ice._t_LocatorDisp,))
-    Locator._ice_type = _M_IceGrid._t_LocatorDisp
 
     Locator._op_getLocalRegistry = IcePy.Operation('getLocalRegistry', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceGrid._t_RegistryPrx, False, 0), ())
     Locator._op_getLocalQuery = IcePy.Operation('getLocalQuery', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceGrid._t_QueryPrx, False, 0), ())

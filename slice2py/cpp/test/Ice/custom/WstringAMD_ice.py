@@ -209,9 +209,6 @@ if 'WstringClassPrx' not in _M_Test1.__dict__:
 
         __repr__ = __str__
 
-    _M_Test1._t_WstringClassDisp = IcePy.defineClass('::Test1::WstringClass', WstringClass, (), None, ())
-    WstringClass._ice_type = _M_Test1._t_WstringClassDisp
-
     WstringClass._op_opString = IcePy.Operation('opString', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_string, False, 0),), (((), IcePy._t_string, False, 0),), ((), IcePy._t_string, False, 0), ())
     WstringClass._op_opStruct = IcePy.Operation('opStruct', Ice.OperationMode.Normal, True, None, (), (((), _M_Test1._t_WstringStruct, False, 0),), (((), _M_Test1._t_WstringStruct, False, 0),), ((), _M_Test1._t_WstringStruct, False, 0), ())
     WstringClass._op_throwExcept = IcePy.Operation('throwExcept', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_string, False, 0),), (), None, (_M_Test1._t_WstringException,))
@@ -411,9 +408,6 @@ if 'WstringClassPrx' not in _M_Test2.__dict__:
             return IcePy.stringify(self, _M_Test2._t_WstringClassDisp)
 
         __repr__ = __str__
-
-    _M_Test2._t_WstringClassDisp = IcePy.defineClass('::Test2::WstringClass', WstringClass, (), None, ())
-    WstringClass._ice_type = _M_Test2._t_WstringClassDisp
 
     WstringClass._op_opString = IcePy.Operation('opString', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_string, False, 0),), (((), IcePy._t_string, False, 0),), ((), IcePy._t_string, False, 0), ())
     WstringClass._op_opStruct = IcePy.Operation('opStruct', Ice.OperationMode.Normal, True, None, (), (((), _M_Test2._t_WstringStruct, False, 0),), (((), _M_Test2._t_WstringStruct, False, 0),), ((), _M_Test2._t_WstringStruct, False, 0), ())

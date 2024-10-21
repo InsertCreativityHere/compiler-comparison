@@ -46,7 +46,6 @@ if 'MyEnum' not in _M_Test.__dict__:
     del MyEnum
 
 if 'Initial' not in _M_Test.__dict__:
-    _M_Test._t_InitialDisp = IcePy.declareClass('::Test::Initial')
     _M_Test._t_InitialPrx = IcePy.declareProxy('::Test::Initial')
 
 if 'Base' not in _M_Test.__dict__:
@@ -330,9 +329,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_InitialDisp)
 
         __repr__ = __str__
-
-    _M_Test._t_InitialDisp = IcePy.defineClass('::Test::Initial', Initial, (), None, ())
-    Initial._ice_type = _M_Test._t_InitialDisp
 
     Initial._op_getStruct1 = IcePy.Operation('getStruct1', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_ByteS, False, 0), ())
     Initial._op_getBase = IcePy.Operation('getBase', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_ByteS, False, 0), ())
