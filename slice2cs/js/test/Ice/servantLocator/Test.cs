@@ -638,11 +638,11 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(TestIntfUserException)
+                    catch(TestImpossibleException)
                     {
                         throw;
                     }
-                    catch(TestImpossibleException)
+                    catch(TestIntfUserException)
                     {
                         throw;
                     }
@@ -688,11 +688,11 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(TestIntfUserException)
+                    catch(TestImpossibleException)
                     {
                         throw;
                     }
-                    catch(TestImpossibleException)
+                    catch(TestIntfUserException)
                     {
                         throw;
                     }
@@ -732,11 +732,11 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(TestIntfUserException)
+                    catch(TestImpossibleException)
                     {
                         throw;
                     }
-                    catch(TestImpossibleException)
+                    catch(TestIntfUserException)
                     {
                         throw;
                     }
