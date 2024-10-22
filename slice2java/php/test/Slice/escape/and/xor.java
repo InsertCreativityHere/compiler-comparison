@@ -218,5 +218,5 @@ public class xor implements java.lang.Cloneable,
     private static final xor _nullMarshalValue = new xor();
 
     /** @hidden */
-    private static final long serialVersionUID = 972323073526226154L;
+    private static final long serialVersionUID = -2502488271115949327L;
 }
