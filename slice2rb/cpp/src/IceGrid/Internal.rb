@@ -623,7 +623,7 @@ module ::IceGrid
     if not defined?(::IceGrid::InternalNodeInfo)
         class InternalNodeInfo < ::Ice::Value
 
-            def initialize(name='', os='', hostname='', release='', version='', machine='', nProcessors=0, dataDir='')
+            def initialize(name='', os='', hostname='', release='', version='', machine='', nProcessors=0, dataDir='', iceSoVersion=::Ice::Unset)
                 @name = name
                 @os = os
                 @hostname = hostname
@@ -632,9 +632,10 @@ module ::IceGrid
                 @machine = machine
                 @nProcessors = nProcessors
                 @dataDir = dataDir
+                @iceSoVersion = iceSoVersion
             end
 
-            attr_accessor :name, :os, :hostname, :release, :version, :machine, :nProcessors, :dataDir
+            attr_accessor :name, :os, :hostname, :release, :version, :machine, :nProcessors, :dataDir, :iceSoVersion
         end
 
         if not defined?(::IceGrid::T_InternalNodeInfo)
@@ -649,7 +650,8 @@ module ::IceGrid
             ['version', ::Ice::T_string, false, 0],
             ['machine', ::Ice::T_string, false, 0],
             ['nProcessors', ::Ice::T_int, false, 0],
-            ['dataDir', ::Ice::T_string, false, 0]
+            ['dataDir', ::Ice::T_string, false, 0],
+            ['iceSoVersion', ::Ice::T_string, true, 1]
         ])
     end
 

@@ -2554,8 +2554,9 @@ public:
      * @param machine The machine hardware type (as defined in uname()).
      * @param nProcessors The number of processor threads (e.g.
      * @param dataDir The path to the node data directory.
+     * @param iceSoVersion The Ice SO version of this node, for example 38.
      */
-    InternalNodeInfo(::std::string name, ::std::string os, ::std::string hostname, ::std::string release, ::std::string version, ::std::string machine, ::std::int32_t nProcessors, ::std::string dataDir) noexcept :
+    InternalNodeInfo(::std::string name, ::std::string os, ::std::string hostname, ::std::string release, ::std::string version, ::std::string machine, ::std::int32_t nProcessors, ::std::string dataDir, ::std::optional<::std::string> iceSoVersion) noexcept :
         name(::std::move(name)),
         os(::std::move(os)),
         hostname(::std::move(hostname)),
@@ -2563,7 +2564,8 @@ public:
         version(::std::move(version)),
         machine(::std::move(machine)),
         nProcessors(nProcessors),
-        dataDir(::std::move(dataDir))
+        dataDir(::std::move(dataDir)),
+        iceSoVersion(::std::move(iceSoVersion))
     {
     }
 
@@ -2579,9 +2581,9 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::string&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::std::optional<::std::string>&> ice_tuple() const
     {
-        return std::tie(name, os, hostname, release, version, machine, nProcessors, dataDir);
+        return std::tie(name, os, hostname, release, version, machine, nProcessors, dataDir, iceSoVersion);
     }
 
     /**
@@ -2622,6 +2624,11 @@ public:
      * The path to the node data directory.
      */
     ::std::string dataDir;
+    /**
+     * The Ice SO version of this node, for example 38. It is typically used to load the same version of the IceStorm
+     * service in IceBox.
+     */
+    ::std::optional<::std::string> iceSoVersion;
 
 protected:
     InternalNodeInfo(const InternalNodeInfo&) = default;

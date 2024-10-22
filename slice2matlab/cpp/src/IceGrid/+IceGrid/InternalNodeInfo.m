@@ -11,6 +11,7 @@
 %   machine - The machine hardware type (as defined in uname()).
 %   nProcessors - The number of processor threads (e.g.
 %   dataDir - The path to the node data directory.
+%   iceSoVersion - The Ice SO version of this node, for example 38.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Internal.ice by slice2matlab version 3.8.0-alpha.0
@@ -33,9 +34,12 @@ classdef InternalNodeInfo < Ice.Value
         nProcessors int32
         % dataDir - The path to the node data directory.
         dataDir char
+        % iceSoVersion - The Ice SO version of this node, for example 38. It is typically used to load the same version of the IceStorm
+        % service in IceBox.
+        iceSoVersion
     end
     methods
-        function obj = InternalNodeInfo(name, os, hostname, release, version, machine, nProcessors, dataDir)
+        function obj = InternalNodeInfo(name, os, hostname, release, version, machine, nProcessors, dataDir, iceSoVersion)
             if nargin == 0
                 obj.name = '';
                 obj.os = '';
@@ -45,6 +49,7 @@ classdef InternalNodeInfo < Ice.Value
                 obj.machine = '';
                 obj.nProcessors = 0;
                 obj.dataDir = '';
+                obj.iceSoVersion = IceInternal.UnsetI.Instance;
             elseif ne(name, IceInternal.NoInit.Instance)
                 obj.name = name;
                 obj.os = os;
@@ -54,6 +59,7 @@ classdef InternalNodeInfo < Ice.Value
                 obj.machine = machine;
                 obj.nProcessors = nProcessors;
                 obj.dataDir = dataDir;
+                obj.iceSoVersion = iceSoVersion;
             end;
         end
         function id = ice_id(obj)
@@ -71,6 +77,7 @@ classdef InternalNodeInfo < Ice.Value
             os.writeString(obj.machine);
             os.writeInt(obj.nProcessors);
             os.writeString(obj.dataDir);
+            os.writeStringOpt(1, obj.iceSoVersion);
             os.endSlice();
         end
         function iceReadImpl(obj, is)
@@ -83,6 +90,7 @@ classdef InternalNodeInfo < Ice.Value
             obj.machine = is.readString();
             obj.nProcessors = is.readInt();
             obj.dataDir = is.readString();
+            obj.iceSoVersion = is.readStringOpt(1);
             is.endSlice();
         end
     end

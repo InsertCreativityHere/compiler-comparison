@@ -630,8 +630,8 @@ Ice.defineOperations(
         "registerWellKnownObjects": [, 2, , , [[IceGrid.ObjectInfoSeqHelper]], , , , ],
         "setAdapterDirectProxy": [, 2, , , [[7], [7], [9]], ,
         [
-            IceGrid.AdapterNotExistException,
-            IceGrid.AdapterExistsException
+            IceGrid.AdapterExistsException,
+            IceGrid.AdapterNotExistException
         ], , ],
         "receivedUpdate": [, , , , [[IceGrid.TopicName._helper], [3], [7]], , , , ],
         "destroy": [, , , , , , , , ]
@@ -642,7 +642,7 @@ Ice.defineOperations(
  **/
 IceGrid.InternalNodeInfo = class extends Ice.Value
 {
-    constructor(name = "", os = "", hostname = "", release = "", version = "", machine = "", nProcessors = 0, dataDir = "")
+    constructor(name = "", os = "", hostname = "", release = "", version = "", machine = "", nProcessors = 0, dataDir = "", iceSoVersion = undefined)
     {
         super();
         this.name = name;
@@ -653,6 +653,7 @@ IceGrid.InternalNodeInfo = class extends Ice.Value
         this.machine = machine;
         this.nProcessors = nProcessors;
         this.dataDir = dataDir;
+        this.iceSoVersion = iceSoVersion;
     }
 
     _iceWriteMemberImpl(ostr)
@@ -665,6 +666,7 @@ IceGrid.InternalNodeInfo = class extends Ice.Value
         ostr.writeString(this.machine);
         ostr.writeInt(this.nProcessors);
         ostr.writeString(this.dataDir);
+        Ice.StringHelper.writeOptional(ostr, 1, this.iceSoVersion);
     }
 
     _iceReadMemberImpl(istr)
@@ -677,6 +679,7 @@ IceGrid.InternalNodeInfo = class extends Ice.Value
         this.machine = istr.readString();
         this.nProcessors = istr.readInt();
         this.dataDir = istr.readString();
+        this.iceSoVersion = Ice.StringHelper.readOptional(istr, 1);
     }
 };
 

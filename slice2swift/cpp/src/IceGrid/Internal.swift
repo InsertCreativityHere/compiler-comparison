@@ -3336,10 +3336,13 @@ open class InternalNodeInfo: Ice.Value {
     public var nProcessors: Swift.Int32 = 0
     /// The path to the node data directory.
     public var dataDir: Swift.String = ""
+    /// The Ice SO version of this node, for example 38. It is typically used to load the same version of the IceStorm
+    /// service in IceBox.
+    public var iceSoVersion: Swift.String? = nil
 
     public required init() {}
 
-    public init(name: Swift.String, os: Swift.String, hostname: Swift.String, release: Swift.String, version: Swift.String, machine: Swift.String, nProcessors: Swift.Int32, dataDir: Swift.String) {
+    public init(name: Swift.String, os: Swift.String, hostname: Swift.String, release: Swift.String, version: Swift.String, machine: Swift.String, nProcessors: Swift.Int32, dataDir: Swift.String, iceSoVersion: Swift.String?) {
         self.name = name
         self.os = os
         self.hostname = hostname
@@ -3348,6 +3351,7 @@ open class InternalNodeInfo: Ice.Value {
         self.machine = machine
         self.nProcessors = nProcessors
         self.dataDir = dataDir
+        self.iceSoVersion = iceSoVersion
     }
 
     /// Returns the Slice type ID of the interface supported by this object.
@@ -3365,6 +3369,7 @@ open class InternalNodeInfo: Ice.Value {
         self.machine = try istr.read()
         self.nProcessors = try istr.read()
         self.dataDir = try istr.read()
+        self.iceSoVersion = try istr.read(tag: 1)
         try istr.endSlice()
     }
 
@@ -3378,6 +3383,7 @@ open class InternalNodeInfo: Ice.Value {
         ostr.write(self.machine)
         ostr.write(self.nProcessors)
         ostr.write(self.dataDir)
+        ostr.write(tag: 1, value: self.iceSoVersion)
         ostr.endSlice()
     }
 }

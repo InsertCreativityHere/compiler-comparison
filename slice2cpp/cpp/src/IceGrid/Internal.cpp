@@ -1585,11 +1585,11 @@ IceGrid::ReplicaSessionPrx::_iceI_setAdapterDirectProxy(const ::std::shared_ptr<
             {
                 ex.ice_throw();
             }
-            catch(const AdapterNotExistException&)
+            catch(const AdapterExistsException&)
             {
                 throw;
             }
-            catch(const AdapterExistsException&)
+            catch(const AdapterNotExistException&)
             {
                 throw;
             }
@@ -2302,6 +2302,7 @@ IceGrid::InternalNodeInfo::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->name, this->os, this->hostname, this->release, this->version, this->machine, this->nProcessors, this->dataDir);
+    ostr->writeAll({1}, this->iceSoVersion);
     ostr->endSlice();
 }
 
@@ -2310,6 +2311,7 @@ IceGrid::InternalNodeInfo::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->name, this->os, this->hostname, this->release, this->version, this->machine, this->nProcessors, this->dataDir);
+    istr->readAll({1}, this->iceSoVersion);
     istr->endSlice();
 }
 

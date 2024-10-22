@@ -845,9 +845,11 @@ namespace IceGrid
 
         public string dataDir = "";
 
+        public string? iceSoVersion;
+
         partial void ice_initialize();
 
-        public InternalNodeInfo(string name, string os, string hostname, string release, string version, string machine, int nProcessors, string dataDir)
+        public InternalNodeInfo(string name, string os, string hostname, string release, string version, string machine, int nProcessors, string dataDir, string? iceSoVersion)
         {
             global::System.ArgumentNullException.ThrowIfNull(name);
             this.name = name;
@@ -864,6 +866,7 @@ namespace IceGrid
             this.nProcessors = nProcessors;
             global::System.ArgumentNullException.ThrowIfNull(dataDir);
             this.dataDir = dataDir;
+            this.iceSoVersion = iceSoVersion;
             ice_initialize();
         }
 
@@ -886,6 +889,7 @@ namespace IceGrid
             ostr_.writeString(machine);
             ostr_.writeInt(nProcessors);
             ostr_.writeString(dataDir);
+            ostr_.writeString(1, iceSoVersion);
             ostr_.endSlice();
         }
 
@@ -900,6 +904,7 @@ namespace IceGrid
             machine = istr_.readString();
             nProcessors = istr_.readInt();
             dataDir = istr_.readString();
+            iceSoVersion = istr_.readString(1);
             istr_.endSlice();
         }
     }
@@ -5516,11 +5521,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(AdapterNotExistException)
+                    catch(AdapterExistsException)
                     {
                         throw;
                     }
-                    catch(AdapterExistsException)
+                    catch(AdapterNotExistException)
                     {
                         throw;
                     }
@@ -5919,11 +5924,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(PermissionDeniedException)
+                    catch(NodeActiveException)
                     {
                         throw;
                     }
-                    catch(NodeActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
@@ -5975,11 +5980,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(PermissionDeniedException)
+                    catch(ReplicaActiveException)
                     {
                         throw;
                     }
-                    catch(ReplicaActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }

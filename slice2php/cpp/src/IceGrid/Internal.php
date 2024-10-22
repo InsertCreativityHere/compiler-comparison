@@ -760,7 +760,7 @@ namespace IceGrid
     global $IceGrid__t_InternalNodeInfo;
     class InternalNodeInfo extends \Ice\Value
     {
-        public function __construct($name='', $os='', $hostname='', $release='', $version='', $machine='', $nProcessors=0, $dataDir='')
+        public function __construct($name='', $os='', $hostname='', $release='', $version='', $machine='', $nProcessors=0, $dataDir='', $iceSoVersion=\Ice\None)
         {
             $this->name = $name;
             $this->os = $os;
@@ -770,6 +770,7 @@ namespace IceGrid
             $this->machine = $machine;
             $this->nProcessors = $nProcessors;
             $this->dataDir = $dataDir;
+            $this->iceSoVersion = $iceSoVersion;
         }
 
         public function ice_id()
@@ -796,6 +797,7 @@ namespace IceGrid
         public $machine;
         public $nProcessors;
         public $dataDir;
+        public $iceSoVersion;
     }
 
     global $Ice__t_Value;
@@ -809,7 +811,8 @@ namespace IceGrid
         array('version', $IcePHP__t_string, false, 0),
         array('machine', $IcePHP__t_string, false, 0),
         array('nProcessors', $IcePHP__t_int, false, 0),
-        array('dataDir', $IcePHP__t_string, false, 0)));
+        array('dataDir', $IcePHP__t_string, false, 0),
+        array('iceSoVersion', $IcePHP__t_string, true, 1)));
 }
 
 namespace IceGrid

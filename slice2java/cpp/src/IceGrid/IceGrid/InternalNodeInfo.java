@@ -29,6 +29,7 @@ public class InternalNodeInfo extends com.zeroc.Ice.Value
         this.version = "";
         this.machine = "";
         this.dataDir = "";
+        this.iceSoVersion = "";
     }
 
     public InternalNodeInfo(String name, String os, String hostname, String release, String version, String machine, int nProcessors, String dataDir)
@@ -41,6 +42,20 @@ public class InternalNodeInfo extends com.zeroc.Ice.Value
         this.machine = machine;
         this.nProcessors = nProcessors;
         this.dataDir = dataDir;
+        this.iceSoVersion = "";
+    }
+
+    public InternalNodeInfo(String name, String os, String hostname, String release, String version, String machine, int nProcessors, String dataDir, String iceSoVersion)
+    {
+        this.name = name;
+        this.os = os;
+        this.hostname = hostname;
+        this.release = release;
+        this.version = version;
+        this.machine = machine;
+        this.nProcessors = nProcessors;
+        this.dataDir = dataDir;
+        setIceSoVersion(iceSoVersion);
     }
 
     /**
@@ -83,6 +98,87 @@ public class InternalNodeInfo extends com.zeroc.Ice.Value
      **/
     public String dataDir;
 
+    /**
+     * The Ice SO version of this node, for example 38. It is typically used to load the same version of the IceStorm
+     * service in IceBox.
+     **/
+    private String iceSoVersion;
+    private boolean _iceSoVersion;
+
+    /**
+     * The Ice SO version of this node, for example 38. It is typically used to load the same version of the IceStorm
+     * service in IceBox.
+     **/
+    public String getIceSoVersion()
+    {
+        if(!_iceSoVersion)
+        {
+            throw new java.util.NoSuchElementException("iceSoVersion is not set");
+        }
+        return iceSoVersion;
+    }
+
+    /**
+     * The Ice SO version of this node, for example 38. It is typically used to load the same version of the IceStorm
+     * service in IceBox.
+     **/
+    public void setIceSoVersion(String iceSoVersion)
+    {
+        _iceSoVersion = true;
+        this.iceSoVersion = iceSoVersion;
+    }
+
+    /**
+     * The Ice SO version of this node, for example 38. It is typically used to load the same version of the IceStorm
+     * service in IceBox.
+     **/
+    public boolean hasIceSoVersion()
+    {
+        return _iceSoVersion;
+    }
+
+    /**
+     * The Ice SO version of this node, for example 38. It is typically used to load the same version of the IceStorm
+     * service in IceBox.
+     **/
+    public void clearIceSoVersion()
+    {
+        _iceSoVersion = false;
+    }
+
+    /**
+     * The Ice SO version of this node, for example 38. It is typically used to load the same version of the IceStorm
+     * service in IceBox.
+     **/
+    public void optionalIceSoVersion(java.util.Optional<java.lang.String> v)
+    {
+        if(v == null || !v.isPresent())
+        {
+            _iceSoVersion = false;
+        }
+        else
+        {
+            _iceSoVersion = true;
+            iceSoVersion = v.get();
+        }
+    }
+
+    /**
+     * The Ice SO version of this node, for example 38. It is typically used to load the same version of the IceStorm
+     * service in IceBox.
+     **/
+    public java.util.Optional<java.lang.String> optionalIceSoVersion()
+    {
+        if(_iceSoVersion)
+        {
+            return java.util.Optional.of(iceSoVersion);
+        }
+        else
+        {
+            return java.util.Optional.empty();
+        }
+    }
+
     public InternalNodeInfo clone()
     {
         return (InternalNodeInfo)super.clone();
@@ -100,7 +196,7 @@ public class InternalNodeInfo extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -852552524959315654L;
+    private static final long serialVersionUID = 597200578546532378L;
 
     /** @hidden */
     @Override
@@ -115,6 +211,10 @@ public class InternalNodeInfo extends com.zeroc.Ice.Value
         ostr_.writeString(machine);
         ostr_.writeInt(nProcessors);
         ostr_.writeString(dataDir);
+        if(_iceSoVersion)
+        {
+            ostr_.writeString(1, iceSoVersion);
+        }
         ostr_.endSlice();
     }
 
@@ -131,6 +231,10 @@ public class InternalNodeInfo extends com.zeroc.Ice.Value
         machine = istr_.readString();
         nProcessors = istr_.readInt();
         dataDir = istr_.readString();
+        if(_iceSoVersion = istr_.readOptional(1, com.zeroc.Ice.OptionalFormat.VSize))
+        {
+            iceSoVersion = istr_.readString();
+        }
         istr_.endSlice();
     }
 }
