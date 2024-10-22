@@ -83,7 +83,7 @@ public class Metrics extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -3627383526180962001L;
+    private static final long serialVersionUID = -5893747199390348903L;
 
     /** @hidden */
     @Override
