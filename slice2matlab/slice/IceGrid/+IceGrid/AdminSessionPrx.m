@@ -46,22 +46,26 @@
 classdef AdminSessionPrx < Glacier2.SessionPrx
     methods
         function keepAlive(obj, varargin)
-            % keepAlive   Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
-            % need to call this operation and its implementation does nothing.
+            % keepAlive   Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+            % session.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
+            %
+            % See also Registry.getSessionTimeout
             
             obj.iceInvoke('keepAlive', 2, false, [], false, {}, varargin{:});
         end
         function r_ = keepAliveAsync(obj, varargin)
-            % keepAliveAsync   Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
-            % need to call this operation and its implementation does nothing.
+            % keepAliveAsync   Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+            % session.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            %
+            % See also Registry.getSessionTimeout
             
             r_ = obj.iceInvokeAsync('keepAlive', 2, false, [], 0, [], {}, varargin{:});
         end

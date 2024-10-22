@@ -55,28 +55,31 @@ class ICEGRID_API SessionPrx : public ::Ice::Proxy<SessionPrx, ::Glacier2::Sessi
 public:
 
     /**
-     * Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
-     * need to call this operation and its implementation does nothing.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param context The Context map to send with the invocation.
+     * @see Registry#getSessionTimeout
      */
     void keepAlive(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
-     * need to call this operation and its implementation does nothing.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
+     * @see Registry#getSessionTimeout
      */
     [[nodiscard]] ::std::future<void> keepAliveAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
-     * need to call this operation and its implementation does nothing.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
      * @param context The Context map to send with the invocation.
      * @return A function that can be called to cancel the invocation locally.
+     * @see Registry#getSessionTimeout
      */
     ::std::function<void()>
     keepAliveAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -335,9 +338,10 @@ public:
     static const char* ice_staticId() noexcept;
 
     /**
-     * Keep the session alive. This operation is provided for backwards compatibility. As of Ice 3.8, there is no
-     * need to call this operation and its implementation does nothing.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param current The Current object for the invocation.
+     * @see Registry#getSessionTimeout
      */
     virtual void keepAlive(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
