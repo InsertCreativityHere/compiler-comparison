@@ -1421,9 +1421,9 @@ namespace Test
     {
         public abstract string callD(Ice.Current current);
 
-        public abstract string callA(Ice.Current current);
-
         public abstract string callB(Ice.Current current);
+
+        public abstract string callA(Ice.Current current);
 
         public abstract string callC(Ice.Current current);
 
