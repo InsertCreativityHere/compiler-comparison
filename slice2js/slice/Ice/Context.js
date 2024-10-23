@@ -19,14 +19,12 @@
 import * as Ice_HashMap from "../Ice/HashMap.js";
 import * as Ice_HashUtil from "../Ice/HashUtil.js";
 import * as Ice_Long from "../Ice/Long.js";
-import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
 import * as Ice_StreamHelpers from "../Ice/StreamHelpers.js";
 
 const Ice = {
     ...Ice_HashMap,
     ...Ice_HashUtil,
     ...Ice_Long,
-    ...Ice_ObjectPrx,
     ...Ice_StreamHelpers,
 };
 
