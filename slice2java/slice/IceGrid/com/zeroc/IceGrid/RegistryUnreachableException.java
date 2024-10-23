@@ -68,5 +68,5 @@ public class RegistryUnreachableException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -4366958757029882831L;
+    private static final long serialVersionUID = -8732944088729988751L;
 }

@@ -440,9 +440,9 @@ namespace Test
     {
         public abstract global::Ice.ObjectPrx? echo(global::Ice.ObjectPrx? obj, Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, string> getContext(Ice.Current current);
-
         public abstract void shutdown(Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, string> getContext(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
