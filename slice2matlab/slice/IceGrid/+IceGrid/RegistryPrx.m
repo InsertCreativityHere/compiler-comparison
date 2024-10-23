@@ -11,8 +11,8 @@
 %   createSessionFromSecureConnectionAsync - Create a client session from a secure connection.
 %   createAdminSessionFromSecureConnection - Create an administrative session from a secure connection.
 %   createAdminSessionFromSecureConnectionAsync - Create an administrative session from a secure connection.
-%   getSessionTimeout - TODO: update description or remove operation
-%   getSessionTimeoutAsync - TODO: update description or remove operation
+%   getSessionTimeout - Gets the session timeout.
+%   getSessionTimeoutAsync - Gets the session timeout.
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
 %   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 %
@@ -196,12 +196,16 @@ classdef RegistryPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('createAdminSessionFromSecureConnection', 0, true, [], 1, @unmarshal, IceGrid.RegistryPrx.createAdminSessionFromSecureConnection_ex_, varargin{:});
         end
         function result = getSessionTimeout(obj, varargin)
-            % getSessionTimeout   TODO: update description or remove operation
+            % getSessionTimeout   Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
+            % send heartbeats (using ACM) or call Session.keepAlive (resp. AdminSession.keepAlive) to keep
+            % a session alive in the IceGrid registry.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
             % Returns (int32) - The session timeout (in seconds).
+            %
+            % Deprecated
             
             is_ = obj.iceInvoke('getSessionTimeout', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
@@ -209,12 +213,16 @@ classdef RegistryPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getSessionTimeoutAsync(obj, varargin)
-            % getSessionTimeoutAsync   TODO: update description or remove operation
+            % getSessionTimeoutAsync   Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
+            % send heartbeats (using ACM) or call Session.keepAlive (resp. AdminSession.keepAlive) to keep
+            % a session alive in the IceGrid registry.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            %
+            % Deprecated
             
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();

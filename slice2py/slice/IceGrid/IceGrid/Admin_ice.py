@@ -5566,8 +5566,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
 
         def keepAlive(self, context=None):
             """
-            Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-            session.
+            Keep the session alive.
+            As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
             
             Parameters
             ----------
@@ -5578,8 +5578,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
 
         def keepAliveAsync(self, context=None):
             """
-            Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-            session.
+            Keep the session alive.
+            As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
             
             Parameters
             ----------
@@ -6269,8 +6269,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
 
         def keepAlive(self, current=None):
             """
-            Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-            session.
+            Keep the session alive.
+            As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
             
             Parameters
             ----------
@@ -6665,6 +6665,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
         __repr__ = __str__
 
     AdminSession._op_keepAlive = IcePy.Operation('keepAlive', Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
+    AdminSession._op_keepAlive.deprecate("")
     AdminSession._op_getAdmin = IcePy.Operation('getAdmin', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceGrid._t_AdminPrx, False, 0), ())
     AdminSession._op_getAdminCallbackTemplate = IcePy.Operation('getAdminCallbackTemplate', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
     AdminSession._op_setObservers = IcePy.Operation('setObservers', Ice.OperationMode.Idempotent, False, None, (), (((), _M_IceGrid._t_RegistryObserverPrx, False, 0), ((), _M_IceGrid._t_NodeObserverPrx, False, 0), ((), _M_IceGrid._t_ApplicationObserverPrx, False, 0), ((), _M_IceGrid._t_AdapterObserverPrx, False, 0), ((), _M_IceGrid._t_ObjectObserverPrx, False, 0)), (), None, (_M_IceGrid._t_ObserverAlreadyRegisteredException,))

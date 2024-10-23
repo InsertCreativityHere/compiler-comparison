@@ -609,7 +609,9 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
 
         def getSessionTimeout(self, context=None):
             """
-            TODO: update description or remove operation
+            Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
+            send heartbeats (using ACM) or call Session#keepAlive (resp. AdminSession#keepAlive) to keep
+            a session alive in the IceGrid registry.
             
             Parameters
             ----------
@@ -625,7 +627,9 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
 
         def getSessionTimeoutAsync(self, context=None):
             """
-            TODO: update description or remove operation
+            Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
+            send heartbeats (using ACM) or call Session#keepAlive (resp. AdminSession#keepAlive) to keep
+            a session alive in the IceGrid registry.
             
             Parameters
             ----------
@@ -766,7 +770,9 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
 
         def getSessionTimeout(self, current=None):
             """
-            TODO: update description or remove operation
+            Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
+            send heartbeats (using ACM) or call Session#keepAlive (resp. AdminSession#keepAlive) to keep
+            a session alive in the IceGrid registry.
             
             Parameters
             ----------
@@ -790,6 +796,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
     Registry._op_createSessionFromSecureConnection = IcePy.Operation('createSessionFromSecureConnection', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_IceGrid._t_SessionPrx, False, 0), (_M_IceGrid._t_PermissionDeniedException,))
     Registry._op_createAdminSessionFromSecureConnection = IcePy.Operation('createAdminSessionFromSecureConnection', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_IceGrid._t_AdminSessionPrx, False, 0), (_M_IceGrid._t_PermissionDeniedException,))
     Registry._op_getSessionTimeout = IcePy.Operation('getSessionTimeout', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    Registry._op_getSessionTimeout.deprecate("")
 
     _M_IceGrid.Registry = Registry
     del Registry

@@ -360,9 +360,9 @@ public extension QueryPrx {
 ///
 ///  - createAdminSessionFromSecureConnectionAsync: Create an administrative session from a secure connection.
 ///
-///  - getSessionTimeout: TODO: update description or remove operation
+///  - getSessionTimeout: Gets the session timeout.
 ///
-///  - getSessionTimeoutAsync: TODO: update description or remove operation
+///  - getSessionTimeoutAsync: Gets the session timeout.
 public protocol RegistryPrx: Ice.ObjectPrx {}
 
 private final class RegistryPrxI: Ice.ObjectPrxI, RegistryPrx {
@@ -470,9 +470,9 @@ public extension Ice.InputStream {
 ///
 ///  - createAdminSessionFromSecureConnectionAsync: Create an administrative session from a secure connection.
 ///
-///  - getSessionTimeout: TODO: update description or remove operation
+///  - getSessionTimeout: Gets the session timeout.
 ///
-///  - getSessionTimeoutAsync: TODO: update description or remove operation
+///  - getSessionTimeoutAsync: Gets the session timeout.
 public extension RegistryPrx {
     /// Create a client session.
     ///
@@ -598,7 +598,11 @@ public extension RegistryPrx {
                                        context: context)
     }
 
-    /// TODO: update description or remove operation
+    /// Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
+    /// send heartbeats (using ACM) or call Session.keepAlive (resp. AdminSession.keepAlive) to keep
+    /// a session alive in the IceGrid registry.
+    ///
+    ///  ## Deprecated
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -943,7 +947,11 @@ public protocol Registry {
     ///     user is not allowed access.
     func createAdminSessionFromSecureConnection(current: Ice.Current) async throws -> AdminSessionPrx?
 
-    /// TODO: update description or remove operation
+    /// Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
+    /// send heartbeats (using ACM) or call Session.keepAlive (resp. AdminSession.keepAlive) to keep
+    /// a session alive in the IceGrid registry.
+    ///
+    ///  ## Deprecated
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -1094,7 +1102,7 @@ extension Query {
 ///
 ///  - createAdminSessionFromSecureConnection: Create an administrative session from a secure connection.
 ///
-///  - getSessionTimeout: TODO: update description or remove operation
+///  - getSessionTimeout: Gets the session timeout.
 extension Registry {
     public func _iceD_createSession(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

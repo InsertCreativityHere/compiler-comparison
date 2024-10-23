@@ -183,11 +183,18 @@ namespace IceGrid
         AdminSessionPrx? createAdminSessionFromSecureConnection(Ice.Current current);
 
         /// <summary>
-        /// TODO: update description or remove operation
+        /// Gets the session timeout.
+        ///
+        /// <para>This operation has been deprecated.</para>
+        ///
+        /// An Ice 3.7 or earlier client can use this value to determine how often it needs to
+        ///  send heartbeats (using ACM) or call Session.keepAlive (resp. AdminSession.keepAlive) to keep
+        ///  a session alive in the IceGrid registry.
         /// </summary>
-        /// <returns>The session timeout (in seconds).</returns>
+        ///  <returns>The session timeout (in seconds).</returns>
         /// <param name="current">The Current object for the dispatch.</param>
 
+        [global::System.Obsolete]
         int getSessionTimeout(Ice.Current current);
     }
 
@@ -446,20 +453,30 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<AdminSessionPrx?> createAdminSessionFromSecureConnectionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// TODO: update description or remove operation
+        /// Gets the session timeout.
+        ///
+        /// <para>This operation has been deprecated.</para>
+        ///
+        /// An Ice 3.7 or earlier client can use this value to determine how often it needs to
+        ///  send heartbeats (using ACM) or call Session.keepAlive (resp. AdminSession.keepAlive) to keep
+        ///  a session alive in the IceGrid registry.
         /// </summary>
-        /// <returns>The session timeout (in seconds).</returns>
+        ///  <returns>The session timeout (in seconds).</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
+        [global::System.Obsolete]
         int getSessionTimeout(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// TODO: update description or remove operation
+        /// Gets the session timeout.
+        /// An Ice 3.7 or earlier client can use this value to determine how often it needs to
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <para>This operation has been deprecated.</para>
+        [global::System.Obsolete]
         global::System.Threading.Tasks.Task<int> getSessionTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 

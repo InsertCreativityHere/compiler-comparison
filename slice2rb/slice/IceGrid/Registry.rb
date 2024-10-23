@@ -154,6 +154,7 @@ module ::IceGrid
         RegistryPrx_mixin::OP_createSessionFromSecureConnection = ::Ice::__defineOperation('createSessionFromSecureConnection', ::Ice::OperationMode::Normal, false, nil, [], [], [::IceGrid::T_SessionPrx, false, 0], [::IceGrid::T_PermissionDeniedException])
         RegistryPrx_mixin::OP_createAdminSessionFromSecureConnection = ::Ice::__defineOperation('createAdminSessionFromSecureConnection', ::Ice::OperationMode::Normal, false, nil, [], [], [::IceGrid::T_AdminSessionPrx, false, 0], [::IceGrid::T_PermissionDeniedException])
         RegistryPrx_mixin::OP_getSessionTimeout = ::Ice::__defineOperation('getSessionTimeout', ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_int, false, 0], [])
+        RegistryPrx_mixin::OP_getSessionTimeout.deprecate("")
     end
 
     if not defined?(::IceGrid::LocatorPrx)

@@ -362,38 +362,54 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     };
 
     /**
-     * TODO: update description or remove operation
+     * Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
+     * send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
+     * a session alive in the IceGrid registry.
      * @return The session timeout (in seconds).
+     * @deprecated
      **/
+    @Deprecated
     default int getSessionTimeout()
     {
         return getSessionTimeout(com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
     /**
-     * TODO: update description or remove operation
+     * Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
+     * send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
+     * a session alive in the IceGrid registry.
      * @param context The Context map to send with the invocation.
      * @return The session timeout (in seconds).
+     * @deprecated
      **/
+    @Deprecated
     default int getSessionTimeout(java.util.Map<String, String> context)
     {
         return _iceI_getSessionTimeoutAsync(context, true).waitForResponse();
     }
 
     /**
-     * TODO: update description or remove operation
+     * Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
+     * send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
+     * a session alive in the IceGrid registry.
      * @return The session timeout (in seconds).
+     * @deprecated
      **/
+    @Deprecated
     default java.util.concurrent.CompletableFuture<java.lang.Integer> getSessionTimeoutAsync()
     {
         return _iceI_getSessionTimeoutAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
     /**
-     * TODO: update description or remove operation
+     * Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
+     * send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
+     * a session alive in the IceGrid registry.
      * @param context The Context map to send with the invocation.
      * @return The session timeout (in seconds).
+     * @deprecated
      **/
+    @Deprecated
     default java.util.concurrent.CompletableFuture<java.lang.Integer> getSessionTimeoutAsync(java.util.Map<String, String> context)
     {
         return _iceI_getSessionTimeoutAsync(context, false);

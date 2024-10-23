@@ -159,8 +159,10 @@ public extension Ice.InputStream {
 ///
 ///  - setAllocationTimeoutAsync: Set the allocation timeout.
 public extension SessionPrx {
-    /// Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-    /// session.
+    /// Keep the session alive.
+    /// As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
+    ///
+    ///  ## Deprecated
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func keepAlive(context: Ice.Context? = nil) async throws -> Swift.Void {
@@ -328,8 +330,10 @@ public struct SessionDisp: Ice.Dispatcher {
 /// A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
 /// via the Registry object or via the registry client SessionManager object.
 public protocol Session: Glacier2.Session {
-    /// Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-    /// session.
+    /// Keep the session alive.
+    /// As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
+    ///
+    ///  ## Deprecated
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func keepAlive(current: Ice.Current) async throws

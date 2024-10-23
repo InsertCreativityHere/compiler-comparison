@@ -4681,8 +4681,10 @@ public extension Ice.InputStream {
 ///
 ///  - openRegistryStdOutAsync: Open the given registry stdout file for reading.
 public extension AdminSessionPrx {
-    /// Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-    /// session.
+    /// Keep the session alive.
+    /// As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
+    ///
+    ///  ## Deprecated
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func keepAlive(context: Ice.Context? = nil) async throws -> Swift.Void {
@@ -6395,8 +6397,10 @@ public struct AdminSessionDisp: Ice.Dispatcher {
 /// sessions are created either via the Registry object or via the registry admin
 /// SessionManager object.
 public protocol AdminSession: Glacier2.Session {
-    /// Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-    /// session.
+    /// Keep the session alive.
+    /// As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
+    ///
+    ///  ## Deprecated
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func keepAlive(current: Ice.Current) async throws

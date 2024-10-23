@@ -2827,33 +2827,36 @@ class ICEGRID_API AdminSessionPrx : public ::Ice::Proxy<AdminSessionPrx, ::Glaci
 public:
 
     /**
-     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-     * session.
+     * Keep the session alive.
+     * As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
      * @param context The Context map to send with the invocation.
-     * @see Registry#getSessionTimeout
+     *
+     * @deprecated
      */
-    void keepAlive(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[deprecated]] void keepAlive(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-     * session.
+     * Keep the session alive.
+     * As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
-     * @see Registry#getSessionTimeout
+     *
+     * @deprecated
      */
-    [[nodiscard]] ::std::future<void> keepAliveAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[deprecated]] [[nodiscard]] ::std::future<void> keepAliveAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-     * session.
+     * Keep the session alive.
+     * As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
      * @param context The Context map to send with the invocation.
      * @return A function that can be called to cancel the invocation locally.
-     * @see Registry#getSessionTimeout
+     *
+     * @deprecated
      */
-    ::std::function<void()>
+    [[deprecated]] ::std::function<void()>
     keepAliveAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -4953,10 +4956,11 @@ public:
     static const char* ice_staticId() noexcept;
 
     /**
-     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-     * session.
+     * Keep the session alive.
+     * As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
      * @param current The Current object for the invocation.
-     * @see Registry#getSessionTimeout
+     *
+     * @deprecated
      */
     virtual void keepAlive(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

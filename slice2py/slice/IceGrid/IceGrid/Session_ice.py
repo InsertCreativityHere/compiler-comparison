@@ -56,8 +56,8 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
 
         def keepAlive(self, context=None):
             """
-            Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-            session.
+            Keep the session alive.
+            As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
             
             Parameters
             ----------
@@ -68,8 +68,8 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
 
         def keepAliveAsync(self, context=None):
             """
-            Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-            session.
+            Keep the session alive.
+            As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
             
             Parameters
             ----------
@@ -280,8 +280,8 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
 
         def keepAlive(self, current=None):
             """
-            Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
-            session.
+            Keep the session alive.
+            As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
             
             Parameters
             ----------
@@ -400,6 +400,7 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
         __repr__ = __str__
 
     Session._op_keepAlive = IcePy.Operation('keepAlive', Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
+    Session._op_keepAlive.deprecate("")
     Session._op_allocateObjectById = IcePy.Operation('allocateObjectById', Ice.OperationMode.Normal, True, None, (), (((), _M_Ice._t_Identity, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), (_M_IceGrid._t_ObjectNotRegisteredException, _M_IceGrid._t_AllocationException))
     Session._op_allocateObjectByType = IcePy.Operation('allocateObjectByType', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), (_M_IceGrid._t_AllocationException,))
     Session._op_releaseObject = IcePy.Operation('releaseObject', Ice.OperationMode.Normal, False, None, (), (((), _M_Ice._t_Identity, False, 0),), (), None, (_M_IceGrid._t_ObjectNotRegisteredException, _M_IceGrid._t_AllocationException))

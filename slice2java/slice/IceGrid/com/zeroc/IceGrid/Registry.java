@@ -68,10 +68,14 @@ public interface Registry extends com.zeroc.Ice.Object
         throws PermissionDeniedException;
 
     /**
-     * TODO: update description or remove operation
+     * Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
+     * send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
+     * a session alive in the IceGrid registry.
      * @param current The Current object for the invocation.
      * @return The session timeout (in seconds).
+     * @deprecated
      **/
+    @Deprecated
     int getSessionTimeout(com.zeroc.Ice.Current current);
 
     /** @hidden */

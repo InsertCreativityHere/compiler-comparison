@@ -1113,6 +1113,7 @@ module ::IceGrid
         T_AdminSessionPrx.defineProxy(AdminSessionPrx, nil, [::Glacier2::T_SessionPrx])
 
         AdminSessionPrx_mixin::OP_keepAlive = ::Ice::__defineOperation('keepAlive', ::Ice::OperationMode::Idempotent, false, nil, [], [], nil, [])
+        AdminSessionPrx_mixin::OP_keepAlive.deprecate("")
         AdminSessionPrx_mixin::OP_getAdmin = ::Ice::__defineOperation('getAdmin', ::Ice::OperationMode::Idempotent, false, nil, [], [], [::IceGrid::T_AdminPrx, false, 0], [])
         AdminSessionPrx_mixin::OP_getAdminCallbackTemplate = ::Ice::__defineOperation('getAdminCallbackTemplate', ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
         AdminSessionPrx_mixin::OP_setObservers = ::Ice::__defineOperation('setObservers', ::Ice::OperationMode::Idempotent, false, nil, [[::IceGrid::T_RegistryObserverPrx, false, 0], [::IceGrid::T_NodeObserverPrx, false, 0], [::IceGrid::T_ApplicationObserverPrx, false, 0], [::IceGrid::T_AdapterObserverPrx, false, 0], [::IceGrid::T_ObjectObserverPrx, false, 0]], [], nil, [::IceGrid::T_ObserverAlreadyRegisteredException])
