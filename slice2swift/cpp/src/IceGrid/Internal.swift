@@ -2623,9 +2623,9 @@ public extension ReplicaSessionPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
-                                           } catch let error as ObserverAlreadyRegisteredException {
-                                               throw error
                                            } catch let error as DeploymentException {
+                                               throw error
+                                           } catch let error as ObserverAlreadyRegisteredException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
