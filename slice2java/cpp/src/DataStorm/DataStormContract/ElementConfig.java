@@ -424,7 +424,7 @@ public class ElementConfig extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -1155328627706571692L;
+    private static final long serialVersionUID = -4423174090106107329L;
 
     /** @hidden */
     @Override
