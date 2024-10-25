@@ -166,6 +166,10 @@ IceMX.MetricsAdmin = class extends Ice.Object
 {
 };
 
+/**
+ * The metrics administrative facet interface. This interface allows remote administrative clients to access
+ * metrics of an application that enabled the Ice administrative facility and configured some metrics views.
+ **/
 IceMX.MetricsAdminPrx = class extends Ice.ObjectPrx
 {
 };

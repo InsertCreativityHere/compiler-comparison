@@ -30,9 +30,6 @@ namespace IceGrid
     {
         /// <summary>
         /// Keep the session alive.
-        ///
-        /// <para>This operation has been deprecated.</para>
-        ///
         /// As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
@@ -100,9 +97,6 @@ namespace IceGrid
     {
         /// <summary>
         /// Keep the session alive.
-        ///
-        /// <para>This operation has been deprecated.</para>
-        ///
         /// As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -118,7 +112,6 @@ namespace IceGrid
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        /// <para>This operation has been deprecated.</para>
         [global::System.Obsolete]
         global::System.Threading.Tasks.Task keepAliveAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 

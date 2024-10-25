@@ -73,9 +73,7 @@ public interface Registry extends com.zeroc.Ice.Object
      * a session alive in the IceGrid registry.
      * @param current The Current object for the invocation.
      * @return The session timeout (in seconds).
-     * @deprecated
      **/
-    @Deprecated
     int getSessionTimeout(com.zeroc.Ice.Current current);
 
     /** @hidden */

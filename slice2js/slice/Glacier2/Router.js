@@ -100,6 +100,9 @@ Glacier2.Router = class extends Ice.Object
     }
 };
 
+/**
+ * The Glacier2 specialization of the <code>Ice::Router</code> interface.
+ **/
 Glacier2.RouterPrx = class extends Ice.ObjectPrx
 {
     static get _implements()

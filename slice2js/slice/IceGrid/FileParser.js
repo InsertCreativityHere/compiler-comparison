@@ -98,6 +98,10 @@ IceGrid.FileParser = class extends Ice.Object
 {
 };
 
+/**
+ * <code>icegridadmin</code> provides a {@link FileParser} object to transform XML files into
+ * {@link ApplicationDescriptor} objects.
+ **/
 IceGrid.FileParserPrx = class extends Ice.ObjectPrx
 {
 };

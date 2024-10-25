@@ -53,6 +53,11 @@ IceLocatorDiscovery.LookupReply = class extends Ice.Object
 {
 };
 
+/**
+ * The Ice lookup reply interface must be implemented by clients which are searching for Ice locators. Ice locator
+ * implementations invoke on this interface to provide their locator proxy.
+ * @see Lookup
+ **/
 IceLocatorDiscovery.LookupReplyPrx = class extends Ice.ObjectPrx
 {
 };
@@ -83,6 +88,13 @@ IceLocatorDiscovery.Lookup = class extends Ice.Object
 {
 };
 
+/**
+ * The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
+ * available Ice locators on the network.
+ * Ice locator implementations provide a well-known `Ice/LocatorLookup' object accessible through UDP multicast.
+ * Clients typically make a multicast findLocator request to find the locator proxy.
+ * @see LookupReply
+ **/
 IceLocatorDiscovery.LookupPrx = class extends Ice.ObjectPrx
 {
 };

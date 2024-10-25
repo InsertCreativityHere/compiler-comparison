@@ -98,6 +98,10 @@ Glacier2.PermissionsVerifier = class extends Ice.Object
 {
 };
 
+/**
+ * The Glacier2 permissions verifier. This is called through the process of establishing a session.
+ * @see Router
+ **/
 Glacier2.PermissionsVerifierPrx = class extends Ice.ObjectPrx
 {
 };
@@ -128,6 +132,10 @@ Glacier2.SSLPermissionsVerifier = class extends Ice.Object
 {
 };
 
+/**
+ * The SSL Glacier2 permissions verifier. This is called through the process of establishing a session.
+ * @see Router
+ **/
 Glacier2.SSLPermissionsVerifierPrx = class extends Ice.ObjectPrx
 {
 };

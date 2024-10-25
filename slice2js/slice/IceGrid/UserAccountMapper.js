@@ -80,6 +80,9 @@ IceGrid.UserAccountMapper = class extends Ice.Object
 {
 };
 
+/**
+ * A user account mapper object is used by IceGrid nodes to map session identifiers to user accounts.
+ **/
 IceGrid.UserAccountMapperPrx = class extends Ice.ObjectPrx
 {
 };

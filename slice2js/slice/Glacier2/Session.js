@@ -103,6 +103,11 @@ Glacier2.Session = class extends Ice.Object
 {
 };
 
+/**
+ * A client-visible session object, which is tied to the lifecycle of a {@link Router}.
+ * @see Router
+ * @see SessionManager
+ **/
 Glacier2.SessionPrx = class extends Ice.ObjectPrx
 {
 };
@@ -132,6 +137,12 @@ Glacier2.StringSet = class extends Ice.Object
 {
 };
 
+/**
+ * An object for managing the set of identity constraints for specific parts of object identity on a
+ * {@link Session}.
+ * @see Session
+ * @see SessionControl
+ **/
 Glacier2.StringSetPrx = class extends Ice.ObjectPrx
 {
 };
@@ -162,6 +173,11 @@ Glacier2.IdentitySet = class extends Ice.Object
 {
 };
 
+/**
+ * An object for managing the set of object identity constraints on a {@link Session}.
+ * @see Session
+ * @see SessionControl
+ **/
 Glacier2.IdentitySetPrx = class extends Ice.ObjectPrx
 {
 };
@@ -191,6 +207,10 @@ Glacier2.SessionControl = class extends Ice.Object
 {
 };
 
+/**
+ * An administrative session control object, which is tied to the lifecycle of a {@link Session}.
+ * @see Session
+ **/
 Glacier2.SessionControlPrx = class extends Ice.ObjectPrx
 {
 };
@@ -226,6 +246,14 @@ Glacier2.SessionManager = class extends Ice.Object
 {
 };
 
+/**
+ * The session manager for username/password authenticated users that is responsible for managing {@link Session}
+ * objects. New session objects are created by the {@link Router} object calling on an application-provided
+ * session manager. If no session manager is provided by the application, no client-visible sessions are passed to
+ * the client.
+ * @see Router
+ * @see Session
+ **/
 Glacier2.SessionManagerPrx = class extends Ice.ObjectPrx
 {
 };
@@ -259,6 +287,13 @@ Glacier2.SSLSessionManager = class extends Ice.Object
 {
 };
 
+/**
+ * The session manager for SSL authenticated users that is responsible for managing {@link Session} objects. New
+ * session objects are created by the {@link Router} object calling on an application-provided session manager. If
+ * no session manager is provided by the application, no client-visible sessions are passed to the client.
+ * @see Router
+ * @see Session
+ **/
 Glacier2.SSLSessionManagerPrx = class extends Ice.ObjectPrx
 {
 };

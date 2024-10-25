@@ -80,6 +80,10 @@ IceStorm.TopicLink = class extends Ice.Object
 {
 };
 
+/**
+ * The TopicLink interface. This is used to forward events between federated Topic instances.
+ * @see TopicInternal
+ **/
 IceStorm.TopicLinkPrx = class extends Ice.ObjectPrx
 {
 };
@@ -143,6 +147,10 @@ IceStorm.TopicInternal = class extends Ice.Object
     }
 };
 
+/**
+ * Internal operations for a topic.
+ * @see Topic
+ **/
 IceStorm.TopicInternalPrx = class extends Ice.ObjectPrx
 {
     static get _implements()
@@ -186,6 +194,10 @@ IceStorm.TopicManagerInternal = class extends Ice.Object
     }
 };
 
+/**
+ * Internal operations for a topic manager.
+ * @see TopicManager
+ **/
 IceStorm.TopicManagerInternalPrx = class extends Ice.ObjectPrx
 {
     static get _implements()

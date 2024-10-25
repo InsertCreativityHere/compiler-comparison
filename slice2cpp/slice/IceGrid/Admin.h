@@ -2830,8 +2830,6 @@ public:
      * Keep the session alive.
      * As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
      * @param context The Context map to send with the invocation.
-     *
-     * @deprecated
      */
     [[deprecated]] void keepAlive(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -2840,8 +2838,6 @@ public:
      * As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
-     *
-     * @deprecated
      */
     [[deprecated]] [[nodiscard]] ::std::future<void> keepAliveAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -2853,8 +2849,6 @@ public:
      * @param sent The sent callback.
      * @param context The Context map to send with the invocation.
      * @return A function that can be called to cancel the invocation locally.
-     *
-     * @deprecated
      */
     [[deprecated]] ::std::function<void()>
     keepAliveAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -4959,8 +4953,6 @@ public:
      * Keep the session alive.
      * As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
      * @param current The Current object for the invocation.
-     *
-     * @deprecated
      */
     virtual void keepAlive(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

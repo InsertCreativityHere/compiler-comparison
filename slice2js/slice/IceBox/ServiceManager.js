@@ -141,6 +141,10 @@ IceBox.ServiceObserver = class extends Ice.Object
 {
 };
 
+/**
+ * An Observer interface implemented by admin clients interested in the status of services.
+ * @see ServiceManager
+ **/
 IceBox.ServiceObserverPrx = class extends Ice.ObjectPrx
 {
 };
@@ -169,6 +173,10 @@ IceBox.ServiceManager = class extends Ice.Object
 {
 };
 
+/**
+ * Administers a set of IceBox Service instances.
+ * @see Service
+ **/
 IceBox.ServiceManagerPrx = class extends Ice.ObjectPrx
 {
 };

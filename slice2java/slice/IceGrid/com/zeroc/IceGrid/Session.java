@@ -27,9 +27,7 @@ public interface Session extends com.zeroc.Glacier2.Session
      * Keep the session alive.
      * As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
      * @param current The Current object for the invocation.
-     * @deprecated
      **/
-    @Deprecated
     void keepAlive(com.zeroc.Ice.Current current);
 
     /**

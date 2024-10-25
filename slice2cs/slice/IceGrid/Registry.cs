@@ -184,9 +184,6 @@ namespace IceGrid
 
         /// <summary>
         /// Gets the session timeout.
-        ///
-        /// <para>This operation has been deprecated.</para>
-        ///
         /// An Ice 3.7 or earlier client can use this value to determine how often it needs to
         ///  send heartbeats (using ACM) or call Session.keepAlive (resp. AdminSession.keepAlive) to keep
         ///  a session alive in the IceGrid registry.
@@ -454,9 +451,6 @@ namespace IceGrid
 
         /// <summary>
         /// Gets the session timeout.
-        ///
-        /// <para>This operation has been deprecated.</para>
-        ///
         /// An Ice 3.7 or earlier client can use this value to determine how often it needs to
         ///  send heartbeats (using ACM) or call Session.keepAlive (resp. AdminSession.keepAlive) to keep
         ///  a session alive in the IceGrid registry.
@@ -475,7 +469,6 @@ namespace IceGrid
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        /// <para>This operation has been deprecated.</para>
         [global::System.Obsolete]
         global::System.Threading.Tasks.Task<int> getSessionTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }

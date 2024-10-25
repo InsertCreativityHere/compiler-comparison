@@ -399,6 +399,10 @@ IceGrid.Admin = class extends Ice.Object
 {
 };
 
+/**
+ * The IceGrid administrative interface. <p class="Warning">Allowing access to this interface is a security risk!
+ * Please see the IceGrid documentation for further information.
+ **/
 IceGrid.AdminPrx = class extends Ice.ObjectPrx
 {
 };
@@ -622,6 +626,9 @@ IceGrid.FileIterator = class extends Ice.Object
 {
 };
 
+/**
+ * This interface provides access to IceGrid log file contents.
+ **/
 IceGrid.FileIteratorPrx = class extends Ice.ObjectPrx
 {
 };
@@ -758,6 +765,9 @@ IceGrid.RegistryObserver = class extends Ice.Object
 {
 };
 
+/**
+ * This interface allows applications to monitor changes the state of the registry.
+ **/
 IceGrid.RegistryObserverPrx = class extends Ice.ObjectPrx
 {
 };
@@ -789,6 +799,10 @@ IceGrid.NodeObserver = class extends Ice.Object
 {
 };
 
+/**
+ * The node observer interface. Observers should implement this interface to receive information about the state of
+ * the IceGrid nodes.
+ **/
 IceGrid.NodeObserverPrx = class extends Ice.ObjectPrx
 {
 };
@@ -820,6 +834,10 @@ IceGrid.ApplicationObserver = class extends Ice.Object
 {
 };
 
+/**
+ * The database observer interface. Observers should implement this interface to receive information about the
+ * state of the IceGrid registry database.
+ **/
 IceGrid.ApplicationObserverPrx = class extends Ice.ObjectPrx
 {
 };
@@ -849,6 +867,9 @@ IceGrid.AdapterObserver = class extends Ice.Object
 {
 };
 
+/**
+ * This interface allows applications to monitor the state of object adapters that are registered with IceGrid.
+ **/
 IceGrid.AdapterObserverPrx = class extends Ice.ObjectPrx
 {
 };
@@ -878,6 +899,9 @@ IceGrid.ObjectObserver = class extends Ice.Object
 {
 };
 
+/**
+ * This interface allows applications to monitor IceGrid well-known objects.
+ **/
 IceGrid.ObjectObserverPrx = class extends Ice.ObjectPrx
 {
 };
@@ -917,6 +941,12 @@ IceGrid.AdminSession = class extends Ice.Object
     }
 };
 
+/**
+ * Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
+ * sessions are created either via the {@link Registry} object or via the registry admin
+ * <code>SessionManager</code> object.
+ * @see Registry
+ **/
 IceGrid.AdminSessionPrx = class extends Ice.ObjectPrx
 {
     static get _implements()

@@ -51,6 +51,9 @@ IceDiscovery.LookupReply = class extends Ice.Object
 {
 };
 
+/**
+ * The LookupReply interface is used by IceDiscovery clients to answer requests received on the Lookup interface.
+ **/
 IceDiscovery.LookupReplyPrx = class extends Ice.ObjectPrx
 {
 };
@@ -78,6 +81,9 @@ IceDiscovery.Lookup = class extends Ice.Object
 {
 };
 
+/**
+ * The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
+ **/
 IceDiscovery.LookupPrx = class extends Ice.ObjectPrx
 {
 };

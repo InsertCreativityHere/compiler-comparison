@@ -293,6 +293,10 @@ IceStorm.Topic = class extends Ice.Object
 {
 };
 
+/**
+ * Publishers publish information on a particular topic. A topic logically represents a type. A
+ * @see TopicManager
+ **/
 IceStorm.TopicPrx = class extends Ice.ObjectPrx
 {
 };
@@ -422,6 +426,10 @@ IceStorm.TopicManager = class extends Ice.Object
 {
 };
 
+/**
+ * A topic manager manages topics, and subscribers to topics.
+ * @see Topic
+ **/
 IceStorm.TopicManagerPrx = class extends Ice.ObjectPrx
 {
 };
@@ -457,6 +465,10 @@ IceStorm.Finder = class extends Ice.Object
 {
 };
 
+/**
+ * This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
+ * This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
+ **/
 IceStorm.FinderPrx = class extends Ice.ObjectPrx
 {
 };

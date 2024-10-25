@@ -553,6 +553,17 @@ DataStormContract.Node = class extends Ice.Object
 {
 };
 
+/**
+ * The Node interface allows DataStorm nodes to create publisher and subscriber sessions with each other.
+ *
+ * When a node has a writer for a topic that another node is reading, the node initiates the creation of a
+ * publisher session. Likewise, when a node has a reader for a topic that another node is writing, the node
+ * initiates the creation of a subscriber session.
+ *
+ * The publisher node hosts the publisher session servant, which is accessed by the subscriber node through a
+ * PublisherSession proxy. The subscriber node hosts the subscriber session servant, which is accessed by the
+ * publisher node through a SubscriberSession proxy.
+ **/
 DataStormContract.NodePrx = class extends Ice.ObjectPrx
 {
 };
@@ -583,6 +594,11 @@ DataStormContract.Lookup = class extends Ice.Object
 {
 };
 
+/**
+ * The lookup interface is used by DataStorm nodes to announce their topic readers and writers to other connected
+ * nodes. When multicast is enabled, the lookup interface also broadcasts these announcements.
+ * Each DataStorm node hosts a lookup servant with the identity "DataStorm/Lookup".
+ **/
 DataStormContract.LookupPrx = class extends Ice.ObjectPrx
 {
 };

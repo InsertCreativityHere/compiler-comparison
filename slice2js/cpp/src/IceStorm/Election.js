@@ -118,6 +118,9 @@ IceStormElection.ReplicaObserver = class extends Ice.Object
 {
 };
 
+/**
+ * The replica observer.
+ **/
 IceStormElection.ReplicaObserverPrx = class extends Ice.ObjectPrx
 {
 };
@@ -163,6 +166,9 @@ IceStormElection.TopicManagerSync = class extends Ice.Object
 {
 };
 
+/**
+ * Interface used to sync topics.
+ **/
 IceStormElection.TopicManagerSyncPrx = class extends Ice.ObjectPrx
 {
 };
@@ -304,6 +310,9 @@ IceStormElection.Node = class extends Ice.Object
 {
 };
 
+/**
+ * A replica node.
+ **/
 IceStormElection.NodePrx = class extends Ice.ObjectPrx
 {
 };

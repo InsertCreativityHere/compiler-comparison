@@ -105,6 +105,10 @@ Ice.RemoteLogger = class extends Ice.Object
 {
 };
 
+/**
+ * The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
+ * to the local {@link RemoteLogger} of another Ice application.
+ **/
 Ice.RemoteLoggerPrx = class extends Ice.ObjectPrx
 {
 };
@@ -162,6 +166,10 @@ Ice.LoggerAdmin = class extends Ice.Object
 {
 };
 
+/**
+ * The interface of the admin object that allows an Ice application the attach its
+ * {@link RemoteLogger} to the {@link RemoteLogger} of this admin object's Ice communicator.
+ **/
 Ice.LoggerAdminPrx = class extends Ice.ObjectPrx
 {
 };

@@ -448,8 +448,6 @@ public:
      * a session alive in the IceGrid registry.
      * @param context The Context map to send with the invocation.
      * @return The session timeout (in seconds).
-     *
-     * @deprecated
      */
     [[deprecated]] ::std::int32_t getSessionTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -459,8 +457,6 @@ public:
      * a session alive in the IceGrid registry.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
-     *
-     * @deprecated
      */
     [[deprecated]] [[nodiscard]] ::std::future<::std::int32_t> getSessionTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -473,8 +469,6 @@ public:
      * @param sent The sent callback.
      * @param context The Context map to send with the invocation.
      * @return A function that can be called to cancel the invocation locally.
-     *
-     * @deprecated
      */
     [[deprecated]] ::std::function<void()>
     getSessionTimeoutAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -838,8 +832,6 @@ public:
      * a session alive in the IceGrid registry.
      * @param current The Current object for the invocation.
      * @return The session timeout (in seconds).
-     *
-     * @deprecated
      */
     virtual ::std::int32_t getSessionTimeout(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL

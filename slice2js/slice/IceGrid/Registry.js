@@ -72,6 +72,10 @@ IceGrid.Query = class extends Ice.Object
 {
 };
 
+/**
+ * The IceGrid query interface. This interface is accessible to Ice clients who wish to look up well-known
+ * objects.
+ **/
 IceGrid.QueryPrx = class extends Ice.ObjectPrx
 {
 };
@@ -104,6 +108,11 @@ IceGrid.Registry = class extends Ice.Object
 {
 };
 
+/**
+ * The IceGrid registry allows clients create sessions directly with the registry.
+ * @see Session
+ * @see AdminSession
+ **/
 IceGrid.RegistryPrx = class extends Ice.ObjectPrx
 {
 };
@@ -156,6 +165,12 @@ IceGrid.Locator = class extends Ice.Object
     }
 };
 
+/**
+ * The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
+ * registry.
+ * @see Query
+ * @see Registry
+ **/
 IceGrid.LocatorPrx = class extends Ice.ObjectPrx
 {
     static get _implements()

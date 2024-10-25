@@ -51,6 +51,9 @@ Ice.PropertiesAdmin = class extends Ice.Object
 {
 };
 
+/**
+ * The PropertiesAdmin interface provides remote access to the properties of a communicator.
+ **/
 Ice.PropertiesAdminPrx = class extends Ice.ObjectPrx
 {
 };
