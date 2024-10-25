@@ -1315,9 +1315,9 @@ namespace IceStorm
 
         public abstract void unlink(TopicPrx? linkTo, Ice.Current current);
 
-        public abstract global::Ice.Identity[] getSubscribers(Ice.Current current);
-
         public abstract LinkInfo[] getLinkInfoSeq(Ice.Current current);
+
+        public abstract global::Ice.Identity[] getSubscribers(Ice.Current current);
 
         public abstract void destroy(Ice.Current current);
 
