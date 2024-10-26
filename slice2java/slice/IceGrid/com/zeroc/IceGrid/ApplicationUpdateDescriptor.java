@@ -364,5 +364,5 @@ public class ApplicationUpdateDescriptor implements java.lang.Cloneable,
     private static final ApplicationUpdateDescriptor _nullMarshalValue = new ApplicationUpdateDescriptor();
 
     /** @hidden */
-    private static final long serialVersionUID = -2255135571157581754L;
+    private static final long serialVersionUID = 2334130692520330838L;
 }
