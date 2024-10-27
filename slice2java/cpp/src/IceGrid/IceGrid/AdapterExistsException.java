@@ -56,5 +56,5 @@ public class AdapterExistsException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 3774318801659733184L;
+    private static final long serialVersionUID = 3774318599132346874L;
 }
