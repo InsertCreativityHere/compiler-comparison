@@ -12220,6 +12220,10 @@ namespace Test
 
         public abstract MyClass1? opMyClass1(MyClass1? c, Ice.Current current);
 
+        public abstract Structure opStruct(Structure p1, Structure p2, out Structure p3, Ice.Current current);
+
+        public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, Ice.Current current);
+
         public abstract void shutdown(Ice.Current current);
 
         public abstract bool supportsCompress(Ice.Current current);
@@ -12239,10 +12243,6 @@ namespace Test
         public abstract MyEnum opMyEnum(MyEnum p1, out MyEnum p2, Ice.Current current);
 
         public abstract MyClassPrx? opMyClass(MyClassPrx? p1, out MyClassPrx? p2, out MyClassPrx? p3, Ice.Current current);
-
-        public abstract Structure opStruct(Structure p1, Structure p2, out Structure p3, Ice.Current current);
-
-        public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, Ice.Current current);
 
         public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, Ice.Current current);
 
@@ -12432,6 +12432,10 @@ namespace Test2
 {
     public abstract class MyDerivedClassDisp_ : Ice.ObjectImpl, MyDerivedClass
     {
+        public abstract global::Test.Structure opStruct(global::Test.Structure p1, global::Test.Structure p2, out global::Test.Structure p3, Ice.Current current);
+
+        public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, Ice.Current current);
+
         public abstract void shutdown(Ice.Current current);
 
         public abstract bool supportsCompress(Ice.Current current);
@@ -12451,10 +12455,6 @@ namespace Test2
         public abstract global::Test.MyEnum opMyEnum(global::Test.MyEnum p1, out global::Test.MyEnum p2, Ice.Current current);
 
         public abstract global::Test.MyClassPrx? opMyClass(global::Test.MyClassPrx? p1, out global::Test.MyClassPrx? p2, out global::Test.MyClassPrx? p3, Ice.Current current);
-
-        public abstract global::Test.Structure opStruct(global::Test.Structure p1, global::Test.Structure p2, out global::Test.Structure p3, Ice.Current current);
-
-        public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, Ice.Current current);
 
         public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, Ice.Current current);
 
