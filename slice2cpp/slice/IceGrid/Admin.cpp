@@ -4363,7 +4363,7 @@ IceGrid::Admin::dispatch(::Ice::IncomingRequest& request, ::std::function<void(:
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 49, current.operation);
     if(r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -4617,7 +4617,7 @@ IceGrid::Admin::dispatch(::Ice::IncomingRequest& request, ::std::function<void(:
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
@@ -4683,7 +4683,7 @@ IceGrid::FileIterator::dispatch(::Ice::IncomingRequest& request, ::std::function
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -4722,7 +4722,7 @@ IceGrid::FileIterator::dispatch(::Ice::IncomingRequest& request, ::std::function
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
@@ -4802,7 +4802,7 @@ IceGrid::RegistryObserver::dispatch(::Ice::IncomingRequest& request, ::std::func
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -4846,7 +4846,7 @@ IceGrid::RegistryObserver::dispatch(::Ice::IncomingRequest& request, ::std::func
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
@@ -4958,7 +4958,7 @@ IceGrid::NodeObserver::dispatch(::Ice::IncomingRequest& request, ::std::function
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
     if(r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -5012,7 +5012,7 @@ IceGrid::NodeObserver::dispatch(::Ice::IncomingRequest& request, ::std::function
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
@@ -5114,7 +5114,7 @@ IceGrid::ApplicationObserver::dispatch(::Ice::IncomingRequest& request, ::std::f
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -5163,7 +5163,7 @@ IceGrid::ApplicationObserver::dispatch(::Ice::IncomingRequest& request, ::std::f
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
@@ -5258,7 +5258,7 @@ IceGrid::AdapterObserver::dispatch(::Ice::IncomingRequest& request, ::std::funct
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -5307,7 +5307,7 @@ IceGrid::AdapterObserver::dispatch(::Ice::IncomingRequest& request, ::std::funct
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
@@ -5402,7 +5402,7 @@ IceGrid::ObjectObserver::dispatch(::Ice::IncomingRequest& request, ::std::functi
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -5451,7 +5451,7 @@ IceGrid::ObjectObserver::dispatch(::Ice::IncomingRequest& request, ::std::functi
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
@@ -5747,7 +5747,7 @@ IceGrid::AdminSession::dispatch(::Ice::IncomingRequest& request, ::std::function
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 20, current.operation);
     if(r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -5856,7 +5856,7 @@ IceGrid::AdminSession::dispatch(::Ice::IncomingRequest& request, ::std::function
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

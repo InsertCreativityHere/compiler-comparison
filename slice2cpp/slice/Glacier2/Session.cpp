@@ -599,7 +599,7 @@ Glacier2::Session::dispatch(::Ice::IncomingRequest& request, ::std::function<voi
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -633,7 +633,7 @@ Glacier2::Session::dispatch(::Ice::IncomingRequest& request, ::std::function<voi
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
@@ -713,7 +713,7 @@ Glacier2::StringSet::dispatch(::Ice::IncomingRequest& request, ::std::function<v
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -757,7 +757,7 @@ Glacier2::StringSet::dispatch(::Ice::IncomingRequest& request, ::std::function<v
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
@@ -837,7 +837,7 @@ Glacier2::IdentitySet::dispatch(::Ice::IncomingRequest& request, ::std::function
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -881,7 +881,7 @@ Glacier2::IdentitySet::dispatch(::Ice::IncomingRequest& request, ::std::function
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
@@ -987,7 +987,7 @@ Glacier2::SessionControl::dispatch(::Ice::IncomingRequest& request, ::std::funct
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
     if(r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -1041,7 +1041,7 @@ Glacier2::SessionControl::dispatch(::Ice::IncomingRequest& request, ::std::funct
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
@@ -1096,7 +1096,7 @@ Glacier2::SessionManager::dispatch(::Ice::IncomingRequest& request, ::std::funct
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -1130,7 +1130,7 @@ Glacier2::SessionManager::dispatch(::Ice::IncomingRequest& request, ::std::funct
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
@@ -1185,7 +1185,7 @@ Glacier2::SSLSessionManager::dispatch(::Ice::IncomingRequest& request, ::std::fu
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -1219,7 +1219,7 @@ Glacier2::SSLSessionManager::dispatch(::Ice::IncomingRequest& request, ::std::fu
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

@@ -341,7 +341,7 @@ abstract::_cpp_catch::dispatch(::Ice::IncomingRequest& request, ::std::function<
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -375,7 +375,7 @@ abstract::_cpp_catch::dispatch(::Ice::IncomingRequest& request, ::std::function<
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
@@ -421,7 +421,7 @@ abstract::_cpp_default::dispatch(::Ice::IncomingRequest& request, ::std::functio
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -455,7 +455,7 @@ abstract::_cpp_default::dispatch(::Ice::IncomingRequest& request, ::std::functio
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
@@ -490,7 +490,7 @@ abstract::finalize::dispatch(::Ice::IncomingRequest& request, ::std::function<vo
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -529,7 +529,7 @@ abstract::finalize::dispatch(::Ice::IncomingRequest& request, ::std::function<vo
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
@@ -591,7 +591,7 @@ abstract::_cpp_new::dispatch(::Ice::IncomingRequest& request, ::std::function<vo
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -625,7 +625,7 @@ abstract::_cpp_new::dispatch(::Ice::IncomingRequest& request, ::std::function<vo
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

@@ -405,7 +405,7 @@ BEGIN::_cpp_break::dispatch(::Ice::IncomingRequest& request, ::std::function<voi
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -454,7 +454,7 @@ BEGIN::_cpp_break::dispatch(::Ice::IncomingRequest& request, ::std::function<voi
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
@@ -489,7 +489,7 @@ BEGIN::elsif::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::I
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -538,7 +538,7 @@ BEGIN::elsif::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::I
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
@@ -598,7 +598,7 @@ BEGIN::extend::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
@@ -632,7 +632,7 @@ BEGIN::extend::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

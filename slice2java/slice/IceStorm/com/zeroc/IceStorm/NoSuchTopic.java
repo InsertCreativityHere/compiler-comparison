@@ -59,5 +59,5 @@ public class NoSuchTopic extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -6283739348596400198L;
+    private static final long serialVersionUID = -6283749635232928793L;
 }

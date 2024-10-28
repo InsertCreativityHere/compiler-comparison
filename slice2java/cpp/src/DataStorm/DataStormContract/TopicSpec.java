@@ -185,5 +185,5 @@ public class TopicSpec implements java.lang.Cloneable,
     private static final TopicSpec _nullMarshalValue = new TopicSpec();
 
     /** @hidden */
-    private static final long serialVersionUID = -3224599766375399027L;
+    private static final long serialVersionUID = -3613113221310914931L;
 }
