@@ -5924,11 +5924,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(NodeActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(NodeActiveException)
                     {
                         throw;
                     }
@@ -5980,11 +5980,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(ReplicaActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(ReplicaActiveException)
                     {
                         throw;
                     }
@@ -6503,6 +6503,10 @@ namespace IceGrid
 
     public abstract class DatabaseObserverDisp_ : Ice.ObjectImpl, DatabaseObserver
     {
+        public abstract void applicationInit(int serial, ApplicationInfo[] applications, Ice.Current current);
+
+        public abstract void applicationAdded(int serial, ApplicationInfo desc, Ice.Current current);
+
         public abstract void applicationRemoved(int serial, string name, Ice.Current current);
 
         public abstract void applicationUpdated(int serial, ApplicationUpdateInfo desc, Ice.Current current);
@@ -6522,10 +6526,6 @@ namespace IceGrid
         public abstract void objectUpdated(ObjectInfo info, Ice.Current current);
 
         public abstract void objectRemoved(global::Ice.Identity id, Ice.Current current);
-
-        public abstract void applicationInit(int serial, ApplicationInfo[] applications, Ice.Current current);
-
-        public abstract void applicationAdded(int serial, ApplicationInfo desc, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
