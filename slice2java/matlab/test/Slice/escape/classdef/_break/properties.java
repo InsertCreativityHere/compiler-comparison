@@ -57,7 +57,7 @@ public class properties extends _try
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 1337154760264195444L;
+    private static final long serialVersionUID = -6236109779467852172L;
 
     /** @hidden */
     @Override
