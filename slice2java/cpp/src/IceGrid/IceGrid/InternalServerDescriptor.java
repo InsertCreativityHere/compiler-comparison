@@ -272,7 +272,7 @@ public class InternalServerDescriptor extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -5085671430435907948L;
+    private static final long serialVersionUID = -6880827462055212146L;
 
     /** @hidden */
     @Override

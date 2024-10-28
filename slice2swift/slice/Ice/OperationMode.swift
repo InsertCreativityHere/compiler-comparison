@@ -23,8 +23,7 @@ public enum OperationMode: Swift.UInt8 {
     case Normal = 0
     /// Nonmutating Operations that are nonmutating must not modify object state.
     /// The Ice run-time no longer makes a distinction between nonmutating operations and idempotent operations.
-    /// Nonmutating is deprecated; Use the idempotent keyword
-    /// instead.
+    /// Use the idempotent keyword instead.
     case Nonmutating = 1
     /// Idempotent Operations that use the Slice idempotent keyword can modify object state, but invoking an
     /// operation twice in a row must result in the same object state as invoking it once. For example,

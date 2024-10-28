@@ -42,10 +42,9 @@ namespace Ice
         /**
          * Operations that are <code>nonmutating</code> must not modify object state.
          * The Ice run-time no longer makes a distinction between nonmutating operations and idempotent operations.
-         * <p class="Deprecated"><code>Nonmutating</code> is deprecated; Use the <code>idempotent</code> keyword
-         * instead.
+         * Use the <code>idempotent</code> keyword instead.
          */
-        Nonmutating,
+        Nonmutating [[deprecated("Use Idempotent instead.")]],
         /**
          * Operations that use the Slice <code>idempotent</code> keyword can modify object state, but invoking an
          * operation twice in a row must result in the same object state as invoking it once. For example,

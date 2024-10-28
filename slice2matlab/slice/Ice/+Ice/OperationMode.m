@@ -18,8 +18,7 @@ classdef OperationMode < uint8
         Normal (0)
         % Operations that are nonmutating must not modify object state.
         % The Ice run-time no longer makes a distinction between nonmutating operations and idempotent operations.
-        % Nonmutating is deprecated; Use the idempotent keyword
-        % instead.
+        % Use the idempotent keyword instead.
         Nonmutating (1)
         % Operations that use the Slice idempotent keyword can modify object state, but invoking an
         % operation twice in a row must result in the same object state as invoking it once. For example,

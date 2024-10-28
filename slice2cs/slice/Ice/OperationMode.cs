@@ -42,8 +42,7 @@ namespace Ice
         /// <summary>
         /// Operations that are nonmutating must not modify object state.
         /// The Ice run-time no longer makes a distinction between nonmutating operations and idempotent operations.
-        ///  &lt;p class="Deprecated"&gt;Nonmutating is deprecated; Use the idempotent keyword
-        ///  instead.
+        ///  Use the idempotent keyword instead.
         /// </summary>
 
         Nonmutating,
