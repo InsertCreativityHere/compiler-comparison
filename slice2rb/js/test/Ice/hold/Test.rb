@@ -21,8 +21,8 @@ module ::Test
     if not defined?(::Test::HoldPrx)
         module HoldPrx_mixin
 
-            def putOnHold(seconds, context=nil)
-                HoldPrx_mixin::OP_putOnHold.invoke(self, [seconds], context)
+            def putOnHold(delay, context=nil)
+                HoldPrx_mixin::OP_putOnHold.invoke(self, [delay], context)
             end
 
             def waitForHold(context=nil)

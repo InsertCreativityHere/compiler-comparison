@@ -30,13 +30,49 @@ namespace Ice.hold
         [Ice.SliceTypeId("::Test::Hold")]
         public partial interface Hold : Ice.Object
         {
-            void putOnHold(int seconds, Ice.Current current);
+            /// <summary>
+            /// Puts the adapter on hold, and optionally reactivates it.
+            /// </summary>
+            /// <param name="delay">When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
+            ///  immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
+            ///  milliseconds, puts the adapter on hold and then immediately reactivates it.</param>
+            /// <param name="current">The Current object for the dispatch.</param>
+
+            void putOnHold(int delay, Ice.Current current);
+
+            /// <summary>
+            /// Starts a background task that calls waitForHold and activate on the adapter.
+            /// </summary>
+            /// <param name="current">The Current object for the dispatch.</param>
 
             void waitForHold(Ice.Current current);
 
-            int set(int value, int delay, Ice.Current current);
+            /// <summary>
+            /// Saves value as the last value.
+            /// </summary>
+            /// <param name="value">The new value.
+            ///  </param>
+            /// <param name="expected">The current value as expected by the caller.</param>
+            /// <param name="current">The Current object for the dispatch.</param>
 
             void setOneway(int value, int expected, Ice.Current current);
+
+            /// <summary>
+            /// Saves value as the last value after a delay.
+            /// </summary>
+            /// <param name="value">The new value.
+            ///  </param>
+            /// <param name="delay">The delay in milliseconds.
+            ///  </param>
+            /// <returns>The previous value.</returns>
+            /// <param name="current">The Current object for the dispatch.</param>
+
+            int set(int value, int delay, Ice.Current current);
+
+            /// <summary>
+            /// Shuts down the server.
+            /// </summary>
+            /// <param name="current">The Current object for the dispatch.</param>
 
             void shutdown(Ice.Current current);
         }
@@ -49,24 +85,105 @@ namespace Ice.hold
     {
         public interface HoldPrx : Ice.ObjectPrx
         {
-            void putOnHold(int seconds, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+            /// <summary>
+            /// Puts the adapter on hold, and optionally reactivates it.
+            /// </summary>
+            /// <param name="delay">When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
+            ///  immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
+            ///  milliseconds, puts the adapter on hold and then immediately reactivates it.</param>
+            /// <param name="context">The Context map to send with the invocation.</param>
 
-            global::System.Threading.Tasks.Task putOnHoldAsync(int seconds, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+            void putOnHold(int delay, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            /// <summary>
+            /// Puts the adapter on hold, and optionally reactivates it.
+            /// </summary>
+            /// <param name="delay">When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
+            ///  immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
+            ///  milliseconds, puts the adapter on hold and then immediately reactivates it.</param>
+            /// <param name="context">Context map to send with the invocation.</param>
+            /// <param name="progress">Sent progress provider.</param>
+            /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+            /// <returns>The task object representing the asynchronous operation.</returns>
+            global::System.Threading.Tasks.Task putOnHoldAsync(int delay, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            /// <summary>
+            /// Starts a background task that calls waitForHold and activate on the adapter.
+            /// </summary>
+            /// <param name="context">The Context map to send with the invocation.</param>
 
             void waitForHold(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
+            /// <summary>
+            /// Starts a background task that calls waitForHold and activate on the adapter.
+            /// </summary>
+            /// <param name="context">Context map to send with the invocation.</param>
+            /// <param name="progress">Sent progress provider.</param>
+            /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+            /// <returns>The task object representing the asynchronous operation.</returns>
             global::System.Threading.Tasks.Task waitForHoldAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            int set(int value, int delay, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-            global::System.Threading.Tasks.Task<int> setAsync(int value, int delay, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+            /// <summary>
+            /// Saves value as the last value.
+            /// </summary>
+            /// <param name="value">The new value.
+            ///  </param>
+            /// <param name="expected">The current value as expected by the caller.</param>
+            /// <param name="context">The Context map to send with the invocation.</param>
 
             void setOneway(int value, int expected, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
+            /// <summary>
+            /// Saves value as the last value.
+            /// </summary>
+            /// <param name="value">The new value.
+            ///  </param>
+            /// <param name="expected">The current value as expected by the caller.</param>
+            /// <param name="context">Context map to send with the invocation.</param>
+            /// <param name="progress">Sent progress provider.</param>
+            /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+            /// <returns>The task object representing the asynchronous operation.</returns>
             global::System.Threading.Tasks.Task setOnewayAsync(int value, int expected, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            /// <summary>
+            /// Saves value as the last value after a delay.
+            /// </summary>
+            /// <param name="value">The new value.
+            ///  </param>
+            /// <param name="delay">The delay in milliseconds.
+            ///  </param>
+            /// <returns>The previous value.</returns>
+            /// <param name="context">The Context map to send with the invocation.</param>
+
+            int set(int value, int delay, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            /// <summary>
+            /// Saves value as the last value after a delay.
+            /// </summary>
+            /// <param name="value">The new value.
+            ///  </param>
+            /// <param name="delay">The delay in milliseconds.
+            ///  </param>
+            /// <param name="context">Context map to send with the invocation.</param>
+            /// <param name="progress">Sent progress provider.</param>
+            /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+            /// <returns>The task object representing the asynchronous operation.</returns>
+            global::System.Threading.Tasks.Task<int> setAsync(int value, int delay, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            /// <summary>
+            /// Shuts down the server.
+            /// </summary>
+            /// <param name="context">The Context map to send with the invocation.</param>
 
             void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
+            /// <summary>
+            /// Shuts down the server.
+            /// </summary>
+            /// <param name="context">Context map to send with the invocation.</param>
+            /// <param name="progress">Sent progress provider.</param>
+            /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+            /// <returns>The task object representing the asynchronous operation.</returns>
             global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
     }
@@ -78,11 +195,11 @@ namespace Ice.hold
     {
         public sealed class HoldPrxHelper : Ice.ObjectPrxHelperBase, HoldPrx
         {
-            public void putOnHold(int seconds, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+            public void putOnHold(int delay, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
-                    _iceI_putOnHoldAsync(seconds, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                    _iceI_putOnHoldAsync(delay, context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
                 catch (global::System.AggregateException ex_)
                 {
@@ -102,11 +219,11 @@ namespace Ice.hold
                 }
             }
 
-            public int set(int value, int delay, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+            public void setOneway(int value, int expected, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
-                    return _iceI_setAsync(value, delay, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                    _iceI_setOnewayAsync(value, expected, context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
                 catch (global::System.AggregateException ex_)
                 {
@@ -114,11 +231,11 @@ namespace Ice.hold
                 }
             }
 
-            public void setOneway(int value, int expected, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+            public int set(int value, int delay, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
-                    _iceI_setOnewayAsync(value, expected, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                    return _iceI_setAsync(value, delay, context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
                 catch (global::System.AggregateException ex_)
                 {
@@ -138,21 +255,21 @@ namespace Ice.hold
                 }
             }
 
-            public global::System.Threading.Tasks.Task putOnHoldAsync(int seconds, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task putOnHoldAsync(int delay, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
-                return _iceI_putOnHoldAsync(seconds, context, progress, cancel, false);
+                return _iceI_putOnHoldAsync(delay, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_putOnHoldAsync(int iceP_seconds, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_putOnHoldAsync(int iceP_delay, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-                _iceI_putOnHold(iceP_seconds, context, synchronous, completed);
+                _iceI_putOnHold(iceP_delay, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _putOnHold_name = "putOnHold";
 
-            private void _iceI_putOnHold(int iceP_seconds, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_putOnHold(int iceP_delay, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -163,7 +280,7 @@ namespace Ice.hold
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
                     {
-                        ostr.writeInt(iceP_seconds);
+                        ostr.writeInt(iceP_delay);
                     });
             }
 
@@ -190,6 +307,36 @@ namespace Ice.hold
                     null,
                     context,
                     synchronous);
+            }
+
+            public global::System.Threading.Tasks.Task setOnewayAsync(int value, int expected, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+            {
+                return _iceI_setOnewayAsync(value, expected, context, progress, cancel, false);
+            }
+
+            private global::System.Threading.Tasks.Task _iceI_setOnewayAsync(int iceP_value, int iceP_expected, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            {
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
+                _iceI_setOneway(iceP_value, iceP_expected, context, synchronous, completed);
+                return completed.Task;
+            }
+
+            private const string _setOneway_name = "setOneway";
+
+            private void _iceI_setOneway(int iceP_value, int iceP_expected, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            {
+                var outAsync = getOutgoingAsync<object>(completed);
+                outAsync.invoke(
+                    _setOneway_name,
+                    Ice.OperationMode.Normal,
+                    null,
+                    context,
+                    synchronous,
+                    write: (Ice.OutputStream ostr) =>
+                    {
+                        ostr.writeInt(iceP_value);
+                        ostr.writeInt(iceP_expected);
+                    });
             }
 
             public global::System.Threading.Tasks.Task<int> setAsync(int value, int delay, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
@@ -226,36 +373,6 @@ namespace Ice.hold
                         int ret;
                         ret = istr.readInt();
                         return ret;
-                    });
-            }
-
-            public global::System.Threading.Tasks.Task setOnewayAsync(int value, int expected, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
-            {
-                return _iceI_setOnewayAsync(value, expected, context, progress, cancel, false);
-            }
-
-            private global::System.Threading.Tasks.Task _iceI_setOnewayAsync(int iceP_value, int iceP_expected, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-            {
-                var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-                _iceI_setOneway(iceP_value, iceP_expected, context, synchronous, completed);
-                return completed.Task;
-            }
-
-            private const string _setOneway_name = "setOneway";
-
-            private void _iceI_setOneway(int iceP_value, int iceP_expected, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
-            {
-                var outAsync = getOutgoingAsync<object>(completed);
-                outAsync.invoke(
-                    _setOneway_name,
-                    Ice.OperationMode.Normal,
-                    null,
-                    context,
-                    synchronous,
-                    write: (Ice.OutputStream ostr) =>
-                    {
-                        ostr.writeInt(iceP_value);
-                        ostr.writeInt(iceP_expected);
                     });
             }
 
@@ -340,13 +457,13 @@ namespace Ice.hold
     {
         public abstract class HoldDisp_ : Ice.ObjectImpl, Hold
         {
-            public abstract void putOnHold(int seconds, Ice.Current current);
+            public abstract void putOnHold(int delay, Ice.Current current);
 
             public abstract void waitForHold(Ice.Current current);
 
-            public abstract int set(int value, int delay, Ice.Current current);
-
             public abstract void setOneway(int value, int expected, Ice.Current current);
+
+            public abstract int set(int value, int delay, Ice.Current current);
 
             public abstract void shutdown(Ice.Current current);
 
@@ -359,8 +476,8 @@ namespace Ice.hold
                 {
                     "putOnHold" => Hold.iceD_putOnHoldAsync(this, request),
                     "waitForHold" => Hold.iceD_waitForHoldAsync(this, request),
-                    "set" => Hold.iceD_setAsync(this, request),
                     "setOneway" => Hold.iceD_setOnewayAsync(this, request),
+                    "set" => Hold.iceD_setAsync(this, request),
                     "shutdown" => Hold.iceD_shutdownAsync(this, request),
                     "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
                     "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
@@ -385,10 +502,10 @@ namespace Ice.hold
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
-                int iceP_seconds;
-                iceP_seconds = istr.readInt();
+                int iceP_delay;
+                iceP_delay = istr.readInt();
                 istr.endEncapsulation();
-                obj.putOnHold(iceP_seconds, request.current);
+                obj.putOnHold(iceP_delay, request.current);
                 return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
 
@@ -399,6 +516,22 @@ namespace Ice.hold
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
                 obj.waitForHold(request.current);
+                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
+            }
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setOnewayAsync(
+                Hold obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                var istr = request.inputStream;
+                istr.startEncapsulation();
+                int iceP_value;
+                int iceP_expected;
+                iceP_value = istr.readInt();
+                iceP_expected = istr.readInt();
+                istr.endEncapsulation();
+                obj.setOneway(iceP_value, iceP_expected, request.current);
                 return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
 
@@ -420,22 +553,6 @@ namespace Ice.hold
                 ostr.writeInt(ret);
                 ostr.endEncapsulation();
                 return new(new Ice.OutgoingResponse(ostr));
-            }
-
-            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_setOnewayAsync(
-                Hold obj,
-                Ice.IncomingRequest request)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-                var istr = request.inputStream;
-                istr.startEncapsulation();
-                int iceP_value;
-                int iceP_expected;
-                iceP_value = istr.readInt();
-                iceP_expected = istr.readInt();
-                istr.endEncapsulation();
-                obj.setOneway(iceP_value, iceP_expected, request.current);
-                return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
             }
 
             protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_shutdownAsync(

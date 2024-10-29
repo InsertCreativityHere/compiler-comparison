@@ -17,57 +17,101 @@ package Test;
 
 public interface HoldPrx extends com.zeroc.Ice.ObjectPrx
 {
-    default void putOnHold(int seconds)
+    /**
+     * Puts the adapter on hold, and optionally reactivates it.
+     * @param delay When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
+     * immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
+     * milliseconds, puts the adapter on hold and then immediately reactivates it.
+     **/
+    default void putOnHold(int delay)
     {
-        putOnHold(seconds, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        putOnHold(delay, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void putOnHold(int seconds, java.util.Map<String, String> context)
+    /**
+     * Puts the adapter on hold, and optionally reactivates it.
+     * @param delay When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
+     * immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
+     * milliseconds, puts the adapter on hold and then immediately reactivates it.
+     * @param context The Context map to send with the invocation.
+     **/
+    default void putOnHold(int delay, java.util.Map<String, String> context)
     {
-        _iceI_putOnHoldAsync(seconds, context, true).waitForResponse();
+        _iceI_putOnHoldAsync(delay, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> putOnHoldAsync(int seconds)
+    /**
+     * Puts the adapter on hold, and optionally reactivates it.
+     * @param delay When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
+     * immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
+     * milliseconds, puts the adapter on hold and then immediately reactivates it.
+     * @return A future that will be completed when the invocation completes.
+     **/
+    default java.util.concurrent.CompletableFuture<Void> putOnHoldAsync(int delay)
     {
-        return _iceI_putOnHoldAsync(seconds, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_putOnHoldAsync(delay, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> putOnHoldAsync(int seconds, java.util.Map<String, String> context)
+    /**
+     * Puts the adapter on hold, and optionally reactivates it.
+     * @param delay When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
+     * immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
+     * milliseconds, puts the adapter on hold and then immediately reactivates it.
+     * @param context The Context map to send with the invocation.
+     * @return A future that will be completed when the invocation completes.
+     **/
+    default java.util.concurrent.CompletableFuture<Void> putOnHoldAsync(int delay, java.util.Map<String, String> context)
     {
-        return _iceI_putOnHoldAsync(seconds, context, false);
+        return _iceI_putOnHoldAsync(delay, context, false);
     }
 
     /**
      * @hidden
-     * @param iceP_seconds -
+     * @param iceP_delay -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_putOnHoldAsync(int iceP_seconds, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_putOnHoldAsync(int iceP_delay, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "putOnHold", null, sync, null);
         f.invoke(false, context, null, ostr -> {
-                     ostr.writeInt(iceP_seconds);
+                     ostr.writeInt(iceP_delay);
                  }, null);
         return f;
     }
 
+    /**
+     * Starts a background task that calls waitForHold and activate on the adapter.
+     **/
     default void waitForHold()
     {
         waitForHold(com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
+    /**
+     * Starts a background task that calls waitForHold and activate on the adapter.
+     * @param context The Context map to send with the invocation.
+     **/
     default void waitForHold(java.util.Map<String, String> context)
     {
         _iceI_waitForHoldAsync(context, true).waitForResponse();
     }
 
+    /**
+     * Starts a background task that calls waitForHold and activate on the adapter.
+     * @return A future that will be completed when the invocation completes.
+     **/
     default java.util.concurrent.CompletableFuture<Void> waitForHoldAsync()
     {
         return _iceI_waitForHoldAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
+    /**
+     * Starts a background task that calls waitForHold and activate on the adapter.
+     * @param context The Context map to send with the invocation.
+     * @return A future that will be completed when the invocation completes.
+     **/
     default java.util.concurrent.CompletableFuture<Void> waitForHoldAsync(java.util.Map<String, String> context)
     {
         return _iceI_waitForHoldAsync(context, false);
@@ -86,21 +130,37 @@ public interface HoldPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
+    /**
+     * Shuts down the server.
+     **/
     default void shutdown()
     {
         shutdown(com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
+    /**
+     * Shuts down the server.
+     * @param context The Context map to send with the invocation.
+     **/
     default void shutdown(java.util.Map<String, String> context)
     {
         _iceI_shutdownAsync(context, true).waitForResponse();
     }
 
+    /**
+     * Shuts down the server.
+     * @return A future that will be completed when the invocation completes.
+     **/
     default java.util.concurrent.CompletableFuture<Void> shutdownAsync()
     {
         return _iceI_shutdownAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
+    /**
+     * Shuts down the server.
+     * @param context The Context map to send with the invocation.
+     * @return A future that will be completed when the invocation completes.
+     **/
     default java.util.concurrent.CompletableFuture<Void> shutdownAsync(java.util.Map<String, String> context)
     {
         return _iceI_shutdownAsync(context, false);

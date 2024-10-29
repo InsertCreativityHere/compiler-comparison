@@ -44,22 +44,93 @@ if 'HoldPrx' not in _M_Test.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        def putOnHold(self, seconds, context=None):
-            return _M_Test.Hold._op_putOnHold.invoke(self, ((seconds, ), context))
+        def putOnHold(self, delay, context=None):
+            """
+            Puts the adapter on hold, and optionally reactivates it.
+            
+            Parameters
+            ----------
+            delay : int
+                When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
+                immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
+                milliseconds, puts the adapter on hold and then immediately reactivates it.
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_Test.Hold._op_putOnHold.invoke(self, ((delay, ), context))
 
-        def putOnHoldAsync(self, seconds, context=None):
-            return _M_Test.Hold._op_putOnHold.invokeAsync(self, ((seconds, ), context))
+        def putOnHoldAsync(self, delay, context=None):
+            """
+            Puts the adapter on hold, and optionally reactivates it.
+            
+            Parameters
+            ----------
+            delay : int
+                When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
+                immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
+                milliseconds, puts the adapter on hold and then immediately reactivates it.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_Test.Hold._op_putOnHold.invokeAsync(self, ((delay, ), context))
 
         def waitForHold(self, context=None):
+            """
+            Starts a background task that calls waitForHold and activate on the adapter.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            """
             return _M_Test.Hold._op_waitForHold.invoke(self, ((), context))
 
         def waitForHoldAsync(self, context=None):
+            """
+            Starts a background task that calls waitForHold and activate on the adapter.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
             return _M_Test.Hold._op_waitForHold.invokeAsync(self, ((), context))
 
         def shutdown(self, context=None):
+            """
+            Shuts down the server.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            """
             return _M_Test.Hold._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
+            """
+            Shuts down the server.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
             return _M_Test.Hold._op_shutdown.invokeAsync(self, ((), context))
 
         @staticmethod
@@ -91,13 +162,56 @@ if 'HoldPrx' not in _M_Test.__dict__:
         def ice_staticId():
             return '::Test::Hold'
 
-        def putOnHold(self, seconds, current=None):
+        def putOnHold(self, delay, current=None):
+            """
+            Puts the adapter on hold, and optionally reactivates it.
+            
+            Parameters
+            ----------
+            delay : int
+                When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
+                immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
+                milliseconds, puts the adapter on hold and then immediately reactivates it.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
             raise NotImplementedError("servant method 'putOnHold' not implemented")
 
         def waitForHold(self, current=None):
+            """
+            Starts a background task that calls waitForHold and activate on the adapter.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
             raise NotImplementedError("servant method 'waitForHold' not implemented")
 
         def shutdown(self, current=None):
+            """
+            Shuts down the server.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
             raise NotImplementedError("servant method 'shutdown' not implemented")
 
         def __str__(self):

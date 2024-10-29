@@ -26,25 +26,25 @@ public struct HoldTraits: Ice.SliceTraits {
 ///
 /// HoldPrx Methods:
 ///
-///  - putOnHold: 
+///  - putOnHold: Puts the adapter on hold, and optionally reactivates it.
 ///
-///  - putOnHoldAsync: 
+///  - putOnHoldAsync: Puts the adapter on hold, and optionally reactivates it.
 ///
-///  - waitForHold: 
+///  - waitForHold: Starts a background task that calls waitForHold and activate on the adapter.
 ///
-///  - waitForHoldAsync: 
+///  - waitForHoldAsync: Starts a background task that calls waitForHold and activate on the adapter.
 ///
-///  - setOneway: 
+///  - setOneway: Saves value as the last value.
 ///
-///  - setOnewayAsync: 
+///  - setOnewayAsync: Saves value as the last value.
 ///
-///  - `set`: 
+///  - `set`: Saves value as the last value after a delay.
 ///
-///  - setAsync: 
+///  - setAsync: Saves value as the last value after a delay.
 ///
-///  - shutdown: 
+///  - shutdown: Shuts down the server.
 ///
-///  - shutdownAsync: 
+///  - shutdownAsync: Shuts down the server.
 public protocol HoldPrx: Ice.ObjectPrx {}
 
 private final class HoldPrxI: Ice.ObjectPrxI, HoldPrx {
@@ -136,39 +136,43 @@ public extension Ice.InputStream {
 ///
 /// HoldPrx Methods:
 ///
-///  - putOnHold: 
+///  - putOnHold: Puts the adapter on hold, and optionally reactivates it.
 ///
-///  - putOnHoldAsync: 
+///  - putOnHoldAsync: Puts the adapter on hold, and optionally reactivates it.
 ///
-///  - waitForHold: 
+///  - waitForHold: Starts a background task that calls waitForHold and activate on the adapter.
 ///
-///  - waitForHoldAsync: 
+///  - waitForHoldAsync: Starts a background task that calls waitForHold and activate on the adapter.
 ///
-///  - setOneway: 
+///  - setOneway: Saves value as the last value.
 ///
-///  - setOnewayAsync: 
+///  - setOnewayAsync: Saves value as the last value.
 ///
-///  - `set`: 
+///  - `set`: Saves value as the last value after a delay.
 ///
-///  - setAsync: 
+///  - setAsync: Saves value as the last value after a delay.
 ///
-///  - shutdown: 
+///  - shutdown: Shuts down the server.
 ///
-///  - shutdownAsync: 
+///  - shutdownAsync: Shuts down the server.
 public extension HoldPrx {
+    /// Puts the adapter on hold, and optionally reactivates it.
     ///
-    /// - parameter _: `Swift.Int32`
+    /// - parameter _: `Swift.Int32` When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
+    /// immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
+    /// milliseconds, puts the adapter on hold and then immediately reactivates it.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
-    func putOnHold(_ iceP_seconds: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
+    func putOnHold(_ iceP_delay: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "putOnHold",
                                        mode: .Normal,
                                        write: { ostr in
-                                           ostr.write(iceP_seconds)
+                                           ostr.write(iceP_delay)
                                        },
                                        context: context)
     }
 
+    /// Starts a background task that calls waitForHold and activate on the adapter.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func waitForHold(context: Ice.Context? = nil) async throws -> Swift.Void {
@@ -177,10 +181,11 @@ public extension HoldPrx {
                                        context: context)
     }
 
+    /// Saves value as the last value.
     ///
-    /// - parameter value: `Swift.Int32`
+    /// - parameter value: `Swift.Int32` The new value.
     ///
-    /// - parameter expected: `Swift.Int32`
+    /// - parameter expected: `Swift.Int32` The current value as expected by the caller.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func setOneway(value iceP_value: Swift.Int32, expected iceP_expected: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
@@ -193,14 +198,15 @@ public extension HoldPrx {
                                        context: context)
     }
 
+    /// Saves value as the last value after a delay.
     ///
-    /// - parameter value: `Swift.Int32`
+    /// - parameter value: `Swift.Int32` The new value.
     ///
-    /// - parameter delay: `Swift.Int32`
+    /// - parameter delay: `Swift.Int32` The delay in milliseconds.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `Swift.Int32`
+    /// - returns: `Swift.Int32` - The previous value.
     func `set`(value iceP_value: Swift.Int32, delay iceP_delay: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "set",
                                        mode: .Normal,
@@ -215,6 +221,7 @@ public extension HoldPrx {
                                        context: context)
     }
 
+    /// Shuts down the server.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
@@ -261,34 +268,41 @@ public struct HoldDisp: Ice.Dispatcher {
 }
 
 public protocol Hold {
+    /// Puts the adapter on hold, and optionally reactivates it.
     ///
-    /// - parameter seconds: `Swift.Int32`
+    /// - parameter delay: `Swift.Int32` When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
+    /// immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
+    /// milliseconds, puts the adapter on hold and then immediately reactivates it.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func putOnHold(seconds: Swift.Int32, current: Ice.Current) async throws
+    func putOnHold(delay: Swift.Int32, current: Ice.Current) async throws
 
+    /// Starts a background task that calls waitForHold and activate on the adapter.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func waitForHold(current: Ice.Current) async throws
 
+    /// Saves value as the last value.
     ///
-    /// - parameter value: `Swift.Int32`
+    /// - parameter value: `Swift.Int32` The new value.
     ///
-    /// - parameter expected: `Swift.Int32`
+    /// - parameter expected: `Swift.Int32` The current value as expected by the caller.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func setOneway(value: Swift.Int32, expected: Swift.Int32, current: Ice.Current) async throws
 
+    /// Saves value as the last value after a delay.
     ///
-    /// - parameter value: `Swift.Int32`
+    /// - parameter value: `Swift.Int32` The new value.
     ///
-    /// - parameter delay: `Swift.Int32`
+    /// - parameter delay: `Swift.Int32` The delay in milliseconds.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32`
+    /// - returns: `Swift.Int32` - The previous value.
     func `set`(value: Swift.Int32, delay: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 
+    /// Shuts down the server.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
@@ -298,22 +312,22 @@ public protocol Hold {
 ///
 /// Hold Methods:
 ///
-///  - putOnHold: 
+///  - putOnHold: Puts the adapter on hold, and optionally reactivates it.
 ///
-///  - waitForHold: 
+///  - waitForHold: Starts a background task that calls waitForHold and activate on the adapter.
 ///
-///  - setOneway: 
+///  - setOneway: Saves value as the last value.
 ///
-///  - `set`: 
+///  - `set`: Saves value as the last value after a delay.
 ///
-///  - shutdown: 
+///  - shutdown: Shuts down the server.
 extension Hold {
     public func _iceD_putOnHold(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
-        let iceP_seconds: Swift.Int32 = try istr.read()
-        try await self.putOnHold(seconds: iceP_seconds, current: request.current)
+        let iceP_delay: Swift.Int32 = try istr.read()
+        try await self.putOnHold(delay: iceP_delay, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 

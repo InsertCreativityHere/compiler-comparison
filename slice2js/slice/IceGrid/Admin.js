@@ -527,8 +527,8 @@ Ice.defineOperations(
         ], , ],
         "removeAdapter": [, , , , [[7]], ,
         [
-            IceGrid.AdapterNotExistException,
-            IceGrid.DeploymentException
+            IceGrid.DeploymentException,
+            IceGrid.AdapterNotExistException
         ], , ],
         "getAllAdapterIds": [, 2, , [Ice.StringSeqHelper], , , , , ],
         "addObject": [, , , , [[9]], ,
@@ -987,22 +987,22 @@ Ice.defineOperations(
         [
             IceGrid.DeploymentException,
             IceGrid.NodeUnreachableException,
-            IceGrid.ServerNotExistException,
-            IceGrid.FileNotAvailableException
+            IceGrid.FileNotAvailableException,
+            IceGrid.ServerNotExistException
         ], , ],
         "openServerStdErr": [, , , ["IceGrid.FileIteratorPrx"], [[7], [3]], ,
         [
             IceGrid.DeploymentException,
             IceGrid.NodeUnreachableException,
-            IceGrid.ServerNotExistException,
-            IceGrid.FileNotAvailableException
+            IceGrid.FileNotAvailableException,
+            IceGrid.ServerNotExistException
         ], , ],
         "openServerStdOut": [, , , ["IceGrid.FileIteratorPrx"], [[7], [3]], ,
         [
             IceGrid.DeploymentException,
             IceGrid.NodeUnreachableException,
-            IceGrid.ServerNotExistException,
-            IceGrid.FileNotAvailableException
+            IceGrid.FileNotAvailableException,
+            IceGrid.ServerNotExistException
         ], , ],
         "openNodeStdErr": [, , , ["IceGrid.FileIteratorPrx"], [[7], [3]], ,
         [

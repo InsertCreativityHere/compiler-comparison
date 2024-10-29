@@ -17,14 +17,42 @@ package Test;
 
 public interface Hold extends com.zeroc.Ice.Object
 {
-    void putOnHold(int seconds, com.zeroc.Ice.Current current);
+    /**
+     * Puts the adapter on hold, and optionally reactivates it.
+     * @param delay When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
+     * immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
+     * milliseconds, puts the adapter on hold and then immediately reactivates it.
+     * @param current The Current object for the invocation.
+     **/
+    void putOnHold(int delay, com.zeroc.Ice.Current current);
 
+    /**
+     * Starts a background task that calls waitForHold and activate on the adapter.
+     * @param current The Current object for the invocation.
+     **/
     void waitForHold(com.zeroc.Ice.Current current);
 
+    /**
+     * Saves value as the last value.
+     * @param value The new value.
+     * @param expected The current value as expected by the caller.
+     * @param current The Current object for the invocation.
+     **/
     void setOneway(int value, int expected, com.zeroc.Ice.Current current);
 
+    /**
+     * Saves value as the last value after a delay.
+     * @param value The new value.
+     * @param delay The delay in milliseconds.
+     * @param current The Current object for the invocation.
+     * @return The previous value.
+     **/
     int set(int value, int delay, com.zeroc.Ice.Current current);
 
+    /**
+     * Shuts down the server.
+     * @param current The Current object for the invocation.
+     **/
     void shutdown(com.zeroc.Ice.Current current);
 
     /** @hidden */
@@ -57,10 +85,10 @@ public interface Hold extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        int iceP_seconds;
-        iceP_seconds = istr.readInt();
+        int iceP_delay;
+        iceP_delay = istr.readInt();
         istr.endEncapsulation();
-        obj.putOnHold(iceP_seconds, request.current);
+        obj.putOnHold(iceP_delay, request.current);
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 

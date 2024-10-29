@@ -1,16 +1,16 @@
 % HoldPrx   Summary of HoldPrx
 %
 % HoldPrx Methods:
-%   putOnHold
-%   putOnHoldAsync
-%   waitForHold
-%   waitForHoldAsync
-%   set
-%   setAsync
-%   setOneway
-%   setOnewayAsync
-%   shutdown
-%   shutdownAsync
+%   putOnHold - Puts the adapter on hold, and optionally reactivates it.
+%   putOnHoldAsync - Puts the adapter on hold, and optionally reactivates it.
+%   waitForHold - Starts a background task that calls waitForHold and activate on the adapter.
+%   waitForHoldAsync - Starts a background task that calls waitForHold and activate on the adapter.
+%   setOneway - Saves value as the last value.
+%   setOnewayAsync - Saves value as the last value.
+%   set - Saves value as the last value after a delay.
+%   setAsync - Saves value as the last value after a delay.
+%   shutdown - Shuts down the server.
+%   shutdownAsync - Shuts down the server.
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
 %   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
@@ -19,34 +19,38 @@
 
 classdef HoldPrx < Ice.ObjectPrx
     methods
-        function putOnHold(obj, seconds, varargin)
-            % putOnHold
+        function putOnHold(obj, delay, varargin)
+            % putOnHold   Puts the adapter on hold, and optionally reactivates it.
             %
             % Parameters:
-            %   seconds (int32)
+            %   delay (int32) - When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
+            %     immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
+            %     milliseconds, puts the adapter on hold and then immediately reactivates it.
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
-            os_.writeInt(seconds);
+            os_.writeInt(delay);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('putOnHold', 0, false, os_, false, {}, varargin{:});
         end
-        function r_ = putOnHoldAsync(obj, seconds, varargin)
-            % putOnHoldAsync
+        function r_ = putOnHoldAsync(obj, delay, varargin)
+            % putOnHoldAsync   Puts the adapter on hold, and optionally reactivates it.
             %
             % Parameters:
-            %   seconds (int32)
+            %   delay (int32) - When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
+            %     immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
+            %     milliseconds, puts the adapter on hold and then immediately reactivates it.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
             os_ = obj.iceStartWriteParams([]);
-            os_.writeInt(seconds);
+            os_.writeInt(delay);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('putOnHold', 0, false, os_, 0, [], {}, varargin{:});
         end
         function waitForHold(obj, varargin)
-            % waitForHold
+            % waitForHold   Starts a background task that calls waitForHold and activate on the adapter.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -54,7 +58,7 @@ classdef HoldPrx < Ice.ObjectPrx
             obj.iceInvoke('waitForHold', 0, false, [], false, {}, varargin{:});
         end
         function r_ = waitForHoldAsync(obj, varargin)
-            % waitForHoldAsync
+            % waitForHoldAsync   Starts a background task that calls waitForHold and activate on the adapter.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -63,15 +67,45 @@ classdef HoldPrx < Ice.ObjectPrx
             
             r_ = obj.iceInvokeAsync('waitForHold', 0, false, [], 0, [], {}, varargin{:});
         end
-        function result = set(obj, value, delay, varargin)
-            % set
+        function setOneway(obj, value, expected, varargin)
+            % setOneway   Saves value as the last value.
             %
             % Parameters:
-            %   value (int32)
-            %   delay (int32)
+            %   value (int32) - The new value.
+            %   expected (int32) - The current value as expected by the caller.
+            %   context (containers.Map) - Optional request context.
+            
+            os_ = obj.iceStartWriteParams([]);
+            os_.writeInt(value);
+            os_.writeInt(expected);
+            obj.iceEndWriteParams(os_);
+            obj.iceInvoke('setOneway', 0, false, os_, false, {}, varargin{:});
+        end
+        function r_ = setOnewayAsync(obj, value, expected, varargin)
+            % setOnewayAsync   Saves value as the last value.
+            %
+            % Parameters:
+            %   value (int32) - The new value.
+            %   expected (int32) - The current value as expected by the caller.
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (int32)
+            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            
+            os_ = obj.iceStartWriteParams([]);
+            os_.writeInt(value);
+            os_.writeInt(expected);
+            obj.iceEndWriteParams(os_);
+            r_ = obj.iceInvokeAsync('setOneway', 0, false, os_, 0, [], {}, varargin{:});
+        end
+        function result = set(obj, value, delay, varargin)
+            % set   Saves value as the last value after a delay.
+            %
+            % Parameters:
+            %   value (int32) - The new value.
+            %   delay (int32) - The delay in milliseconds.
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (int32) - The previous value.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(value);
@@ -83,11 +117,11 @@ classdef HoldPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = setAsync(obj, value, delay, varargin)
-            % setAsync
+            % setAsync   Saves value as the last value after a delay.
             %
             % Parameters:
-            %   value (int32)
-            %   delay (int32)
+            %   value (int32) - The new value.
+            %   delay (int32) - The delay in milliseconds.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -104,38 +138,8 @@ classdef HoldPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('set', 0, true, os_, 1, @unmarshal, {}, varargin{:});
         end
-        function setOneway(obj, value, expected, varargin)
-            % setOneway
-            %
-            % Parameters:
-            %   value (int32)
-            %   expected (int32)
-            %   context (containers.Map) - Optional request context.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeInt(value);
-            os_.writeInt(expected);
-            obj.iceEndWriteParams(os_);
-            obj.iceInvoke('setOneway', 0, false, os_, false, {}, varargin{:});
-        end
-        function r_ = setOnewayAsync(obj, value, expected, varargin)
-            % setOnewayAsync
-            %
-            % Parameters:
-            %   value (int32)
-            %   expected (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeInt(value);
-            os_.writeInt(expected);
-            obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('setOneway', 0, false, os_, 0, [], {}, varargin{:});
-        end
         function shutdown(obj, varargin)
-            % shutdown
+            % shutdown   Shuts down the server.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -143,7 +147,7 @@ classdef HoldPrx < Ice.ObjectPrx
             obj.iceInvoke('shutdown', 0, false, [], false, {}, varargin{:});
         end
         function r_ = shutdownAsync(obj, varargin)
-            % shutdownAsync
+            % shutdownAsync   Shuts down the server.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
