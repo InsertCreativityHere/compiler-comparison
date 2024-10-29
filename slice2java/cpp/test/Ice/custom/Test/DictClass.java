@@ -45,7 +45,7 @@ public class DictClass extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 6545915136326080437L;
+    private static final long serialVersionUID = 6545926811059624305L;
 
     /** @hidden */
     @Override
