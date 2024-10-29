@@ -151,5 +151,5 @@ public class EncodingVersion implements java.lang.Cloneable,
     private static final EncodingVersion _nullMarshalValue = new EncodingVersion();
 
     /** @hidden */
-    private static final long serialVersionUID = -2102780626330456751L;
+    private static final long serialVersionUID = -2983857881172577807L;
 }

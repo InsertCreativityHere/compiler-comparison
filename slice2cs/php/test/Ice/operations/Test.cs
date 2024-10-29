@@ -12220,8 +12220,6 @@ namespace Test
 
         public abstract MyClass1? opMyClass1(MyClass1? c, Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<short, int> opShortIntD(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, out global::System.Collections.Generic.Dictionary<short, int> p3, Ice.Current current);
-
         public abstract void shutdown(Ice.Current current);
 
         public abstract bool supportsCompress(Ice.Current current);
@@ -12265,6 +12263,8 @@ namespace Test
         public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<short, int> opShortIntD(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, out global::System.Collections.Generic.Dictionary<short, int> p3, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<long, float> opLongFloatD(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, out global::System.Collections.Generic.Dictionary<long, float> p3, Ice.Current current);
 
@@ -12432,8 +12432,6 @@ namespace Test2
 {
     public abstract class MyDerivedClassDisp_ : Ice.ObjectImpl, MyDerivedClass
     {
-        public abstract global::System.Collections.Generic.Dictionary<short, int> opShortIntD(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, out global::System.Collections.Generic.Dictionary<short, int> p3, Ice.Current current);
-
         public abstract void shutdown(Ice.Current current);
 
         public abstract bool supportsCompress(Ice.Current current);
@@ -12477,6 +12475,8 @@ namespace Test2
         public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<short, int> opShortIntD(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, out global::System.Collections.Generic.Dictionary<short, int> p3, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<long, float> opLongFloatD(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, out global::System.Collections.Generic.Dictionary<long, float> p3, Ice.Current current);
 
