@@ -55,5 +55,5 @@ public class A extends Test.A
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -4641409588672080145L;
+    private static final long serialVersionUID = -4641414000326592106L;
 }
