@@ -59,5 +59,5 @@ public class ObjectExistsException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 6991432344104853960L;
+    private static final long serialVersionUID = 6991431893462740321L;
 }
