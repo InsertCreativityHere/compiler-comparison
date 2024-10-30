@@ -2831,7 +2831,7 @@ public:
      * As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
      * @param context The Context map to send with the invocation.
      */
-    [[deprecated]] void keepAlive(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[deprecated("")]] void keepAlive(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Keep the session alive.
@@ -2839,7 +2839,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    [[deprecated]] [[nodiscard]] ::std::future<void> keepAliveAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[deprecated("")]] [[nodiscard]] ::std::future<void> keepAliveAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Keep the session alive.
@@ -2850,7 +2850,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return A function that can be called to cancel the invocation locally.
      */
-    [[deprecated]] ::std::function<void()>
+    [[deprecated("")]] ::std::function<void()>
     keepAliveAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -3456,7 +3456,6 @@ namespace IceGrid
 
 /**
  * Information about an Ice object.
- * \headerfile IceGrid/IceGrid.h
  */
 struct ObjectInfo
 {
@@ -3481,7 +3480,6 @@ struct ObjectInfo
 
 /**
  * Information about an adapter registered with the IceGrid registry.
- * \headerfile IceGrid/IceGrid.h
  */
 struct AdapterInfo
 {
@@ -3510,7 +3508,6 @@ struct AdapterInfo
 
 /**
  * Information about a server managed by an IceGrid node.
- * \headerfile IceGrid/IceGrid.h
  */
 struct ServerInfo
 {
@@ -3551,7 +3548,6 @@ struct ServerInfo
 
 /**
  * Information about an IceGrid node.
- * \headerfile IceGrid/IceGrid.h
  */
 struct NodeInfo
 {
@@ -3601,7 +3597,6 @@ struct NodeInfo
 
 /**
  * Information about an IceGrid registry replica.
- * \headerfile IceGrid/IceGrid.h
  */
 struct RegistryInfo
 {
@@ -3626,7 +3621,6 @@ struct RegistryInfo
 
 /**
  * Information about the load of a node.
- * \headerfile IceGrid/IceGrid.h
  */
 struct LoadInfo
 {
@@ -3655,7 +3649,6 @@ struct LoadInfo
 
 /**
  * Information about an IceGrid application.
- * \headerfile IceGrid/IceGrid.h
  */
 struct ApplicationInfo
 {
@@ -3700,7 +3693,6 @@ struct ApplicationInfo
 
 /**
  * Information about updates to an IceGrid application.
- * \headerfile IceGrid/IceGrid.h
  */
 struct ApplicationUpdateInfo
 {
@@ -3733,7 +3725,6 @@ struct ApplicationUpdateInfo
 
 /**
  * Dynamic information about the state of a server.
- * \headerfile IceGrid/IceGrid.h
  */
 struct ServerDynamicInfo
 {
@@ -3766,7 +3757,6 @@ struct ServerDynamicInfo
 
 /**
  * Dynamic information about the state of an adapter.
- * \headerfile IceGrid/IceGrid.h
  */
 struct AdapterDynamicInfo
 {
@@ -3791,7 +3781,6 @@ struct AdapterDynamicInfo
 
 /**
  * Dynamic information about the state of a node.
- * \headerfile IceGrid/IceGrid.h
  */
 struct NodeDynamicInfo
 {

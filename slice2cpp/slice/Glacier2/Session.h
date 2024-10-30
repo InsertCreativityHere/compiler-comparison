@@ -821,7 +821,6 @@ namespace Glacier2
 
 /**
  * This exception is raised if an attempt to create a new session failed.
- * \headerfile Glacier2/Glacier2.h
  */
 class ICE_CLASS(GLACIER2_API) CannotCreateSessionException : public ::Ice::UserException
 {

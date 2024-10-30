@@ -142,7 +142,6 @@ namespace IceGrid
 
 /**
  * This exception is raised if a user account for a given session identifier can't be found.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) UserAccountNotFoundException : public ::Ice::UserException
 {

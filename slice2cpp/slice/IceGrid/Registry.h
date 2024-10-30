@@ -449,7 +449,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The session timeout (in seconds).
      */
-    [[deprecated]] ::std::int32_t getSessionTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[deprecated("")]] ::std::int32_t getSessionTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
@@ -458,7 +458,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    [[deprecated]] [[nodiscard]] ::std::future<::std::int32_t> getSessionTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[deprecated("")]] [[nodiscard]] ::std::future<::std::int32_t> getSessionTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
@@ -470,7 +470,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return A function that can be called to cancel the invocation locally.
      */
-    [[deprecated]] ::std::function<void()>
+    [[deprecated("")]] ::std::function<void()>
     getSessionTimeoutAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL

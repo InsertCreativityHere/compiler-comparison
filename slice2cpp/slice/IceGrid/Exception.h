@@ -45,7 +45,6 @@ namespace IceGrid
 
 /**
  * This exception is raised if an application does not exist.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) ApplicationNotExistException : public ::Ice::UserException
 {
@@ -96,7 +95,6 @@ protected:
 
 /**
  * This exception is raised if a server does not exist.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) ServerNotExistException : public ::Ice::UserException
 {
@@ -147,7 +145,6 @@ protected:
 
 /**
  * This exception is raised if a server failed to start.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) ServerStartException : public ::Ice::UserException
 {
@@ -204,7 +201,6 @@ protected:
 
 /**
  * This exception is raised if a server failed to stop.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) ServerStopException : public ::Ice::UserException
 {
@@ -261,7 +257,6 @@ protected:
 
 /**
  * This exception is raised if an adapter does not exist.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) AdapterNotExistException : public ::Ice::UserException
 {
@@ -312,7 +307,6 @@ protected:
 
 /**
  * This exception is raised if an object already exists.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) ObjectExistsException : public ::Ice::UserException
 {
@@ -363,7 +357,6 @@ protected:
 
 /**
  * This exception is raised if an object is not registered.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) ObjectNotRegisteredException : public ::Ice::UserException
 {
@@ -414,7 +407,6 @@ protected:
 
 /**
  * This exception is raised if a node does not exist.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) NodeNotExistException : public ::Ice::UserException
 {
@@ -465,7 +457,6 @@ protected:
 
 /**
  * This exception is raised if a registry does not exist.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) RegistryNotExistException : public ::Ice::UserException
 {
@@ -516,7 +507,6 @@ protected:
 
 /**
  * An exception for deployment errors.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) DeploymentException : public ::Ice::UserException
 {
@@ -567,7 +557,6 @@ protected:
 
 /**
  * This exception is raised if a node could not be reached.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) NodeUnreachableException : public ::Ice::UserException
 {
@@ -624,7 +613,6 @@ protected:
 
 /**
  * This exception is raised if a server could not be reached.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) ServerUnreachableException : public ::Ice::UserException
 {
@@ -681,7 +669,6 @@ protected:
 
 /**
  * This exception is raised if a registry could not be reached.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) RegistryUnreachableException : public ::Ice::UserException
 {
@@ -738,7 +725,6 @@ protected:
 
 /**
  * This exception is raised if an unknown signal was sent to to a server.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) BadSignalException : public ::Ice::UserException
 {
@@ -789,7 +775,6 @@ protected:
 
 /**
  * his exception is raised if a registry lock wasn't acquired or is already held by a session.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) AccessDeniedException : public ::Ice::UserException
 {
@@ -840,7 +825,6 @@ protected:
 
 /**
  * This exception is raised if the allocation of an object failed.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) AllocationException : public ::Ice::UserException
 {
@@ -891,7 +875,6 @@ protected:
 
 /**
  * This exception is raised if the request to allocate an object times out.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) AllocationTimeoutException : public AllocationException
 {
@@ -916,7 +899,6 @@ protected:
 
 /**
  * This exception is raised if a client is denied the ability to create a session with IceGrid.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) PermissionDeniedException : public ::Ice::UserException
 {
@@ -969,7 +951,6 @@ protected:
  * This exception is raised if an observer is already registered with the registry.
  * @see AdminSession#setObservers
  * @see AdminSession#setObserversByIdentity
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) ObserverAlreadyRegisteredException : public ::Ice::UserException
 {
@@ -1026,7 +1007,6 @@ protected:
  * @see AdminSession#openNodeStdErr
  * @see AdminSession#openRegistryStdOut
  * @see AdminSession#openRegistryStdErr
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) FileNotAvailableException : public ::Ice::UserException
 {

@@ -40,7 +40,6 @@ namespace Ice
 
 /**
  * A version structure for the protocol version.
- * \headerfile Ice/Ice.h
  */
 struct ProtocolVersion
 {
@@ -59,7 +58,6 @@ struct ProtocolVersion
 
 /**
  * A version structure for the encoding version.
- * \headerfile Ice/Ice.h
  */
 struct EncodingVersion
 {

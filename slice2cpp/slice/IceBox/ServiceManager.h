@@ -342,7 +342,6 @@ namespace IceBox
 
 /**
  * This exception is thrown if an attempt is made to start an already-started service.
- * \headerfile IceBox/IceBox.h
  */
 class ICE_CLASS(ICEBOX_API) AlreadyStartedException : public ::Ice::UserException
 {
@@ -365,7 +364,6 @@ protected:
 
 /**
  * This exception is thrown if an attempt is made to stop an already-stopped service.
- * \headerfile IceBox/IceBox.h
  */
 class ICE_CLASS(ICEBOX_API) AlreadyStoppedException : public ::Ice::UserException
 {
@@ -388,7 +386,6 @@ protected:
 
 /**
  * This exception is thrown if a service name does not refer to an existing service.
- * \headerfile IceBox/IceBox.h
  */
 class ICE_CLASS(ICEBOX_API) NoSuchServiceException : public ::Ice::UserException
 {

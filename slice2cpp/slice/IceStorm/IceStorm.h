@@ -684,7 +684,6 @@ namespace IceStorm
 
 /**
  * Information on the topic links.
- * \headerfile IceStorm/IceStorm.h
  */
 struct LinkInfo
 {
@@ -713,7 +712,6 @@ struct LinkInfo
 
 /**
  * This exception indicates that an attempt was made to create a link that already exists.
- * \headerfile IceStorm/IceStorm.h
  */
 class ICE_CLASS(ICESTORM_API) LinkExists : public ::Ice::UserException
 {
@@ -764,7 +762,6 @@ protected:
 
 /**
  * This exception indicates that an attempt was made to remove a link that does not exist.
- * \headerfile IceStorm/IceStorm.h
  */
 class ICE_CLASS(ICESTORM_API) NoSuchLink : public ::Ice::UserException
 {
@@ -815,7 +812,6 @@ protected:
 
 /**
  * This exception indicates that an attempt was made to subscribe a proxy for which a subscription already exists.
- * \headerfile IceStorm/IceStorm.h
  */
 class ICE_CLASS(ICESTORM_API) AlreadySubscribed : public ::Ice::UserException
 {
@@ -838,7 +834,6 @@ protected:
 
 /**
  * This exception indicates that an attempt was made to subscribe a proxy that is null.
- * \headerfile IceStorm/IceStorm.h
  */
 class ICE_CLASS(ICESTORM_API) InvalidSubscriber : public ::Ice::UserException
 {
@@ -889,7 +884,6 @@ protected:
 
 /**
  * This exception indicates that a subscription failed due to an invalid QoS.
- * \headerfile IceStorm/IceStorm.h
  */
 class ICE_CLASS(ICESTORM_API) BadQoS : public ::Ice::UserException
 {
@@ -940,7 +934,6 @@ protected:
 
 /**
  * This exception indicates that an attempt was made to create a topic that already exists.
- * \headerfile IceStorm/IceStorm.h
  */
 class ICE_CLASS(ICESTORM_API) TopicExists : public ::Ice::UserException
 {
@@ -991,7 +984,6 @@ protected:
 
 /**
  * This exception indicates that an attempt was made to retrieve a topic that does not exist.
- * \headerfile IceStorm/IceStorm.h
  */
 class ICE_CLASS(ICESTORM_API) NoSuchTopic : public ::Ice::UserException
 {

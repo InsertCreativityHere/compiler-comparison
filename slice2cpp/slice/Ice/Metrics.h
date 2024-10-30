@@ -351,7 +351,6 @@ namespace IceMX
 /**
  * The base class for metrics. A metrics object represents a collection of measurements associated to a given a
  * system.
- * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) Metrics : public ::Ice::Value
 {
@@ -435,7 +434,6 @@ protected:
 
 /**
  * A structure to keep track of failures associated with a given metrics.
- * \headerfile Ice/Ice.h
  */
 struct MetricsFailures
 {
@@ -460,7 +458,6 @@ struct MetricsFailures
 
 /**
  * Raised if a metrics view cannot be found.
- * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) UnknownMetricsView : public ::Ice::UserException
 {
@@ -483,7 +480,6 @@ protected:
 
 /**
  * Provides information on the number of threads currently in use and their activity.
- * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) ThreadMetrics : public Metrics
 {
@@ -560,7 +556,6 @@ protected:
 
 /**
  * Provides information on servant dispatch.
- * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) DispatchMetrics : public Metrics
 {
@@ -638,7 +633,6 @@ protected:
  * Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
  * collocated. An invocation can have multiple child invocation if it is retried. Child invocation metrics are
  * embedded within {@link InvocationMetrics}.
- * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) ChildInvocationMetrics : public Metrics
 {
@@ -710,7 +704,6 @@ protected:
 /**
  * Provides information on invocations that are collocated. Collocated metrics are embedded within
  * {@link InvocationMetrics}.
- * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) CollocatedMetrics : public ChildInvocationMetrics
 {
@@ -742,7 +735,6 @@ protected:
 /**
  * Provides information on invocations that are specifically sent over Ice connections. Remote metrics are embedded
  * within {@link InvocationMetrics}.
- * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) RemoteMetrics : public ChildInvocationMetrics
 {
@@ -773,7 +765,6 @@ protected:
 
 /**
  * Provide measurements for proxy invocations. Proxy invocations can either be sent over the wire or be collocated.
- * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) InvocationMetrics : public Metrics
 {
@@ -857,7 +848,6 @@ protected:
 
 /**
  * Provides information on the data sent and received over Ice connections.
- * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) ConnectionMetrics : public Metrics
 {

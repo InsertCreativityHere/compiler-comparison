@@ -138,7 +138,6 @@ namespace IceGrid
 
 /**
  * This exception is raised if an error occurs during parsing.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) ParseException : public ::Ice::UserException
 {

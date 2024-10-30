@@ -47,7 +47,6 @@ namespace Glacier2
 /**
  * Information taken from an SSL connection used for permissions verification.
  * @see PermissionsVerifier
- * \headerfile Glacier2/Glacier2.h
  */
 struct SSLInfo
 {

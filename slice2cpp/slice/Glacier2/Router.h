@@ -389,7 +389,6 @@ namespace Glacier2
  * This exception is raised if a client tries to destroy a session with a router, but no session exists for the
  * client.
  * @see Router#destroySession
- * \headerfile Glacier2/Glacier2.h
  */
 class ICE_CLASS(GLACIER2_API) SessionNotExistException : public ::Ice::UserException
 {

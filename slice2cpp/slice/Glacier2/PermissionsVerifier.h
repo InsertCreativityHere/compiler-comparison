@@ -231,7 +231,6 @@ namespace Glacier2
 
 /**
  * This exception is raised if a client is denied the ability to create a session with the router.
- * \headerfile Glacier2/Glacier2.h
  */
 class ICE_CLASS(GLACIER2_API) PermissionDeniedException : public ::Ice::UserException
 {

@@ -47,7 +47,6 @@ namespace IceMX
 
 /**
  * Provides information on Glacier2 sessions.
- * \headerfile Glacier2/Glacier2.h
  */
 class ICE_CLASS(GLACIER2_API) SessionMetrics : public Metrics
 {

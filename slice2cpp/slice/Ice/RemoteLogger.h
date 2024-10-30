@@ -387,7 +387,6 @@ namespace Ice
 
 /**
  * A complete log message.
- * \headerfile Ice/Ice.h
  */
 struct LogMessage
 {
@@ -421,7 +420,6 @@ struct LogMessage
 
 /**
  * Thrown when the provided RemoteLogger was previously attached to a LoggerAdmin.
- * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) RemoteLoggerAlreadyAttachedException : public UserException
 {

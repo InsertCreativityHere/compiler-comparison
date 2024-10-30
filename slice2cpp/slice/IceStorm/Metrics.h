@@ -50,7 +50,6 @@ namespace IceMX
 
 /**
  * Provides information on IceStorm topics.
- * \headerfile IceStorm/IceStorm.h
  */
 class ICE_CLASS(ICESTORM_API) TopicMetrics : public Metrics
 {
@@ -120,7 +119,6 @@ protected:
 
 /**
  * Provides information on IceStorm subscribers.
- * \headerfile IceStorm/IceStorm.h
  */
 class ICE_CLASS(ICESTORM_API) SubscriberMetrics : public Metrics
 {

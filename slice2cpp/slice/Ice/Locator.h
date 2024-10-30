@@ -456,7 +456,6 @@ namespace Ice
 
 /**
  * This exception is raised if an adapter cannot be found.
- * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) AdapterNotFoundException : public UserException
 {
@@ -479,7 +478,6 @@ protected:
 
 /**
  * This exception is raised if the replica group provided by the server is invalid.
- * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) InvalidReplicaGroupIdException : public UserException
 {
@@ -502,7 +500,6 @@ protected:
 
 /**
  * This exception is raised if a server tries to set endpoints for an adapter that is already active.
- * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) AdapterAlreadyActiveException : public UserException
 {
@@ -525,7 +522,6 @@ protected:
 
 /**
  * This exception is raised if an object cannot be found.
- * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) ObjectNotFoundException : public UserException
 {
@@ -548,7 +544,6 @@ protected:
 
 /**
  * This exception is raised if a server cannot be found.
- * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) ServerNotFoundException : public UserException
 {

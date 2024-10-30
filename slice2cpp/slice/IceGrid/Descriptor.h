@@ -174,7 +174,6 @@ namespace IceGrid
 
 /**
  * Property descriptor.
- * \headerfile IceGrid/IceGrid.h
  */
 struct PropertyDescriptor
 {
@@ -199,7 +198,6 @@ struct PropertyDescriptor
 
 /**
  * A property set descriptor.
- * \headerfile IceGrid/IceGrid.h
  */
 struct PropertySetDescriptor
 {
@@ -224,7 +222,6 @@ struct PropertySetDescriptor
 
 /**
  * An Ice object descriptor.
- * \headerfile IceGrid/IceGrid.h
  */
 struct ObjectDescriptor
 {
@@ -254,7 +251,6 @@ struct ObjectDescriptor
 
 /**
  * An Ice object adapter descriptor.
- * \headerfile IceGrid/IceGrid.h
  */
 struct AdapterDescriptor
 {
@@ -310,7 +306,6 @@ struct AdapterDescriptor
 
 /**
  * A communicator descriptor.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) CommunicatorDescriptor : public ::Ice::Value
 {
@@ -388,7 +383,6 @@ protected:
  * A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
  * This descriptor is no longer used. It's provided only for schema compatibility with Ice 3.7 and earlier
  * releases.
- * \headerfile IceGrid/IceGrid.h
  */
 struct DistributionDescriptor
 {
@@ -413,7 +407,6 @@ struct DistributionDescriptor
 
 /**
  * An Ice server descriptor.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) ServerDescriptor : public CommunicatorDescriptor
 {
@@ -550,7 +543,6 @@ protected:
 
 /**
  * An IceBox service descriptor.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) ServiceDescriptor : public CommunicatorDescriptor
 {
@@ -619,7 +611,6 @@ protected:
 
 /**
  * A server template instance descriptor.
- * \headerfile IceGrid/IceGrid.h
  */
 struct ServerInstanceDescriptor
 {
@@ -653,7 +644,6 @@ struct ServerInstanceDescriptor
 
 /**
  * A template descriptor for server or service templates.
- * \headerfile IceGrid/IceGrid.h
  */
 struct TemplateDescriptor
 {
@@ -682,7 +672,6 @@ struct TemplateDescriptor
 
 /**
  * A service template instance descriptor.
- * \headerfile IceGrid/IceGrid.h
  */
 struct ServiceInstanceDescriptor
 {
@@ -715,7 +704,6 @@ struct ServiceInstanceDescriptor
 
 /**
  * An IceBox server descriptor.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) IceBoxDescriptor : public ServerDescriptor
 {
@@ -791,7 +779,6 @@ protected:
 
 /**
  * A node descriptor.
- * \headerfile IceGrid/IceGrid.h
  */
 struct NodeDescriptor
 {
@@ -832,7 +819,6 @@ struct NodeDescriptor
 
 /**
  * A base class for load balancing policies.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) LoadBalancingPolicy : public ::Ice::Value
 {
@@ -890,7 +876,6 @@ protected:
 
 /**
  * Random load balancing policy.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) RandomLoadBalancingPolicy : public LoadBalancingPolicy
 {
@@ -921,7 +906,6 @@ protected:
 
 /**
  * Ordered load balancing policy.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) OrderedLoadBalancingPolicy : public LoadBalancingPolicy
 {
@@ -952,7 +936,6 @@ protected:
 
 /**
  * Round robin load balancing policy.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) RoundRobinLoadBalancingPolicy : public LoadBalancingPolicy
 {
@@ -983,7 +966,6 @@ protected:
 
 /**
  * Adaptive load balancing policy.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) AdaptiveLoadBalancingPolicy : public LoadBalancingPolicy
 {
@@ -1044,7 +1026,6 @@ protected:
 
 /**
  * A replica group descriptor.
- * \headerfile IceGrid/IceGrid.h
  */
 struct ReplicaGroupDescriptor
 {
@@ -1085,7 +1066,6 @@ struct ReplicaGroupDescriptor
 
 /**
  * An application descriptor.
- * \headerfile IceGrid/IceGrid.h
  */
 struct ApplicationDescriptor
 {
@@ -1138,7 +1118,6 @@ struct ApplicationDescriptor
 
 /**
  * A "boxed" string.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) BoxedString : public ::Ice::Value
 {
@@ -1196,7 +1175,6 @@ protected:
 
 /**
  * A node update descriptor to describe the updates to apply to a node of a deployed application.
- * \headerfile IceGrid/IceGrid.h
  */
 struct NodeUpdateDescriptor
 {
@@ -1253,7 +1231,6 @@ struct NodeUpdateDescriptor
 
 /**
  * A "boxed" distribution descriptor.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) BoxedDistributionDescriptor : public ::Ice::Value
 {
@@ -1311,7 +1288,6 @@ protected:
 
 /**
  * An application update descriptor to describe the updates to apply to a deployed application.
- * \headerfile IceGrid/IceGrid.h
  */
 struct ApplicationUpdateDescriptor
 {

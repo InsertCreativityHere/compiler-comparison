@@ -191,7 +191,7 @@ namespace IceGrid
         ///  <returns>The session timeout (in seconds).</returns>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        [global::System.Obsolete]
+        [global::System.Obsolete("")]
         int getSessionTimeout(Ice.Current current);
     }
 
@@ -458,7 +458,7 @@ namespace IceGrid
         ///  <returns>The session timeout (in seconds).</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        [global::System.Obsolete]
+        [global::System.Obsolete("")]
         int getSessionTimeout(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -469,7 +469,7 @@ namespace IceGrid
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.Obsolete]
+        [global::System.Obsolete("")]
         global::System.Threading.Tasks.Task<int> getSessionTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 

@@ -49,7 +49,6 @@ namespace Ice
  * with an empty name to the Active Servant Map.
  * @see ServantLocator
  * @see ObjectAdapter#addServantLocator
- * \headerfile Ice/Ice.h
  */
 struct Identity
 {
