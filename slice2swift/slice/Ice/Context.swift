@@ -15,9 +15,8 @@
 
 import Foundation
 
-/// A request context. Context is used to transmit metadata about a request from the server to the
-/// client, such as Quality-of-Service (QoS) parameters. Each operation on the client has a Context as
-/// its implicit final parameter.
+/// A string-string dictionary, used to transmit additional information with an Ice request. This context is only
+/// transmitted with requests, from clients to servers; the Ice protocol does not provide response contexts.
 public typealias Context = [Swift.String: Swift.String]
 
 /// Helper class to read and write `Context` dictionary values from
