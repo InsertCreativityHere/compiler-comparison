@@ -24,7 +24,7 @@ classdef logical < Ice.Value
                 obj.else_ = else_;
                 obj.for_ = for_;
                 obj.int64 = int64;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

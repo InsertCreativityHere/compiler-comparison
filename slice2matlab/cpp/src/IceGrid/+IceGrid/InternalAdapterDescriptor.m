@@ -22,7 +22,7 @@ classdef InternalAdapterDescriptor < Ice.Value
             elseif ne(id, IceInternal.NoInit.Instance)
                 obj.id = id;
                 obj.serverLifetime = serverLifetime;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

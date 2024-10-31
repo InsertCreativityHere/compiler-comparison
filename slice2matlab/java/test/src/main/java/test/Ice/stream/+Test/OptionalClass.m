@@ -64,7 +64,7 @@ classdef OptionalClass < Ice.Value
                 obj.byteSeq13 = byteSeq13;
                 obj.stringSeq14 = stringSeq14;
                 obj.p15 = p15;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

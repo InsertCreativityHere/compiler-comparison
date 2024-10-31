@@ -28,7 +28,7 @@ classdef display < Ice.Value
                 obj.do = do;
                 obj.dup = dup;
                 obj.else_ = else_;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

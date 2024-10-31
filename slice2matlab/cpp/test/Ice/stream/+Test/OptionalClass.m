@@ -28,7 +28,7 @@ classdef OptionalClass < Ice.Value
                 obj.by = by;
                 obj.sh = sh;
                 obj.i = i;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

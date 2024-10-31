@@ -116,7 +116,7 @@ classdef MultiOptional < Ice.Value
                 obj.ivsd = ivsd;
                 obj.imipd = imipd;
                 obj.bos = bos;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

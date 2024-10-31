@@ -22,7 +22,7 @@ classdef xor < classdef_.break_.logical
                 v = { IceInternal.NoInit.Instance, [], [] };
             else
                 v = { else_, for_, int64 };
-            end;
+            end
             obj = obj@classdef_.break_.logical(v{:});
             if ne(else_, IceInternal.NoInit.Instance)
                 obj.return_ = return_;

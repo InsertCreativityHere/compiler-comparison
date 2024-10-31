@@ -20,7 +20,7 @@ classdef try_ < Ice.Value
             elseif ne(while_, IceInternal.NoInit.Instance)
                 obj.while_ = while_;
                 obj.delete = delete;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

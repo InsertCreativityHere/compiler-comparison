@@ -22,7 +22,7 @@ classdef RemoteMetrics < IceMX.ChildInvocationMetrics
                 v = { IceInternal.NoInit.Instance, [], [], [], [], [], [] };
             else
                 v = { id, total, current, totalLifetime, failures, size, replySize };
-            end;
+            end
             obj = obj@IceMX.ChildInvocationMetrics(v{:});
             if ne(id, IceInternal.NoInit.Instance)
             end

@@ -40,7 +40,7 @@ classdef delete < Ice.Value
                 obj.equals = equals;
                 obj.hashCode = hashCode;
                 obj.constructor = constructor;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

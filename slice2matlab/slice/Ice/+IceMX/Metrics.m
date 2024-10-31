@@ -42,7 +42,7 @@ classdef Metrics < Ice.Value
                 obj.current = current;
                 obj.totalLifetime = totalLifetime;
                 obj.failures = failures;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

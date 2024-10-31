@@ -22,7 +22,7 @@ classdef InternalDbEnvDescriptor < Ice.Value
             elseif ne(name, IceInternal.NoInit.Instance)
                 obj.name = name;
                 obj.properties_ = properties_;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

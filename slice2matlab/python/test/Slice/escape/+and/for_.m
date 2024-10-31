@@ -24,7 +24,7 @@ classdef for_ < Ice.Value
                 obj.lambda = lambda;
                 obj.from = from;
                 obj.global_ = global_;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

@@ -21,7 +21,7 @@ classdef C < Test.MH.B
                 v = { IceInternal.NoInit.Instance, [] };
             else
                 v = { aA, bB };
-            end;
+            end
             obj = obj@Test.MH.B(v{:});
             if ne(aA, IceInternal.NoInit.Instance)
                 obj.cC = cC;

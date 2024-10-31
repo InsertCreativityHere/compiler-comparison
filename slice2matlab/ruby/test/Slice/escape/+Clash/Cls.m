@@ -72,7 +72,7 @@ classdef Cls < Ice.Value
                 obj.inS = inS;
                 obj.in = in;
                 obj.proxy = proxy;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

@@ -21,7 +21,7 @@ classdef PSUnknown2 < Test.Preserved
                 v = { IceInternal.NoInit.Instance, [] };
             else
                 v = { pi, ps };
-            end;
+            end
             obj = obj@Test.Preserved(v{:});
             if ne(pi, IceInternal.NoInit.Instance)
                 obj.pb = pb;

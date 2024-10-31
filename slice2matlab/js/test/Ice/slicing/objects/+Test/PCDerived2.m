@@ -23,7 +23,7 @@ classdef PCDerived2 < Test.PCDerived
                 v = { IceInternal.NoInit.Instance, [], [], [] };
             else
                 v = { pi, ps, pb, pbs };
-            end;
+            end
             obj = obj@Test.PCDerived(v{:});
             if ne(pi, IceInternal.NoInit.Instance)
                 obj.pcd2 = pcd2;

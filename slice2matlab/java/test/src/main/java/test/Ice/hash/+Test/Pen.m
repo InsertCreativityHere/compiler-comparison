@@ -20,7 +20,7 @@ classdef Pen < Ice.Value
             elseif ne(thickness, IceInternal.NoInit.Instance)
                 obj.thickness = thickness;
                 obj.color = color;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

@@ -16,7 +16,7 @@ classdef Forward < Ice.Value
                 obj.h = [];
             elseif ne(h, IceInternal.NoInit.Instance)
                 obj.h = h;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

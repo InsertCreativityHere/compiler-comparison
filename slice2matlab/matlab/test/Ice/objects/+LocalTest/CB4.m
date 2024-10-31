@@ -16,7 +16,7 @@ classdef CB4 < Ice.Value
                 obj.c1dict = containers.Map('KeyType', 'int32', 'ValueType', 'any');
             elseif ne(c1dict, IceInternal.NoInit.Instance)
                 obj.c1dict = c1dict;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

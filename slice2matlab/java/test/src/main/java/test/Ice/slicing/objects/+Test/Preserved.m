@@ -20,7 +20,7 @@ classdef Preserved < Test.PBase
                 v = { IceInternal.NoInit.Instance };
             else
                 v = { pi };
-            end;
+            end
             obj = obj@Test.PBase(v{:});
             if ne(pi, IceInternal.NoInit.Instance)
                 obj.ps = ps;

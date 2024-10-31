@@ -28,7 +28,7 @@ classdef echo < Ice.Value
                 obj.else_ = else_;
                 obj.elseif_ = elseif_;
                 obj.empty = empty;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

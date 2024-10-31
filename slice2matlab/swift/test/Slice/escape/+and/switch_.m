@@ -24,7 +24,7 @@ classdef switch_ < Ice.Value
                 obj.if_ = if_;
                 obj.export = export;
                 obj.volatile = volatile;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

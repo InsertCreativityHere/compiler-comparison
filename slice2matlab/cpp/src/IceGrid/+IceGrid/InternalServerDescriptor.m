@@ -106,7 +106,7 @@ classdef InternalServerDescriptor < Ice.Value
                 obj.dbEnvs = dbEnvs;
                 obj.properties_ = properties_;
                 obj.services = services;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

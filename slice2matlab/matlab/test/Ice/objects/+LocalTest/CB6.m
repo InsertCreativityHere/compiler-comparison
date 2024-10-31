@@ -16,7 +16,7 @@ classdef CB6 < Ice.Value
                 obj.c1seqseq = [];
             elseif ne(c1seqseq, IceInternal.NoInit.Instance)
                 obj.c1seqseq = c1seqseq;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

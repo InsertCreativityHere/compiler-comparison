@@ -16,7 +16,7 @@ classdef SBase < Ice.Value
                 obj.sb = '';
             elseif ne(sb, IceInternal.NoInit.Instance)
                 obj.sb = sb;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

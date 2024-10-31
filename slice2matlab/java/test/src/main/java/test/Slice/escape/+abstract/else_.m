@@ -24,7 +24,7 @@ classdef else_ < Ice.Value
                 obj.if_ = if_;
                 obj.equals = equals;
                 obj.final = final;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

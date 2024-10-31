@@ -40,7 +40,7 @@ classdef Config < Ice.Value
                 obj.ipv6 = ipv6;
                 obj.cprops = cprops;
                 obj.sprops = sprops;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

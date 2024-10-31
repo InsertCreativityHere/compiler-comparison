@@ -32,7 +32,7 @@ classdef C2 < Ice.Value
                 obj.C1 = C1;
                 obj.S1Seq = S1Seq;
                 obj.S1Map = S1Map;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

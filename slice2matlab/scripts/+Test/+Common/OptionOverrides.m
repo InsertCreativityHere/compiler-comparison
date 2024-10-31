@@ -32,7 +32,7 @@ classdef OptionOverrides < Ice.Value
                 obj.serialize = serialize;
                 obj.compress = compress;
                 obj.ipv6 = ipv6;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

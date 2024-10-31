@@ -19,7 +19,7 @@ classdef LoadBalancingPolicy < Ice.Value
                 obj.nReplicas = '';
             elseif ne(nReplicas, IceInternal.NoInit.Instance)
                 obj.nReplicas = nReplicas;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

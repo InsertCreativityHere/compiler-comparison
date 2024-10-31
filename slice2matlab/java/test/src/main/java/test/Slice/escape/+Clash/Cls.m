@@ -80,7 +80,7 @@ classdef Cls < Ice.Value
                 obj.obj = obj;
                 obj.getCookie = getCookie;
                 obj.clone = clone;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

@@ -60,7 +60,7 @@ classdef InternalNodeInfo < Ice.Value
                 obj.nProcessors = nProcessors;
                 obj.dataDir = dataDir;
                 obj.iceSoVersion = iceSoVersion;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

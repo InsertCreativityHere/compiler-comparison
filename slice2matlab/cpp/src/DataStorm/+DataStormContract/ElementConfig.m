@@ -40,7 +40,7 @@ classdef ElementConfig < Ice.Value
                 obj.sampleCount = sampleCount;
                 obj.sampleLifetime = sampleLifetime;
                 obj.clearHistory = clearHistory;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

@@ -76,7 +76,7 @@ classdef ClassProperty < Ice.Value
                 obj.zeroDotF = zeroDotF;
                 obj.zeroD = zeroD;
                 obj.zeroDotD = zeroDotD;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

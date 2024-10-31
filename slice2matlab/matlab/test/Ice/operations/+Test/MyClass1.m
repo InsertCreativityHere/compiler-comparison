@@ -24,7 +24,7 @@ classdef MyClass1 < Ice.Value
                 obj.tesT = tesT;
                 obj.myClass = myClass;
                 obj.myClass1 = myClass1;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

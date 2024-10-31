@@ -24,7 +24,7 @@ classdef ClassNoDefaultsBase < Ice.Value
                 obj.str = str;
                 obj.c1 = c1;
                 obj.bs = bs;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

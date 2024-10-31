@@ -205,11 +205,11 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(global::Ice.AdapterAlreadyActiveException)
+                    catch(global::Ice.AdapterNotFoundException)
                     {
                         throw;
                     }
-                    catch(global::Ice.AdapterNotFoundException)
+                    catch(global::Ice.AdapterAlreadyActiveException)
                     {
                         throw;
                     }
@@ -255,15 +255,15 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(global::Ice.AdapterAlreadyActiveException)
-                    {
-                        throw;
-                    }
                     catch(global::Ice.AdapterNotFoundException)
                     {
                         throw;
                     }
                     catch(global::Ice.InvalidReplicaGroupIdException)
+                    {
+                        throw;
+                    }
+                    catch(global::Ice.AdapterAlreadyActiveException)
                     {
                         throw;
                     }
@@ -1089,11 +1089,11 @@ namespace Test
     {
         public abstract void addObject(global::Ice.ObjectPrx? obj, Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, global::Ice.ProcessPrx? proxy, Ice.Current current);
-
         public abstract global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, global::Ice.ObjectPrx? proxy, Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, global::Ice.ObjectPrx? proxy, Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, global::Ice.ProcessPrx? proxy, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 

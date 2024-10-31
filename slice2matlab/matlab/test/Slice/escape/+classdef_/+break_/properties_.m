@@ -30,7 +30,7 @@ classdef properties_ < classdef_.break_.try_
                 v = { IceInternal.NoInit.Instance, [] };
             else
                 v = { while_, delete };
-            end;
+            end
             obj = obj@classdef_.break_.try_(v{:});
             if ne(while_, IceInternal.NoInit.Instance)
                 obj.if_ = if_;

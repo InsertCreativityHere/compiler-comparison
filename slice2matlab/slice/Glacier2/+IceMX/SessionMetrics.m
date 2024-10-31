@@ -51,7 +51,7 @@ classdef SessionMetrics < IceMX.Metrics
                 v = { IceInternal.NoInit.Instance, [], [], [], [] };
             else
                 v = { id, total, current, totalLifetime, failures };
-            end;
+            end
             obj = obj@IceMX.Metrics(v{:});
             if ne(id, IceInternal.NoInit.Instance)
                 obj.forwardedClient = forwardedClient;

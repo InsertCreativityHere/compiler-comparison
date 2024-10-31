@@ -24,7 +24,7 @@ classdef delegate < Ice.Value
                 obj.if_ = if_;
                 obj.else_ = else_;
                 obj.event = event;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

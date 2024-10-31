@@ -23,7 +23,7 @@ classdef B < Test.A
                 v = { IceInternal.NoInit.Instance, [], [], [] };
             else
                 v = { theB, theC, preMarshalInvoked, postUnmarshalInvoked };
-            end;
+            end
             obj = obj@Test.A(v{:});
             if ne(theB, IceInternal.NoInit.Instance)
                 obj.theA = theA;

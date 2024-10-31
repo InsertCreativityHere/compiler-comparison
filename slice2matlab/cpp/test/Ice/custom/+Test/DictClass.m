@@ -16,7 +16,7 @@ classdef DictClass < Ice.Value
                 obj.isdict = containers.Map('KeyType', 'int32', 'ValueType', 'char');
             elseif ne(isdict, IceInternal.NoInit.Instance)
                 obj.isdict = isdict;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

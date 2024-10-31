@@ -28,7 +28,7 @@ classdef ClassNoDefaults < Test.ClassNoDefaultsBase
                 v = { IceInternal.NoInit.Instance, [], [] };
             else
                 v = { str, c1, bs };
-            end;
+            end
             obj = obj@Test.ClassNoDefaultsBase(v{:});
             if ne(str, IceInternal.NoInit.Instance)
                 obj.st = st;

@@ -22,7 +22,7 @@ classdef CompactPCDerived < Test.CompactPDerived
                 v = { IceInternal.NoInit.Instance, [], [] };
             else
                 v = { pi, ps, pb };
-            end;
+            end
             obj = obj@Test.CompactPDerived(v{:});
             if ne(pi, IceInternal.NoInit.Instance)
                 obj.pbs = pbs;

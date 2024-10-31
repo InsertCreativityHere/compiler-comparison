@@ -20,7 +20,7 @@ classdef SUnknown < Ice.Value
             elseif ne(su, IceInternal.NoInit.Instance)
                 obj.su = su;
                 obj.cycle = cycle;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

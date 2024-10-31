@@ -20,7 +20,7 @@ classdef IDerived < Test.IBase
                 v = { IceInternal.NoInit.Instance };
             else
                 v = { id };
-            end;
+            end
             obj = obj@Test.IBase(v{:});
             if ne(id, IceInternal.NoInit.Instance)
                 obj.name = name;

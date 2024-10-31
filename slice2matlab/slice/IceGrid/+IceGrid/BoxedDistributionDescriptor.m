@@ -19,7 +19,7 @@ classdef BoxedDistributionDescriptor < Ice.Value
                 obj.value = IceGrid.DistributionDescriptor();
             elseif ne(value, IceInternal.NoInit.Instance)
                 obj.value = value;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

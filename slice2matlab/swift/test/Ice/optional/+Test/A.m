@@ -28,7 +28,7 @@ classdef A < Ice.Value
                 obj.ma = ma;
                 obj.mb = mb;
                 obj.mc = mc;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

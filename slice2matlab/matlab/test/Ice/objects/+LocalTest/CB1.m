@@ -16,7 +16,7 @@ classdef CB1 < Ice.Value
                 obj.s1 = LocalTest.S1();
             elseif ne(s1, IceInternal.NoInit.Instance)
                 obj.s1 = s1;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

@@ -14,7 +14,7 @@ classdef G < Test.Base
                 v = { IceInternal.NoInit.Instance, [] };
             else
                 v = { theS, str };
-            end;
+            end
             obj = obj@Test.Base(v{:});
             if ne(theS, IceInternal.NoInit.Instance)
             end

@@ -20,7 +20,7 @@ classdef F < Test.E
                 v = { IceInternal.NoInit.Instance };
             else
                 v = { fse };
-            end;
+            end
             obj = obj@Test.E(v{:});
             if ne(fse, IceInternal.NoInit.Instance)
                 obj.fsf = fsf;

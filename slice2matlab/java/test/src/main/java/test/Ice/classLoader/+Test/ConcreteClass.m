@@ -16,7 +16,7 @@ classdef ConcreteClass < Ice.Value
                 obj.i = 0;
             elseif ne(i, IceInternal.NoInit.Instance)
                 obj.i = i;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

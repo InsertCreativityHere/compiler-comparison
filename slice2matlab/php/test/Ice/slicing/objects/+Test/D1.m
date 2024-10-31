@@ -24,7 +24,7 @@ classdef D1 < Test.B
                 v = { IceInternal.NoInit.Instance, [] };
             else
                 v = { sb, pb };
-            end;
+            end
             obj = obj@Test.B(v{:});
             if ne(sb, IceInternal.NoInit.Instance)
                 obj.sd1 = sd1;

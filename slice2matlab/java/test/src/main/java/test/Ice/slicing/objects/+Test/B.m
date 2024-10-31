@@ -20,7 +20,7 @@ classdef B < Ice.Value
             elseif ne(sb, IceInternal.NoInit.Instance)
                 obj.sb = sb;
                 obj.pb = pb;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

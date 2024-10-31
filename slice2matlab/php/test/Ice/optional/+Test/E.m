@@ -16,7 +16,7 @@ classdef E < Ice.Value
                 obj.fse = Test.FixedStruct();
             elseif ne(fse, IceInternal.NoInit.Instance)
                 obj.fse = fse;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

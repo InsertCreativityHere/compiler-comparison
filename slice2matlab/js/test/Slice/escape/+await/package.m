@@ -36,7 +36,7 @@ classdef package < Ice.Value
                 obj.internal = internal;
                 obj.debugger = debugger;
                 obj.null = null;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

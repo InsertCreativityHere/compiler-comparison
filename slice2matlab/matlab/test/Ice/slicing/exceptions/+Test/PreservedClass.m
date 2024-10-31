@@ -20,7 +20,7 @@ classdef PreservedClass < Test.BaseClass
                 v = { IceInternal.NoInit.Instance };
             else
                 v = { bc };
-            end;
+            end
             obj = obj@Test.BaseClass(v{:});
             if ne(bc, IceInternal.NoInit.Instance)
                 obj.pc = pc;

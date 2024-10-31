@@ -16,7 +16,7 @@ classdef PNode < Ice.Value
                 obj.next = [];
             elseif ne(next, IceInternal.NoInit.Instance)
                 obj.next = next;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

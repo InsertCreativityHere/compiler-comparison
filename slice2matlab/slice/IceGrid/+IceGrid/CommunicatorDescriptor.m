@@ -34,7 +34,7 @@ classdef CommunicatorDescriptor < Ice.Value
                 obj.propertySet = propertySet;
                 obj.logs = logs;
                 obj.description = description;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

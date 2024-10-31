@@ -20,7 +20,7 @@ classdef Baz < Ice.Value
             elseif ne(SLmem, IceInternal.NoInit.Instance)
                 obj.SLmem = SLmem;
                 obj.SLSmem = SLSmem;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

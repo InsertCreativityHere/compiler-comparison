@@ -24,7 +24,7 @@ classdef InternalReplicaInfo < Ice.Value
             elseif ne(name, IceInternal.NoInit.Instance)
                 obj.name = name;
                 obj.hostname = hostname;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

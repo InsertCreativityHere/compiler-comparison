@@ -20,7 +20,7 @@ classdef B < Test.MG.A
                 v = { IceInternal.NoInit.Instance };
             else
                 v = { aA };
-            end;
+            end
             obj = obj@Test.MG.A(v{:});
             if ne(aA, IceInternal.NoInit.Instance)
                 obj.bB = bB;

@@ -32,7 +32,7 @@ classdef D < Ice.Value
                 obj.theC = theC;
                 obj.preMarshalInvoked = preMarshalInvoked;
                 obj.postUnmarshalInvoked = postUnmarshalInvoked;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

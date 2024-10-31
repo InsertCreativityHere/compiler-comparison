@@ -15,7 +15,7 @@ classdef RoundRobinLoadBalancingPolicy < IceGrid.LoadBalancingPolicy
                 v = { IceInternal.NoInit.Instance };
             else
                 v = { nReplicas };
-            end;
+            end
             obj = obj@IceGrid.LoadBalancingPolicy(v{:});
             if ne(nReplicas, IceInternal.NoInit.Instance)
             end

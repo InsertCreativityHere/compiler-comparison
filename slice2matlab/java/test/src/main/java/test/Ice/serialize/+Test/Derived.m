@@ -30,7 +30,7 @@ classdef Derived < Test.Base
                 v = { IceInternal.NoInit.Instance, [], [], [], [], [], [], [], [], [], [] };
             else
                 v = { b, o, s, seq1, seq2, seq3, seq4, d1, d2, d3, d4 };
-            end;
+            end
             obj = obj@Test.Base(v{:});
             if ne(b, IceInternal.NoInit.Instance)
                 obj.p = p;

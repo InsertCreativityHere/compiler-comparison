@@ -40,7 +40,7 @@ classdef D < Ice.Value
                 obj.longSeq = longSeq;
                 obj.floatSeq = floatSeq;
                 obj.doubleSeq = doubleSeq;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

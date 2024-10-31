@@ -24,7 +24,7 @@ classdef CB8 < Ice.Value
                 obj.s1 = s1;
                 obj.c1seq = c1seq;
                 obj.s1dict = s1dict;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

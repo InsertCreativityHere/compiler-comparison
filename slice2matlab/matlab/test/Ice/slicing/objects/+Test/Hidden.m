@@ -16,7 +16,7 @@ classdef Hidden < Ice.Value
                 obj.f = [];
             elseif ne(f, IceInternal.NoInit.Instance)
                 obj.f = f;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

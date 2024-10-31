@@ -28,7 +28,7 @@ classdef G < Ice.Value
                 obj.gg2 = gg2;
                 obj.gg2Opt = gg2Opt;
                 obj.gg1 = gg1;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

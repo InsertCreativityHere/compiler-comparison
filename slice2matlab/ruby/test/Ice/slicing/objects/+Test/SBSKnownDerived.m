@@ -20,7 +20,7 @@ classdef SBSKnownDerived < Test.SBase
                 v = { IceInternal.NoInit.Instance };
             else
                 v = { sb };
-            end;
+            end
             obj = obj@Test.SBase(v{:});
             if ne(sb, IceInternal.NoInit.Instance)
                 obj.sbskd = sbskd;

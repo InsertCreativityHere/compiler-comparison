@@ -20,7 +20,7 @@ classdef Extended < Test.Base
                 v = { IceInternal.NoInit.Instance };
             else
                 v = { b };
-            end;
+            end
             obj = obj@Test.Base(v{:});
             if ne(b, IceInternal.NoInit.Instance)
                 obj.e = e;

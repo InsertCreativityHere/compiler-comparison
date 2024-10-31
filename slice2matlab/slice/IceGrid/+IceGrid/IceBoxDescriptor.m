@@ -39,7 +39,7 @@ classdef IceBoxDescriptor < IceGrid.ServerDescriptor
                 v = { IceInternal.NoInit.Instance, [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [] };
             else
                 v = { adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user };
-            end;
+            end
             obj = obj@IceGrid.ServerDescriptor(v{:});
             if ne(adapters, IceInternal.NoInit.Instance)
                 obj.services = services;

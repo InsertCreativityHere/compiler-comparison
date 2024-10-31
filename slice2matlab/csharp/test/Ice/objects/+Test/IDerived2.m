@@ -13,7 +13,7 @@ classdef IDerived2 < Test.IBase
                 v = { IceInternal.NoInit.Instance };
             else
                 v = { id };
-            end;
+            end
             obj = obj@Test.IBase(v{:});
             if ne(id, IceInternal.NoInit.Instance)
             end

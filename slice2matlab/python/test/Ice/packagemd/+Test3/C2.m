@@ -20,7 +20,7 @@ classdef C2 < Test3.C1
                 v = { IceInternal.NoInit.Instance };
             else
                 v = { i };
-            end;
+            end
             obj = obj@Test3.C1(v{:});
             if ne(i, IceInternal.NoInit.Instance)
                 obj.l = l;

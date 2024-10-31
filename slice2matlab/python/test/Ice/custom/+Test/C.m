@@ -44,7 +44,7 @@ classdef C < Ice.Value
                 obj.s2 = s2;
                 obj.s3 = s3;
                 obj.s4 = s4;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

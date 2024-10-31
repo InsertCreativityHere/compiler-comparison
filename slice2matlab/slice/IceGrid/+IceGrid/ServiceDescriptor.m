@@ -30,7 +30,7 @@ classdef ServiceDescriptor < IceGrid.CommunicatorDescriptor
                 v = { IceInternal.NoInit.Instance, [], [], [] };
             else
                 v = { adapters, propertySet, logs, description };
-            end;
+            end
             obj = obj@IceGrid.CommunicatorDescriptor(v{:});
             if ne(adapters, IceInternal.NoInit.Instance)
                 obj.name = name;

@@ -16,7 +16,7 @@ classdef COneMember < Ice.Value
                 obj.e = [];
             elseif ne(e, IceInternal.NoInit.Instance)
                 obj.e = e;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

@@ -22,7 +22,7 @@ classdef OptionalWithCustom < Ice.Value
             elseif ne(l, IceInternal.NoInit.Instance)
                 obj.l = l;
                 obj.lp = lp;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

@@ -16,7 +16,7 @@ classdef PBase < Ice.Value
                 obj.pi = 0;
             elseif ne(pi, IceInternal.NoInit.Instance)
                 obj.pi = pi;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

@@ -72,7 +72,7 @@ classdef MyClass < Ice.Value
                 obj.seq9 = seq9;
                 obj.seq10 = seq10;
                 obj.d = d;
-            end;
+            end
         end
         function id = ice_id(obj)
             id = obj.ice_staticId();

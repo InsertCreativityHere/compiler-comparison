@@ -50,7 +50,7 @@ classdef Derived < Test.Base
                 v = { IceInternal.NoInit.Instance, [], [], [], [], [], [], [], [], [], [], [], [], [], [], [] };
             else
                 v = { boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD };
-            end;
+            end
             obj = obj@Test.Base(v{:});
             if ne(boolFalse, IceInternal.NoInit.Instance)
                 obj.c1 = c1;

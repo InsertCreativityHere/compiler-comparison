@@ -28,7 +28,7 @@ classdef C < Test.B
                 v = { IceInternal.NoInit.Instance, [], [], [], [], [] };
             else
                 v = { requiredA, ma, mb, mc, requiredB, md };
-            end;
+            end
             obj = obj@Test.B(v{:});
             if ne(requiredA, IceInternal.NoInit.Instance)
                 obj.ss = ss;
