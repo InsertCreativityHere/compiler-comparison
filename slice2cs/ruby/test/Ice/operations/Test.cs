@@ -13066,6 +13066,8 @@ namespace Test
 
         public abstract MyStruct1 opMyStruct1(MyStruct1 opMyStruct1, Ice.Current current);
 
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, Ice.Current current);
+
         public abstract void shutdown(Ice.Current current);
 
         public abstract bool supportsCompress(Ice.Current current);
@@ -13109,8 +13111,6 @@ namespace Test
         public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, Ice.Current current);
 
         public abstract string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<short, int> opShortIntD(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, out global::System.Collections.Generic.Dictionary<short, int> p3, Ice.Current current);
 
@@ -13293,6 +13293,8 @@ namespace Test2
 {
     public abstract class MyDerivedClassDisp_ : Ice.ObjectImpl, MyDerivedClass
     {
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, Ice.Current current);
+
         public abstract void shutdown(Ice.Current current);
 
         public abstract bool supportsCompress(Ice.Current current);
@@ -13336,8 +13338,6 @@ namespace Test2
         public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, Ice.Current current);
 
         public abstract string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, Ice.Current current);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<short, int> opShortIntD(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, out global::System.Collections.Generic.Dictionary<short, int> p3, Ice.Current current);
 
