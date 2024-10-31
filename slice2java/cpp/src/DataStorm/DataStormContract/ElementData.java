@@ -174,5 +174,5 @@ public class ElementData implements java.lang.Cloneable,
     private static final ElementData _nullMarshalValue = new ElementData();
 
     /** @hidden */
-    private static final long serialVersionUID = -4733818707668839058L;
+    private static final long serialVersionUID = 2808085268162448819L;
 }
