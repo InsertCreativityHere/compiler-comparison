@@ -43,7 +43,7 @@ module ::Test
 
         T_SessionPrx.defineProxy(SessionPrx, nil, [::Glacier2::T_SessionPrx])
 
-        SessionPrx_mixin::OP_destroyFromClient = ::Ice::__defineOperation('destroyFromClient', ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
-        SessionPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        SessionPrx_mixin::OP_destroyFromClient = ::Ice::__defineOperation('destroyFromClient', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        SessionPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

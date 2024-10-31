@@ -88,7 +88,7 @@ module ::IceStorm
 
         T_TopicLinkPrx.defineProxy(TopicLinkPrx, nil, [])
 
-        TopicLinkPrx_mixin::OP_forward = ::Ice::__defineOperation('forward', ::Ice::OperationMode::Normal, false, nil, [[::IceStorm::T_EventDataSeq, false, 0]], [], nil, [])
+        TopicLinkPrx_mixin::OP_forward = ::Ice::__defineOperation('forward', ::Ice::OperationMode::Normal, nil, [[::IceStorm::T_EventDataSeq, false, 0]], [], nil, [])
     end
 
     if not defined?(::IceStorm::ReapWouldBlock)
@@ -125,8 +125,8 @@ module ::IceStorm
 
         T_TopicInternalPrx.defineProxy(TopicInternalPrx, nil, [::IceStorm::T_TopicPrx])
 
-        TopicInternalPrx_mixin::OP_getLinkProxy = ::Ice::__defineOperation('getLinkProxy', ::Ice::OperationMode::Idempotent, false, nil, [], [], [::IceStorm::T_TopicLinkPrx, false, 0], [])
-        TopicInternalPrx_mixin::OP_reap = ::Ice::__defineOperation('reap', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_IdentitySeq, false, 0]], [], nil, [::IceStorm::T_ReapWouldBlock])
+        TopicInternalPrx_mixin::OP_getLinkProxy = ::Ice::__defineOperation('getLinkProxy', ::Ice::OperationMode::Idempotent, nil, [], [], [::IceStorm::T_TopicLinkPrx, false, 0], [])
+        TopicInternalPrx_mixin::OP_reap = ::Ice::__defineOperation('reap', ::Ice::OperationMode::Normal, nil, [[::Ice::T_IdentitySeq, false, 0]], [], nil, [::IceStorm::T_ReapWouldBlock])
     end
 
     if not defined?(::IceStorm::TopicManagerInternalPrx)
@@ -149,6 +149,6 @@ module ::IceStorm
 
         T_TopicManagerInternalPrx.defineProxy(TopicManagerInternalPrx, nil, [::IceStorm::T_TopicManagerPrx])
 
-        TopicManagerInternalPrx_mixin::OP_getReplicaNode = ::Ice::__defineOperation('getReplicaNode', ::Ice::OperationMode::Idempotent, false, nil, [], [], [::IceStormElection::T_NodePrx, false, 0], [])
+        TopicManagerInternalPrx_mixin::OP_getReplicaNode = ::Ice::__defineOperation('getReplicaNode', ::Ice::OperationMode::Idempotent, nil, [], [], [::IceStormElection::T_NodePrx, false, 0], [])
     end
 end

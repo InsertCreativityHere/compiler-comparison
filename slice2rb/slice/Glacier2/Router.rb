@@ -75,12 +75,12 @@ module ::Glacier2
 
         T_RouterPrx.defineProxy(RouterPrx, nil, [::Ice::T_RouterPrx])
 
-        RouterPrx_mixin::OP_getCategoryForClient = ::Ice::__defineOperation('getCategoryForClient', ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_string, false, 0], [])
-        RouterPrx_mixin::OP_createSession = ::Ice::__defineOperation('createSession', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], [::Glacier2::T_SessionPrx, false, 0], [::Glacier2::T_PermissionDeniedException, ::Glacier2::T_CannotCreateSessionException])
-        RouterPrx_mixin::OP_createSessionFromSecureConnection = ::Ice::__defineOperation('createSessionFromSecureConnection', ::Ice::OperationMode::Normal, true, nil, [], [], [::Glacier2::T_SessionPrx, false, 0], [::Glacier2::T_PermissionDeniedException, ::Glacier2::T_CannotCreateSessionException])
-        RouterPrx_mixin::OP_refreshSession = ::Ice::__defineOperation('refreshSession', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Glacier2::T_SessionNotExistException])
-        RouterPrx_mixin::OP_destroySession = ::Ice::__defineOperation('destroySession', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Glacier2::T_SessionNotExistException])
-        RouterPrx_mixin::OP_getSessionTimeout = ::Ice::__defineOperation('getSessionTimeout', ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_long, false, 0], [])
-        RouterPrx_mixin::OP_getACMTimeout = ::Ice::__defineOperation('getACMTimeout', ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_int, false, 0], [])
+        RouterPrx_mixin::OP_getCategoryForClient = ::Ice::__defineOperation('getCategoryForClient', ::Ice::OperationMode::Idempotent, nil, [], [], [::Ice::T_string, false, 0], [])
+        RouterPrx_mixin::OP_createSession = ::Ice::__defineOperation('createSession', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], [::Glacier2::T_SessionPrx, false, 0], [::Glacier2::T_PermissionDeniedException, ::Glacier2::T_CannotCreateSessionException])
+        RouterPrx_mixin::OP_createSessionFromSecureConnection = ::Ice::__defineOperation('createSessionFromSecureConnection', ::Ice::OperationMode::Normal, nil, [], [], [::Glacier2::T_SessionPrx, false, 0], [::Glacier2::T_PermissionDeniedException, ::Glacier2::T_CannotCreateSessionException])
+        RouterPrx_mixin::OP_refreshSession = ::Ice::__defineOperation('refreshSession', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Glacier2::T_SessionNotExistException])
+        RouterPrx_mixin::OP_destroySession = ::Ice::__defineOperation('destroySession', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Glacier2::T_SessionNotExistException])
+        RouterPrx_mixin::OP_getSessionTimeout = ::Ice::__defineOperation('getSessionTimeout', ::Ice::OperationMode::Idempotent, nil, [], [], [::Ice::T_long, false, 0], [])
+        RouterPrx_mixin::OP_getACMTimeout = ::Ice::__defineOperation('getACMTimeout', ::Ice::OperationMode::Idempotent, nil, [], [], [::Ice::T_int, false, 0], [])
     end
 end

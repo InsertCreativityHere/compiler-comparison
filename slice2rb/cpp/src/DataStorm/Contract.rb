@@ -629,17 +629,17 @@ module ::DataStormContract
 
         T_SessionPrx.defineProxy(SessionPrx, nil, [])
 
-        SessionPrx_mixin::OP_announceTopics = ::Ice::__defineOperation('announceTopics', ::Ice::OperationMode::Normal, false, nil, [[::DataStormContract::T_TopicInfoSeq, false, 0], [::Ice::T_bool, false, 0]], [], nil, [])
-        SessionPrx_mixin::OP_attachTopic = ::Ice::__defineOperation('attachTopic', ::Ice::OperationMode::Normal, false, nil, [[::DataStormContract::T_TopicSpec, false, 0]], [], nil, [])
-        SessionPrx_mixin::OP_detachTopic = ::Ice::__defineOperation('detachTopic', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_long, false, 0]], [], nil, [])
-        SessionPrx_mixin::OP_attachTags = ::Ice::__defineOperation('attachTags', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_long, false, 0], [::DataStormContract::T_ElementInfoSeq, false, 0], [::Ice::T_bool, false, 0]], [], nil, [])
-        SessionPrx_mixin::OP_detachTags = ::Ice::__defineOperation('detachTags', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_long, false, 0], [::Ice::T_LongSeq, false, 0]], [], nil, [])
-        SessionPrx_mixin::OP_announceElements = ::Ice::__defineOperation('announceElements', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_long, false, 0], [::DataStormContract::T_ElementInfoSeq, false, 0]], [], nil, [])
-        SessionPrx_mixin::OP_attachElements = ::Ice::__defineOperation('attachElements', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_long, false, 0], [::DataStormContract::T_ElementSpecSeq, false, 0], [::Ice::T_bool, false, 0]], [], nil, [])
-        SessionPrx_mixin::OP_attachElementsAck = ::Ice::__defineOperation('attachElementsAck', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_long, false, 0], [::DataStormContract::T_ElementSpecAckSeq, false, 0]], [], nil, [])
-        SessionPrx_mixin::OP_detachElements = ::Ice::__defineOperation('detachElements', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_long, false, 0], [::Ice::T_LongSeq, false, 0]], [], nil, [])
-        SessionPrx_mixin::OP_initSamples = ::Ice::__defineOperation('initSamples', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_long, false, 0], [::DataStormContract::T_DataSamplesSeq, false, 0]], [], nil, [])
-        SessionPrx_mixin::OP_disconnected = ::Ice::__defineOperation('disconnected', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        SessionPrx_mixin::OP_announceTopics = ::Ice::__defineOperation('announceTopics', ::Ice::OperationMode::Normal, nil, [[::DataStormContract::T_TopicInfoSeq, false, 0], [::Ice::T_bool, false, 0]], [], nil, [])
+        SessionPrx_mixin::OP_attachTopic = ::Ice::__defineOperation('attachTopic', ::Ice::OperationMode::Normal, nil, [[::DataStormContract::T_TopicSpec, false, 0]], [], nil, [])
+        SessionPrx_mixin::OP_detachTopic = ::Ice::__defineOperation('detachTopic', ::Ice::OperationMode::Normal, nil, [[::Ice::T_long, false, 0]], [], nil, [])
+        SessionPrx_mixin::OP_attachTags = ::Ice::__defineOperation('attachTags', ::Ice::OperationMode::Normal, nil, [[::Ice::T_long, false, 0], [::DataStormContract::T_ElementInfoSeq, false, 0], [::Ice::T_bool, false, 0]], [], nil, [])
+        SessionPrx_mixin::OP_detachTags = ::Ice::__defineOperation('detachTags', ::Ice::OperationMode::Normal, nil, [[::Ice::T_long, false, 0], [::Ice::T_LongSeq, false, 0]], [], nil, [])
+        SessionPrx_mixin::OP_announceElements = ::Ice::__defineOperation('announceElements', ::Ice::OperationMode::Normal, nil, [[::Ice::T_long, false, 0], [::DataStormContract::T_ElementInfoSeq, false, 0]], [], nil, [])
+        SessionPrx_mixin::OP_attachElements = ::Ice::__defineOperation('attachElements', ::Ice::OperationMode::Normal, nil, [[::Ice::T_long, false, 0], [::DataStormContract::T_ElementSpecSeq, false, 0], [::Ice::T_bool, false, 0]], [], nil, [])
+        SessionPrx_mixin::OP_attachElementsAck = ::Ice::__defineOperation('attachElementsAck', ::Ice::OperationMode::Normal, nil, [[::Ice::T_long, false, 0], [::DataStormContract::T_ElementSpecAckSeq, false, 0]], [], nil, [])
+        SessionPrx_mixin::OP_detachElements = ::Ice::__defineOperation('detachElements', ::Ice::OperationMode::Normal, nil, [[::Ice::T_long, false, 0], [::Ice::T_LongSeq, false, 0]], [], nil, [])
+        SessionPrx_mixin::OP_initSamples = ::Ice::__defineOperation('initSamples', ::Ice::OperationMode::Normal, nil, [[::Ice::T_long, false, 0], [::DataStormContract::T_DataSamplesSeq, false, 0]], [], nil, [])
+        SessionPrx_mixin::OP_disconnected = ::Ice::__defineOperation('disconnected', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     if not defined?(::DataStormContract::PublisherSessionPrx)
@@ -679,7 +679,7 @@ module ::DataStormContract
 
         T_SubscriberSessionPrx.defineProxy(SubscriberSessionPrx, nil, [::DataStormContract::T_SessionPrx])
 
-        SubscriberSessionPrx_mixin::OP_s = ::Ice::__defineOperation('s', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_long, false, 0], [::Ice::T_long, false, 0], [::DataStormContract::T_DataSample, false, 0]], [], nil, [])
+        SubscriberSessionPrx_mixin::OP_s = ::Ice::__defineOperation('s', ::Ice::OperationMode::Normal, nil, [[::Ice::T_long, false, 0], [::Ice::T_long, false, 0], [::DataStormContract::T_DataSample, false, 0]], [], nil, [])
     end
 
     if not defined?(::DataStormContract::NodePrx)
@@ -709,9 +709,9 @@ module ::DataStormContract
 
         T_NodePrx.defineProxy(NodePrx, nil, [])
 
-        NodePrx_mixin::OP_initiateCreateSession = ::Ice::__defineOperation('initiateCreateSession', ::Ice::OperationMode::Normal, false, nil, [[::DataStormContract::T_NodePrx, false, 0]], [], nil, [])
-        NodePrx_mixin::OP_createSession = ::Ice::__defineOperation('createSession', ::Ice::OperationMode::Normal, false, nil, [[::DataStormContract::T_NodePrx, false, 0], [::DataStormContract::T_SubscriberSessionPrx, false, 0], [::Ice::T_bool, false, 0]], [], nil, [])
-        NodePrx_mixin::OP_confirmCreateSession = ::Ice::__defineOperation('confirmCreateSession', ::Ice::OperationMode::Normal, false, nil, [[::DataStormContract::T_NodePrx, false, 0], [::DataStormContract::T_PublisherSessionPrx, false, 0]], [], nil, [])
+        NodePrx_mixin::OP_initiateCreateSession = ::Ice::__defineOperation('initiateCreateSession', ::Ice::OperationMode::Normal, nil, [[::DataStormContract::T_NodePrx, false, 0]], [], nil, [])
+        NodePrx_mixin::OP_createSession = ::Ice::__defineOperation('createSession', ::Ice::OperationMode::Normal, nil, [[::DataStormContract::T_NodePrx, false, 0], [::DataStormContract::T_SubscriberSessionPrx, false, 0], [::Ice::T_bool, false, 0]], [], nil, [])
+        NodePrx_mixin::OP_confirmCreateSession = ::Ice::__defineOperation('confirmCreateSession', ::Ice::OperationMode::Normal, nil, [[::DataStormContract::T_NodePrx, false, 0], [::DataStormContract::T_PublisherSessionPrx, false, 0]], [], nil, [])
     end
 
     if not defined?(::DataStormContract::LookupPrx)
@@ -745,9 +745,9 @@ module ::DataStormContract
 
         T_LookupPrx.defineProxy(LookupPrx, nil, [])
 
-        LookupPrx_mixin::OP_announceTopicReader = ::Ice::__defineOperation('announceTopicReader', ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0], [::DataStormContract::T_NodePrx, false, 0]], [], nil, [])
-        LookupPrx_mixin::OP_announceTopicWriter = ::Ice::__defineOperation('announceTopicWriter', ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0], [::DataStormContract::T_NodePrx, false, 0]], [], nil, [])
-        LookupPrx_mixin::OP_announceTopics = ::Ice::__defineOperation('announceTopics', ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_StringSeq, false, 0], [::Ice::T_StringSeq, false, 0], [::DataStormContract::T_NodePrx, false, 0]], [], nil, [])
-        LookupPrx_mixin::OP_createSession = ::Ice::__defineOperation('createSession', ::Ice::OperationMode::Normal, false, nil, [[::DataStormContract::T_NodePrx, false, 0]], [], [::DataStormContract::T_NodePrx, false, 0], [])
+        LookupPrx_mixin::OP_announceTopicReader = ::Ice::__defineOperation('announceTopicReader', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_string, false, 0], [::DataStormContract::T_NodePrx, false, 0]], [], nil, [])
+        LookupPrx_mixin::OP_announceTopicWriter = ::Ice::__defineOperation('announceTopicWriter', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_string, false, 0], [::DataStormContract::T_NodePrx, false, 0]], [], nil, [])
+        LookupPrx_mixin::OP_announceTopics = ::Ice::__defineOperation('announceTopics', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_StringSeq, false, 0], [::Ice::T_StringSeq, false, 0], [::DataStormContract::T_NodePrx, false, 0]], [], nil, [])
+        LookupPrx_mixin::OP_createSession = ::Ice::__defineOperation('createSession', ::Ice::OperationMode::Normal, nil, [[::DataStormContract::T_NodePrx, false, 0]], [], [::DataStormContract::T_NodePrx, false, 0], [])
     end
 end

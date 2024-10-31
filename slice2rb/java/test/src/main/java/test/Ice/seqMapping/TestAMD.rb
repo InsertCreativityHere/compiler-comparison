@@ -61,10 +61,10 @@ module ::Test
 
         T_MyClassPrx.defineProxy(MyClassPrx, nil, [])
 
-        MyClassPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
-        MyClassPrx_mixin::OP_opSerialSmallJava = ::Ice::__defineOperation('opSerialSmallJava', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_SerialSmall, false, 0]], [[::Test::T_SerialSmall, false, 0]], [::Test::T_SerialSmall, false, 0], [])
-        MyClassPrx_mixin::OP_opSerialLargeJava = ::Ice::__defineOperation('opSerialLargeJava', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_SerialLarge, false, 0]], [[::Test::T_SerialLarge, false, 0]], [::Test::T_SerialLarge, false, 0], [])
-        MyClassPrx_mixin::OP_opSerialStructJava = ::Ice::__defineOperation('opSerialStructJava', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_SerialStruct, false, 0]], [[::Test::T_SerialStruct, false, 0]], [::Test::T_SerialStruct, false, 0], [])
+        MyClassPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        MyClassPrx_mixin::OP_opSerialSmallJava = ::Ice::__defineOperation('opSerialSmallJava', ::Ice::OperationMode::Normal, nil, [[::Test::T_SerialSmall, false, 0]], [[::Test::T_SerialSmall, false, 0]], [::Test::T_SerialSmall, false, 0], [])
+        MyClassPrx_mixin::OP_opSerialLargeJava = ::Ice::__defineOperation('opSerialLargeJava', ::Ice::OperationMode::Normal, nil, [[::Test::T_SerialLarge, false, 0]], [[::Test::T_SerialLarge, false, 0]], [::Test::T_SerialLarge, false, 0], [])
+        MyClassPrx_mixin::OP_opSerialStructJava = ::Ice::__defineOperation('opSerialStructJava', ::Ice::OperationMode::Normal, nil, [[::Test::T_SerialStruct, false, 0]], [[::Test::T_SerialStruct, false, 0]], [::Test::T_SerialStruct, false, 0], [])
     end
 
     if not defined?(::Test::T_SLS)

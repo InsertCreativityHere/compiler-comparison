@@ -46,8 +46,8 @@ module ::Test
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-        TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_getEndpointInfoAsContext = ::Ice::__defineOperation('getEndpointInfoAsContext', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_Context, false, 0], [])
-        TestIntfPrx_mixin::OP_getConnectionInfoAsContext = ::Ice::__defineOperation('getConnectionInfoAsContext', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_Context, false, 0], [])
+        TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_getEndpointInfoAsContext = ::Ice::__defineOperation('getEndpointInfoAsContext', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_Context, false, 0], [])
+        TestIntfPrx_mixin::OP_getConnectionInfoAsContext = ::Ice::__defineOperation('getConnectionInfoAsContext', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_Context, false, 0], [])
     end
 end

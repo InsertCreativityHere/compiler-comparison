@@ -73,12 +73,12 @@ module ::Test
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-        TestIntfPrx_mixin::OP_opByteSpan = ::Ice::__defineOperation('opByteSpan', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_ByteSeq, false, 0]], [[::Test::T_ByteSeq, false, 0]], [::Test::T_ByteSeq, false, 0], [])
-        TestIntfPrx_mixin::OP_opShortSpan = ::Ice::__defineOperation('opShortSpan', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_ShortSeq, false, 0]], [[::Test::T_ShortSeq, false, 0]], [::Test::T_ShortSeq, false, 0], [])
-        TestIntfPrx_mixin::OP_opStringSpan = ::Ice::__defineOperation('opStringSpan', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_StringSeq, false, 0]], [[::Test::T_StringSeq, false, 0]], [::Test::T_StringSeq, false, 0], [])
-        TestIntfPrx_mixin::OP_opOptionalByteSpan = ::Ice::__defineOperation('opOptionalByteSpan', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_ByteSeq, true, 1]], [[::Test::T_ByteSeq, true, 11]], [::Test::T_ByteSeq, true, 10], [])
-        TestIntfPrx_mixin::OP_opOptionalShortSpan = ::Ice::__defineOperation('opOptionalShortSpan', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_ShortSeq, true, 1]], [[::Test::T_ShortSeq, true, 11]], [::Test::T_ShortSeq, true, 10], [])
-        TestIntfPrx_mixin::OP_opOptionalStringSpan = ::Ice::__defineOperation('opOptionalStringSpan', ::Ice::OperationMode::Normal, true, nil, [[::Test::T_StringSeq, true, 1]], [[::Test::T_StringSeq, true, 11]], [::Test::T_StringSeq, true, 10], [])
-        TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_opByteSpan = ::Ice::__defineOperation('opByteSpan', ::Ice::OperationMode::Normal, nil, [[::Test::T_ByteSeq, false, 0]], [[::Test::T_ByteSeq, false, 0]], [::Test::T_ByteSeq, false, 0], [])
+        TestIntfPrx_mixin::OP_opShortSpan = ::Ice::__defineOperation('opShortSpan', ::Ice::OperationMode::Normal, nil, [[::Test::T_ShortSeq, false, 0]], [[::Test::T_ShortSeq, false, 0]], [::Test::T_ShortSeq, false, 0], [])
+        TestIntfPrx_mixin::OP_opStringSpan = ::Ice::__defineOperation('opStringSpan', ::Ice::OperationMode::Normal, nil, [[::Test::T_StringSeq, false, 0]], [[::Test::T_StringSeq, false, 0]], [::Test::T_StringSeq, false, 0], [])
+        TestIntfPrx_mixin::OP_opOptionalByteSpan = ::Ice::__defineOperation('opOptionalByteSpan', ::Ice::OperationMode::Normal, nil, [[::Test::T_ByteSeq, true, 1]], [[::Test::T_ByteSeq, true, 11]], [::Test::T_ByteSeq, true, 10], [])
+        TestIntfPrx_mixin::OP_opOptionalShortSpan = ::Ice::__defineOperation('opOptionalShortSpan', ::Ice::OperationMode::Normal, nil, [[::Test::T_ShortSeq, true, 1]], [[::Test::T_ShortSeq, true, 11]], [::Test::T_ShortSeq, true, 10], [])
+        TestIntfPrx_mixin::OP_opOptionalStringSpan = ::Ice::__defineOperation('opOptionalStringSpan', ::Ice::OperationMode::Normal, nil, [[::Test::T_StringSeq, true, 1]], [[::Test::T_StringSeq, true, 11]], [::Test::T_StringSeq, true, 10], [])
+        TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

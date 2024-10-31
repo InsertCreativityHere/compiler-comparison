@@ -45,9 +45,9 @@ module ::Test
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-        TestIntfPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_resetMaxConcurrentDispatches = ::Ice::__defineOperation('resetMaxConcurrentDispatches', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
-        TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_resetMaxConcurrentDispatches = ::Ice::__defineOperation('resetMaxConcurrentDispatches', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_int, false, 0], [])
+        TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     if not defined?(::Test::ResponderPrx)
@@ -77,8 +77,8 @@ module ::Test
 
         T_ResponderPrx.defineProxy(ResponderPrx, nil, [])
 
-        ResponderPrx_mixin::OP_start = ::Ice::__defineOperation('start', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        ResponderPrx_mixin::OP_stop = ::Ice::__defineOperation('stop', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        ResponderPrx_mixin::OP_pendingResponseCount = ::Ice::__defineOperation('pendingResponseCount', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
+        ResponderPrx_mixin::OP_start = ::Ice::__defineOperation('start', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        ResponderPrx_mixin::OP_stop = ::Ice::__defineOperation('stop', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        ResponderPrx_mixin::OP_pendingResponseCount = ::Ice::__defineOperation('pendingResponseCount', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_int, false, 0], [])
     end
 end

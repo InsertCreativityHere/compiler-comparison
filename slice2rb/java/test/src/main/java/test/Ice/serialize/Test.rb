@@ -278,9 +278,9 @@ module ::Test
 
         T_InitialPrx.defineProxy(InitialPrx, nil, [])
 
-        InitialPrx_mixin::OP_getStruct1 = ::Ice::__defineOperation('getStruct1', ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_ByteS, false, 0], [])
-        InitialPrx_mixin::OP_getBase = ::Ice::__defineOperation('getBase', ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_ByteS, false, 0], [])
-        InitialPrx_mixin::OP_getEx = ::Ice::__defineOperation('getEx', ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_ByteS, false, 0], [])
-        InitialPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        InitialPrx_mixin::OP_getStruct1 = ::Ice::__defineOperation('getStruct1', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_ByteS, false, 0], [])
+        InitialPrx_mixin::OP_getBase = ::Ice::__defineOperation('getBase', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_ByteS, false, 0], [])
+        InitialPrx_mixin::OP_getEx = ::Ice::__defineOperation('getEx', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_ByteS, false, 0], [])
+        InitialPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

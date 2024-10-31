@@ -37,7 +37,7 @@ module ::Test
 
         T_Interface1Prx.defineProxy(Interface1Prx, nil, [])
 
-        Interface1Prx_mixin::OP_method = ::Ice::__defineOperation('method', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        Interface1Prx_mixin::OP_method = ::Ice::__defineOperation('method', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end
 

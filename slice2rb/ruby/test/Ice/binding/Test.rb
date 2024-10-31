@@ -37,7 +37,7 @@ module ::Test
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-        TestIntfPrx_mixin::OP_getAdapterName = ::Ice::__defineOperation('getAdapterName', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
+        TestIntfPrx_mixin::OP_getAdapterName = ::Ice::__defineOperation('getAdapterName', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
     end
 
     if not defined?(::Test::RemoteObjectAdapterPrx)
@@ -63,8 +63,8 @@ module ::Test
 
         T_RemoteObjectAdapterPrx.defineProxy(RemoteObjectAdapterPrx, nil, [])
 
-        RemoteObjectAdapterPrx_mixin::OP_getTestIntf = ::Ice::__defineOperation('getTestIntf', ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_TestIntfPrx, false, 0], [])
-        RemoteObjectAdapterPrx_mixin::OP_deactivate = ::Ice::__defineOperation('deactivate', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        RemoteObjectAdapterPrx_mixin::OP_getTestIntf = ::Ice::__defineOperation('getTestIntf', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_TestIntfPrx, false, 0], [])
+        RemoteObjectAdapterPrx_mixin::OP_deactivate = ::Ice::__defineOperation('deactivate', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     if not defined?(::Test::RemoteCommunicatorPrx)
@@ -94,8 +94,8 @@ module ::Test
 
         T_RemoteCommunicatorPrx.defineProxy(RemoteCommunicatorPrx, nil, [])
 
-        RemoteCommunicatorPrx_mixin::OP_createObjectAdapter = ::Ice::__defineOperation('createObjectAdapter', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], [::Test::T_RemoteObjectAdapterPrx, false, 0], [])
-        RemoteCommunicatorPrx_mixin::OP_deactivateObjectAdapter = ::Ice::__defineOperation('deactivateObjectAdapter', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_RemoteObjectAdapterPrx, false, 0]], [], nil, [])
-        RemoteCommunicatorPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        RemoteCommunicatorPrx_mixin::OP_createObjectAdapter = ::Ice::__defineOperation('createObjectAdapter', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], [::Test::T_RemoteObjectAdapterPrx, false, 0], [])
+        RemoteCommunicatorPrx_mixin::OP_deactivateObjectAdapter = ::Ice::__defineOperation('deactivateObjectAdapter', ::Ice::OperationMode::Normal, nil, [[::Test::T_RemoteObjectAdapterPrx, false, 0]], [], nil, [])
+        RemoteCommunicatorPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

@@ -49,9 +49,9 @@ module ::Test
 
         T_TimeoutPrx.defineProxy(TimeoutPrx, nil, [])
 
-        TimeoutPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        TimeoutPrx_mixin::OP_sendData = ::Ice::__defineOperation('sendData', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteSeq, false, 0]], [], nil, [])
-        TimeoutPrx_mixin::OP_sleep = ::Ice::__defineOperation('sleep', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])
+        TimeoutPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TimeoutPrx_mixin::OP_sendData = ::Ice::__defineOperation('sendData', ::Ice::OperationMode::Normal, nil, [[::Test::T_ByteSeq, false, 0]], [], nil, [])
+        TimeoutPrx_mixin::OP_sleep = ::Ice::__defineOperation('sleep', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [], nil, [])
     end
 
     if not defined?(::Test::ControllerPrx)
@@ -81,8 +81,8 @@ module ::Test
 
         T_ControllerPrx.defineProxy(ControllerPrx, nil, [])
 
-        ControllerPrx_mixin::OP_holdAdapter = ::Ice::__defineOperation('holdAdapter', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])
-        ControllerPrx_mixin::OP_resumeAdapter = ::Ice::__defineOperation('resumeAdapter', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        ControllerPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        ControllerPrx_mixin::OP_holdAdapter = ::Ice::__defineOperation('holdAdapter', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [], nil, [])
+        ControllerPrx_mixin::OP_resumeAdapter = ::Ice::__defineOperation('resumeAdapter', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        ControllerPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

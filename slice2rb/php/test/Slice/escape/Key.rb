@@ -148,7 +148,7 @@ module ::And
 
         T_BreakPrx.defineProxy(BreakPrx, nil, [])
 
-        BreakPrx_mixin::OP_case = ::Ice::__defineOperation('case', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
+        BreakPrx_mixin::OP_case = ::Ice::__defineOperation('case', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
     end
 
     if not defined?(::And::FunctionPrx)
@@ -170,7 +170,7 @@ module ::And
 
         T_FunctionPrx.defineProxy(FunctionPrx, nil, [])
 
-        FunctionPrx_mixin::OP_continue = ::Ice::__defineOperation('continue', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
+        FunctionPrx_mixin::OP_continue = ::Ice::__defineOperation('continue', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
     end
 
     if not defined?(::And::DiePrx)
@@ -192,7 +192,7 @@ module ::And
 
         T_DiePrx.defineProxy(DiePrx, nil, [])
 
-        DiePrx_mixin::OP_do = ::Ice::__defineOperation('do', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        DiePrx_mixin::OP_do = ::Ice::__defineOperation('do', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     if not defined?(::And::Echo)
@@ -292,7 +292,7 @@ module ::And
 
         T_ForPrx.defineProxy(ForPrx, nil, [])
 
-        ForPrx_mixin::OP_foreach = ::Ice::__defineOperation('foreach', ::Ice::OperationMode::Normal, false, nil, [[::And::T_BreakPrx, false, 0], [::And::T_Echo, false, 0], [::And::T_FunctionPrx, false, 0], [::And::T_DiePrx, false, 0], [::And::T_EnddeclarePrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::And::T_Array, false, 0], [::And::T_Endif, ::And::T_Endwhile])
+        ForPrx_mixin::OP_foreach = ::Ice::__defineOperation('foreach', ::Ice::OperationMode::Normal, nil, [[::And::T_BreakPrx, false, 0], [::And::T_Echo, false, 0], [::And::T_FunctionPrx, false, 0], [::And::T_DiePrx, false, 0], [::And::T_EnddeclarePrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::And::T_Array, false, 0], [::And::T_Endif, ::And::T_Endwhile])
     end
 
     Or = 0

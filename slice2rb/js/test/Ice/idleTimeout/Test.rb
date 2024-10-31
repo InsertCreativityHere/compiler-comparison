@@ -37,7 +37,7 @@ module ::Test
 
         T_DelayedTestIntfPrx.defineProxy(DelayedTestIntfPrx, nil, [])
 
-        DelayedTestIntfPrx_mixin::OP_sleep = ::Ice::__defineOperation('sleep', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])
+        DelayedTestIntfPrx_mixin::OP_sleep = ::Ice::__defineOperation('sleep', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [], nil, [])
     end
 
     if not defined?(::Test::TestIntfPrx)
@@ -60,7 +60,7 @@ module ::Test
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [::Test::T_DelayedTestIntfPrx])
 
-        TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     if not defined?(::Test::TestIntfBidirPrx)
@@ -82,6 +82,6 @@ module ::Test
 
         T_TestIntfBidirPrx.defineProxy(TestIntfBidirPrx, nil, [])
 
-        TestIntfBidirPrx_mixin::OP_makeSleep = ::Ice::__defineOperation('makeSleep', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, false, 0], [::Ice::T_int, false, 0], [::Test::T_DelayedTestIntfPrx, false, 0]], [], nil, [])
+        TestIntfBidirPrx_mixin::OP_makeSleep = ::Ice::__defineOperation('makeSleep', ::Ice::OperationMode::Normal, nil, [[::Ice::T_bool, false, 0], [::Ice::T_int, false, 0], [::Test::T_DelayedTestIntfPrx, false, 0]], [], nil, [])
     end
 end

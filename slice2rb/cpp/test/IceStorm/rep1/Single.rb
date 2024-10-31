@@ -37,6 +37,6 @@ module ::Test
 
         T_SinglePrx.defineProxy(SinglePrx, nil, [])
 
-        SinglePrx_mixin::OP_event = ::Ice::__defineOperation('event', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])
+        SinglePrx_mixin::OP_event = ::Ice::__defineOperation('event', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [], nil, [])
     end
 end

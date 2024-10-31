@@ -49,7 +49,7 @@ module ::Test
 
         T_PingReplyPrx.defineProxy(PingReplyPrx, nil, [])
 
-        PingReplyPrx_mixin::OP_reply = ::Ice::__defineOperation('reply', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        PingReplyPrx_mixin::OP_reply = ::Ice::__defineOperation('reply', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     if not defined?(::Test::TestIntfPrx)
@@ -159,29 +159,29 @@ module ::Test
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-        TestIntfPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_opWithPayload = ::Ice::__defineOperation('opWithPayload', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_ByteSeq, false, 0]], [], nil, [])
-        TestIntfPrx_mixin::OP_opWithResult = ::Ice::__defineOperation('opWithResult', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
-        TestIntfPrx_mixin::OP_opWithUE = ::Ice::__defineOperation('opWithUE', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Test::T_TestIntfException])
-        TestIntfPrx_mixin::OP_opBatch = ::Ice::__defineOperation('opBatch', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_opBatchCount = ::Ice::__defineOperation('opBatchCount', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
-        TestIntfPrx_mixin::OP_waitForBatch = ::Ice::__defineOperation('waitForBatch', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], [::Ice::T_bool, false, 0], [])
-        TestIntfPrx_mixin::OP_closeConnection = ::Ice::__defineOperation('closeConnection', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_abortConnection = ::Ice::__defineOperation('abortConnection', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_sleep = ::Ice::__defineOperation('sleep', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])
-        TestIntfPrx_mixin::OP_startDispatch = ::Ice::__defineOperation('startDispatch', ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_finishDispatch = ::Ice::__defineOperation('finishDispatch', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_supportsAMD = ::Ice::__defineOperation('supportsAMD', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
-        TestIntfPrx_mixin::OP_supportsFunctionalTests = ::Ice::__defineOperation('supportsFunctionalTests', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
-        TestIntfPrx_mixin::OP_opBool = ::Ice::__defineOperation('opBool', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, false, 0]], [], [::Ice::T_bool, false, 0], [])
-        TestIntfPrx_mixin::OP_opByte = ::Ice::__defineOperation('opByte', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_byte, false, 0]], [], [::Ice::T_byte, false, 0], [])
-        TestIntfPrx_mixin::OP_opShort = ::Ice::__defineOperation('opShort', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_short, false, 0]], [], [::Ice::T_short, false, 0], [])
-        TestIntfPrx_mixin::OP_opInt = ::Ice::__defineOperation('opInt', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], [::Ice::T_int, false, 0], [])
-        TestIntfPrx_mixin::OP_opLong = ::Ice::__defineOperation('opLong', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_long, false, 0]], [], [::Ice::T_long, false, 0], [])
-        TestIntfPrx_mixin::OP_opFloat = ::Ice::__defineOperation('opFloat', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_float, false, 0]], [], [::Ice::T_float, false, 0], [])
-        TestIntfPrx_mixin::OP_opDouble = ::Ice::__defineOperation('opDouble', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_double, false, 0]], [], [::Ice::T_double, false, 0], [])
-        TestIntfPrx_mixin::OP_pingBiDir = ::Ice::__defineOperation('pingBiDir', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_PingReplyPrx, false, 0]], [], nil, [])
+        TestIntfPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_opWithPayload = ::Ice::__defineOperation('opWithPayload', ::Ice::OperationMode::Normal, nil, [[::Ice::T_ByteSeq, false, 0]], [], nil, [])
+        TestIntfPrx_mixin::OP_opWithResult = ::Ice::__defineOperation('opWithResult', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_int, false, 0], [])
+        TestIntfPrx_mixin::OP_opWithUE = ::Ice::__defineOperation('opWithUE', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_TestIntfException])
+        TestIntfPrx_mixin::OP_opBatch = ::Ice::__defineOperation('opBatch', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_opBatchCount = ::Ice::__defineOperation('opBatchCount', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_int, false, 0], [])
+        TestIntfPrx_mixin::OP_waitForBatch = ::Ice::__defineOperation('waitForBatch', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [], [::Ice::T_bool, false, 0], [])
+        TestIntfPrx_mixin::OP_closeConnection = ::Ice::__defineOperation('closeConnection', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_abortConnection = ::Ice::__defineOperation('abortConnection', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_sleep = ::Ice::__defineOperation('sleep', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [], nil, [])
+        TestIntfPrx_mixin::OP_startDispatch = ::Ice::__defineOperation('startDispatch', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_finishDispatch = ::Ice::__defineOperation('finishDispatch', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_supportsAMD = ::Ice::__defineOperation('supportsAMD', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_bool, false, 0], [])
+        TestIntfPrx_mixin::OP_supportsFunctionalTests = ::Ice::__defineOperation('supportsFunctionalTests', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_bool, false, 0], [])
+        TestIntfPrx_mixin::OP_opBool = ::Ice::__defineOperation('opBool', ::Ice::OperationMode::Normal, nil, [[::Ice::T_bool, false, 0]], [], [::Ice::T_bool, false, 0], [])
+        TestIntfPrx_mixin::OP_opByte = ::Ice::__defineOperation('opByte', ::Ice::OperationMode::Normal, nil, [[::Ice::T_byte, false, 0]], [], [::Ice::T_byte, false, 0], [])
+        TestIntfPrx_mixin::OP_opShort = ::Ice::__defineOperation('opShort', ::Ice::OperationMode::Normal, nil, [[::Ice::T_short, false, 0]], [], [::Ice::T_short, false, 0], [])
+        TestIntfPrx_mixin::OP_opInt = ::Ice::__defineOperation('opInt', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [], [::Ice::T_int, false, 0], [])
+        TestIntfPrx_mixin::OP_opLong = ::Ice::__defineOperation('opLong', ::Ice::OperationMode::Normal, nil, [[::Ice::T_long, false, 0]], [], [::Ice::T_long, false, 0], [])
+        TestIntfPrx_mixin::OP_opFloat = ::Ice::__defineOperation('opFloat', ::Ice::OperationMode::Normal, nil, [[::Ice::T_float, false, 0]], [], [::Ice::T_float, false, 0], [])
+        TestIntfPrx_mixin::OP_opDouble = ::Ice::__defineOperation('opDouble', ::Ice::OperationMode::Normal, nil, [[::Ice::T_double, false, 0]], [], [::Ice::T_double, false, 0], [])
+        TestIntfPrx_mixin::OP_pingBiDir = ::Ice::__defineOperation('pingBiDir', ::Ice::OperationMode::Normal, nil, [[::Test::T_PingReplyPrx, false, 0]], [], nil, [])
     end
 
     if not defined?(::Test::TestIntfControllerPrx)
@@ -207,8 +207,8 @@ module ::Test
 
         T_TestIntfControllerPrx.defineProxy(TestIntfControllerPrx, nil, [])
 
-        TestIntfControllerPrx_mixin::OP_holdAdapter = ::Ice::__defineOperation('holdAdapter', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        TestIntfControllerPrx_mixin::OP_resumeAdapter = ::Ice::__defineOperation('resumeAdapter', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        TestIntfControllerPrx_mixin::OP_holdAdapter = ::Ice::__defineOperation('holdAdapter', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfControllerPrx_mixin::OP_resumeAdapter = ::Ice::__defineOperation('resumeAdapter', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     module Outer
@@ -234,7 +234,7 @@ module ::Test
 
                 T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-                TestIntfPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], [::Ice::T_int, false, 0], [])
+                TestIntfPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], [::Ice::T_int, false, 0], [])
             end
         end
     end

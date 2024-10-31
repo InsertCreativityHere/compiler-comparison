@@ -59,5 +59,5 @@ public class PermissionDeniedException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -5089368338578882468L;
+    private static final long serialVersionUID = -5089371847573181317L;
 }

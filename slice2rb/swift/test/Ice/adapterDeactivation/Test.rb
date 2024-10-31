@@ -41,7 +41,7 @@ module ::Test
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-        TestIntfPrx_mixin::OP_transient = ::Ice::__defineOperation('transient', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_deactivate = ::Ice::__defineOperation('deactivate', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_transient = ::Ice::__defineOperation('transient', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_deactivate = ::Ice::__defineOperation('deactivate', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

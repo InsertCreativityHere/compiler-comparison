@@ -108,11 +108,11 @@ module ::IceStormElection
 
         T_ReplicaObserverPrx.defineProxy(ReplicaObserverPrx, nil, [])
 
-        ReplicaObserverPrx_mixin::OP_init = ::Ice::__defineOperation('init', ::Ice::OperationMode::Normal, false, nil, [[::IceStormElection::T_LogUpdate, false, 0], [::IceStormElection::T_TopicContentSeq, false, 0]], [], nil, [::IceStormElection::T_ObserverInconsistencyException])
-        ReplicaObserverPrx_mixin::OP_createTopic = ::Ice::__defineOperation('createTopic', ::Ice::OperationMode::Normal, false, nil, [[::IceStormElection::T_LogUpdate, false, 0], [::Ice::T_string, false, 0]], [], nil, [::IceStormElection::T_ObserverInconsistencyException])
-        ReplicaObserverPrx_mixin::OP_destroyTopic = ::Ice::__defineOperation('destroyTopic', ::Ice::OperationMode::Normal, false, nil, [[::IceStormElection::T_LogUpdate, false, 0], [::Ice::T_string, false, 0]], [], nil, [::IceStormElection::T_ObserverInconsistencyException])
-        ReplicaObserverPrx_mixin::OP_addSubscriber = ::Ice::__defineOperation('addSubscriber', ::Ice::OperationMode::Normal, false, nil, [[::IceStormElection::T_LogUpdate, false, 0], [::Ice::T_string, false, 0], [::IceStorm::T_SubscriberRecord, false, 0]], [], nil, [::IceStormElection::T_ObserverInconsistencyException])
-        ReplicaObserverPrx_mixin::OP_removeSubscriber = ::Ice::__defineOperation('removeSubscriber', ::Ice::OperationMode::Normal, false, nil, [[::IceStormElection::T_LogUpdate, false, 0], [::Ice::T_string, false, 0], [::Ice::T_IdentitySeq, false, 0]], [], nil, [::IceStormElection::T_ObserverInconsistencyException])
+        ReplicaObserverPrx_mixin::OP_init = ::Ice::__defineOperation('init', ::Ice::OperationMode::Normal, nil, [[::IceStormElection::T_LogUpdate, false, 0], [::IceStormElection::T_TopicContentSeq, false, 0]], [], nil, [::IceStormElection::T_ObserverInconsistencyException])
+        ReplicaObserverPrx_mixin::OP_createTopic = ::Ice::__defineOperation('createTopic', ::Ice::OperationMode::Normal, nil, [[::IceStormElection::T_LogUpdate, false, 0], [::Ice::T_string, false, 0]], [], nil, [::IceStormElection::T_ObserverInconsistencyException])
+        ReplicaObserverPrx_mixin::OP_destroyTopic = ::Ice::__defineOperation('destroyTopic', ::Ice::OperationMode::Normal, nil, [[::IceStormElection::T_LogUpdate, false, 0], [::Ice::T_string, false, 0]], [], nil, [::IceStormElection::T_ObserverInconsistencyException])
+        ReplicaObserverPrx_mixin::OP_addSubscriber = ::Ice::__defineOperation('addSubscriber', ::Ice::OperationMode::Normal, nil, [[::IceStormElection::T_LogUpdate, false, 0], [::Ice::T_string, false, 0], [::IceStorm::T_SubscriberRecord, false, 0]], [], nil, [::IceStormElection::T_ObserverInconsistencyException])
+        ReplicaObserverPrx_mixin::OP_removeSubscriber = ::Ice::__defineOperation('removeSubscriber', ::Ice::OperationMode::Normal, nil, [[::IceStormElection::T_LogUpdate, false, 0], [::Ice::T_string, false, 0], [::Ice::T_IdentitySeq, false, 0]], [], nil, [::IceStormElection::T_ObserverInconsistencyException])
     end
 
     if not defined?(::IceStormElection::TopicManagerSyncPrx)
@@ -134,7 +134,7 @@ module ::IceStormElection
 
         T_TopicManagerSyncPrx.defineProxy(TopicManagerSyncPrx, nil, [])
 
-        TopicManagerSyncPrx_mixin::OP_getContent = ::Ice::__defineOperation('getContent', ::Ice::OperationMode::Normal, false, nil, [], [[::IceStormElection::T_LogUpdate, false, 0], [::IceStormElection::T_TopicContentSeq, false, 0]], nil, [])
+        TopicManagerSyncPrx_mixin::OP_getContent = ::Ice::__defineOperation('getContent', ::Ice::OperationMode::Normal, nil, [], [[::IceStormElection::T_LogUpdate, false, 0], [::IceStormElection::T_TopicContentSeq, false, 0]], nil, [])
     end
 
     if not defined?(::IceStormElection::NodeState)
@@ -372,13 +372,13 @@ module ::IceStormElection
 
         T_NodePrx.defineProxy(NodePrx, nil, [])
 
-        NodePrx_mixin::OP_invitation = ::Ice::__defineOperation('invitation', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_string, false, 0]], [], nil, [])
-        NodePrx_mixin::OP_ready = ::Ice::__defineOperation('ready', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_string, false, 0], [::Ice::T_ObjectPrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_long, false, 0]], [], nil, [])
-        NodePrx_mixin::OP_accept = ::Ice::__defineOperation('accept', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_string, false, 0], [::Ice::T_IntSeq, false, 0], [::Ice::T_ObjectPrx, false, 0], [::IceStormElection::T_LogUpdate, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
-        NodePrx_mixin::OP_areYouCoordinator = ::Ice::__defineOperation('areYouCoordinator', ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_bool, false, 0], [])
-        NodePrx_mixin::OP_areYouThere = ::Ice::__defineOperation('areYouThere', ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_int, false, 0]], [], [::Ice::T_bool, false, 0], [])
-        NodePrx_mixin::OP_sync = ::Ice::__defineOperation('sync', ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
-        NodePrx_mixin::OP_nodes = ::Ice::__defineOperation('nodes', ::Ice::OperationMode::Idempotent, false, nil, [], [], [::IceStormElection::T_NodeInfoSeq, false, 0], [])
-        NodePrx_mixin::OP_query = ::Ice::__defineOperation('query', ::Ice::OperationMode::Idempotent, false, nil, [], [], [::IceStormElection::T_QueryInfo, false, 0], [])
+        NodePrx_mixin::OP_invitation = ::Ice::__defineOperation('invitation', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0], [::Ice::T_string, false, 0]], [], nil, [])
+        NodePrx_mixin::OP_ready = ::Ice::__defineOperation('ready', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0], [::Ice::T_string, false, 0], [::Ice::T_ObjectPrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_long, false, 0]], [], nil, [])
+        NodePrx_mixin::OP_accept = ::Ice::__defineOperation('accept', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0], [::Ice::T_string, false, 0], [::Ice::T_IntSeq, false, 0], [::Ice::T_ObjectPrx, false, 0], [::IceStormElection::T_LogUpdate, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
+        NodePrx_mixin::OP_areYouCoordinator = ::Ice::__defineOperation('areYouCoordinator', ::Ice::OperationMode::Idempotent, nil, [], [], [::Ice::T_bool, false, 0], [])
+        NodePrx_mixin::OP_areYouThere = ::Ice::__defineOperation('areYouThere', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_string, false, 0], [::Ice::T_int, false, 0]], [], [::Ice::T_bool, false, 0], [])
+        NodePrx_mixin::OP_sync = ::Ice::__defineOperation('sync', ::Ice::OperationMode::Idempotent, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
+        NodePrx_mixin::OP_nodes = ::Ice::__defineOperation('nodes', ::Ice::OperationMode::Idempotent, nil, [], [], [::IceStormElection::T_NodeInfoSeq, false, 0], [])
+        NodePrx_mixin::OP_query = ::Ice::__defineOperation('query', ::Ice::OperationMode::Idempotent, nil, [], [], [::IceStormElection::T_QueryInfo, false, 0], [])
     end
 end

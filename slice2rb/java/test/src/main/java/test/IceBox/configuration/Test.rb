@@ -42,7 +42,7 @@ module ::Test
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-        TestIntfPrx_mixin::OP_getProperty = ::Ice::__defineOperation('getProperty', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_string, false, 0], [])
-        TestIntfPrx_mixin::OP_getArgs = ::Ice::__defineOperation('getArgs', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_StringSeq, false, 0], [])
+        TestIntfPrx_mixin::OP_getProperty = ::Ice::__defineOperation('getProperty', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_string, false, 0], [])
+        TestIntfPrx_mixin::OP_getArgs = ::Ice::__defineOperation('getArgs', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_StringSeq, false, 0], [])
     end
 end

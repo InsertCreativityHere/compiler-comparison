@@ -45,8 +45,8 @@ module ::Test
 
         T_EchoPrx.defineProxy(EchoPrx, nil, [])
 
-        EchoPrx_mixin::OP_startBatch = ::Ice::__defineOperation('startBatch', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        EchoPrx_mixin::OP_flushBatch = ::Ice::__defineOperation('flushBatch', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        EchoPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        EchoPrx_mixin::OP_startBatch = ::Ice::__defineOperation('startBatch', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        EchoPrx_mixin::OP_flushBatch = ::Ice::__defineOperation('flushBatch', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        EchoPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

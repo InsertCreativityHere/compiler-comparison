@@ -42,8 +42,8 @@ module ::Test
 
         T_BackendPrx.defineProxy(BackendPrx, nil, [])
 
-        BackendPrx_mixin::OP_check = ::Ice::__defineOperation('check', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        BackendPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        BackendPrx_mixin::OP_check = ::Ice::__defineOperation('check', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        BackendPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     if not defined?(::Test::StateCode)
@@ -170,8 +170,8 @@ module ::Test
 
         T_TestControllerPrx.defineProxy(TestControllerPrx, nil, [])
 
-        TestControllerPrx_mixin::OP_step = ::Ice::__defineOperation('step', ::Ice::OperationMode::Normal, false, nil, [[::Glacier2::T_SessionPrx, false, 0], [::Test::T_TestToken, false, 0]], [[::Test::T_TestToken, false, 0]], nil, [])
-        TestControllerPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        TestControllerPrx_mixin::OP_step = ::Ice::__defineOperation('step', ::Ice::OperationMode::Normal, nil, [[::Glacier2::T_SessionPrx, false, 0], [::Test::T_TestToken, false, 0]], [[::Test::T_TestToken, false, 0]], nil, [])
+        TestControllerPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     if not defined?(::Test::TestSessionPrx)
@@ -194,6 +194,6 @@ module ::Test
 
         T_TestSessionPrx.defineProxy(TestSessionPrx, nil, [::Glacier2::T_SessionPrx])
 
-        TestSessionPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        TestSessionPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

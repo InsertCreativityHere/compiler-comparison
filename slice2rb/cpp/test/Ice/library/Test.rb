@@ -49,6 +49,6 @@ module ::Test
 
         T_MyInterfacePrx.defineProxy(MyInterfacePrx, nil, [])
 
-        MyInterfacePrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, false, 0]], [], nil, [::Test::T_UserError])
+        MyInterfacePrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [[::Ice::T_bool, false, 0]], [], nil, [::Test::T_UserError])
     end
 end

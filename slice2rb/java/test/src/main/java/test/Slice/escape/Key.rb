@@ -114,7 +114,7 @@ module ::Abstract
 
         T_CatchPrx.defineProxy(CatchPrx, nil, [])
 
-        CatchPrx_mixin::OP_checkedCast = ::Ice::__defineOperation('checkedCast', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
+        CatchPrx_mixin::OP_checkedCast = ::Ice::__defineOperation('checkedCast', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
     end
 
     if not defined?(::Abstract::DefaultPrx)
@@ -136,7 +136,7 @@ module ::Abstract
 
         T_DefaultPrx.defineProxy(DefaultPrx, nil, [])
 
-        DefaultPrx_mixin::OP_do = ::Ice::__defineOperation('do', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        DefaultPrx_mixin::OP_do = ::Ice::__defineOperation('do', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     if not defined?(::Abstract::Else)
@@ -234,7 +234,7 @@ module ::Abstract
 
         T_NewPrx.defineProxy(NewPrx, nil, [])
 
-        NewPrx_mixin::OP_notify = ::Ice::__defineOperation('notify', ::Ice::OperationMode::Normal, false, nil, [[::Abstract::T_Break, false, 0], [::Abstract::T_Else, false, 0], [::Abstract::T_FinalizePrx, false, 0], [::Abstract::T_CatchPrx, false, 0], [::Abstract::T_DefaultPrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Abstract::T_Assert, false, 0], [::Abstract::T_HashCode, ::Abstract::T_Import])
+        NewPrx_mixin::OP_notify = ::Ice::__defineOperation('notify', ::Ice::OperationMode::Normal, nil, [[::Abstract::T_Break, false, 0], [::Abstract::T_Else, false, 0], [::Abstract::T_FinalizePrx, false, 0], [::Abstract::T_CatchPrx, false, 0], [::Abstract::T_DefaultPrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Abstract::T_Assert, false, 0], [::Abstract::T_HashCode, ::Abstract::T_Import])
     end
 
     Switch = 0

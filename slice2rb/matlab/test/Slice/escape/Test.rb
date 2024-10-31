@@ -300,10 +300,10 @@ module ::Classdef
 
             T_ElseifPrx.defineProxy(ElseifPrx, nil, [])
 
-            ElseifPrx_mixin::OP_events = ::Ice::__defineOperation('events', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-            ElseifPrx_mixin::OP_function = ::Ice::__defineOperation('function', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-            ElseifPrx_mixin::OP_delete = ::Ice::__defineOperation('delete', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-            ElseifPrx_mixin::OP_checkedCast = ::Ice::__defineOperation('checkedCast', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+            ElseifPrx_mixin::OP_events = ::Ice::__defineOperation('events', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+            ElseifPrx_mixin::OP_function = ::Ice::__defineOperation('function', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+            ElseifPrx_mixin::OP_delete = ::Ice::__defineOperation('delete', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+            ElseifPrx_mixin::OP_checkedCast = ::Ice::__defineOperation('checkedCast', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
         end
 
         Methods = 1

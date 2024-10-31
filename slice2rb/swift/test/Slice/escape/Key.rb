@@ -144,7 +144,7 @@ module ::And
 
         T_BreakPrx.defineProxy(BreakPrx, nil, [])
 
-        BreakPrx_mixin::OP_case = ::Ice::__defineOperation('case', ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
+        BreakPrx_mixin::OP_case = ::Ice::__defineOperation('case', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
     end
 
     if not defined?(::And::FuncPrx)
@@ -166,7 +166,7 @@ module ::And
 
         T_FuncPrx.defineProxy(FuncPrx, nil, [])
 
-        FuncPrx_mixin::OP_public = ::Ice::__defineOperation('public', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        FuncPrx_mixin::OP_public = ::Ice::__defineOperation('public', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
     if not defined?(::And::Switch)
@@ -264,7 +264,7 @@ module ::And
 
         T_FriendPrx.defineProxy(FriendPrx, nil, [])
 
-        FriendPrx_mixin::OP_goto = ::Ice::__defineOperation('goto', ::Ice::OperationMode::Normal, false, nil, [[::And::T_Continue, false, 0], [::And::T_Guard, false, 0], [::And::T_Defer, false, 0], [::And::T_Switch, false, 0], [::And::T_DoPrx, false, 0], [::And::T_BreakPrx, false, 0], [::And::T_FuncPrx, false, 0], [::And::T_Switch, false, 0], [::And::T_DoPrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::And::T_Guard, false, 0], [::And::T_Return, ::And::T_As])
+        FriendPrx_mixin::OP_goto = ::Ice::__defineOperation('goto', ::Ice::OperationMode::Normal, nil, [[::And::T_Continue, false, 0], [::And::T_Guard, false, 0], [::And::T_Defer, false, 0], [::And::T_Switch, false, 0], [::And::T_DoPrx, false, 0], [::And::T_BreakPrx, false, 0], [::And::T_FuncPrx, false, 0], [::And::T_Switch, false, 0], [::And::T_DoPrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::And::T_Guard, false, 0], [::And::T_Return, ::And::T_As])
     end
 
     Is = 0

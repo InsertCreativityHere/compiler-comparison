@@ -45,8 +45,8 @@ module ::Test
 
         T_MyClassPrx.defineProxy(MyClassPrx, nil, [])
 
-        MyClassPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        MyClassPrx_mixin::OP_getContext = ::Ice::__defineOperation('getContext', ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_Context, false, 0], [])
+        MyClassPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        MyClassPrx_mixin::OP_getContext = ::Ice::__defineOperation('getContext', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_Context, false, 0], [])
     end
 
     if not defined?(::Test::MyDerivedClassPrx)
@@ -69,6 +69,6 @@ module ::Test
 
         T_MyDerivedClassPrx.defineProxy(MyDerivedClassPrx, nil, [::Test::T_MyClassPrx])
 
-        MyDerivedClassPrx_mixin::OP_echo = ::Ice::__defineOperation('echo', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_ObjectPrx, false, 0]], [], [::Ice::T_ObjectPrx, false, 0], [])
+        MyDerivedClassPrx_mixin::OP_echo = ::Ice::__defineOperation('echo', ::Ice::OperationMode::Normal, nil, [[::Ice::T_ObjectPrx, false, 0]], [], [::Ice::T_ObjectPrx, false, 0], [])
     end
 end

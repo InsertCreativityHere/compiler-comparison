@@ -53,11 +53,11 @@ module ::Test
 
         T_EchoPrx.defineProxy(EchoPrx, nil, [])
 
-        EchoPrx_mixin::OP_setConnection = ::Ice::__defineOperation('setConnection', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        EchoPrx_mixin::OP_startBatch = ::Ice::__defineOperation('startBatch', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        EchoPrx_mixin::OP_flushBatch = ::Ice::__defineOperation('flushBatch', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        EchoPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        EchoPrx_mixin::OP_supportsCompress = ::Ice::__defineOperation('supportsCompress', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
+        EchoPrx_mixin::OP_setConnection = ::Ice::__defineOperation('setConnection', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        EchoPrx_mixin::OP_startBatch = ::Ice::__defineOperation('startBatch', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        EchoPrx_mixin::OP_flushBatch = ::Ice::__defineOperation('flushBatch', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        EchoPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        EchoPrx_mixin::OP_supportsCompress = ::Ice::__defineOperation('supportsCompress', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_bool, false, 0], [])
     end
 
     if not defined?(::Test::MyObjectPrx)
@@ -83,7 +83,7 @@ module ::Test
 
         T_MyObjectPrx.defineProxy(MyObjectPrx, nil, [])
 
-        MyObjectPrx_mixin::OP_getName = ::Ice::__defineOperation('getName', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
-        MyObjectPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        MyObjectPrx_mixin::OP_getName = ::Ice::__defineOperation('getName', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+        MyObjectPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

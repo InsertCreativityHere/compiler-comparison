@@ -146,12 +146,12 @@ module ::IceMX
 
         T_MetricsAdminPrx.defineProxy(MetricsAdminPrx, nil, [])
 
-        MetricsAdminPrx_mixin::OP_getMetricsViewNames = ::Ice::__defineOperation('getMetricsViewNames', ::Ice::OperationMode::Normal, false, nil, [], [[::Ice::T_StringSeq, false, 0]], [::Ice::T_StringSeq, false, 0], [])
-        MetricsAdminPrx_mixin::OP_enableMetricsView = ::Ice::__defineOperation('enableMetricsView', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceMX::T_UnknownMetricsView])
-        MetricsAdminPrx_mixin::OP_disableMetricsView = ::Ice::__defineOperation('disableMetricsView', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceMX::T_UnknownMetricsView])
-        MetricsAdminPrx_mixin::OP_getMetricsView = ::Ice::__defineOperation('getMetricsView', ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [[::Ice::T_string, false, 0]], [[::Ice::T_long, false, 0]], [::IceMX::T_MetricsView, false, 0], [::IceMX::T_UnknownMetricsView])
-        MetricsAdminPrx_mixin::OP_getMapMetricsFailures = ::Ice::__defineOperation('getMapMetricsFailures', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], [::IceMX::T_MetricsFailuresSeq, false, 0], [::IceMX::T_UnknownMetricsView])
-        MetricsAdminPrx_mixin::OP_getMetricsFailures = ::Ice::__defineOperation('getMetricsFailures', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], [::IceMX::T_MetricsFailures, false, 0], [::IceMX::T_UnknownMetricsView])
+        MetricsAdminPrx_mixin::OP_getMetricsViewNames = ::Ice::__defineOperation('getMetricsViewNames', ::Ice::OperationMode::Normal, nil, [], [[::Ice::T_StringSeq, false, 0]], [::Ice::T_StringSeq, false, 0], [])
+        MetricsAdminPrx_mixin::OP_enableMetricsView = ::Ice::__defineOperation('enableMetricsView', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceMX::T_UnknownMetricsView])
+        MetricsAdminPrx_mixin::OP_disableMetricsView = ::Ice::__defineOperation('disableMetricsView', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceMX::T_UnknownMetricsView])
+        MetricsAdminPrx_mixin::OP_getMetricsView = ::Ice::__defineOperation('getMetricsView', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [[::Ice::T_string, false, 0]], [[::Ice::T_long, false, 0]], [::IceMX::T_MetricsView, false, 0], [::IceMX::T_UnknownMetricsView])
+        MetricsAdminPrx_mixin::OP_getMapMetricsFailures = ::Ice::__defineOperation('getMapMetricsFailures', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], [::IceMX::T_MetricsFailuresSeq, false, 0], [::IceMX::T_UnknownMetricsView])
+        MetricsAdminPrx_mixin::OP_getMetricsFailures = ::Ice::__defineOperation('getMetricsFailures', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], [::IceMX::T_MetricsFailures, false, 0], [::IceMX::T_UnknownMetricsView])
     end
 
     if not defined?(::IceMX::ThreadMetrics)

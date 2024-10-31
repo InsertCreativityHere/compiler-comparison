@@ -46,9 +46,9 @@ module ::Ice
 
         T_RouterPrx.defineProxy(RouterPrx, nil, [])
 
-        RouterPrx_mixin::OP_getClientProxy = ::Ice::__defineOperation('getClientProxy', ::Ice::OperationMode::Idempotent, false, nil, [], [[::Ice::T_bool, true, 1]], [::Ice::T_ObjectPrx, false, 0], [])
-        RouterPrx_mixin::OP_getServerProxy = ::Ice::__defineOperation('getServerProxy', ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
-        RouterPrx_mixin::OP_addProxies = ::Ice::__defineOperation('addProxies', ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_ObjectProxySeq, false, 0]], [], [::Ice::T_ObjectProxySeq, false, 0], [])
+        RouterPrx_mixin::OP_getClientProxy = ::Ice::__defineOperation('getClientProxy', ::Ice::OperationMode::Idempotent, nil, [], [[::Ice::T_bool, true, 1]], [::Ice::T_ObjectPrx, false, 0], [])
+        RouterPrx_mixin::OP_getServerProxy = ::Ice::__defineOperation('getServerProxy', ::Ice::OperationMode::Idempotent, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
+        RouterPrx_mixin::OP_addProxies = ::Ice::__defineOperation('addProxies', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_ObjectProxySeq, false, 0]], [], [::Ice::T_ObjectProxySeq, false, 0], [])
     end
 
     if not defined?(::Ice::RouterFinderPrx)
@@ -70,6 +70,6 @@ module ::Ice
 
         T_RouterFinderPrx.defineProxy(RouterFinderPrx, nil, [])
 
-        RouterFinderPrx_mixin::OP_getRouter = ::Ice::__defineOperation('getRouter', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_RouterPrx, false, 0], [])
+        RouterFinderPrx_mixin::OP_getRouter = ::Ice::__defineOperation('getRouter', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_RouterPrx, false, 0], [])
     end
 end

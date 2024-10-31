@@ -42,8 +42,8 @@ module ::IceDiscovery
 
         T_LookupReplyPrx.defineProxy(LookupReplyPrx, nil, [])
 
-        LookupReplyPrx_mixin::OP_foundObjectById = ::Ice::__defineOperation('foundObjectById', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_Identity, false, 0], [::Ice::T_ObjectPrx, false, 0]], [], nil, [])
-        LookupReplyPrx_mixin::OP_foundAdapterById = ::Ice::__defineOperation('foundAdapterById', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_ObjectPrx, false, 0], [::Ice::T_bool, false, 0]], [], nil, [])
+        LookupReplyPrx_mixin::OP_foundObjectById = ::Ice::__defineOperation('foundObjectById', ::Ice::OperationMode::Normal, nil, [[::Ice::T_Identity, false, 0], [::Ice::T_ObjectPrx, false, 0]], [], nil, [])
+        LookupReplyPrx_mixin::OP_foundAdapterById = ::Ice::__defineOperation('foundAdapterById', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0], [::Ice::T_ObjectPrx, false, 0], [::Ice::T_bool, false, 0]], [], nil, [])
     end
 
     if not defined?(::IceDiscovery::LookupPrx)
@@ -69,7 +69,7 @@ module ::IceDiscovery
 
         T_LookupPrx.defineProxy(LookupPrx, nil, [])
 
-        LookupPrx_mixin::OP_findObjectById = ::Ice::__defineOperation('findObjectById', ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_Identity, false, 0], [::IceDiscovery::T_LookupReplyPrx, false, 0]], [], nil, [])
-        LookupPrx_mixin::OP_findAdapterById = ::Ice::__defineOperation('findAdapterById', ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::IceDiscovery::T_LookupReplyPrx, false, 0]], [], nil, [])
+        LookupPrx_mixin::OP_findObjectById = ::Ice::__defineOperation('findObjectById', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_string, false, 0], [::Ice::T_Identity, false, 0], [::IceDiscovery::T_LookupReplyPrx, false, 0]], [], nil, [])
+        LookupPrx_mixin::OP_findAdapterById = ::Ice::__defineOperation('findAdapterById', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::IceDiscovery::T_LookupReplyPrx, false, 0]], [], nil, [])
     end
 end

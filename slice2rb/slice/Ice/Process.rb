@@ -41,7 +41,7 @@ module ::Ice
 
         T_ProcessPrx.defineProxy(ProcessPrx, nil, [])
 
-        ProcessPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        ProcessPrx_mixin::OP_writeMessage = ::Ice::__defineOperation('writeMessage', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
+        ProcessPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        ProcessPrx_mixin::OP_writeMessage = ::Ice::__defineOperation('writeMessage', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
     end
 end

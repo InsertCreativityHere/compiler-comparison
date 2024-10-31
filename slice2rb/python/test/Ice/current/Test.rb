@@ -75,15 +75,15 @@ module ::Test
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-        TestIntfPrx_mixin::OP_getAdapterName = ::Ice::__defineOperation('getAdapterName', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
-        TestIntfPrx_mixin::OP_getConnection = ::Ice::__defineOperation('getConnection', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
-        TestIntfPrx_mixin::OP_getIdentity = ::Ice::__defineOperation('getIdentity', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_Identity, false, 0], [])
-        TestIntfPrx_mixin::OP_getFacet = ::Ice::__defineOperation('getFacet', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
-        TestIntfPrx_mixin::OP_getOperation = ::Ice::__defineOperation('getOperation', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
-        TestIntfPrx_mixin::OP_getMode = ::Ice::__defineOperation('getMode', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
-        TestIntfPrx_mixin::OP_getContext = ::Ice::__defineOperation('getContext', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_Context, false, 0], [])
-        TestIntfPrx_mixin::OP_getRequestId = ::Ice::__defineOperation('getRequestId', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
-        TestIntfPrx_mixin::OP_getEncoding = ::Ice::__defineOperation('getEncoding', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
-        TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        TestIntfPrx_mixin::OP_getAdapterName = ::Ice::__defineOperation('getAdapterName', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+        TestIntfPrx_mixin::OP_getConnection = ::Ice::__defineOperation('getConnection', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+        TestIntfPrx_mixin::OP_getIdentity = ::Ice::__defineOperation('getIdentity', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_Identity, false, 0], [])
+        TestIntfPrx_mixin::OP_getFacet = ::Ice::__defineOperation('getFacet', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+        TestIntfPrx_mixin::OP_getOperation = ::Ice::__defineOperation('getOperation', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+        TestIntfPrx_mixin::OP_getMode = ::Ice::__defineOperation('getMode', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+        TestIntfPrx_mixin::OP_getContext = ::Ice::__defineOperation('getContext', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_Context, false, 0], [])
+        TestIntfPrx_mixin::OP_getRequestId = ::Ice::__defineOperation('getRequestId', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_int, false, 0], [])
+        TestIntfPrx_mixin::OP_getEncoding = ::Ice::__defineOperation('getEncoding', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+        TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

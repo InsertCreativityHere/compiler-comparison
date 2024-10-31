@@ -193,25 +193,25 @@ module ::Test
 
         T_ThrowerPrx.defineProxy(ThrowerPrx, nil, [])
 
-        ThrowerPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        ThrowerPrx_mixin::OP_supportsUndeclaredExceptions = ::Ice::__defineOperation('supportsUndeclaredExceptions', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
-        ThrowerPrx_mixin::OP_supportsAssertException = ::Ice::__defineOperation('supportsAssertException', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
-        ThrowerPrx_mixin::OP_throwAasA = ::Ice::__defineOperation('throwAasA', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [::Test::T_A])
-        ThrowerPrx_mixin::OP_throwAorDasAorD = ::Ice::__defineOperation('throwAorDasAorD', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [::Test::T_A, ::Test::T_D])
-        ThrowerPrx_mixin::OP_throwBasA = ::Ice::__defineOperation('throwBasA', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Test::T_A])
-        ThrowerPrx_mixin::OP_throwCasA = ::Ice::__defineOperation('throwCasA', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Test::T_A])
-        ThrowerPrx_mixin::OP_throwBasB = ::Ice::__defineOperation('throwBasB', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Test::T_B])
-        ThrowerPrx_mixin::OP_throwCasB = ::Ice::__defineOperation('throwCasB', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Test::T_B])
-        ThrowerPrx_mixin::OP_throwCasC = ::Ice::__defineOperation('throwCasC', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Test::T_C])
-        ThrowerPrx_mixin::OP_throwModA = ::Ice::__defineOperation('throwModA', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Test::Mod::T_A])
-        ThrowerPrx_mixin::OP_throwUndeclaredA = ::Ice::__defineOperation('throwUndeclaredA', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])
-        ThrowerPrx_mixin::OP_throwUndeclaredB = ::Ice::__defineOperation('throwUndeclaredB', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
-        ThrowerPrx_mixin::OP_throwUndeclaredC = ::Ice::__defineOperation('throwUndeclaredC', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
-        ThrowerPrx_mixin::OP_throwLocalException = ::Ice::__defineOperation('throwLocalException', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        ThrowerPrx_mixin::OP_throwNonIceException = ::Ice::__defineOperation('throwNonIceException', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        ThrowerPrx_mixin::OP_throwAssertException = ::Ice::__defineOperation('throwAssertException', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        ThrowerPrx_mixin::OP_throwMemoryLimitException = ::Ice::__defineOperation('throwMemoryLimitException', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_ByteSeq, false, 0]], [], [::Ice::T_ByteSeq, false, 0], [])
-        ThrowerPrx_mixin::OP_throwLocalExceptionIdempotent = ::Ice::__defineOperation('throwLocalExceptionIdempotent', ::Ice::OperationMode::Idempotent, false, nil, [], [], nil, [])
+        ThrowerPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        ThrowerPrx_mixin::OP_supportsUndeclaredExceptions = ::Ice::__defineOperation('supportsUndeclaredExceptions', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_bool, false, 0], [])
+        ThrowerPrx_mixin::OP_supportsAssertException = ::Ice::__defineOperation('supportsAssertException', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_bool, false, 0], [])
+        ThrowerPrx_mixin::OP_throwAasA = ::Ice::__defineOperation('throwAasA', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [], nil, [::Test::T_A])
+        ThrowerPrx_mixin::OP_throwAorDasAorD = ::Ice::__defineOperation('throwAorDasAorD', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [], nil, [::Test::T_A, ::Test::T_D])
+        ThrowerPrx_mixin::OP_throwBasA = ::Ice::__defineOperation('throwBasA', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Test::T_A])
+        ThrowerPrx_mixin::OP_throwCasA = ::Ice::__defineOperation('throwCasA', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Test::T_A])
+        ThrowerPrx_mixin::OP_throwBasB = ::Ice::__defineOperation('throwBasB', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Test::T_B])
+        ThrowerPrx_mixin::OP_throwCasB = ::Ice::__defineOperation('throwCasB', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Test::T_B])
+        ThrowerPrx_mixin::OP_throwCasC = ::Ice::__defineOperation('throwCasC', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Test::T_C])
+        ThrowerPrx_mixin::OP_throwModA = ::Ice::__defineOperation('throwModA', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Test::Mod::T_A])
+        ThrowerPrx_mixin::OP_throwUndeclaredA = ::Ice::__defineOperation('throwUndeclaredA', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [], nil, [])
+        ThrowerPrx_mixin::OP_throwUndeclaredB = ::Ice::__defineOperation('throwUndeclaredB', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
+        ThrowerPrx_mixin::OP_throwUndeclaredC = ::Ice::__defineOperation('throwUndeclaredC', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
+        ThrowerPrx_mixin::OP_throwLocalException = ::Ice::__defineOperation('throwLocalException', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        ThrowerPrx_mixin::OP_throwNonIceException = ::Ice::__defineOperation('throwNonIceException', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        ThrowerPrx_mixin::OP_throwAssertException = ::Ice::__defineOperation('throwAssertException', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        ThrowerPrx_mixin::OP_throwMemoryLimitException = ::Ice::__defineOperation('throwMemoryLimitException', ::Ice::OperationMode::Normal, nil, [[::Ice::T_ByteSeq, false, 0]], [], [::Ice::T_ByteSeq, false, 0], [])
+        ThrowerPrx_mixin::OP_throwLocalExceptionIdempotent = ::Ice::__defineOperation('throwLocalExceptionIdempotent', ::Ice::OperationMode::Idempotent, nil, [], [], nil, [])
     end
 
     if not defined?(::Test::WrongOperationPrx)
@@ -233,6 +233,6 @@ module ::Test
 
         T_WrongOperationPrx.defineProxy(WrongOperationPrx, nil, [])
 
-        WrongOperationPrx_mixin::OP_noSuchOperation = ::Ice::__defineOperation('noSuchOperation', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        WrongOperationPrx_mixin::OP_noSuchOperation = ::Ice::__defineOperation('noSuchOperation', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

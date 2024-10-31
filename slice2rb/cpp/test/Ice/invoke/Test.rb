@@ -59,9 +59,9 @@ module ::Test
 
         T_MyClassPrx.defineProxy(MyClassPrx, nil, [])
 
-        MyClassPrx_mixin::OP_opOneway = ::Ice::__defineOperation('opOneway', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        MyClassPrx_mixin::OP_opString = ::Ice::__defineOperation('opString', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [[::Ice::T_string, false, 0]], [::Ice::T_string, false, 0], [])
-        MyClassPrx_mixin::OP_opException = ::Ice::__defineOperation('opException', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Test::T_MyException])
-        MyClassPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+        MyClassPrx_mixin::OP_opOneway = ::Ice::__defineOperation('opOneway', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        MyClassPrx_mixin::OP_opString = ::Ice::__defineOperation('opString', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0]], [[::Ice::T_string, false, 0]], [::Ice::T_string, false, 0], [])
+        MyClassPrx_mixin::OP_opException = ::Ice::__defineOperation('opException', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_MyException])
+        MyClassPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 end

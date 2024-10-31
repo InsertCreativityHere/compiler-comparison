@@ -49,9 +49,9 @@ module ::Test
 
         T_RetryPrx.defineProxy(RetryPrx, nil, [])
 
-        RetryPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, false, 0]], [], nil, [])
-        RetryPrx_mixin::OP_opIdempotent = ::Ice::__defineOperation('opIdempotent', ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_int, false, 0]], [], [::Ice::T_int, false, 0], [])
-        RetryPrx_mixin::OP_opNotIdempotent = ::Ice::__defineOperation('opNotIdempotent', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        RetryPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Idempotent, false, nil, [], [], nil, [])
+        RetryPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [[::Ice::T_bool, false, 0]], [], nil, [])
+        RetryPrx_mixin::OP_opIdempotent = ::Ice::__defineOperation('opIdempotent', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_int, false, 0]], [], [::Ice::T_int, false, 0], [])
+        RetryPrx_mixin::OP_opNotIdempotent = ::Ice::__defineOperation('opNotIdempotent', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+        RetryPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Idempotent, nil, [], [], nil, [])
     end
 end
