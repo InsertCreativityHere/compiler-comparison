@@ -228,6 +228,12 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def supportsFunctionalTestsAsync(self, context=None):
             return _M_Test.TestIntf._op_supportsFunctionalTests.invokeAsync(self, ((), context))
 
+        def supportsBackPressureTests(self, context=None):
+            return _M_Test.TestIntf._op_supportsBackPressureTests.invoke(self, ((), context))
+
+        def supportsBackPressureTestsAsync(self, context=None):
+            return _M_Test.TestIntf._op_supportsBackPressureTests.invokeAsync(self, ((), context))
+
         def opAsyncDispatch(self, context=None):
             return _M_Test.TestIntf._op_opAsyncDispatch.invoke(self, ((), context))
 
@@ -326,6 +332,9 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def supportsFunctionalTests(self, current=None):
             raise NotImplementedError("servant method 'supportsFunctionalTests' not implemented")
 
+        def supportsBackPressureTests(self, current=None):
+            raise NotImplementedError("servant method 'supportsBackPressureTests' not implemented")
+
         def opAsyncDispatch(self, current=None):
             raise NotImplementedError("servant method 'opAsyncDispatch' not implemented")
 
@@ -358,6 +367,7 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     TestIntf._op_supportsAMD = IcePy.Operation('supportsAMD', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     TestIntf._op_supportsFunctionalTests = IcePy.Operation('supportsFunctionalTests', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
+    TestIntf._op_supportsBackPressureTests = IcePy.Operation('supportsBackPressureTests', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     TestIntf._op_opAsyncDispatch = IcePy.Operation('opAsyncDispatch', Ice.OperationMode.Normal, True, None, (), (), (), None, ())
     TestIntf._op_opWithResultAsyncDispatch = IcePy.Operation('opWithResultAsyncDispatch', Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_int, False, 0), ())
     TestIntf._op_opWithUEAsyncDispatch = IcePy.Operation('opWithUEAsyncDispatch', Ice.OperationMode.Normal, True, None, (), (), (), None, (_M_Test._t_TestIntfException,))

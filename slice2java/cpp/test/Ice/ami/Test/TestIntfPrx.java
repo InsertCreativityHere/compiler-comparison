@@ -653,6 +653,43 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
+    default boolean supportsBackPressureTests()
+    {
+        return supportsBackPressureTests(com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default boolean supportsBackPressureTests(java.util.Map<String, String> context)
+    {
+        return _iceI_supportsBackPressureTestsAsync(context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<java.lang.Boolean> supportsBackPressureTestsAsync()
+    {
+        return _iceI_supportsBackPressureTestsAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<java.lang.Boolean> supportsBackPressureTestsAsync(java.util.Map<String, String> context)
+    {
+        return _iceI_supportsBackPressureTestsAsync(context, false);
+    }
+
+    /**
+     * @hidden
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.Ice.OutgoingAsync<java.lang.Boolean> _iceI_supportsBackPressureTestsAsync(java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.Ice.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.Ice.OutgoingAsync<>(this, "supportsBackPressureTests", null, sync, null);
+        f.invoke(true, context, null, null, istr -> {
+                     boolean ret;
+                     ret = istr.readBool();
+                     return ret;
+                 });
+        return f;
+    }
+
     default void pingBiDir(PingReplyPrx reply)
     {
         pingBiDir(reply, com.zeroc.Ice.ObjectPrx.noExplicitContext);

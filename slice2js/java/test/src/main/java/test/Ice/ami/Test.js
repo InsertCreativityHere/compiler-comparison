@@ -112,6 +112,7 @@ Ice.defineOperations(
         "shutdown": [, , , , , , , , ],
         "supportsAMD": [, , , [1], , , , , ],
         "supportsFunctionalTests": [, , , [1], , , , , ],
+        "supportsBackPressureTests": [, , , [1], , , , , ],
         "opBool": [, , , [1], [[1]], , , , ],
         "opByte": [, , , [0], [[0]], , , , ],
         "opShort": [, , , [2], [[2]], , , , ],

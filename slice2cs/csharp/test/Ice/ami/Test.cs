@@ -84,6 +84,8 @@ namespace Ice.ami
 
             bool supportsFunctionalTests(Ice.Current current);
 
+            bool supportsBackPressureTests(Ice.Current current);
+
             global::System.Threading.Tasks.Task opAsyncDispatchAsync(Ice.Current current);
 
             global::System.Threading.Tasks.Task<int> opWithResultAsyncDispatchAsync(Ice.Current current);
@@ -201,6 +203,10 @@ namespace Ice.ami
             bool supportsFunctionalTests(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
             global::System.Threading.Tasks.Task<bool> supportsFunctionalTestsAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+            bool supportsBackPressureTests(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+            global::System.Threading.Tasks.Task<bool> supportsBackPressureTestsAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
             void opAsyncDispatch(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -511,6 +517,18 @@ namespace Ice.ami
                 try
                 {
                     return _iceI_supportsFunctionalTestsAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
+                }
+                catch (global::System.AggregateException ex_)
+                {
+                    throw ex_.InnerException!;
+                }
+            }
+
+            public bool supportsBackPressureTests(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+            {
+                try
+                {
+                    return _iceI_supportsBackPressureTestsAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
                 catch (global::System.AggregateException ex_)
                 {
@@ -1003,6 +1021,38 @@ namespace Ice.ami
                     });
             }
 
+            public global::System.Threading.Tasks.Task<bool> supportsBackPressureTestsAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+            {
+                return _iceI_supportsBackPressureTestsAsync(context, progress, cancel, false);
+            }
+
+            private global::System.Threading.Tasks.Task<bool> _iceI_supportsBackPressureTestsAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            {
+                iceCheckTwowayOnly(_supportsBackPressureTests_name);
+                var completed = new Ice.Internal.OperationTaskCompletionCallback<bool>(progress, cancel);
+                _iceI_supportsBackPressureTests(context, synchronous, completed);
+                return completed.Task;
+            }
+
+            private const string _supportsBackPressureTests_name = "supportsBackPressureTests";
+
+            private void _iceI_supportsBackPressureTests(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            {
+                var outAsync = getOutgoingAsync<bool>(completed);
+                outAsync.invoke(
+                    _supportsBackPressureTests_name,
+                    Ice.OperationMode.Normal,
+                    null,
+                    context,
+                    synchronous,
+                    read: (Ice.InputStream istr) =>
+                    {
+                        bool ret;
+                        ret = istr.readBool();
+                        return ret;
+                    });
+            }
+
             public global::System.Threading.Tasks.Task opAsyncDispatchAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opAsyncDispatchAsync(context, progress, cancel, false);
@@ -1466,6 +1516,8 @@ namespace Ice.ami
 
             public abstract bool supportsFunctionalTests(Ice.Current current);
 
+            public abstract bool supportsBackPressureTests(Ice.Current current);
+
             public abstract global::System.Threading.Tasks.Task opAsyncDispatchAsync(Ice.Current current);
 
             public abstract global::System.Threading.Tasks.Task<int> opWithResultAsyncDispatchAsync(Ice.Current current);
@@ -1496,6 +1548,7 @@ namespace Ice.ami
                     "shutdown" => TestIntf.iceD_shutdownAsync(this, request),
                     "supportsAMD" => TestIntf.iceD_supportsAMDAsync(this, request),
                     "supportsFunctionalTests" => TestIntf.iceD_supportsFunctionalTestsAsync(this, request),
+                    "supportsBackPressureTests" => TestIntf.iceD_supportsBackPressureTestsAsync(this, request),
                     "opAsyncDispatch" => TestIntf.iceD_opAsyncDispatchAsync(this, request),
                     "opWithResultAsyncDispatch" => TestIntf.iceD_opWithResultAsyncDispatchAsync(this, request),
                     "opWithUEAsyncDispatch" => TestIntf.iceD_opWithUEAsyncDispatchAsync(this, request),
@@ -1753,6 +1806,20 @@ namespace Ice.ami
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 request.inputStream.skipEmptyEncapsulation();
                 var ret = obj.supportsFunctionalTests(request.current);
+                var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+                ostr.startEncapsulation(request.current.encoding, null);
+                ostr.writeBool(ret);
+                ostr.endEncapsulation();
+                return new(new Ice.OutgoingResponse(ostr));
+            }
+
+            protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_supportsBackPressureTestsAsync(
+                TestIntf obj,
+                Ice.IncomingRequest request)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+                request.inputStream.skipEmptyEncapsulation();
+                var ret = obj.supportsBackPressureTests(request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
                 ostr.startEncapsulation(request.current.encoding, null);
                 ostr.writeBool(ret);

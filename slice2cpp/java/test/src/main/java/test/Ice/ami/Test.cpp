@@ -525,6 +525,35 @@ Test::TestIntfPrx::_iceI_supportsFunctionalTests(const ::std::shared_ptr<::IceIn
 }
 
 bool
+Test::TestIntfPrx::supportsBackPressureTests(const ::Ice::Context& context) const
+{
+    return ::IceInternal::makePromiseOutgoing<bool>(true, this, &TestIntfPrx::_iceI_supportsBackPressureTests, context).get();
+}
+
+::std::future<bool>
+Test::TestIntfPrx::supportsBackPressureTestsAsync(const ::Ice::Context& context) const
+{
+    return ::IceInternal::makePromiseOutgoing<bool>(false, this, &TestIntfPrx::_iceI_supportsBackPressureTests, context);
+}
+
+::std::function<void()>
+Test::TestIntfPrx::supportsBackPressureTestsAsync(::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+{
+    return ::IceInternal::makeLambdaOutgoing<bool>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_supportsBackPressureTests, context);
+}
+
+void
+Test::TestIntfPrx::_iceI_supportsBackPressureTests(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context) const
+{
+    static constexpr ::std::string_view operationName = "supportsBackPressureTests";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+        nullptr,
+        nullptr);
+}
+
+bool
 Test::TestIntfPrx::opBool(bool iceP_b, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<bool>(true, this, &TestIntfPrx::_iceI_opBool, iceP_b, context).get();
@@ -1234,6 +1263,21 @@ Test::TestIntf::_iceD_supportsFunctionalTests(::Ice::IncomingRequest& request, :
 
 /// \cond INTERNAL
 void
+Test::TestIntf::_iceD_supportsBackPressureTests(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+{
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    const bool ret = this->supportsBackPressureTests(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
+}
+/// \endcond
+
+/// \cond INTERNAL
+void
 Test::TestIntf::_iceD_opBool(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
@@ -1391,10 +1435,10 @@ Test::TestIntf::_iceD_pingBiDir(::Ice::IncomingRequest& request, ::std::function
 void
 Test::TestIntf::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"abortConnection", "closeConnection", "finishDispatch", "ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opBatch", "opBatchCount", "opBool", "opByte", "opDouble", "opFloat", "opInt", "opLong", "opShort", "opWithPayload", "opWithResult", "opWithUE", "pingBiDir", "shutdown", "sleep", "startDispatch", "supportsAMD", "supportsFunctionalTests", "waitForBatch"};
+    static constexpr ::std::string_view allOperations[] = {"abortConnection", "closeConnection", "finishDispatch", "ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opBatch", "opBatchCount", "opBool", "opByte", "opDouble", "opFloat", "opInt", "opLong", "opShort", "opWithPayload", "opWithResult", "opWithUE", "pingBiDir", "shutdown", "sleep", "startDispatch", "supportsAMD", "supportsBackPressureTests", "supportsFunctionalTests", "waitForBatch"};
 
     const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 27, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 28, current.operation);
     if(r.first == r.second)
     {
         sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -1530,10 +1574,15 @@ Test::TestIntf::dispatch(::Ice::IncomingRequest& request, ::std::function<void(:
         }
         case 25:
         {
-            _iceD_supportsFunctionalTests(request, ::std::move(sendResponse));
+            _iceD_supportsBackPressureTests(request, ::std::move(sendResponse));
             break;
         }
         case 26:
+        {
+            _iceD_supportsFunctionalTests(request, ::std::move(sendResponse));
+            break;
+        }
+        case 27:
         {
             _iceD_waitForBatch(request, ::std::move(sendResponse));
             break;

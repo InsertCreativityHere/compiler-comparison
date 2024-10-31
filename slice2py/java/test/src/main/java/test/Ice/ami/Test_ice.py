@@ -228,6 +228,12 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def supportsFunctionalTestsAsync(self, context=None):
             return _M_Test.TestIntf._op_supportsFunctionalTests.invokeAsync(self, ((), context))
 
+        def supportsBackPressureTests(self, context=None):
+            return _M_Test.TestIntf._op_supportsBackPressureTests.invoke(self, ((), context))
+
+        def supportsBackPressureTestsAsync(self, context=None):
+            return _M_Test.TestIntf._op_supportsBackPressureTests.invokeAsync(self, ((), context))
+
         def opBool(self, b, context=None):
             return _M_Test.TestIntf._op_opBool.invoke(self, ((b, ), context))
 
@@ -350,6 +356,9 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def supportsFunctionalTests(self, current=None):
             raise NotImplementedError("servant method 'supportsFunctionalTests' not implemented")
 
+        def supportsBackPressureTests(self, current=None):
+            raise NotImplementedError("servant method 'supportsBackPressureTests' not implemented")
+
         def opBool(self, b, current=None):
             raise NotImplementedError("servant method 'opBool' not implemented")
 
@@ -394,6 +403,7 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     TestIntf._op_supportsAMD = IcePy.Operation('supportsAMD', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     TestIntf._op_supportsFunctionalTests = IcePy.Operation('supportsFunctionalTests', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
+    TestIntf._op_supportsBackPressureTests = IcePy.Operation('supportsBackPressureTests', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     TestIntf._op_opBool = IcePy.Operation('opBool', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0),), (), ((), IcePy._t_bool, False, 0), ())
     TestIntf._op_opByte = IcePy.Operation('opByte', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_byte, False, 0),), (), ((), IcePy._t_byte, False, 0), ())
     TestIntf._op_opShort = IcePy.Operation('opShort', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_short, False, 0),), (), ((), IcePy._t_short, False, 0), ())

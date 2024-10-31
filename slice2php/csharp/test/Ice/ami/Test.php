@@ -125,6 +125,7 @@ namespace Test
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, -1, null, null, null, null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'supportsAMD', 0, -1, null, null, array($IcePHP__t_bool), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'supportsFunctionalTests', 0, -1, null, null, array($IcePHP__t_bool), null);
+    IcePHP_defineOperation($Test__t_TestIntfPrx, 'supportsBackPressureTests', 0, -1, null, null, array($IcePHP__t_bool), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opAsyncDispatch', 0, -1, null, null, null, null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opWithResultAsyncDispatch', 0, -1, null, null, array($IcePHP__t_int), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opWithUEAsyncDispatch', 0, -1, null, null, null, array($Test__t_TestIntfException));

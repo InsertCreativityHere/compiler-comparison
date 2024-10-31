@@ -86,6 +86,8 @@ namespace Test
 
         bool supportsFunctionalTests(Ice.Current current);
 
+        bool supportsBackPressureTests(Ice.Current current);
+
         void pingBiDir(PingReplyPrx? reply, Ice.Current current);
     }
 
@@ -201,6 +203,10 @@ namespace Test
         bool supportsFunctionalTests(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task<bool> supportsFunctionalTestsAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        bool supportsBackPressureTests(global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        global::System.Threading.Tasks.Task<bool> supportsBackPressureTestsAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         void pingBiDir(PingReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -531,6 +537,18 @@ namespace Test
             try
             {
                 return _iceI_supportsFunctionalTestsAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
+            }
+            catch (global::System.AggregateException ex_)
+            {
+                throw ex_.InnerException!;
+            }
+        }
+
+        public bool supportsBackPressureTests(global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        {
+            try
+            {
+                return _iceI_supportsBackPressureTestsAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch (global::System.AggregateException ex_)
             {
@@ -1075,6 +1093,38 @@ namespace Test
                 });
         }
 
+        public global::System.Threading.Tasks.Task<bool> supportsBackPressureTestsAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        {
+            return _iceI_supportsBackPressureTestsAsync(context, progress, cancel, false);
+        }
+
+        private global::System.Threading.Tasks.Task<bool> _iceI_supportsBackPressureTestsAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        {
+            iceCheckTwowayOnly(_supportsBackPressureTests_name);
+            var completed = new Ice.Internal.OperationTaskCompletionCallback<bool>(progress, cancel);
+            _iceI_supportsBackPressureTests(context, synchronous, completed);
+            return completed.Task;
+        }
+
+        private const string _supportsBackPressureTests_name = "supportsBackPressureTests";
+
+        private void _iceI_supportsBackPressureTests(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        {
+            var outAsync = getOutgoingAsync<bool>(completed);
+            outAsync.invoke(
+                _supportsBackPressureTests_name,
+                Ice.OperationMode.Normal,
+                null,
+                context,
+                synchronous,
+                read: (Ice.InputStream istr) =>
+                {
+                    bool ret;
+                    ret = istr.readBool();
+                    return ret;
+                });
+        }
+
         public global::System.Threading.Tasks.Task pingBiDirAsync(PingReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_pingBiDirAsync(reply, context, progress, cancel, false);
@@ -1442,6 +1492,8 @@ namespace Test
 
         public abstract bool supportsFunctionalTests(Ice.Current current);
 
+        public abstract bool supportsBackPressureTests(Ice.Current current);
+
         public abstract void pingBiDir(PingReplyPrx? reply, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
@@ -1468,6 +1520,7 @@ namespace Test
                 "shutdown" => TestIntf.iceD_shutdownAsync(this, request),
                 "supportsAMD" => TestIntf.iceD_supportsAMDAsync(this, request),
                 "supportsFunctionalTests" => TestIntf.iceD_supportsFunctionalTestsAsync(this, request),
+                "supportsBackPressureTests" => TestIntf.iceD_supportsBackPressureTestsAsync(this, request),
                 "pingBiDir" => TestIntf.iceD_pingBiDirAsync(this, request),
                 "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
                 "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
@@ -1768,6 +1821,20 @@ namespace Test
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.supportsFunctionalTests(request.current);
+            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
+            ostr.startEncapsulation(request.current.encoding, null);
+            ostr.writeBool(ret);
+            ostr.endEncapsulation();
+            return new(new Ice.OutgoingResponse(ostr));
+        }
+
+        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_supportsBackPressureTestsAsync(
+            TestIntf obj,
+            Ice.IncomingRequest request)
+        {
+            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
+            request.inputStream.skipEmptyEncapsulation();
+            var ret = obj.supportsBackPressureTests(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
             ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeBool(ret);

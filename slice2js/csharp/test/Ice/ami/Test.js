@@ -112,6 +112,7 @@ Ice.defineOperations(
         "shutdown": [, , , , , , , , ],
         "supportsAMD": [, , , [1], , , , , ],
         "supportsFunctionalTests": [, , , [1], , , , , ],
+        "supportsBackPressureTests": [, , , [1], , , , , ],
         "opAsyncDispatch": [, , , , , , , , ],
         "opWithResultAsyncDispatch": [, , , [3], , , , , ],
         "opWithUEAsyncDispatch": [, , , , , ,

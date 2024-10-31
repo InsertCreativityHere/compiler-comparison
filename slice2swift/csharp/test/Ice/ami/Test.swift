@@ -245,6 +245,10 @@ public extension PingReplyPrx {
 ///
 ///  - supportsFunctionalTestsAsync: 
 ///
+///  - supportsBackPressureTests: 
+///
+///  - supportsBackPressureTestsAsync: 
+///
 ///  - opAsyncDispatch: 
 ///
 ///  - opAsyncDispatchAsync: 
@@ -410,6 +414,10 @@ public extension Ice.InputStream {
 ///  - supportsFunctionalTests: 
 ///
 ///  - supportsFunctionalTestsAsync: 
+///
+///  - supportsBackPressureTests: 
+///
+///  - supportsBackPressureTestsAsync: 
 ///
 ///  - opAsyncDispatch: 
 ///
@@ -591,6 +599,20 @@ public extension TestIntfPrx {
     /// - returns: `Swift.Bool`
     func supportsFunctionalTests(context: Ice.Context? = nil) async throws -> Swift.Bool {
         return try await _impl._invoke(operation: "supportsFunctionalTests",
+                                       mode: .Normal,
+                                       read: { istr in
+                                           let iceP_returnValue: Swift.Bool = try istr.read()
+                                           return iceP_returnValue
+                                       },
+                                       context: context)
+    }
+
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    ///
+    /// - returns: `Swift.Bool`
+    func supportsBackPressureTests(context: Ice.Context? = nil) async throws -> Swift.Bool {
+        return try await _impl._invoke(operation: "supportsBackPressureTests",
                                        mode: .Normal,
                                        read: { istr in
                                            let iceP_returnValue: Swift.Bool = try istr.read()
@@ -992,6 +1014,8 @@ public struct TestIntfDisp: Ice.Dispatcher {
             try await servant._iceD_startDispatch(request)
         case "supportsAMD":
             try await servant._iceD_supportsAMD(request)
+        case "supportsBackPressureTests":
+            try await servant._iceD_supportsBackPressureTests(request)
         case "supportsFunctionalTests":
             try await servant._iceD_supportsFunctionalTests(request)
         case "waitForBatch":
@@ -1078,6 +1102,12 @@ public protocol TestIntf {
     ///
     /// - returns: `Swift.Bool`
     func supportsFunctionalTests(current: Ice.Current) async throws -> Swift.Bool
+
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `Swift.Bool`
+    func supportsBackPressureTests(current: Ice.Current) async throws -> Swift.Bool
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
@@ -1230,6 +1260,8 @@ extension PingReply {
 ///
 ///  - supportsFunctionalTests: 
 ///
+///  - supportsBackPressureTests: 
+///
 ///  - opAsyncDispatch: 
 ///
 ///  - opWithResultAsyncDispatch: 
@@ -1358,6 +1390,16 @@ extension TestIntf {
         
         _ = try request.inputStream.skipEmptyEncapsulation()
         let result = try await self.supportsFunctionalTests(current: request.current)
+        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
+            let iceP_returnValue = value
+            ostr.write(iceP_returnValue)
+        }
+    }
+
+    public func _iceD_supportsBackPressureTests(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
+        
+        _ = try request.inputStream.skipEmptyEncapsulation()
+        let result = try await self.supportsBackPressureTests(current: request.current)
         return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
             let iceP_returnValue = value
             ostr.write(iceP_returnValue)

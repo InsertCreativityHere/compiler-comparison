@@ -228,6 +228,12 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def supportsFunctionalTestsAsync(self, context=None):
             return _M_Test.TestIntf._op_supportsFunctionalTests.invokeAsync(self, ((), context))
 
+        def supportsBackPressureTests(self, context=None):
+            return _M_Test.TestIntf._op_supportsBackPressureTests.invoke(self, ((), context))
+
+        def supportsBackPressureTestsAsync(self, context=None):
+            return _M_Test.TestIntf._op_supportsBackPressureTests.invokeAsync(self, ((), context))
+
         def pingBiDir(self, reply, context=None):
             return _M_Test.TestIntf._op_pingBiDir.invoke(self, ((reply, ), context))
 
@@ -308,6 +314,9 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def supportsFunctionalTests(self, current=None):
             raise NotImplementedError("servant method 'supportsFunctionalTests' not implemented")
 
+        def supportsBackPressureTests(self, current=None):
+            raise NotImplementedError("servant method 'supportsBackPressureTests' not implemented")
+
         def pingBiDir(self, reply, current=None):
             raise NotImplementedError("servant method 'pingBiDir' not implemented")
 
@@ -331,6 +340,7 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     TestIntf._op_supportsAMD = IcePy.Operation('supportsAMD', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     TestIntf._op_supportsFunctionalTests = IcePy.Operation('supportsFunctionalTests', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
+    TestIntf._op_supportsBackPressureTests = IcePy.Operation('supportsBackPressureTests', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     TestIntf._op_pingBiDir = IcePy.Operation('pingBiDir', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_PingReplyPrx, False, 0),), (), None, ())
 
     _M_Test.TestIntf = TestIntf

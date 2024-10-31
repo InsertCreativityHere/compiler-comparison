@@ -299,6 +299,17 @@ public:
     void _iceI_supportsFunctionalTests(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::Ice::Context&) const;
     /// \endcond
 
+    bool supportsBackPressureTests(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    [[nodiscard]] ::std::future<bool> supportsBackPressureTestsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::function<void()>
+    supportsBackPressureTestsAsync(::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    /// \cond INTERNAL
+    void _iceI_supportsBackPressureTests(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::Ice::Context&) const;
+    /// \endcond
+
     void pingBiDir(const ::std::optional<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     [[nodiscard]] ::std::future<void> pingBiDirAsync(const ::std::optional<PingReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -666,6 +677,11 @@ public:
     virtual bool supportsFunctionalTests(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_supportsFunctionalTests(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    /// \endcond
+
+    virtual bool supportsBackPressureTests(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    void _iceD_supportsBackPressureTests(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void pingBiDir(::std::optional<PingReplyPrx> reply, const ::Ice::Current& current) = 0;

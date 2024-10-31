@@ -48,6 +48,8 @@ public interface TestIntf extends com.zeroc.Ice.Object
 
     boolean supportsFunctionalTests(com.zeroc.Ice.Current current);
 
+    boolean supportsBackPressureTests(com.zeroc.Ice.Current current);
+
     java.util.concurrent.CompletionStage<Void> opAsyncDispatchAsync(com.zeroc.Ice.Current current);
 
     java.util.concurrent.CompletionStage<java.lang.Integer> opWithResultAsyncDispatchAsync(com.zeroc.Ice.Current current);
@@ -250,6 +252,19 @@ public interface TestIntf extends com.zeroc.Ice.Object
     }
 
     /** @hidden */
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_supportsBackPressureTests(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
+        request.inputStream.skipEmptyEncapsulation();
+        boolean ret = obj.supportsBackPressureTests(request.current);
+        var ostr = request.current.startReplyStream();
+        ostr.startEncapsulation(request.current.encoding, null);
+        ostr.writeBool(ret);
+        ostr.endEncapsulation();
+        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
+    }
+
+    /** @hidden */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_opAsyncDispatch(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
@@ -317,6 +332,7 @@ public interface TestIntf extends com.zeroc.Ice.Object
             case "shutdown" -> TestIntf._iceD_shutdown(this, request);
             case "supportsAMD" -> TestIntf._iceD_supportsAMD(this, request);
             case "supportsFunctionalTests" -> TestIntf._iceD_supportsFunctionalTests(this, request);
+            case "supportsBackPressureTests" -> TestIntf._iceD_supportsBackPressureTests(this, request);
             case "opAsyncDispatch" -> TestIntf._iceD_opAsyncDispatch(this, request);
             case "opWithResultAsyncDispatch" -> TestIntf._iceD_opWithResultAsyncDispatch(this, request);
             case "opWithUEAsyncDispatch" -> TestIntf._iceD_opWithUEAsyncDispatch(this, request);

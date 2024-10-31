@@ -115,6 +115,10 @@ module ::Test
                 TestIntfPrx_mixin::OP_supportsFunctionalTests.invoke(self, [], context)
             end
 
+            def supportsBackPressureTests(context=nil)
+                TestIntfPrx_mixin::OP_supportsBackPressureTests.invoke(self, [], context)
+            end
+
             def opAsyncDispatch(context=nil)
                 TestIntfPrx_mixin::OP_opAsyncDispatch.invoke(self, [], context)
             end
@@ -158,6 +162,7 @@ module ::Test
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         TestIntfPrx_mixin::OP_supportsAMD = ::Ice::__defineOperation('supportsAMD', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
         TestIntfPrx_mixin::OP_supportsFunctionalTests = ::Ice::__defineOperation('supportsFunctionalTests', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
+        TestIntfPrx_mixin::OP_supportsBackPressureTests = ::Ice::__defineOperation('supportsBackPressureTests', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
         TestIntfPrx_mixin::OP_opAsyncDispatch = ::Ice::__defineOperation('opAsyncDispatch', ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
         TestIntfPrx_mixin::OP_opWithResultAsyncDispatch = ::Ice::__defineOperation('opWithResultAsyncDispatch', ::Ice::OperationMode::Normal, true, nil, [], [], [::Ice::T_int, false, 0], [])
         TestIntfPrx_mixin::OP_opWithUEAsyncDispatch = ::Ice::__defineOperation('opWithUEAsyncDispatch', ::Ice::OperationMode::Normal, true, nil, [], [], nil, [::Test::T_TestIntfException])

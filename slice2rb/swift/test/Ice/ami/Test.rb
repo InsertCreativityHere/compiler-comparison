@@ -123,6 +123,10 @@ module ::Test
                 TestIntfPrx_mixin::OP_supportsFunctionalTests.invoke(self, [], context)
             end
 
+            def supportsBackPressureTests(context=nil)
+                TestIntfPrx_mixin::OP_supportsBackPressureTests.invoke(self, [], context)
+            end
+
             def pingBiDir(reply, context=nil)
                 TestIntfPrx_mixin::OP_pingBiDir.invoke(self, [reply], context)
             end
@@ -156,6 +160,7 @@ module ::Test
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         TestIntfPrx_mixin::OP_supportsAMD = ::Ice::__defineOperation('supportsAMD', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
         TestIntfPrx_mixin::OP_supportsFunctionalTests = ::Ice::__defineOperation('supportsFunctionalTests', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
+        TestIntfPrx_mixin::OP_supportsBackPressureTests = ::Ice::__defineOperation('supportsBackPressureTests', ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
         TestIntfPrx_mixin::OP_pingBiDir = ::Ice::__defineOperation('pingBiDir', ::Ice::OperationMode::Normal, false, nil, [[::Test::T_PingReplyPrx, false, 0]], [], nil, [])
     end
 

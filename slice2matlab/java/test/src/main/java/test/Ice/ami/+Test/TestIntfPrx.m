@@ -31,6 +31,8 @@
 %   supportsAMDAsync
 %   supportsFunctionalTests
 %   supportsFunctionalTestsAsync
+%   supportsBackPressureTests
+%   supportsBackPressureTestsAsync
 %   opBool
 %   opBoolAsync
 %   opByte
@@ -403,6 +405,35 @@ classdef TestIntfPrx < Ice.ObjectPrx
                 varargout{1} = result;
             end
             r_ = obj.iceInvokeAsync('supportsFunctionalTests', 0, true, [], 1, @unmarshal, {}, varargin{:});
+        end
+        function result = supportsBackPressureTests(obj, varargin)
+            % supportsBackPressureTests
+            %
+            % Parameters:
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (logical)
+            
+            is_ = obj.iceInvoke('supportsBackPressureTests', 0, true, [], true, {}, varargin{:});
+            is_.startEncapsulation();
+            result = is_.readBool();
+            is_.endEncapsulation();
+        end
+        function r_ = supportsBackPressureTestsAsync(obj, varargin)
+            % supportsBackPressureTestsAsync
+            %
+            % Parameters:
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            
+            function varargout = unmarshal(is_)
+                is_.startEncapsulation();
+                result = is_.readBool();
+                is_.endEncapsulation();
+                varargout{1} = result;
+            end
+            r_ = obj.iceInvokeAsync('supportsBackPressureTests', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = opBool(obj, b, varargin)
             % opBool
