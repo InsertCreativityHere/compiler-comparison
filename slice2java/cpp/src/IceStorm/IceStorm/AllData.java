@@ -155,5 +155,5 @@ public class AllData implements java.lang.Cloneable,
     private static final AllData _nullMarshalValue = new AllData();
 
     /** @hidden */
-    private static final long serialVersionUID = 8305840071590347130L;
+    private static final long serialVersionUID = -9180642849461457097L;
 }
