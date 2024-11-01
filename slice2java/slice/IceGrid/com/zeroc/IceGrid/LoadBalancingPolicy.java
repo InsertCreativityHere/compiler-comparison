@@ -52,7 +52,7 @@ public class LoadBalancingPolicy extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -6003725525259068273L;
+    private static final long serialVersionUID = -6003728210294742454L;
 
     /** @hidden */
     @Override
