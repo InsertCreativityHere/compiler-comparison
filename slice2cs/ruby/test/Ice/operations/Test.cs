@@ -13172,12 +13172,6 @@ namespace Test
 
         public abstract int opInt1(int opInt1, Ice.Current current);
 
-        public abstract long opLong1(long opLong1, Ice.Current current);
-
-        public abstract float opFloat1(float opFloat1, Ice.Current current);
-
-        public abstract double opDouble1(double opDouble1, Ice.Current current);
-
         public abstract string opString1(string opString1, Ice.Current current);
 
         public abstract string[] opStringS1(string[] opStringS1, Ice.Current current);
@@ -13193,6 +13187,12 @@ namespace Test
         public abstract MyClass_OpMStruct1MarshaledResult opMStruct1(Ice.Current current);
 
         public abstract MyClass_OpMStruct2MarshaledResult opMStruct2(Structure p1, Ice.Current current);
+
+        public abstract long opLong1(long opLong1, Ice.Current current);
+
+        public abstract float opFloat1(float opFloat1, Ice.Current current);
+
+        public abstract double opDouble1(double opDouble1, Ice.Current current);
 
         public abstract MyClass_OpMSeq1MarshaledResult opMSeq1(Ice.Current current);
 
@@ -13399,12 +13399,6 @@ namespace Test2
 
         public abstract int opInt1(int opInt1, Ice.Current current);
 
-        public abstract long opLong1(long opLong1, Ice.Current current);
-
-        public abstract float opFloat1(float opFloat1, Ice.Current current);
-
-        public abstract double opDouble1(double opDouble1, Ice.Current current);
-
         public abstract string opString1(string opString1, Ice.Current current);
 
         public abstract string[] opStringS1(string[] opStringS1, Ice.Current current);
@@ -13420,6 +13414,12 @@ namespace Test2
         public abstract global::Test.MyClass_OpMStruct1MarshaledResult opMStruct1(Ice.Current current);
 
         public abstract global::Test.MyClass_OpMStruct2MarshaledResult opMStruct2(global::Test.Structure p1, Ice.Current current);
+
+        public abstract long opLong1(long opLong1, Ice.Current current);
+
+        public abstract float opFloat1(float opFloat1, Ice.Current current);
+
+        public abstract double opDouble1(double opDouble1, Ice.Current current);
 
         public abstract global::Test.MyClass_OpMSeq1MarshaledResult opMSeq1(Ice.Current current);
 

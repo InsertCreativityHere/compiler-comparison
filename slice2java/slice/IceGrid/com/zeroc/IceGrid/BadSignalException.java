@@ -59,5 +59,5 @@ public class BadSignalException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 4463357219383081056L;
+    private static final long serialVersionUID = 4463363400286756190L;
 }
