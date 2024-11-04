@@ -5,6 +5,7 @@ import Ice
 Ice.updateModule("Ice")
 
 # Modules:
+import Ice.SliceChecksumDict_ice
 import Ice.RemoteLogger_ice
 import Ice.PropertiesAdmin_ice
 import Ice.Locator_ice
