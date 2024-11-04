@@ -78,8 +78,6 @@ namespace Test
 
         void shutdown(Ice.Current current);
 
-        bool supportsAMD(Ice.Current current);
-
         bool supportsFunctionalTests(Ice.Current current);
 
         void pingBiDir(PingReplyPrx? reply, Ice.Current current);
@@ -156,10 +154,6 @@ namespace Test
         void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        bool supportsAMD(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<bool> supportsAMDAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         bool supportsFunctionalTests(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -422,18 +416,6 @@ namespace Test
             try
             {
                 _iceI_shutdownAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
-            }
-            catch (global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException!;
-            }
-        }
-
-        public bool supportsAMD(global::System.Collections.Generic.Dictionary<string, string>? context = null)
-        {
-            try
-            {
-                return _iceI_supportsAMDAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch (global::System.AggregateException ex_)
             {
@@ -838,38 +820,6 @@ namespace Test
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task<bool> supportsAMDAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
-        {
-            return _iceI_supportsAMDAsync(context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<bool> _iceI_supportsAMDAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_supportsAMD_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<bool>(progress, cancel);
-            _iceI_supportsAMD(context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _supportsAMD_name = "supportsAMD";
-
-        private void _iceI_supportsAMD(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<bool>(completed);
-            outAsync.invoke(
-                _supportsAMD_name,
-                Ice.OperationMode.Normal,
-                null,
-                context,
-                synchronous,
-                read: (Ice.InputStream istr) =>
-                {
-                    bool ret;
-                    ret = istr.readBool();
-                    return ret;
-                });
-        }
-
         public global::System.Threading.Tasks.Task<bool> supportsFunctionalTestsAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
             return _iceI_supportsFunctionalTestsAsync(context, progress, cancel, false);
@@ -1154,8 +1104,6 @@ namespace Test
 
         public abstract void shutdown(Ice.Current current);
 
-        public abstract bool supportsAMD(Ice.Current current);
-
         public abstract bool supportsFunctionalTests(Ice.Current current);
 
         public abstract void pingBiDir(PingReplyPrx? reply, Ice.Current current);
@@ -1180,7 +1128,6 @@ namespace Test
                 "startDispatch" => TestIntf.iceD_startDispatchAsync(this, request),
                 "finishDispatch" => TestIntf.iceD_finishDispatchAsync(this, request),
                 "shutdown" => TestIntf.iceD_shutdownAsync(this, request),
-                "supportsAMD" => TestIntf.iceD_supportsAMDAsync(this, request),
                 "supportsFunctionalTests" => TestIntf.iceD_supportsFunctionalTestsAsync(this, request),
                 "pingBiDir" => TestIntf.iceD_pingBiDirAsync(this, request),
                 "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
@@ -1384,20 +1331,6 @@ namespace Test
             request.inputStream.skipEmptyEncapsulation();
             obj.shutdown(request.current);
             return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_supportsAMDAsync(
-            TestIntf obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.supportsAMD(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeBool(ret);
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
         }
 
         protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_supportsFunctionalTestsAsync(

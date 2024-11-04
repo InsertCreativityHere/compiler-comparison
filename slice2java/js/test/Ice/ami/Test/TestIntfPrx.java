@@ -486,43 +486,6 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default boolean supportsAMD()
-    {
-        return supportsAMD(com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default boolean supportsAMD(java.util.Map<String, String> context)
-    {
-        return _iceI_supportsAMDAsync(context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Boolean> supportsAMDAsync()
-    {
-        return _iceI_supportsAMDAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Boolean> supportsAMDAsync(java.util.Map<String, String> context)
-    {
-        return _iceI_supportsAMDAsync(context, false);
-    }
-
-    /**
-     * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.Ice.OutgoingAsync<java.lang.Boolean> _iceI_supportsAMDAsync(java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.Ice.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.Ice.OutgoingAsync<>(this, "supportsAMD", null, sync, null);
-        f.invoke(true, context, null, null, istr -> {
-                     boolean ret;
-                     ret = istr.readBool();
-                     return ret;
-                 });
-        return f;
-    }
-
     default boolean supportsFunctionalTests()
     {
         return supportsFunctionalTests(com.zeroc.Ice.ObjectPrx.noExplicitContext);

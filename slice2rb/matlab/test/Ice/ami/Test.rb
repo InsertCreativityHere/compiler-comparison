@@ -107,10 +107,6 @@ module ::Test
                 TestIntfPrx_mixin::OP_shutdown.invoke(self, [], context)
             end
 
-            def supportsAMD(context=nil)
-                TestIntfPrx_mixin::OP_supportsAMD.invoke(self, [], context)
-            end
-
             def supportsFunctionalTests(context=nil)
                 TestIntfPrx_mixin::OP_supportsFunctionalTests.invoke(self, [], context)
             end
@@ -172,7 +168,6 @@ module ::Test
         TestIntfPrx_mixin::OP_startDispatch = ::Ice::__defineOperation('startDispatch', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
         TestIntfPrx_mixin::OP_finishDispatch = ::Ice::__defineOperation('finishDispatch', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_supportsAMD = ::Ice::__defineOperation('supportsAMD', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_bool, false, 0], [])
         TestIntfPrx_mixin::OP_supportsFunctionalTests = ::Ice::__defineOperation('supportsFunctionalTests', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_bool, false, 0], [])
         TestIntfPrx_mixin::OP_opBool = ::Ice::__defineOperation('opBool', ::Ice::OperationMode::Normal, nil, [[::Ice::T_bool, false, 0]], [], [::Ice::T_bool, false, 0], [])
         TestIntfPrx_mixin::OP_opByte = ::Ice::__defineOperation('opByte', ::Ice::OperationMode::Normal, nil, [[::Ice::T_byte, false, 0]], [], [::Ice::T_byte, false, 0], [])

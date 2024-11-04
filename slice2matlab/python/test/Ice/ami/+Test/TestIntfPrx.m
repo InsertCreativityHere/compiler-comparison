@@ -27,8 +27,6 @@
 %   finishDispatchAsync
 %   shutdown
 %   shutdownAsync
-%   supportsAMD
-%   supportsAMDAsync
 %   supportsFunctionalTests
 %   supportsFunctionalTestsAsync
 %   supportsBackPressureTests
@@ -333,35 +331,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
             r_ = obj.iceInvokeAsync('shutdown', 0, false, [], 0, [], {}, varargin{:});
-        end
-        function result = supportsAMD(obj, varargin)
-            % supportsAMD
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (logical)
-            
-            is_ = obj.iceInvoke('supportsAMD', 0, true, [], true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readBool();
-            is_.endEncapsulation();
-        end
-        function r_ = supportsAMDAsync(obj, varargin)
-            % supportsAMDAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readBool();
-                is_.endEncapsulation();
-                varargout{1} = result;
-            end
-            r_ = obj.iceInvokeAsync('supportsAMD', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = supportsFunctionalTests(obj, varargin)
             % supportsFunctionalTests

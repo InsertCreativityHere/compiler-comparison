@@ -110,7 +110,6 @@ Ice.defineOperations(
         "startDispatch": [, , , , , , , , ],
         "finishDispatch": [, , , , , , , , ],
         "shutdown": [, , , , , , , , ],
-        "supportsAMD": [, , , [1], , , , , ],
         "supportsFunctionalTests": [, , , [1], , , , , ],
         "opBool": [, , , [1], [[1]], , , , ],
         "opByte": [, , , [0], [[0]], , , , ],

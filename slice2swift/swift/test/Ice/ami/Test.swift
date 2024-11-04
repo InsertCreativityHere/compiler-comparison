@@ -245,10 +245,6 @@ public extension PingReplyPrx {
 ///
 ///  - shutdownAsync: 
 ///
-///  - supportsAMD: 
-///
-///  - supportsAMDAsync: 
-///
 ///  - supportsFunctionalTests: 
 ///
 ///  - supportsFunctionalTestsAsync: 
@@ -410,10 +406,6 @@ public extension Ice.InputStream {
 ///  - shutdown: 
 ///
 ///  - shutdownAsync: 
-///
-///  - supportsAMD: 
-///
-///  - supportsAMDAsync: 
 ///
 ///  - supportsFunctionalTests: 
 ///
@@ -635,20 +627,6 @@ public extension TestIntfPrx {
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
-                                       context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool`
-    func supportsAMD(context: Ice.Context? = nil) async throws -> Swift.Bool {
-        return try await _impl._invoke(operation: "supportsAMD",
-                                       mode: .Normal,
-                                       read: { istr in
-                                           let iceP_returnValue: Swift.Bool = try istr.read()
-                                           return iceP_returnValue
-                                       },
                                        context: context)
     }
 
@@ -1032,8 +1010,6 @@ public struct TestIntfDisp: Ice.Dispatcher {
             try await servant._iceD_sleep(request)
         case "startDispatch":
             try await servant._iceD_startDispatch(request)
-        case "supportsAMD":
-            try await servant._iceD_supportsAMD(request)
         case "supportsBackPressureTests":
             try await servant._iceD_supportsBackPressureTests(request)
         case "supportsFunctionalTests":
@@ -1144,12 +1120,6 @@ public protocol TestIntf {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Bool`
-    func supportsAMD(current: Ice.Current) async throws -> Swift.Bool
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
@@ -1300,8 +1270,6 @@ extension PingReply {
 ///
 ///  - shutdown: 
 ///
-///  - supportsAMD: 
-///
 ///  - supportsFunctionalTests: 
 ///
 ///  - supportsBackPressureTests: 
@@ -1442,16 +1410,6 @@ extension TestIntf {
         _ = try request.inputStream.skipEmptyEncapsulation()
         try await self.shutdown(current: request.current)
         return request.current.makeEmptyOutgoingResponse()
-    }
-
-    public func _iceD_supportsAMD(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
-        
-        _ = try request.inputStream.skipEmptyEncapsulation()
-        let result = try await self.supportsAMD(current: request.current)
-        return request.current.makeOutgoingResponse(result, formatType: nil) { ostr, value in 
-            let iceP_returnValue = value
-            ostr.write(iceP_returnValue)
-        }
     }
 
     public func _iceD_supportsFunctionalTests(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {

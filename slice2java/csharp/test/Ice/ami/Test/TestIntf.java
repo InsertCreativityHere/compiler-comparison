@@ -44,8 +44,6 @@ public interface TestIntf extends com.zeroc.Ice.Object
 
     void shutdown(com.zeroc.Ice.Current current);
 
-    boolean supportsAMD(com.zeroc.Ice.Current current);
-
     boolean supportsFunctionalTests(com.zeroc.Ice.Current current);
 
     boolean supportsBackPressureTests(com.zeroc.Ice.Current current);
@@ -226,19 +224,6 @@ public interface TestIntf extends com.zeroc.Ice.Object
     }
 
     /** @hidden */
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_supportsAMD(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
-        request.inputStream.skipEmptyEncapsulation();
-        boolean ret = obj.supportsAMD(request.current);
-        var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, null);
-        ostr.writeBool(ret);
-        ostr.endEncapsulation();
-        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
-    }
-
-    /** @hidden */
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_supportsFunctionalTests(TestIntf obj, com.zeroc.Ice.IncomingRequest request)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
@@ -330,7 +315,6 @@ public interface TestIntf extends com.zeroc.Ice.Object
             case "startDispatch" -> TestIntf._iceD_startDispatch(this, request);
             case "finishDispatch" -> TestIntf._iceD_finishDispatch(this, request);
             case "shutdown" -> TestIntf._iceD_shutdown(this, request);
-            case "supportsAMD" -> TestIntf._iceD_supportsAMD(this, request);
             case "supportsFunctionalTests" -> TestIntf._iceD_supportsFunctionalTests(this, request);
             case "supportsBackPressureTests" -> TestIntf._iceD_supportsBackPressureTests(this, request);
             case "opAsyncDispatch" -> TestIntf._iceD_opAsyncDispatch(this, request);

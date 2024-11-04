@@ -106,7 +106,6 @@ Ice.defineOperations(
         "startDispatch": [, , , , , , , , ],
         "finishDispatch": [, , , , , , , , ],
         "shutdown": [, , , , , , , , ],
-        "supportsAMD": [, , , [1], , , , , ],
         "supportsFunctionalTests": [, , , [1], , , , , ],
         "pingBiDir": [, , , , [["Test.PingReplyPrx"]], , , , ]
     });

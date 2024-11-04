@@ -228,12 +228,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def shutdownAsync(self, context=None):
             return _M_Test.TestIntf._op_shutdown.invokeAsync(self, ((), context))
 
-        def supportsAMD(self, context=None):
-            return _M_Test.TestIntf._op_supportsAMD.invoke(self, ((), context))
-
-        def supportsAMDAsync(self, context=None):
-            return _M_Test.TestIntf._op_supportsAMD.invokeAsync(self, ((), context))
-
         def supportsFunctionalTests(self, context=None):
             return _M_Test.TestIntf._op_supportsFunctionalTests.invoke(self, ((), context))
 
@@ -326,9 +320,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def shutdown(self, current=None):
             raise NotImplementedError("servant method 'shutdown' not implemented")
 
-        def supportsAMD(self, current=None):
-            raise NotImplementedError("servant method 'supportsAMD' not implemented")
-
         def supportsFunctionalTests(self, current=None):
             raise NotImplementedError("servant method 'supportsFunctionalTests' not implemented")
 
@@ -358,7 +349,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     TestIntf._op_startDispatch = IcePy.Operation('startDispatch', Ice.OperationMode.Normal, True, None, (), (), (), None, ())
     TestIntf._op_finishDispatch = IcePy.Operation('finishDispatch', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
     TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    TestIntf._op_supportsAMD = IcePy.Operation('supportsAMD', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     TestIntf._op_supportsFunctionalTests = IcePy.Operation('supportsFunctionalTests', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     TestIntf._op_supportsBackPressureTests = IcePy.Operation('supportsBackPressureTests', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     TestIntf._op_pingBiDir = IcePy.Operation('pingBiDir', Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_PingReplyPrx, False, 0),), (), None, ())
