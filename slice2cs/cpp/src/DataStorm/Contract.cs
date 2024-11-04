@@ -3416,13 +3416,13 @@ namespace DataStormContract
 
         public abstract void attachTags(long topic, ElementInfo[] tags, bool initialize, Ice.Current current);
 
+        public abstract void detachTags(long topic, long[] tags, Ice.Current current);
+
         public abstract void announceElements(long topic, ElementInfo[] keys, Ice.Current current);
 
         public abstract void attachElements(long topic, ElementSpec[] elements, bool initialize, Ice.Current current);
 
         public abstract void attachElementsAck(long topic, ElementSpecAck[] elements, Ice.Current current);
-
-        public abstract void detachTags(long topic, long[] tags, Ice.Current current);
 
         public abstract void detachElements(long topic, long[] keys, Ice.Current current);
 
@@ -3468,13 +3468,13 @@ namespace DataStormContract
 
         public abstract void attachTags(long topic, ElementInfo[] tags, bool initialize, Ice.Current current);
 
+        public abstract void detachTags(long topic, long[] tags, Ice.Current current);
+
         public abstract void announceElements(long topic, ElementInfo[] keys, Ice.Current current);
 
         public abstract void attachElements(long topic, ElementSpec[] elements, bool initialize, Ice.Current current);
 
         public abstract void attachElementsAck(long topic, ElementSpecAck[] elements, Ice.Current current);
-
-        public abstract void detachTags(long topic, long[] tags, Ice.Current current);
 
         public abstract void detachElements(long topic, long[] keys, Ice.Current current);
 

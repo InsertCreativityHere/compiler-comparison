@@ -224,5 +224,5 @@ public class DataSample implements java.lang.Cloneable,
     private static final DataSample _nullMarshalValue = new DataSample();
 
     /** @hidden */
-    private static final long serialVersionUID = -3121819823748397332L;
+    private static final long serialVersionUID = -3362015841239891014L;
 }
