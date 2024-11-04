@@ -53,5 +53,5 @@ public class TestCaseNotExistException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -8656780522119391826L;
+    private static final long serialVersionUID = -8656772356247857380L;
 }
